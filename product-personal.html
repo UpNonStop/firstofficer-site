@@ -61,6 +61,8 @@ a{text-decoration:none;color:inherit}
 .tc-text h2{font-family:var(--serif);font-size:26px;line-height:1.15;margin-bottom:12px}
 .tc-text p{font-size:14px;color:#666;line-height:1.7;margin-bottom:16px}
 
+.tc-popular{position:relative}
+.tc-popular::before{content:"Most popular";position:absolute;top:-14px;left:44px;background:#7C3AED;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 14px;border-radius:100px;z-index:3}
 .tc-start{position:relative}
 .tc-start::before{content:'Most people start here';position:absolute;top:-14px;right:44px;background:#0D9488;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 14px;border-radius:100px;z-index:3}
 
@@ -134,6 +136,7 @@ a{text-decoration:none;color:inherit}
 .stats-grid{grid-template-columns:repeat(2,1fr);gap:12px}
 .stat-card{padding:18px 12px}
 .stat-num{font-size:32px}
+.tc-popular::before{left:20px;top:-13px;font-size:9px}
 .tc-start::before{right:20px;top:-13px;font-size:9px}
 .tc-from{font-size:9px;padding:4px 12px;top:-13px}
 .pink-line{height:32px}
@@ -274,7 +277,7 @@ a{text-decoration:none;color:inherit}
 <div class="pink-line"></div>
 
 <!-- SELECT -->
-<div class="tier-card tc-select" id="chat-select">
+<div class="tier-card tc-select tc-popular" id="chat-select">
 <div class="tc-from tc-from-purple">Everything in Classic, plus <em>active optimization</em></div>
 <div class="tier-card-in">
 <div class="tc-text">
