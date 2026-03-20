@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intelligence That Works While You Don't | First Officer for Business</title>
+<meta name="description" content="See how First Officer optimizes business card spend across 20 industries. WhatsApp conversations showing real routing, real math, real value.">
+<meta property="og:title" content="First Officer for Business | See It In Action">
+<meta property="og:description" content="From spend routing to award booking. See what business-grade points intelligence looks like inside WhatsApp.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+:root{--pink:#FA1896;--wa:#25D366;--gold:#E8C547;--blue:#7B8FF7;--font:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.4,0,.2,1);--r:16px}
+body{font-family:var(--font);background:#000;color:#f0f0f4;line-height:1.65}
+a{text-decoration:none;color:inherit}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);background:rgba(0,0,0,.92);border-bottom:1px solid #1a1a1a}
+.nav-in{max-width:1140px;margin:0 auto;padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nl{font-size:18px;font-weight:700;letter-spacing:-.3px;display:flex;align-items:center;gap:10px}
+.nm{width:32px;height:32px;background:var(--pink);border-radius:8px;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:800}
+.nk{display:flex;align-items:center;gap:28px}
+.nka{font-size:14px;font-weight:500;color:#999;transition:color .3s;white-space:nowrap}.nka:hover{color:var(--pink)}.nka.act{color:var(--pink)}
+.ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:100px;box-shadow:0 4px 16px rgba(37,211,102,.2);white-space:nowrap}
+.mob{display:none;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;border:none;background:none}
+.mob span{width:20px;height:2px;background:#f0f0f4;border-radius:1px}
+
+.wrap{max-width:1140px;margin:0 auto;padding:0 32px}
+.pk{color:var(--pink)}
+
+/* Hero */
+.hero{padding:140px 0 60px;text-align:center}
+.hero h1{font-family:var(--serif);font-size:clamp(32px,5vw,56px);line-height:1.08;letter-spacing:-.5px;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--pink)}
+.hero p{font-size:18px;color:#888;max-width:540px;margin:0 auto;line-height:1.7}
+
+/* 10-agent bar */
+.agent-bar{padding:48px 0;text-align:center;border-bottom:1px solid #1a1a1a}
+.agent-bar h3{font-size:14px;font-weight:700;color:#666;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+.agents{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;max-width:800px;margin:0 auto}
+.ag-pill{padding:8px 16px;border-radius:100px;font-size:12px;font-weight:600;border:1px solid #2a2a2a;background:#111;color:#ccc;transition:all .3s}
+.ag-pill:hover{border-color:var(--pink);color:var(--pink)}
+
+/* Tier sections */
+.tier{padding:80px 0;border-bottom:1px solid #1a1a1a}
+.tier:last-of-type{border-bottom:none}
+.tier-in{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:960px;margin:0 auto}
+.tier-in.flip .tier-text{order:1}.tier-in.flip .tier-demo{order:2}
+.tier-in:not(.flip) .tier-text{order:2}.tier-in:not(.flip) .tier-demo{order:1}
+
+.tier-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:16px}
+.tier-badge.pink{background:rgba(250,24,150,.1);color:var(--pink)}
+.tier-badge.gold{background:rgba(232,197,71,.1);color:var(--gold)}
+.tier-badge.blue{background:rgba(123,143,247,.1);color:var(--blue)}
+.tier-price{font-size:13px;font-weight:600;color:#666;margin-bottom:16px}
+.tier-price strong{font-size:28px;font-weight:900;color:#fff;letter-spacing:-1px}
+
+.tier-text h2{font-family:var(--serif);font-size:clamp(24px,3vw,32px);line-height:1.15;margin-bottom:14px}
+.tier-text p{font-size:15px;color:#999;line-height:1.7;margin-bottom:20px}
+.tier-features{list-style:none;padding:0}
+.tier-features li{font-size:14px;padding:6px 0;padding-left:24px;position:relative;color:#999}
+.tier-features li::before{content:'✓';position:absolute;left:0;color:var(--pink);font-weight:700}
+.tier-features.gold li::before{color:var(--gold)}
+.tier-new{display:inline-block;font-size:10px;font-weight:700;background:var(--pink);color:#fff;padding:2px 8px;border-radius:100px;margin-left:6px;letter-spacing:.3px;text-transform:uppercase;vertical-align:middle}
+
+/* WhatsApp mockup - dark variant */
+.wa{width:100%;max-width:340px;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4);border:1px solid #2a2a2a}
+.wa-h{background:#075E54;padding:12px 16px;display:flex;align-items:center;gap:10px}
+.wa-av{width:32px;height:32px;background:var(--pink);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:10px;font-weight:800}
+.wa-nm{color:#fff;font-size:13px;font-weight:600}
+.wa-st{color:rgba(255,255,255,.6);font-size:10px}
+.wa-b{background:#0B141A;padding:14px;min-height:280px}
+.wa-m{max-width:82%;padding:7px 10px;border-radius:7px;font-size:12px;line-height:1.5;margin-bottom:6px}
+.wa-m.fo{background:#005C4B;color:#E9EDEF;border-radius:7px 7px 7px 2px;margin-right:auto}
+.wa-m.u{background:#1F2C33;color:#E9EDEF;border-radius:7px 7px 2px 7px;margin-left:auto}
+.wa-m .ag{color:var(--pink);font-weight:700;font-size:11px;display:block;margin-bottom:2px}
+.wa-m .v{color:#53BDEB;font-weight:700}
+.wa-m .t{font-size:9px;opacity:.45;text-align:right;margin-top:2px;color:#8696A0}
+
+/* Section markers */
+.tier-marker{text-align:center;padding:40px 0 0}
+.tier-marker .line{width:1px;height:40px;background:linear-gradient(to bottom,#1a1a1a,var(--pink));margin:0 auto 16px}
+.tier-marker .label{font-family:var(--mono);font-size:11px;color:var(--pink);font-weight:600;letter-spacing:2px;text-transform:uppercase}
+.tier-upgrade{text-align:center;padding:0 0 20px;font-size:13px;color:#555}
+.tier-upgrade em{font-style:normal;color:var(--pink);font-weight:600}
+
+/* Enterprise box */
+.ent-box{border:1.5px solid rgba(123,143,247,.3);border-radius:20px;padding:48px;background:rgba(123,143,247,.03);position:relative;overflow:hidden;max-width:860px;margin:0 auto;text-align:center}
+.ent-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,transparent,var(--blue),transparent)}
+
+/* CTA */
+.ctab{background:var(--pink);padding:72px 0;text-align:center}
+.ctab h2{font-size:clamp(24px,3.5vw,38px);font-weight:800;color:#fff;letter-spacing:-.8px;line-height:1.15;margin-bottom:12px}
+.ctab p{font-size:16px;color:rgba(255,255,255,.7);max-width:480px;margin:0 auto 28px;line-height:1.7}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;border-radius:12px;transition:all .3s;white-space:nowrap;letter-spacing:-.2px}
+.btn:hover{transform:translateY(-2px)}
+.btn-l{padding:16px 36px;font-size:16px}
+
+/* Footer */
+.ft{border-top:1px solid #1a1a1a;padding:24px 0;text-align:center}
+.ft-disc{font-size:11px;line-height:1.6;max-width:620px;margin:0 auto 16px;color:#555}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#555;border-top:1px solid #1a1a1a;padding-top:16px;max-width:1140px;margin:0 auto;flex-wrap:wrap;gap:8px}
+.ft-bot a{color:#555;margin-left:16px}.ft-bot a:hover{color:var(--pink)}
+
+@media(max-width:768px){
+.nk{display:none}.mob{display:flex}
+.tier-in{grid-template-columns:1fr;gap:32px;text-align:center}
+.tier-in .tier-text,.tier-in .tier-demo{order:unset!important}
+.wa{margin:0 auto}
+.tier-features{text-align:left;max-width:320px;margin:0 auto}
+.hero{padding:110px 0 40px}
+.tier{padding:56px 0}
+.ent-box{padding:28px}
+.agents{gap:8px}.ag-pill{padding:6px 12px;font-size:11px}
+}
+@media(max-width:480px){
+.wrap{padding:0 20px}
+.wa{max-width:100%}
+.tier-text h2{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="nav-in">
+<a href="firstofficer-site.html" class="nl"><div class="nm">FO</div><div><div style="line-height:1.1">First Officer</div><div style="font-size:10px;font-weight:400;letter-spacing:.5px">by <span style="font-weight:700">UpNonStop</span>&trade;</div></div></a>
+<div class="nk">
+<a href="firstofficer-site.html" class="nka">Home</a>
+<a href="product-business.html" class="nka act">Product</a>
+<a href="calculator-business.html" class="nka">Calculator</a>
+<a href="firstofficer-site.html#pricing" class="nka">Pricing</a>
+</div>
+<a href="https://wa.me/16199404040" class="ncta" target="_blank">💬 Start on WhatsApp</a>
+<button class="mob" onclick="toggleMob()"><span></span><span></span><span></span></button>
+</div></nav>
+
+<section class="hero"><div class="wrap">
+<h1>Intelligence that works<br><em>while you don't.</em></h1>
+<p>10 specialists monitoring your business spend, your cards, and your points. See what each tier looks like from the inside.</p>
+</div></section>
+
+<!-- 10-agent bar -->
+<section class="agent-bar"><div class="wrap">
+<h3>Your 10-Specialist Team</h3>
+<div class="agents">
+<div class="ag-pill">Scout</div>
+<div class="ag-pill">Oracle</div>
+<div class="ag-pill">Ranger</div>
+<div class="ag-pill">Spotter</div>
+<div class="ag-pill">Card Whisperer</div>
+<div class="ag-pill">Commander</div>
+<div class="ag-pill">Strategist</div>
+<div class="ag-pill">Accountant</div>
+<div class="ag-pill">Planner</div>
+<div class="ag-pill">Bonus Hunter</div>
+</div>
+</div></section>
+
+<!-- ===================== PREFERRED $199 ===================== -->
+<div class="tier-marker"><div class="line"></div><div class="label">Foundation</div></div>
+
+<section class="tier"><div class="wrap"><div class="tier-in flip">
+<div class="tier-text">
+<div class="tier-badge pink">Preferred</div>
+<div class="tier-price"><strong>$199</strong> / month</div>
+<h2>Full intelligence<br>for your business.</h2>
+<p>All 10 specialists working your card spend. Monthly strategy sessions. Employee card routing. Bank data analysis. This is the foundation most businesses start with.</p>
+<ul class="tier-features">
+<li>Full 10-specialist team</li>
+<li>Business spend optimization</li>
+<li>Employee card tracking</li>
+<li>Bank spend categorization</li>
+<li>Monthly strategy session</li>
+<li>Portfolio value reporting</li>
+</ul>
+</div>
+<div class="tier-demo">
+<div class="wa">
+<div class="wa-h"><div class="wa-av">FO</div><div><div class="wa-nm">First Officer</div><div class="wa-st">online</div></div></div>
+<div class="wa-b">
+<div class="wa-m fo"><span class="ag">Accountant</span>Monthly report: $47K across 4 cards. Current earn rate: <span class="v">1.2x average</span>. Optimal: 2.4x.<div class="t">9:00 AM</div></div>
+<div class="wa-m u">Where is the gap?<div class="t">9:05 AM</div></div>
+<div class="wa-m fo"><span class="ag">Card Whisperer</span>$18K SaaS on the wrong card (1x instead of 4x). $12K shipping on flat cashback (1.5% instead of 3x). Total gap: <span class="v">$2,340/month</span> in unrealized value.<div class="t">9:06 AM</div></div>
+<div class="wa-m fo">Rerouting both categories takes 5 minutes. Want the step-by-step?<div class="t">9:06 AM</div></div>
+<div class="wa-m u">Send it<div class="t">9:10 AM</div></div>
+</div>
+</div>
+</div>
+</div></div></section>
+
+<!-- ===================== SIGNATURE $349 ===================== -->
+<div class="tier-marker"><div class="line"></div><div class="label">Recommended</div></div>
+<div class="tier-upgrade">Everything in Preferred, plus <em>multi-entity and deep strategy</em></div>
+
+<section class="tier"><div class="wrap"><div class="tier-in">
+<div class="tier-text">
+<div class="tier-badge pink">Signature</div>
+<div class="tier-price"><strong>$349</strong> / month</div>
+<h2>Deep strategy for<br>complex portfolios.</h2>
+<p>Multiple entities? Employee cards across different issuers? Quarterly deep-dives that reshape your entire approach? Signature is for businesses where the card stack gets complicated.</p>
+<ul class="tier-features">
+<li>Everything in Preferred</li>
+<li>Multi-entity support <span class="tier-new">New</span></li>
+<li>Quarterly deep-dive strategy <span class="tier-new">New</span></li>
+<li>Full 10-specialist team <span class="tier-new">New</span></li>
+<li>Priority response <span class="tier-new">New</span></li>
+<li>Custom spend category mapping <span class="tier-new">New</span></li>
+</ul>
+</div>
+<div class="tier-demo">
+<div class="wa">
+<div class="wa-h"><div class="wa-av">FO</div><div><div class="wa-nm">First Officer</div><div class="wa-st">online</div></div></div>
+<div class="wa-b">
+<div class="wa-m fo"><span class="ag">Strategist</span>Q2 review ready. 3 entities, 8 cards.
+<br><br>Entity A (restaurant): $22K/mo, <span class="v">2.1x</span>
+<br>Entity B (catering): $8K/mo, <span class="v">1.8x</span>
+<br>Entity C (food truck): $4K/mo, <span class="v">1.4x</span><div class="t">10:00 AM</div></div>
+<div class="wa-m u">Food truck is low. Fix it?<div class="t">10:15 AM</div></div>
+<div class="wa-m fo">Entity C is running everything through one flat card. Adding a dedicated card for fuel (2x) and moving food supplies to Entity A's purchasing card (pooled MR) brings it to <span class="v">2.0x</span>. Annual impact: <span class="v">+$2,880</span>.<div class="t">10:16 AM</div></div>
+<div class="wa-m fo">Full Q2 strategy doc with all 3 entities ready. Shall I walk through it?<div class="t">10:17 AM</div></div>
+</div>
+</div>
+</div>
+</div></div></section>
+
+<!-- ===================== CONCIERGE $549 ===================== -->
+<div class="tier-marker"><div class="line" style="background:linear-gradient(to bottom,#1a1a1a,var(--gold))"></div><div class="label" style="color:var(--gold)">Waitlist open</div></div>
+<div class="tier-upgrade">Everything in Signature, plus <em style="color:var(--gold)">a live specialist and award booking</em></div>
+
+<section class="tier" style="border-bottom:none"><div class="wrap"><div class="tier-in flip">
+<div class="tier-text">
+<div class="tier-badge gold">Concierge</div>
+<div class="tier-price"><strong style="color:var(--gold)">$549</strong> / month</div>
+<h2 style="color:var(--gold)">Live specialist.<br>Done for you.</h2>
+<p>A named specialist who knows your business. Regular cadence check-ins. Phone and transfer execution. Award booking available for $500 per trip, any party size. The calls, the holds, the backup plans. All handled.</p>
+<ul class="tier-features gold">
+<li>Everything in Signature</li>
+<li>Dedicated live specialist <span class="tier-new" style="background:var(--gold);color:#000">New</span></li>
+<li>Award booking ($500/trip) <span class="tier-new" style="background:var(--gold);color:#000">New</span></li>
+<li>Phone and transfer execution <span class="tier-new" style="background:var(--gold);color:#000">New</span></li>
+<li>Regular cadence check-ins <span class="tier-new" style="background:var(--gold);color:#000">New</span></li>
+<li>First priority on award availability <span class="tier-new" style="background:var(--gold);color:#000">New</span></li>
+</ul>
+</div>
+<div class="tier-demo">
+<div class="wa" style="border-color:rgba(232,197,71,.3)">
+<div class="wa-h"><div class="wa-av" style="background:var(--gold);color:#000">FO</div><div><div class="wa-nm">First Officer <span style="font-size:10px;color:var(--gold)">Concierge</span></div><div class="wa-st">online</div></div></div>
+<div class="wa-b">
+<div class="wa-m u">Need 4 business class seats to Tokyo in March. Team offsite.<div class="t">11:00 AM</div></div>
+<div class="wa-m fo"><span class="ag" style="color:var(--gold)">Your Specialist</span>On it. Checking ANA via Virgin Atlantic, JAL via Alaska, and United direct. Give me 2 hours for availability and routing options.<div class="t">11:02 AM</div></div>
+<div class="wa-m fo"><span class="ag" style="color:var(--gold)">Your Specialist</span>Found it. ANA business via Virgin Atlantic: <span class="v">4 seats, 480K points total</span>. You have 320K transferable. I need to move 160K from Chase → Virgin (takes 24 hrs). Cash price for same seats: <span class="v">$32,000</span>.
+<br><br>Backup: JAL via Alaska, 2 seats available (waitlist 2 more). Holding both options.<div class="t">1:15 PM</div></div>
+<div class="wa-m u">Book the ANA option<div class="t">1:20 PM</div></div>
+<div class="wa-m fo">Transfer initiated. I'll call Virgin Atlantic tomorrow to confirm and lock the seats. You'll get a confirmation with all 4 boarding details by Thursday.<div class="t">1:21 PM</div></div>
+</div>
+</div>
+</div>
+</div></div></section>
+
+<!-- Enterprise -->
+<section style="padding:80px 0"><div class="wrap">
+<div class="ent-box">
+<div style="display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border-radius:100px;font-size:12px;font-weight:600;color:var(--blue);background:rgba(123,143,247,.1);border:1px solid rgba(123,143,247,.2);margin-bottom:20px">Enterprise</div>
+<h2 style="font-family:var(--serif);font-size:clamp(24px,3.5vw,34px);line-height:1.12;margin-bottom:12px">Have UpNonStop cater<br><span style="color:var(--blue)">to your organization.</span></h2>
+<p style="font-size:15px;color:#888;max-width:480px;margin:0 auto 28px;line-height:1.7">10+ cardholders. Multiple entities. Custom deployment. Organization-wide routing intelligence.</p>
+<a href="https://wa.me/16199404040?text=Enterprise%20inquiry" class="btn btn-l" style="background:transparent;color:var(--blue);border:1.5px solid rgba(123,143,247,.3);border-radius:100px" target="_blank">Talk To Our Team</a>
+</div>
+</div></section>
+
+<!-- CTA -->
+<section class="ctab"><div class="wrap">
+<h2>Your competitors optimize their spend.<br>Shouldn't you?</h2>
+<p>Free 20-minute business spend audit. No commitment.</p>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<a href="https://wa.me/16199404040" class="btn btn-l" style="background:#25D366;color:#fff;border-radius:100px;box-shadow:0 6px 24px rgba(37,211,102,.3)" target="_blank">💬 Start on WhatsApp</a>
+<a href="calculator-business.html" class="btn btn-l" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.35);border-radius:100px">Calculate Your Value</a>
+</div>
+<p style="margin-top:20px;font-size:12px;color:rgba(255,255,255,.5)">Looking for personal? <a href="product-personal.html" style="color:#fff;font-weight:600;text-decoration:underline">See the Personal product →</a></p>
+</div></section>
+
+<!-- Footer -->
+<footer class="ft"><div class="wrap">
+<div class="ft-disc">First Officer by UpNonStop is an educational tool that helps you understand and get more from your credit card rewards. It is not a licensed financial advisor. All information is for educational purposes only. Individual results vary based on your specific rewards portfolio, spending patterns, and redemption choices.</div>
+<div class="ft-bot"><span>&copy; 2026 UpNonStop</span><div><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="#">Do Not Sell My Info</a></div></div>
+</div></footer>
+
+<script>
+function toggleMob(){var l=document.querySelector('.nk');if(l.style.display==='flex'){l.style.display='none';return}l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='68px';l.style.left='0';l.style.right='0';l.style.background='rgba(0,0,0,.96)';l.style.backdropFilter='blur(20px)';l.style.padding='24px 32px';l.style.gap='16px';l.style.boxShadow='0 8px 24px rgba(0,0,0,.3)';l.style.borderBottom='1px solid #2a2a2a'}
+</script>
+</body>
+</html>

@@ -345,6 +345,7 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
 <a href="#" class="nl" onclick="go('home')"><div class="nm">FO</div><div><div style="line-height:1.1">First Officer</div><div style="font-size:10px;font-weight:400;letter-spacing:.5px;line-height:1">by <span style="font-weight:700">UpNonStop</span>&trade;</div></div></a>
 <div class="nk">
 <a href="#" class="nka act" data-p="home" onclick="go('home')">Home</a>
+<a href="product-personal.html" class="nka" id="prodLink">Product</a>
 <a href="calculator-personal.html" class="nka" id="calcLink">Calculator</a>
 <a href="#" class="nka" data-p="pricing" onclick="go('pricing')">Pricing</a>
 <a href="#" class="nka" data-p="about" onclick="go('about')">About</a>
@@ -1237,11 +1238,13 @@ document.body.classList.add('biz');
 document.getElementById('togB').classList.remove('sel');
 document.getElementById('togS').classList.add('sel');
 document.getElementById('calcLink').href='calculator-business.html';
+document.getElementById('prodLink').href='product-business.html';
 }else{
 document.body.classList.remove('biz');
 document.getElementById('togB').classList.add('sel');
 document.getElementById('togS').classList.remove('sel');
 document.getElementById('calcLink').href='calculator-personal.html';
+document.getElementById('prodLink').href='product-personal.html';
 }
 smboIdx=Math.floor(Math.random()*smboPhotos.length);
 b2cIdx=Math.floor(Math.random()*b2cPhotos.length);
