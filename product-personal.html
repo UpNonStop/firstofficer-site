@@ -64,8 +64,11 @@ a{text-decoration:none;color:inherit}
 .tc-start{position:relative}
 .tc-start::before{content:'Most people start here';position:absolute;top:-14px;right:44px;background:#0D9488;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 14px;border-radius:100px;z-index:3}
 
-.tc-from{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid rgba(250,24,150,.25);padding:5px 16px;border-radius:100px;font-size:11px;color:#999;font-weight:500;white-space:nowrap;z-index:2}
-.tc-from em{font-style:normal;color:var(--pink);font-weight:600}
+.tc-from{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#fff;padding:5px 16px;border-radius:100px;font-size:11px;color:#999;font-weight:500;white-space:nowrap;z-index:2}
+.tc-from-blue{border:1px solid rgba(59,130,246,.3)}.tc-from-blue em{font-style:normal;color:#3B82F6;font-weight:600}
+.tc-from-teal{border:1px solid rgba(13,148,136,.3)}.tc-from-teal em{font-style:normal;color:#0D9488;font-weight:600}
+.tc-from-purple{border:1px solid rgba(124,58,237,.3)}.tc-from-purple em{font-style:normal;color:#7C3AED;font-weight:600}
+.tc-from-pink{border:1px solid rgba(250,24,150,.25)}.tc-from-pink em{font-style:normal;color:var(--pink);font-weight:600}
 
 .tc-features{list-style:none;padding:0;margin:0}
 .tc-features li{font-size:13px;padding:5px 0;padding-left:24px;position:relative;color:#555}
@@ -194,7 +197,7 @@ a{text-decoration:none;color:inherit}
 
 <!-- LIGHT -->
 <div class="tier-card tc-light" id="chat-light">
-<div class="tc-from">Everything in Free, plus <em>real-time Q&amp;A</em></div>
+<div class="tc-from tc-from-blue">Everything in Free, plus <em>real-time Q&amp;A</em></div>
 <div class="tier-card-in">
 <div class="tc-text">
 <div class="tc-badge">Light</div>
@@ -218,7 +221,7 @@ a{text-decoration:none;color:inherit}
 
 <!-- CLASSIC -->
 <div class="tier-card tc-classic tc-start" id="chat-classic">
-<div class="tc-from">Everything in Light, plus <em>proactive alerts</em></div>
+<div class="tc-from tc-from-teal">Everything in Light, plus <em>proactive alerts</em></div>
 <div class="tier-card-in flip">
 <div class="tc-text">
 <div class="tc-badge">Classic</div>
@@ -244,7 +247,7 @@ a{text-decoration:none;color:inherit}
 
 <!-- SELECT -->
 <div class="tier-card tc-select" id="chat-select">
-<div class="tc-from">Everything in Classic, plus <em>active optimization</em></div>
+<div class="tc-from tc-from-purple">Everything in Classic, plus <em>active optimization</em></div>
 <div class="tier-card-in">
 <div class="tc-text">
 <div class="tc-badge">Select</div>
@@ -270,7 +273,7 @@ a{text-decoration:none;color:inherit}
 
 <!-- RESERVE -->
 <div class="tier-card tc-reserve" id="chat-reserve">
-<div class="tc-from">Everything in Select, plus <em>full strategy team</em></div>
+<div class="tc-from tc-from-pink">Everything in Select, plus <em>full strategy team</em></div>
 <div class="tier-card-in flip">
 <div class="tc-text">
 <div class="tc-badge">Reserve</div>
