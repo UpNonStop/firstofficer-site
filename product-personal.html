@@ -15,7 +15,7 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 :root{--pink:#FA1896;--wa:#25D366;--font:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.4,0,.2,1);--r:16px}
-body{font-family:var(--font);background:#fff;color:#111;line-height:1.65}
+body{font-family:var(--font);background:#fafaf9;color:#111;line-height:1.65}
 a{text-decoration:none;color:inherit}
 
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);background:rgba(255,255,255,.92);border-bottom:1px solid #eee}
@@ -29,85 +29,90 @@ a{text-decoration:none;color:inherit}
 .mob span{width:20px;height:2px;background:#111;border-radius:1px}
 
 .wrap{max-width:1140px;margin:0 auto;padding:0 32px}
-.pk{color:var(--pink)}
 
-/* Hero */
-.hero{padding:140px 0 60px;text-align:center}
+.hero{padding:140px 0 48px;text-align:center;background:#fff}
 .hero h1{font-family:var(--serif);font-size:clamp(32px,5vw,56px);line-height:1.08;letter-spacing:-.5px;margin-bottom:16px}
-.hero h1 em{font-style:normal;color:var(--pink)}
 .hero p{font-size:18px;color:#555;max-width:520px;margin:0 auto;line-height:1.7}
 
-/* Tier sections */
-.tier{padding:80px 0;border-bottom:1px solid #f0f0f3}
-.tier:last-of-type{border-bottom:none}
-.tier-in{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:960px;margin:0 auto}
-.tier-in.flip .tier-text{order:1}.tier-in.flip .tier-demo{order:2}
-.tier-in:not(.flip) .tier-text{order:2}.tier-in:not(.flip) .tier-demo{order:1}
+.journey{position:relative;padding:40px 0 0}
+.journey::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,#eee,#ddd 20%,#ddd 80%,#eee);z-index:0}
 
-.tier-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:16px}
-.tier-badge.free{background:rgba(0,0,0,.06);color:#555}
-.tier-badge.paid{background:rgba(250,24,150,.08);color:var(--pink)}
-.tier-price{font-size:13px;font-weight:600;color:#999;margin-bottom:16px}
-.tier-price strong{font-size:28px;font-weight:900;color:#111;letter-spacing:-1px}
+.tier-card{position:relative;z-index:1;max-width:920px;margin:0 auto 48px;background:#fff;border:1px solid #e8e9ed;border-radius:20px;padding:44px 48px;transition:box-shadow .3s,border-color .3s}
+.tier-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.04);border-color:#ddd}
+.tier-card-in{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.tier-card-in.flip .tc-text{order:2}.tier-card-in.flip .tc-demo{order:1}
 
-.tier-text h2{font-family:var(--serif);font-size:clamp(24px,3vw,32px);line-height:1.15;margin-bottom:14px}
-.tier-text p{font-size:15px;color:#555;line-height:1.7;margin-bottom:20px}
-.tier-features{list-style:none;padding:0}
-.tier-features li{font-size:14px;padding:6px 0;padding-left:24px;position:relative;color:#555}
-.tier-features li::before{content:'✓';position:absolute;left:0;color:var(--pink);font-weight:700}
-.tier-new{display:inline-block;font-size:10px;font-weight:700;background:var(--pink);color:#fff;padding:2px 8px;border-radius:100px;margin-left:6px;letter-spacing:.3px;text-transform:uppercase;vertical-align:middle}
+.tier-dot{position:absolute;left:50%;top:-16px;transform:translateX(-50%);width:32px;height:32px;background:#fff;border:2px solid #e8e9ed;border-radius:50%;display:grid;place-items:center;z-index:2;transition:border-color .3s}
+.tier-dot span{font-family:var(--mono);font-size:11px;font-weight:700;color:#999;transition:color .3s}
+.tier-card:hover .tier-dot{border-color:var(--pink)}
+.tier-card:hover .tier-dot span{color:var(--pink)}
 
-/* WhatsApp mockup */
-.wa{width:100%;max-width:340px;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.1);border:1px solid #e8e9ed}
-.wa-h{background:#075E54;padding:12px 16px;display:flex;align-items:center;gap:10px}
-.wa-av{width:32px;height:32px;background:var(--pink);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:10px;font-weight:800}
-.wa-nm{color:#fff;font-size:13px;font-weight:600}
-.wa-st{color:rgba(255,255,255,.6);font-size:10px}
-.wa-b{background:#ECE5DD;padding:14px;min-height:260px}
-.wa-m{max-width:82%;padding:7px 10px;border-radius:7px;font-size:12px;line-height:1.5;margin-bottom:6px}
-.wa-m.fo{background:#DCF8C6;border-radius:7px 7px 7px 2px;margin-right:auto}
-.wa-m.u{background:#fff;border-radius:7px 7px 2px 7px;margin-left:auto}
-.wa-m .ag{color:var(--pink);font-weight:700;font-size:11px;display:block;margin-bottom:2px}
+.tc-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px}
+.tc-badge.free{background:#f5f5f4;color:#888}
+.tc-badge.paid{background:rgba(250,24,150,.06);color:var(--pink)}
+.tc-price{margin-bottom:14px}
+.tc-price strong{font-size:32px;font-weight:900;color:#111;letter-spacing:-1.5px}
+.tc-price span{font-size:14px;font-weight:500;color:#999}
+.tc-text h2{font-family:var(--serif);font-size:26px;line-height:1.15;margin-bottom:12px}
+.tc-text p{font-size:14px;color:#666;line-height:1.7;margin-bottom:16px}
+
+.tc-features{list-style:none;padding:0;margin:0}
+.tc-features li{font-size:13px;padding:5px 0;padding-left:22px;position:relative;color:#555}
+.tc-features li::before{content:'';position:absolute;left:0;top:11px;width:12px;height:12px;border-radius:50%;border:1.5px solid #ddd}
+.tc-features li.new::before{background:var(--pink);border-color:var(--pink)}
+.tc-features li.has::before{background:#ddd;border-color:#ddd}
+
+.wa{width:100%;max-width:320px;border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.08);border:1px solid #e8e9ed}
+.wa-h{background:#075E54;padding:10px 14px;display:flex;align-items:center;gap:9px}
+.wa-av{width:28px;height:28px;background:var(--pink);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:9px;font-weight:800}
+.wa-nm{color:#fff;font-size:12px;font-weight:600}
+.wa-st{color:rgba(255,255,255,.5);font-size:9px}
+.wa-b{background:#ECE5DD;padding:12px;min-height:220px}
+.wa-m{max-width:82%;padding:6px 9px;border-radius:6px;font-size:11.5px;line-height:1.5;margin-bottom:5px}
+.wa-m.fo{background:#DCF8C6;border-radius:6px 6px 6px 2px;margin-right:auto}
+.wa-m.u{background:#fff;border-radius:6px 6px 2px 6px;margin-left:auto}
+.wa-m .ag{color:var(--pink);font-weight:700;font-size:10px;display:block;margin-bottom:1px}
 .wa-m .v{color:#075E54;font-weight:700}
-.wa-m .t{font-size:9px;opacity:.45;text-align:right;margin-top:2px}
+.wa-m .t{font-size:8px;opacity:.4;text-align:right;margin-top:2px}
 
-/* Section markers */
-.tier-marker{text-align:center;padding:40px 0 0}
-.tier-marker .line{width:1px;height:40px;background:linear-gradient(to bottom,#eee,var(--pink));margin:0 auto 16px}
-.tier-marker .label{font-family:var(--mono);font-size:11px;color:var(--pink);font-weight:600;letter-spacing:2px;text-transform:uppercase}
+.tier-conn{text-align:center;position:relative;z-index:1;padding:8px 0}
+.tier-conn-label{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #eee;padding:6px 18px;border-radius:100px;font-size:11px;color:#999;font-weight:500}
+.tier-conn-label em{font-style:normal;color:var(--pink);font-weight:600}
 
-/* Upgrade CTA between tiers */
-.tier-upgrade{text-align:center;padding:0 0 20px;font-size:13px;color:#999}
-.tier-upgrade em{font-style:normal;color:var(--pink);font-weight:600}
-
-/* CTA */
 .ctab{background:var(--pink);padding:72px 0;text-align:center}
 .ctab h2{font-size:clamp(24px,3.5vw,38px);font-weight:800;color:#fff;letter-spacing:-.8px;line-height:1.15;margin-bottom:12px}
 .ctab p{font-size:16px;color:rgba(255,255,255,.7);max-width:480px;margin:0 auto 28px;line-height:1.7}
-
 .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;border-radius:12px;transition:all .3s;white-space:nowrap;letter-spacing:-.2px}
 .btn:hover{transform:translateY(-2px)}
 .btn-l{padding:16px 36px;font-size:16px}
 
-/* Footer */
-.ft{border-top:1px solid #eee;padding:24px 0;text-align:center}
+.ft{background:#fff;border-top:1px solid #eee;padding:24px 0;text-align:center}
 .ft-disc{font-size:11px;line-height:1.6;max-width:620px;margin:0 auto 16px;color:#999}
 .ft-bot{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#aaa;border-top:1px solid #eee;padding-top:16px;max-width:1140px;margin:0 auto;flex-wrap:wrap;gap:8px}
 .ft-bot a{color:#aaa;margin-left:16px}.ft-bot a:hover{color:var(--pink)}
 
+.legend{display:flex;align-items:center;gap:20px;justify-content:center;padding:16px 0 32px;font-size:12px;color:#999}
+.legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:5px;vertical-align:middle}
+.legend-dot.inc{background:#ddd}
+.legend-dot.new{background:var(--pink)}
+
 @media(max-width:768px){
 .nk{display:none}.mob{display:flex}
-.tier-in{grid-template-columns:1fr;gap:32px;text-align:center}
-.tier-in .tier-text,.tier-in .tier-demo{order:unset!important}
+.journey::before{display:none}
+.tier-dot{display:none}
+.tier-card{padding:28px 24px;margin-bottom:32px;border-radius:16px}
+.tier-card-in{grid-template-columns:1fr;gap:24px;text-align:center}
+.tier-card-in .tc-text,.tier-card-in .tc-demo{order:unset!important}
 .wa{margin:0 auto}
-.tier-features{text-align:left;max-width:320px;margin:0 auto}
-.hero{padding:110px 0 40px}
-.tier{padding:56px 0}
+.tc-features{text-align:left;max-width:300px;margin:0 auto}
+.hero{padding:110px 0 32px}
+.tier-conn-label{font-size:10px;padding:5px 14px}
 }
 @media(max-width:480px){
-.wrap{padding:0 20px}
+.wrap{padding:0 16px}
 .wa{max-width:100%}
-.tier-text h2{font-size:24px}
+.tc-text h2{font-size:22px}
+.tier-card{padding:24px 20px}
 }
 </style>
 </head>
@@ -127,27 +132,34 @@ a{text-decoration:none;color:inherit}
 </div></nav>
 
 <section class="hero"><div class="wrap">
-<h1><em style="font-style:normal;color:var(--pink)">See what it looks like</em><br>inside your <span style="color:#25D366">WhatsApp.</span></h1>
+<h1><span style="color:var(--pink)">See what it looks like</span><br>inside your <span style="color:#25D366">WhatsApp.</span></h1>
 <p>Real conversations. Real features. Watch what happens at each level, from free to full strategy.</p>
 </div></section>
 
-<!-- ===================== FREE ===================== -->
-<div class="tier-marker"><div class="line"></div><div class="label">Start here</div></div>
+<div class="legend">
+<span><span class="legend-dot new"></span> New at this tier</span>
+<span><span class="legend-dot inc"></span> Included from below</span>
+</div>
 
-<section class="tier"><div class="wrap"><div class="tier-in flip">
-<div class="tier-text">
-<div class="tier-badge free">Free</div>
-<div class="tier-price">Newsletter subscribers</div>
+<div class="journey"><div class="wrap">
+
+<!-- FREE -->
+<div class="tier-card">
+<div class="tier-dot"><span>01</span></div>
+<div class="tier-card-in flip">
+<div class="tc-text">
+<div class="tc-badge free">Free</div>
+<div class="tc-price"><span>Newsletter subscribers</span></div>
 <h2>Your first portfolio snapshot.</h2>
 <p>Sign up for the newsletter and message us on WhatsApp. Four questions. We estimate what your current points are worth and where the biggest gaps are. No wallet connection required.</p>
-<ul class="tier-features">
-<li>4-question onboarding via WhatsApp</li>
-<li>Estimated portfolio snapshot</li>
-<li>Top opportunities identified</li>
-<li>90-day preview of full capabilities</li>
+<ul class="tc-features">
+<li class="new">4-question onboarding via WhatsApp</li>
+<li class="new">Estimated portfolio snapshot</li>
+<li class="new">Top opportunities identified</li>
+<li class="new">90-day preview of full capabilities</li>
 </ul>
 </div>
-<div class="tier-demo">
+<div class="tc-demo">
 <div class="wa">
 <div class="wa-h"><div class="wa-av">FO</div><div><div class="wa-nm">First Officer</div><div class="wa-st">online</div></div></div>
 <div class="wa-b">
@@ -156,95 +168,95 @@ a{text-decoration:none;color:inherit}
 <div class="wa-m fo">Great cards. What loyalty programs are you in?<div class="t">9:02 AM</div></div>
 <div class="wa-m u">United MileagePlus, Marriott Bonvoy, some Amex points<div class="t">9:03 AM</div></div>
 <div class="wa-m fo"><span class="ag">Scout</span>Your snapshot is ready. You have an estimated <span class="v">142,000 points</span> across 3 programs worth roughly <span class="v">$2,800 to $4,200</span> in travel value. Want to see where the gaps are?<div class="t">9:05 AM</div></div>
+</div></div>
 </div>
-</div>
-</div>
-</div></div></section>
+</div></div>
 
-<!-- ===================== LIGHT $5 ===================== -->
-<div class="tier-marker"><div class="line"></div><div class="label">Upgrade</div></div>
-<div class="tier-upgrade">Everything in Free, plus <em>real-time Q&A</em></div>
+<div class="tier-conn"><div class="tier-conn-label">Everything in Free, plus <em>real-time Q&amp;A</em></div></div>
 
-<section class="tier"><div class="wrap"><div class="tier-in">
-<div class="tier-text">
-<div class="tier-badge paid">Light</div>
-<div class="tier-price"><strong>$5</strong> / month</div>
-<h2>Ask us anything.<br>5 times a month.</h2>
+<!-- LIGHT -->
+<div class="tier-card">
+<div class="tier-dot"><span>02</span></div>
+<div class="tier-card-in">
+<div class="tc-text">
+<div class="tc-badge paid">Light</div>
+<div class="tc-price"><strong>$5</strong> <span>/ month</span></div>
+<h2>Ask us anything. 5 times a month.</h2>
 <p>Got a question about which card to use at Costco? Whether to transfer Amex points to Delta or ANA? Ask, and get a real answer with the math behind it. Not a chatbot. Not a search engine. Real strategy.</p>
-<ul class="tier-features">
-<li>5 conversations per month <span class="tier-new">New</span></li>
-<li>Which-card recommendations <span class="tier-new">New</span></li>
-<li>Monthly portfolio estimate <span class="tier-new">New</span></li>
-<li>Everything in Free</li>
+<ul class="tc-features">
+<li class="new">5 conversations per month</li>
+<li class="new">Which-card recommendations</li>
+<li class="new">Monthly portfolio estimate</li>
+<li class="has">Everything in Free</li>
 </ul>
 </div>
-<div class="tier-demo">
+<div class="tc-demo">
 <div class="wa">
 <div class="wa-h"><div class="wa-av">FO</div><div><div class="wa-nm">First Officer</div><div class="wa-st">online</div></div></div>
 <div class="wa-b">
 <div class="wa-m u">Should I transfer Amex MR to Delta or book through the Amex portal?<div class="t">2:15 PM</div></div>
 <div class="wa-m fo">Depends on the route. Where are you flying?<div class="t">2:15 PM</div></div>
 <div class="wa-m u">NYC to London, economy, 2 people<div class="t">2:16 PM</div></div>
-<div class="wa-m fo">Amex portal: 100K points for 2 tickets at 1¢/pt. Transfer to Virgin Atlantic: <span class="v">60K points total</span> for the same flights at 2.7¢/pt. Save 40K points. Transfer wins here.<div class="t">2:17 PM</div></div>
-<div class="wa-m u">That's a huge difference<div class="t">2:18 PM</div></div>
+<div class="wa-m fo">Amex portal: 100K points for 2 tickets at 1 cent/pt. Transfer to Virgin Atlantic: <span class="v">60K points total</span> for the same flights at 2.7 cents/pt. Save 40K points. Transfer wins here.<div class="t">2:17 PM</div></div>
+<div class="wa-m u">That is a huge difference<div class="t">2:18 PM</div></div>
 <div class="wa-m fo">It usually is. That 40K you save? Worth another <span class="v">$600 to $1,000</span> on your next trip.<div class="t">2:18 PM</div></div>
+</div></div>
 </div>
-</div>
-</div>
-</div></div></section>
+</div></div>
 
-<!-- ===================== CLASSIC $19 ===================== -->
-<div class="tier-marker"><div class="line"></div><div class="label">Upgrade</div></div>
-<div class="tier-upgrade">Everything in Light, plus <em>proactive alerts and monitoring</em></div>
+<div class="tier-conn"><div class="tier-conn-label">Everything in Light, plus <em>proactive alerts</em></div></div>
 
-<section class="tier"><div class="wrap"><div class="tier-in flip">
-<div class="tier-text">
-<div class="tier-badge paid">Classic</div>
-<div class="tier-price"><strong>$19</strong> / month</div>
-<h2>We watch your wallet.<br>You stop worrying.</h2>
-<p>This is where it goes from reactive to proactive. We monitor your points for expiring balances, disappearing credits, program devaluations, and opportunities you'd never catch on your own. Unlimited conversations.</p>
-<ul class="tier-features">
-<li>Unlimited Q&A <span class="tier-new">New</span></li>
-<li>Expiry monitoring and alerts <span class="tier-new">New</span></li>
-<li>Credits Tracker <span class="tier-new">New</span></li>
-<li>Weekly Points Pulse <span class="tier-new">New</span></li>
-<li>Devaluation Shield <span class="tier-new">New</span></li>
-<li>Everything in Light</li>
+<!-- CLASSIC -->
+<div class="tier-card">
+<div class="tier-dot"><span>03</span></div>
+<div class="tier-card-in flip">
+<div class="tc-text">
+<div class="tc-badge paid">Classic</div>
+<div class="tc-price"><strong>$19</strong> <span>/ month</span></div>
+<h2>We watch your wallet. You stop worrying.</h2>
+<p>This is where it goes from reactive to proactive. We monitor your points for expiring balances, disappearing credits, program devaluations, and opportunities you would never catch on your own. Unlimited conversations.</p>
+<ul class="tc-features">
+<li class="new">Unlimited Q&amp;A</li>
+<li class="new">Expiry monitoring and alerts</li>
+<li class="new">Credits Tracker</li>
+<li class="new">Weekly Points Pulse</li>
+<li class="new">Devaluation Shield</li>
+<li class="has">Everything in Light</li>
 </ul>
 </div>
-<div class="tier-demo">
+<div class="tc-demo">
 <div class="wa">
 <div class="wa-h"><div class="wa-av">FO</div><div><div class="wa-nm">First Officer</div><div class="wa-st">online</div></div></div>
 <div class="wa-b">
-<div class="wa-m fo"><span class="ag">Ranger</span>⚠️ Alert: Your <span class="v">$300 Amex airline credit</span> expires in 22 days. You haven't used it yet this year.<div class="t">8:00 AM</div></div>
+<div class="wa-m fo"><span class="ag">Ranger</span>Alert: Your <span class="v">$300 Amex airline credit</span> expires in 22 days. You have not used it yet this year.<div class="t">8:00 AM</div></div>
 <div class="wa-m fo">Easiest use: buy a Southwest gift card through the Amex travel portal. Counts as airline incidental. Takes 3 minutes.<div class="t">8:00 AM</div></div>
 <div class="wa-m u">I completely forgot about that. Doing it now<div class="t">8:15 AM</div></div>
 <div class="wa-m fo"><span class="ag">Weekly Pulse</span>This week: 3,200 points earned. Portfolio total: <span class="v">145,200</span>. No expirations in the next 30 days. One new transfer bonus to check.<div class="t">Mon 7:00 AM</div></div>
+</div></div>
 </div>
-</div>
-</div>
-</div></div></section>
+</div></div>
 
-<!-- ===================== SELECT $39 ===================== -->
-<div class="tier-marker"><div class="line"></div><div class="label">Upgrade</div></div>
-<div class="tier-upgrade">Everything in Classic, plus <em>active optimization and bank data</em></div>
+<div class="tier-conn"><div class="tier-conn-label">Everything in Classic, plus <em>active optimization</em></div></div>
 
-<section class="tier"><div class="wrap"><div class="tier-in">
-<div class="tier-text">
-<div class="tier-badge paid">Select</div>
-<div class="tier-price"><strong>$39</strong> / month</div>
-<h2>Now we see your spending.<br>And fix it.</h2>
+<!-- SELECT -->
+<div class="tier-card">
+<div class="tier-dot"><span>04</span></div>
+<div class="tier-card-in">
+<div class="tc-text">
+<div class="tc-badge paid">Select</div>
+<div class="tc-price"><strong>$39</strong> <span>/ month</span></div>
+<h2>Now we see your spending. And fix it.</h2>
 <p>Connect your bank and we analyze every transaction. Card Whisperer tells you which purchases went on the wrong card. Bonus Hunter tracks your signup bonus progress. We cover you and your partner.</p>
-<ul class="tier-features">
-<li>2 accounts (you + partner) <span class="tier-new">New</span></li>
-<li>Bank spend categorization <span class="tier-new">New</span></li>
-<li>Card Whisperer reports <span class="tier-new">New</span></li>
-<li>Bonus Hunter tracking <span class="tier-new">New</span></li>
-<li>Signup Bonus Calendar <span class="tier-new">New</span></li>
-<li>Everything in Classic</li>
+<ul class="tc-features">
+<li class="new">2 accounts (you + partner)</li>
+<li class="new">Bank spend categorization</li>
+<li class="new">Card Whisperer reports</li>
+<li class="new">Bonus Hunter tracking</li>
+<li class="new">Signup Bonus Calendar</li>
+<li class="has">Everything in Classic</li>
 </ul>
 </div>
-<div class="tier-demo">
+<div class="tc-demo">
 <div class="wa">
 <div class="wa-h"><div class="wa-av">FO</div><div><div class="wa-nm">First Officer</div><div class="wa-st">online</div></div></div>
 <div class="wa-b">
@@ -252,33 +264,33 @@ a{text-decoration:none;color:inherit}
 <div class="wa-m u">Which ones?<div class="t">7:48 AM</div></div>
 <div class="wa-m fo">Groceries on Sapphire (1x) should be Gold (4x). Gas on Platinum (1x) should be Freedom Flex (5x). Gap: <span class="v">$47/month</span> in missed value.<div class="t">7:48 AM</div></div>
 <div class="wa-m fo"><span class="ag">Bonus Hunter</span>Amex Gold: <span class="v">$3,200 of $4,000</span> spend done. 24 days left. You need $800 more to hit the 60K bonus. Route your next grocery runs here.<div class="t">7:49 AM</div></div>
+</div></div>
 </div>
-</div>
-</div>
-</div></div></section>
+</div></div>
 
-<!-- ===================== RESERVE $59 ===================== -->
-<div class="tier-marker"><div class="line"></div><div class="label">Full system</div></div>
-<div class="tier-upgrade">Everything in Select, plus <em>full strategy team and trip execution</em></div>
+<div class="tier-conn"><div class="tier-conn-label">Everything in Select, plus <em>full strategy team</em></div></div>
 
-<section class="tier" style="border-bottom:none"><div class="wrap"><div class="tier-in flip">
-<div class="tier-text">
-<div class="tier-badge paid" style="background:rgba(250,24,150,.15)">Reserve</div>
-<div class="tier-price"><strong>$59</strong> / month</div>
-<h2>The full team.<br>Working for you.</h2>
+<!-- RESERVE -->
+<div class="tier-card" style="border-color:rgba(250,24,150,.2)">
+<div class="tier-dot" style="border-color:var(--pink)"><span style="color:var(--pink)">05</span></div>
+<div class="tier-card-in flip">
+<div class="tc-text">
+<div class="tc-badge paid" style="background:rgba(250,24,150,.12)">Reserve</div>
+<div class="tc-price"><strong>$59</strong> <span>/ month</span></div>
+<h2>The full team. Working for you.</h2>
 <p>All 10 specialists. Full wallet mapping across 629+ programs. Trip Playbooks that tell you exactly how to book. Monthly Strategist sessions. Family coverage up to 4 accounts. This is the complete system.</p>
-<ul class="tier-features">
-<li>Full wallet mapping (629 programs) <span class="tier-new">New</span></li>
-<li>Up to 4 accounts (family) <span class="tier-new">New</span></li>
-<li>24/7 Award Monitoring <span class="tier-new">New</span></li>
-<li>Trip Execution Playbooks <span class="tier-new">New</span></li>
-<li>Optioneer + Commander <span class="tier-new">New</span></li>
-<li>Goal Planner with weekly updates <span class="tier-new">New</span></li>
-<li>Monthly Strategist session <span class="tier-new">New</span></li>
-<li>Everything in Select</li>
+<ul class="tc-features">
+<li class="new">Full wallet mapping (629 programs)</li>
+<li class="new">Up to 4 accounts (family)</li>
+<li class="new">24/7 Award Monitoring</li>
+<li class="new">Trip Execution Playbooks</li>
+<li class="new">Optioneer + Commander</li>
+<li class="new">Goal Planner with weekly updates</li>
+<li class="new">Monthly Strategist session</li>
+<li class="has">Everything in Select</li>
 </ul>
 </div>
-<div class="tier-demo">
+<div class="tc-demo">
 <div class="wa">
 <div class="wa-h"><div class="wa-av">FO</div><div><div class="wa-nm">First Officer</div><div class="wa-st">online</div></div></div>
 <div class="wa-b">
@@ -287,15 +299,15 @@ a{text-decoration:none;color:inherit}
 <br>1. Hyatt Regency Maui: <span class="v">175K pts</span> (you have 180K WoH)
 <br>2. Marriott Wailea: 350K pts (short 80K)
 <br>3. Cash: $4,800<div class="t">10:02 AM</div></div>
-<div class="wa-m fo"><span class="ag">Commander</span>Recommendation: Hyatt Regency. You have the points. Transfer 25K Chase UR → Hyatt to cover the gap. Book by Nov 1 for December availability. I can walk you through step by step.<div class="t">10:03 AM</div></div>
+<div class="wa-m fo"><span class="ag">Commander</span>Recommendation: Hyatt Regency. You have the points. Transfer 25K Chase UR to Hyatt to cover the gap. Book by Nov 1 for December availability. I can walk you through step by step.<div class="t">10:03 AM</div></div>
 <div class="wa-m u">Do it<div class="t">10:05 AM</div></div>
-<div class="wa-m fo"><span class="ag">Planner</span>Trip playbook sent. Step 1: Transfer 25K Chase UR → Hyatt (24-48 hrs). Step 2: Book Dec 18-25 at Regency Maui. Step 3: Request ocean view at check-in (Globalist perk). I'll remind you at each step.<div class="t">10:06 AM</div></div>
+<div class="wa-m fo"><span class="ag">Planner</span>Trip playbook sent. Step 1: Transfer 25K Chase UR to Hyatt (24-48 hrs). Step 2: Book Dec 18-25 at Regency Maui. Step 3: Request ocean view at check-in (Globalist perk). I will remind you at each step.<div class="t">10:06 AM</div></div>
+</div></div>
 </div>
-</div>
-</div>
-</div></div></section>
+</div></div>
 
-<!-- CTA -->
+</div></div>
+
 <section class="ctab"><div class="wrap">
 <h2>Start free. See what we find.</h2>
 <p>4 questions on WhatsApp. Your first portfolio snapshot in 24 hours. Upgrade whenever you want.</p>
@@ -303,10 +315,9 @@ a{text-decoration:none;color:inherit}
 <a href="https://wa.me/16199404040" class="btn btn-l" style="background:#25D366;color:#fff;border-radius:100px;box-shadow:0 6px 24px rgba(37,211,102,.3)" target="_blank">💬 Start on WhatsApp</a>
 <a href="firstofficer-site.html#pricing" class="btn btn-l" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.35);border-radius:100px">See Pricing</a>
 </div>
-<p style="margin-top:20px;font-size:12px;color:rgba(255,255,255,.5)">Running a business? <a href="product-business.html" style="color:#fff;font-weight:600;text-decoration:underline">See the Business product →</a></p>
+<p style="margin-top:20px;font-size:12px;color:rgba(255,255,255,.5)">Running a business? <a href="product-business.html" style="color:#fff;font-weight:600;text-decoration:underline">See the Business product</a></p>
 </div></section>
 
-<!-- Footer -->
 <footer class="ft"><div class="wrap">
 <div class="ft-disc">First Officer by UpNonStop is an educational tool that helps you understand and get more from your credit card rewards. It is not a licensed financial advisor. All information is for educational purposes only. Individual results vary based on your specific rewards portfolio, spending patterns, and redemption choices.</div>
 <div class="ft-bot"><span>&copy; 2026 UpNonStop</span><div><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="#">Do Not Sell My Info</a></div></div>
