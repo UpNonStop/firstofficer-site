@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Card Spend Calculator | How Much Are You Leaving On The Table?</title>
+<meta name="description" content="Free business calculator. Pick your industry, enter your monthly card spend, and see the exact annual travel value you're missing. Honest math for 20 industries.">
+<meta property="og:title" content="How Much Is Your Business Leaving On The Table?">
+<meta property="og:description" content="Free calculator for business owners. Enter your spend, see your unrealized travel value. Industry-specific multiplier research.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+:root{--pink:#FA1896;--wa:#25D366;--font:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.4,0,.2,1);--r:16px}
+body{font-family:var(--font);background:#000;color:#f0f0f4;line-height:1.65}
+a{text-decoration:none;color:inherit}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);background:rgba(0,0,0,.92);border-bottom:1px solid #1a1a1a}
+.nav-in{max-width:1140px;margin:0 auto;padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nl{font-size:18px;font-weight:700;letter-spacing:-.3px;display:flex;align-items:center;gap:10px}
+.nm{width:32px;height:32px;background:var(--pink);border-radius:8px;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:800}
+.nk{display:flex;align-items:center;gap:28px}
+.nka{font-size:14px;font-weight:500;color:#999;transition:color .3s;white-space:nowrap}.nka:hover{color:var(--pink)}.nka.act{color:var(--pink)}
+.ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:100px;box-shadow:0 4px 16px rgba(37,211,102,.2);white-space:nowrap;transition:all .3s}
+.mob{display:none;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.mob span{width:20px;height:2px;background:#f0f0f4;border-radius:1px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 32px}
+
+.hero{padding:120px 0 40px;text-align:center}
+.hero h1{font-family:var(--serif);font-size:clamp(30px,4.5vw,52px);line-height:1.1;letter-spacing:-.5px;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--pink)}
+.hero p{font-size:17px;color:#999;max-width:560px;margin:0 auto;line-height:1.7}
+
+.calc{max-width:720px;margin:40px auto 0;background:#111;border:1px solid #2a2a2a;border-radius:var(--r);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.step{display:none;padding:44px}.step.on{display:block;animation:fi .4s var(--ease)}
+@keyframes fi{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.step-label{font-size:13px;font-weight:700;color:var(--pink);margin-bottom:8px}
+.step h2{font-family:var(--serif);font-size:26px;margin-bottom:20px}
+.step p.sub{font-size:14px;color:#888;margin-bottom:28px;line-height:1.6}
+.prog{display:flex;gap:4px;padding:28px 44px 0;background:#111}
+.prog-dot{flex:1;height:4px;border-radius:2px;background:#222;transition:background .4s}.prog-dot.done{background:var(--pink)}
+
+.ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.ind-btn{padding:14px 10px;border:1.5px solid #2a2a2a;border-radius:12px;text-align:center;cursor:pointer;transition:all .3s;background:#151515;color:#f0f0f4}
+.ind-btn:hover{border-color:var(--pink)}
+.ind-btn.sel{border-color:var(--pink);background:rgba(250,24,150,.08);box-shadow:0 0 0 1px var(--pink)}
+.ind-ico{font-size:22px;margin-bottom:4px}.ind-nm{font-size:11px;font-weight:600;line-height:1.3}
+
+.spend-val{font-size:44px;font-weight:900;letter-spacing:-2px;color:var(--pink);text-align:center;margin-bottom:16px;line-height:1}
+.spend-val span{font-size:18px;font-weight:500;color:#666;letter-spacing:0}
+input[type=range]{width:100%;-webkit-appearance:none;height:6px;border-radius:3px;background:#222;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:var(--pink);box-shadow:0 4px 16px rgba(250,24,150,.3);cursor:pointer;border:3px solid #111}
+input[type=range]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:var(--pink);cursor:pointer;border:3px solid #111}
+.spend-range{display:flex;justify-content:space-between;font-size:12px;color:#555;margin-top:8px}
+
+.cards-q{margin-bottom:24px}
+.cards-q label{font-size:14px;font-weight:600;display:block;margin-bottom:8px}
+.card-opts{display:flex;gap:8px;flex-wrap:wrap}
+.card-opt{padding:10px 18px;border:1.5px solid #2a2a2a;border-radius:100px;font-size:13px;font-weight:500;cursor:pointer;transition:all .3s;color:#ccc;background:#151515}
+.card-opt:hover{border-color:var(--pink)}
+.card-opt.sel{border-color:var(--pink);background:rgba(250,24,150,.08);color:var(--pink);font-weight:600}
+
+.btn-row{display:flex;gap:12px;justify-content:flex-end;margin-top:28px}
+.btn{padding:14px 32px;border-radius:100px;font-size:15px;font-weight:600;cursor:pointer;transition:all .3s;border:none}
+.btn-pk{background:var(--pink);color:#fff;box-shadow:0 6px 24px rgba(250,24,150,.2)}
+.btn-pk:hover{transform:translateY(-1px)}.btn-pk:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.btn-ghost{background:none;color:#999;border:1.5px solid #333}.btn-ghost:hover{border-color:#666}
+
+.results{padding:44px;text-align:center}
+.res-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:100px;font-size:12px;font-weight:600;color:var(--pink);background:rgba(250,24,150,.06);margin-bottom:24px}
+.res-badge .dot{width:6px;height:6px;background:var(--pink);border-radius:50%}
+.res-hero-num{font-size:clamp(44px,8vw,72px);font-weight:900;letter-spacing:-3px;line-height:1;margin-bottom:8px;color:var(--pink)}
+.res-hero-label{font-size:17px;color:#666;margin-bottom:36px}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:36px;text-align:left}
+.res-card{padding:22px;border-radius:var(--r);border:1px solid #2a2a2a}
+.res-card.bad{background:#0a0a0a}
+.res-card.good{background:rgba(250,24,150,.04);border-color:rgba(250,24,150,.2)}
+.res-card-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.res-card.bad .res-card-label{color:#666}.res-card.good .res-card-label{color:var(--pink)}
+.res-card-num{font-size:28px;font-weight:900;letter-spacing:-1.5px;line-height:1;margin-bottom:4px}
+.res-card.bad .res-card-num{color:#444}.res-card.good .res-card-num{color:#fff}
+.res-card-desc{font-size:12px;color:#666;line-height:1.4}
+.res-breakdown{text-align:left;margin-bottom:36px}
+.res-breakdown h3{font-family:var(--serif);font-size:20px;margin-bottom:14px}
+.rb-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #1a1a1a;font-size:13px}
+.rb-row:last-child{border:none}
+.rb-label{color:#888}.rb-val{font-weight:700}.rb-val.pk{color:var(--pink)}
+.res-bar{margin-bottom:36px}
+.res-bar-label{display:flex;justify-content:space-between;font-size:12px;font-weight:600;margin-bottom:8px}
+.res-bar-track{height:22px;background:#1a1a1a;border-radius:11px;overflow:hidden;position:relative}
+.res-bar-fill{height:100%;border-radius:11px;transition:width 1.5s var(--ease)}
+.res-bar-fill.old{background:#333}.res-bar-fill.new{background:var(--pink);position:absolute;top:0;left:0}
+.res-cta{margin-top:28px}
+.res-cta h3{font-family:var(--serif);font-size:22px;margin-bottom:8px}
+.res-cta p{font-size:14px;color:#666;margin-bottom:18px}
+.res-cta .btn{font-size:16px;padding:16px 36px}
+.res-share{margin-top:20px;display:flex;gap:10px;justify-content:center}
+.share-btn{padding:10px 20px;border-radius:100px;font-size:13px;font-weight:500;border:1.5px solid #333;cursor:pointer;transition:all .3s;background:#151515;color:#ccc}
+.share-btn:hover{border-color:var(--pink);color:var(--pink)}
+.res-fine{font-size:11px;color:#555;margin-top:28px;line-height:1.5}
+
+.ind-bottom{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:920px;margin:0 auto}
+.ind-bottom a{padding:14px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;text-align:center;background:#111;transition:all .3s}
+.ind-bottom a:hover{border-color:var(--pink);transform:translateY(-2px)}
+
+.ft{border-top:1px solid #1a1a1a;padding:32px 0;margin-top:80px;text-align:center}
+.ft p{font-size:13px;color:#555}.ft a{color:var(--pink);font-weight:500}
+
+@media(max-width:768px){.nk{display:none}.mob{display:flex}.ind-grid,.ind-bottom{grid-template-columns:repeat(3,1fr)}.step{padding:28px}.prog{padding:24px 28px 0}.res-grid{grid-template-columns:1fr}.results{padding:28px}}
+@media(max-width:480px){.ind-grid,.ind-bottom{grid-template-columns:repeat(2,1fr)}.card-opts{flex-direction:column}.btn-row{flex-direction:column}.btn-row .btn{width:100%;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="nav-in">
+<a href="firstofficer-site.html" class="nl"><div class="nm">FO</div><div><div style="line-height:1.1">First Officer</div><div style="font-size:10px;font-weight:400;letter-spacing:.5px">by <span style="font-weight:700">UpNonStop</span>&trade;</div></div></a>
+<div class="nk">
+<a href="firstofficer-site.html" class="nka">Home</a>
+<a href="calculator-business.html" class="nka act">Calculator</a>
+<a href="firstofficer-site.html#pricing" class="nka">Pricing</a>
+<a href="firstofficer-site.html#about" class="nka">About</a>
+</div>
+<a href="https://wa.me/16199404040" class="ncta" target="_blank">💬 Start on WhatsApp</a>
+<button class="mob" onclick="toggleMob()"><span></span><span></span><span></span></button>
+</div></nav>
+
+<div class="wrap">
+<section class="hero">
+<h1>How Much Is Your Business<br><em>Leaving On The Table?</em></h1>
+<p>Answer 3 questions. See exactly what your business card spend could be earning you in travel value. Honest math, no hype.</p>
+</section>
+
+<div class="calc">
+<div class="prog"><div class="prog-dot done" id="pd1"></div><div class="prog-dot" id="pd2"></div><div class="prog-dot" id="pd3"></div></div>
+
+<div class="step on" id="s1">
+<div class="step-label">Step 1 of 3</div>
+<h2>What's your industry?</h2>
+<p class="sub">This helps us apply realistic multiplier assumptions based on how your spend typically codes with card networks.</p>
+<div class="ind-grid">
+<div class="ind-btn" onclick="pickInd(this,'restaurants')"><div class="ind-ico">👨🏻‍🍳</div><div class="ind-nm">Restaurants</div></div>
+<div class="ind-btn" onclick="pickInd(this,'ecommerce')"><div class="ind-ico">📦</div><div class="ind-nm">E-Commerce</div></div>
+<div class="ind-btn" onclick="pickInd(this,'contractors')"><div class="ind-ico">👷🏻</div><div class="ind-nm">Contractors</div></div>
+<div class="ind-btn" onclick="pickInd(this,'medical')"><div class="ind-ico">👨🏻‍⚕️</div><div class="ind-nm">Medical</div></div>
+<div class="ind-btn" onclick="pickInd(this,'realestate')"><div class="ind-ico">🏠</div><div class="ind-nm">Real Estate</div></div>
+<div class="ind-btn" onclick="pickInd(this,'law')"><div class="ind-ico">⚖️</div><div class="ind-nm">Law Firms</div></div>
+<div class="ind-btn" onclick="pickInd(this,'agencies')"><div class="ind-ico">🎨</div><div class="ind-nm">Agencies</div></div>
+<div class="ind-btn" onclick="pickInd(this,'consulting')"><div class="ind-ico">👨🏻‍💼</div><div class="ind-nm">Consulting</div></div>
+</div>
+<div class="ind-grid" id="moreInd" style="display:none;margin-top:10px">
+<div class="ind-btn" onclick="pickInd(this,'hvac')"><div class="ind-ico">❄️</div><div class="ind-nm">HVAC</div></div>
+<div class="ind-btn" onclick="pickInd(this,'dental')"><div class="ind-ico">🦷</div><div class="ind-nm">Dental</div></div>
+<div class="ind-btn" onclick="pickInd(this,'auto')"><div class="ind-ico">🔧</div><div class="ind-nm">Auto Repair</div></div>
+<div class="ind-btn" onclick="pickInd(this,'salons')"><div class="ind-ico">💇🏻‍♀️</div><div class="ind-nm">Salons</div></div>
+<div class="ind-btn" onclick="pickInd(this,'cpa')"><div class="ind-ico">🧮</div><div class="ind-nm">CPA / Accounting</div></div>
+<div class="ind-btn" onclick="pickInd(this,'fitness')"><div class="ind-ico">🏋🏻</div><div class="ind-nm">Fitness</div></div>
+<div class="ind-btn" onclick="pickInd(this,'landscaping')"><div class="ind-ico">🌿</div><div class="ind-nm">Landscaping</div></div>
+<div class="ind-btn" onclick="pickInd(this,'vet')"><div class="ind-ico">🐾</div><div class="ind-nm">Veterinary</div></div>
+<div class="ind-btn" onclick="pickInd(this,'trucking')"><div class="ind-ico">🚛</div><div class="ind-nm">Trucking</div></div>
+<div class="ind-btn" onclick="pickInd(this,'property')"><div class="ind-ico">🏢</div><div class="ind-nm">Property Mgmt</div></div>
+<div class="ind-btn" onclick="pickInd(this,'it')"><div class="ind-ico">💻</div><div class="ind-nm">IT / MSP</div></div>
+<div class="ind-btn" onclick="pickInd(this,'cleaning')"><div class="ind-ico">🧹</div><div class="ind-nm">Cleaning</div></div>
+</div>
+<div style="text-align:center;margin-top:14px"><button id="seeMoreBtn" onclick="toggleMore()" style="background:none;border:1.5px solid #333;color:#999;font-size:13px;font-weight:500;padding:8px 24px;border-radius:100px;cursor:pointer;transition:all .3s;font-family:var(--font)">See all 20 industries ↓</button></div>
+<div class="btn-row"><button class="btn btn-pk" onclick="goStep(2)" id="s1next" disabled>Continue</button></div>
+</div>
+
+<div class="step" id="s2">
+<div class="step-label">Step 2 of 3</div>
+<h2>How much do you put on cards each month?</h2>
+<p class="sub">Include everything: supplies, software, advertising, fuel, travel, subscriptions. Estimate if you're not sure.</p>
+<div style="margin-bottom:28px">
+<div class="spend-val" id="spendDisplay">$15,000<span> /month</span></div>
+<input type="range" min="1000" max="200000" value="15000" step="1000" id="spendSlider" oninput="updateSpend()">
+<div class="spend-range"><span>$1,000</span><span>$200,000+</span></div>
+</div>
+<div class="btn-row"><button class="btn btn-ghost" onclick="goStep(1)">Back</button><button class="btn btn-pk" onclick="goStep(3)">Continue</button></div>
+</div>
+
+<div class="step" id="s3">
+<div class="step-label">Step 3 of 3</div>
+<h2>How do you currently earn rewards?</h2>
+<p class="sub">This tells us your baseline. What you're earning today without optimization.</p>
+<div class="cards-q">
+<label>What kind of card do you primarily use?</label>
+<div class="card-opts">
+<div class="card-opt" onclick="pickCard(this,'debit')">Debit card (no rewards)</div>
+<div class="card-opt" onclick="pickCard(this,'cashback')">Cashback card (1-2%)</div>
+<div class="card-opt" onclick="pickCard(this,'basic')">Basic points card (1x)</div>
+<div class="card-opt" onclick="pickCard(this,'premium')">Premium card</div>
+</div>
+</div>
+<div class="cards-q">
+<label>How many business credit cards do you have?</label>
+<div class="card-opts">
+<div class="card-opt" onclick="pickCount(this,'0')">None</div>
+<div class="card-opt" onclick="pickCount(this,'1')">1</div>
+<div class="card-opt" onclick="pickCount(this,'2')">2-3</div>
+<div class="card-opt" onclick="pickCount(this,'4')">4+</div>
+</div>
+</div>
+<div class="btn-row"><button class="btn btn-ghost" onclick="goStep(2)">Back</button><button class="btn btn-pk" onclick="showResults()" id="s3next" disabled>See My Results</button></div>
+</div>
+
+<div class="step" id="s4">
+<div class="results" id="resultsEl"></div>
+</div>
+</div>
+</div>
+
+<!-- Explore by Industry -->
+<section style="padding:80px 0"><div class="wrap">
+<div style="text-align:center;margin-bottom:40px">
+<div style="font-family:var(--serif);font-size:clamp(24px,3.5vw,36px);line-height:1.12;margin-bottom:10px">Or explore by <span style="color:var(--pink)">industry.</span></div>
+<p style="font-size:15px;color:#666;max-width:520px;margin:0 auto;line-height:1.65">Skip the calculator. Dive straight into honest multiplier research, vendor-specific insights, and real math for your vertical.</p>
+</div>
+<div class="ind-bottom">
+<a href="for-restaurants.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Restaurants 👨🏻‍🍳</div><div style="font-size:11px;color:var(--pink);font-weight:600">1.8x to 2.2x</div></a>
+<a href="for-ecommerce.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">E-Commerce 📦</div><div style="font-size:11px;color:var(--pink);font-weight:600">2.2x to 2.8x</div></a>
+<a href="for-contractors.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Contractors 👷🏻</div><div style="font-size:11px;color:var(--pink);font-weight:600">1.6x to 2.0x</div></a>
+<a href="for-hvac.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">HVAC ❄️</div><div style="font-size:11px;color:var(--pink);font-weight:600">1.6x to 2.0x</div></a>
+<a href="for-dental.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Dental 🦷</div><div style="font-size:11px;color:var(--pink);font-weight:600">1.5x to 2.0x</div></a>
+<a href="for-auto-repair.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Auto Repair 🔧</div><div style="font-size:11px;color:var(--pink);font-weight:600">1.6x to 2.0x</div></a>
+<a href="for-law-firms.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Law Firms ⚖️</div><div style="font-size:11px;color:var(--pink);font-weight:600">1.8x to 2.3x</div></a>
+<a href="for-salons.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Salons 💇🏻‍♀️</div><div style="font-size:11px;color:var(--pink);font-weight:600">1.5x to 1.9x</div></a>
+<a href="for-real-estate.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Real Estate 🏠</div><div style="font-size:11px;color:var(--pink);font-weight:600">2.0x to 2.8x</div></a>
+<a href="for-cpa-firms.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">CPA Firms 🧮</div><div style="font-size:11px;color:var(--pink);font-weight:600">2.0x to 2.5x</div></a>
+<a href="for-medical.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Medical 👨🏻‍⚕️</div><div style="font-size:11px;color:var(--pink);font-weight:600">1.5x to 2.0x</div></a>
+<a href="for-agencies.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Agencies 🎨</div><div style="font-size:11px;color:var(--pink);font-weight:600">2.2x to 2.8x</div></a>
+<a href="for-fitness.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Fitness 🏋🏻</div><div style="font-size:11px;color:var(--pink);font-weight:600">1.5x to 1.9x</div></a>
+<a href="for-landscaping.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Landscaping 🌿</div><div style="font-size:11px;color:var(--pink);font-weight:600">1.7x to 2.1x</div></a>
+<a href="for-veterinary.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Veterinary 🐾</div><div style="font-size:11px;color:var(--pink);font-weight:600">1.5x to 2.0x</div></a>
+<a href="for-trucking.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Trucking 🚛</div><div style="font-size:11px;color:var(--pink);font-weight:600">1.6x to 2.2x</div></a>
+<a href="for-property-management.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Property Mgmt 🏢</div><div style="font-size:11px;color:var(--pink);font-weight:600">1.7x to 2.3x</div></a>
+<a href="for-it-services.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">IT / MSP 💻</div><div style="font-size:11px;color:var(--pink);font-weight:600">2.0x to 2.6x</div></a>
+<a href="for-consulting.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Consulting 👨🏻‍💼</div><div style="font-size:11px;color:var(--pink);font-weight:600">2.2x to 2.8x</div></a>
+<a href="for-cleaning.html"><div style="font-size:12px;font-weight:700;color:#f0f0f4;margin-bottom:2px">Cleaning 🧹</div><div style="font-size:11px;color:var(--pink);font-weight:600">1.5x to 2.0x</div></a>
+</div>
+</div></section>
+
+<footer class="ft"><div class="wrap"><div style="font-size:11px;line-height:1.6;max-width:620px;margin:0 auto 16px;text-align:center;color:#555">First Officer by UpNonStop is an educational tool that helps you understand and get more from your credit card rewards. It is not a licensed financial advisor. All information is for educational purposes only. Individual results vary.</div><div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#555;border-top:1px solid #1a1a1a;padding-top:16px"><span>&copy; 2026 UpNonStop</span><div><a href="privacy.html" style="color:#555;margin-left:16px">Privacy</a><a href="terms.html" style="color:#555;margin-left:16px">Terms</a><a href="#" style="color:#555;margin-left:16px">Do Not Sell My Info</a></div></div></div></footer>
+
+<script>
+var indData={restaurants:{lo:1.8,hi:2.2,name:'Restaurants',page:'for-restaurants.html'},ecommerce:{lo:2.2,hi:2.8,name:'E-Commerce',page:'for-ecommerce.html'},contractors:{lo:1.6,hi:2.0,name:'Contractors',page:'for-contractors.html'},hvac:{lo:1.6,hi:2.0,name:'HVAC',page:'for-hvac.html'},dental:{lo:1.5,hi:2.0,name:'Dental',page:'for-dental.html'},auto:{lo:1.6,hi:2.0,name:'Auto Repair',page:'for-auto-repair.html'},law:{lo:1.8,hi:2.3,name:'Law Firms',page:'for-law-firms.html'},salons:{lo:1.5,hi:1.9,name:'Salons',page:'for-salons.html'},realestate:{lo:2.0,hi:2.8,name:'Real Estate',page:'for-real-estate.html'},cpa:{lo:2.0,hi:2.5,name:'CPA',page:'for-cpa-firms.html'},medical:{lo:1.5,hi:2.0,name:'Medical',page:'for-medical.html'},agencies:{lo:2.2,hi:2.8,name:'Agencies',page:'for-agencies.html'},fitness:{lo:1.5,hi:1.9,name:'Fitness',page:'for-fitness.html'},landscaping:{lo:1.7,hi:2.1,name:'Landscaping',page:'for-landscaping.html'},vet:{lo:1.5,hi:2.0,name:'Veterinary',page:'for-veterinary.html'},trucking:{lo:1.6,hi:2.2,name:'Trucking',page:'for-trucking.html'},property:{lo:1.7,hi:2.3,name:'Property Mgmt',page:'for-property-management.html'},it:{lo:2.0,hi:2.6,name:'IT / MSP',page:'for-it-services.html'},consulting:{lo:2.2,hi:2.8,name:'Consulting',page:'for-consulting.html'},cleaning:{lo:1.5,hi:2.0,name:'Cleaning',page:'for-cleaning.html'}};
+var state={industry:null,spend:15000,cardType:null,cardCount:null};
+
+function pickInd(el,id){document.querySelectorAll('.ind-btn').forEach(b=>b.classList.remove('sel'));el.classList.add('sel');state.industry=id;document.getElementById('s1next').disabled=false}
+function toggleMore(){var el=document.getElementById('moreInd');var btn=document.getElementById('seeMoreBtn');if(el.style.display==='none'){el.style.display='grid';btn.textContent='Show fewer ↑'}else{el.style.display='none';btn.textContent='See all 20 industries ↓'}}
+function updateSpend(){var v=+document.getElementById('spendSlider').value;state.spend=v;document.getElementById('spendDisplay').innerHTML='$'+v.toLocaleString()+'<span> /month</span>';var pct=((v-1000)/(200000-1000))*100;document.getElementById('spendSlider').style.background='linear-gradient(to right,var(--pink) '+pct+'%,#222 '+pct+'%)'}
+function pickCard(el,t){el.parentElement.querySelectorAll('.card-opt').forEach(b=>b.classList.remove('sel'));el.classList.add('sel');state.cardType=t;check()}
+function pickCount(el,n){el.parentElement.querySelectorAll('.card-opt').forEach(b=>b.classList.remove('sel'));el.classList.add('sel');state.cardCount=n;check()}
+function check(){document.getElementById('s3next').disabled=!(state.cardType&&state.cardCount)}
+function goStep(n){document.querySelectorAll('.step').forEach(s=>s.classList.remove('on'));document.getElementById('s'+n).classList.add('on');for(var i=1;i<=3;i++)document.getElementById('pd'+i).classList.toggle('done',i<=n);if(n===2)setTimeout(updateSpend,50)}
+
+function showResults(){
+  goStep(4);var ind=indData[state.industry];var annual=state.spend*12;var ct=state.cardType;
+  var currentPts,currentVal;
+  if(ct==='debit'){currentPts=0;currentVal=0}
+  else if(ct==='cashback'){currentPts=0;currentVal=Math.round(annual*0.015)}
+  else{var br=ct==='premium'?1.3:1.0;currentPts=Math.round(annual*br);currentVal=Math.round(currentPts*0.01)}
+  var lo=ind.lo,hi=ind.hi,mid=(lo+hi)/2;
+  var optValLo=Math.round(annual*lo*0.02),optValHi=Math.round(annual*hi*0.02),optValMid=Math.round(optValLo+(optValHi-optValLo)/2);
+  var bc=state.cardCount==='4'?0:state.cardCount==='2'?1:2;var bv=bc*1750;
+  var gap=optValMid-currentVal+bv;if(gap<0)gap=0;
+  var h='<div class="res-badge"><span class="dot"></span> Your personalized estimate</div>';
+  h+='<div class="res-hero-num">$'+gap.toLocaleString()+'</div>';
+  h+='<div class="res-hero-label">estimated annual value you\'re not capturing</div>';
+  h+='<div class="res-grid"><div class="res-card bad"><div class="res-card-label">What you earn now</div><div class="res-card-num">';
+  if(ct==='debit')h+='$0';else if(ct==='cashback')h+='$'+currentVal.toLocaleString();else h+=currentPts.toLocaleString()+' pts';
+  h+='</div><div class="res-card-desc">';
+  if(ct==='debit')h+='Debit cards earn no rewards.';else if(ct==='cashback')h+='Cashback at ~1.5%. No transfer partner upside.';else if(ct==='basic')h+='At 1x and ~1¢ per point.';else h+='Premium card at ~1.3x avg. Better, but leaving value.';
+  h+='</div></div><div class="res-card good"><div class="res-card-label">With optimized routing</div><div class="res-card-num">$'+optValLo.toLocaleString()+' to $'+optValHi.toLocaleString()+'</div>';
+  h+='<div class="res-card-desc">'+ind.name+' blended rate: '+lo+'x to '+hi+'x at 2¢/pt via transfers.</div></div></div>';
+  h+='<div class="res-breakdown"><h3>Where the value comes from</h3>';
+  h+='<div class="rb-row"><div class="rb-label">Annual card spend</div><div class="rb-val">$'+annual.toLocaleString()+'</div></div>';
+  h+='<div class="rb-row"><div class="rb-label">Your blended earn rate ('+ind.name+')</div><div class="rb-val pk">'+lo+'x to '+hi+'x</div></div>';
+  h+='<div class="rb-row"><div class="rb-label">Optimized points per year</div><div class="rb-val pk">'+(Math.round(annual*lo)).toLocaleString()+' to '+(Math.round(annual*hi)).toLocaleString()+'</div></div>';
+  h+='<div class="rb-row"><div class="rb-label">Value via transfer partners (2¢/pt)</div><div class="rb-val pk">$'+optValLo.toLocaleString()+' to $'+optValHi.toLocaleString()+'</div></div>';
+  if(bv>0)h+='<div class="rb-row"><div class="rb-label">Signup bonus value ('+bc+' new cards)</div><div class="rb-val pk">+$'+bv.toLocaleString()+'</div></div>';
+  h+='</div>';
+  var maxV=optValHi+bv;var oldP=maxV>0?Math.max(2,Math.round((currentVal/maxV)*100)):2;
+  h+='<div class="res-bar"><div class="res-bar-label"><span style="color:#666">Now: $'+currentVal.toLocaleString()+'/yr</span><span style="color:var(--pink)">Optimized: $'+(optValMid+bv).toLocaleString()+'/yr</span></div>';
+  h+='<div class="res-bar-track"><div class="res-bar-fill old" style="width:'+oldP+'%"></div><div class="res-bar-fill new" id="barNew" style="width:0%"></div></div></div>';
+  h+='<div class="res-cta"><h3>Ready to capture this value?</h3><p>We\'ll build your personalized card routing strategy and show you exactly what to do first.</p>';
+  h+='<a href="https://wa.me/16199404040" target="_blank" class="btn btn-pk">💬 Start on WhatsApp</a>';
+  if(ind.page)h+='<div style="margin-top:14px"><a href="'+ind.page+'" style="color:var(--pink);font-weight:600;font-size:14px">See the full '+ind.name+' breakdown →</a></div>';
+  h+='</div>';
+  h+='<div class="res-share"><button class="share-btn" onclick="copyRes()">Copy results</button><button class="share-btn" onclick="goStep(1)">Recalculate</button></div>';
+  h+='<div class="res-fine">Hypothetical estimate for illustration purposes. Based on typical MCC coding for '+ind.name+' businesses and 2¢/point transfer partner valuations. Actual results vary based on your specific vendors, card products, and redemption choices. This is not financial advice.</div>';
+  document.getElementById('resultsEl').innerHTML=h;
+  setTimeout(function(){document.getElementById('barNew').style.width='100%'},100);
+}
+
+function copyRes(){
+  var ind=indData[state.industry];var annual=state.spend*12;var lo=Math.round(annual*ind.lo*0.02);var hi=Math.round(annual*ind.hi*0.02);
+  var t='I just ran my numbers on First Officer\'s calculator.\n\nIndustry: '+ind.name+'\nMonthly spend: $'+state.spend.toLocaleString()+'\nEstimated annual value I\'m missing: $'+lo.toLocaleString()+' to $'+hi.toLocaleString()+'\n\nCheck yours: firstofficer.co/calculator';
+  navigator.clipboard.writeText(t).then(function(){event.target.textContent='Copied!';setTimeout(function(){event.target.textContent='Copy results'},2000)});
+}
+
+function toggleMob(){var l=document.querySelector('.nk');if(l.style.display==='flex'){l.style.display='none';return}l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='68px';l.style.left='0';l.style.right='0';l.style.background='rgba(0,0,0,.96)';l.style.backdropFilter='blur(20px)';l.style.padding='24px 32px';l.style.gap='16px';l.style.boxShadow='0 8px 24px rgba(0,0,0,.3)';l.style.borderBottom='1px solid #2a2a2a'}
+</script>
+</body>
+</html>

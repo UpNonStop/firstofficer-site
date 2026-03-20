@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit Card Points Optimization for E-Commerce | First Officer</title>
+<meta name="description" content="E-Commerce typically earn 2.2 to 2.8x on optimized card spend. That's $6,000 to $18,000/year in travel value most owners miss. Free calculator and honest multiplier research.">
+<meta property="og:title" content="Credit Card Points for E-Commerce | 2.2 to 2.8x Blended Rate">
+<meta property="og:description" content="Free calculator. See exactly what your e-commerce business is leaving on the table in unrealized travel value.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+ul{list-style:none}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}
+button{cursor:pointer;border:none;font-family:inherit;background:none}
+:root{--pink:#FA1896;--wa:#25D366;--font:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.4,0,.2,1);--r:16px;--r-pill:100px}
+body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#000;color:#f0f0f4}
+.alt{background:#0a0a0a}
+.t2{color:#ccc}.t3{color:#888}
+.wrap{max-width:1140px;margin:0 auto;padding:0 32px}
+.pk{color:var(--pink)}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);background:rgba(0,0,0,.92);border-bottom:1px solid #1a1a1a}
+.nav-in{max-width:1140px;margin:0 auto;padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nl{font-size:18px;font-weight:700;letter-spacing:-.3px;display:flex;align-items:center;gap:10px}
+.nm{width:32px;height:32px;background:var(--pink);border-radius:8px;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:800}
+
+
+.ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:var(--r-pill);box-shadow:0 4px 16px rgba(37,211,102,.2);white-space:nowrap;transition:all .3s}
+.ncta:hover{transform:translateY(-1px)}
+
+
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;border-radius:12px;transition:all .3s var(--ease);white-space:nowrap;letter-spacing:-.2px}
+.btn:hover{transform:translateY(-2px)}
+.btn-l{padding:16px 36px;font-size:16px}.btn-m{padding:12px 28px;font-size:15px}
+.btn-pk{background:var(--pink);color:#fff;box-shadow:0 4px 16px rgba(250,24,150,.15);border:2px solid var(--pink);min-width:200px;justify-content:center}
+.btn-ol{border:2px solid #333;color:#ddd;background:transparent;min-width:200px;justify-content:center}.btn-ol:hover{border-color:var(--pink);color:var(--pink)}
+
+/* Hero */
+.hero{position:relative;min-height:80vh;display:flex;align-items:center;padding:110px 0 72px;overflow:hidden;background-size:cover;background-position:center;-webkit-background-size:cover}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.55);pointer-events:none;z-index:0}
+.hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.6) 50%,#000 100%);pointer-events:none;z-index:1}
+.hero-c{position:relative;z-index:2;max-width:620px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:7px 18px;border-radius:100px;font-size:12px;font-weight:700;color:#fff;background:var(--pink);margin-bottom:24px;letter-spacing:.3px;box-shadow:0 4px 16px rgba(250,24,150,.3)}
+.hero h1{font-size:clamp(32px,5vw,56px);font-weight:900;line-height:1.06;letter-spacing:-1.5px;color:#fff;margin-bottom:20px;text-shadow:0 2px 24px rgba(0,0,0,1),0 0 48px rgba(0,0,0,.85)}
+.hero-sub{font-size:17px;color:#ddd;font-weight:500;line-height:1.7;margin-bottom:32px;text-shadow:0 1px 16px rgba(0,0,0,1)}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Sections */
+.sec{padding:80px 0}
+.ey{font-family:var(--mono);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:var(--pink);margin-bottom:14px}
+.hd{font-family:var(--serif);font-size:clamp(28px,4vw,48px);line-height:1.12;letter-spacing:-.5px;margin-bottom:16px}
+.ds{font-size:17px;color:#999;line-height:1.7;max-width:600px}
+.sh{text-align:center;margin-bottom:56px}.sh .ds{margin:0 auto}
+.nml{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--pink);opacity:.5;margin-bottom:14px}
+
+/* Calculator */
+.calc{background:#111;border:1px solid #2a2a2a;border-radius:var(--r);padding:36px;max-width:720px;margin:0 auto}
+.calc-title{font-family:var(--serif);font-size:22px;margin-bottom:24px}
+.slider-group{margin-bottom:20px}
+.slider-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.slider-head label{font-size:14px;color:#ccc}
+.slider-head span{font-size:14px;font-weight:700;font-family:var(--mono);color:#fff}
+.slider-note{font-size:11px;color:#666;margin-top:4px;font-style:italic}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:5px;border-radius:3px;background:#222;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--pink);cursor:pointer;border:3px solid #111;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--pink);cursor:pointer;border:3px solid #111}
+.calc-divider{border-top:1px solid #2a2a2a;padding-top:24px;margin-top:24px}
+.calc-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.calc-total span:first-child{font-size:14px;color:#888}
+.calc-total span:last-child{font-family:var(--font);font-size:22px;font-weight:900}
+.calc-boxes{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.calc-box{border-radius:12px;padding:18px}
+.cbox-base{background:#1a1a1a}
+.cbox-opt{background:rgba(250,24,150,.06);border:1px solid rgba(250,24,150,.12)}
+.calc-box .cb-label{font-size:12px;color:#888;margin-bottom:4px;display:block}
+.cbox-opt .cb-label{color:var(--pink)}
+.calc-box .cb-val{font-family:var(--font);font-size:28px;font-weight:900}
+.cbox-base .cb-val{color:#555}
+.cbox-opt .cb-val{color:var(--pink)}
+.calc-box .cb-sub{font-size:11px;color:#aaa;margin-top:2px}
+.cbox-opt .cb-sub{color:rgba(250,24,150,.5)}
+.calc-gap{text-align:center;font-size:15px;color:#ccc;margin-top:20px;padding:16px;background:#1a1a1a;border-radius:10px}
+.calc-gap strong{color:var(--pink);font-size:18px}
+
+/* Value rows */
+.vr{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:56px 0;border-bottom:1px solid #1a1a1a}
+.vr.last{border-bottom:none}
+.vr.flip .vc{order:2}.vr.flip .vm{order:1}
+.vc h3{font-family:var(--serif);font-size:26px;line-height:1.2;margin-bottom:14px}
+.vm{display:flex;justify-content:center;align-items:center}
+.vr-accent{text-align:center}
+.vr-accent .big-num{font-family:var(--font);font-size:72px;font-weight:900;color:var(--pink);opacity:.12;line-height:1;letter-spacing:-4px}
+
+.exb{background:#1a1a1a;border-radius:10px;padding:16px 18px;margin-top:16px;border-left:3px solid var(--pink)}
+.exb .lb{font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--pink);margin-bottom:4px}
+.exb p{font-size:13px;font-style:italic;line-height:1.5;color:#ccc;margin:0}
+
+/* Card stack */
+.stack{display:grid;gap:14px;max-width:720px;margin:0 auto}
+.stack-card{padding:24px;background:#111;border:1px solid #2a2a2a;border-radius:var(--r);border-left:3px solid var(--pink);transition:all .3s}
+.stack-card:hover{box-shadow:0 8px 32px rgba(250,24,150,.06);transform:translateY(-2px)}
+.stack-cat{font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--pink);margin-bottom:6px}
+.stack-name{font-size:17px;font-weight:700;margin-bottom:4px}
+.stack-earn{font-size:14px;color:#555;margin-bottom:4px}
+.stack-note{font-size:12px;color:#aaa;font-style:italic}
+
+/* Scenario */
+.scenario{max-width:620px;margin:0 auto;border:1px solid #2a2a2a;border-radius:var(--r);overflow:hidden}
+.scenario h3{padding:20px 24px;border-bottom:1px solid #2a2a2a;font-size:16px;font-weight:700}
+.sc-row{display:flex;justify-content:space-between;align-items:center;padding:12px 24px;font-size:14px;border-bottom:1px solid #1a1a1a}
+.sc-row span:last-child{font-weight:700;font-family:var(--mono)}
+.sc-row.hot{background:rgba(250,24,150,.04)}.sc-row.hot span{color:var(--pink);font-weight:800}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step}
+.stp{text-align:center;padding:8px 0}
+.stp-n{font-family:var(--font);font-size:48px;font-weight:900;color:var(--pink);opacity:.18;line-height:1;margin-bottom:14px}
+.stp h4{font-size:16px;font-weight:700;margin-bottom:6px}
+.stp p{font-size:13px;color:#888;line-height:1.5}
+
+/* Industry grid */
+
+
+
+
+
+
+
+/* CTA */
+.ctab{background:var(--pink);padding:72px 0;text-align:center}
+.ctab h2{font-size:clamp(22px,3.5vw,36px);font-weight:800;color:#fff;letter-spacing:-.8px;margin-bottom:12px}
+.ctab p{font-size:16px;color:rgba(255,255,255,.7);max-width:480px;margin:0 auto 28px}
+
+/* Proof Carousel */
+.carousel-wrap{overflow:hidden;position:relative;margin:0 -32px}
+.carousel-wrap::before,.carousel-wrap::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none}
+.carousel-wrap::before{left:0;background:linear-gradient(to right,#000,transparent)}
+.carousel-wrap::after{right:0;background:linear-gradient(to left,#000,transparent)}
+.carousel{display:flex;gap:14px;width:max-content;animation:ticker 40s linear infinite}
+.carousel:hover{animation-play-state:paused}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.proof-card{flex:0 0 240px;padding:24px;border-radius:var(--r);border:1px solid #2a2a2a;background:#111}
+.proof-rate{font-family:var(--font);font-size:22px;font-weight:900;color:var(--pink);letter-spacing:-1px;margin-bottom:6px}
+.proof-ind{font-size:14px;font-weight:700;margin-bottom:8px}
+.proof-stat{font-size:12px;color:#888;line-height:1.45}
+
+/* Footer */
+.ft{border-top:1px solid #1a1a1a;padding:24px 0 16px}
+
+/* Responsive */
+@media(max-width:1024px){.vr{gap:40px}}
+@media(max-width:768px){
+
+.wrap{padding:0 24px}
+.hero{padding:100px 0 56px;min-height:70vh;-webkit-background-size:cover;background-attachment:scroll}
+.hero::before{background:rgba(0,0,0,.6)!important}
+.hero h1{font-size:30px;letter-spacing:-1px}
+.hero-sub{font-size:15px}
+.sec{padding:56px 0}
+.hd{font-size:26px}
+.vr{grid-template-columns:1fr;gap:24px;padding:40px 0}
+.vr.flip .vc,.vr.flip .vm{order:unset}
+.vc h3{font-size:22px}
+.vr-accent .big-num{font-size:48px}
+.steps{grid-template-columns:1fr 1fr;gap:16px}
+.stp-n{font-size:36px}
+
+.calc{padding:24px}
+.calc-boxes{grid-template-columns:1fr}
+
+
+.stack-card{padding:18px}
+}
+@media(max-width:480px){
+.hero{padding:90px 0 40px;min-height:65vh}
+.wrap{padding:0 20px}
+.hero h1{font-size:26px}
+.hero-ctas{flex-direction:column;align-items:stretch}.hero-ctas .btn{justify-content:center;text-align:center;padding:16px 32px}
+.steps{grid-template-columns:1fr}
+
+.sec{padding:44px 0}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="nav-in">
+<a href="firstofficer-site.html" class="nl"><div class="nm">FO</div><div><div style="line-height:1.1">First Officer</div><div style="font-size:10px;font-weight:400;letter-spacing:.5px">by <span style="font-weight:700">UpNonStop</span>&trade;</div></div></a>
+<a href="https://wa.me/16199404040" class="ncta" target="_blank">💬 Start on WhatsApp</a>
+</div></nav>
+
+<section class="hero" style="background-image:url('https://images.unsplash.com/photo-1553413077-190dd305871c?w=1600&q=80')">
+<div class="wrap"><div class="hero-c">
+  <div class="hero-badge">First Officer for E-Commerce</div>
+  <h1>Every Package You Ship Is <span class="pk">Earning 3x Points.</span> Are You Capturing Them?</h1>
+  <p class="hero-sub">E-commerce businesses are the highest-earning industry for card optimization. Your shipping, advertising, and software spend all fall into bonus categories. Most store owners earn 1x when they could earn 2.2 to 2.8x.</p>
+  <div class="hero-ctas">
+    <a href="https://wa.me/16199404040" class="btn btn-pk btn-l" target="_blank" style="padding:18px 44px;font-size:17px">Free Spend Audit</a>
+    <a href="#calculator" class="btn btn-ol btn-l" style="padding:18px 44px;font-size:17px">Try the Calculator</a>
+  </div>
+</div></div>
+</section>
+
+<section class="sec alt" id="calculator"><div class="wrap">
+  <div class="sh"><div class="ey">Your numbers</div>
+  <h2 class="hd">See What You're <span class="pk">Leaving Behind</span></h2>
+  <p class="ds">Adjust the sliders to match your monthly business spend. Each category shows which card earns the most and why.</p></div>
+  <div class="calc">
+    <div class="calc-title">Monthly spend calculator</div>
+    <div class="slider-group"><div class="slider-head"><label>Shipping (FedEx, UPS, USPS)</label><span id="v1">$8,000</span></div><input type="range" min="1000" max="50000" value="8000" step="500" id="s1" oninput="calc()"><div class="slider-note">3x on the right business card. shipping is a direct bonus category</div></div>
+    <div class="slider-group"><div class="slider-head"><label>Advertising (Meta, Google, TikTok Ads)</label><span id="v2">$12,000</span></div><input type="range" min="1000" max="60000" value="12000" step="1000" id="s2" oninput="calc()"><div class="slider-note">3x on the right business card or 4x on the right business card (if top category)</div></div>
+    <div class="slider-group"><div class="slider-head"><label>Software & platforms (Shopify, Klaviyo, tools)</label><span id="v3">$2,000</span></div><input type="range" min="200" max="15000" value="2000" step="200" id="s3" oninput="calc()"><div class="slider-note">Typically codes as software. 4x on the right business card if auto-selected</div></div>
+    <div class="slider-group"><div class="slider-head"><label>Inventory & COGS</label><span id="v4">$20,000</span></div><input type="range" min="5000" max="100000" value="20000" step="1000" id="s4" oninput="calc()"><div class="slider-note">Wholesale/retail coding. 2x on the right catch-all card</div></div>
+    <div class="slider-group"><div class="slider-head"><label>Warehouse, rent & overhead</label><span id="v5">$5,000</span></div><input type="range" min="1000" max="20000" value="5000" step="500" id="s5" oninput="calc()"><div class="slider-note">Limited card acceptance. 2x where cards are accepted</div></div>
+    <div class="calc-divider">
+      <div class="calc-total"><span>Total monthly spend</span><span id="total">$47,000</span></div>
+      <div class="calc-boxes">
+        <div class="calc-box cbox-base"><span class="cb-label">Without optimization</span><div class="cb-val" id="without">$0</div><div class="cb-sub">~1x base points / year</div></div>
+        <div class="calc-box cbox-opt"><span class="cb-label">With First Officer</span><div class="cb-val" id="with">$0</div><div class="cb-sub">2.2 to 2.8x optimized / year</div></div>
+      </div>
+      <div class="calc-gap">You're leaving <strong id="gap">$0</strong> per year in unrealized value</div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sh"><div class="ey">The mistakes</div><h2 class="hd">What E-Commerce Get <span class="pk">Wrong</span></h2><p class="ds">These aren't obvious. Nobody in the e-commerce industry talks about points optimization. Here's what we see over and over.</p></div>
+  <div style="padding:44px 0;border-bottom:1px solid #1a1a1a;max-width:680px;margin:0 auto">
+    <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><span style="font-family:var(--font);font-size:42px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1">01</span><h3 style="font-family:var(--serif);font-size:24px;line-height:1.2">Not using a shipping-bonus card for your biggest competitive advantage</h3></div>
+    <p class="t2" style="font-size:15px;line-height:1.7;margin-bottom:16px">E-commerce lives and dies by shipping costs. The right business card earns 3 points per dollar on shipping. FedEx, UPS, USPS, DHL. If you're spending $8,000/month on shipping and using a flat 1x card, you're leaving 192,000 bonus points per year on the floor. That's $2,000 to $4,000 in travel.</p>
+    <div class="exb"><div class="lb">The math</div><p>$8K/month shipping on the right card = 288,000 points/year at 3x vs 96,000 at 1x. Difference: 192,000 points = $2,000 to $4,000.</p></div>
+  </div>
+  <div style="padding:44px 0;border-bottom:1px solid #1a1a1a;max-width:680px;margin:0 auto">
+    <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><span style="font-family:var(--font);font-size:42px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1">02</span><h3 style="font-family:var(--serif);font-size:24px;line-height:1.2">Running Meta and Google Ads on a personal card or basic business card</h3></div>
+    <p class="t2" style="font-size:15px;line-height:1.7;margin-bottom:16px">Digital advertising is one of the few business expenses that earns 3x to 4x on the right card. The right business cards earn 3x to 4x on digital advertising. On $12K/month in ad spend, that's the difference between 12,000 points and 48,000 points. Every month.</p>
+    <div class="exb"><div class="lb">The math</div><p>$12K/month ads at 4x = 576,000 pts/year. At 1x = 144,000. Gap: 432,000 pts = $4,300 to $8,600 in travel value.</p></div>
+  </div>
+  <div style="padding:44px 0;border-bottom:1px solid #1a1a1a;max-width:680px;margin:0 auto">
+    <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><span style="font-family:var(--font);font-size:42px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1">03</span><h3 style="font-family:var(--serif);font-size:24px;line-height:1.2">Paying for Shopify, Klaviyo, and tools on a card that earns 1x</h3></div>
+    <p class="t2" style="font-size:15px;line-height:1.7;margin-bottom:16px">SaaS and software subscriptions often code under the "electronic goods and software" category on Amex. If software is one of your top spending categories, the right card earns 4 points per dollar. Even your Shopify monthly bill starts working harder.</p>
+    <div class="exb"><div class="lb">The math</div><p>$2K/month in SaaS at 4x = 96,000 pts/year vs 24,000 at 1x.</p></div>
+  </div>
+  <div style="padding:44px 0;border-bottom:none;max-width:680px;margin:0 auto">
+    <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><span style="font-family:var(--font);font-size:42px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1">04</span><h3 style="font-family:var(--serif);font-size:24px;line-height:1.2">Treating all inventory purchases the same regardless of vendor</h3></div>
+    <p class="t2" style="font-size:15px;line-height:1.7;margin-bottom:16px">Your inventory costs are likely your biggest line item, and most wholesale suppliers code as general merchandise at 1x. A good catch-all business card earns 2x on everything. For higher volume, you need to split between a points card and a flat cashback card. Every dollar of inventory optimization compounds over 12 months.</p>
+    <div class="exb"><div class="lb">The math</div><p>$20K/month inventory on the right card at 2x = 480,000 pts/year vs 240,000 at 1x.</p></div>
+  </div>
+</div></section>
+
+<section class="sec alt"><div class="wrap" style="max-width:780px">
+  <div class="sh"><div class="ey">How it works</div><h2 class="hd">Your vendors. <span class="pk">Our routing.</span></h2><p class="ds">Every vendor sends a merchant category code (MCC) when you swipe. That code determines your multiplier. The same $5,000 payment earns 5,000 points on the wrong card or 20,000 on the right one. We match every vendor to its highest-earning card.</p></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px">
+  <div style="padding:20px;border-radius:var(--r);border:1px solid #2a2a2a;text-align:center;background:#111"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-1.5px;line-height:1;margin-bottom:6px">MCC</div><div style="font-size:13px;font-weight:600;margin-bottom:4px">Vendor Code Analysis</div><p class="t3" style="font-size:12px;line-height:1.4">We've mapped how your vendors code with card networks. Verified, not guessed.</p></div>
+  <div style="padding:20px;border-radius:var(--r);border:1px solid #2a2a2a;text-align:center;background:#111"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-1.5px;line-height:1;margin-bottom:6px">CAP</div><div style="font-size:13px;font-weight:600;margin-bottom:4px">Spending Cap Tracking</div><p class="t3" style="font-size:12px;line-height:1.4">Every bonus category has annual caps. We shift routing before you hit a ceiling and drop to 1x.</p></div>
+  <div style="padding:20px;border-radius:var(--r);border:1px solid #2a2a2a;text-align:center;background:#111"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-1.5px;line-height:1;margin-bottom:6px">CPP</div><div style="font-size:13px;font-weight:600;margin-bottom:4px">Transfer Partner Math</div><p class="t3" style="font-size:12px;line-height:1.4">Earning is half. We route redemptions to partners where points are worth 2x to 5x more than cash.</p></div>
+  </div>
+  <p style="text-align:center;font-size:13px;color:#666">Your card stack, routing rules, and redemption strategy are built specifically for your vendors and spend. <a href="https://wa.me/16199404040" style="color:var(--pink);font-weight:600" target="_blank">See what yours looks like.</a></p>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sh"><div class="ey">Real math</div>
+  <h2 class="hd">What This Looks Like for a <span class="pk">$47K/Month E-Commerce</span></h2>
+  <p class="ds">Same spend. Different strategy. Different outcome.</p></div>
+  <div class="scenario" style="margin:0 auto">
+    <h3>Annual breakdown</h3>
+    <div class="sc-row"><span>Monthly business spend</span><span>$47,000</span></div>
+    <div class="sc-row"><span>Annual spend</span><span>$564,000</span></div>
+    <div class="sc-row"><span>Points earned (unoptimized, ~1x)</span><span>564,000 pts</span></div>
+    <div class="sc-row"><span>Points earned (First Officer, ~2.5x avg)</span><span>1,410,000 pts</span></div>
+    <div class="sc-row"><span>Signup bonus points (year one)</span><span>~250,000 pts</span></div>
+    <div class="sc-row"><span>Total optimized points (year one)</span><span>1,660,000 pts</span></div>
+    <div class="sc-row"><span>Value at 1 cent/point (statement credit)</span><span>$16,600</span></div>
+    <div class="sc-row hot"><span>Value at 2 to 4 cents/point (travel partners)</span><span>$33,200 to $66,400</span></div>
+  </div>
+  <p style="font-size:12px;color:#666;margin-top:16px;line-height:1.5;text-align:center;max-width:620px;margin-left:auto;margin-right:auto">Hypothetical example for illustration. Actual results vary based on your specific vendors, card products, and redemption choices. This is not financial advice.</p>
+</div></section>
+
+<section class="sec alt"><div class="wrap">
+  <div class="sh"><div class="ey">How it works</div><h2 class="hd">Four Steps to <span class="pk">Full Optimization</span></h2><p class="ds">No apps to download. No spreadsheets. Just a conversation.</p></div>
+  <div class="steps">
+    <div class="stp"><div class="stp-n">01</div><h4>Message us</h4><p>4 questions. Takes 2 minutes.</p></div>
+    <div class="stp"><div class="stp-n">02</div><h4>We map everything</h4><p>Cards, balances, credits, programs.</p></div>
+    <div class="stp"><div class="stp-n">03</div><h4>Get your game plan</h4><p>Card stack, routing rules, bonus calendar.</p></div>
+    <div class="stp"><div class="stp-n">04</div><h4>We watch. You win.</h4><p>Proactive alerts, weekly digests, strategy.</p></div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div style="text-align:center;margin-bottom:32px">
+  <div class="ey">Trusted across industries</div>
+  <p style="font-size:15px;color:#888;max-width:480px;margin:0 auto">The same routing intelligence, applied to 20+ verticals. Different vendors, different MCC codes, same rigorous math.</p>
+  </div>
+  <div class="carousel-wrap">
+  <div class="carousel" id="proofCarousel">
+    <div class="proof-card"><div class="proof-rate">2.2x to 2.8x</div><div class="proof-ind">E-Commerce 📦</div><div class="proof-stat">Shipping + ads + SaaS. Highest ceiling of any vertical.</div></div>
+    <div class="proof-card"><div class="proof-rate">1.8x to 2.3x</div><div class="proof-ind">Law Firms ⚖️</div><div class="proof-stat">Westlaw, travel, and marketing. $4K to $14K/yr recovered.</div></div>
+    <div class="proof-card"><div class="proof-rate">1.6x to 2.0x</div><div class="proof-ind">Contractors 👷🏻</div><div class="proof-stat">Materials at 1x is the killer. We route around it.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.2x to 2.8x</div><div class="proof-ind">Agencies 🎨</div><div class="proof-stat">All digital spend. Ad budgets alone fund annual trips.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.0x to 2.8x</div><div class="proof-ind">Real Estate 🏠</div><div class="proof-stat">Ads-heavy profiles. Google and Zillow spend at 3x to 4x.</div></div>
+    <div class="proof-card"><div class="proof-rate">1.5x to 2.0x</div><div class="proof-ind">Medical 👨🏻‍⚕️</div><div class="proof-stat">Supply distributors code wholesale. We catch the gap.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.0x to 2.5x</div><div class="proof-ind">CPA Firms 🧮</div><div class="proof-stat">Software-heavy. Tax season spend becomes travel budget.</div></div>
+    <div class="proof-card"><div class="proof-rate">1.6x to 2.2x</div><div class="proof-ind">Trucking 🚛</div><div class="proof-stat">Fleet fuel is a goldmine when routed to the right cards.</div></div>
+    <div class="proof-card"><div class="proof-rate">1.8x to 2.2x</div><div class="proof-ind">Restaurants 👨🏻‍🍳</div><div class="proof-stat">Sysco at 1x is the ceiling. We break through it.</div></div>
+    <div class="proof-card"><div class="proof-rate">1.5x to 1.9x</div><div class="proof-ind">Salons 💇🏻‍♀️</div><div class="proof-stat">Product distributors + marketing. Small margins, big points.</div></div>
+    <!-- duplicate for seamless loop -->
+    <div class="proof-card"><div class="proof-rate">2.2x to 2.8x</div><div class="proof-ind">E-Commerce 📦</div><div class="proof-stat">Shipping + ads + SaaS. Highest ceiling of any vertical.</div></div>
+    <div class="proof-card"><div class="proof-rate">1.8x to 2.3x</div><div class="proof-ind">Law Firms ⚖️</div><div class="proof-stat">Westlaw, travel, and marketing. $4K to $14K/yr recovered.</div></div>
+    <div class="proof-card"><div class="proof-rate">1.6x to 2.0x</div><div class="proof-ind">Contractors 👷🏻</div><div class="proof-stat">Materials at 1x is the killer. We route around it.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.2x to 2.8x</div><div class="proof-ind">Agencies 🎨</div><div class="proof-stat">All digital spend. Ad budgets alone fund annual trips.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.0x to 2.8x</div><div class="proof-ind">Real Estate 🏠</div><div class="proof-stat">Ads-heavy profiles. Google and Zillow spend at 3x to 4x.</div></div>
+    <div class="proof-card"><div class="proof-rate">1.5x to 2.0x</div><div class="proof-ind">Medical 👨🏻‍⚕️</div><div class="proof-stat">Supply distributors code wholesale. We catch the gap.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.0x to 2.5x</div><div class="proof-ind">CPA Firms 🧮</div><div class="proof-stat">Software-heavy. Tax season spend becomes travel budget.</div></div>
+    <div class="proof-card"><div class="proof-rate">1.6x to 2.2x</div><div class="proof-ind">Trucking 🚛</div><div class="proof-stat">Fleet fuel is a goldmine when routed to the right cards.</div></div>
+    <div class="proof-card"><div class="proof-rate">1.8x to 2.2x</div><div class="proof-ind">Restaurants 👨🏻‍🍳</div><div class="proof-stat">Sysco at 1x is the ceiling. We break through it.</div></div>
+    <div class="proof-card"><div class="proof-rate">1.5x to 1.9x</div><div class="proof-ind">Salons 💇🏻‍♀️</div><div class="proof-stat">Product distributors + marketing. Small margins, big points.</div></div>
+  </div>
+  </div>
+  <div style="text-align:center;margin-top:20px;font-size:13px;color:#555">Restaurants. HVAC. Dental. Salons. Fitness. Landscaping. Veterinary. IT. Consulting. Cleaning. Property Management. Auto Repair. <span style="color:var(--pink);font-weight:600">And yours.</span></div>
+</div></section>
+
+<section class="ctab"><div class="wrap">
+  <h2>20-Minute Spend Audit. Free.</h2>
+  <p>Message us. We'll tell you exactly what your e-commerce business is leaving on the table.</p>
+  <a href="https://wa.me/16199404040" class="btn btn-pk btn-l" target="_blank" style="background:#fff;color:var(--pink)">💬 Start on WhatsApp</a>
+</div></section>
+
+<footer class="ft"><div class="wrap">
+  <div style="font-size:11px;line-height:1.6;max-width:620px;margin:0 auto 16px;text-align:center;color:#555">First Officer by UpNonStop is an educational tool that helps you understand and get more from your credit card rewards. It is not a licensed financial advisor. All information is for educational purposes only. Individual results vary based on your specific rewards portfolio, spending patterns, and redemption choices.</div>
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+  <a href="firstofficer-site.html" class="nl"><div class="nm">FO</div><div><div style="line-height:1.1;font-size:16px">First Officer</div><div style="font-size:10px;font-weight:400;letter-spacing:.5px">by <span style="font-weight:700">UpNonStop</span>&trade;</div></div></a>
+  <div style="font-size:12px;color:#555">&copy; 2026 UpNonStop &middot; <a href="privacy.html" style="color:#555">Privacy</a> &middot; <a href="terms.html" style="color:#555">Terms</a> &middot; <a href="#" style="color:#555">Do Not Sell My Info</a></div>
+  </div>
+</div></footer>
+
+<script>
+function calc(){
+  var v=[];
+  v[0]=+document.getElementById('s1').value;document.getElementById('v1').textContent='$'+v[0].toLocaleString();
+  v[1]=+document.getElementById('s2').value;document.getElementById('v2').textContent='$'+v[1].toLocaleString();
+  v[2]=+document.getElementById('s3').value;document.getElementById('v3').textContent='$'+v[2].toLocaleString();
+  v[3]=+document.getElementById('s4').value;document.getElementById('v4').textContent='$'+v[3].toLocaleString();
+  v[4]=+document.getElementById('s5').value;document.getElementById('v5').textContent='$'+v[4].toLocaleString();
+  var t=v[0]+v[1]+v[2]+v[3]+v[4];
+  document.getElementById('total').textContent='$'+t.toLocaleString();
+  var base=Math.round(t*12*0.01);
+  var opt=Math.round((v[0]*0.03+v[1]*0.035+v[2]*0.04+v[3]*0.02+v[4]*0.015)*12);
+  document.getElementById('without').textContent='$'+base.toLocaleString();
+  document.getElementById('with').textContent='$'+opt.toLocaleString();
+  document.getElementById('gap').textContent='$'+(opt-base).toLocaleString();
+}
+calc();
+</script>
+</body>
+</html>
