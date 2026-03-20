@@ -320,6 +320,8 @@ body.biz .hero::before{background:rgba(0,0,0,.45)!important}
 .tb{padding:8px 18px;font-size:13px}
 }
 @media(max-width:480px){
+[style*="grid-template-columns:repeat(5"]{grid-template-columns:repeat(2,1fr)!important}
+[style*="grid-template-columns:repeat(2,1fr)"]{grid-template-columns:1fr!important}
 .hero{padding:100px 0 40px}
 .hero::before{background:rgba(255,255,255,.45)!important}
 body.biz .hero::before{background:rgba(0,0,0,.42)!important}
