@@ -101,6 +101,14 @@ a{text-decoration:none;color:inherit}
 .wa-m .v{color:#075E54;font-weight:700}
 .wa-m .t{font-size:7px;opacity:.4;text-align:right;margin-top:1px}
 
+/* Stats strip */
+.stats-strip{background:#111;padding:56px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.stat-card{padding:24px 16px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+.stat-num{font-size:clamp(36px,5vw,52px);font-weight:900;letter-spacing:-2.5px;color:#fff;line-height:1;margin-bottom:6px}
+.stat-label{font-size:12px;font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.stat-desc{font-size:11px;color:rgba(255,255,255,.4);line-height:1.4}
+
 .ctab{background:var(--pink);padding:72px 0;text-align:center;margin-top:48px}
 .ctab h2{font-size:clamp(24px,3.5vw,38px);font-weight:800;color:#fff;letter-spacing:-.8px;line-height:1.15;margin-bottom:12px}
 .ctab p{font-size:16px;color:rgba(255,255,255,.7);max-width:480px;margin:0 auto 28px;line-height:1.7}
@@ -123,6 +131,9 @@ a{text-decoration:none;color:inherit}
 
 .tc-features{text-align:left;max-width:300px;margin:0 auto}
 .hero{padding:110px 0 24px}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+.stat-card{padding:18px 12px}
+.stat-num{font-size:32px}
 .tc-start::before{right:20px;top:-13px;font-size:9px}
 .tc-from{font-size:9px;padding:4px 12px;top:-13px}
 .pink-line{height:32px}
@@ -157,10 +168,29 @@ a{text-decoration:none;color:inherit}
 </div></section>
 
 <!-- Value proof strip -->
-<div style="background:#fff;border-top:1px solid #eee;border-bottom:1px solid #eee;padding:28px 0"><div class="wrap" style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;text-align:center">
-<div><div style="font-size:28px;font-weight:900;letter-spacing:-1.5px;color:#111">4.2x</div><div style="font-size:12px;color:#999;margin-top:2px">more value from the same points with the right transfer partner</div></div>
-<div><div style="font-size:28px;font-weight:900;letter-spacing:-1.5px;color:#111">$500+</div><div style="font-size:12px;color:#999;margin-top:2px">in credits and benefits most cardholders never use each year</div></div>
-<div><div style="font-size:28px;font-weight:900;letter-spacing:-1.5px;color:#111">24/7</div><div style="font-size:12px;color:#999;margin-top:2px">monitoring across every card, every program, every deadline</div></div>
+<div class="stats-strip"><div class="wrap">
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-num" data-count="4.2" data-suffix="x" data-decimals="1">0x</div>
+<div class="stat-label">more value</div>
+<div class="stat-desc">from the same points with the right transfer partner</div>
+</div>
+<div class="stat-card">
+<div class="stat-num" data-count="500" data-prefix="$" data-suffix="+">$0</div>
+<div class="stat-label">in unused credits</div>
+<div class="stat-desc">benefits most cardholders never touch each year</div>
+</div>
+<div class="stat-card">
+<div class="stat-num" data-count="10">0</div>
+<div class="stat-label">AI specialists</div>
+<div class="stat-desc">monitoring every card, every program, every deadline</div>
+</div>
+<div class="stat-card">
+<div class="stat-num" data-count="629" data-suffix="+">0</div>
+<div class="stat-label">loyalty programs</div>
+<div class="stat-desc">tracked across airlines, hotels, banks, and partners</div>
+</div>
+</div>
 </div></div>
 
 <div style="padding:32px 0 0"><div class="wrap">
@@ -415,6 +445,37 @@ setTimeout(function(){body.scrollTop=body.scrollHeight;},450);
 },{threshold:0.15});
 
 document.querySelectorAll('.tier-card').forEach(function(c){obs.observe(c)});
+
+// Animated counters
+var counted=false;
+var cobs=new IntersectionObserver(function(entries){
+if(counted)return;
+entries.forEach(function(e){
+if(e.isIntersecting){
+counted=true;
+document.querySelectorAll('.stat-num').forEach(function(el){
+var target=parseFloat(el.dataset.count);
+var prefix=el.dataset.prefix||'';
+var suffix=el.dataset.suffix||'';
+var decimals=parseInt(el.dataset.decimals)||0;
+var duration=1600;
+var start=0;
+var startTime=null;
+function ease(t){return t<0.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+function step(ts){
+if(!startTime)startTime=ts;
+var progress=Math.min((ts-startTime)/duration,1);
+var val=start+(target-start)*ease(progress);
+el.textContent=prefix+(decimals>0?val.toFixed(decimals):Math.round(val).toLocaleString())+suffix;
+if(progress<1)requestAnimationFrame(step);
+}
+requestAnimationFrame(step);
+});
+}
+});
+},{threshold:0.3});
+var strip=document.querySelector('.stats-strip');
+if(strip)cobs.observe(strip);
 </script>
 </body>
 </html>
