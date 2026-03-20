@@ -83,11 +83,10 @@ a{text-decoration:none;color:inherit}
 .wa-av{width:26px;height:26px;background:var(--pink);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:9px;font-weight:800}
 .wa-nm{color:#fff;font-size:11px;font-weight:600}
 .wa-st{color:rgba(255,255,255,.5);font-size:9px}
-.wa-b{background:#ECE5DD;padding:8px;height:340px;overflow-y:scroll;scroll-behavior:smooth;-ms-overflow-style:none;scrollbar-width:none}
+.wa-b{background:#ECE5DD;padding:8px;height:340px;overflow:hidden}
 
 
 
-.wa-b::-webkit-scrollbar{display:none}
 .wa-m{max-width:82%;font-size:10.5px;line-height:1.45;word-wrap:break-word;padding:6px 9px;margin-bottom:4px;opacity:0;transition:opacity .3s ease}
 .wa-m.fo{background:#DCF8C6;border-radius:0 8px 8px 8px;margin-right:auto}
 .wa-m.u{background:#fff;border-radius:8px 0 8px 8px;margin-left:auto}
@@ -352,14 +351,28 @@ d.innerHTML=html;
 return d;
 }
 
+var greetings=[
+'How can I help today?',
+'What are you working on?',
+'Hey! What can I look into for you?',
+'Good to see you. What is on your mind?',
+'Ready when you are. What do you need?'
+];
 function loadChat(id,tier){
 var body=document.getElementById(id);
 var msgs=pick(CHATS[tier]);
+if(msgs[0].r===U){
+var g=mkMsg(V(F,pick(greetings),'',''));
+g.classList.add('first');
+body.appendChild(g);
+msgs.forEach(function(m){body.appendChild(mkMsg(m));});
+}else{
 msgs.forEach(function(m,i){
 var el=mkMsg(m);
 if(i===0)el.classList.add('first');
 body.appendChild(el);
 });
+}
 }
 
 loadChat('wb-free','free');
@@ -368,6 +381,16 @@ loadChat('wb-classic','classic');
 loadChat('wb-select','select');
 loadChat('wb-reserve','reserve');
 
+function smoothScroll(el){
+var target=el.scrollHeight;
+var current=el.scrollTop;
+var diff=target-current;
+if(diff<=0)return;
+var step=diff/8;
+if(step<1)step=1;
+el.scrollTop=current+step;
+if(el.scrollTop<target)requestAnimationFrame(function(){smoothScroll(el)});
+}
 var obs=new IntersectionObserver(function(entries){
 entries.forEach(function(e){
 if(e.isIntersecting&&!e.target.dataset.started){
@@ -377,7 +400,7 @@ var msgs=e.target.querySelectorAll('.wa-m:not(.first)');
 msgs.forEach(function(m,i){
 setTimeout(function(){
 m.classList.add('show');
-body.scrollTop=body.scrollHeight;
+smoothScroll(body);
 },(i+1)*1400);
 });
 }
