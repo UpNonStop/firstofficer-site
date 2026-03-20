@@ -28,31 +28,26 @@ a{text-decoration:none;color:inherit}
 
 .wrap{max-width:1140px;margin:0 auto;padding:0 32px}
 
-/* Hero */
 .hero{padding:140px 0 40px;text-align:center;background:#fff}
 .hero h1{font-family:var(--serif);font-size:clamp(32px,5vw,56px);line-height:1.08;letter-spacing:-.5px;margin-bottom:16px}
 .hero p{font-size:18px;color:#555;max-width:520px;margin:0 auto;line-height:1.7}
 .hero-sub{font-size:13px;color:#999;margin-top:24px;display:flex;align-items:center;justify-content:center;gap:8px}
 .hero-sub span{width:40px;height:1px;background:#ddd}
 
-/* Pink connecting line */
-.pink-line{width:2px;height:40px;background:var(--pink);margin:0 auto;opacity:.35}
+.pink-line{width:2px;height:48px;background:var(--pink);margin:0 auto;opacity:.35}
 
-/* Tier cards */
 .tier-card{max-width:920px;margin:0 auto;background:#fff;border-radius:20px;padding:40px 44px;transition:box-shadow .3s;position:relative}
 .tier-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.04)}
-.tier-card-in{display:grid;grid-template-columns:1fr 340px;gap:40px;align-items:start}
-.tier-card-in.flip{grid-template-columns:340px 1fr}
+.tier-card-in{display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:start}
+.tier-card-in.flip{grid-template-columns:320px 1fr}
 .tier-card-in.flip .tc-text{order:2}.tier-card-in.flip .tc-demo{order:1}
 
-/* Color borders */
 .tc-free{border:1px solid #E5E7EB;border-left:3px solid #9CA3AF}
 .tc-light{border:1px solid #BFDBFE;border-left:3px solid #3B82F6}
 .tc-classic{border:1px solid #99F6E4;border-left:3px solid #0D9488}
 .tc-select{border:1px solid #C4B5FD;border-left:3px solid #7C3AED}
 .tc-reserve{border:1px solid rgba(250,24,150,.25);border-left:3px solid var(--pink)}
 
-/* Badges */
 .tc-badge{display:inline-flex;padding:5px 14px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px}
 .tc-free .tc-badge{background:#F3F4F6;color:#6B7280}
 .tc-light .tc-badge{background:#EFF6FF;color:#3B82F6}
@@ -66,15 +61,12 @@ a{text-decoration:none;color:inherit}
 .tc-text h2{font-family:var(--serif);font-size:26px;line-height:1.15;margin-bottom:12px}
 .tc-text p{font-size:14px;color:#666;line-height:1.7;margin-bottom:16px}
 
-/* Most start here */
 .tc-start{position:relative}
 .tc-start::before{content:'Most people start here';position:absolute;top:-14px;right:44px;background:#0D9488;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 14px;border-radius:100px;z-index:3}
 
-/* Connector pill on card */
 .tc-from{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid rgba(250,24,150,.25);padding:5px 16px;border-radius:100px;font-size:11px;color:#999;font-weight:500;white-space:nowrap;z-index:2}
 .tc-from em{font-style:normal;color:var(--pink);font-weight:600}
 
-/* Features */
 .tc-features{list-style:none;padding:0;margin:0}
 .tc-features li{font-size:13px;padding:5px 0;padding-left:24px;position:relative;color:#555}
 .tc-features li::before{content:'\2713';position:absolute;left:0;font-weight:700;font-size:12px}
@@ -85,25 +77,25 @@ a{text-decoration:none;color:inherit}
 .tc-reserve .tc-features li::before{color:var(--pink)}
 .tier-new{display:inline-block;font-size:9px;font-weight:700;background:var(--pink);color:#fff;padding:2px 7px;border-radius:100px;margin-left:5px;letter-spacing:.3px;text-transform:uppercase;vertical-align:middle}
 
-/* WhatsApp mockup — compact */
+/* WhatsApp mockup */
 .wa{width:100%;max-width:320px;border-radius:14px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.07);border:1px solid #e8e9ed}
 .wa-h{background:#075E54;padding:9px 12px;display:flex;align-items:center;gap:8px}
 .wa-av{width:26px;height:26px;background:var(--pink);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:9px;font-weight:800}
 .wa-nm{color:#fff;font-size:11px;font-weight:600}
 .wa-st{color:rgba(255,255,255,.5);font-size:9px}
-.wa-b{background:#ECE5DD;padding:8px;max-height:380px;overflow:hidden;position:relative}
-.wa-b::after{content:'';position:absolute;bottom:0;left:0;right:0;height:24px;background:linear-gradient(transparent,#ECE5DD);pointer-events:none}
+.wa-b{background:#ECE5DD;padding:8px;height:360px;overflow-y:auto;scroll-behavior:smooth}
+.wa-b::-webkit-scrollbar{width:3px}
+.wa-b::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px}
 
-/* Messages — hidden by default, revealed by JS */
-.wa-m{max-width:82%;padding:5px 8px;border-radius:6px;font-size:10.5px;line-height:1.45;margin-bottom:3px;opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.wa-m{max-width:82%;padding:6px 9px;font-size:10.5px;line-height:1.45;margin-bottom:4px;word-wrap:break-word;opacity:0;transform:translateY(6px);transition:opacity .35s ease,transform .35s ease}
+.wa-m.fo{background:#DCF8C6;border-radius:0 8px 8px 8px;margin-right:auto}
+.wa-m.u{background:#fff;border-radius:8px 0 8px 8px;margin-left:auto}
+.wa-m.first{opacity:1;transform:none}
 .wa-m.show{opacity:1;transform:translateY(0)}
-.wa-m.fo{background:#DCF8C6;border-radius:6px 6px 6px 2px;margin-right:auto}
-.wa-m.u{background:#fff;border-radius:6px 6px 2px 6px;margin-left:auto}
 .wa-m .ag{color:var(--pink);font-weight:700;font-size:9px;display:block;margin-bottom:1px}
 .wa-m .v{color:#075E54;font-weight:700}
 .wa-m .t{font-size:7px;opacity:.4;text-align:right;margin-top:1px}
 
-/* CTA */
 .ctab{background:var(--pink);padding:72px 0;text-align:center;margin-top:48px}
 .ctab h2{font-size:clamp(24px,3.5vw,38px);font-weight:800;color:#fff;letter-spacing:-.8px;line-height:1.15;margin-bottom:12px}
 .ctab p{font-size:16px;color:rgba(255,255,255,.7);max-width:480px;margin:0 auto 28px;line-height:1.7}
@@ -118,21 +110,22 @@ a{text-decoration:none;color:inherit}
 
 @media(max-width:768px){
 .nk{display:none}.mob{display:flex}
-.tier-card{padding:24px 20px;margin:0 auto;border-radius:16px}
+.tier-card{padding:24px 20px;border-radius:16px}
 .tier-card-in,.tier-card-in.flip{grid-template-columns:1fr;gap:20px;text-align:center}
 .tier-card-in .tc-text,.tier-card-in .tc-demo{order:unset!important}
 .wa{margin:0 auto;max-width:280px}
+.wa-b{height:320px}
 .tc-features{text-align:left;max-width:300px;margin:0 auto}
 .hero{padding:110px 0 24px}
 .tc-start::before{right:20px;top:-13px;font-size:9px}
 .tc-from{font-size:9px;padding:4px 12px;top:-13px}
-.tc-text h2{font-size:22px}
-.pink-line{height:28px}
+.pink-line{height:32px}
 }
 @media(max-width:480px){
 .wrap{padding:0 16px}
 .wa{max-width:100%}
-.tier-card{padding:22px 18px;border-radius:14px}
+.tc-text h2{font-size:22px}
+.tier-card{padding:22px 18px}
 }
 </style>
 </head>
@@ -147,7 +140,7 @@ a{text-decoration:none;color:inherit}
 <a href="firstofficer-site.html#pricing" class="nka">Pricing</a>
 <a href="firstofficer-site.html#about" class="nka">About</a>
 </div>
-<a href="https://wa.me/16199404040" class="ncta" target="_blank">💬 Start on WhatsApp</a>
+<a href="https://wa.me/16199404040" class="ncta" target="_blank">&#x1F4AC; Start on WhatsApp</a>
 <button class="mob" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </div></nav>
 
@@ -159,8 +152,8 @@ a{text-decoration:none;color:inherit}
 
 <div style="padding:16px 0 0"><div class="wrap">
 
-<!-- ====== FREE ====== -->
-<div class="tier-card tc-free" data-chat>
+<!-- FREE -->
+<div class="tier-card tc-free" id="chat-free">
 <div class="tier-card-in flip">
 <div class="tc-text">
 <div class="tc-badge">Free</div>
@@ -176,26 +169,14 @@ a{text-decoration:none;color:inherit}
 </div>
 <div class="tc-demo">
 <div class="wa"><div class="wa-h"><div class="wa-av">FO</div><div><div class="wa-nm">First Officer</div><div class="wa-st">online</div></div></div>
-<div class="wa-b">
-<div class="wa-m fo"><span class="ag">Scout</span>Welcome! I help you get more from your credit cards and points. Let me learn about you. What cards do you have?<div class="t">9:00 AM</div></div>
-<div class="wa-m u">Chase Sapphire Preferred and an Amex Gold<div class="t">9:02 AM</div></div>
-<div class="wa-m fo">Great combo. Any others? Even ones you barely use?<div class="t">9:02 AM</div></div>
-<div class="wa-m u">Oh yeah, a Capital One cashback I forgot about<div class="t">9:03 AM</div></div>
-<div class="wa-m fo">That one matters too. What loyalty programs?<div class="t">9:03 AM</div></div>
-<div class="wa-m u">United MileagePlus, Marriott, some Amex points<div class="t">9:04 AM</div></div>
-<div class="wa-m fo">Last one: any trips planned in the next year?<div class="t">9:04 AM</div></div>
-<div class="wa-m u">Thinking about London in the fall<div class="t">9:05 AM</div></div>
-<div class="wa-m fo"><span class="ag">Snapshot</span>You have an estimated <span class="v">142,000 points</span> across 3 programs worth roughly <span class="v">$2,800 to $4,200</span>. London is very doable. Your biggest gap? That Capital One card is earning you almost nothing.<div class="t">9:06 AM</div></div>
-<div class="wa-m u">Wait, I can actually get to London on points?<div class="t">9:07 AM</div></div>
-<div class="wa-m fo">Easily. You already have most of what you need. Want to see how?<div class="t">9:07 AM</div></div>
-</div></div>
+<div class="wa-b" id="wb-free"></div></div>
 </div>
 </div></div>
 
-<div class="pink-line" style="height:48px"></div>
+<div class="pink-line"></div>
 
-<!-- ====== LIGHT ====== -->
-<div class="tier-card tc-light" data-chat>
+<!-- LIGHT -->
+<div class="tier-card tc-light" id="chat-light">
 <div class="tc-from">Everything in Free, plus <em>real-time Q&amp;A</em></div>
 <div class="tier-card-in">
 <div class="tc-text">
@@ -212,26 +193,14 @@ a{text-decoration:none;color:inherit}
 </div>
 <div class="tc-demo">
 <div class="wa"><div class="wa-h"><div class="wa-av">FO</div><div><div class="wa-nm">First Officer</div><div class="wa-st">online</div></div></div>
-<div class="wa-b">
-<div class="wa-m u">Should I transfer Amex MR to Delta or book through the Amex portal?<div class="t">2:15 PM</div></div>
-<div class="wa-m fo">Depends on the route. Where are you going?<div class="t">2:15 PM</div></div>
-<div class="wa-m u">NYC to London. 2 people. Economy<div class="t">2:16 PM</div></div>
-<div class="wa-m fo">Checking both options now.<div class="t">2:16 PM</div></div>
-<div class="wa-m fo">Amex portal: 100K points for 2 tickets. That is 1 cent per point.<div class="t">2:17 PM</div></div>
-<div class="wa-m fo">Transfer to Virgin Atlantic: <span class="v">60K points total</span> for the same flights. That is 2.7 cents per point.<div class="t">2:17 PM</div></div>
-<div class="wa-m u">Same flights, 40% fewer points?<div class="t">2:18 PM</div></div>
-<div class="wa-m fo">Exactly. The 40K you save is worth another <span class="v">$600 to $1,000</span> on a future trip.<div class="t">2:18 PM</div></div>
-<div class="wa-m u">Transferring now<div class="t">2:19 PM</div></div>
-<div class="wa-m fo">One thing: Virgin transfers take about 24 hours. Do it today, book tomorrow. I can remind you.<div class="t">2:19 PM</div></div>
-<div class="wa-m u">Yes please<div class="t">2:20 PM</div></div>
-</div></div>
+<div class="wa-b" id="wb-light"></div></div>
 </div>
 </div></div>
 
-<div class="pink-line" style="height:48px"></div>
+<div class="pink-line"></div>
 
-<!-- ====== CLASSIC ====== -->
-<div class="tier-card tc-classic tc-start" data-chat>
+<!-- CLASSIC -->
+<div class="tier-card tc-classic tc-start" id="chat-classic">
 <div class="tc-from">Everything in Light, plus <em>proactive alerts</em></div>
 <div class="tier-card-in flip">
 <div class="tc-text">
@@ -250,32 +219,21 @@ a{text-decoration:none;color:inherit}
 </div>
 <div class="tc-demo">
 <div class="wa"><div class="wa-h"><div class="wa-av">FO</div><div><div class="wa-nm">First Officer</div><div class="wa-st">online</div></div></div>
-<div class="wa-b">
-<div class="wa-m fo"><span class="ag">Ranger</span>Heads up. Your <span class="v">$300 Amex airline credit</span> expires in 22 days. You have not used it this year.<div class="t">8:00 AM</div></div>
-<div class="wa-m u">Seriously? I totally forgot<div class="t">8:12 AM</div></div>
-<div class="wa-m fo">Happens to everyone. Buy a Southwest gift card through the Amex portal. Counts as airline incidental. Takes 3 minutes.<div class="t">8:12 AM</div></div>
-<div class="wa-m u">Just did it. $300 saved<div class="t">8:18 AM</div></div>
-<div class="wa-m fo">Also: your 18,000 Hilton points expire in 45 days.<div class="t">8:18 AM</div></div>
-<div class="wa-m u">How do I keep them?<div class="t">8:20 AM</div></div>
-<div class="wa-m fo">Buy a $1 Amazon gift card through the Hilton shopping portal. Resets the clock 12 months.<div class="t">8:20 AM</div></div>
-<div class="wa-m u">Done. What else am I missing?<div class="t">8:22 AM</div></div>
-<div class="wa-m fo"><span class="ag">Weekly Pulse</span>This week: 3,200 pts earned. Portfolio: <span class="v">145,200</span>. No expirations next 30 days. One new transfer bonus detected.<div class="t">Mon 7:00 AM</div></div>
-<div class="wa-m u">I love this<div class="t">Mon 7:15 AM</div></div>
-</div></div>
+<div class="wa-b" id="wb-classic"></div></div>
 </div>
 </div></div>
 
-<div class="pink-line" style="height:48px"></div>
+<div class="pink-line"></div>
 
-<!-- ====== SELECT ====== -->
-<div class="tier-card tc-select" data-chat>
+<!-- SELECT -->
+<div class="tier-card tc-select" id="chat-select">
 <div class="tc-from">Everything in Classic, plus <em>active optimization</em></div>
 <div class="tier-card-in">
 <div class="tc-text">
 <div class="tc-badge">Select</div>
 <div class="tc-price"><strong>$39</strong> <span>/ month</span></div>
 <h2>Now we see your spending.<br>And fix it.</h2>
-<p>Connect your bank and we analyze every transaction. Card Whisperer tells you which purchases went on the wrong card. Bonus Hunter tracks signup bonus progress.</p>
+<p>Connect your bank and we analyze every transaction. Card Whisperer shows which purchases went on the wrong card. Bonus Hunter tracks signup bonus progress.</p>
 <ul class="tc-features">
 <li>2 accounts (you + partner) <span class="tier-new">New</span></li>
 <li>Bank spend categorization <span class="tier-new">New</span></li>
@@ -287,25 +245,14 @@ a{text-decoration:none;color:inherit}
 </div>
 <div class="tc-demo">
 <div class="wa"><div class="wa-h"><div class="wa-av">FO</div><div><div class="wa-nm">First Officer</div><div class="wa-st">online</div></div></div>
-<div class="wa-b">
-<div class="wa-m fo"><span class="ag">Card Whisperer</span>Monthly report. Last month <span class="v">68%</span> of your spend went on the wrong card.<div class="t">7:45 AM</div></div>
-<div class="wa-m u">68%? What am I doing wrong?<div class="t">7:48 AM</div></div>
-<div class="wa-m fo">Groceries on Sapphire (1x). Should be Gold (4x). That is $120/month at the wrong rate.<div class="t">7:48 AM</div></div>
-<div class="wa-m fo">Gas on Platinum (1x). Should be Freedom Flex (5x this quarter).<div class="t">7:49 AM</div></div>
-<div class="wa-m fo">Three streaming services on the wrong card. Move to Gold for 4x.<div class="t">7:49 AM</div></div>
-<div class="wa-m u">How much is that costing me?<div class="t">7:50 AM</div></div>
-<div class="wa-m fo">About <span class="v">$47/month</span> in missed value. $564/year.<div class="t">7:50 AM</div></div>
-<div class="wa-m u">All from just using the wrong card?<div class="t">7:51 AM</div></div>
-<div class="wa-m fo">Exactly. Most of it is just the groceries swap. Takes 30 seconds to fix.<div class="t">7:51 AM</div></div>
-<div class="wa-m fo"><span class="ag">Bonus Hunter</span>Your Amex Gold is at <span class="v">$3,200 of $4,000</span> min spend. 24 days left. Route groceries there and you hit the 60K bonus automatically.<div class="t">7:52 AM</div></div>
-</div></div>
+<div class="wa-b" id="wb-select"></div></div>
 </div>
 </div></div>
 
-<div class="pink-line" style="height:48px"></div>
+<div class="pink-line"></div>
 
-<!-- ====== RESERVE ====== -->
-<div class="tier-card tc-reserve" data-chat>
+<!-- RESERVE -->
+<div class="tier-card tc-reserve" id="chat-reserve">
 <div class="tc-from">Everything in Select, plus <em>full strategy team</em></div>
 <div class="tier-card-in flip">
 <div class="tc-text">
@@ -326,30 +273,17 @@ a{text-decoration:none;color:inherit}
 </div>
 <div class="tc-demo">
 <div class="wa"><div class="wa-h"><div class="wa-av">FO</div><div><div class="wa-nm">First Officer</div><div class="wa-st">online</div></div></div>
-<div class="wa-b">
-<div class="wa-m u">Family trip. Maui in December. 4 people, 7 nights. What can we do?<div class="t">10:00 AM</div></div>
-<div class="wa-m fo"><span class="ag">Optioneer</span>Checking 3 programs. Give me a minute.<div class="t">10:01 AM</div></div>
-<div class="wa-m fo">Option 1: Hyatt Regency Maui. <span class="v">175K pts</span>. You have 180K. Covered.<div class="t">10:02 AM</div></div>
-<div class="wa-m fo">Option 2: Marriott Wailea. 350K pts. Short 80K.<div class="t">10:02 AM</div></div>
-<div class="wa-m fo">Option 3: Cash. $4,200 to $6,100.<div class="t">10:03 AM</div></div>
-<div class="wa-m u">Hyatt. We have enough?<div class="t">10:04 AM</div></div>
-<div class="wa-m fo"><span class="ag">Commander</span>Almost. Transfer 25K Chase UR to Hyatt. Takes 24-48 hrs. Book by Nov 1 for December.<div class="t">10:04 AM</div></div>
-<div class="wa-m u">Do it<div class="t">10:05 AM</div></div>
-<div class="wa-m fo"><span class="ag">Planner</span>Playbook sent. Step 1: Transfer 25K today. Step 2: Book Dec 18-25. Step 3: Request ocean view at check-in (Globalist perk). I will message you at each step.<div class="t">10:06 AM</div></div>
-<div class="wa-m u">This is incredible<div class="t">10:07 AM</div></div>
-<div class="wa-m fo">That is a <span class="v">$4,800 vacation</span> for zero dollars out of pocket. Points you already had.<div class="t">10:07 AM</div></div>
-</div></div>
+<div class="wa-b" id="wb-reserve"></div></div>
 </div>
 </div></div>
 
 </div></div>
 
-<!-- CTA -->
 <section class="ctab"><div class="wrap">
 <h2>Start free. See what we find.</h2>
 <p>4 questions on WhatsApp. Your first portfolio snapshot in 24 hours. Upgrade whenever you want.</p>
 <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-<a href="https://wa.me/16199404040" class="btn btn-l" style="background:#25D366;color:#fff;border-radius:100px;box-shadow:0 6px 24px rgba(37,211,102,.3)" target="_blank">💬 Start on WhatsApp</a>
+<a href="https://wa.me/16199404040" class="btn btn-l" style="background:#25D366;color:#fff;border-radius:100px;box-shadow:0 6px 24px rgba(37,211,102,.3)" target="_blank">&#x1F4AC; Start on WhatsApp</a>
 <a href="firstofficer-site.html#pricing" class="btn btn-l" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.35);border-radius:100px">See Pricing</a>
 </div>
 <p style="margin-top:20px;font-size:12px;color:rgba(255,255,255,.5)">Running a business? <a href="product-business.html" style="color:#fff;font-weight:600;text-decoration:underline">See the Business product</a></p>
@@ -363,27 +297,93 @@ a{text-decoration:none;color:inherit}
 <script>
 function toggleMob(){var l=document.querySelector('.nk');if(l.style.display==='flex'){l.style.display='none';return}l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='68px';l.style.left='0';l.style.right='0';l.style.background='rgba(255,255,255,.96)';l.style.backdropFilter='blur(20px)';l.style.padding='24px 32px';l.style.gap='16px';l.style.boxShadow='0 8px 24px rgba(0,0,0,.08)';l.style.borderBottom='1px solid #eee'}
 
-// Animate chat messages when card scrolls into view
-var observer=new IntersectionObserver(function(entries){
-entries.forEach(function(entry){
-if(entry.isIntersecting&&!entry.target.dataset.started){
-entry.target.dataset.started='1';
-var msgs=entry.target.querySelectorAll('.wa-m');
-var body=entry.target.querySelector('.wa-b');
+var V=function(r,t,a,h){return{r:r,t:t,a:a||'',h:h||''}};
+var F='fo',U='u';
+
+var CHATS={
+free:[
+[V(F,'Welcome! I help you get more from your credit cards and points. What cards do you have?','Scout','9:00 AM'),V(U,'Chase Sapphire Preferred and an Amex Gold','','9:02 AM'),V(F,'Great combo. Any others? Even ones you barely use?','','9:02 AM'),V(U,'A Capital One cashback I forgot about','','9:03 AM'),V(F,'That one matters too. What loyalty programs?','','9:03 AM'),V(U,'United MileagePlus, Marriott, some Amex points','','9:04 AM'),V(F,'Last one: any trips planned in the next year?','','9:04 AM'),V(U,'Thinking about London in the fall','','9:05 AM'),V(F,'Your snapshot is ready. You have an estimated <span class="v">142,000 points</span> across 3 programs worth <span class="v">$2,800 to $4,200</span>. London is very doable. Your biggest gap? That Capital One is earning you almost nothing.','Snapshot','9:06 AM'),V(U,'Wait I can actually get to London on points?','','9:07 AM'),V(F,'Easily. You already have most of what you need.','','9:07 AM')],
+[V(F,'Welcome to First Officer! Let me map your points world. What credit cards do you carry?','Scout','10:00 AM'),V(U,'Amex Platinum and a Chase Freedom','','10:01 AM'),V(F,'Good start. Any hotel or airline cards?','','10:01 AM'),V(U,'Marriott Bonvoy Boundless','','10:02 AM'),V(F,'What programs do you collect points in?','','10:02 AM'),V(U,'Marriott and whatever Amex points are','','10:03 AM'),V(F,'Those are Membership Rewards. Very flexible. Any dream trips?','','10:03 AM'),V(U,'Japan next year if possible','','10:04 AM'),V(F,'Snapshot ready. <span class="v">218,000 points</span> across 2 programs. Worth <span class="v">$3,600 to $8,700</span>. Japan business class is in range. You are sitting on more value than you think.','Snapshot','10:05 AM'),V(U,'Business class to Japan? Seriously?','','10:06 AM'),V(F,'ANA business class via Virgin Atlantic. 90K Amex MR round-trip. You have 120K. Want the details?','','10:06 AM')],
+[V(F,'Hey there! I am your First Officer. Let me learn about your setup. What cards do you have?','Scout','8:00 AM'),V(U,'Just a Citi Double Cash and an old Delta card','','8:02 AM'),V(F,'Any loyalty program memberships?','','8:02 AM'),V(U,'Delta SkyMiles I guess? Never really use them','','8:03 AM'),V(F,'How much do you spend per month roughly?','','8:03 AM'),V(U,'Maybe $3,000 to $4,000 total','','8:04 AM'),V(F,'Any travel goals?','','8:04 AM'),V(U,'Would love to take my wife to Italy someday','','8:05 AM'),V(F,'Snapshot ready. You have <span class="v">47,000 SkyMiles</span> plus about <span class="v">$600/year</span> in missed bonus categories. Italy is 2 card signups away. The Double Cash is fine but you are leaving serious value on the table.','Snapshot','8:06 AM'),V(U,'Two card signups and I can fly to Italy?','','8:07 AM'),V(F,'Welcome bonuses alone could get you there. Want me to show you which cards?','','8:07 AM')],
+[V(F,'Welcome! Quick portfolio mapping. What cards do you currently carry?','Scout','11:00 AM'),V(U,'Southwest Priority and a Bank of America card','','11:01 AM'),V(F,'Any other programs? Hotels? Airlines?','','11:01 AM'),V(U,'Southwest Rapid Rewards. That is about it','','11:02 AM'),V(F,'How about travel plans?','','11:02 AM'),V(U,'We fly Southwest a lot domestically. 4-5 trips a year','','11:03 AM'),V(F,'Snapshot ready. <span class="v">62,000 Rapid Rewards</span> points. Worth about <span class="v">$870</span> in Southwest flights. But your Bank of America card is earning 1% on everything. That spend could be earning <span class="v">3x to 5x</span> in the right categories.','Snapshot','11:04 AM'),V(U,'I had no idea it was that much difference','','11:05 AM'),V(F,'Most people are earning a third of what they could. A simple card swap changes everything.','','11:05 AM')],
+[V(F,'Hi! Let me build your points picture. What cards are in your wallet right now?','Scout','3:00 PM'),V(U,'Amex Gold, Chase Sapphire Reserve, Amazon Prime Visa','','3:01 PM'),V(F,'Strong lineup. What about loyalty programs?','','3:01 PM'),V(U,'Hyatt, United, Amex MR, Chase UR','','3:02 PM'),V(F,'You are in the big leagues. Any trips on the radar?','','3:02 PM'),V(U,'Maldives for our anniversary next year','','3:03 PM'),V(F,'Snapshot ready. <span class="v">340,000 points</span> across 4 programs. Worth <span class="v">$5,100 to $13,600</span>. The Maldives? You can do 5 nights at the Park Hyatt for <span class="v">150K Hyatt points</span>. You already have them.','Snapshot','3:04 PM'),V(U,'We already have enough for the Maldives??','','3:05 PM'),V(F,'More than enough. Transfer 25K Chase UR to Hyatt and you are booked. The hard part is picking your water villa.','','3:05 PM')]
+],
+light:[
+[V(U,'Should I transfer Amex MR to Delta or book through the Amex portal?','','2:15 PM'),V(F,'Depends on the route. Where are you going?','','2:15 PM'),V(U,'NYC to London. 2 people. Economy','','2:16 PM'),V(F,'Checking both options.','','2:16 PM'),V(F,'Amex portal: 100K points for 2 tickets. That is 1 cent per point.','','2:17 PM'),V(F,'Transfer to Virgin Atlantic: <span class="v">60K points total</span> for the same flights. 2.7 cents per point.','','2:17 PM'),V(U,'Same flights, 40% fewer points?','','2:18 PM'),V(F,'Exactly. The 40K you save is worth another <span class="v">$600 to $1,000</span> on a future trip.','','2:18 PM'),V(U,'Transferring now','','2:19 PM'),V(F,'Virgin transfers take about 24 hours. Do it today, book tomorrow. I can remind you.','','2:19 PM')],
+[V(U,'I got a Chase offer for the Ink Business Preferred. Worth it?','','4:00 PM'),V(F,'What is the signup bonus they are showing you?','','4:00 PM'),V(U,'100,000 points after $8K in 3 months','','4:01 PM'),V(F,'That is the standard offer. Can you hit $8K in 3 months?','','4:01 PM'),V(U,'Yeah if I route some bills through it','','4:02 PM'),V(F,'Then absolutely. 100K Chase UR is worth <span class="v">$1,500 to $2,000</span> in travel. The card earns 3x on shipping, ads, and internet too.','','4:02 PM'),V(U,'Any downsides?','','4:03 PM'),V(F,'$95 annual fee. You recoup that in the first month of 3x categories. No brainer if you can hit the spend.','','4:03 PM'),V(U,'Applying now','','4:04 PM'),V(F,'Pro tip: use a referral link from your Sapphire. You earn an extra 20K points for referring yourself.','','4:04 PM')],
+[V(U,'Which card should I use for groceries?','','6:30 PM'),V(F,'How much do you spend on groceries per month?','','6:30 PM'),V(U,'About $800','','6:31 PM'),V(F,'Amex Gold. 4x on US supermarkets up to $25K/year. You are well under the cap.','','6:31 PM'),V(U,'I have been using my Sapphire for everything','','6:32 PM'),V(F,'Sapphire earns 1x on groceries. Gold earns 4x. On $800/month that is <span class="v">38,400 extra points per year</span>.','','6:32 PM'),V(U,'Just from switching one category?','','6:33 PM'),V(F,'That is $576 to $768 in travel value. One card swap, no extra spending.','','6:33 PM'),V(U,'Done. Gold card going in the wallet now','','6:34 PM'),V(F,'I will check your other categories next month. Groceries is usually the biggest miss.','','6:34 PM')],
+[V(U,'Flying LA to Tokyo. Amex points or Chase points?','','9:00 AM'),V(F,'When and what class?','','9:00 AM'),V(U,'March. Business if possible','','9:01 AM'),V(F,'Business class changes everything. Let me check transfer partners.','','9:01 AM'),V(F,'Best option: transfer Amex MR to ANA. <span class="v">85K points</span> round-trip in business. Cash price: $6,400.','','9:02 AM'),V(F,'Chase option: transfer to United. 80K points but worse seats and more connections.','','9:02 AM'),V(U,'ANA business for 85K points? What is the catch?','','9:03 AM'),V(F,'You need to book via phone with ANA and availability is limited. But you are flying their flagship product at 7.5 cents per point.','','9:03 AM'),V(U,'How do I book it?','','9:04 AM'),V(F,'Transfer Amex to ANA (instant). Call ANA at their partner desk. I can give you the exact script to use.','','9:04 AM')],
+[V(U,'Is the Amex Platinum worth the $695 fee?','','1:00 PM'),V(F,'That depends. Let me check your spending pattern. How often do you fly?','','1:00 PM'),V(U,'Maybe 6-8 flights a year','','1:01 PM'),V(F,'Do you use lounges?','','1:01 PM'),V(U,'I would if I had access','','1:02 PM'),V(F,'Platinum gets you Centurion lounges, Priority Pass, Delta Sky Clubs when flying Delta. Plus <span class="v">$200 airline credit</span>, $200 hotel credit, $200 Uber credit.','','1:02 PM'),V(U,'That is $600 in credits against a $695 fee','','1:03 PM'),V(F,'Exactly. Net cost is $95 if you use the credits. Plus 5x on flights booked direct. On 8 flights you are earning <span class="v">20K to 40K extra points</span>.','','1:03 PM'),V(U,'Ok that actually makes sense','','1:04 PM'),V(F,'For your travel frequency it pays for itself easily. The lounges alone change how you fly.','','1:04 PM')]
+],
+classic:[
+[V(F,'Heads up. Your <span class="v">$300 Amex airline credit</span> expires in 22 days. You have not used it this year.','Ranger','8:00 AM'),V(U,'I totally forgot about that','','8:12 AM'),V(F,'Happens to everyone. Buy a Southwest gift card through the Amex portal. Counts as airline incidental. 3 minutes.','','8:12 AM'),V(U,'Just did it. $300 saved','','8:18 AM'),V(F,'Also: your 18,000 Hilton points expire in 45 days.','','8:18 AM'),V(U,'How do I keep them?','','8:20 AM'),V(F,'$1 Amazon gift card through the Hilton shopping portal. Resets the clock 12 months.','','8:20 AM'),V(U,'Done. What else am I missing?','','8:22 AM'),V(F,'This week: 3,200 pts earned. Portfolio: <span class="v">145,200</span>. No expirations next 30 days. One new transfer bonus detected.','Weekly Pulse','Mon 7 AM'),V(U,'I love this','','Mon 7:15 AM')],
+[V(F,'Delta just announced SkyMiles devaluation for partner awards starting March 1. Your 48K SkyMiles are affected.','Spotter','7:00 AM'),V(U,'What? How bad?','','7:05 AM'),V(F,'Partner flights going from 32.5K to 50K for Europe in economy. Your 48K currently covers a round-trip. After March 1 it will not.','','7:05 AM'),V(U,'So I need to book NOW?','','7:06 AM'),V(F,'If you have a Europe trip in mind, yes. Lock it in at the old rate. You have 52 days.','','7:06 AM'),V(U,'Looking at Rome in June','','7:08 AM'),V(F,'Available on Air France via SkyMiles. <span class="v">32,500 each way</span>. Book today, save 35,000 points vs waiting.','','7:08 AM'),V(U,'Booking right now. Thank you for catching this','','7:10 AM'),V(F,'That is the Devaluation Shield. We watch every program for changes that affect your specific balances.','','7:10 AM')],
+[V(F,'Your Sapphire Reserve <span class="v">$300 travel credit</span> resets in 8 days. Current usage: $0.','Ranger','9:00 AM'),V(U,'I keep forgetting this one too','','9:15 AM'),V(F,'Easiest fix: book a refundable hotel through Chase portal. Credit applies immediately. Cancel later if you want.','','9:15 AM'),V(U,'That works? It is not gaming the system?','','9:16 AM'),V(F,'Completely within the terms. Chase credits post on any travel purchase through their portal. If your plans change, you cancel.','','9:16 AM'),V(U,'Smart. Booking a backup hotel for my trip next month','','9:18 AM'),V(F,'Perfect. Also: your Amex Gold statement credit for dining is at <span class="v">$4 of $10</span> this month. Grab a coffee on the Gold card today.','','9:18 AM'),V(U,'You track the $10 dining credit too?','','9:20 AM'),V(F,'Everything. Every credit, every deadline, every dollar.','Credits Tracker','9:20 AM')],
+[V(F,'Marriott Bonvoy flash promotion: earn <span class="v">double points</span> on stays through March 31. Your upcoming Miami stay qualifies.','Spotter','6:00 AM'),V(U,'I already have that booked. How many extra points?','','6:30 AM'),V(F,'Your 3-night stay at $220/night normally earns 6,600 points. With the promo: <span class="v">13,200 points</span>. Register before checking in.','','6:30 AM'),V(U,'How do I register?','','6:31 AM'),V(F,'Link sent. One click to activate. Make sure the Bonvoy number on your reservation matches your account.','','6:31 AM'),V(U,'Done. 6,600 free points just for clicking a link','','6:33 AM'),V(F,'Exactly. These promos run constantly. Most people miss them because nobody is watching.','','6:33 AM'),V(F,'Your portfolio this week: <span class="v">167,400 total</span>. Up 8,200 from last week. Two new promos detected.','Weekly Pulse','Mon 7 AM')],
+[V(F,'Your Chase Freedom Flex quarterly bonus category changed. New category: <span class="v">5x on PayPal</span> through March 31.','Ranger','8:00 AM'),V(U,'Oh nice. I use PayPal for a lot of stuff','','8:10 AM'),V(F,'You need to activate it. Last quarter you forgot to activate and left about 12,000 points on the table.','','8:10 AM'),V(U,'Ugh. How do I activate?','','8:11 AM'),V(F,'Link sent. One click. Cap is $1,500 in PayPal purchases for 5x.','','8:11 AM'),V(U,'Activated. Will you remind me next quarter too?','','8:12 AM'),V(F,'Automatically. I track every rotating category across all your cards. You will never miss activation again.','','8:12 AM'),V(U,'This already paid for itself','','8:13 AM'),V(F,'That is the point.','','8:13 AM')]
+],
+select:[
+[V(F,'Monthly report. Last month <span class="v">68%</span> of your spend went on the wrong card.','Card Whisperer','7:45 AM'),V(U,'68%? What am I doing wrong?','','7:48 AM'),V(F,'Groceries on Sapphire (1x). Should be Gold (4x). $120/month at the wrong rate.','','7:48 AM'),V(F,'Gas on Platinum (1x). Should be Freedom Flex (5x this quarter).','','7:49 AM'),V(F,'Three streaming services on the wrong card. Move to Gold for 4x.','','7:49 AM'),V(U,'How much is that costing me?','','7:50 AM'),V(F,'About <span class="v">$47/month</span> in missed value. $564/year.','','7:50 AM'),V(U,'All from using the wrong card?','','7:51 AM'),V(F,'Exactly. Most of it is just the groceries swap. 30 seconds to fix.','','7:51 AM'),V(F,'Also: your Amex Gold is at <span class="v">$3,200 of $4,000</span> min spend. 24 days left. Route groceries there and you hit the 60K bonus automatically.','Bonus Hunter','7:52 AM')],
+[V(F,'Your partner Sarah was flagged. She is earning 1x on everything with her Citi Double Cash.','Card Whisperer','8:00 AM'),V(U,'Yeah she refuses to carry more cards','','8:05 AM'),V(F,'Understood. But even one more card changes things. If she added an Amex Blue Cash Preferred: 6% groceries, 6% streaming, 3% transit.','','8:05 AM'),V(U,'How much would that actually matter?','','8:06 AM'),V(F,'On her spending pattern: <span class="v">$720/year more</span> in rewards. Plus a $350 signup bonus. Net positive in month one.','','8:06 AM'),V(U,'And she just uses it for groceries and streaming?','','8:07 AM'),V(F,'Exactly. Two categories. One card. No complexity. Her Citi stays for everything else.','','8:07 AM'),V(U,'Let me talk to her tonight','','8:08 AM'),V(F,'I can send her a side-by-side comparison showing the math. Sometimes the numbers do the convincing.','','8:08 AM'),V(F,'New signup bonus calendar: <span class="v">3 cards</span> with elevated offers expiring this month across your household.','Bonus Hunter','8:09 AM')],
+[V(F,'Spend analysis ready. Your top 5 categories last month:','Card Whisperer','7:00 AM'),V(F,'1. Dining: $1,240 (Gold 4x) &#10003;\n2. Groceries: $880 (Gold 4x) &#10003;\n3. Gas: $320 (wrong card, 1x)\n4. Online shopping: $640 (wrong card, 1x)\n5. Travel: $1,100 (Sapphire 3x) &#10003;','','7:00 AM'),V(U,'So gas and online shopping are the problems?','','7:10 AM'),V(F,'Gas: Freedom Flex has 5x this quarter. Switch saves $128/year.','','7:10 AM'),V(F,'Online: route through the Amex portal when possible. Or use Rakuten for 2-10% back in MR points.','','7:11 AM'),V(U,'Rakuten gives Amex points?','','7:12 AM'),V(F,'Yes. You can set it to deposit directly into your MR account. On $640/month online shopping that is <span class="v">15,000 to 38,000 bonus points/year</span> from things you already buy.','','7:12 AM'),V(U,'Setting that up right now','','7:13 AM'),V(F,'Smart. I will track your Rakuten earnings in next month report.','','7:13 AM')],
+[V(F,'Signup bonus alert. Your Chase Sapphire Preferred: <span class="v">$2,800 of $4,000</span> spend completed. 34 days remaining.','Bonus Hunter','9:00 AM'),V(U,'I am not sure I can hit $4,000 in time','','9:10 AM'),V(F,'You are $1,200 short. Let me check your upcoming bills.','','9:10 AM'),V(F,'Your car insurance ($280) and internet ($90) are on other cards. Move them to the Sapphire temporarily. That is $370.','','9:11 AM'),V(F,'Plus your normal spending of about $600/month. You will hit it with $230 to spare.','','9:11 AM'),V(U,'I did not think of moving bills','','9:12 AM'),V(F,'Temporary reroute. Once you hit the bonus, I will move them back to their optimal cards. The <span class="v">60,000 point bonus</span> is worth $900 minimum.','','9:12 AM'),V(U,'Do it. Move the bills','','9:13 AM'),V(F,'Step-by-step sent. Auto-pay update takes 5 minutes per bill. I will confirm once the charges post.','','9:13 AM')],
+[V(F,'New card opportunity detected. Your household spend suggests the Amex Business Gold would earn <span class="v">47,000 extra points/year</span>.','Card Whisperer','10:00 AM'),V(U,'I do not have a business','','10:05 AM'),V(F,'Do you sell anything online? Freelance? Side income? Resell on eBay?','','10:05 AM'),V(U,'I sell some vintage stuff on eBay sometimes','','10:06 AM'),V(F,'That qualifies. Sole proprietor. You can apply with your SSN and your name as the business name.','','10:06 AM'),V(U,'Really? I thought business cards needed an LLC','','10:07 AM'),V(F,'Common myth. The Amex Biz Gold has a <span class="v">70,000 point signup bonus</span> right now. Plus 4x on your top 2 spending categories automatically.','','10:07 AM'),V(U,'What is the annual fee?','','10:08 AM'),V(F,'$375. But the signup bonus alone is worth $1,050 to $1,400 in travel. Net positive by a lot.','','10:08 AM'),V(F,'Want me to run the full ROI analysis based on your actual spend?','','10:09 AM')]
+],
+reserve:[
+[V(U,'Family trip. Maui in December. 4 people, 7 nights. What can we do?','','10:00 AM'),V(F,'Checking 3 programs. One moment.','Optioneer','10:01 AM'),V(F,'Option 1: Hyatt Regency Maui. <span class="v">175K pts</span>. You have 180K. Covered.','','10:02 AM'),V(F,'Option 2: Marriott Wailea. 350K pts. Short 80K.','','10:02 AM'),V(F,'Option 3: Cash price: $4,200 to $6,100.','','10:03 AM'),V(U,'Hyatt. We have enough?','','10:04 AM'),V(F,'Almost. Transfer 25K Chase UR to Hyatt. 24-48 hrs. Book by Nov 1 for December.','Commander','10:04 AM'),V(U,'Do it','','10:05 AM'),V(F,'Playbook sent. Step 1: Transfer 25K today. Step 2: Book Dec 18-25. Step 3: Request ocean view at check-in (Globalist perk). I will message you at each step.','Planner','10:06 AM'),V(U,'This is incredible','','10:07 AM'),V(F,'That is a <span class="v">$4,800 vacation</span> for zero dollars out of pocket. Points you already had.','','10:07 AM')],
+[V(U,'Conference in Singapore next month. Need business class and 4 nights hotel.','','9:00 AM'),V(F,'Searching award availability on 12 airlines and 4 hotel programs.','Optioneer','9:01 AM'),V(F,'Best flight: Singapore Airlines business via KrisFlyer. <span class="v">92K miles round-trip</span>. Transfer from Chase UR. The 2023 World Best Business Class.','','9:02 AM'),V(F,'Best hotel: Andaz Singapore. 25K Hyatt pts/night. <span class="v">100K total</span>. You have 112K WoH.','','9:03 AM'),V(U,'Singapore Airlines business? Is it as good as they say?','','9:04 AM'),V(F,'It is. Lie-flat seat, Book the Cook pre-order, direct flight. Cash price: <span class="v">$8,400</span>. You are paying 92K points.','Commander','9:04 AM'),V(U,'Book everything','','9:05 AM'),V(F,'Playbook sent. Step 1: Transfer 92K Chase to KrisFlyer (24 hrs). Step 2: Call SQ partner desk for business saver. Step 3: Book Andaz online. I will walk you through each call.','Planner','9:06 AM'),V(U,'$8,400 flight for points. Unreal','','9:07 AM'),V(F,'Plus a $2,000 hotel stay. Total trip value: <span class="v">$10,400</span>. All from cards you already have.','','9:07 AM')],
+[V(F,'Your anniversary is in 6 weeks. Last year you mentioned wanting to do something big. Want me to look at options?','Planner','8:00 AM'),V(U,'Yes! Somewhere special. Bora Bora or Maldives level','','8:15 AM'),V(F,'Checking award availability and your current balances.','Optioneer','8:16 AM'),V(F,'Maldives: Park Hyatt. <span class="v">30K pts/night</span>. 5 nights = 150K. You have 142K WoH. Need 8K more.','','8:17 AM'),V(F,'Bora Bora: Conrad. 95K Hilton pts/night. 5 nights = 475K. You are short 290K. Not realistic.','','8:17 AM'),V(U,'Maldives it is. How do I get the extra 8K Hyatt?','','8:20 AM'),V(F,'Transfer 8K Chase UR to Hyatt. Instant. Your flights: transfer 120K Amex MR to Emirates. Business class: <span class="v">136K total</span> for 2 people.','Commander','8:21 AM'),V(U,'So the entire trip is on points?','','8:22 AM'),V(F,'Flights and 5 nights in a water villa. Cash value: <span class="v">$14,200</span>. Out of pocket: $0 plus resort fees. Happy anniversary.','','8:22 AM'),V(U,'I cannot believe this is real','','8:23 AM')],
+[V(F,'Your goal tracker update. You wanted enough points for the family Europe trip by June.','Planner','7:00 AM'),V(F,'Current: <span class="v">78%</span> complete. 312K of 400K points needed. On track.','','7:00 AM'),V(U,'What do I still need to do?','','7:10 AM'),V(F,'Two things. First: your Freedom Flex 5x category resets next week. Activate it day one. That is 15K points.','','7:10 AM'),V(F,'Second: your Amex Gold annual fee hits in 45 days. Before it does, use the <span class="v">$120 dining credit</span> and $120 Uber credit. Then decide if you keep or downgrade.','Strategist','7:11 AM'),V(U,'What do you recommend?','','7:12 AM'),V(F,'Keep it. Your dining spend alone earns 4x = 48K points/year. That is worth $720 to $960 in travel. The $250 fee is easily justified.','','7:12 AM'),V(U,'The math checks out','','7:13 AM'),V(F,'It always does when someone shows you the numbers. You will hit your Europe goal by mid-May at this rate.','','7:13 AM'),V(F,'Next Strategist session in 12 days. I will have the full booking roadmap ready.','','7:14 AM')],
+[V(U,'My parents want to visit from Tel Aviv. Can we get them here on points?','','11:00 AM'),V(F,'Checking TLV to your city. What dates?','Optioneer','11:01 AM'),V(U,'Anytime in April. They are flexible','','11:02 AM'),V(F,'Best option: transfer Amex MR to Aeroplan. <span class="v">55K points each</span> in economy. 110K total. You have 134K MR.','','11:03 AM'),V(F,'Alternative: transfer to ANA for 88K total but limited availability in April.','','11:03 AM'),V(U,'Aeroplan. I did not know Amex transfers there','','11:04 AM'),V(F,'1:1 transfer ratio. One of the best Amex transfer partners.','Commander','11:04 AM'),V(U,'My parents are going to cry','','11:05 AM'),V(F,'Playbook sent. Transfer 110K MR to Aeroplan (instant). Book on Air Canada or Star Alliance partners. I have flagged 6 available dates in April. Pick your favorite and I will walk you through it.','Planner','11:06 AM'),V(U,'This service is unbelievable','','11:07 AM'),V(F,'That is what <span class="v">$3,200 in flights</span> for zero dollars feels like. Welcome to Reserve.','','11:07 AM')]
+]
+};
+
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)]}
+function mkMsg(m){
+var d=document.createElement('div');
+d.className='wa-m '+(m.r===F?'fo':'u');
+var html='';
+if(m.a)html+='<span class="ag">'+m.a+'</span>';
+html+=m.t;
+if(m.h)html+='<div class="t">'+m.h+'</div>';
+d.innerHTML=html;
+return d;
+}
+
+function loadChat(id,tier){
+var body=document.getElementById(id);
+var msgs=pick(CHATS[tier]);
+msgs.forEach(function(m,i){
+var el=mkMsg(m);
+if(i===0)el.classList.add('first');
+body.appendChild(el);
+});
+}
+
+loadChat('wb-free','free');
+loadChat('wb-light','light');
+loadChat('wb-classic','classic');
+loadChat('wb-select','select');
+loadChat('wb-reserve','reserve');
+
+var obs=new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(e.isIntersecting&&!e.target.dataset.started){
+e.target.dataset.started='1';
+var card=e.target;
+var body=card.querySelector('.wa-b');
+var msgs=body.querySelectorAll('.wa-m:not(.first)');
 msgs.forEach(function(m,i){
 setTimeout(function(){
 m.classList.add('show');
-// Auto-scroll the chat body down
 body.scrollTop=body.scrollHeight;
-},(i+1)*2800);
+},(i+1)*1600);
 });
 }
 });
-},{threshold:0.25});
+},{threshold:0.2});
 
-document.querySelectorAll('[data-chat]').forEach(function(card){
-observer.observe(card);
-});
+document.querySelectorAll('.tier-card').forEach(function(c){obs.observe(c)});
 </script>
 </body>
 </html>
