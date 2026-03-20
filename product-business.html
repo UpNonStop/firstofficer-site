@@ -80,6 +80,14 @@ a{text-decoration:none;color:inherit}
 .wa-m .v{color:#53BDEB;font-weight:700}
 .wa-m .t{font-size:9px;opacity:.45;text-align:right;margin-top:2px;color:#8696A0}
 
+
+/* Chat animation */
+.wa-b{height:340px;overflow-y:scroll;scroll-behavior:smooth;-ms-overflow-style:none;scrollbar-width:none}
+.wa-b::-webkit-scrollbar{display:none}
+.wa-m{opacity:0;transition:opacity .3s ease}
+.wa-m.first{opacity:1}
+.wa-m.show{opacity:1}
+
 /* Section markers */
 .tier-marker{text-align:center;padding:40px 0 0}
 .tier-marker .line{width:1px;height:40px;background:linear-gradient(to bottom,#1a1a1a,var(--pink));margin:0 auto 16px}
@@ -162,7 +170,7 @@ a{text-decoration:none;color:inherit}
 </div></section>
 
 <!-- ===================== PREFERRED $199 ===================== -->
-<div class="tier-marker"><div class="line"></div><div class="label">Foundation</div></div>
+<div class="tier-marker" id="chat-preferred"><div class="line"></div><div class="label">Foundation</div></div>
 
 <section class="tier"><div class="wrap"><div class="tier-in flip">
 <div class="tier-text">
@@ -182,13 +190,7 @@ a{text-decoration:none;color:inherit}
 <div class="tier-demo">
 <div class="wa">
 <div class="wa-h"><div class="wa-av">FO</div><div><div class="wa-nm">First Officer</div><div class="wa-st">online</div></div></div>
-<div class="wa-b">
-<div class="wa-m fo"><span class="ag">Accountant</span>Monthly report: $47K across 4 cards. Current earn rate: <span class="v">1.2x average</span>. Optimal: 2.4x.<div class="t">9:00 AM</div></div>
-<div class="wa-m u">Where is the gap?<div class="t">9:05 AM</div></div>
-<div class="wa-m fo"><span class="ag">Card Whisperer</span>$18K SaaS on the wrong card (1x instead of 4x). $12K shipping on flat cashback (1.5% instead of 3x). Total gap: <span class="v">$2,340/month</span> in unrealized value.<div class="t">9:06 AM</div></div>
-<div class="wa-m fo">Rerouting both categories takes 5 minutes. Want the step-by-step?<div class="t">9:06 AM</div></div>
-<div class="wa-m u">Send it<div class="t">9:10 AM</div></div>
-</div>
+<div class="wa-b" id="wb-preferred"></div>
 </div>
 </div>
 </div></div></section>
@@ -215,15 +217,7 @@ a{text-decoration:none;color:inherit}
 <div class="tier-demo">
 <div class="wa">
 <div class="wa-h"><div class="wa-av">FO</div><div><div class="wa-nm">First Officer</div><div class="wa-st">online</div></div></div>
-<div class="wa-b">
-<div class="wa-m fo"><span class="ag">Strategist</span>Q2 review ready. 3 entities, 8 cards.
-<br><br>Entity A (restaurant): $22K/mo, <span class="v">2.1x</span>
-<br>Entity B (catering): $8K/mo, <span class="v">1.8x</span>
-<br>Entity C (food truck): $4K/mo, <span class="v">1.4x</span><div class="t">10:00 AM</div></div>
-<div class="wa-m u">Food truck is low. Fix it?<div class="t">10:15 AM</div></div>
-<div class="wa-m fo">Entity C is running everything through one flat card. Adding a dedicated card for fuel (2x) and moving food supplies to Entity A's purchasing card (pooled MR) brings it to <span class="v">2.0x</span>. Annual impact: <span class="v">+$2,880</span>.<div class="t">10:16 AM</div></div>
-<div class="wa-m fo">Full Q2 strategy doc with all 3 entities ready. Shall I walk through it?<div class="t">10:17 AM</div></div>
-</div>
+<div class="wa-b" id="wb-signature"></div>
 </div>
 </div>
 </div></div></section>
@@ -250,14 +244,7 @@ a{text-decoration:none;color:inherit}
 <div class="tier-demo">
 <div class="wa" style="border-color:rgba(232,197,71,.3)">
 <div class="wa-h"><div class="wa-av" style="background:var(--gold);color:#000">FO</div><div><div class="wa-nm">First Officer <span style="font-size:10px;color:var(--gold)">Concierge</span></div><div class="wa-st">online</div></div></div>
-<div class="wa-b">
-<div class="wa-m u">Need 4 business class seats to Tokyo in March. Team offsite.<div class="t">11:00 AM</div></div>
-<div class="wa-m fo"><span class="ag" style="color:var(--gold)">Your Specialist</span>On it. Checking ANA via Virgin Atlantic, JAL via Alaska, and United direct. Give me 2 hours for availability and routing options.<div class="t">11:02 AM</div></div>
-<div class="wa-m fo"><span class="ag" style="color:var(--gold)">Your Specialist</span>Found it. ANA business via Virgin Atlantic: <span class="v">4 seats, 480K points total</span>. You have 320K transferable. I need to move 160K from Chase → Virgin (takes 24 hrs). Cash price for same seats: <span class="v">$32,000</span>.
-<br><br>Backup: JAL via Alaska, 2 seats available (waitlist 2 more). Holding both options.<div class="t">1:15 PM</div></div>
-<div class="wa-m u">Book the ANA option<div class="t">1:20 PM</div></div>
-<div class="wa-m fo">Transfer initiated. I'll call Virgin Atlantic tomorrow to confirm and lock the seats. You'll get a confirmation with all 4 boarding details by Thursday.<div class="t">1:21 PM</div></div>
-</div>
+<div class="wa-b" id="wb-concierge"></div>
 </div>
 </div>
 </div></div></section>
@@ -291,6 +278,83 @@ a{text-decoration:none;color:inherit}
 
 <script>
 function toggleMob(){var l=document.querySelector('.nk');if(l.style.display==='flex'){l.style.display='none';return}l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='68px';l.style.left='0';l.style.right='0';l.style.background='rgba(0,0,0,.96)';l.style.backdropFilter='blur(20px)';l.style.padding='24px 32px';l.style.gap='16px';l.style.boxShadow='0 8px 24px rgba(0,0,0,.3)';l.style.borderBottom='1px solid #2a2a2a'}
+
+var V=function(r,t,a,h){return{r:r,t:t,a:a||'',h:h||''}};
+var F='fo',U='u';
+
+var CHATS={
+preferred:[
+[V(F,'Monthly report: $47K across 4 cards. Current earn rate: <span class="v">1.2x average</span>. Optimal: 2.4x.','Accountant','9:00 AM'),V(U,'Where is the gap?','','9:05 AM'),V(F,'$18K SaaS on the wrong card (1x instead of 4x). $12K shipping on flat cashback (1.5% instead of 3x). Total gap: <span class="v">$2,340/month</span> in unrealized value.','Card Whisperer','9:06 AM'),V(F,'Rerouting both categories takes 5 minutes. Want the step-by-step?','','9:06 AM'),V(U,'Send it','','9:10 AM'),V(F,'Done. SaaS to Amex Gold (4x auto-selected). Shipping to Ink Preferred (3x). New projected rate: <span class="v">2.1x</span>.','','9:11 AM'),V(U,'How much does that add up to annually?','','9:12 AM'),V(F,'At current spend levels: <span class="v">$28,080/year</span> more in points value. From a 5-minute card swap.','','9:12 AM')],
+[V(F,'Spend alert: your Google Ads hit <span class="v">$14,200</span> this month. Currently on your flat 2% card.','Spotter','8:00 AM'),V(U,'Is there a better option?','','8:10 AM'),V(F,'Amex Gold auto-selects advertising as a 4x category when it is your top spend. That is $568 vs $284 in monthly rewards.','Card Whisperer','8:10 AM'),V(U,'Double the value just by switching cards?','','8:11 AM'),V(F,'Exactly. And your Ink Preferred also earns 3x on advertising up to $150K/year. Two cards rotating based on caps gets you <span class="v">$6,800/year more</span>.','','8:11 AM'),V(U,'Set it up','','8:12 AM'),V(F,'Routing updated. Ads start on Amex Gold. When you hit the $150K Amex cap, I auto-shift to Ink Preferred.','','8:12 AM'),V(F,'Next strategy session in 18 days. I will have the full Q3 routing plan ready.','','8:13 AM')],
+[V(F,'Employee card audit complete. 3 employee cards across your business.','Accountant','10:00 AM'),V(U,'What did you find?','','10:05 AM'),V(F,'Employee 1 (operations): $8K/month, earning 1x on everything. Should be on Ink Cash for 5x office supply + 2x gas.','','10:05 AM'),V(F,'Employee 2 (sales): $3K/month travel, on a personal Visa. Should be on your business Amex for 5x flights.','','10:06 AM'),V(F,'Employee 3 (marketing): $6K/month ads, earning 1.5%. Should be routed to Gold for 4x.','','10:06 AM'),V(U,'Total impact?','','10:07 AM'),V(F,'Combined gap: <span class="v">$4,100/month</span> in missed points. $49,200/year. Same spend, different cards.','','10:07 AM'),V(U,'We need to fix all three','','10:08 AM'),V(F,'Step-by-step for each employee sent. Most changes take one phone call per card.','','10:08 AM')],
+[V(F,'New signup bonus opportunity. Ink Business Preferred: <span class="v">100K points</span> after $8K in 3 months.','Bonus Hunter','7:00 AM'),V(U,'Can we hit $8K in 3 months?','','7:15 AM'),V(F,'Your monthly business spend is $47K. Route $2,700/month of shipping through it. Done in 3 months without changing anything.','','7:15 AM'),V(U,'What are the 100K points worth?','','7:16 AM'),V(F,'<span class="v">$1,500 to $2,000</span> in travel. The card also earns 3x on shipping, internet, and advertising permanently. On your volume that is another $18K points/month.','','7:16 AM'),V(U,'Any downside?','','7:17 AM'),V(F,'$95 annual fee. You recoup it in the first week of 3x shipping spend. No brainer at your volume.','','7:17 AM'),V(U,'Apply today','','7:18 AM'),V(F,'I will track your minimum spend progress weekly and alert you if you are falling behind.','Bonus Hunter','7:18 AM')],
+[V(F,'Monthly portfolio value report ready.','Accountant','9:00 AM'),V(F,'Total points across 4 programs: <span class="v">487,000</span>. Value at statement credit: $4,870. Value at optimal transfer: <span class="v">$9,740 to $19,480</span>.','','9:00 AM'),V(U,'Why is the range so wide?','','9:05 AM'),V(F,'Statement credit = 1 cent/point (worst). Transfer to airline partners = 2-4 cents/point (best). Your Chase UR and Amex MR are the most flexible.','','9:05 AM'),V(U,'What should I do with them?','','9:06 AM'),V(F,'Hold for now. Two things happening: Amex is running a 30% transfer bonus to British Airways next month. And your Hyatt balance is 4K short of a free 5-night stay at any property.','','9:06 AM'),V(U,'How do I get the 4K Hyatt?','','9:07 AM'),V(F,'Transfer 4K Chase UR to Hyatt. Instant. Then you have 5 nights at any Category 1-4 property. Worth <span class="v">$1,200 to $2,400</span>.','','9:07 AM'),V(U,'Do it','','9:08 AM')]
+],
+signature:[
+[V(F,'Q2 review ready. 3 entities, 8 cards.','Strategist','10:00 AM'),V(F,'Entity A (restaurant): $22K/mo, <span class="v">2.1x</span><br>Entity B (catering): $8K/mo, <span class="v">1.8x</span><br>Entity C (food truck): $4K/mo, <span class="v">1.4x</span>','','10:00 AM'),V(U,'Food truck is low. Fix it?','','10:15 AM'),V(F,'Entity C runs everything through one flat card. Adding a fuel card (2x) and moving supplies to Entity A purchasing card (pooled MR) brings it to <span class="v">2.0x</span>. Annual impact: <span class="v">+$2,880</span>.','','10:16 AM'),V(F,'Full Q2 strategy doc with all 3 entities ready. Walk through it?','','10:17 AM'),V(U,'Yes send it','','10:18 AM'),V(F,'Sent. Key recommendation: consolidate all MR-earning cards under one Amex login. Enables pooling across entities for bigger redemptions.','','10:18 AM'),V(U,'Can we actually pool across entities?','','10:19 AM'),V(F,'Yes. Amex allows MR transfers between business cards you own. Your 3 entities combined have <span class="v">340,000 MR</span>. That unlocks premium redemptions none of them could reach alone.','','10:19 AM')],
+[V(F,'Multi-entity report. Your 2 LLCs and sole prop across 6 cards.','Strategist','9:00 AM'),V(F,'LLC 1 (agency): $38K/mo. Earn rate: <span class="v">2.6x</span>. Near optimal.<br>LLC 2 (consulting): $12K/mo. Earn rate: <span class="v">1.3x</span>. Major gap.<br>Sole prop (coaching): $4K/mo. Earn rate: <span class="v">1.1x</span>. Needs complete rebuild.','','9:00 AM'),V(U,'The consulting entity is embarrassing','','9:10 AM'),V(F,'It is all on a single Spark Cash at 2%. Your $7K/month in software and advertising should be earning 3-4x.','','9:10 AM'),V(U,'What do you recommend?','','9:11 AM'),V(F,'Add Amex Gold for 4x on software (auto-selected category). Add Ink Preferred for 3x on internet and advertising. Keep Spark as catch-all.','','9:11 AM'),V(F,'Projected new rate: <span class="v">2.3x</span>. Annual impact: <span class="v">+$14,400</span> in points value across the LLC.','','9:12 AM'),V(U,'And the sole prop?','','9:13 AM'),V(F,'Same playbook but smaller. One Amex Gold covers most of it. Projected improvement: 1.1x to <span class="v">2.0x</span>. I will send the full card stack recommendation for all 3 entities.','','9:13 AM')],
+[V(F,'Annual cap alert. Your Ink Preferred is at <span class="v">$142,000 of $150,000</span> on the combined 3x category across Entity A and B.','Strategist','8:00 AM'),V(U,'We are going to hit the cap?','','8:10 AM'),V(F,'At current velocity, you hit it in 22 days. After that, shipping and ads drop to 1x on this card.','','8:10 AM'),V(U,'What happens then?','','8:11 AM'),V(F,'I shift shipping to Blue Business Plus (2x unlimited, no cap). Ads shift to Amex Gold (4x auto-selected). Net impact: you maintain <span class="v">2.4x average</span> instead of dropping to 1x.','','8:11 AM'),V(U,'You handle the switch automatically?','','8:12 AM'),V(F,'I flag it. You make the call on which card to use. I can not move your charges, but I tell you exactly when and where to route.','','8:12 AM'),V(U,'This is why multi-entity is complicated','','8:13 AM'),V(F,'Exactly. Caps compound across entities. That is what the quarterly deep-dive catches. Nobody tracks this manually.','','8:13 AM')],
+[V(F,'Custom spend mapping complete for your medical practice.','Strategist','11:00 AM'),V(F,'We mapped your top 15 vendors by MCC code:<br>- McKesson: codes as wholesale (5099). <span class="v">1x on all bonus cards</span>.<br>- Henry Schein: same. Wholesale.<br>- Stryker: codes as medical equipment (5047). 1x.','','11:00 AM'),V(U,'So our biggest vendors all earn 1x?','','11:10 AM'),V(F,'Yes. This is why your blended rate is <span class="v">1.5x</span> despite having great cards. 60% of your spend hits wholesale MCCs.','','11:10 AM'),V(U,'Is there anything we can do?','','11:11 AM'),V(F,'Blue Business Plus catches everything at 2x up to $50K. That is your best option for wholesale vendors. For your $8K/month in software and lab equipment purchased online, the Ink Preferred earns 3x.','','11:11 AM'),V(F,'Honest blended rate with optimal routing: <span class="v">1.8x to 2.0x</span>. Not as high as industries with bonus-friendly vendors, but a meaningful improvement.','','11:12 AM'),V(U,'I appreciate you being straight about the limits','','11:13 AM'),V(F,'That is the job. Real numbers, not inflated promises.','','11:13 AM')],
+[V(F,'Quarterly deep-dive scheduled. Before we meet, here is what changed since Q1.','Strategist','7:00 AM'),V(F,'New: Amex increased Gold annual fee to $325 (from $250). Your ROI on that card: <span class="v">$4,800/year in points</span>. Still easily justified.','','7:00 AM'),V(F,'New: Chase launched a 25% transfer bonus to Hyatt running through March. You have 180K UR. Transfer 40K now = <span class="v">50K Hyatt points</span>.','Spotter','7:01 AM'),V(U,'Should I jump on the Hyatt bonus?','','7:15 AM'),V(F,'If you have any hotel stays planned in the next 12 months, absolutely. 25% free points is rare for Hyatt. Even speculatively, Hyatt points are worth 2+ cents each.','','7:15 AM'),V(U,'Transfer 40K','','7:16 AM'),V(F,'Done. Your Hyatt balance is now <span class="v">50,000 points</span>. That covers 2-3 nights at any premium property.','','7:16 AM'),V(U,'What else is on the deep-dive agenda?','','7:17 AM'),V(F,'Employee card rebalancing, Q2 cap projections, and a new card opportunity I found for your shipping spend. Full doc sent to your email.','','7:17 AM')]
+],
+concierge:[
+[V(U,'Need 4 business class seats to Tokyo in March. Team offsite.','','11:00 AM'),V(F,'On it. Checking ANA via Virgin Atlantic, JAL via Alaska, and United direct. Give me 2 hours.','Your Specialist','11:02 AM'),V(F,'Found it. ANA business via Virgin Atlantic: <span class="v">4 seats, 480K points total</span>. You have 320K transferable. I need to move 160K from Chase to Virgin (24 hrs). Cash price: <span class="v">$32,000</span>.<br><br>Backup: JAL via Alaska, 2 seats (waitlist 2 more).','Your Specialist','1:15 PM'),V(U,'Book the ANA option','','1:20 PM'),V(F,'Transfer initiated. I will call Virgin Atlantic tomorrow to confirm and lock all 4 seats. Confirmation with boarding details by Thursday.','','1:21 PM'),V(U,'Perfect. Also need a hotel for the team','','1:22 PM'),V(F,'Checking Hyatt Regency Tokyo and Park Hyatt. You have enough World of Hyatt for 4 rooms, 3 nights. I will have options by end of day.','','1:22 PM')],
+[V(U,'Client dinner in NYC next week. Need a reservation somewhere impressive. 8 people.','','3:00 PM'),V(F,'Checking availability at top spots.','Your Specialist','3:02 PM'),V(F,'Three options:<br>1. Le Bernardin: Thursday 7:30 PM, 8-top available<br>2. Eleven Madison Park: Friday 8:00 PM<br>3. Peter Luger: Thursday 7:00 PM (private room)','Your Specialist','3:15 PM'),V(U,'Le Bernardin Thursday','','3:20 PM'),V(F,'Booked. Confirmation sent. Also: use your Amex Gold for 4x on dining. On an estimated $2,400 bill that is <span class="v">9,600 points</span> = $144 to $240 in travel value.','','3:21 PM'),V(U,'Good call on the card','','3:22 PM'),V(F,'That is what I am here for. I also reserved the Peter Luger private room as backup in case your plans change. Want me to hold it?','','3:22 PM'),V(U,'Hold it through Wednesday','','3:23 PM'),V(F,'Done. I will release it Wednesday at noon if you do not confirm.','','3:23 PM')],
+[V(U,'Annual company retreat. 12 people, somewhere warm, 4 nights. Budget: use points.','','9:00 AM'),V(F,'Checking award availability for group bookings. This is a big one.','Your Specialist','9:02 AM'),V(F,'Best option: Andaz Maui at Wailea. 12 rooms available on points. <span class="v">25K Hyatt pts/room/night</span>. Total: 1.2M points.<br><br>You have: 480K Hyatt + 340K Chase UR (transferable). Short 380K.','Your Specialist','9:30 AM'),V(U,'Can we close that gap?','','9:35 AM'),V(F,'Yes. Transfer all 340K Chase UR to Hyatt. That gets you to 820K. For the remaining 380K: book 8 rooms on points and 4 rooms cash at the group rate ($289/night). Total cash outlay: <span class="v">$4,624</span> vs <span class="v">$57,600</span> all-cash.','','9:36 AM'),V(U,'We save $53,000?','','9:37 AM'),V(F,'Correct. And I can negotiate the group rate directly with the property. Want me to make the call?','','9:37 AM'),V(U,'Yes. Book everything','','9:38 AM'),V(F,'Transfers initiated. I will call Andaz today for the group block and rate negotiation. Full confirmation package by Friday.','','9:38 AM')],
+[V(U,'Our insurance broker says we can pay premiums by card now. $52,000 annually.','','2:00 PM'),V(F,'That is a significant opportunity. Let me run the routing.','Your Specialist','2:05 PM'),V(F,'Best card: Ink Preferred at 3x (codes as insurance). That is <span class="v">156,000 Chase UR points</span> per year. Worth $2,340 to $6,240 in travel.','','2:06 PM'),V(U,'Any surcharge for paying by card?','','2:08 PM'),V(F,'Most insurance companies charge 2-3%. At $52K that is $1,040 to $1,560 in fees.','','2:08 PM'),V(U,'So net is still positive?','','2:09 PM'),V(F,'At 2% surcharge: pay $1,040, earn $2,340 to $6,240. Net gain: <span class="v">$1,300 to $5,200</span>. At 3%: pay $1,560, still net positive by $780 minimum.','','2:09 PM'),V(U,'The math works even with the surcharge','','2:10 PM'),V(F,'It almost always does when earn rates are 3x or higher. I will call your broker to confirm their exact surcharge and set up the quarterly payment schedule.','','2:10 PM')],
+[V(U,'Flying the whole team to the annual conference. 6 people, Denver, next month.','','10:00 AM'),V(F,'Checking 6 award seats. Southwest and United have the best availability from your hub.','Your Specialist','10:02 AM'),V(F,'Found it. Southwest: <span class="v">6 Wanna Get Away seats, 42,000 Rapid Rewards total</span>. You have 68K. Hotels: Hyatt Regency Denver, 6 rooms, <span class="v">12K pts/room/night</span> for 3 nights = 216K Hyatt. You have 220K.','Your Specialist','10:15 AM'),V(U,'Entire trip on points?','','10:20 AM'),V(F,'Flights and 3 nights for 6 people. Cash value: <span class="v">$8,400</span>. Points cost: 42K Southwest + 216K Hyatt. You still have 26K SW and 4K Hyatt left over.','','10:20 AM'),V(U,'This is why we pay for Concierge','','10:21 AM'),V(F,'I will book all 6 flights and rooms today. Confirmation package with itinerary, loyalty numbers, and TSA PreCheck reminders sent to each team member by end of day.','','10:21 PM'),V(U,'You send it to each person individually?','','10:22 AM'),V(F,'Each person gets their own booking details, seat assignment, and hotel confirmation. I handle the admin so you do not have to.','','10:22 AM')]
+]
+};
+
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)]}
+
+function mkMsg(m,gold){
+var d=document.createElement('div');
+d.className='wa-m '+(m.r===F?'fo':'u');
+var html='';
+if(m.a){
+var agColor=gold?'color:var(--gold)':'';
+html+='<span class="ag"'+(agColor?' style="'+agColor+'"':'')+'>'+m.a+'</span>';
+}
+html+=m.t;
+if(m.h)html+='<div class="t">'+m.h+'</div>';
+d.innerHTML=html;
+return d;
+}
+
+function loadChat(id,tier,gold){
+var body=document.getElementById(id);
+if(!body)return;
+var msgs=pick(CHATS[tier]);
+msgs.forEach(function(m,i){
+var el=mkMsg(m,gold);
+if(i===0)el.classList.add('first');
+body.appendChild(el);
+});
+}
+
+loadChat('wb-preferred','preferred',false);
+loadChat('wb-signature','signature',false);
+loadChat('wb-concierge','concierge',true);
+
+var obs=new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(e.isIntersecting&&!e.target.dataset.started){
+e.target.dataset.started='1';
+var body=e.target.querySelector('.wa-b');
+if(!body)return;
+var msgs=body.querySelectorAll('.wa-m:not(.first)');
+msgs.forEach(function(m,i){
+setTimeout(function(){
+m.classList.add('show');
+body.scrollTop=body.scrollHeight;
+},(i+1)*2200);
+});
+}
+});
+},{threshold:0.2});
+
+document.querySelectorAll('.tier').forEach(function(s){obs.observe(s)});
 </script>
 </body>
 </html>
