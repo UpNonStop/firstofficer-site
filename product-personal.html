@@ -39,7 +39,7 @@ a{text-decoration:none;color:inherit}
 .pink-line{width:2px;height:40px;background:var(--pink);margin:0 auto;opacity:.35}
 
 /* Tier cards */
-.tier-card{max-width:920px;margin:0 auto;background:#fff;border-radius:20px;padding:40px 44px;transition:box-shadow .3s}
+.tier-card{max-width:920px;margin:0 auto;background:#fff;border-radius:20px;padding:40px 44px;transition:box-shadow .3s;position:relative}
 .tier-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.04)}
 .tier-card-in{display:grid;grid-template-columns:1fr 340px;gap:40px;align-items:start}
 .tier-card-in.flip{grid-template-columns:340px 1fr}
@@ -68,7 +68,11 @@ a{text-decoration:none;color:inherit}
 
 /* Most start here */
 .tc-start{position:relative}
-.tc-start::before{content:'Most people start here';position:absolute;top:-14px;left:44px;background:#0D9488;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 14px;border-radius:100px;z-index:1}
+.tc-start::before{content:'Most people start here';position:absolute;top:-14px;right:44px;background:#0D9488;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 14px;border-radius:100px;z-index:3}
+
+/* Connector pill on card */
+.tc-from{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid rgba(250,24,150,.25);padding:5px 16px;border-radius:100px;font-size:11px;color:#999;font-weight:500;white-space:nowrap;z-index:2}
+.tc-from em{font-style:normal;color:var(--pink);font-weight:600}
 
 /* Features */
 .tc-features{list-style:none;padding:0;margin:0}
@@ -99,11 +103,6 @@ a{text-decoration:none;color:inherit}
 .wa-m .v{color:#075E54;font-weight:700}
 .wa-m .t{font-size:7px;opacity:.4;text-align:right;margin-top:1px}
 
-/* Connectors */
-.tier-conn{text-align:center;padding:2px 0}
-.tier-conn-label{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #eee;padding:5px 16px;border-radius:100px;font-size:11px;color:#999;font-weight:500}
-.tier-conn-label em{font-style:normal;color:var(--pink);font-weight:600}
-
 /* CTA */
 .ctab{background:var(--pink);padding:72px 0;text-align:center;margin-top:48px}
 .ctab h2{font-size:clamp(24px,3.5vw,38px);font-weight:800;color:#fff;letter-spacing:-.8px;line-height:1.15;margin-bottom:12px}
@@ -125,8 +124,8 @@ a{text-decoration:none;color:inherit}
 .wa{margin:0 auto;max-width:280px}
 .tc-features{text-align:left;max-width:300px;margin:0 auto}
 .hero{padding:110px 0 24px}
-.tier-conn-label{font-size:10px;padding:5px 12px}
-.tc-start::before{left:20px;top:-13px}
+.tc-start::before{right:20px;top:-13px;font-size:9px}
+.tc-from{font-size:9px;padding:4px 12px;top:-13px}
 .tc-text h2{font-size:22px}
 .pink-line{height:28px}
 }
@@ -193,12 +192,11 @@ a{text-decoration:none;color:inherit}
 </div>
 </div></div>
 
-<div class="pink-line"></div>
-<div class="tier-conn"><div class="tier-conn-label">Everything in Free, plus <em>real-time Q&amp;A</em></div></div>
-<div class="pink-line"></div>
+<div class="pink-line" style="height:48px"></div>
 
 <!-- ====== LIGHT ====== -->
 <div class="tier-card tc-light" data-chat>
+<div class="tc-from">Everything in Free, plus <em>real-time Q&amp;A</em></div>
 <div class="tier-card-in">
 <div class="tc-text">
 <div class="tc-badge">Light</div>
@@ -230,12 +228,11 @@ a{text-decoration:none;color:inherit}
 </div>
 </div></div>
 
-<div class="pink-line"></div>
-<div class="tier-conn"><div class="tier-conn-label">Everything in Light, plus <em>proactive alerts</em></div></div>
-<div class="pink-line"></div>
+<div class="pink-line" style="height:48px"></div>
 
 <!-- ====== CLASSIC ====== -->
 <div class="tier-card tc-classic tc-start" data-chat>
+<div class="tc-from">Everything in Light, plus <em>proactive alerts</em></div>
 <div class="tier-card-in flip">
 <div class="tc-text">
 <div class="tc-badge">Classic</div>
@@ -268,12 +265,11 @@ a{text-decoration:none;color:inherit}
 </div>
 </div></div>
 
-<div class="pink-line"></div>
-<div class="tier-conn"><div class="tier-conn-label">Everything in Classic, plus <em>active optimization</em></div></div>
-<div class="pink-line"></div>
+<div class="pink-line" style="height:48px"></div>
 
 <!-- ====== SELECT ====== -->
 <div class="tier-card tc-select" data-chat>
+<div class="tc-from">Everything in Classic, plus <em>active optimization</em></div>
 <div class="tier-card-in">
 <div class="tc-text">
 <div class="tc-badge">Select</div>
@@ -306,12 +302,11 @@ a{text-decoration:none;color:inherit}
 </div>
 </div></div>
 
-<div class="pink-line"></div>
-<div class="tier-conn"><div class="tier-conn-label">Everything in Select, plus <em>full strategy team</em></div></div>
-<div class="pink-line"></div>
+<div class="pink-line" style="height:48px"></div>
 
 <!-- ====== RESERVE ====== -->
 <div class="tier-card tc-reserve" data-chat>
+<div class="tc-from">Everything in Select, plus <em>full strategy team</em></div>
 <div class="tier-card-in flip">
 <div class="tc-text">
 <div class="tc-badge">Reserve</div>
