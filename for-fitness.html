@@ -29,6 +29,10 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#000;
 .nav-in{max-width:1140px;margin:0 auto;padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .nl{font-size:18px;font-weight:700;letter-spacing:-.3px;display:flex;align-items:center;gap:10px}
 .nm{width:32px;height:32px;background:var(--pink);border-radius:8px;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:800}
+.nk{display:flex;align-items:center;gap:28px}
+.nka{font-size:14px;font-weight:500;color:#999;transition:color .3s;white-space:nowrap}.nka:hover{color:var(--pink)}
+.mob{display:none;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;border:none;background:none}
+.mob span{width:20px;height:2px;background:#f0f0f4;border-radius:1px}
 
 
 .ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:var(--r-pill);box-shadow:0 4px 16px rgba(37,211,102,.2);white-space:nowrap;transition:all .3s}
@@ -158,7 +162,7 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 /* Responsive */
 @media(max-width:1024px){.vr{gap:40px}}
 @media(max-width:768px){
-
+.nk{display:none}.mob{display:flex}
 .wrap{padding:0 24px}
 .hero{padding:100px 0 56px;min-height:70vh;-webkit-background-size:cover;background-attachment:scroll}
 .hero::before{background:rgba(0,0,0,.6)!important}
@@ -195,7 +199,15 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 
 <nav class="nav"><div class="nav-in">
 <a href="firstofficer-site.html" class="nl"><div class="nm">FO</div><div><div style="line-height:1.1">First Officer</div><div style="font-size:10px;font-weight:400;letter-spacing:.5px">by <span style="font-weight:700">UpNonStop</span>&trade;</div></div></a>
+<div class="nk">
+<a href="firstofficer-site.html" class="nka">Home</a>
+<a href="product-business.html" class="nka">Product</a>
+<a href="calculator-business.html" class="nka">Calculator</a>
+<a href="firstofficer-site.html#pricing" class="nka">Pricing</a>
+<a href="firstofficer-site.html#about" class="nka">About</a>
+</div>
 <a href="https://wa.me/16199404040" class="ncta" target="_blank">💬 Start on WhatsApp</a>
+<button class="mob" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </div></nav>
 
 <section class="hero" style="background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80')">
@@ -358,6 +370,7 @@ function calc(){
   document.getElementById('gap').textContent='$'+(opt-base).toLocaleString();
 }
 calc();
+function toggleMob(){var l=document.querySelector('.nk');if(l.style.display==='flex'){l.style.display='none';return}l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='68px';l.style.left='0';l.style.right='0';l.style.background='rgba(0,0,0,.96)';l.style.backdropFilter='blur(20px)';l.style.padding='24px 32px';l.style.gap='16px';l.style.boxShadow='0 8px 24px rgba(0,0,0,.3)';l.style.borderBottom='1px solid #2a2a2a'}
 </script>
 </body>
 </html>
