@@ -87,11 +87,12 @@ a{text-decoration:none;color:inherit}
 
 
 
-.wa-m{max-width:82%;font-size:10.5px;line-height:1.45;word-wrap:break-word;padding:6px 9px;margin-bottom:4px;opacity:0;transition:opacity .3s ease}
+.wa-m{max-width:82%;font-size:10.5px;line-height:1.45;word-wrap:break-word;padding:6px 9px;margin-bottom:4px;display:none}
 .wa-m.fo{background:#DCF8C6;border-radius:0 8px 8px 8px;margin-right:auto}
 .wa-m.u{background:#fff;border-radius:8px 0 8px 8px;margin-left:auto}
-.wa-m.first{opacity:1}
-.wa-m.show{opacity:1}
+.wa-m.first{display:block;opacity:1}
+.wa-m.show{display:block;animation:msgIn .3s ease both}
+@keyframes msgIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 .wa-m .ag{color:var(--pink);font-weight:700;font-size:9px;display:block;margin-bottom:1px}
 .wa-m .v{color:#075E54;font-weight:700}
 .wa-m .t{font-size:7px;opacity:.4;text-align:right;margin-top:1px}
