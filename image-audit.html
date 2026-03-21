@@ -1,80 +1,66 @@
 <!DOCTYPE html><html><head><style>
-body{font-family:'DM Sans',sans-serif;background:#111;color:#fff;padding:24px;max-width:1400px;margin:0 auto}
-h1{font-size:28px;margin-bottom:8px}
-h2{font-size:18px;color:#FA1896;margin:32px 0 16px;border-bottom:1px solid #333;padding-bottom:8px}
-p.info{color:#888;font-size:14px;margin-bottom:32px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
-.card{background:#1a1a1a;border-radius:12px;overflow:hidden;border:2px solid #333}
-.card img{width:100%;height:200px;object-fit:cover}
-.card .label{padding:10px 12px}
-.card .dest{font-size:14px;font-weight:700}
-.card .id{font-size:10px;color:#666;font-family:monospace;word-break:break-all;margin-top:4px}
-.card.broken{border-color:red}
-.card.broken::after{content:'404 BROKEN';color:red;font-weight:bold;display:block;padding:8px;text-align:center;font-size:12px}
+body{font-family:sans-serif;background:#111;color:#fff;padding:20px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.card{text-align:center}
+.card img{width:100%;height:150px;object-fit:cover;border-radius:8px;border:2px solid #333}
+.card p{font-size:11px;margin-top:4px;color:#ccc}
+h1{font-size:18px;margin-bottom:16px}
 </style></head><body>
-<h1>Image Audit: All 55 Destination Photos</h1>
-<p class="info">Review each image. Does it show the correct destination? Report any mismatches.</p>
-
-<h2>Flight Destinations (Airport Codes)</h2>
+<h1>Image Audit - ALL 55 destination photos</h1>
 <div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">LHR — London</div><div class="id">1513635269975-59663e0ac1ad</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">NRT — Tokyo</div><div class="id">1540959733332-eab4deabeeaf</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">HND — Tokyo</div><div class="id">1540959733332-eab4deabeeaf</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">SIN — Singapore</div><div class="id">1525625293386-3f8f99389edd</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">CDG — Paris</div><div class="id">1502602898657-3e91760cbb34</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">BCN — Barcelona</div><div class="id">1583422409516-2895a77efded</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1549918864-48ac978761a4?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">DUB — Dublin</div><div class="id">1549918864-48ac978761a4</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">SYD — Sydney</div><div class="id">1506973035872-a4ec16b8e8d9</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">FCO — Rome</div><div class="id">1552832230-c0197dd311b5</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">DOH — Doha</div><div class="id">1518684079-3c830dcef090</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1543059080-f9b1272213d5?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">GRU — Sao Paulo</div><div class="id">1543059080-f9b1272213d5</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1544967082-d9d25d867d66?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">TLV — Tel Aviv</div><div class="id">1544967082-d9d25d867d66</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">HKG — Hong Kong</div><div class="id">1536599018102-9f803c140fc1</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">BKK — Bangkok</div><div class="id">1508009603885-50cf7c579365</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">ICN — Seoul</div><div class="id">1534274988757-a28bf1a57c17</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">LIS — Lisbon</div><div class="id">1555881400-74d7acaacd8b</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">MLE — Maldives</div><div class="id">1514282401047-d79a71a590e8</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">CUN — Cancun</div><div class="id">1510414842594-a61c69b5ae57</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">MAD — Madrid</div><div class="id">1539037116277-4db20889f2d4</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1507876466758-bc54f384809c?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">HNL — Honolulu</div><div class="id">1507876466758-bc54f384809c</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1542259009477-d625272157b7?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">OGG — Maui</div><div class="id">1542259009477-d625272157b7</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">MIA — Miami</div><div class="id">1533106497176-45ae19e68ba2</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">SFO — San Francisco</div><div class="id">1501594907352-04cda38ebc29</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">LAX — Los Angeles</div><div class="id">1534190760961-74e8c1c5c3da</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1544985361-b420d7a77043?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">ZRH — Zurich</div><div class="id">1544985361-b420d7a77043</div></div></div>
-</div>
-<h2>Hotel Properties</h2>
-<div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Park Hyatt Maldives</div><div class="id">1573843981267-be1999ff37cd</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1542259009477-d625272157b7?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Andaz Maui at Wailea</div><div class="id">1542259009477-d625272157b7</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">St. Regis Bora Bora</div><div class="id">1590523741831-ab7e8b8f9c7f</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Conrad Maldives Rangali</div><div class="id">1514282401047-d79a71a590e8</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1542259009477-d625272157b7?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Hyatt Regency Maui</div><div class="id">1542259009477-d625272157b7</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">W Barcelona</div><div class="id">1583422409516-2895a77efded</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Park Hyatt Tokyo</div><div class="id">1540959733332-eab4deabeeaf</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Waldorf Astoria Beverly Hills</div><div class="id">1534190760961-74e8c1c5c3da</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1505852679233-d9fd70aff56d?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Grand Hyatt Kauai</div><div class="id">1505852679233-d9fd70aff56d</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Ritz-Carlton Kyoto</div><div class="id">1493976040374-85c8e12f0c0e</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Alila Ventana Big Sur</div><div class="id">1519046904884-53103b34b206</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">JW Marriott Cancun</div><div class="id">1510414842594-a61c69b5ae57</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">InterContinental Bora Bora</div><div class="id">1590523741831-ab7e8b8f9c7f</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Hyatt Zilara Cap Cana</div><div class="id">1510414842594-a61c69b5ae57</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Conrad Bali</div><div class="id">1537996194471-e657df975ab4</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Park Hyatt Sydney</div><div class="id">1506973035872-a4ec16b8e8d9</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">W Maldives</div><div class="id">1573843981267-be1999ff37cd</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Kimpton Seafire Grand Cayman</div><div class="id">1559128010-7c1ad6e1b6a5</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Andaz Costa Rica</div><div class="id">1519046904884-53103b34b206</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">St. Regis Aspen</div><div class="id">1476514525535-07fb3b4ae5f1</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Conrad Tokyo</div><div class="id">1540959733332-eab4deabeeaf</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Hyatt Ziva Cancun</div><div class="id">1510414842594-a61c69b5ae57</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Le Meridien Maldives</div><div class="id">1573843981267-be1999ff37cd</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Hilton Moorea</div><div class="id">1590523741831-ab7e8b8f9c7f</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1544985361-b420d7a77043?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Park Hyatt Zurich</div><div class="id">1544985361-b420d7a77043</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Ritz-Carlton Bali</div><div class="id">1537996194471-e657df975ab4</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">InterContinental Fiji</div><div class="id">1559128010-7c1ad6e1b6a5</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Grand Hyatt Bali</div><div class="id">1537996194471-e657df975ab4</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Waldorf Astoria Maldives</div><div class="id">1514282401047-d79a71a590e8</div></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=560&fit=crop&q=75" onerror="this.parentElement.classList.add('broken')"><div class="label"><div class="dest">Ventana Big Sur</div><div class="id">1519046904884-53103b34b206</div></div></div>
-</div>
-<p style="margin-top:32px;color:#555;font-size:12px">Images broken? Wrong city? Tell me which ones and I will fix them.</p>
-</body></html>
+<div class="card"><img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=300&h=200&fit=crop&q=75" loading="lazy"><p>LHR</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=300&h=200&fit=crop&q=75" loading="lazy"><p>NRT</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=300&h=200&fit=crop&q=75" loading="lazy"><p>HND</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=300&h=200&fit=crop&q=75" loading="lazy"><p>SIN</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=300&h=200&fit=crop&q=75" loading="lazy"><p>CDG</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?w=300&h=200&fit=crop&q=75" loading="lazy"><p>BCN</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1549918864-48ac978761a4?w=300&h=200&fit=crop&q=75" loading="lazy"><p>DUB</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=300&h=200&fit=crop&q=75" loading="lazy"><p>SYD</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=300&h=200&fit=crop&q=75" loading="lazy"><p>FCO</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?w=300&h=200&fit=crop&q=75" loading="lazy"><p>DOH</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1543059080-f9b1272213d5?w=300&h=200&fit=crop&q=75" loading="lazy"><p>GRU</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1544967082-d9d25d867d66?w=300&h=200&fit=crop&q=75" loading="lazy"><p>TLV</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=300&h=200&fit=crop&q=75" loading="lazy"><p>HKG</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=300&h=200&fit=crop&q=75" loading="lazy"><p>BKK</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?w=300&h=200&fit=crop&q=75" loading="lazy"><p>ICN</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=300&h=200&fit=crop&q=75" loading="lazy"><p>LIS</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=300&h=200&fit=crop&q=75" loading="lazy"><p>MLE</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=300&h=200&fit=crop&q=75" loading="lazy"><p>CUN</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=300&h=200&fit=crop&q=75" loading="lazy"><p>MAD</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1507876466758-bc54f384809c?w=300&h=200&fit=crop&q=75" loading="lazy"><p>HNL</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1542259009477-d625272157b7?w=300&h=200&fit=crop&q=75" loading="lazy"><p>OGG</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?w=300&h=200&fit=crop&q=75" loading="lazy"><p>MIA</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=300&h=200&fit=crop&q=75" loading="lazy"><p>SFO</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?w=300&h=200&fit=crop&q=75" loading="lazy"><p>LAX</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1544985361-b420d7a77043?w=300&h=200&fit=crop&q=75" loading="lazy"><p>ZRH</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Park Hyatt Maldives</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1542259009477-d625272157b7?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Andaz Maui at Wailea</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=300&h=200&fit=crop&q=75" loading="lazy"><p>St. Regis Bora Bora</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Conrad Maldives Rangali</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1542259009477-d625272157b7?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Hyatt Regency Maui</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?w=300&h=200&fit=crop&q=75" loading="lazy"><p>W Barcelona</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Park Hyatt Tokyo</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Waldorf Astoria Beverly Hills</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1505852679233-d9fd70aff56d?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Grand Hyatt Kauai</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Ritz-Carlton Kyoto</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Alila Ventana Big Sur</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=300&h=200&fit=crop&q=75" loading="lazy"><p>JW Marriott Cancun</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=300&h=200&fit=crop&q=75" loading="lazy"><p>InterContinental Bora Bora</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Hyatt Zilara Cap Cana</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Conrad Bali</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Park Hyatt Sydney</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=300&h=200&fit=crop&q=75" loading="lazy"><p>W Maldives</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Kimpton Seafire Grand Cayman</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Andaz Costa Rica</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=300&h=200&fit=crop&q=75" loading="lazy"><p>St. Regis Aspen</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Conrad Tokyo</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Hyatt Ziva Cancun</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Le Meridien Maldives</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Hilton Moorea</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1544985361-b420d7a77043?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Park Hyatt Zurich</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Ritz-Carlton Bali</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=300&h=200&fit=crop&q=75" loading="lazy"><p>InterContinental Fiji</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Grand Hyatt Bali</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Waldorf Astoria Maldives</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=300&h=200&fit=crop&q=75" loading="lazy"><p>Ventana Big Sur</p></div>
+</div></body></html>
