@@ -72,17 +72,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .btn-ghost{background:none;color:#888;border:1.5px solid #ddd}.btn-ghost:hover{border-color:#999}
 
 /* Step 2: Points accumulation */
-.pts-split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
-.pts-card{padding:20px;border-radius:14px;text-align:center}
-.pts-card.mr{background:#F5F0FF;border:1px solid #E0D4F5}
-.pts-card.ur{background:#EFF6FF;border:1px solid #BFDBFE}
-.pts-program{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
-.pts-card.mr .pts-program{color:#7C3AED}
-.pts-card.ur .pts-program{color:#2563EB}
-.pts-num{font-size:clamp(28px,4vw,36px);font-weight:900;letter-spacing:-1.5px;line-height:1;margin-bottom:2px}
-.pts-card.mr .pts-num{color:#7C3AED}
-.pts-card.ur .pts-num{color:#2563EB}
-.pts-sub{font-size:11px;color:#999}
 .pts-annual{text-align:center;margin:24px 0 20px;padding:18px;background:#fafaf9;border-radius:12px;border:1px solid #eee}
 .pts-annual-num{font-size:clamp(42px,6vw,56px);font-weight:900;letter-spacing:-3px;color:var(--pink);line-height:1}
 .pts-annual-label{font-size:12px;color:#999;margin-top:4px}
@@ -91,8 +80,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .routing-table td{padding:8px 0;border-bottom:1px solid #f5f5f3;color:#555}
 .routing-table td:last-child{text-align:right;font-family:var(--mono);font-weight:600;color:#111}
 .routing-table .card-tag{display:inline-block;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700}
-.tag-mr{background:#F5F0FF;color:#7C3AED}
-.tag-ur{background:#EFF6FF;color:#2563EB}
 
 /* Step 3: Itineraries */
 .itin-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
@@ -136,7 +123,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .nk{display:none}.mob{display:flex}
 .step{padding:28px 24px;border-radius:16px}
 .itin-grid{grid-template-columns:1fr}
-.pts-split{grid-template-columns:1fr}
 .itin-grid{grid-template-columns:1fr}
 .ros-compare{flex-direction:column;align-items:center}
 .routing-table{font-size:11px}
@@ -205,14 +191,11 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <p class="sub">Each category routed to its highest-earning card and program.</p>
 
 <table class="routing-table">
-<thead><tr><th>Category</th><th>Optimal card type</th><th>Multiplier</th><th>Monthly pts</th></tr></thead>
+<thead><tr><th>Category</th><th>Optimal card type</th><th>Earn rate</th><th>Monthly pts</th></tr></thead>
 <tbody id="routingBody"></tbody>
 </table>
 
-<div class="pts-split">
-<div class="pts-card mr"><div class="pts-program">Amex Membership Rewards</div><div class="pts-num" id="mrMonthly">0</div><div class="pts-sub">points / month</div></div>
-<div class="pts-card ur"><div class="pts-program">Chase Ultimate Rewards</div><div class="pts-num" id="urMonthly">0</div><div class="pts-sub">points / month</div></div>
-</div>
+
 
 <div class="pts-annual">
 <div class="pts-annual-num" id="annualPts">0</div>
@@ -283,13 +266,13 @@ function toggleMob(){var l=document.querySelector('.nk');if(l.style.display==='f
 
 var cats={groc:600,dine:400,gas:250,travel:300,online:400,subs:150,other:900};
 var routing={
-groc:{card:'Rewards card (groceries 4x)',mult:4,prog:'MR'},
-dine:{card:'Rewards card (dining 4x)',mult:4,prog:'MR'},
-gas:{card:'Rotating category card (3x avg)',mult:3,prog:'UR'},
-travel:{card:'Premium travel card (3x)',mult:3,prog:'UR'},
-online:{card:'Catch-all rewards (2x)',mult:2,prog:'MR'},
-subs:{card:'Rewards card (streaming 4x)',mult:4,prog:'MR'},
-other:{card:'Catch-all card (1.5x)',mult:1.5,prog:'UR'}
+groc:{card:'Groceries rewards card (4x)',mult:4},
+dine:{card:'Dining rewards card (4x)',mult:4},
+gas:{card:'Rotating category card (3x)',mult:3},
+travel:{card:'Travel rewards card (3x)',mult:3},
+online:{card:'Catch-all rewards card (2x)',mult:2},
+subs:{card:'Category rewards card (4x)',mult:4},
+other:{card:'Base rewards card (1.5x)',mult:1.5}
 };
 var catNames={groc:'Groceries',dine:'Dining',gas:'Gas',travel:'Travel',online:'Online Shopping',subs:'Streaming & Software',other:'Everything Else'};
 
@@ -325,32 +308,30 @@ if(n===4){buildStep4();setTimeout(function(){document.querySelector('.ros-num').
 
 function buildStep2(){
 var tbody=document.getElementById('routingBody');
-var html='';var mr=0;var ur=0;
+var html='';var totalPts=0;
 for(var k in cats){
 var r=routing[k];var pts=Math.round(cats[k]*r.mult);
-var tag=r.prog==='MR'?'tag-mr':'tag-ur';
-html+='<tr><td>'+catNames[k]+'</td><td>'+r.card+' <span class="card-tag '+tag+'">'+r.prog+'</span></td><td>'+r.mult+'x</td><td>'+pts.toLocaleString()+'</td></tr>';
-if(r.prog==='MR')mr+=pts;else ur+=pts;
+
+html+='<tr><td>'+catNames[k]+'</td><td>'+r.card+'</td><td>'+r.mult+'x</td><td>'+pts.toLocaleString()+'</td></tr>';
+totalPts+=pts;
 }
 tbody.innerHTML=html;
-document.getElementById('mrMonthly').textContent=mr.toLocaleString();
-document.getElementById('urMonthly').textContent=ur.toLocaleString();
-document.getElementById('annualPts').textContent=((mr+ur)*12).toLocaleString();
+document.getElementById('annualPts').textContent=(totalPts*12).toLocaleString();
 }
 
 var ITINS=[
-{route:'New York to London',pax:'2 economy',pts:60000,prog:'MR',partner:'Virgin Atlantic',cash:1400},
-{route:'Los Angeles to Tokyo',pax:'1 business class',pts:85000,prog:'MR',partner:'ANA',cash:6200},
-{route:'Chicago to Cancun',pax:'2 economy',pts:26000,prog:'UR',partner:'United',cash:780},
-{route:'San Francisco to Paris',pax:'2 economy',pts:70000,prog:'UR',partner:'Air France',cash:1600},
-{route:'5 nights Hyatt Regency Maui',pax:'Standard room',pts:125000,prog:'UR',partner:'World of Hyatt',cash:2800},
-{route:'Miami to Barcelona',pax:'2 economy',pts:60000,prog:'MR',partner:'Aeroplan',cash:1200},
-{route:'Boston to Dublin',pax:'2 economy',pts:50000,prog:'MR',partner:'Aeroplan',cash:900},
-{route:'3 nights Park Hyatt New York',pax:'King room',pts:90000,prog:'UR',partner:'World of Hyatt',cash:3200},
-{route:'Dallas to Maui',pax:'2 economy',pts:50000,prog:'MR',partner:'Hawaiian Airlines',cash:1100},
-{route:'Seattle to Singapore',pax:'1 business class',pts:92000,prog:'UR',partner:'Singapore Airlines',cash:5800},
-{route:'New York to Caribbean',pax:'2 economy',pts:30000,prog:'UR',partner:'JetBlue',cash:700},
-{route:'4 nights Andaz Scottsdale',pax:'Resort room',pts:60000,prog:'UR',partner:'World of Hyatt',cash:1600}
+{route:'New York to London',pax:'2 economy',pts:60000,prog:'pts',partner:'Virgin Atlantic',cash:1400},
+{route:'Los Angeles to Tokyo',pax:'1 business class',pts:85000,prog:'pts',partner:'ANA',cash:6200},
+{route:'Chicago to Cancun',pax:'2 economy',pts:26000,prog:'pts',partner:'United',cash:780},
+{route:'San Francisco to Paris',pax:'2 economy',pts:70000,prog:'pts',partner:'Air France',cash:1600},
+{route:'5 nights Hyatt Regency Maui',pax:'Standard room',pts:125000,prog:'pts',partner:'World of Hyatt',cash:2800},
+{route:'Miami to Barcelona',pax:'2 economy',pts:60000,prog:'pts',partner:'Aeroplan',cash:1200},
+{route:'Boston to Dublin',pax:'2 economy',pts:50000,partner:'Aeroplan',cash:900},
+{route:'3 nights Park Hyatt New York',pax:'King room',pts:90000,prog:'pts',partner:'World of Hyatt',cash:3200},
+{route:'Dallas to Maui',pax:'2 economy',pts:50000,partner:'Hawaiian Airlines',cash:1100},
+{route:'Seattle to Singapore',pax:'1 business class',pts:92000,partner:'Singapore Airlines',cash:5800},
+{route:'New York to Caribbean',pax:'2 economy',pts:30000,partner:'JetBlue',cash:700},
+{route:'4 nights Andaz Scottsdale',pax:'Resort room',pts:60000,partner:'World of Hyatt',cash:1600}
 ];
 
 function buildStep3(){
@@ -373,7 +354,7 @@ html+='<div class="itin">';
 html+='<div class="itin-route">'+it.route+'</div>';
 html+='<div class="itin-class">'+it.pax+' via '+it.partner+'</div>';
 html+='<div class="itin-row"><span class="lab">Cash price</span><span class="val cash">$'+it.cash.toLocaleString()+'</span></div>';
-html+='<div class="itin-row"><span class="lab">Points needed</span><span class="val pts">'+it.pts.toLocaleString()+' '+it.prog+'</span></div>';
+html+='<div class="itin-row"><span class="lab">Points needed</span><span class="val pts">'+it.pts.toLocaleString()+' pts</span></div>';
 html+='<div class="itin-row"><span class="lab">Value per point</span><span class="val">'+cpp+' cents</span></div>';
 html+='<div class="itin-months">At your spend, you earn this in <strong>'+mos+' month'+(mos!==1?'s':'')+'</strong></div>';
 html+='<div class="itin-date">Estimated as of '+dateStr+'</div>';
