@@ -33,8 +33,15 @@ a{text-decoration:none;color:inherit}
 .hero p{font-size:16px;color:#888;max-width:480px;margin:0 auto;line-height:1.7}
 
 /* Progress */
-.prog{display:flex;gap:4px;max-width:800px;margin:0 auto;padding:0 32px 28px;background:#fff}
-.prog-dot{flex:1;height:4px;border-radius:2px;background:#eee;transition:background .4s}.prog-dot.done{background:var(--pink)}
+.prog{display:flex;align-items:center;justify-content:center;gap:0;max-width:600px;margin:0 auto;padding:0 32px 32px;background:#fff}
+.prog-step{display:flex;align-items:center;gap:0}
+.prog-circle{width:32px;height:32px;border-radius:50%;border:2px solid #e8e9ed;display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:700;color:#ccc;background:#fff;transition:all .4s;position:relative;z-index:1}
+.prog-circle.done{border-color:var(--pink);background:var(--pink);color:#fff}
+.prog-circle.active{border-color:var(--pink);color:var(--pink)}
+.prog-line{width:60px;height:2px;background:#e8e9ed;transition:background .4s}
+.prog-line.done{background:var(--pink)}
+.prog-label{position:absolute;top:36px;left:50%;transform:translateX(-50%);font-size:9px;font-weight:600;color:#ccc;white-space:nowrap;letter-spacing:.3px;text-transform:uppercase;transition:color .4s}
+.prog-circle.done .prog-label,.prog-circle.active .prog-label{color:var(--pink)}
 
 /* Steps */
 .step-wrap{max-width:800px;margin:0 auto}
@@ -161,7 +168,15 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <p>See how much travel value your household earns on every dollar. Adjusted for real card multipliers and real transfer partner redemptions.</p>
 </div></section>
 
-<div class="prog" id="prog"><div class="prog-dot done"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div>
+<div class="prog" id="prog">
+<div class="prog-step"><div class="prog-circle done active" data-step="1">1<div class="prog-label">Spend</div></div></div>
+<div class="prog-line" data-line="1"></div>
+<div class="prog-step"><div class="prog-circle" data-step="2">2<div class="prog-label">Points</div></div></div>
+<div class="prog-line" data-line="2"></div>
+<div class="prog-step"><div class="prog-circle" data-step="3">3<div class="prog-label">Trips</div></div></div>
+<div class="prog-line" data-line="3"></div>
+<div class="prog-step"><div class="prog-circle" data-step="4">4<div class="prog-label">RoS</div></div></div>
+</div>
 
 <div class="wrap"><div class="step-wrap">
 
@@ -176,7 +191,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <div class="sg"><div class="sg-head"><span class="sg-label">Gas</span><span class="sg-val" id="v-gas">$250</span></div><input type="range" min="0" max="1000" value="250" step="25" data-cat="gas" oninput="upd(this)"><div class="sg-hint">Gas stations, EV charging</div></div>
 <div class="sg"><div class="sg-head"><span class="sg-label">Travel</span><span class="sg-val" id="v-travel">$300</span></div><input type="range" min="0" max="3000" value="300" step="50" data-cat="travel" oninput="upd(this)"><div class="sg-hint">Flights, hotels, car rentals</div></div>
 <div class="sg"><div class="sg-head"><span class="sg-label">Online Shopping</span><span class="sg-val" id="v-online">$400</span></div><input type="range" min="0" max="2000" value="400" step="50" data-cat="online" oninput="upd(this)"><div class="sg-hint">Amazon, retail websites, marketplaces</div></div>
-<div class="sg"><div class="sg-head"><span class="sg-label">Subscriptions</span><span class="sg-val" id="v-subs">$150</span></div><input type="range" min="0" max="500" value="150" step="25" data-cat="subs" oninput="upd(this)"><div class="sg-hint">Streaming, software, memberships</div></div>
+<div class="sg"><div class="sg-head"><span class="sg-label">Streaming &amp; Software</span><span class="sg-val" id="v-subs">$150</span></div><input type="range" min="0" max="500" value="150" step="25" data-cat="subs" oninput="upd(this)"><div class="sg-hint">Streaming, software, memberships</div></div>
 <div class="sg"><div class="sg-head"><span class="sg-label">Everything Else</span><span class="sg-val" id="v-other">$900</span></div><input type="range" min="0" max="5000" value="900" step="50" data-cat="other" oninput="upd(this)"><div class="sg-hint">Utilities, insurance, miscellaneous</div></div>
 
 <div class="sg-total"><span class="sg-total-label">Total monthly spend</span><span class="sg-total-val" id="totalSpend">$3,000</span></div>
@@ -233,9 +248,9 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <div class="ros-sub" id="rosSub"></div>
 
 <div class="ros-compare">
-<div class="ros-comp old"><div class="ros-comp-num" id="rosOld">1.0%</div><div class="ros-comp-label">Flat cashback card</div></div>
-<div class="ros-comp old"><div class="ros-comp-num" id="rosMid">2.0%</div><div class="ros-comp-label">Premium card, no strategy</div></div>
-<div class="ros-comp new"><div class="ros-comp-num" id="rosNew">0%</div><div class="ros-comp-label">Optimized with First Officer</div></div>
+<div class="ros-comp old"><div class="ros-comp-num">1%</div><div class="ros-comp-label">Flat cashback</div></div>
+<div class="ros-comp old"><div class="ros-comp-num">2%</div><div class="ros-comp-label">Premium card alone</div></div>
+<div class="ros-comp new"><div class="ros-comp-num" id="rosNew">0%</div><div class="ros-comp-label">With First Officer</div></div>
 </div>
 
 <div class="ros-what" id="rosWhat"></div>
@@ -276,7 +291,7 @@ online:{card:'Catch-all rewards (2x)',mult:2,prog:'MR'},
 subs:{card:'Rewards card (streaming 4x)',mult:4,prog:'MR'},
 other:{card:'Catch-all card (1.5x)',mult:1.5,prog:'UR'}
 };
-var catNames={groc:'Groceries',dine:'Dining',gas:'Gas',travel:'Travel',online:'Online Shopping',subs:'Subscriptions',other:'Everything Else'};
+var catNames={groc:'Groceries',dine:'Dining',gas:'Gas',travel:'Travel',online:'Online Shopping',subs:'Streaming &amp; Software',other:'Everything Else'};
 
 function upd(el){
 var c=el.dataset.cat;var v=+el.value;cats[c]=v;
@@ -292,8 +307,16 @@ for(var i=1;i<=4;i++){
 var el=document.getElementById('s'+i);
 if(i===n){el.classList.add('on');el.style.display='block'}else{el.classList.remove('on');el.style.display='none'}
 }
-var dots=document.querySelectorAll('.prog-dot');
-dots.forEach(function(d,i){if(i<n)d.classList.add('done');else d.classList.remove('done')});
+document.querySelectorAll('.prog-circle').forEach(function(c){
+var s=+c.dataset.step;
+c.classList.remove('done','active');
+if(s<n)c.classList.add('done');
+if(s===n)c.classList.add('active');
+});
+document.querySelectorAll('.prog-line').forEach(function(l){
+var ln=+l.dataset.line;
+if(ln<n)l.classList.add('done');else l.classList.remove('done');
+});
 window.scrollTo({top:0,behavior:'smooth'});
 if(n===2)buildStep2();
 if(n===3)buildStep3();
@@ -378,7 +401,7 @@ document.getElementById('rosNum').textContent=rosConserv+'% to '+rosBest+'%';
 document.getElementById('rosNew').textContent=rosConserv+'% to '+rosBest+'%';
 document.getElementById('rosSub').textContent='$'+conservVal.toLocaleString()+' to $'+bestVal.toLocaleString()+' in annual travel value on $'+annualSpend.toLocaleString()+' spend';
 
-document.getElementById('rosWhat').innerHTML='A flat cashback card earns you 1% back. A premium card with no strategy might get you 2%. With optimized category routing and transfer partner redemptions, your household could achieve <strong style="color:var(--pink)">'+rosConserv+'% to '+rosBest+'%</strong> return on every dollar you spend. That is the UpNonStop RoS.';
+document.getElementById('rosWhat').innerHTML='With the right card on every category and the right transfer partner on every redemption, your household achieves <strong style="color:var(--pink)">'+rosConserv+'% to '+rosBest+'%</strong> return on every dollar you spend. That is what an optimized plan looks like. That is the UpNonStop RoS.';
 }
 
 function copyRos(){
