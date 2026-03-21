@@ -151,6 +151,16 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .book-grid.looping{animation:bookScroll 80s linear infinite;will-change:transform}
 .book-grid.looping:hover{animation-play-state:paused}
 @media(max-width:768px){
+.book-card{width:180px;height:240px}
+.book-card:hover .book-inner{transform:none}
+.book-back{display:none}
+.book-front{padding:12px}
+.book-dest{font-size:14px;line-height:1.2;max-height:34px;overflow:hidden}
+.book-sub{font-size:9px}
+.book-pts-badge{font-size:8px;padding:3px 7px;top:8px;right:8px}
+.book-badge{font-size:7px;padding:2px 7px;top:8px;left:8px;letter-spacing:.5px}
+.book-front::before{background:linear-gradient(to top,rgba(0,0,0,.7) 0%,rgba(0,0,0,.1) 50%,transparent 100%)}
+
 .nk{display:none}.mob{display:flex}
 .step{padding:28px 24px;border-radius:16px}
 .book-card{width:170px;height:250px}
