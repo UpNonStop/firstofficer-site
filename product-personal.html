@@ -155,11 +155,32 @@ a{text-decoration:none;color:inherit}
 @keyframes bookScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .book-grid.looping{animation:bookScroll 80s linear infinite;will-change:transform}
 .book-grid.looping:hover{animation-play-state:paused}
+
+.ab-card{background:#FFFBF0!important;border:1px solid #E8DFC0!important;border-top:3px solid #C5A226!important}
+.ab-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.ab-title{font-family:var(--serif);font-size:24px;color:#111}
+.ab-price{text-align:right}
+.ab-amt{display:block;font-size:28px;font-weight:900;color:#C5A226;letter-spacing:-1px}
+.ab-per{font-size:12px;color:#998A5E}
+.ab-desc{font-size:15px;line-height:1.75;color:#555;margin-bottom:24px}
+.ab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.ab-box{padding:18px;border-radius:12px;background:#FFF8E5;border:1px solid #E8DFC0}
+.ab-box-t{font-size:13px;font-weight:700;color:#C5A226;margin-bottom:6px}
+.ab-box-p{font-size:12px;line-height:1.5;color:#888}
+.ab-fine{font-size:12px;line-height:1.5;color:#aaa}
+
 @media(max-width:768px){
 .nk{display:none}.mob{display:flex}
 .tier-card{padding:24px 20px;border-radius:16px;margin-bottom:32px}
 .tc-popular::before,.tc-start::before,.tc-gold-only::before,.tc-from{display:none!important}
-.ab-grid{grid-template-columns:1fr!important}
+.ab-grid{grid-template-columns:1fr!important;gap:10px!important}
+.ab-title{font-size:18px!important}
+.ab-amt{font-size:22px!important}
+.ab-desc{font-size:13px!important;margin-bottom:16px!important}
+.ab-box{padding:14px!important}
+.ab-box-t{font-size:12px!important}
+.ab-box-p{font-size:11px!important}
+.ab-top{margin-bottom:14px!important}
 .wa-b{height:240px}
 .wa-m{font-size:9.5px;max-width:88%}
 .wa-m.fo,.wa-m.u{padding:5px 8px!important;margin-bottom:3px!important}
@@ -381,27 +402,18 @@ a{text-decoration:none;color:inherit}
 </div></div>
 
 <!-- Award Booking -->
-<div class="tier-card" style="background:#FFFBF0;border:1px solid #E8DFC0;border-top:3px solid #C5A226">
-<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:20px">
-<div style="font-family:var(--serif);font-size:24px;color:#111">Award Booking Service</div>
-<div style="text-align:right"><div style="font-size:28px;font-weight:900;color:#C5A226;letter-spacing:-1px">$500</div><div style="font-size:12px;color:#998A5E">per booking, any party size</div></div>
+<div class="tier-card ab-card">
+<div class="ab-top">
+<div class="ab-title">Award Booking Service</div>
+<div class="ab-price"><span class="ab-amt">$500</span><span class="ab-per">per booking, any party size</span></div>
 </div>
-<p style="font-size:15px;line-height:1.75;color:#555;margin-bottom:24px">A business class seat that costs $8,000 cash might cost 55,000 points through the right transfer partner at the right time. Getting there means navigating hold queues, transfer timing, partner availability calendars, and backup routing. One wrong step and the seat is gone. We handle all of it with you.</p>
-<div class="ab-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px">
-<div style="padding:18px;border-radius:12px;background:#FFF8E5;border:1px solid #E8DFC0">
-<div style="font-size:13px;font-weight:700;color:#C5A226;margin-bottom:6px">The Research</div>
-<p style="font-size:12px;line-height:1.5;color:#888">Every transfer partner, every routing, every date. The best value path for your specific points.</p>
+<p class="ab-desc">A business class seat that costs $8,000 cash might cost 55,000 points through the right transfer partner at the right time. Getting there means navigating hold queues, transfer timing, partner availability calendars, and backup routing. One wrong step and the seat is gone. We handle all of it with you.</p>
+<div class="ab-grid">
+<div class="ab-box"><div class="ab-box-t">The Research</div><p class="ab-box-p">Every transfer partner, every routing, every date. The best value path for your specific points.</p></div>
+<div class="ab-box"><div class="ab-box-t">The Execution</div><p class="ab-box-p">Point transfers timed to the minute. Phone calls to airline partners. Holds placed. Seat assignments. All of it.</p></div>
+<div class="ab-box"><div class="ab-box-t">The Backup Plan</div><p class="ab-box-p">Award seats disappear. Transfers fail. We have the backup routing ready before the primary one falls through.</p></div>
 </div>
-<div style="padding:18px;border-radius:12px;background:#FFF8E5;border:1px solid #E8DFC0">
-<div style="font-size:13px;font-weight:700;color:#C5A226;margin-bottom:6px">The Execution</div>
-<p style="font-size:12px;line-height:1.5;color:#888">Point transfers timed to the minute. Phone calls to airline partners. Holds placed. Seat assignments. All of it.</p>
-</div>
-<div style="padding:18px;border-radius:12px;background:#FFF8E5;border:1px solid #E8DFC0">
-<div style="font-size:13px;font-weight:700;color:#C5A226;margin-bottom:6px">The Backup Plan</div>
-<p style="font-size:12px;line-height:1.5;color:#888">Award seats disappear. Transfers fail. We have the backup routing ready before the primary one falls through.</p>
-</div>
-</div>
-<p style="font-size:12px;line-height:1.5;color:#aaa">$500 flat. No percentage of trip value. No hidden fees. Family of 2 or group of 12, same price.</p>
+<p class="ab-fine">$500 flat. No percentage of trip value. No hidden fees. Family of 2 or group of 12, same price.</p>
 </div>
 
 </div></div>
