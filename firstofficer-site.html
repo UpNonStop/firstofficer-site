@@ -1056,6 +1056,14 @@ idx=(idx+1)%routes.length;
 cycle();
 setInterval(cycle,2500);
 })();
+
+// Auto-switch to Business mode if ?biz=1 in URL
+if(new URLSearchParams(window.location.search).get('biz')==='1'){
+document.body.classList.add('biz');
+var t=document.querySelector('.tgl');if(t)t.dataset.mode='biz';
+var tb=document.querySelectorAll('.tgl-o');
+if(tb.length===2){tb[0].classList.remove('act');tb[1].classList.add('act');}
+}
 </script>
 
 <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:32px">
@@ -1279,6 +1287,14 @@ l.style.zIndex='99';
 var hash = window.location.hash.replace('#','');
 if(hash && document.getElementById('page-'+hash)){
   go(hash);
+}
+
+// Auto-switch to Business mode if ?biz=1 in URL
+if(new URLSearchParams(window.location.search).get('biz')==='1'){
+document.body.classList.add('biz');
+var t=document.querySelector('.tgl');if(t)t.dataset.mode='biz';
+var tb=document.querySelectorAll('.tgl-o');
+if(tb.length===2){tb[0].classList.remove('act');tb[1].classList.add('act');}
 }
 </script>
 </body>
