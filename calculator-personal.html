@@ -84,6 +84,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 /* Step 3: Booking cards */
 .book-scroll{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;padding:4px 0 20px;margin:0 -52px;padding-left:52px;scrollbar-width:none;-ms-overflow-style:none}
 .book-scroll::-webkit-scrollbar{display:none}
+.book-scroll.auto-scrolling{scroll-behavior:smooth}
 .book-grid{display:flex;gap:14px;width:max-content}
 .book-card{width:200px;height:280px;perspective:800px;flex-shrink:0;cursor:pointer}
 .book-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .6s ease}
@@ -264,11 +265,11 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <!-- Member bookings social proof -->
 <div style="margin-top:48px;border-top:1px solid #eee;padding-top:36px">
 <div style="text-align:center;margin-bottom:20px">
-<div style="font-family:var(--serif);font-size:20px;color:#111;margin-bottom:4px">Booked for our members this month.</div>
+<div style="font-family:var(--serif);font-size:20px;color:#111;margin-bottom:4px">Booked for our <span style="color:var(--pink)">Select</span> &amp; <span style="color:var(--pink)">Reserve</span> members this month.</div>
 <div style="font-size:13px;color:#999">Real redemptions. Business class flights and premium hotels. Hover to see details.</div>
 </div>
 <div class="book-scroll"><div class="book-grid" id="bookGrid"></div></div>
-<p style="font-size:10px;color:#ccc;text-align:center;margin-top:8px">Showing 12 of 60+ recent bookings. Reload for different results.</p>
+<p style="font-size:10px;color:#ccc;text-align:center;margin-top:8px">Showing 20 of 60+ recent bookings. Reload for different results.</p>
 </div>
 
 <div class="ros-fine">* UpNonStop RoS (Return on Spend) is an illustrative metric showing estimated travel value as a percentage of total card spend. Based on publicly available category multipliers and transfer partner valuations (approximately 2 to 3.5 cents per point). Actual results vary based on specific cards held, spending patterns, transfer partner availability, and redemption choices. Category multipliers are subject to annual caps and issuer terms. This is an educational estimate, not a guarantee of returns. Individual results vary.</div>
@@ -415,9 +416,9 @@ var INV=[
 function buildBookings(){
 var grid=document.getElementById('bookGrid');
 var monthlyPts=0;for(var k in cats)monthlyPts+=Math.round(cats[k]*routing[k].mult);
-var fl=INV.filter(function(i){return i.t==='f'}).sort(function(){return 0.5-Math.random()}).slice(0,6);
-var ht=INV.filter(function(i){return i.t==='h'}).sort(function(){return 0.5-Math.random()}).slice(0,6);
-var picks=[];for(var i=0;i<6;i++){picks.push(fl[i]);picks.push(ht[i]);}
+var fl=INV.filter(function(i){return i.t==='f'}).sort(function(){return 0.5-Math.random()}).slice(0,10);
+var ht=INV.filter(function(i){return i.t==='h'}).sort(function(){return 0.5-Math.random()}).slice(0,10);
+var picks=[];for(var i=0;i<10;i++){picks.push(fl[i]);picks.push(ht[i]);}
 var now=new Date();
 var mos=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 var stamp=mos[now.getMonth()]+' '+now.getFullYear();
@@ -471,6 +472,7 @@ html+='</div></div></div>';
 }
 });
 grid.innerHTML=html;
+setTimeout(autoScrollBookings,500);
 }
 
 function buildRoS(){
@@ -509,6 +511,31 @@ document.querySelectorAll('input[type=range]').forEach(function(el){
 var v=+el.value;var pct=((v-+el.min)/(+el.max-+el.min))*100;
 el.style.background='linear-gradient(to right,var(--pink) '+pct+'%,#e8e9ed '+pct+'%)';
 });
+
+// Auto-scroll booking carousel
+function autoScrollBookings(){
+var scrollEls=document.querySelectorAll('.book-scroll');
+scrollEls.forEach(function(el){
+if(el.dataset.scrolling)return;
+el.dataset.scrolling='1';
+var dir=1;var speed=0.8;var paused=false;
+el.addEventListener('mouseenter',function(){paused=true});
+el.addEventListener('mouseleave',function(){paused=false});
+el.addEventListener('touchstart',function(){paused=true},{passive:true});
+el.addEventListener('touchend',function(){setTimeout(function(){paused=false},3000)},{passive:true});
+function tick(){
+if(!paused&&el.scrollWidth>el.clientWidth){
+el.scrollLeft+=dir*speed;
+var maxScroll=el.scrollWidth-el.clientWidth;
+if(el.scrollLeft>=maxScroll-1){dir=-1;}
+if(el.scrollLeft<=1){dir=1;}
+}
+requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+});
+}
+
 </script>
 </body>
 </html>

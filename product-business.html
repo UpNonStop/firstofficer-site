@@ -104,6 +104,7 @@ a{text-decoration:none;color:inherit}
 /* Booking cards */
 .book-scroll{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;padding:4px 0 20px;scrollbar-width:none}
 .book-scroll::-webkit-scrollbar{display:none}
+.book-scroll.auto-scrolling{scroll-behavior:smooth}
 .book-grid{display:flex;gap:14px;width:max-content}
 .book-card{width:200px;height:280px;perspective:800px;flex-shrink:0;cursor:pointer}
 .book-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .6s ease}
@@ -289,10 +290,10 @@ a{text-decoration:none;color:inherit}
 <!-- CTA -->
 <!-- Member Bookings Carousel -->
 <div style="max-width:920px;margin:56px auto 0;text-align:center">
-<div style="font-family:var(--serif);font-size:22px;color:#f0f0f4;margin-bottom:4px">Booked for our members this month.</div>
+<div style="font-family:var(--serif);font-size:22px;color:#f0f0f4;margin-bottom:4px">Booked for our <span style="color:var(--pink)">Preferred</span> &amp; <span style="color:var(--pink)">Signature</span> members this month.</div>
 <div style="font-size:13px;color:#666;margin-bottom:20px">Real redemptions by Preferred, Signature, and Concierge members. Hover any card to see details.</div>
 <div class="book-scroll"><div class="book-grid" id="prodBookGrid"></div></div>
-<p style="font-size:10px;color:#444;margin-top:4px">Showing 12 of 60+ recent bookings. Reload for different results.</p>
+<p style="font-size:10px;color:#444;margin-top:4px">Showing 20 of 60+ recent bookings. Reload for different results.</p>
 </div>
 
 <section class="ctab"><div class="wrap">
@@ -423,9 +424,9 @@ var BINV=[
 ];
 function renderProdBookings(){
 var grid=document.getElementById('prodBookGrid');if(!grid)return;
-var fl=BINV.filter(function(i){return i.t==='f'}).sort(function(){return .5-Math.random()}).slice(0,6);
-var ht=BINV.filter(function(i){return i.t==='h'}).sort(function(){return .5-Math.random()}).slice(0,6);
-var picks=[];for(var i=0;i<6;i++){picks.push(fl[i]);picks.push(ht[i]);}
+var fl=BINV.filter(function(i){return i.t==='f'}).sort(function(){return .5-Math.random()}).slice(0,10);
+var ht=BINV.filter(function(i){return i.t==='h'}).sort(function(){return .5-Math.random()}).slice(0,10);
+var picks=[];for(var i=0;i<10;i++){picks.push(fl[i]);picks.push(ht[i]);}
 var now=new Date(),mos=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],stamp=mos[now.getMonth()]+' '+now.getFullYear();
 var html='';
 picks.forEach(function(it){
@@ -435,6 +436,32 @@ html+='<div class="book-card"><div class="book-inner"><div class="book-front"'+(
 html+='<div class="book-card"><div class="book-inner"><div class="book-front"'+(himg?' style="background-image:url(\''+himg+'\')"':'')+'><div class="book-badge ht">'+it.nt+' Nights</div><div class="book-pts-badge">'+Math.round(it.pn/1000)+'K/nt</div><div class="book-dest">'+it.n+'</div><div class="book-sub">'+it.pg+'</div></div><div class="book-back"><div class="book-back-top"><div class="book-back-dest">'+it.n+'</div><div class="book-back-detail">'+it.nt+' nights, '+it.pn.toLocaleString()+' pts/nt, '+it.pg+'</div><div class="book-back-row"><span class="bl">Cash</span><span class="bv strike">$'+it.cash.toLocaleString()+'</span></div><div class="book-back-row"><span class="bl">Points</span><span class="bv pk">'+tp.toLocaleString()+'</span></div><div class="book-back-row"><span class="bl">Per night</span><span class="bv">$'+it.cn+' vs '+it.pn.toLocaleString()+' pts</span></div><div class="book-back-row"><span class="bl">Value</span><span class="bv pk">'+((it.cash/tp)*100).toFixed(1)+'\u00a2/pt</span></div></div><div class="book-stamp">Booked '+stamp+'</div></div></div></div>';}
 });grid.innerHTML=html;}
 renderProdBookings();
+setTimeout(autoScrollBookings,500);
+
+
+// Auto-scroll booking carousel
+function autoScrollBookings(){
+var scrollEls=document.querySelectorAll('.book-scroll');
+scrollEls.forEach(function(el){
+if(el.dataset.scrolling)return;
+el.dataset.scrolling='1';
+var dir=1;var speed=0.8;var paused=false;
+el.addEventListener('mouseenter',function(){paused=true});
+el.addEventListener('mouseleave',function(){paused=false});
+el.addEventListener('touchstart',function(){paused=true},{passive:true});
+el.addEventListener('touchend',function(){setTimeout(function(){paused=false},3000)},{passive:true});
+function tick(){
+if(!paused&&el.scrollWidth>el.clientWidth){
+el.scrollLeft+=dir*speed;
+var maxScroll=el.scrollWidth-el.clientWidth;
+if(el.scrollLeft>=maxScroll-1){dir=-1;}
+if(el.scrollLeft<=1){dir=1;}
+}
+requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+});
+}
 
 </script>
 </body>

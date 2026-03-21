@@ -62,6 +62,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .pts-annual-label{font-size:12px;color:#666;margin-top:4px}
 .book-scroll{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;padding:4px 0 20px;margin:0 -52px;padding-left:52px;scrollbar-width:none}
 .book-scroll::-webkit-scrollbar{display:none}
+.book-scroll.auto-scrolling{scroll-behavior:smooth}
 .book-grid{display:flex;gap:14px;width:max-content}
 .book-card{width:200px;height:280px;perspective:800px;flex-shrink:0;cursor:pointer}
 .book-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .6s ease}
@@ -199,11 +200,11 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 </div>
 <div style="margin-top:48px;border-top:1px solid #2a2a2a;padding-top:36px">
 <div style="text-align:center;margin-bottom:20px">
-<div style="font-family:var(--serif);font-size:20px;color:#f0f0f4;margin-bottom:4px">Booked for our members this month.</div>
+<div style="font-family:var(--serif);font-size:20px;color:#f0f0f4;margin-bottom:4px">Booked for our <span style="color:var(--pink)">Preferred</span> &amp; <span style="color:var(--pink)">Signature</span> members this month.</div>
 <div style="font-size:13px;color:#666">Real redemptions. Business class flights and premium hotels. Hover to see details.</div>
 </div>
 <div class="book-scroll"><div class="book-grid" id="bookGrid"></div></div>
-<p style="font-size:10px;color:#555;text-align:center;margin-top:8px">Showing 12 of 60+ recent bookings. Reload for different results.</p>
+<p style="font-size:10px;color:#555;text-align:center;margin-top:8px">Showing 20 of 60+ recent bookings. Reload for different results.</p>
 </div>
 <div class="ros-fine">* UpNonStop RoS (Return on Spend) is an illustrative metric showing estimated travel value as a percentage of total card spend. Based on industry-specific category multipliers and transfer partner valuations (approximately 2 to 3.5 cents per point). Actual results vary based on specific cards held, vendor MCC codes, spending patterns, and redemption choices. This is an educational estimate, not a guarantee of returns.</div>
 </div>
@@ -276,16 +277,16 @@ var IMGS={'LHR':'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=
 var INV=[{t:'f',from:'JFK',to:'LHR',fc:'New York',tc:'London',pts:58000,fees:650,pa:'Virgin Atlantic',cash:5800},{t:'f',from:'LAX',to:'NRT',fc:'Los Angeles',tc:'Tokyo',pts:85000,fees:280,pa:'ANA',cash:8400},{t:'f',from:'SFO',to:'SIN',fc:'San Francisco',tc:'Singapore',pts:92000,fees:120,pa:'Singapore Airlines',cash:9200},{t:'f',from:'ORD',to:'CDG',fc:'Chicago',tc:'Paris',pts:70000,fees:580,pa:'Air France',cash:6400},{t:'f',from:'MIA',to:'BCN',fc:'Miami',tc:'Barcelona',pts:58000,fees:420,pa:'Aeroplan',cash:5200},{t:'f',from:'BOS',to:'DUB',fc:'Boston',tc:'Dublin',pts:58000,fees:380,pa:'Aeroplan',cash:4800},{t:'f',from:'DFW',to:'HND',fc:'Dallas',tc:'Tokyo',pts:88000,fees:310,pa:'JAL via Alaska',cash:7600},{t:'f',from:'SEA',to:'SYD',fc:'Seattle',tc:'Sydney',pts:100000,fees:180,pa:'Cathay Pacific',cash:8800},{t:'f',from:'EWR',to:'FCO',fc:'Newark',tc:'Rome',pts:57500,fees:540,pa:'Aeroplan',cash:5100},{t:'f',from:'IAD',to:'DOH',fc:'Washington DC',tc:'Doha',pts:70000,fees:90,pa:'Qatar Airways',cash:7800},{t:'f',from:'JFK',to:'CDG',fc:'New York',tc:'Paris',pts:57500,fees:610,pa:'Air France',cash:5400},{t:'f',from:'JFK',to:'TLV',fc:'New York',tc:'Tel Aviv',pts:62000,fees:420,pa:'Aeroplan',cash:5600},{t:'f',from:'SFO',to:'HKG',fc:'San Francisco',tc:'Hong Kong',pts:70000,fees:150,pa:'Cathay Pacific',cash:6800},{t:'f',from:'LAX',to:'BKK',fc:'Los Angeles',tc:'Bangkok',pts:75000,fees:140,pa:'EVA Air',cash:6200},{t:'f',from:'MIA',to:'LIS',fc:'Miami',tc:'Lisbon',pts:57500,fees:360,pa:'Aeroplan',cash:4600},
 {t:'h',n:'Park Hyatt Maldives',nt:5,pn:29000,pg:'World of Hyatt',cash:5200,cn:1040},{t:'h',n:'Andaz Maui at Wailea',nt:4,pn:25000,pg:'World of Hyatt',cash:3200,cn:800},{t:'h',n:'St. Regis Bora Bora',nt:5,pn:85000,pg:'Marriott Bonvoy',cash:8500,cn:1700},{t:'h',n:'Conrad Maldives',nt:4,pn:95000,pg:'Hilton Honors',cash:6000,cn:1500},{t:'h',n:'Park Hyatt Tokyo',nt:3,pn:30000,pg:'World of Hyatt',cash:2700,cn:900},{t:'h',n:'Ritz-Carlton Kyoto',nt:4,pn:70000,pg:'Marriott Bonvoy',cash:4800,cn:1200},{t:'h',n:'Alila Ventana Big Sur',nt:3,pn:35000,pg:'World of Hyatt',cash:3900,cn:1300},{t:'h',n:'W Barcelona',nt:4,pn:50000,pg:'Marriott Bonvoy',cash:2400,cn:600},{t:'h',n:'Waldorf Astoria Beverly Hills',nt:3,pn:80000,pg:'Hilton Honors',cash:3600,cn:1200},{t:'h',n:'Hyatt Regency Maui',nt:7,pn:18000,pg:'World of Hyatt',cash:3500,cn:500},{t:'h',n:'Grand Hyatt Kauai',nt:5,pn:21000,pg:'World of Hyatt',cash:2500,cn:500},{t:'h',n:'InterContinental Bora Bora',nt:4,pn:70000,pg:'IHG Rewards',cash:4400,cn:1100},{t:'h',n:'Waldorf Astoria Maldives',nt:4,pn:120000,pg:'Hilton Honors',cash:8000,cn:2000},{t:'h',n:'Conrad Bali',nt:5,pn:50000,pg:'Hilton Honors',cash:1500,cn:300},{t:'h',n:'St. Regis Aspen',nt:3,pn:90000,pg:'Marriott Bonvoy',cash:4500,cn:1500}];
 function buildBookings(){var grid=document.getElementById('bookGrid'),mp=getMP();
-var fl=INV.filter(function(i){return i.t==='f'}).sort(function(){return .5-Math.random()}).slice(0,6);
-var ht=INV.filter(function(i){return i.t==='h'}).sort(function(){return .5-Math.random()}).slice(0,6);
-var picks=[];for(var i=0;i<6;i++){picks.push(fl[i]);picks.push(ht[i])}
+var fl=INV.filter(function(i){return i.t==='f'}).sort(function(){return .5-Math.random()}).slice(0,10);
+var ht=INV.filter(function(i){return i.t==='h'}).sort(function(){return .5-Math.random()}).slice(0,10);
+var picks=[];for(var i=0;i<10;i++){picks.push(fl[i]);picks.push(ht[i])}
 var now=new Date(),mos=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],stamp=mos[now.getMonth()]+' '+now.getFullYear(),h='';
 picks.forEach(function(it){
 if(it.t==='f'){var m=mp>0?Math.ceil(it.pts/mp):99;
 var fimg=IMGS[it.to]||'';h+='<div class="book-card"><div class="book-inner"><div class="book-front'+(fimg?'" style="background-image:url(\''+fimg+'\')"':' fl-bg"')+'><div class="book-badge fl">Business Class</div><div class="book-pts-badge">'+Math.round(it.pts/1000)+'K pts</div><div class="book-dest">'+it.tc+'</div><div class="book-sub">'+it.from+' to '+it.to+' via '+it.pa+'</div></div><div class="book-back"><div class="book-back-top"><div class="book-back-dest">'+it.fc+' to '+it.tc+'</div><div class="book-back-detail">Business class RT, per person, via '+it.pa+'</div><div class="book-back-row"><span class="bl">Cash</span><span class="bv strike">$'+it.cash.toLocaleString()+'</span></div><div class="book-back-row"><span class="bl">Points</span><span class="bv pk">'+it.pts.toLocaleString()+'</span></div><div class="book-back-row"><span class="bl">Taxes</span><span class="bv">$'+it.fees+'</span></div><div class="book-back-row"><span class="bl">Value</span><span class="bv pk">'+((it.cash/it.pts)*100).toFixed(1)+'\u00a2/pt</span></div></div><div class="book-earn">Your earn rate: <strong>'+m+' mo'+(m!==1?'s':'')+'</strong></div><div class="book-stamp">Booked '+stamp+'</div></div></div></div>';
 }else{var tp=it.pn*it.nt,m=mp>0?Math.ceil(tp/mp):99;
 var himg=IMGS[it.n]||'';h+='<div class="book-card"><div class="book-inner"><div class="book-front'+(himg?'" style="background-image:url(\''+himg+'\')"':' ht-bg"')+'><div class="book-badge ht">'+it.nt+' Nights</div><div class="book-pts-badge">'+Math.round(it.pn/1000)+'K/nt</div><div class="book-dest">'+it.n+'</div><div class="book-sub">'+it.pg+'</div></div><div class="book-back"><div class="book-back-top"><div class="book-back-dest">'+it.n+'</div><div class="book-back-detail">'+it.nt+' nights, '+it.pn.toLocaleString()+' pts/nt, '+it.pg+'</div><div class="book-back-row"><span class="bl">Cash</span><span class="bv strike">$'+it.cash.toLocaleString()+'</span></div><div class="book-back-row"><span class="bl">Points</span><span class="bv pk">'+tp.toLocaleString()+'</span></div><div class="book-back-row"><span class="bl">Per night</span><span class="bv">$'+it.cn+' vs '+it.pn.toLocaleString()+' pts</span></div><div class="book-back-row"><span class="bl">Value</span><span class="bv pk">'+((it.cash/tp)*100).toFixed(1)+'\u00a2/pt</span></div></div><div class="book-earn">Your earn rate: <strong>'+m+' mo'+(m!==1?'s':'')+'</strong></div><div class="book-stamp">Booked '+stamp+'</div></div></div></div>';}
-});grid.innerHTML=h}
+});grid.innerHTML=h;setTimeout(autoScrollBookings,500)}
 function buildRoS(){var t=0;selInd.cats.forEach(function(c,i){t+=(catVals[i]||0)});var as=t*12,mp=getMP(),ap=mp*12;
 var cv=Math.round(ap*.02),bv=Math.round(ap*.035),rc=as>0?((cv/as)*100).toFixed(1):0,rb=as>0?((bv/as)*100).toFixed(1):0;
 document.getElementById('rosNum').textContent=rc+'% to '+rb+'%';
@@ -296,5 +297,30 @@ var lk=document.getElementById('indLink');if(selInd.pg)lk.innerHTML='<a href="'+
 function copyRos(){var t=0;selInd.cats.forEach(function(c,i){t+=(catVals[i]||0)});var as=t*12,mp=getMP(),ap=mp*12,cv=Math.round(ap*.02),bv=Math.round(ap*.035),rc=as>0?((cv/as)*100).toFixed(1):0,rb=as>0?((bv/as)*100).toFixed(1):0;
 var txt='My Business UpNonStop RoS: '+rc+'% to '+rb+'%\n\nIndustry: '+selInd.nm+'\nMonthly spend: $'+t.toLocaleString()+'\nAnnual points: '+ap.toLocaleString()+'\nTravel value: $'+cv.toLocaleString()+' to $'+bv.toLocaleString()+'/year\n\nCalculate yours: firstofficer.co/calculator';
 navigator.clipboard.writeText(txt).then(function(){event.target.textContent='Copied!';setTimeout(function(){event.target.textContent='Copy results'},2000)})}
+
+// Auto-scroll booking carousel
+function autoScrollBookings(){
+var scrollEls=document.querySelectorAll('.book-scroll');
+scrollEls.forEach(function(el){
+if(el.dataset.scrolling)return;
+el.dataset.scrolling='1';
+var dir=1;var speed=0.8;var paused=false;
+el.addEventListener('mouseenter',function(){paused=true});
+el.addEventListener('mouseleave',function(){paused=false});
+el.addEventListener('touchstart',function(){paused=true},{passive:true});
+el.addEventListener('touchend',function(){setTimeout(function(){paused=false},3000)},{passive:true});
+function tick(){
+if(!paused&&el.scrollWidth>el.clientWidth){
+el.scrollLeft+=dir*speed;
+var maxScroll=el.scrollWidth-el.clientWidth;
+if(el.scrollLeft>=maxScroll-1){dir=-1;}
+if(el.scrollLeft<=1){dir=1;}
+}
+requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+});
+}
+
 </script>
 </body></html>
