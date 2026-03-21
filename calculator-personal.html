@@ -3,11 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What Are Your Points Actually Worth? | First Officer Calculator</title>
-<meta name="description" content="Free points calculator. Enter your monthly spending and see exactly how much travel value you're leaving on the table. Personalized estimate in 60 seconds.">
-<meta property="og:title" content="What Are Your Points Actually Worth?">
-<meta property="og:description" content="Free calculator. See how much travel value your credit card spending could actually earn you.">
-<meta property="og:type" content="website">
+<title>What Is Your Return on Spend? | First Officer Calculator</title>
+<meta name="description" content="Free calculator. See your household points potential, real itinerary redemptions, and your UpNonStop RoS — return on every dollar you spend.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +12,8 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-:root{--pink:#FA1896;--wa:#25D366;--font:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.4,0,.2,1);--r:16px}
-body{font-family:var(--font);background:#fff;color:#111;line-height:1.65}
+:root{--pink:#FA1896;--wa:#25D366;--font:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.4,0,.2,1)}
+body{font-family:var(--font);background:#fafaf9;color:#111;line-height:1.65}
 a{text-decoration:none;color:inherit}
 
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);background:rgba(255,255,255,.92);border-bottom:1px solid #eee}
@@ -25,83 +22,122 @@ a{text-decoration:none;color:inherit}
 .nm{width:32px;height:32px;background:var(--pink);border-radius:8px;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:800}
 .nk{display:flex;align-items:center;gap:28px}
 .nka{font-size:14px;font-weight:500;color:#666;transition:color .3s;white-space:nowrap}.nka:hover{color:var(--pink)}.nka.act{color:var(--pink)}
-.ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:100px;box-shadow:0 4px 16px rgba(37,211,102,.2);white-space:nowrap;transition:all .3s}
-.mob{display:none;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:100px;box-shadow:0 4px 16px rgba(37,211,102,.2);white-space:nowrap}
+.mob{display:none;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;border:none;background:none}
 .mob span{width:20px;height:2px;background:#111;border-radius:1px}
 .wrap{max-width:1140px;margin:0 auto;padding:0 32px}
 
-.hero{padding:120px 0 40px;text-align:center}
-.hero h1{font-family:var(--serif);font-size:clamp(30px,4.5vw,52px);line-height:1.1;letter-spacing:-.5px;margin-bottom:16px}
-.hero h1 em{font-style:normal;color:var(--pink)}
-.hero p{font-size:17px;color:#555;max-width:540px;margin:0 auto;line-height:1.7}
+/* Hero */
+.hero{padding:120px 0 32px;text-align:center;background:#fff}
+.hero h1{font-family:var(--serif);font-size:clamp(28px,4.5vw,48px);line-height:1.1;letter-spacing:-.5px;margin-bottom:12px}
+.hero p{font-size:16px;color:#888;max-width:480px;margin:0 auto;line-height:1.7}
 
-.calc{max-width:720px;margin:40px auto 0;background:#fff;border:1px solid #e8e9ed;border-radius:var(--r);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.06)}
-.step{display:none;padding:44px}.step.on{display:block;animation:fi .4s var(--ease)}
-@keyframes fi{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.step-label{font-size:13px;font-weight:700;color:var(--pink);margin-bottom:8px}
-.step h2{font-family:var(--serif);font-size:26px;margin-bottom:20px}
-.step p.sub{font-size:14px;color:#888;margin-bottom:28px;line-height:1.6}
-.prog{display:flex;gap:4px;padding:28px 44px 0;background:#fff}
+/* Progress */
+.prog{display:flex;gap:4px;max-width:800px;margin:0 auto;padding:0 32px 28px;background:#fff}
 .prog-dot{flex:1;height:4px;border-radius:2px;background:#eee;transition:background .4s}.prog-dot.done{background:var(--pink)}
 
-.spend-val{font-size:44px;font-weight:900;letter-spacing:-2px;color:var(--pink);text-align:center;margin-bottom:16px;line-height:1}
-.spend-val span{font-size:18px;font-weight:500;color:#999;letter-spacing:0}
-input[type=range]{width:100%;-webkit-appearance:none;height:6px;border-radius:3px;background:#e8e9ed;outline:none;cursor:pointer}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:var(--pink);box-shadow:0 4px 16px rgba(250,24,150,.3);cursor:pointer;border:3px solid #fff}
-input[type=range]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:var(--pink);cursor:pointer;border:3px solid #fff}
-.spend-range{display:flex;justify-content:space-between;font-size:12px;color:#aaa;margin-top:8px}
+/* Steps */
+.step-wrap{max-width:800px;margin:0 auto}
+.step{display:none;background:#fff;border:1px solid #e8e9ed;border-radius:20px;padding:40px 44px;box-shadow:0 12px 40px rgba(0,0,0,.04)}
+.step.on{display:block;animation:fi .4s var(--ease)}
+@keyframes fi{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.step-label{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--pink);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.step h2{font-family:var(--serif);font-size:24px;margin-bottom:6px}
+.step .sub{font-size:14px;color:#999;margin-bottom:28px}
 
-.cards-q{margin-bottom:24px}
-.cards-q label{font-size:14px;font-weight:600;display:block;margin-bottom:8px}
-.card-opts{display:flex;gap:8px;flex-wrap:wrap}
-.card-opt{padding:10px 18px;border:1.5px solid #e8e9ed;border-radius:100px;font-size:13px;font-weight:500;cursor:pointer;transition:all .3s;color:#555;background:#fff}
-.card-opt:hover{border-color:var(--pink)}
-.card-opt.sel{border-color:var(--pink);background:rgba(250,24,150,.04);color:var(--pink);font-weight:600}
+/* Sliders */
+.sg{margin-bottom:20px}
+.sg-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.sg-label{font-size:13px;font-weight:600;color:#555}
+.sg-val{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--pink)}
+input[type=range]{width:100%;-webkit-appearance:none;height:5px;border-radius:3px;background:#e8e9ed;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--pink);box-shadow:0 3px 10px rgba(250,24,150,.25);cursor:pointer;border:2px solid #fff}
+.sg-hint{font-size:11px;color:#ccc;margin-top:2px}
+.sg-total{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:2px solid #111;margin-top:8px}
+.sg-total-label{font-size:14px;font-weight:700}
+.sg-total-val{font-family:var(--mono);font-size:20px;font-weight:900;letter-spacing:-1px}
 
+/* Buttons */
 .btn-row{display:flex;gap:12px;justify-content:flex-end;margin-top:28px}
 .btn{padding:14px 32px;border-radius:100px;font-size:15px;font-weight:600;cursor:pointer;transition:all .3s;border:none}
 .btn-pk{background:var(--pink);color:#fff;box-shadow:0 6px 24px rgba(250,24,150,.2)}
-.btn-pk:hover{transform:translateY(-1px)}.btn-pk:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.btn-pk:hover{transform:translateY(-1px)}
 .btn-ghost{background:none;color:#888;border:1.5px solid #ddd}.btn-ghost:hover{border-color:#999}
 
-.results{padding:44px;text-align:center}
-.res-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:100px;font-size:12px;font-weight:600;color:var(--pink);background:rgba(250,24,150,.06);margin-bottom:24px}
-.res-badge .dot{width:6px;height:6px;background:var(--pink);border-radius:50%}
-.res-hero-num{font-size:clamp(44px,8vw,72px);font-weight:900;letter-spacing:-3px;line-height:1;margin-bottom:8px;color:var(--pink)}
-.res-hero-label{font-size:17px;color:#888;margin-bottom:36px}
-.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:36px;text-align:left}
-.res-card{padding:22px;border-radius:var(--r);border:1px solid #e8e9ed}
-.res-card.bad{background:#f7f7f9}
-.res-card.good{background:rgba(250,24,150,.03);border-color:rgba(250,24,150,.2)}
-.res-card-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
-.res-card.bad .res-card-label{color:#999}.res-card.good .res-card-label{color:var(--pink)}
-.res-card-num{font-size:28px;font-weight:900;letter-spacing:-1.5px;line-height:1;margin-bottom:4px}
-.res-card.bad .res-card-num{color:#ccc}.res-card.good .res-card-num{color:#111}
-.res-card-desc{font-size:12px;color:#999;line-height:1.4}
-.res-breakdown{text-align:left;margin-bottom:36px}
-.res-breakdown h3{font-family:var(--serif);font-size:20px;margin-bottom:14px}
-.rb-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #f0f0f3;font-size:13px}
-.rb-row:last-child{border:none}
-.rb-label{color:#888}.rb-val{font-weight:700}.rb-val.pk{color:var(--pink)}
-.res-bar{margin-bottom:36px}
-.res-bar-label{display:flex;justify-content:space-between;font-size:12px;font-weight:600;margin-bottom:8px}
-.res-bar-track{height:22px;background:#f0f0f3;border-radius:11px;overflow:hidden;position:relative}
-.res-bar-fill{height:100%;border-radius:11px;transition:width 1.5s var(--ease)}
-.res-bar-fill.old{background:#ddd}.res-bar-fill.new{background:var(--pink);position:absolute;top:0;left:0}
-.res-cta{margin-top:28px}
-.res-cta h3{font-family:var(--serif);font-size:22px;margin-bottom:8px}
-.res-cta p{font-size:14px;color:#888;margin-bottom:18px}
-.res-cta .btn{font-size:16px;padding:16px 36px}
-.res-share{margin-top:20px;display:flex;gap:10px;justify-content:center}
-.share-btn{padding:10px 20px;border-radius:100px;font-size:13px;font-weight:500;border:1.5px solid #ddd;cursor:pointer;transition:all .3s;background:#fff;color:#555}
-.share-btn:hover{border-color:var(--pink);color:var(--pink)}
-.res-fine{font-size:11px;color:#bbb;margin-top:28px;line-height:1.5}
+/* Step 2: Points accumulation */
+.pts-split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.pts-card{padding:20px;border-radius:14px;text-align:center}
+.pts-card.mr{background:#F5F0FF;border:1px solid #E0D4F5}
+.pts-card.ur{background:#EFF6FF;border:1px solid #BFDBFE}
+.pts-program{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.pts-card.mr .pts-program{color:#7C3AED}
+.pts-card.ur .pts-program{color:#2563EB}
+.pts-num{font-size:clamp(28px,4vw,36px);font-weight:900;letter-spacing:-1.5px;line-height:1;margin-bottom:2px}
+.pts-card.mr .pts-num{color:#7C3AED}
+.pts-card.ur .pts-num{color:#2563EB}
+.pts-sub{font-size:11px;color:#999}
+.pts-annual{text-align:center;margin:24px 0 20px;padding:18px;background:#fafaf9;border-radius:12px;border:1px solid #eee}
+.pts-annual-num{font-size:clamp(36px,5vw,48px);font-weight:900;letter-spacing:-2px;color:#111;line-height:1}
+.pts-annual-label{font-size:12px;color:#999;margin-top:4px}
+.routing-table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:24px}
+.routing-table th{text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#bbb;padding:8px 0;border-bottom:1px solid #eee}
+.routing-table td{padding:8px 0;border-bottom:1px solid #f5f5f3;color:#555}
+.routing-table td:last-child{text-align:right;font-family:var(--mono);font-weight:600;color:#111}
+.routing-table .card-tag{display:inline-block;padding:2px 8px;border-radius:100px;font-size:10px;font-weight:600}
+.tag-mr{background:#F5F0FF;color:#7C3AED}
+.tag-ur{background:#EFF6FF;color:#2563EB}
 
-.ft{border-top:1px solid #eee;padding:32px 0;margin-top:80px;text-align:center}
-.ft p{font-size:13px;color:#999}.ft a{color:var(--pink);font-weight:500}
+/* Step 3: Itineraries */
+.itin-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+.itin{border:1px solid #e8e9ed;border-radius:14px;padding:18px;position:relative;overflow:hidden}
+.itin::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--pink)}
+.itin-route{font-family:var(--serif);font-size:16px;margin-bottom:4px}
+.itin-class{font-size:11px;color:#999;margin-bottom:10px}
+.itin-row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
+.itin-row .lab{color:#999}
+.itin-row .val{font-weight:700}
+.itin-row .val.cash{color:#ccc;text-decoration:line-through}
+.itin-row .val.pts{color:var(--pink)}
+.itin-months{margin-top:8px;padding-top:8px;border-top:1px solid #f0f0f3;font-size:11px;color:#555}
+.itin-months strong{color:var(--pink)}
+.itin-date{font-family:var(--mono);font-size:9px;color:#ccc;margin-top:6px;letter-spacing:.5px}
 
-@media(max-width:768px){.nk{display:none}.mob{display:flex}.step{padding:28px}.prog{padding:24px 28px 0}.res-grid{grid-template-columns:1fr}.results{padding:28px}}
-@media(max-width:480px){.card-opts{flex-direction:column}.btn-row{flex-direction:column}.btn-row .btn{width:100%;text-align:center}}
+/* Step 4: RoS */
+.ros-reveal{text-align:center;padding:20px 0}
+.ros-label{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#999;margin-bottom:8px}
+.ros-tm{font-size:10px;vertical-align:super;color:#999}
+.ros-num{font-size:clamp(64px,12vw,96px);font-weight:900;letter-spacing:-5px;color:var(--pink);line-height:1;margin-bottom:4px}
+.ros-sub{font-size:14px;color:#888;margin-bottom:24px}
+.ros-compare{display:flex;gap:16px;justify-content:center;margin-bottom:32px;flex-wrap:wrap}
+.ros-comp{padding:14px 20px;border-radius:12px;text-align:center;min-width:140px}
+.ros-comp.old{background:#f7f7f9;border:1px solid #eee}
+.ros-comp.new{background:rgba(250,24,150,.04);border:1px solid rgba(250,24,150,.2)}
+.ros-comp-num{font-size:24px;font-weight:900;letter-spacing:-1px;margin-bottom:2px}
+.ros-comp.old .ros-comp-num{color:#ccc}
+.ros-comp.new .ros-comp-num{color:var(--pink)}
+.ros-comp-label{font-size:11px;color:#999}
+.ros-what{font-size:13px;color:#888;line-height:1.6;max-width:520px;margin:0 auto 28px;text-align:center}
+.ros-fine{font-size:10px;color:#ccc;line-height:1.5;max-width:600px;margin:24px auto 0;text-align:center}
+
+/* Footer */
+.ft{background:#fff;border-top:1px solid #eee;padding:24px 0;margin-top:60px;text-align:center}
+.ft-disc{font-size:11px;line-height:1.6;max-width:620px;margin:0 auto 16px;color:#999}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#aaa;border-top:1px solid #eee;padding-top:16px;max-width:1140px;margin:0 auto;flex-wrap:wrap;gap:8px}
+.ft-bot a{color:#aaa;margin-left:16px}.ft-bot a:hover{color:var(--pink)}
+
+@media(max-width:768px){
+.nk{display:none}.mob{display:flex}
+.step{padding:28px 24px;border-radius:16px}
+.pts-split{grid-template-columns:1fr}
+.itin-grid{grid-template-columns:1fr}
+.ros-compare{flex-direction:column;align-items:center}
+.routing-table{font-size:11px}
+}
+@media(max-width:480px){
+.wrap{padding:0 16px}
+.step{padding:24px 20px}
+.btn-row{flex-direction:column}.btn{width:100%;text-align:center}
+}
 </style>
 </head>
 <body>
@@ -115,121 +151,248 @@ input[type=range]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;bac
 <a href="firstofficer-site.html#pricing" class="nka">Pricing</a>
 <a href="firstofficer-site.html#about" class="nka">About</a>
 </div>
-<a href="https://wa.me/16199404040" class="ncta" target="_blank">💬 Start on WhatsApp</a>
+<a href="https://wa.me/16199404040" class="ncta" target="_blank">&#x1F4AC; Start on WhatsApp</a>
 <button class="mob" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </div></nav>
 
-<div class="wrap">
-<section class="hero">
-<h1>What Are Your Points<br><em>Actually Worth?</em></h1>
-<p>Quick estimate based on your real spending. See what you could be earning in travel value. And what you're leaving behind right now.</p>
-</section>
+<section class="hero"><div class="wrap">
+<h1>What is your<br><span style="color:var(--pink)">Return on Spend?</span></h1>
+<p>See how much travel value your household earns on every dollar. Adjusted for real card multipliers and real transfer partner redemptions.</p>
+</div></section>
 
-<div class="calc">
-<div class="prog"><div class="prog-dot done" id="pd1"></div><div class="prog-dot" id="pd2"></div></div>
+<div class="prog" id="prog"><div class="prog-dot done"></div><div class="prog-dot"></div><div class="prog-dot"></div><div class="prog-dot"></div></div>
 
+<div class="wrap"><div class="step-wrap">
+
+<!-- STEP 1: SPEND -->
 <div class="step on" id="s1">
-<div class="step-label">Step 1 of 2</div>
-<h2>Tell us about your spending.</h2>
-<p class="sub">Groceries, dining, gas, travel, subscriptions, online shopping. Everything you put on cards.</p>
-<div style="margin-bottom:28px">
-<div class="spend-val" id="spendDisplay">$5,000<span> /month</span></div>
-<input type="range" min="500" max="20000" value="5000" step="250" id="spendSlider" oninput="updateSpend()">
-<div class="spend-range"><span>$500</span><span>$20,000</span></div>
-</div>
-<div class="cards-q">
-<label>What kind of card do you primarily use?</label>
-<div class="card-opts">
-<div class="card-opt" onclick="pickCard(this,'debit')">Debit card</div>
-<div class="card-opt" onclick="pickCard(this,'cashback')">Cashback (1-2%)</div>
-<div class="card-opt" onclick="pickCard(this,'basic')">Basic points card</div>
-<div class="card-opt" onclick="pickCard(this,'premium')">Premium card</div>
-</div>
-</div>
-<div class="cards-q">
-<label>How many credit cards do you have?</label>
-<div class="card-opts">
-<div class="card-opt" onclick="pickCount(this,'0')">None / 1</div>
-<div class="card-opt" onclick="pickCount(this,'2')">2-3</div>
-<div class="card-opt" onclick="pickCount(this,'4')">4+</div>
-</div>
-</div>
-<div class="btn-row"><button class="btn btn-pk" onclick="showResults()" id="goBtn" disabled>See My Results</button></div>
+<div class="step-label">Step 1 of 4</div>
+<h2>Your monthly household spend.</h2>
+<p class="sub">Adjust each category to match your typical monthly card spending.</p>
+
+<div class="sg"><div class="sg-head"><span class="sg-label">Groceries</span><span class="sg-val" id="v-groc">$600</span></div><input type="range" min="0" max="2000" value="600" step="50" data-cat="groc" oninput="upd(this)"><div class="sg-hint">Supermarkets, wholesale clubs</div></div>
+<div class="sg"><div class="sg-head"><span class="sg-label">Dining</span><span class="sg-val" id="v-dine">$400</span></div><input type="range" min="0" max="2000" value="400" step="50" data-cat="dine" oninput="upd(this)"><div class="sg-hint">Restaurants, takeout, coffee shops</div></div>
+<div class="sg"><div class="sg-head"><span class="sg-label">Gas</span><span class="sg-val" id="v-gas">$250</span></div><input type="range" min="0" max="1000" value="250" step="25" data-cat="gas" oninput="upd(this)"><div class="sg-hint">Gas stations, EV charging</div></div>
+<div class="sg"><div class="sg-head"><span class="sg-label">Travel</span><span class="sg-val" id="v-travel">$300</span></div><input type="range" min="0" max="3000" value="300" step="50" data-cat="travel" oninput="upd(this)"><div class="sg-hint">Flights, hotels, car rentals</div></div>
+<div class="sg"><div class="sg-head"><span class="sg-label">Online Shopping</span><span class="sg-val" id="v-online">$400</span></div><input type="range" min="0" max="2000" value="400" step="50" data-cat="online" oninput="upd(this)"><div class="sg-hint">Amazon, retail websites, marketplaces</div></div>
+<div class="sg"><div class="sg-head"><span class="sg-label">Subscriptions</span><span class="sg-val" id="v-subs">$150</span></div><input type="range" min="0" max="500" value="150" step="25" data-cat="subs" oninput="upd(this)"><div class="sg-hint">Streaming, software, memberships</div></div>
+<div class="sg"><div class="sg-head"><span class="sg-label">Everything Else</span><span class="sg-val" id="v-other">$900</span></div><input type="range" min="0" max="5000" value="900" step="50" data-cat="other" oninput="upd(this)"><div class="sg-hint">Utilities, insurance, miscellaneous</div></div>
+
+<div class="sg-total"><span class="sg-total-label">Total monthly spend</span><span class="sg-total-val" id="totalSpend">$3,000</span></div>
+<div class="btn-row"><button class="btn btn-pk" onclick="goStep(2)">See My Points</button></div>
 </div>
 
+<!-- STEP 2: POINTS -->
 <div class="step" id="s2">
-<div class="results" id="resultsEl"></div>
+<div class="step-label">Step 2 of 4</div>
+<h2>Your optimized points. Every month.</h2>
+<p class="sub">Each category routed to its highest-earning card and program.</p>
+
+<table class="routing-table">
+<thead><tr><th>Category</th><th>Optimal card type</th><th>Multiplier</th><th>Monthly pts</th></tr></thead>
+<tbody id="routingBody"></tbody>
+</table>
+
+<div class="pts-split">
+<div class="pts-card mr"><div class="pts-program">Amex Membership Rewards</div><div class="pts-num" id="mrMonthly">0</div><div class="pts-sub">points / month</div></div>
+<div class="pts-card ur"><div class="pts-program">Chase Ultimate Rewards</div><div class="pts-num" id="urMonthly">0</div><div class="pts-sub">points / month</div></div>
+</div>
+
+<div class="pts-annual">
+<div class="pts-annual-num" id="annualPts">0</div>
+<div class="pts-annual-label">total points per year across both programs</div>
+</div>
+
+<div class="btn-row"><button class="btn btn-ghost" onclick="goStep(1)">Back</button><button class="btn btn-pk" onclick="goStep(3)">What Can I Book?</button></div>
+</div>
+
+<!-- STEP 3: ITINERARIES -->
+<div class="step" id="s3">
+<div class="step-label">Step 3 of 4</div>
+<h2>What those points buy. Right now.</h2>
+<p class="sub">Real redemptions at current transfer partner rates. Cash prices from major booking sites.</p>
+
+<div class="itin-grid" id="itinGrid"></div>
+
+<p style="font-size:12px;color:#bbb;text-align:center;margin-bottom:20px">Reload this page to see different itineraries. 12 rotating examples based on current award availability.</p>
+
+<div class="btn-row"><button class="btn btn-ghost" onclick="goStep(2)">Back</button><button class="btn btn-pk" onclick="goStep(4)">See My RoS</button></div>
+</div>
+
+<!-- STEP 4: RoS -->
+<div class="step" id="s4">
+<div class="step-label">Step 4 of 4</div>
+<h2>Your UpNonStop RoS.<sup class="ros-tm">&trade;</sup></h2>
+<p class="sub">Return on Spend. The percentage of travel value you earn back on every dollar.</p>
+
+<div class="ros-reveal">
+<div class="ros-label">Your Optimized RoS<sup class="ros-tm">&trade;</sup></div>
+<div class="ros-num" id="rosNum">0%</div>
+<div class="ros-sub" id="rosSub"></div>
+
+<div class="ros-compare">
+<div class="ros-comp old"><div class="ros-comp-num" id="rosOld">1.0%</div><div class="ros-comp-label">Flat cashback card</div></div>
+<div class="ros-comp old"><div class="ros-comp-num" id="rosMid">2.0%</div><div class="ros-comp-label">Premium card, no strategy</div></div>
+<div class="ros-comp new"><div class="ros-comp-num" id="rosNew">0%</div><div class="ros-comp-label">Optimized with First Officer</div></div>
+</div>
+
+<div class="ros-what" id="rosWhat"></div>
+
+<a href="https://wa.me/16199404040" target="_blank" class="btn btn-pk" style="font-size:16px;padding:16px 36px">&#x1F4AC; Start on WhatsApp</a>
+<p style="margin-top:12px;font-size:13px;color:#888">4 questions. Your personalized strategy in 24 hours.</p>
+
+<div style="margin-top:20px;display:flex;gap:10px;justify-content:center">
+<button class="btn btn-ghost" style="padding:10px 20px;font-size:13px" onclick="goStep(1)">Recalculate</button>
+<button class="btn btn-ghost" style="padding:10px 20px;font-size:13px" onclick="copyRos()">Copy results</button>
+</div>
+
+<div class="ros-fine">* UpNonStop RoS (Return on Spend) is an illustrative metric showing estimated travel value as a percentage of total card spend. Based on publicly available category multipliers and transfer partner valuations (approximately 2 to 3.5 cents per point). Actual results vary based on specific cards held, spending patterns, transfer partner availability, and redemption choices. Category multipliers are subject to annual caps and issuer terms. This is an educational estimate, not a guarantee of returns. Individual results vary.</div>
+</div>
+
+<div style="text-align:center;margin-top:24px">
+<a href="calculator-business.html" style="font-size:14px;color:var(--pink);font-weight:600">Running a business? See the Business Calculator</a>
 </div>
 </div>
 
-<div style="text-align:center;margin-top:32px">
-<a href="calculator-business.html" style="font-size:14px;color:var(--pink);font-weight:600">Running a business? Use the Business Calculator →</a>
-</div>
-</div>
+</div></div>
 
-<footer class="ft"><div class="wrap"><div style="font-size:11px;line-height:1.6;max-width:620px;margin:0 auto 16px;text-align:center;color:#999">First Officer by UpNonStop is an educational tool that helps you understand and get more from your credit card rewards. It is not a licensed financial advisor. All information is for educational purposes only. Individual results vary.</div><div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#aaa;border-top:1px solid #eee;padding-top:16px"><span>&copy; 2026 UpNonStop</span><div><a href="privacy.html" style="color:#aaa;margin-left:16px">Privacy</a><a href="terms.html" style="color:#aaa;margin-left:16px">Terms</a><a href="#" style="color:#aaa;margin-left:16px">Do Not Sell My Info</a></div></div></div></footer>
+<footer class="ft"><div class="wrap">
+<div class="ft-disc">First Officer by UpNonStop is an educational tool that helps you understand and get more from your credit card rewards. It is not a licensed financial advisor. All information is for educational purposes only. Individual results vary.</div>
+<div class="ft-bot"><span>&copy; 2026 UpNonStop</span><div><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="#">Do Not Sell My Info</a></div></div>
+</div></footer>
 
 <script>
-var state={spend:5000,cardType:null,cardCount:null};
-
-function updateSpend(){
-  var v=+document.getElementById('spendSlider').value;state.spend=v;
-  document.getElementById('spendDisplay').innerHTML='$'+v.toLocaleString()+'<span> /month</span>';
-  var pct=((v-500)/(20000-500))*100;
-  document.getElementById('spendSlider').style.background='linear-gradient(to right,var(--pink) '+pct+'%,#e8e9ed '+pct+'%)';
-}
-function pickCard(el,t){el.parentElement.querySelectorAll('.card-opt').forEach(b=>b.classList.remove('sel'));el.classList.add('sel');state.cardType=t;check()}
-function pickCount(el,n){el.parentElement.querySelectorAll('.card-opt').forEach(b=>b.classList.remove('sel'));el.classList.add('sel');state.cardCount=n;check()}
-function check(){document.getElementById('goBtn').disabled=!(state.cardType&&state.cardCount)}
-
-function showResults(){
-  document.getElementById('s1').classList.remove('on');document.getElementById('s2').classList.add('on');
-  document.getElementById('pd2').classList.add('done');
-  var annual=state.spend*12;var ct=state.cardType;
-  var currentPts,currentVal;
-  if(ct==='debit'){currentPts=0;currentVal=0}
-  else if(ct==='cashback'){currentPts=0;currentVal=Math.round(annual*0.015)}
-  else{var br=ct==='premium'?1.3:1.0;currentPts=Math.round(annual*br);currentVal=Math.round(currentPts*0.01)}
-  var lo=1.5,hi=2.2,mid=(lo+hi)/2;
-  var optValLo=Math.round(annual*lo*0.02),optValHi=Math.round(annual*hi*0.02),optValMid=Math.round(optValLo+(optValHi-optValLo)/2);
-  var bc=state.cardCount==='4'?0:state.cardCount==='2'?1:2;var bv=bc*1200;
-  var gap=optValMid-currentVal+bv;if(gap<0)gap=0;
-  var h='<div class="res-badge"><span class="dot"></span> Your personalized estimate</div>';
-  h+='<div class="res-hero-num">$'+gap.toLocaleString()+'</div>';
-  h+='<div class="res-hero-label">estimated annual value you\'re not capturing</div>';
-  h+='<div class="res-grid"><div class="res-card bad"><div class="res-card-label">What you earn now</div><div class="res-card-num">';
-  if(ct==='debit')h+='$0';else if(ct==='cashback')h+='$'+currentVal.toLocaleString();else h+=currentPts.toLocaleString()+' pts';
-  h+='</div><div class="res-card-desc">';
-  if(ct==='debit')h+='Debit cards earn no rewards.';else if(ct==='cashback')h+='Cashback at ~1.5%. No transfer partner upside.';else if(ct==='basic')h+='At 1x and ~1¢ per point.';else h+='Premium card at ~1.3x avg. Better, but leaving value.';
-  h+='</div></div><div class="res-card good"><div class="res-card-label">With optimized routing</div><div class="res-card-num">$'+optValLo.toLocaleString()+' to $'+optValHi.toLocaleString()+'</div>';
-  h+='<div class="res-card-desc">Personal blended rate: 1.5x to 2.2x at 2¢/pt via transfer partners.</div></div></div>';
-  h+='<div class="res-breakdown"><h3>Where the value comes from</h3>';
-  h+='<div class="rb-row"><div class="rb-label">Annual card spend</div><div class="rb-val">$'+annual.toLocaleString()+'</div></div>';
-  h+='<div class="rb-row"><div class="rb-label">Optimized points per year</div><div class="rb-val pk">'+(Math.round(annual*lo)).toLocaleString()+' to '+(Math.round(annual*hi)).toLocaleString()+'</div></div>';
-  h+='<div class="rb-row"><div class="rb-label">Value via transfer partners (2¢/pt)</div><div class="rb-val pk">$'+optValLo.toLocaleString()+' to $'+optValHi.toLocaleString()+'</div></div>';
-  if(bv>0)h+='<div class="rb-row"><div class="rb-label">Signup bonus value ('+bc+' new cards)</div><div class="rb-val pk">+$'+bv.toLocaleString()+'</div></div>';
-  h+='</div>';
-  var maxV=optValHi+bv;var oldP=maxV>0?Math.max(2,Math.round((currentVal/maxV)*100)):2;
-  h+='<div class="res-bar"><div class="res-bar-label"><span style="color:#999">Now: $'+currentVal.toLocaleString()+'/yr</span><span style="color:var(--pink)">Optimized: $'+(optValMid+bv).toLocaleString()+'/yr</span></div>';
-  h+='<div class="res-bar-track"><div class="res-bar-fill old" style="width:'+oldP+'%"></div><div class="res-bar-fill new" id="barNew" style="width:0%"></div></div></div>';
-  h+='<div class="res-cta"><h3>Ready to capture this value?</h3><p>We\'ll build your personalized points optimization plan and show you exactly what to do first.</p>';
-  h+='<a href="https://wa.me/16199404040" target="_blank" class="btn btn-pk">💬 Start on WhatsApp</a></div>';
-  h+='<div class="res-share"><button class="share-btn" onclick="copyRes()">Copy results</button><button class="share-btn" onclick="reset()">Recalculate</button></div>';
-  h+='<div class="res-fine">Hypothetical estimate for illustration purposes. Based on typical spending patterns and 2¢/point transfer partner valuations. Actual results vary based on your specific cards, vendors, spending patterns, and redemption choices. This is not financial advice.</div>';
-  document.getElementById('resultsEl').innerHTML=h;
-  setTimeout(function(){document.getElementById('barNew').style.width='100%'},100);
-}
-
-function reset(){document.getElementById('s2').classList.remove('on');document.getElementById('s1').classList.add('on');document.getElementById('pd2').classList.remove('done')}
-
-function copyRes(){
-  var annual=state.spend*12;var lo=Math.round(annual*1.5*0.02);var hi=Math.round(annual*2.2*0.02);
-  var t='I just ran my numbers on First Officer\'s calculator.\n\nMonthly spend: $'+state.spend.toLocaleString()+'\nEstimated annual value I\'m missing: $'+lo.toLocaleString()+' to $'+hi.toLocaleString()+'\n\nCheck yours: firstofficer.co/calculator';
-  navigator.clipboard.writeText(t).then(function(){event.target.textContent='Copied!';setTimeout(function(){event.target.textContent='Copy results'},2000)});
-}
-
 function toggleMob(){var l=document.querySelector('.nk');if(l.style.display==='flex'){l.style.display='none';return}l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='68px';l.style.left='0';l.style.right='0';l.style.background='rgba(255,255,255,.96)';l.style.backdropFilter='blur(20px)';l.style.padding='24px 32px';l.style.gap='16px';l.style.boxShadow='0 8px 24px rgba(0,0,0,.08)';l.style.borderBottom='1px solid #eee'}
-updateSpend();
+
+var cats={groc:600,dine:400,gas:250,travel:300,online:400,subs:150,other:900};
+var routing={
+groc:{card:'Rewards card (groceries 4x)',mult:4,prog:'MR'},
+dine:{card:'Rewards card (dining 4x)',mult:4,prog:'MR'},
+gas:{card:'Rotating category card (3x avg)',mult:3,prog:'UR'},
+travel:{card:'Premium travel card (3x)',mult:3,prog:'UR'},
+online:{card:'Catch-all rewards (2x)',mult:2,prog:'MR'},
+subs:{card:'Rewards card (streaming 4x)',mult:4,prog:'MR'},
+other:{card:'Catch-all card (1.5x)',mult:1.5,prog:'UR'}
+};
+var catNames={groc:'Groceries',dine:'Dining',gas:'Gas',travel:'Travel',online:'Online Shopping',subs:'Subscriptions',other:'Everything Else'};
+
+function upd(el){
+var c=el.dataset.cat;var v=+el.value;cats[c]=v;
+document.getElementById('v-'+c).textContent='$'+v.toLocaleString();
+var pct=((v-+el.min)/(+el.max-+el.min))*100;
+el.style.background='linear-gradient(to right,var(--pink) '+pct+'%,#e8e9ed '+pct+'%)';
+var total=0;for(var k in cats)total+=cats[k];
+document.getElementById('totalSpend').textContent='$'+total.toLocaleString();
+}
+
+function goStep(n){
+for(var i=1;i<=4;i++){
+var el=document.getElementById('s'+i);
+if(i===n){el.classList.add('on');el.style.display='block'}else{el.classList.remove('on');el.style.display='none'}
+}
+var dots=document.querySelectorAll('.prog-dot');
+dots.forEach(function(d,i){if(i<n)d.classList.add('done');else d.classList.remove('done')});
+window.scrollTo({top:0,behavior:'smooth'});
+if(n===2)buildStep2();
+if(n===3)buildStep3();
+if(n===4)buildStep4();
+}
+
+function buildStep2(){
+var tbody=document.getElementById('routingBody');
+var html='';var mr=0;var ur=0;
+for(var k in cats){
+var r=routing[k];var pts=Math.round(cats[k]*r.mult);
+var tag=r.prog==='MR'?'tag-mr':'tag-ur';
+html+='<tr><td>'+catNames[k]+'</td><td>'+r.card+' <span class="card-tag '+tag+'">'+r.prog+'</span></td><td>'+r.mult+'x</td><td>'+pts.toLocaleString()+'</td></tr>';
+if(r.prog==='MR')mr+=pts;else ur+=pts;
+}
+tbody.innerHTML=html;
+document.getElementById('mrMonthly').textContent=mr.toLocaleString();
+document.getElementById('urMonthly').textContent=ur.toLocaleString();
+document.getElementById('annualPts').textContent=((mr+ur)*12).toLocaleString();
+}
+
+var ITINS=[
+{route:'New York to London',pax:'2 economy',pts:60000,prog:'MR',partner:'Virgin Atlantic',cash:1400},
+{route:'Los Angeles to Tokyo',pax:'1 business class',pts:85000,prog:'MR',partner:'ANA',cash:6200},
+{route:'Chicago to Cancun',pax:'2 economy',pts:26000,prog:'UR',partner:'United',cash:780},
+{route:'San Francisco to Paris',pax:'2 economy',pts:70000,prog:'UR',partner:'Air France',cash:1600},
+{route:'5 nights Hyatt Regency Maui',pax:'Standard room',pts:125000,prog:'UR',partner:'World of Hyatt',cash:2800},
+{route:'Miami to Barcelona',pax:'2 economy',pts:60000,prog:'MR',partner:'Aeroplan',cash:1200},
+{route:'Boston to Dublin',pax:'2 economy',pts:50000,prog:'MR',partner:'Aeroplan',cash:900},
+{route:'3 nights Park Hyatt New York',pax:'King room',pts:90000,prog:'UR',partner:'World of Hyatt',cash:3200},
+{route:'Dallas to Maui',pax:'2 economy',pts:50000,prog:'MR',partner:'Hawaiian Airlines',cash:1100},
+{route:'Seattle to Singapore',pax:'1 business class',pts:92000,prog:'UR',partner:'Singapore Airlines',cash:5800},
+{route:'New York to Caribbean',pax:'2 economy',pts:30000,prog:'UR',partner:'JetBlue',cash:700},
+{route:'4 nights Andaz Scottsdale',pax:'Resort room',pts:60000,prog:'UR',partner:'World of Hyatt',cash:1600}
+];
+
+function buildStep3(){
+var grid=document.getElementById('itinGrid');
+var total=0;for(var k in cats)total+=cats[k];
+var monthlyPts=0;for(var k in cats)monthlyPts+=Math.round(cats[k]*routing[k].mult);
+
+var shuffled=ITINS.slice().sort(function(){return 0.5-Math.random()});
+var picks=shuffled.slice(0,4);
+
+var now=new Date();
+var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+var dateStr=months[now.getMonth()]+' '+now.getFullYear();
+
+var html='';
+picks.forEach(function(it){
+var mos=monthlyPts>0?Math.ceil(it.pts/monthlyPts):99;
+var cpp=(it.cash/it.pts*100).toFixed(1);
+html+='<div class="itin">';
+html+='<div class="itin-route">'+it.route+'</div>';
+html+='<div class="itin-class">'+it.pax+' via '+it.partner+'</div>';
+html+='<div class="itin-row"><span class="lab">Cash price</span><span class="val cash">$'+it.cash.toLocaleString()+'</span></div>';
+html+='<div class="itin-row"><span class="lab">Points needed</span><span class="val pts">'+it.pts.toLocaleString()+' '+it.prog+'</span></div>';
+html+='<div class="itin-row"><span class="lab">Value per point</span><span class="val">'+cpp+' cents</span></div>';
+html+='<div class="itin-months">At your spend, you earn this in <strong>'+mos+' month'+(mos!==1?'s':'')+'</strong></div>';
+html+='<div class="itin-date">Estimated as of '+dateStr+'</div>';
+html+='</div>';
+});
+grid.innerHTML=html;
+}
+
+function buildStep4(){
+var total=0;for(var k in cats)total+=cats[k];
+var annualSpend=total*12;
+var monthlyPts=0;for(var k in cats)monthlyPts+=Math.round(cats[k]*routing[k].mult);
+var annualPts=monthlyPts*12;
+
+var conservCpp=0.02;var bestCpp=0.035;
+var conservVal=Math.round(annualPts*conservCpp);
+var bestVal=Math.round(annualPts*bestCpp);
+var midVal=Math.round((conservVal+bestVal)/2);
+
+var rosConserv=annualSpend>0?((conservVal/annualSpend)*100).toFixed(1):0;
+var rosBest=annualSpend>0?((bestVal/annualSpend)*100).toFixed(1):0;
+var rosMid=annualSpend>0?((midVal/annualSpend)*100).toFixed(1):0;
+
+document.getElementById('rosNum').textContent=rosConserv+'% to '+rosBest+'%';
+document.getElementById('rosNew').textContent=rosConserv+'% to '+rosBest+'%';
+document.getElementById('rosSub').textContent='$'+conservVal.toLocaleString()+' to $'+bestVal.toLocaleString()+' in annual travel value on $'+annualSpend.toLocaleString()+' spend';
+
+document.getElementById('rosWhat').innerHTML='A flat cashback card earns you 1% back. A premium card with no strategy might get you 2%. With optimized category routing and transfer partner redemptions, your household could achieve <strong style="color:var(--pink)">'+rosConserv+'% to '+rosBest+'%</strong> return on every dollar you spend. That is the UpNonStop RoS.';
+}
+
+function copyRos(){
+var total=0;for(var k in cats)total+=cats[k];var ann=total*12;
+var mp=0;for(var k in cats)mp+=Math.round(cats[k]*routing[k].mult);
+var ap=mp*12;var cv=Math.round(ap*0.02);var bv=Math.round(ap*0.035);
+var rc=ann>0?((cv/ann)*100).toFixed(1):0;var rb=ann>0?((bv/ann)*100).toFixed(1):0;
+var t='My UpNonStop RoS: '+rc+'% to '+rb+'%\n\nMonthly spend: $'+total.toLocaleString()+'\nAnnual points: '+ap.toLocaleString()+'\nTravel value: $'+cv.toLocaleString()+' to $'+bv.toLocaleString()+'/year\n\nCalculate yours: firstofficer.co/calculator';
+navigator.clipboard.writeText(t).then(function(){event.target.textContent='Copied!';setTimeout(function(){event.target.textContent='Copy results'},2000)});
+}
+
+// Init sliders
+document.querySelectorAll('input[type=range]').forEach(function(el){
+var v=+el.value;var pct=((v-+el.min)/(+el.max-+el.min))*100;
+el.style.background='linear-gradient(to right,var(--pink) '+pct+'%,#e8e9ed '+pct+'%)';
+});
 </script>
 </body>
 </html>
