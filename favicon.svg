@@ -1,4 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-<rect width="32" height="32" rx="8" fill="#FA1896"/>
-<text x="16" y="22" font-family="system-ui,sans-serif" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">FO</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="16" fill="#FA1896"/>
+  <defs>
+    <linearGradient id="fg1" x1=".3" y1="0" x2=".7" y2="1">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#e8e8e8"/>
+    </linearGradient>
+    <linearGradient id="fg2" x1=".3" y1="0" x2=".7" y2="1">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#ddd"/>
+    </linearGradient>
+  </defs>
+  <polygon points="50,42 14,74 26,74 50,54 74,74 86,74" fill="url(#fg2)"/>
+  <polygon points="50,20 14,52 26,52 50,32 74,52 86,52" fill="url(#fg1)"/>
 </svg>
