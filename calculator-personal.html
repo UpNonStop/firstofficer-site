@@ -91,7 +91,16 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .book-front,.book-back{position:absolute;inset:0;border-radius:16px;backface-visibility:hidden;overflow:hidden}
 .book-front{display:flex;flex-direction:column;justify-content:flex-end;padding:16px;color:#fff}
 .book-front.fl-bg{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)}
+.book-front.bg-eur{background:linear-gradient(135deg,#0f0c29 0%,#302b63 50%,#24243e 100%)}
+.book-front.bg-asia{background:linear-gradient(135deg,#1a0a2e 0%,#2d1b69 50%,#16213e 100%)}
+.book-front.bg-pac{background:linear-gradient(135deg,#0a192f 0%,#0d3b66 50%,#1a535c 100%)}
+.book-front.bg-amer{background:linear-gradient(135deg,#1a1a1a 0%,#3d1c02 50%,#2b1504 100%)}
+.book-front.bg-mid{background:linear-gradient(135deg,#1a0a0a 0%,#4a1942 50%,#2d1b4e 100%)}
 .book-front.ht-bg{background:linear-gradient(135deg,#1a1a1a 0%,#2d1b4e 50%,#1a1a2e 100%)}
+.book-front.bg-beach{background:linear-gradient(135deg,#0a2e1a 0%,#0d4e3b 50%,#0a192f 100%)}
+.book-front.bg-city{background:linear-gradient(135deg,#1a1a1a 0%,#333333 50%,#1a1a2e 100%)}
+.book-front.bg-resort{background:linear-gradient(135deg,#1a0a2e 0%,#4a1942 50%,#0d3b66 100%)}
+.book-front.bg-mount{background:linear-gradient(135deg,#0a1a0a 0%,#1a3a1a 50%,#1a1a1a 100%)}
 .book-front::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 60%)}
 .book-badge{position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:100px;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:1px;z-index:1}
 .book-badge.fl{background:rgba(37,99,235,.9);color:#fff}
@@ -195,8 +204,9 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <div class="sg"><div class="sg-head"><span class="sg-label">Gas</span><span class="sg-val" id="v-gas">$250</span></div><input type="range" min="0" max="1000" value="250" step="25" data-cat="gas" oninput="upd(this)"><div class="sg-hint">Gas stations, EV charging</div></div>
 <div class="sg"><div class="sg-head"><span class="sg-label">Travel</span><span class="sg-val" id="v-travel">$300</span></div><input type="range" min="0" max="3000" value="300" step="50" data-cat="travel" oninput="upd(this)"><div class="sg-hint">Flights, hotels, car rentals</div></div>
 <div class="sg"><div class="sg-head"><span class="sg-label">Online Shopping</span><span class="sg-val" id="v-online">$400</span></div><input type="range" min="0" max="2000" value="400" step="50" data-cat="online" oninput="upd(this)"><div class="sg-hint">Amazon, retail websites, marketplaces</div></div>
-<div class="sg"><div class="sg-head"><span class="sg-label">Streaming &amp; Software</span><span class="sg-val" id="v-subs">$150</span></div><input type="range" min="0" max="500" value="150" step="25" data-cat="subs" oninput="upd(this)"><div class="sg-hint">Netflix, Spotify, apps, SaaS tools</div></div>
-<div class="sg"><div class="sg-head"><span class="sg-label">Everything Else</span><span class="sg-val" id="v-other">$900</span></div><input type="range" min="0" max="5000" value="900" step="50" data-cat="other" oninput="upd(this)"><div class="sg-hint">Utilities, insurance, miscellaneous</div></div>
+<div class="sg"><div class="sg-head"><span class="sg-label">Wireless &amp; Phone</span><span class="sg-val" id="v-wireless">$200</span></div><input type="range" min="0" max="600" value="200" step="25" data-cat="wireless" oninput="upd(this)"><div class="sg-hint">Cell phone plans, home internet</div></div>
+<div class="sg"><div class="sg-head"><span class="sg-label">Drugstores</span><span class="sg-val" id="v-drug">$100</span></div><input type="range" min="0" max="500" value="100" step="25" data-cat="drug" oninput="upd(this)"><div class="sg-hint">CVS, Walgreens, pharmacies</div></div>
+<div class="sg"><div class="sg-head"><span class="sg-label">Everything Else</span><span class="sg-val" id="v-other">$800</span></div><input type="range" min="0" max="5000" value="800" step="50" data-cat="other" oninput="upd(this)"><div class="sg-hint">Utilities, insurance, miscellaneous</div></div>
 
 <div class="sg-total"><span class="sg-total-label">Total monthly spend</span><span class="sg-total-val" id="totalSpend">$3,000</span></div>
 <div class="btn-row"><button class="btn btn-pk" onclick="goStep(2)">See My Points</button></div>
@@ -240,7 +250,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <div class="step" id="s4">
 <div class="step-label">Step 4 of 4</div>
 <h2>Your UpNonStop RoS.<sup class="ros-tm">&trade;</sup></h2>
-<p class="sub">Return on Spend. The percentage of travel value you earn back on every dollar.</p>
+<p class="sub">Return on Spend. The percentage of travel value you earn back on every dollar you spend.</p>
 
 <div class="ros-reveal">
 <div class="ros-glow"></div>
@@ -282,17 +292,18 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <script>
 function toggleMob(){var l=document.querySelector('.nk');if(l.style.display==='flex'){l.style.display='none';return}l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='68px';l.style.left='0';l.style.right='0';l.style.background='rgba(255,255,255,.96)';l.style.backdropFilter='blur(20px)';l.style.padding='24px 32px';l.style.gap='16px';l.style.boxShadow='0 8px 24px rgba(0,0,0,.08)';l.style.borderBottom='1px solid #eee'}
 
-var cats={groc:600,dine:400,gas:250,travel:300,online:400,subs:150,other:900};
+var cats={groc:600,dine:400,gas:250,travel:300,online:400,wireless:200,drug:100,other:800};
 var routing={
 groc:{card:'Groceries rewards card (4x)',mult:4},
 dine:{card:'Dining rewards card (4x)',mult:4},
 gas:{card:'Rotating category card (3x)',mult:3},
 travel:{card:'Travel rewards card (4x)',mult:4},
 online:{card:'Catch-all rewards card (2x)',mult:2},
-subs:{card:'Category rewards card (4x)',mult:4},
+wireless:{card:'Wireless rewards card (4x)',mult:4},
+drug:{card:'Drugstore rewards card (3x)',mult:3},
 other:{card:'Catch-all rewards card (2x)',mult:2}
 };
-var catNames={groc:'Groceries',dine:'Dining',gas:'Gas',travel:'Travel',online:'Online Shopping',subs:'Streaming & Software',other:'Everything Else'};
+var catNames={groc:'Groceries',dine:'Dining',gas:'Gas',travel:'Travel',online:'Online Shopping',wireless:'Wireless & Phone',drug:'Drugstores',other:'Everything Else'};
 
 function upd(el){
 var c=el.dataset.cat;var v=+el.value;cats[c]=v;
@@ -337,6 +348,8 @@ tbody.innerHTML=html;
 document.getElementById('annualPts').textContent=(totalPts*12).toLocaleString();
 }
 
+var REGIONS={LHR:'bg-eur',CDG:'bg-eur',BCN:'bg-eur',DUB:'bg-eur',FCO:'bg-eur',LIS:'bg-eur',NRT:'bg-asia',HND:'bg-asia',SIN:'bg-asia',HKG:'bg-asia',BKK:'bg-asia',ICN:'bg-asia',SYD:'bg-pac',GRU:'bg-amer',DOH:'bg-mid',TLV:'bg-mid',MLE:'bg-mid'};
+var HTYPES={'World of Hyatt':'bg-resort','Marriott Bonvoy':'bg-beach','Hilton Honors':'bg-city','IHG Rewards':'bg-beach'};
 var INV=[
 // FLIGHTS - Business class round-trip per person
 {t:'f',from:'JFK',to:'LHR',fc:'New York',tc:'London',pts:58000,fees:650,pa:'Virgin Atlantic',cash:5800},
@@ -429,7 +442,7 @@ html+='<div class="book-back-detail">Business class RT, per person, via '+it.pa+
 html+='<div class="book-back-row"><span class="bl">Cash price</span><span class="bv strike">$'+it.cash.toLocaleString()+'</span></div>';
 html+='<div class="book-back-row"><span class="bl">Points</span><span class="bv pk">'+it.pts.toLocaleString()+'</span></div>';
 html+='<div class="book-back-row"><span class="bl">Taxes + fees</span><span class="bv">$'+it.fees+'</span></div>';
-html+='<div class="book-back-row"><span class="bl">Value vs cash</span><span class="bv pk">'+(it.cash/it.pts).toFixed(1)+'x</span></div>';
+html+='<div class="book-back-row"><span class="bl">Value</span><span class="bv pk">'+((it.cash/it.pts)*100).toFixed(1)+'\u00a2/pt</span></div>';
 html+='</div>';
 html+='<div class="book-earn">Your earn rate: <strong>'+m+' mo'+(m!==1?'s':'')+'</strong></div>';
 html+='<div class="book-stamp">Booked '+stamp+'</div>';
@@ -451,7 +464,7 @@ html+='<div class="book-back-detail">'+it.nt+' nights, '+it.pn.toLocaleString()+
 html+='<div class="book-back-row"><span class="bl">Cash ('+it.nt+' nights)</span><span class="bv strike">$'+it.cash.toLocaleString()+'</span></div>';
 html+='<div class="book-back-row"><span class="bl">Points total</span><span class="bv pk">'+tp.toLocaleString()+'</span></div>';
 html+='<div class="book-back-row"><span class="bl">Per night</span><span class="bv">$'+it.cn+' cash vs '+it.pn.toLocaleString()+' pts</span></div>';
-html+='<div class="book-back-row"><span class="bl">Value vs cash</span><span class="bv pk">'+(it.cash/tp).toFixed(1)+'x</span></div>';
+html+='<div class="book-back-row"><span class="bl">Value</span><span class="bv pk">'+((it.cash/tp)*100).toFixed(1)+'\u00a2/pt</span></div>';
 html+='</div>';
 html+='<div class="book-earn">Your earn rate: <strong>'+m+' mo'+(m!==1?'s':'')+'</strong></div>';
 html+='<div class="book-stamp">Booked '+stamp+'</div>';
