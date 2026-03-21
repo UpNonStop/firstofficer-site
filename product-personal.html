@@ -104,12 +104,13 @@ a{text-decoration:none;color:inherit}
 .wa-m .t{font-size:7px;opacity:.4;text-align:right;margin-top:1px}
 
 /* Stats strip */
-.stats-strip{background:#fff;padding:56px 0;border-top:1px solid #eee;border-bottom:1px solid #eee}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
-.stat-card{padding:24px 16px;border-radius:16px;background:#fafaf9;border:1px solid #e8e9ed}
-.stat-num{font-size:clamp(36px,5vw,52px);font-weight:900;letter-spacing:-2.5px;color:#111;line-height:1;margin-bottom:6px}
-.stat-label{font-size:12px;font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
-.stat-desc{font-size:11px;color:#999;line-height:1.4}
+.stats-strip{background:#fff;padding:64px 0}
+.stats-grid{display:flex;justify-content:center;align-items:flex-start;gap:0;text-align:center}
+.stat-item{flex:1;padding:0 28px}
+.stat-divider{width:1px;height:72px;background:#eee;flex-shrink:0;align-self:center}
+.stat-num{font-size:clamp(40px,6vw,60px);font-weight:900;letter-spacing:-3px;color:#111;line-height:1;margin-bottom:4px}
+.stat-label{font-family:var(--mono);font-size:10px;font-weight:600;color:var(--pink);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
+.stat-desc{font-size:12px;color:#bbb;line-height:1.4}
 
 .ctab{background:var(--pink);padding:72px 0;text-align:center;margin-top:48px}
 .ctab h2{font-size:clamp(24px,3.5vw,38px);font-weight:800;color:#fff;letter-spacing:-.8px;line-height:1.15;margin-bottom:12px}
@@ -134,8 +135,10 @@ a{text-decoration:none;color:inherit}
 .tc-features{text-align:left;max-width:300px;margin:0 auto}
 .hero{padding:110px 0 24px}
 .stats-grid{grid-template-columns:repeat(2,1fr);gap:12px}
-.stat-card{padding:18px 12px}
-.stat-num{font-size:32px}
+.stats-grid{flex-wrap:wrap;gap:32px 0}
+.stat-item{flex:0 0 50%;padding:0 16px}
+.stat-divider{display:none}
+.stat-num{font-size:36px}
 .tc-popular::before{left:20px;top:-13px;font-size:9px}
 .tc-start::before{right:20px;top:-13px;font-size:9px}
 .tc-from{font-size:9px;padding:4px 12px;top:-13px}
@@ -172,25 +175,28 @@ a{text-decoration:none;color:inherit}
 <!-- Value proof strip -->
 <div class="stats-strip"><div class="wrap">
 <div class="stats-grid">
-<div class="stat-card">
+<div class="stat-item">
 <div class="stat-num" data-count="4.2" data-suffix="x" data-decimals="1">0x</div>
 <div class="stat-label">more value*</div>
-<div class="stat-desc">from the same points with the right transfer partner</div>
+<div class="stat-desc">Same points. Right transfer partner.</div>
 </div>
-<div class="stat-card">
+<div class="stat-divider"></div>
+<div class="stat-item">
 <div class="stat-num" data-count="47" data-suffix="+">0</div>
 <div class="stat-label">transfer partners</div>
-<div class="stat-desc">across major points currencies we help you navigate</div>
+<div class="stat-desc">Across every major points currency.</div>
 </div>
-<div class="stat-card">
+<div class="stat-divider"></div>
+<div class="stat-item">
 <div class="stat-num" data-count="10">0</div>
 <div class="stat-label">AI specialists</div>
-<div class="stat-desc">monitoring every card, every program, every deadline</div>
+<div class="stat-desc">Each one built for a different job.</div>
 </div>
-<div class="stat-card">
+<div class="stat-divider"></div>
+<div class="stat-item">
 <div class="stat-num" data-count="629" data-suffix="+">0</div>
 <div class="stat-label">loyalty programs</div>
-<div class="stat-desc">tracked across airlines, hotels, banks, and partners</div>
+<div class="stat-desc">Airlines. Hotels. Banks. Partners.</div>
 </div>
 </div>
 </div></div>
