@@ -484,25 +484,29 @@ html+='<div class="book-stamp">Booked '+stamp+'</div></div></div></div>';
 }
 });
 grid.innerHTML=html;
-// Start auto-scroll
+// Auto-scroll via CSS animation on the grid element
 var scrollEl=grid.parentElement;
 if(scrollEl&&!scrollEl.dataset.scrolling){
 scrollEl.dataset.scrolling='1';
-var dir=1,speed=0.7,paused=false;
-scrollEl.addEventListener('mouseenter',function(){paused=true});
-scrollEl.addEventListener('mouseleave',function(){paused=false});
-scrollEl.addEventListener('touchstart',function(){paused=true},{passive:true});
-scrollEl.addEventListener('touchend',function(){setTimeout(function(){paused=false},3000)},{passive:true});
-function tick(){
-if(!paused&&scrollEl.scrollWidth>scrollEl.clientWidth){
-scrollEl.scrollLeft+=dir*speed;
-var max=scrollEl.scrollWidth-scrollEl.clientWidth;
-if(scrollEl.scrollLeft>=max-1)dir=-1;
-if(scrollEl.scrollLeft<=1)dir=1;
+// Calculate scroll distance
+var scrollDist=grid.scrollWidth-scrollEl.clientWidth;
+if(scrollDist>0){
+// Create keyframes dynamically
+var duration=Math.round(scrollDist/30); // ~30px per second
+var styleId='bookScrollStyle';
+if(!document.getElementById(styleId)){
+var style=document.createElement('style');
+style.id=styleId;
+document.head.appendChild(style);
 }
-requestAnimationFrame(tick);
+document.getElementById(styleId).textContent='@keyframes bookScroll{0%{transform:translateX(0)}45%{transform:translateX(-'+scrollDist+'px)}55%{transform:translateX(-'+scrollDist+'px)}100%{transform:translateX(0)}}';
+grid.style.animation=duration+'s linear infinite bookScroll';
+// Pause on hover/touch
+scrollEl.addEventListener('mouseenter',function(){grid.style.animationPlayState='paused'});
+scrollEl.addEventListener('mouseleave',function(){grid.style.animationPlayState='running'});
+scrollEl.addEventListener('touchstart',function(){grid.style.animationPlayState='paused'},{passive:true});
+scrollEl.addEventListener('touchend',function(){setTimeout(function(){grid.style.animationPlayState='running'},3000)},{passive:true});
 }
-requestAnimationFrame(tick);
 }
 }
 
