@@ -161,7 +161,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 @media(max-width:480px){
 .wrap{padding:0 16px}
 .step{padding:24px 20px}
-.btn-row{flex-direction:column}.btn{width:100%;text-align:center}
+.btn-row{flex-direction:column}.btn-row .btn{width:100%;text-align:center}
 }
 </style>
 </head>
@@ -253,12 +253,12 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 
 <div class="ros-what" id="rosWhat"></div>
 
-<a href="https://wa.me/16199404040" target="_blank" class="btn" style="font-size:16px;padding:16px 36px;background:#25D366;color:#fff;border-radius:100px;box-shadow:0 6px 24px rgba(37,211,102,.25)">&#x1F4AC; Start on WhatsApp</a>
-<p style="margin-top:12px;font-size:13px;color:#888">4 questions. Your personalized strategy in 24 hours.</p>
+<div style="margin-top:8px"><a href="https://wa.me/16199404040" target="_blank" class="btn" style="display:inline-flex;align-items:center;gap:8px;font-size:16px;padding:16px 36px;background:#25D366;color:#fff;border-radius:100px;box-shadow:0 6px 24px rgba(37,211,102,.25)">&#x1F4AC; Start on WhatsApp</a></div>
+<p style="margin-top:14px;font-size:13px;color:#888;line-height:1.5">4 questions. Your personalized strategy in 24 hours.</p>
 
-<div style="margin-top:20px;display:flex;gap:10px;justify-content:center">
-<button class="btn btn-ghost" style="padding:10px 20px;font-size:13px" onclick="goStep(1)">Recalculate</button>
-<button class="btn btn-ghost" style="padding:10px 20px;font-size:13px" onclick="copyRos()">Copy results</button>
+<div style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+<button class="btn btn-ghost" style="padding:10px 24px;font-size:13px;width:auto" onclick="goStep(1)">Recalculate</button>
+<button class="btn btn-ghost" style="padding:10px 24px;font-size:13px;width:auto" onclick="copyRos()">Copy results</button>
 </div>
 
 </div>
