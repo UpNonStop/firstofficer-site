@@ -105,8 +105,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .btn-ghost{background:none;color:#999;border:1.5px solid #333}.btn-ghost:hover{border-color:#666}
 .ros-reveal{text-align:center;padding:20px 0;position:relative}
 .ros-glow{position:absolute;top:20%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(250,24,150,.08) 0%,transparent 70%);pointer-events:none;border-radius:50%}
-.ros-label{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#666;margin-bottom:8px}
-.ros-tm{font-size:10px;vertical-align:super;color:#666}
+.ros-label{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:1px;color:#666;margin-bottom:8px}
+.ros-tm{font-size:9px;vertical-align:super;color:#666;font-weight:400}
 .ros-num{font-size:clamp(64px,12vw,100px);font-weight:900;letter-spacing:-5px;color:var(--pink);line-height:1;margin-bottom:4px;opacity:0;transform:scale(.8);transition:opacity .8s ease,transform .8s ease}
 .ros-num.vis{opacity:1;transform:scale(1)}
 .ros-sub{font-size:14px;color:#888;margin-bottom:24px}
@@ -120,7 +120,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .ros-comp-label{font-size:11px;color:#666}
 .ros-what{font-size:13px;color:#888;line-height:1.6;max-width:520px;margin:0 auto 28px;text-align:center}
 .ros-explain{max-width:520px;margin:0 auto 32px;padding:20px;border-radius:14px;background:#0a0a0a;border:1px solid #1a1a1a}
-.ros-explain-title{font-family:var(--mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--pink);margin-bottom:8px}
+.ros-explain-title{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--pink);margin-bottom:8px}
 .ros-explain p{font-size:12px;color:#888;line-height:1.6}
 .ros-fine{font-size:10px;color:#555;line-height:1.5;max-width:600px;margin:24px auto 0;text-align:center}
 .ind-bottom{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:920px;margin:0 auto}
@@ -191,12 +191,14 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 </div>
 <div class="ros-what" id="rosWhat"></div>
 <div class="ros-explain"><div class="ros-explain-title">What is UpNonStop RoS?</div><p>Return on Spend measures the travel value your business earns per dollar of card spend. A standard cashback card returns 1 to 2 cents per dollar. With optimized category routing and transfer partner redemptions, business owners can achieve significantly higher returns. RoS is the single metric that shows the difference.</p></div>
-<a href="https://wa.me/16199404040" target="_blank" class="btn" style="font-size:16px;padding:16px 36px;background:#25D366;color:#fff;border-radius:100px;box-shadow:0 6px 24px rgba(37,211,102,.25)">&#x1F4AC; Start on WhatsApp</a>
-<p style="margin-top:12px;font-size:13px;color:#666">4 questions. Your personalized strategy in 24 hours.</p>
+<div style="margin-top:16px;text-align:center">
+<a href="https://wa.me/16199404040" target="_blank" style="display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:700;padding:16px 36px;background:#25D366;color:#fff;border-radius:100px;box-shadow:0 6px 24px rgba(37,211,102,.25);text-decoration:none;letter-spacing:-.2px">&#x1F4AC; Start on WhatsApp</a>
+<p style="margin-top:14px;font-size:13px;color:#666;line-height:1.5">4 questions. Your personalized strategy in 24 hours.</p>
+</div>
 <div id="indLink" style="margin-top:12px"></div>
 <div style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-<button class="btn btn-ghost" style="padding:10px 24px;font-size:13px;width:auto" onclick="goStep(1)">Recalculate</button>
-<button class="btn btn-ghost" style="padding:10px 24px;font-size:13px;width:auto" onclick="copyRos()">Copy results</button>
+<button style="padding:10px 24px;font-size:13px;background:none;border:1.5px solid #333;border-radius:100px;cursor:pointer;font-weight:600;color:#888;font-family:var(--sans)" onclick="goStep(1)">Recalculate</button>
+<button style="padding:10px 24px;font-size:13px;background:none;border:1.5px solid #333;border-radius:100px;cursor:pointer;font-weight:600;color:#888;font-family:var(--sans)" onclick="copyRos()">Copy results</button>
 </div>
 </div>
 <div style="margin-top:48px;border-top:1px solid #2a2a2a;padding-top:36px">
