@@ -116,9 +116,8 @@ a{text-decoration:none;color:inherit}
 
 
 /* Booking cards */
-.book-scroll{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;padding:4px 0 20px;scrollbar-width:none}
+.book-scroll{overflow-x:hidden;overflow-y:visible;-webkit-overflow-scrolling:touch;padding:4px 0 20px;scrollbar-width:none}
 .book-scroll::-webkit-scrollbar{display:none}
-.book-scroll.auto-scrolling{scroll-behavior:smooth}
 .book-grid{display:flex;gap:14px;width:max-content}
 .book-card{width:200px;height:280px;perspective:800px;flex-shrink:0;cursor:pointer}
 .book-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .6s ease}
@@ -154,6 +153,9 @@ a{text-decoration:none;color:inherit}
 .ft-bot{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#aaa;border-top:1px solid #eee;padding-top:16px;max-width:1140px;margin:0 auto;flex-wrap:wrap;gap:8px}
 .ft-bot a{color:#aaa;margin-left:16px}.ft-bot a:hover{color:var(--pink)}
 
+
+@keyframes bookScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.book-grid{will-change:transform}
 @media(max-width:768px){
 .nk{display:none}.mob{display:flex}
 .tier-card{padding:24px 20px;border-radius:16px}
@@ -614,25 +616,22 @@ setTimeout(autoScrollBookings,500);
 
 // Auto-scroll booking carousel
 function autoScrollBookings(){
-var scrollEls=document.querySelectorAll('.book-scroll');
-scrollEls.forEach(function(el){
-if(el.dataset.scrolling)return;
-el.dataset.scrolling='1';
-var dir=1;var speed=0.8;var paused=false;
-el.addEventListener('mouseenter',function(){paused=true});
-el.addEventListener('mouseleave',function(){paused=false});
-el.addEventListener('touchstart',function(){paused=true},{passive:true});
-el.addEventListener('touchend',function(){setTimeout(function(){paused=false},3000)},{passive:true});
-function tick(){
-if(!paused&&el.scrollWidth>el.clientWidth){
-el.scrollLeft+=dir*speed;
-var maxScroll=el.scrollWidth-el.clientWidth;
-if(el.scrollLeft>=maxScroll-1){dir=-1;}
-if(el.scrollLeft<=1){dir=1;}
-}
-requestAnimationFrame(tick);
-}
-requestAnimationFrame(tick);
+document.querySelectorAll('.book-grid').forEach(function(grid){
+if(grid.dataset.looped)return;
+grid.dataset.looped='1';
+// Duplicate cards for seamless loop
+var cards=grid.innerHTML;
+grid.innerHTML=cards+cards;
+// Calculate animation duration based on total width
+var totalW=grid.scrollWidth;
+var dur=totalW/40; // pixels per second
+grid.style.animation='bookScroll '+dur+'s linear infinite';
+// Pause on hover
+var scroll=grid.parentElement;
+scroll.addEventListener('mouseenter',function(){grid.style.animationPlayState='paused'});
+scroll.addEventListener('mouseleave',function(){grid.style.animationPlayState='running'});
+scroll.addEventListener('touchstart',function(){grid.style.animationPlayState='paused'},{passive:true});
+scroll.addEventListener('touchend',function(){setTimeout(function(){grid.style.animationPlayState='running'},2000)},{passive:true});
 });
 }
 

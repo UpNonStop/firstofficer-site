@@ -60,9 +60,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .pts-annual{text-align:center;margin:24px 0 20px;padding:18px;background:#0a0a0a;border-radius:12px;border:1px solid #2a2a2a}
 .pts-annual-num{font-size:clamp(42px,6vw,56px);font-weight:900;letter-spacing:-3px;color:var(--pink);line-height:1}
 .pts-annual-label{font-size:12px;color:#666;margin-top:4px}
-.book-scroll{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;padding:4px 0 20px;margin:0 -52px;padding-left:52px;scrollbar-width:none}
+.book-scroll{overflow-x:hidden;overflow-y:visible;-webkit-overflow-scrolling:touch;padding:4px 0 20px;margin:0 -52px;padding-left:52px;scrollbar-width:none}
 .book-scroll::-webkit-scrollbar{display:none}
-.book-scroll.auto-scrolling{scroll-behavior:smooth}
 .book-grid{display:flex;gap:14px;width:max-content}
 .book-card{width:200px;height:280px;perspective:800px;flex-shrink:0;cursor:pointer}
 .book-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .6s ease}
@@ -131,6 +130,9 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .ft-disc{font-size:11px;line-height:1.6;max-width:620px;margin:0 auto 16px;color:#555}
 .ft-bot{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#555;border-top:1px solid #1a1a1a;padding-top:16px;max-width:1140px;margin:0 auto;flex-wrap:wrap;gap:8px}
 .ft-bot a{color:#555;margin-left:16px}.ft-bot a:hover{color:var(--pink)}
+
+@keyframes bookScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.book-grid{will-change:transform}
 @media(max-width:768px){.nk{display:none}.mob{display:flex}.step{padding:28px 24px;border-radius:16px}.ind-grid{grid-template-columns:repeat(3,1fr)}.ind-bottom{grid-template-columns:repeat(3,1fr)}.book-card{width:170px;height:250px}.book-scroll{margin:0 -24px;padding-left:24px}.ros-compare{flex-direction:column;align-items:center}}
 @media(max-width:480px){.wrap{padding:0 16px}.step{padding:24px 20px}.ind-grid{grid-template-columns:repeat(2,1fr)}.ind-bottom{grid-template-columns:repeat(2,1fr)}.btn-row{flex-direction:column}.btn{width:100%;text-align:center}}
 </style></head><body>
@@ -292,7 +294,7 @@ var cv=Math.round(ap*.02),bv=Math.round(ap*.035),rc=as>0?((cv/as)*100).toFixed(1
 document.getElementById('rosNum').textContent=rc+'% to '+rb+'%';
 document.getElementById('rosNew').textContent=rc+'% to '+rb+'%';
 document.getElementById('rosSub').textContent='$'+cv.toLocaleString()+' to $'+bv.toLocaleString()+' in annual travel value on $'+as.toLocaleString()+' spend';
-document.getElementById('rosWhat').innerHTML='With the right card on every '+selInd.nm+' category and the right transfer partner on every redemption, your business achieves <strong style="color:var(--pink)">'+rc+'% to '+rb+'%</strong> return on every dollar you spend. That is what an optimized plan looks like. That is the UpNonStop RoS.';
+document.getElementById('rosWhat').innerHTML='With the right card on every '+selInd.nm+' category and the right transfer partner on every redemption, your business achieves <strong style="color:var(--pink)">'+rc+'% to '+rb+'%</strong> return on every dollar you spend. That is what an optimized plan looks like. By calculating the value of your points against what you would have paid in cash, we arrive at your UpNonStop Return-on-Spend. The number that tells you whether your business spend is working as hard as you are.';
 var lk=document.getElementById('indLink');if(selInd.pg)lk.innerHTML='<a href="'+selInd.pg+'" style="color:var(--pink);font-weight:600;font-size:14px">See the full '+selInd.nm+' breakdown</a>'}
 function copyRos(){var t=0;selInd.cats.forEach(function(c,i){t+=(catVals[i]||0)});var as=t*12,mp=getMP(),ap=mp*12,cv=Math.round(ap*.02),bv=Math.round(ap*.035),rc=as>0?((cv/as)*100).toFixed(1):0,rb=as>0?((bv/as)*100).toFixed(1):0;
 var txt='My Business UpNonStop RoS: '+rc+'% to '+rb+'%\n\nIndustry: '+selInd.nm+'\nMonthly spend: $'+t.toLocaleString()+'\nAnnual points: '+ap.toLocaleString()+'\nTravel value: $'+cv.toLocaleString()+' to $'+bv.toLocaleString()+'/year\n\nCalculate yours: firstofficer.co/calculator';
@@ -300,25 +302,22 @@ navigator.clipboard.writeText(txt).then(function(){event.target.textContent='Cop
 
 // Auto-scroll booking carousel
 function autoScrollBookings(){
-var scrollEls=document.querySelectorAll('.book-scroll');
-scrollEls.forEach(function(el){
-if(el.dataset.scrolling)return;
-el.dataset.scrolling='1';
-var dir=1;var speed=0.8;var paused=false;
-el.addEventListener('mouseenter',function(){paused=true});
-el.addEventListener('mouseleave',function(){paused=false});
-el.addEventListener('touchstart',function(){paused=true},{passive:true});
-el.addEventListener('touchend',function(){setTimeout(function(){paused=false},3000)},{passive:true});
-function tick(){
-if(!paused&&el.scrollWidth>el.clientWidth){
-el.scrollLeft+=dir*speed;
-var maxScroll=el.scrollWidth-el.clientWidth;
-if(el.scrollLeft>=maxScroll-1){dir=-1;}
-if(el.scrollLeft<=1){dir=1;}
-}
-requestAnimationFrame(tick);
-}
-requestAnimationFrame(tick);
+document.querySelectorAll('.book-grid').forEach(function(grid){
+if(grid.dataset.looped)return;
+grid.dataset.looped='1';
+// Duplicate cards for seamless loop
+var cards=grid.innerHTML;
+grid.innerHTML=cards+cards;
+// Calculate animation duration based on total width
+var totalW=grid.scrollWidth;
+var dur=totalW/40; // pixels per second
+grid.style.animation='bookScroll '+dur+'s linear infinite';
+// Pause on hover
+var scroll=grid.parentElement;
+scroll.addEventListener('mouseenter',function(){grid.style.animationPlayState='paused'});
+scroll.addEventListener('mouseleave',function(){grid.style.animationPlayState='running'});
+scroll.addEventListener('touchstart',function(){grid.style.animationPlayState='paused'},{passive:true});
+scroll.addEventListener('touchend',function(){setTimeout(function(){grid.style.animationPlayState='running'},2000)},{passive:true});
 });
 }
 
