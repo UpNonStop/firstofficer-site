@@ -63,6 +63,8 @@ a{text-decoration:none;color:inherit}
 
 .tc-popular{position:relative}
 .tc-popular::before{content:"Most popular";position:absolute;top:-14px;left:44px;background:#7C3AED;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 14px;border-radius:100px;z-index:3}
+.tc-gold-only{position:relative}
+.tc-gold-only::before{content:"Select and Reserve only";position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#C5A226;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 14px;border-radius:100px;z-index:3;white-space:nowrap}
 .tc-start{position:relative}
 .tc-start::before{content:'Most people start here';position:absolute;top:-14px;right:44px;background:#0D9488;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 14px;border-radius:100px;z-index:3}
 
@@ -139,6 +141,7 @@ a{text-decoration:none;color:inherit}
 .stat-item{flex:0 0 50%;padding:0 16px}
 .stat-divider{display:none}
 .stat-num{font-size:36px}
+.tc-gold-only::before{top:-13px;font-size:9px}
 .tc-popular::before{left:20px;top:-13px;font-size:9px}
 .tc-start::before{right:20px;top:-13px;font-size:9px}
 .tc-from{font-size:9px;padding:4px 12px;top:-13px}
@@ -338,10 +341,10 @@ a{text-decoration:none;color:inherit}
 </div></div>
 
 <!-- Award Booking -->
-<div style="max-width:920px;margin:48px auto 0;padding:36px 40px;border-radius:20px;background:#FFFBF0;border:1px solid #E8DFC0;position:relative;overflow:hidden">
+<div class="tc-gold-only" style="max-width:920px;margin:48px auto 0;padding:36px 40px;border-radius:20px;background:#FFFBF0;border:1px solid #E8DFC0;position:relative;overflow:hidden">
 <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,transparent,#C5A226,transparent)"></div>
 <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:24px">
-<div><div style="font-family:var(--serif);font-size:24px;color:#111;margin-bottom:4px">Award Booking Service</div><div style="font-size:13px;color:#998A5E">Available to Select and Reserve members</div></div>
+<div><div style="font-family:var(--serif);font-size:24px;color:#111;margin-bottom:4px">Award Booking Service</div></div>
 <div style="text-align:right"><div style="font-size:28px;font-weight:900;color:#C5A226;letter-spacing:-1px">$500</div><div style="font-size:12px;color:#998A5E">per booking, any party size</div></div>
 </div>
 
