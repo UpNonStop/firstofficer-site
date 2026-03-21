@@ -330,8 +330,7 @@ if(ln<n)l.classList.add('done');else l.classList.remove('done');
 });
 window.scrollTo({top:0,behavior:'smooth'});
 if(n===2)buildStep2();
-if(n===3)buildStep3();
-if(n===4){buildStep4();setTimeout(function(){document.querySelector('.ros-num').classList.add('vis')},200);}
+if(n===3){buildRoS();buildBookings();setTimeout(function(){document.querySelector('.ros-num').classList.add('vis')},200);}
 }
 
 function buildStep2(){
