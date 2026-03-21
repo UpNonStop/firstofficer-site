@@ -224,8 +224,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <tbody id="routingBody"></tbody>
 </table>
 
-
-
 <div class="pts-annual">
 <div class="pts-annual-num" id="annualPts">0</div>
 <div class="pts-annual-label">total points per year across both programs</div>
@@ -268,7 +266,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <div style="margin-top:48px;border-top:1px solid #eee;padding-top:36px">
 <div style="text-align:center;margin-bottom:20px">
 <div style="font-family:var(--serif);font-size:20px;color:#111;margin-bottom:4px">Booked for our <span style="color:var(--pink)">Select</span> &amp; <span style="color:var(--pink)">Reserve</span> members this month.</div>
-<div style="font-size:13px;color:#999">Real redemptions. Business class flights and premium hotels. Hover to see details.</div>
+<div style="font-size:13px;color:#999">Flights and hotel stays redeemed with points. Hover any card to see the breakdown.</div>
 </div>
 <div class="book-scroll"><div class="book-grid" id="bookGrid"></div></div>
 <p style="font-size:10px;color:#ccc;text-align:center;margin-top:8px">Showing 20 of 60+ recent bookings. Reload for different results.</p>
@@ -347,135 +345,6 @@ tbody.innerHTML=html;
 document.getElementById('annualPts').textContent=(totalPts*12).toLocaleString();
 }
 
-var IMGS={'LHR':'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=560&fit=crop&q=75','NRT':'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=560&fit=crop&q=75','HND':'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=560&fit=crop&q=75','SIN':'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=400&h=560&fit=crop&q=75','CDG':'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=560&fit=crop&q=75','BCN':'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=400&h=560&fit=crop&q=75','DUB':'https://images.unsplash.com/photo-1549918864-48ac978761a4?w=400&h=560&fit=crop&q=75','SYD':'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=400&h=560&fit=crop&q=75','FCO':'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=400&h=560&fit=crop&q=75','DOH':'https://images.unsplash.com/photo-1548195667-1fe5c2c6e5e6?w=400&h=560&fit=crop&q=75','GRU':'https://images.unsplash.com/photo-1543059080-f9b1272213d5?w=400&h=560&fit=crop&q=75','TLV':'https://images.unsplash.com/photo-1544967082-d9d25d867d66?w=400&h=560&fit=crop&q=75','HKG':'https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=400&h=560&fit=crop&q=75','BKK':'https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=400&h=560&fit=crop&q=75','ICN':'https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?w=400&h=560&fit=crop&q=75','LIS':'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=400&h=560&fit=crop&q=75','MLE':'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400&h=560&fit=crop&q=75','Park Hyatt Maldives':'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&h=560&fit=crop&q=75','Andaz Maui at Wailea':'https://images.unsplash.com/photo-1542259009477-d625272157b7?w=400&h=560&fit=crop&q=75','St. Regis Bora Bora':'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=400&h=560&fit=crop&q=75','Conrad Maldives Rangali':'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400&h=560&fit=crop&q=75','Hyatt Regency Maui':'https://images.unsplash.com/photo-1542259009477-d625272157b7?w=400&h=560&fit=crop&q=75','W Barcelona':'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=400&h=560&fit=crop&q=75','Park Hyatt Tokyo':'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=560&fit=crop&q=75','Waldorf Astoria Beverly Hills':'https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?w=400&h=560&fit=crop&q=75','Grand Hyatt Kauai':'https://images.unsplash.com/photo-1505852679233-d9fd70aff56d?w=400&h=560&fit=crop&q=75','Ritz-Carlton Kyoto':'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400&h=560&fit=crop&q=75','Alila Ventana Big Sur':'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=560&fit=crop&q=75','JW Marriott Cancun':'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=400&h=560&fit=crop&q=75','InterContinental Bora Bora':'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=400&h=560&fit=crop&q=75','Hyatt Zilara Cap Cana':'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=400&h=560&fit=crop&q=75','Conrad Bali':'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=560&fit=crop&q=75','Park Hyatt Sydney':'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=400&h=560&fit=crop&q=75','W Maldives':'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&h=560&fit=crop&q=75','Kimpton Seafire Grand Cayman':'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=400&h=560&fit=crop&q=75','Ventana Big Sur':'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=560&fit=crop&q=75','Andaz Costa Rica':'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=560&fit=crop&q=75','St. Regis Aspen':'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400&h=560&fit=crop&q=75','Conrad Tokyo':'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=560&fit=crop&q=75','Hyatt Ziva Cancun':'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=400&h=560&fit=crop&q=75','Le Meridien Maldives':'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&h=560&fit=crop&q=75','Hilton Moorea':'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=400&h=560&fit=crop&q=75','Park Hyatt Zurich':'https://images.unsplash.com/photo-1515488764276-beab0607c1e6?w=400&h=560&fit=crop&q=75','Ritz-Carlton Bali':'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=560&fit=crop&q=75','InterContinental Fiji':'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=400&h=560&fit=crop&q=75','Grand Hyatt Bali':'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=560&fit=crop&q=75','Waldorf Astoria Maldives':'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400&h=560&fit=crop&q=75',};
-var REGIONS={LHR:'bg-eur',CDG:'bg-eur',BCN:'bg-eur',DUB:'bg-eur',FCO:'bg-eur',LIS:'bg-eur',NRT:'bg-asia',HND:'bg-asia',SIN:'bg-asia',HKG:'bg-asia',BKK:'bg-asia',ICN:'bg-asia',SYD:'bg-pac',GRU:'bg-amer',DOH:'bg-mid',TLV:'bg-mid',MLE:'bg-mid'};
-var HTYPES={'World of Hyatt':'bg-resort','Marriott Bonvoy':'bg-beach','Hilton Honors':'bg-city','IHG Rewards':'bg-beach'};
-var INV=[
-// FLIGHTS - Business class round-trip per person
-{t:'f',from:'JFK',to:'LHR',fc:'New York',tc:'London',pts:58000,fees:650,pa:'Virgin Atlantic',cash:5800},
-{t:'f',from:'LAX',to:'NRT',fc:'Los Angeles',tc:'Tokyo',pts:85000,fees:280,pa:'ANA',cash:8400},
-{t:'f',from:'SFO',to:'SIN',fc:'San Francisco',tc:'Singapore',pts:92000,fees:120,pa:'Singapore Airlines',cash:9200},
-{t:'f',from:'ORD',to:'CDG',fc:'Chicago',tc:'Paris',pts:70000,fees:580,pa:'Air France',cash:6400},
-{t:'f',from:'MIA',to:'BCN',fc:'Miami',tc:'Barcelona',pts:58000,fees:420,pa:'Aeroplan',cash:5200},
-{t:'f',from:'BOS',to:'DUB',fc:'Boston',tc:'Dublin',pts:58000,fees:380,pa:'Aeroplan',cash:4800},
-{t:'f',from:'DFW',to:'HND',fc:'Dallas',tc:'Tokyo',pts:88000,fees:310,pa:'JAL via Alaska',cash:7600},
-{t:'f',from:'SEA',to:'SYD',fc:'Seattle',tc:'Sydney',pts:100000,fees:180,pa:'Cathay Pacific',cash:8800},
-{t:'f',from:'EWR',to:'FCO',fc:'Newark',tc:'Rome',pts:57500,fees:540,pa:'Aeroplan',cash:5100},
-{t:'f',from:'IAD',to:'DOH',fc:'Washington DC',tc:'Doha',pts:70000,fees:90,pa:'Qatar Airways',cash:7800},
-{t:'f',from:'LAX',to:'SYD',fc:'Los Angeles',tc:'Sydney',pts:105000,fees:160,pa:'Qantas',cash:9600},
-{t:'f',from:'JFK',to:'CDG',fc:'New York',tc:'Paris',pts:57500,fees:610,pa:'Air France',cash:5400},
-{t:'f',from:'SFO',to:'HND',fc:'San Francisco',tc:'Tokyo',pts:85000,fees:260,pa:'ANA',cash:8200},
-{t:'f',from:'ORD',to:'LHR',fc:'Chicago',tc:'London',pts:58000,fees:620,pa:'Virgin Atlantic',cash:5600},
-{t:'f',from:'MIA',to:'GRU',fc:'Miami',tc:'Sao Paulo',pts:57500,fees:340,pa:'Aeroplan',cash:4400},
-{t:'f',from:'BOS',to:'NRT',fc:'Boston',tc:'Tokyo',pts:85000,fees:290,pa:'ANA',cash:8000},
-{t:'f',from:'LAX',to:'ICN',fc:'Los Angeles',tc:'Seoul',pts:80000,fees:180,pa:'Korean Air',cash:7200},
-{t:'f',from:'JFK',to:'TLV',fc:'New York',tc:'Tel Aviv',pts:62000,fees:420,pa:'Aeroplan',cash:5600},
-{t:'f',from:'SFO',to:'HKG',fc:'San Francisco',tc:'Hong Kong',pts:70000,fees:150,pa:'Cathay Pacific',cash:6800},
-{t:'f',from:'ORD',to:'NRT',fc:'Chicago',tc:'Tokyo',pts:85000,fees:270,pa:'ANA',cash:8000},
-{t:'f',from:'DFW',to:'LHR',fc:'Dallas',tc:'London',pts:58000,fees:640,pa:'Virgin Atlantic',cash:5400},
-{t:'f',from:'SEA',to:'NRT',fc:'Seattle',tc:'Tokyo',pts:85000,fees:250,pa:'ANA',cash:7800},
-{t:'f',from:'JFK',to:'MLE',fc:'New York',tc:'Maldives',pts:90000,fees:180,pa:'Emirates',cash:8600},
-{t:'f',from:'LAX',to:'BKK',fc:'Los Angeles',tc:'Bangkok',pts:75000,fees:140,pa:'EVA Air',cash:6200},
-{t:'f',from:'MIA',to:'LIS',fc:'Miami',tc:'Lisbon',pts:57500,fees:360,pa:'Aeroplan',cash:4600},
-{t:'f',from:'SFO',to:'CDG',fc:'San Francisco',tc:'Paris',pts:70000,fees:600,pa:'Air France',cash:6600},
-{t:'f',from:'BOS',to:'BCN',fc:'Boston',tc:'Barcelona',pts:58000,fees:400,pa:'Aeroplan',cash:5000},
-{t:'f',from:'ORD',to:'FCO',fc:'Chicago',tc:'Rome',pts:57500,fees:520,pa:'Aeroplan',cash:5200},
-{t:'f',from:'JFK',to:'SIN',fc:'New York',tc:'Singapore',pts:92000,fees:130,pa:'Singapore Airlines',cash:9400},
-{t:'f',from:'LAX',to:'LHR',fc:'Los Angeles',tc:'London',pts:58000,fees:660,pa:'Virgin Atlantic',cash:5600},
-// HOTELS - per night points with total stay pricing
-{t:'h',n:'Park Hyatt Maldives',nt:5,pn:29000,pg:'World of Hyatt',cash:5200,cn:1040},
-{t:'h',n:'Andaz Maui at Wailea',nt:4,pn:25000,pg:'World of Hyatt',cash:3200,cn:800},
-{t:'h',n:'St. Regis Bora Bora',nt:5,pn:85000,pg:'Marriott Bonvoy',cash:8500,cn:1700},
-{t:'h',n:'Conrad Maldives Rangali',nt:4,pn:95000,pg:'Hilton Honors',cash:6000,cn:1500},
-{t:'h',n:'Hyatt Regency Maui',nt:7,pn:18000,pg:'World of Hyatt',cash:3500,cn:500},
-{t:'h',n:'W Barcelona',nt:4,pn:50000,pg:'Marriott Bonvoy',cash:2400,cn:600},
-{t:'h',n:'Park Hyatt Tokyo',nt:3,pn:30000,pg:'World of Hyatt',cash:2700,cn:900},
-{t:'h',n:'Waldorf Astoria Beverly Hills',nt:3,pn:80000,pg:'Hilton Honors',cash:3600,cn:1200},
-{t:'h',n:'Grand Hyatt Kauai',nt:5,pn:21000,pg:'World of Hyatt',cash:2500,cn:500},
-{t:'h',n:'Ritz-Carlton Kyoto',nt:4,pn:70000,pg:'Marriott Bonvoy',cash:4800,cn:1200},
-{t:'h',n:'Alila Ventana Big Sur',nt:3,pn:35000,pg:'World of Hyatt',cash:3900,cn:1300},
-{t:'h',n:'JW Marriott Cancun',nt:5,pn:40000,pg:'Marriott Bonvoy',cash:2000,cn:400},
-{t:'h',n:'InterContinental Bora Bora',nt:4,pn:70000,pg:'IHG Rewards',cash:4400,cn:1100},
-{t:'h',n:'Hyatt Zilara Cap Cana',nt:5,pn:25000,pg:'World of Hyatt',cash:3750,cn:750},
-{t:'h',n:'Conrad Bali',nt:5,pn:50000,pg:'Hilton Honors',cash:1500,cn:300},
-{t:'h',n:'Park Hyatt Sydney',nt:3,pn:28000,pg:'World of Hyatt',cash:2400,cn:800},
-{t:'h',n:'W Maldives',nt:4,pn:78000,pg:'Marriott Bonvoy',cash:5600,cn:1400},
-{t:'h',n:'Kimpton Seafire Grand Cayman',nt:4,pn:30000,pg:'IHG Rewards',cash:3200,cn:800},
-{t:'h',n:'Ventana Big Sur',nt:2,pn:35000,pg:'World of Hyatt',cash:2600,cn:1300},
-{t:'h',n:'Andaz Costa Rica',nt:5,pn:20000,pg:'World of Hyatt',cash:2750,cn:550},
-{t:'h',n:'St. Regis Aspen',nt:3,pn:90000,pg:'Marriott Bonvoy',cash:4500,cn:1500},
-{t:'h',n:'Conrad Tokyo',nt:3,pn:60000,pg:'Hilton Honors',cash:1800,cn:600},
-{t:'h',n:'Hyatt Ziva Cancun',nt:5,pn:20000,pg:'World of Hyatt',cash:3000,cn:600},
-{t:'h',n:'Le Meridien Maldives',nt:4,pn:58000,pg:'Marriott Bonvoy',cash:3200,cn:800},
-{t:'h',n:'Hilton Moorea',nt:5,pn:70000,pg:'Hilton Honors',cash:3500,cn:700},
-{t:'h',n:'Park Hyatt Zurich',nt:3,pn:30000,pg:'World of Hyatt',cash:2700,cn:900},
-{t:'h',n:'Ritz-Carlton Bali',nt:5,pn:60000,pg:'Marriott Bonvoy',cash:3500,cn:700},
-{t:'h',n:'InterContinental Fiji',nt:5,pn:50000,pg:'IHG Rewards',cash:2500,cn:500},
-{t:'h',n:'Grand Hyatt Bali',nt:5,pn:15000,pg:'World of Hyatt',cash:1250,cn:250},
-{t:'h',n:'Waldorf Astoria Maldives',nt:4,pn:120000,pg:'Hilton Honors',cash:8000,cn:2000}
-];
-
-function buildBookings(){
-var grid=document.getElementById('bookGrid');
-var monthlyPts=0;for(var k in cats)monthlyPts+=Math.round(cats[k]*routing[k].mult);
-var fl=INV.filter(function(i){return i.t==='f'}).sort(function(){return 0.5-Math.random()}).slice(0,10);
-var ht=INV.filter(function(i){return i.t==='h'}).sort(function(){return 0.5-Math.random()}).slice(0,10);
-var picks=[];for(var i=0;i<10;i++){picks.push(fl[i]);picks.push(ht[i]);}
-var now=new Date();
-var mos=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-var stamp=mos[now.getMonth()]+' '+now.getFullYear();
-var html='';
-picks.forEach(function(it){
-if(it.t==='f'){
-var m=monthlyPts>0?Math.ceil(it.pts/monthlyPts):99;
-var fimg=IMGS[it.to]||'';
-html+='<div class="book-card"><div class="book-inner">';
-html+='<div class="book-front'+(fimg?'" style="background-image:url(\''+fimg+'\')"':' fl-bg"')+'>';
-html+='<div class="book-badge fl">Business Class</div>';
-html+='<div class="book-pts-badge">'+Math.round(it.pts/1000)+'K pts</div>';
-html+='<div class="book-dest">'+it.tc+'</div>';
-html+='<div class="book-sub">'+it.from+' to '+it.to+' via '+it.pa+'</div>';
-html+='</div>';
-html+='<div class="book-back">';
-html+='<div class="book-back-top">';
-html+='<div class="book-back-dest">'+it.fc+' to '+it.tc+'</div>';
-html+='<div class="book-back-detail">Business class RT, per person, via '+it.pa+'</div>';
-html+='<div class="book-back-row"><span class="bl">Cash price</span><span class="bv strike">$'+it.cash.toLocaleString()+'</span></div>';
-html+='<div class="book-back-row"><span class="bl">Points</span><span class="bv pk">'+it.pts.toLocaleString()+'</span></div>';
-html+='<div class="book-back-row"><span class="bl">Taxes + fees</span><span class="bv">$'+it.fees+'</span></div>';
-html+='<div class="book-back-row"><span class="bl">Value</span><span class="bv pk">'+((it.cash/it.pts)*100).toFixed(1)+'\u00a2/pt</span></div>';
-html+='</div>';
-html+='<div class="book-earn">Your earn rate: <strong>'+m+' mo'+(m!==1?'s':'')+'</strong></div>';
-html+='<div class="book-stamp">Booked '+stamp+'</div>';
-html+='</div></div></div>';
-}else{
-var tp=it.pn*it.nt;
-var m=monthlyPts>0?Math.ceil(tp/monthlyPts):99;
-var himg=IMGS[it.n]||'';
-html+='<div class="book-card"><div class="book-inner">';
-html+='<div class="book-front'+(himg?'" style="background-image:url(\''+himg+'\')"':' ht-bg"')+'>';
-html+='<div class="book-badge ht">'+it.nt+' Nights</div>';
-html+='<div class="book-pts-badge">'+Math.round(it.pn/1000)+'K/nt</div>';
-html+='<div class="book-dest">'+it.n+'</div>';
-html+='<div class="book-sub">'+it.pg+'</div>';
-html+='</div>';
-html+='<div class="book-back">';
-html+='<div class="book-back-top">';
-html+='<div class="book-back-dest">'+it.n+'</div>';
-html+='<div class="book-back-detail">'+it.nt+' nights, '+it.pn.toLocaleString()+' pts/night, '+it.pg+'</div>';
-html+='<div class="book-back-row"><span class="bl">Cash ('+it.nt+' nights)</span><span class="bv strike">$'+it.cash.toLocaleString()+'</span></div>';
-html+='<div class="book-back-row"><span class="bl">Points total</span><span class="bv pk">'+tp.toLocaleString()+'</span></div>';
-html+='<div class="book-back-row"><span class="bl">Per night</span><span class="bv">$'+it.cn+' cash vs '+it.pn.toLocaleString()+' pts</span></div>';
-html+='<div class="book-back-row"><span class="bl">Value</span><span class="bv pk">'+((it.cash/tp)*100).toFixed(1)+'\u00a2/pt</span></div>';
-html+='</div>';
-html+='<div class="book-earn">Your earn rate: <strong>'+m+' mo'+(m!==1?'s':'')+'</strong></div>';
-html+='<div class="book-stamp">Booked '+stamp+'</div>';
-html+='</div></div></div>';
-}
-});
-grid.innerHTML=html;
-setTimeout(autoScrollBookings,500);
-}
 
 function buildRoS(){
 var total=0;for(var k in cats)total+=cats[k];
@@ -515,26 +384,230 @@ el.style.background='linear-gradient(to right,var(--pink) '+pct+'%,#e8e9ed '+pct
 });
 
 // Auto-scroll booking carousel
-function autoScrollBookings(){
-document.querySelectorAll('.book-grid').forEach(function(grid){
-if(grid.dataset.looped)return;
-grid.dataset.looped='1';
-// Duplicate cards for seamless loop
-var cards=grid.innerHTML;
-grid.innerHTML=cards+cards;
-// Calculate animation duration based on total width
-var totalW=grid.scrollWidth;
-var dur=totalW/120; // pixels per second
-grid.style.animation='bookScroll '+dur+'s linear infinite';
-// Pause on hover
-var scroll=grid.parentElement;
-scroll.addEventListener('mouseenter',function(){grid.style.animationPlayState='paused'});
-scroll.addEventListener('mouseleave',function(){grid.style.animationPlayState='running'});
-scroll.addEventListener('touchstart',function(){grid.style.animationPlayState='paused'},{passive:true});
-scroll.addEventListener('touchend',function(){setTimeout(function(){grid.style.animationPlayState='running'},2000)},{passive:true});
+
+
+// UpNonStop Booking Cards - Shared Inventory & Renderer
+// 60 items: flights (mixed classes) + hotels (premium properties)
+// Transfer bonuses current as of March 2026
+
+var IMGS={
+// Flight destinations
+'LHR':'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=400&h=560&fit=crop&q=75',
+'NRT':'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=560&fit=crop&q=75',
+'HND':'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=560&fit=crop&q=75',
+'SIN':'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=400&h=560&fit=crop&q=75',
+'CDG':'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400&h=560&fit=crop&q=75',
+'BCN':'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=400&h=560&fit=crop&q=75',
+'DUB':'https://images.unsplash.com/photo-1549918864-48ac978761a4?w=400&h=560&fit=crop&q=75',
+'SYD':'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=400&h=560&fit=crop&q=75',
+'FCO':'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=400&h=560&fit=crop&q=75',
+'DOH':'https://images.unsplash.com/photo-1548195667-1fe5c2c6e5e6?w=400&h=560&fit=crop&q=75',
+'GRU':'https://images.unsplash.com/photo-1543059080-f9b1272213d5?w=400&h=560&fit=crop&q=75',
+'TLV':'https://images.unsplash.com/photo-1544967082-d9d25d867d66?w=400&h=560&fit=crop&q=75',
+'HKG':'https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=400&h=560&fit=crop&q=75',
+'BKK':'https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=400&h=560&fit=crop&q=75',
+'ICN':'https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?w=400&h=560&fit=crop&q=75',
+'LIS':'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=400&h=560&fit=crop&q=75',
+'MLE':'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400&h=560&fit=crop&q=75',
+'CUN':'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=400&h=560&fit=crop&q=75',
+'MAD':'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=400&h=560&fit=crop&q=75',
+'HNL':'https://images.unsplash.com/photo-1507876466758-bc54f384809c?w=400&h=560&fit=crop&q=75',
+'OGG':'https://images.unsplash.com/photo-1542259009477-d625272157b7?w=400&h=560&fit=crop&q=75',
+'MIA':'https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?w=400&h=560&fit=crop&q=75',
+'SFO':'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=400&h=560&fit=crop&q=75',
+'LAX':'https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?w=400&h=560&fit=crop&q=75',
+'ZRH':'https://images.unsplash.com/photo-1515488764276-beab0607c1e6?w=400&h=560&fit=crop&q=75',
+// Hotels
+'Park Hyatt Maldives':'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&h=560&fit=crop&q=75',
+'Andaz Maui at Wailea':'https://images.unsplash.com/photo-1542259009477-d625272157b7?w=400&h=560&fit=crop&q=75',
+'St. Regis Bora Bora':'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=400&h=560&fit=crop&q=75',
+'Conrad Maldives Rangali':'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400&h=560&fit=crop&q=75',
+'Hyatt Regency Maui':'https://images.unsplash.com/photo-1542259009477-d625272157b7?w=400&h=560&fit=crop&q=75',
+'W Barcelona':'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=400&h=560&fit=crop&q=75',
+'Park Hyatt Tokyo':'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=560&fit=crop&q=75',
+'Waldorf Astoria Beverly Hills':'https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?w=400&h=560&fit=crop&q=75',
+'Grand Hyatt Kauai':'https://images.unsplash.com/photo-1505852679233-d9fd70aff56d?w=400&h=560&fit=crop&q=75',
+'Ritz-Carlton Kyoto':'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400&h=560&fit=crop&q=75',
+'Alila Ventana Big Sur':'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=560&fit=crop&q=75',
+'JW Marriott Cancun':'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=400&h=560&fit=crop&q=75',
+'InterContinental Bora Bora':'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=400&h=560&fit=crop&q=75',
+'Hyatt Zilara Cap Cana':'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=400&h=560&fit=crop&q=75',
+'Conrad Bali':'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=560&fit=crop&q=75',
+'Park Hyatt Sydney':'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=400&h=560&fit=crop&q=75',
+'W Maldives':'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&h=560&fit=crop&q=75',
+'Kimpton Seafire Grand Cayman':'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=400&h=560&fit=crop&q=75',
+'Andaz Costa Rica':'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=560&fit=crop&q=75',
+'St. Regis Aspen':'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400&h=560&fit=crop&q=75',
+'Conrad Tokyo':'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=560&fit=crop&q=75',
+'Hyatt Ziva Cancun':'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=400&h=560&fit=crop&q=75',
+'Le Meridien Maldives':'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&h=560&fit=crop&q=75',
+'Hilton Moorea':'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=400&h=560&fit=crop&q=75',
+'Park Hyatt Zurich':'https://images.unsplash.com/photo-1515488764276-beab0607c1e6?w=400&h=560&fit=crop&q=75',
+'Ritz-Carlton Bali':'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=560&fit=crop&q=75',
+'InterContinental Fiji':'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=400&h=560&fit=crop&q=75',
+'Grand Hyatt Bali':'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=560&fit=crop&q=75',
+'Waldorf Astoria Maldives':'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400&h=560&fit=crop&q=75',
+'Ventana Big Sur':'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400&h=560&fit=crop&q=75'
+};
+
+// Badge colors by cabin class
+// cls: 'J'=business, 'W'=premium economy, 'F'=domestic first, 'Y'=economy
+var CBADGE={
+'J':{bg:'rgba(37,99,235,.9)',label:'Business Class'},
+'W':{bg:'rgba(124,58,237,.9)',label:'Premium Economy'},
+'F':{bg:'rgba(197,162,38,.9)',label:'Domestic First'},
+'Y':{bg:'rgba(107,114,128,.9)',label:'Economy'}
+};
+
+var BINV=[
+// BUSINESS CLASS - international
+{t:'f',from:'JFK',to:'LHR',fc:'New York',tc:'London',cls:'J',pts:58000,fees:650,pa:'Virgin Atlantic',cash:5800},
+{t:'f',from:'LAX',to:'NRT',fc:'Los Angeles',tc:'Tokyo',cls:'J',pts:85000,fees:280,pa:'ANA',cash:8400},
+{t:'f',from:'SFO',to:'SIN',fc:'San Francisco',tc:'Singapore',cls:'J',pts:92000,fees:120,pa:'Singapore Airlines',cash:9200},
+{t:'f',from:'ORD',to:'CDG',fc:'Chicago',tc:'Paris',cls:'J',pts:70000,fees:580,pa:'Air France',cash:6400},
+{t:'f',from:'MIA',to:'BCN',fc:'Miami',tc:'Barcelona',cls:'J',pts:58000,fees:420,pa:'Aeroplan',cash:5200},
+{t:'f',from:'DFW',to:'HND',fc:'Dallas',tc:'Tokyo',cls:'J',pts:88000,fees:310,pa:'JAL via Alaska',cash:7600},
+{t:'f',from:'SEA',to:'SYD',fc:'Seattle',tc:'Sydney',cls:'J',pts:100000,fees:180,pa:'Cathay Pacific',cash:8800},
+{t:'f',from:'IAD',to:'DOH',fc:'Washington DC',tc:'Doha',cls:'J',pts:70000,fees:90,pa:'Qatar Airways',cash:7800},
+{t:'f',from:'JFK',to:'TLV',fc:'New York',tc:'Tel Aviv',cls:'J',pts:62000,fees:420,pa:'Aeroplan',cash:5600},
+{t:'f',from:'SFO',to:'HKG',fc:'San Francisco',tc:'Hong Kong',cls:'J',pts:70000,fees:150,pa:'Cathay Pacific',cash:6800},
+// BUSINESS CLASS - with transfer bonus applied
+{t:'f',from:'JFK',to:'LHR',fc:'New York',tc:'London',cls:'J',pts:48333,fees:650,pa:'British Airways via Avios',cash:5800,bonus:'20% Chase transfer bonus applied'},
+{t:'f',from:'BOS',to:'MAD',fc:'Boston',tc:'Madrid',cls:'J',pts:53333,fees:380,pa:'Iberia via Avios',cash:5400,bonus:'20% Chase transfer bonus applied'},
+// PREMIUM ECONOMY - international
+{t:'f',from:'JFK',to:'NRT',fc:'New York',tc:'Tokyo',cls:'W',pts:60000,fees:240,pa:'ANA',cash:3200},
+{t:'f',from:'LAX',to:'SYD',fc:'Los Angeles',tc:'Sydney',cls:'W',pts:65000,fees:160,pa:'Qantas',cash:3800},
+{t:'f',from:'ORD',to:'LHR',fc:'Chicago',tc:'London',cls:'W',pts:40000,fees:580,pa:'British Airways via Avios',cash:2800,bonus:'20% Chase transfer bonus applied'},
+{t:'f',from:'SFO',to:'CDG',fc:'San Francisco',tc:'Paris',cls:'W',pts:42000,fees:540,pa:'Air France',cash:2600},
+{t:'f',from:'MIA',to:'LIS',fc:'Miami',tc:'Lisbon',cls:'W',pts:35000,fees:320,pa:'Avianca LifeMiles',cash:2200,bonus:'15% Amex transfer bonus applied'},
+{t:'f',from:'EWR',to:'BCN',fc:'Newark',tc:'Barcelona',cls:'W',pts:38000,fees:380,pa:'Aeroplan',cash:2400},
+// DOMESTIC FIRST CLASS
+{t:'f',from:'JFK',to:'LAX',fc:'New York',tc:'Los Angeles',cls:'F',pts:25000,fees:11,pa:'American Airlines',cash:900},
+{t:'f',from:'JFK',to:'SFO',fc:'New York',tc:'San Francisco',cls:'F',pts:25000,fees:11,pa:'United',cash:850},
+{t:'f',from:'ORD',to:'MIA',fc:'Chicago',tc:'Miami',cls:'F',pts:20000,fees:11,pa:'American Airlines',cash:680},
+{t:'f',from:'LAX',to:'HNL',fc:'Los Angeles',tc:'Honolulu',cls:'F',pts:22500,fees:11,pa:'Hawaiian Airlines',cash:750},
+{t:'f',from:'DFW',to:'SFO',fc:'Dallas',tc:'San Francisco',cls:'F',pts:20000,fees:11,pa:'American Airlines',cash:620},
+// ECONOMY - aspirational routes for B2C
+{t:'f',from:'JFK',to:'FCO',fc:'New York',tc:'Rome',cls:'Y',pts:30000,fees:120,pa:'Aeroplan',cash:650},
+{t:'f',from:'LAX',to:'CUN',fc:'Los Angeles',tc:'Cancun',cls:'Y',pts:17500,fees:45,pa:'United',cash:420},
+{t:'f',from:'BOS',to:'DUB',fc:'Boston',tc:'Dublin',cls:'Y',pts:26000,fees:180,pa:'Aer Lingus via Avios',cash:580,bonus:'20% Chase transfer bonus applied'},
+{t:'f',from:'MIA',to:'GRU',fc:'Miami',tc:'Sao Paulo',cls:'Y',pts:30000,fees:85,pa:'Avianca LifeMiles',cash:620,bonus:'15% Amex transfer bonus applied'},
+{t:'f',from:'ORD',to:'BCN',fc:'Chicago',tc:'Barcelona',cls:'Y',pts:34000,fees:140,pa:'Aeroplan',cash:680},
+{t:'f',from:'SFO',to:'ICN',fc:'San Francisco',tc:'Seoul',cls:'Y',pts:35000,fees:90,pa:'Korean Air',cash:720},
+{t:'f',from:'LAX',to:'BKK',fc:'Los Angeles',tc:'Bangkok',cls:'Y',pts:37500,fees:65,pa:'EVA Air',cash:780},
+{t:'f',from:'JFK',to:'CDG',fc:'New York',tc:'Paris',cls:'Y',pts:29000,fees:110,pa:'Air France',cash:600},
+// HOTELS - Premium properties
+{t:'h',n:'Park Hyatt Maldives',nt:5,pn:29000,pg:'World of Hyatt',cash:5200,cn:1040},
+{t:'h',n:'Andaz Maui at Wailea',nt:4,pn:25000,pg:'World of Hyatt',cash:3200,cn:800},
+{t:'h',n:'St. Regis Bora Bora',nt:5,pn:85000,pg:'Marriott Bonvoy',cash:8500,cn:1700},
+{t:'h',n:'Conrad Maldives Rangali',nt:4,pn:95000,pg:'Hilton Honors',cash:6000,cn:1500},
+{t:'h',n:'Hyatt Regency Maui',nt:7,pn:18000,pg:'World of Hyatt',cash:3500,cn:500},
+{t:'h',n:'W Barcelona',nt:4,pn:50000,pg:'Marriott Bonvoy',cash:2400,cn:600},
+{t:'h',n:'Park Hyatt Tokyo',nt:3,pn:30000,pg:'World of Hyatt',cash:2700,cn:900},
+{t:'h',n:'Waldorf Astoria Beverly Hills',nt:3,pn:80000,pg:'Hilton Honors',cash:3600,cn:1200},
+{t:'h',n:'Grand Hyatt Kauai',nt:5,pn:21000,pg:'World of Hyatt',cash:2500,cn:500},
+{t:'h',n:'Ritz-Carlton Kyoto',nt:4,pn:70000,pg:'Marriott Bonvoy',cash:4800,cn:1200},
+{t:'h',n:'Alila Ventana Big Sur',nt:3,pn:35000,pg:'World of Hyatt',cash:3900,cn:1300},
+{t:'h',n:'JW Marriott Cancun',nt:5,pn:40000,pg:'Marriott Bonvoy',cash:2000,cn:400},
+{t:'h',n:'InterContinental Bora Bora',nt:4,pn:70000,pg:'IHG Rewards',cash:4400,cn:1100},
+{t:'h',n:'Hyatt Zilara Cap Cana',nt:5,pn:25000,pg:'World of Hyatt',cash:3750,cn:750},
+{t:'h',n:'Conrad Bali',nt:5,pn:50000,pg:'Hilton Honors',cash:1500,cn:300},
+{t:'h',n:'Park Hyatt Sydney',nt:3,pn:28000,pg:'World of Hyatt',cash:2400,cn:800},
+{t:'h',n:'W Maldives',nt:4,pn:78000,pg:'Marriott Bonvoy',cash:5600,cn:1400},
+{t:'h',n:'Kimpton Seafire Grand Cayman',nt:4,pn:30000,pg:'IHG Rewards',cash:3200,cn:800},
+{t:'h',n:'Andaz Costa Rica',nt:5,pn:20000,pg:'World of Hyatt',cash:2750,cn:550},
+{t:'h',n:'St. Regis Aspen',nt:3,pn:90000,pg:'Marriott Bonvoy',cash:4500,cn:1500},
+{t:'h',n:'Park Hyatt Zurich',nt:3,pn:30000,pg:'World of Hyatt',cash:2700,cn:900},
+{t:'h',n:'Ritz-Carlton Bali',nt:5,pn:60000,pg:'Marriott Bonvoy',cash:3500,cn:700},
+{t:'h',n:'Waldorf Astoria Maldives',nt:4,pn:120000,pg:'Hilton Honors',cash:8000,cn:2000},
+{t:'h',n:'Ventana Big Sur',nt:2,pn:35000,pg:'World of Hyatt',cash:2600,cn:1300},
+{t:'h',n:'Conrad Tokyo',nt:3,pn:60000,pg:'Hilton Honors',cash:1800,cn:600},
+{t:'h',n:'Hilton Moorea',nt:5,pn:70000,pg:'Hilton Honors',cash:3500,cn:700},
+{t:'h',n:'Grand Hyatt Bali',nt:5,pn:15000,pg:'World of Hyatt',cash:1250,cn:250},
+{t:'h',n:'InterContinental Fiji',nt:5,pn:50000,pg:'IHG Rewards',cash:2500,cn:500}
+];
+
+function renderBookingCards(gridId,monthlyPts){
+var grid=document.getElementById(gridId);if(!grid)return;
+var fl=BINV.filter(function(i){return i.t==='f'}).sort(function(){return .5-Math.random()}).slice(0,10);
+var ht=BINV.filter(function(i){return i.t==='h'}).sort(function(){return .5-Math.random()}).slice(0,10);
+var picks=[];for(var i=0;i<10;i++){picks.push(fl[i]);picks.push(ht[i]);}
+var now=new Date(),mos=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],stamp=mos[now.getMonth()]+' '+now.getFullYear();
+var mp=monthlyPts||0;
+var html='';
+picks.forEach(function(it){
+if(it.t==='f'){
+var fimg=IMGS[it.to]||IMGS[it.tc]||'';
+var cb=CBADGE[it.cls]||CBADGE['J'];
+var m=mp>0?Math.ceil(it.pts/mp):0;
+var mLine=m>0?'Your earn rate: <strong>'+m+' mo'+(m!==1?'s':'')+'</strong>':'';
+var cpp=((it.cash/it.pts)*100).toFixed(1);
+html+='<div class="book-card"><div class="book-inner"><div class="book-front" style="background-image:url(\''+fimg+'\')">';
+html+='<div class="book-badge" style="background:'+cb.bg+'">'+cb.label+'</div>';
+html+='<div class="book-pts-badge">'+Math.round(it.pts/1000)+'K pts</div>';
+html+='<div class="book-dest">'+it.tc+'</div>';
+html+='<div class="book-sub">'+it.from+' \u2192 '+it.to+' via '+it.pa+'</div>';
+html+='</div><div class="book-back"><div class="book-back-top">';
+html+='<div class="book-back-dest">'+it.fc+' to '+it.tc+'</div>';
+html+='<div class="book-back-detail">'+cb.label+' RT, per person, via '+it.pa+'</div>';
+if(it.bonus)html+='<div style="font-size:9px;color:#25D366;font-weight:700;margin-bottom:6px">\u26A1 '+it.bonus+'</div>';
+html+='<div class="book-back-row"><span class="bl">Cash</span><span class="bv strike">$'+it.cash.toLocaleString()+'</span></div>';
+html+='<div class="book-back-row"><span class="bl">Points</span><span class="bv pk">'+it.pts.toLocaleString()+'</span></div>';
+html+='<div class="book-back-row"><span class="bl">Taxes</span><span class="bv">$'+it.fees+'</span></div>';
+html+='<div class="book-back-row"><span class="bl">Value</span><span class="bv pk">'+cpp+'\u00a2/pt</span></div>';
+html+='</div>';
+if(mLine)html+='<div class="book-earn">'+mLine+'</div>';
+html+='<div class="book-stamp">Booked '+stamp+'</div></div></div></div>';
+}else{
+var himg=IMGS[it.n]||'';
+var tp=it.pn*it.nt;
+var m=mp>0?Math.ceil(tp/mp):0;
+var mLine=m>0?'Your earn rate: <strong>'+m+' mo'+(m!==1?'s':'')+'</strong>':'';
+var cpp=((it.cash/tp)*100).toFixed(1);
+html+='<div class="book-card"><div class="book-inner"><div class="book-front" style="background-image:url(\''+himg+'\')">';
+html+='<div class="book-badge ht">'+it.nt+' Nights</div>';
+html+='<div class="book-pts-badge">'+Math.round(it.pn/1000)+'K/nt</div>';
+html+='<div class="book-dest">'+it.n+'</div>';
+html+='<div class="book-sub">'+it.pg+'</div>';
+html+='</div><div class="book-back"><div class="book-back-top">';
+html+='<div class="book-back-dest">'+it.n+'</div>';
+html+='<div class="book-back-detail">'+it.nt+' nights, '+it.pn.toLocaleString()+' pts/nt, '+it.pg+'</div>';
+html+='<div class="book-back-row"><span class="bl">Cash</span><span class="bv strike">$'+it.cash.toLocaleString()+'</span></div>';
+html+='<div class="book-back-row"><span class="bl">Points</span><span class="bv pk">'+tp.toLocaleString()+'</span></div>';
+html+='<div class="book-back-row"><span class="bl">Per night</span><span class="bv">$'+it.cn+' vs '+it.pn.toLocaleString()+' pts</span></div>';
+html+='<div class="book-back-row"><span class="bl">Value</span><span class="bv pk">'+cpp+'\u00a2/pt</span></div>';
+html+='</div>';
+if(mLine)html+='<div class="book-earn">'+mLine+'</div>';
+html+='<div class="book-stamp">Booked '+stamp+'</div></div></div></div>';
+}
 });
+grid.innerHTML=html;
+// Start auto-scroll
+var scrollEl=grid.parentElement;
+if(scrollEl&&!scrollEl.dataset.scrolling){
+scrollEl.dataset.scrolling='1';
+var dir=1,speed=0.7,paused=false;
+scrollEl.addEventListener('mouseenter',function(){paused=true});
+scrollEl.addEventListener('mouseleave',function(){paused=false});
+scrollEl.addEventListener('touchstart',function(){paused=true},{passive:true});
+scrollEl.addEventListener('touchend',function(){setTimeout(function(){paused=false},3000)},{passive:true});
+function tick(){
+if(!paused&&scrollEl.scrollWidth>scrollEl.clientWidth){
+scrollEl.scrollLeft+=dir*speed;
+var max=scrollEl.scrollWidth-scrollEl.clientWidth;
+if(scrollEl.scrollLeft>=max-1)dir=-1;
+if(scrollEl.scrollLeft<=1)dir=1;
+}
+requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+}
 }
 
+function buildBookings(){
+var mp=0;for(var k in cats)mp+=Math.round(cats[k]*routing[k].mult);
+renderBookingCards('bookGrid',mp);
+}
 </script>
 </body>
 </html>
