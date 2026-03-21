@@ -203,7 +203,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 </div>
 <div style="margin-top:48px;border-top:1px solid #2a2a2a;padding-top:36px">
 <div style="text-align:center;margin-bottom:20px">
-<div style="font-family:var(--serif);font-size:20px;color:#f0f0f4;margin-bottom:4px">Booked for our <span style="color:var(--pink)">Preferred</span> &amp; <span style="color:var(--pink)">Signature</span> members this month.</div>
+<div style="font-family:var(--serif);font-size:20px;color:#f0f0f4;margin-bottom:4px">Booked for our <span style="color:var(--pink)">Preferred</span> &amp; <span style="color:var(--pink)">Signature</span> members this past month.</div>
 <div style="font-size:13px;color:#666">Flights and hotel stays redeemed with points. Hover any card to see the breakdown.</div>
 </div>
 <div class="book-scroll"><div class="book-grid" id="bookGrid"></div></div>
@@ -304,7 +304,7 @@ var IMGS={
 'DUB':'https://images.unsplash.com/photo-1549918864-48ac978761a4?w=400&h=560&fit=crop&q=75',
 'SYD':'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=400&h=560&fit=crop&q=75',
 'FCO':'https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=400&h=560&fit=crop&q=75',
-'DOH':'https://images.unsplash.com/photo-1548195667-1fe5c2c6e5e6?w=400&h=560&fit=crop&q=75',
+'DOH':'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=400&h=560&fit=crop&q=75',
 'GRU':'https://images.unsplash.com/photo-1543059080-f9b1272213d5?w=400&h=560&fit=crop&q=75',
 'TLV':'https://images.unsplash.com/photo-1544967082-d9d25d867d66?w=400&h=560&fit=crop&q=75',
 'HKG':'https://images.unsplash.com/photo-1536599018102-9f803c140fc1?w=400&h=560&fit=crop&q=75',
@@ -319,7 +319,7 @@ var IMGS={
 'MIA':'https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?w=400&h=560&fit=crop&q=75',
 'SFO':'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=400&h=560&fit=crop&q=75',
 'LAX':'https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?w=400&h=560&fit=crop&q=75',
-'ZRH':'https://images.unsplash.com/photo-1515488764276-beab0607c1e6?w=400&h=560&fit=crop&q=75',
+'ZRH':'https://images.unsplash.com/photo-1544985361-b420d7a77043?w=400&h=560&fit=crop&q=75',
 // Hotels
 'Park Hyatt Maldives':'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&h=560&fit=crop&q=75',
 'Andaz Maui at Wailea':'https://images.unsplash.com/photo-1542259009477-d625272157b7?w=400&h=560&fit=crop&q=75',
@@ -345,7 +345,7 @@ var IMGS={
 'Hyatt Ziva Cancun':'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=400&h=560&fit=crop&q=75',
 'Le Meridien Maldives':'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=400&h=560&fit=crop&q=75',
 'Hilton Moorea':'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=400&h=560&fit=crop&q=75',
-'Park Hyatt Zurich':'https://images.unsplash.com/photo-1515488764276-beab0607c1e6?w=400&h=560&fit=crop&q=75',
+'Park Hyatt Zurich':'https://images.unsplash.com/photo-1544985361-b420d7a77043?w=400&h=560&fit=crop&q=75',
 'Ritz-Carlton Bali':'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=560&fit=crop&q=75',
 'InterContinental Fiji':'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=400&h=560&fit=crop&q=75',
 'Grand Hyatt Bali':'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400&h=560&fit=crop&q=75',
@@ -434,7 +434,7 @@ function renderBookingCards(gridId,monthlyPts){
 var grid=document.getElementById(gridId);if(!grid)return;
 var fl=BINV.filter(function(i){return i.t==='f'}).sort(function(){return .5-Math.random()}).slice(0,10);
 var ht=BINV.filter(function(i){return i.t==='h'}).sort(function(){return .5-Math.random()}).slice(0,10);
-var picks=[];for(var i=0;i<10;i++){picks.push(fl[i]);picks.push(ht[i]);}
+var picks=fl.concat(ht).sort(function(){return .5-Math.random()});
 var now=new Date(),mos=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],stamp=mos[now.getMonth()]+' '+now.getFullYear();
 var mp=monthlyPts||0;
 var html='';
