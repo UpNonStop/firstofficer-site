@@ -594,29 +594,12 @@ html+='<div class="book-stamp">Booked '+stamp+'</div></div></div></div>';
 }
 });
 grid.innerHTML=html;
-// Auto-scroll via CSS animation on the grid element
-var scrollEl=grid.parentElement;
-if(scrollEl&&!scrollEl.dataset.scrolling){
-scrollEl.dataset.scrolling='1';
-// Calculate scroll distance
-var scrollDist=grid.scrollWidth-scrollEl.clientWidth;
-if(scrollDist>0){
-// Create keyframes dynamically
-var duration=Math.round(scrollDist/30); // ~30px per second
-var styleId='bookScrollStyle';
-if(!document.getElementById(styleId)){
-var style=document.createElement('style');
-style.id=styleId;
-document.head.appendChild(style);
-}
-document.getElementById(styleId).textContent='@keyframes bookScroll{0%{transform:translateX(0)}45%{transform:translateX(-'+scrollDist+'px)}55%{transform:translateX(-'+scrollDist+'px)}100%{transform:translateX(0)}}';
-grid.style.animation=duration+'s linear infinite bookScroll';
-// Pause on hover/touch
-scrollEl.addEventListener('mouseenter',function(){grid.style.animationPlayState='paused'});
-scrollEl.addEventListener('mouseleave',function(){grid.style.animationPlayState='running'});
-scrollEl.addEventListener('touchstart',function(){grid.style.animationPlayState='paused'},{passive:true});
-scrollEl.addEventListener('touchend',function(){setTimeout(function(){grid.style.animationPlayState='running'},3000)},{passive:true});
-}
+// Infinite loop: duplicate cards, add CSS animation class
+if(!grid.classList.contains('looping')){
+grid.innerHTML=grid.innerHTML+grid.innerHTML;
+grid.classList.add('looping');
+grid.parentElement.addEventListener('touchstart',function(){grid.style.animationPlayState='paused'},{passive:true});
+grid.parentElement.addEventListener('touchend',function(){setTimeout(function(){grid.style.animationPlayState='running'},2000)},{passive:true});
 }
 }
 
