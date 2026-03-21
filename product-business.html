@@ -148,7 +148,15 @@ a{text-decoration:none;color:inherit}
 @media(max-width:768px){
 .nk{display:none}.mob{display:flex}
 .tier-in{grid-template-columns:1fr;gap:32px;text-align:center}
+.book-card{width:160px;height:220px}
+.book-card:hover .book-inner{transform:none}
+.book-back{display:none}
+.book-dest{font-size:15px}
+.book-pts-badge{font-size:9px;padding:3px 8px}
+.book-badge{font-size:7px;padding:2px 8px}
 .tier-in .tier-text,.tier-in .tier-demo{order:unset!important}
+.tier-in .tier-text{text-align:center}
+.tier-in.flip .tier-text{order:1!important}.tier-in.flip .tier-demo{order:2!important}
 .wa{margin:0 auto}
 .tier-features{text-align:left;max-width:320px;margin:0 auto}
 .hero{padding:110px 0 40px}
