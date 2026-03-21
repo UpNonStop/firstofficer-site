@@ -152,9 +152,7 @@ a{text-decoration:none;color:inherit}
 .ft-bot a{color:#aaa;margin-left:16px}.ft-bot a:hover{color:var(--pink)}
 
 
-@keyframes bookScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.book-grid.looping{animation:bookScroll 60s linear infinite;will-change:transform}
-.book-grid.looping:hover{animation-play-state:paused}
+.book-grid.looping{will-change:transform}
 @media(max-width:768px){
 .nk{display:none}.mob{display:flex}
 .tier-card{padding:24px 20px;border-radius:16px}
@@ -765,8 +763,17 @@ grid.innerHTML=html;
 if(!grid.classList.contains('looping')){
 grid.innerHTML=grid.innerHTML+grid.innerHTML;
 grid.classList.add('looping');
-grid.parentElement.addEventListener('touchstart',function(){grid.style.animationPlayState='paused'},{passive:true});
-grid.parentElement.addEventListener('touchend',function(){setTimeout(function(){grid.style.animationPlayState='running'},2000)},{passive:true});
+var x=0,paused=false,half=grid.scrollWidth/2,speed=0.5;
+grid.parentElement.addEventListener('mouseenter',function(){paused=true});
+grid.parentElement.addEventListener('mouseleave',function(){paused=false});
+grid.parentElement.addEventListener('touchstart',function(){paused=true},{passive:true});
+grid.parentElement.addEventListener('touchend',function(){setTimeout(function(){paused=false},2000)},{passive:true});
+function tick(){
+if(!paused){x-=speed;if(x<=-half)x=0;}
+grid.style.transform='translateX('+x+'px)';
+requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
 }
 }
 

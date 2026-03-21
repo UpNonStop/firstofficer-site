@@ -147,9 +147,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .ft-bot a{color:#aaa;margin-left:16px}.ft-bot a:hover{color:var(--pink)}
 
 
-@keyframes bookScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.book-grid.looping{animation:bookScroll 60s linear infinite;will-change:transform}
-.book-grid.looping:hover{animation-play-state:paused}
+.book-grid.looping{will-change:transform}
 @media(max-width:768px){
 .nk{display:none}.mob{display:flex}
 .step{padding:28px 24px;border-radius:16px}
@@ -366,7 +364,7 @@ document.getElementById('rosNum').textContent=rosConserv+'% to '+rosBest+'%';
 document.getElementById('rosNew').textContent=rosConserv+'% to '+rosBest+'%';
 document.getElementById('rosSub').textContent='$'+conservVal.toLocaleString()+' to $'+bestVal.toLocaleString()+' in annual travel value on $'+annualSpend.toLocaleString()+' spend';
 
-document.getElementById('rosWhat').innerHTML='With the right card on every category and the right transfer partner on every redemption, your household achieves <strong style="color:var(--pink)">'+rosConserv+'% to '+rosBest+'%</strong> return on every dollar you spend. That is what an optimized plan looks like. That is the UpNonStop RoS.';
+document.getElementById('rosWhat').innerHTML='With the right card on every category and the right transfer partner on every redemption, your household achieves <strong style="color:var(--pink)">'+rosConserv+'% to '+rosBest+'%</strong> return on every dollar you spend. That is what an optimized plan looks like. By calculating the value of your points against what you would have paid in cash, we arrive at your UpNonStop Return-on-Spend. The number that tells you whether your wallet is working as hard as you are.';
 }
 
 function copyRos(){
@@ -587,8 +585,17 @@ grid.innerHTML=html;
 if(!grid.classList.contains('looping')){
 grid.innerHTML=grid.innerHTML+grid.innerHTML;
 grid.classList.add('looping');
-grid.parentElement.addEventListener('touchstart',function(){grid.style.animationPlayState='paused'},{passive:true});
-grid.parentElement.addEventListener('touchend',function(){setTimeout(function(){grid.style.animationPlayState='running'},2000)},{passive:true});
+var x=0,paused=false,half=grid.scrollWidth/2,speed=0.5;
+grid.parentElement.addEventListener('mouseenter',function(){paused=true});
+grid.parentElement.addEventListener('mouseleave',function(){paused=false});
+grid.parentElement.addEventListener('touchstart',function(){paused=true},{passive:true});
+grid.parentElement.addEventListener('touchend',function(){setTimeout(function(){paused=false},2000)},{passive:true});
+function tick(){
+if(!paused){x-=speed;if(x<=-half)x=0;}
+grid.style.transform='translateX('+x+'px)';
+requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
 }
 }
 
