@@ -82,19 +82,30 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .routing-table .card-tag{display:inline-block;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700}
 
 /* Step 3: Itineraries */
-.itin-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
-.itin{border:1px solid #e8e9ed;border-radius:16px;padding:20px;position:relative;overflow:hidden;background:#fff;transition:box-shadow .3s,transform .3s}.itin:hover{box-shadow:0 12px 32px rgba(0,0,0,.06);transform:translateY(-2px)}
-.itin::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--pink),#7C3AED)}
-.itin-route{font-family:var(--serif);font-size:18px;margin-bottom:4px;color:#111}
-.itin-class{font-size:11px;color:#999;margin-bottom:10px}
-.itin-row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
-.itin-row .lab{color:#999}
-.itin-row .val{font-weight:700}
-.itin-row .val.cash{color:#ccc;text-decoration:line-through}
-.itin-row .val.pts{color:var(--pink)}
-.itin-months{margin-top:10px;padding:8px 12px;border-radius:8px;background:#FFF5F9;font-size:11px;color:#555}
-.itin-months strong{color:var(--pink)}
-.itin-date{font-family:var(--mono);font-size:9px;color:#ccc;margin-top:6px;letter-spacing:.5px}
+.itin-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.itin{border:1px solid #e8e9ed;border-radius:16px;padding:0;overflow:hidden;background:#fff;transition:box-shadow .3s,transform .3s}
+.itin:hover{box-shadow:0 12px 32px rgba(0,0,0,.06);transform:translateY(-2px)}
+.itin-top{padding:16px 18px 12px;position:relative}
+.itin-type{display:inline-flex;align-items:center;gap:5px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:100px;margin-bottom:10px}
+.itin-type.flight{background:#EFF6FF;color:#2563EB}
+.itin-type.hotel{background:#F0FDF4;color:#16A34A}
+.itin-route-line{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.itin-code{font-family:var(--mono);font-size:18px;font-weight:800;letter-spacing:-0.5px;color:#111}
+.itin-dots{flex:1;border-bottom:2px dotted #ddd;position:relative;min-width:30px;margin-bottom:-3px}
+.itin-dots svg{position:absolute;right:-2px;top:50%;transform:translateY(-50%);fill:#ddd}
+.itin-detail{font-size:12px;color:#888;margin-bottom:2px}
+.itin-partner{font-size:11px;color:#bbb}
+.itin-bottom{background:#fafaf9;padding:14px 18px;border-top:1px solid #f0f0f3}
+.itin-price-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.itin-price-label{font-size:11px;color:#999}
+.itin-cash{font-size:16px;font-weight:800;color:#ccc;text-decoration:line-through;letter-spacing:-0.5px}
+.itin-pts{font-size:16px;font-weight:800;color:var(--pink);letter-spacing:-0.5px}
+.itin-fees{font-size:10px;color:#bbb;margin-bottom:8px}
+.itin-earn{padding:8px 12px;border-radius:8px;background:#FFF5F9;font-size:11px;color:#555}
+.itin-earn strong{color:var(--pink)}
+.itin-stamp{font-family:var(--mono);font-size:9px;color:#ddd;margin-top:6px;letter-spacing:.5px}
+.itin-hotel-name{font-family:var(--serif);font-size:16px;color:#111;margin-bottom:4px}
+.itin-hotel-nights{font-size:12px;color:#888}
 
 /* Step 4: RoS */
 .ros-reveal{text-align:center;padding:20px 0;position:relative}.ros-glow{position:absolute;top:20%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(250,24,150,.06) 0%,transparent 70%);pointer-events:none;border-radius:50%}
@@ -122,7 +133,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 @media(max-width:768px){
 .nk{display:none}.mob{display:flex}
 .step{padding:28px 24px;border-radius:16px}
-.itin-grid{grid-template-columns:1fr}
 .itin-grid{grid-template-columns:1fr}
 .ros-compare{flex-direction:column;align-items:center}
 .routing-table{font-size:11px}
@@ -209,11 +219,9 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 <div class="step" id="s3">
 <div class="step-label">Step 3 of 4</div>
 <h2>What those points buy. Right now.</h2>
-<p class="sub">Real redemptions at current transfer partner rates. Cash prices from major booking sites.</p>
+<p class="sub">Business class flights and premium hotel stays. Real award pricing. Real cash comparisons. Reload to see different options.</p>
 
 <div class="itin-grid" id="itinGrid"></div>
-
-<p style="font-size:12px;color:#bbb;text-align:center;margin-bottom:20px">Reload this page to see different itineraries. 12 rotating examples based on current award availability.</p>
 
 <div class="btn-row"><button class="btn btn-ghost" onclick="goStep(2)">Back</button><button class="btn btn-pk" onclick="goStep(4)">See My RoS</button></div>
 </div>
@@ -320,45 +328,68 @@ document.getElementById('annualPts').textContent=(totalPts*12).toLocaleString();
 }
 
 var ITINS=[
-{route:'New York to London',pax:'2 economy',pts:60000,prog:'pts',partner:'Virgin Atlantic',cash:1400},
-{route:'Los Angeles to Tokyo',pax:'1 business class',pts:85000,prog:'pts',partner:'ANA',cash:6200},
-{route:'Chicago to Cancun',pax:'2 economy',pts:26000,prog:'pts',partner:'United',cash:780},
-{route:'San Francisco to Paris',pax:'2 economy',pts:70000,prog:'pts',partner:'Air France',cash:1600},
-{route:'5 nights Hyatt Regency Maui',pax:'Standard room',pts:125000,prog:'pts',partner:'World of Hyatt',cash:2800},
-{route:'Miami to Barcelona',pax:'2 economy',pts:60000,prog:'pts',partner:'Aeroplan',cash:1200},
-{route:'Boston to Dublin',pax:'2 economy',pts:50000,partner:'Aeroplan',cash:900},
-{route:'3 nights Park Hyatt New York',pax:'King room',pts:90000,prog:'pts',partner:'World of Hyatt',cash:3200},
-{route:'Dallas to Maui',pax:'2 economy',pts:50000,partner:'Hawaiian Airlines',cash:1100},
-{route:'Seattle to Singapore',pax:'1 business class',pts:92000,partner:'Singapore Airlines',cash:5800},
-{route:'New York to Caribbean',pax:'2 economy',pts:30000,partner:'JetBlue',cash:700},
-{route:'4 nights Andaz Scottsdale',pax:'Resort room',pts:60000,partner:'World of Hyatt',cash:1600}
+{type:'flight',from:'JFK',to:'LHR',fromCity:'New York',toCity:'London',cls:'Business class round-trip',pax:'per person',pts:58000,fees:650,partner:'Virgin Atlantic',cash:5800},
+{type:'flight',from:'LAX',to:'NRT',fromCity:'Los Angeles',toCity:'Tokyo',cls:'Business class round-trip',pax:'per person',pts:85000,fees:280,partner:'ANA',cash:8400},
+{type:'flight',from:'SFO',to:'SIN',fromCity:'San Francisco',toCity:'Singapore',cls:'Business class round-trip',pax:'per person',pts:92000,fees:120,partner:'Singapore Airlines',cash:9200},
+{type:'flight',from:'ORD',to:'CDG',fromCity:'Chicago',toCity:'Paris',cls:'Business class round-trip',pax:'per person',pts:70000,fees:580,partner:'Air France',cash:6400},
+{type:'flight',from:'MIA',to:'BCN',fromCity:'Miami',toCity:'Barcelona',cls:'Business class round-trip',pax:'per person',pts:58000,fees:420,partner:'Aeroplan',cash:5200},
+{type:'flight',from:'BOS',to:'DUB',fromCity:'Boston',toCity:'Dublin',cls:'Business class round-trip',pax:'per person',pts:58000,fees:380,partner:'Aeroplan',cash:4800},
+{type:'flight',from:'DFW',to:'HND',fromCity:'Dallas',toCity:'Tokyo',cls:'Business class round-trip',pax:'per person',pts:88000,fees:310,partner:'JAL via Alaska',cash:7600},
+{type:'flight',from:'SEA',to:'SYD',fromCity:'Seattle',toCity:'Sydney',cls:'Business class round-trip',pax:'per person',pts:100000,fees:180,partner:'Cathay Pacific',cash:8800},
+{type:'hotel',name:'Park Hyatt Maldives',nights:5,ptsNight:29000,program:'World of Hyatt',cash:5200,cashNight:1040},
+{type:'hotel',name:'Andaz Maui at Wailea',nights:4,ptsNight:25000,program:'World of Hyatt',cash:3200,cashNight:800},
+{type:'hotel',name:'St. Regis Bora Bora',nights:5,ptsNight:85000,program:'Marriott Bonvoy',cash:8500,cashNight:1700},
+{type:'hotel',name:'Conrad Maldives',nights:4,ptsNight:95000,program:'Hilton Honors',cash:6000,cashNight:1500},
+{type:'hotel',name:'Hyatt Regency Maui',nights:7,ptsNight:18000,program:'World of Hyatt',cash:3500,cashNight:500},
+{type:'hotel',name:'W Barcelona',nights:4,ptsNight:50000,program:'Marriott Bonvoy',cash:2400,cashNight:600},
+{type:'hotel',name:'Park Hyatt Tokyo',nights:3,ptsNight:30000,program:'World of Hyatt',cash:2700,cashNight:900},
+{type:'hotel',name:'Waldorf Astoria Beverly Hills',nights:3,ptsNight:80000,program:'Hilton Honors',cash:3600,cashNight:1200}
 ];
 
 function buildStep3(){
 var grid=document.getElementById('itinGrid');
-var total=0;for(var k in cats)total+=cats[k];
 var monthlyPts=0;for(var k in cats)monthlyPts+=Math.round(cats[k]*routing[k].mult);
-
-var shuffled=ITINS.slice().sort(function(){return 0.5-Math.random()});
-var picks=shuffled.slice(0,4);
-
+var flights=ITINS.filter(function(i){return i.type==='flight'}).sort(function(){return 0.5-Math.random()});
+var hotels=ITINS.filter(function(i){return i.type==='hotel'}).sort(function(){return 0.5-Math.random()});
+var picks=[flights[0],hotels[0],flights[1],hotels[1]];
 var now=new Date();
-var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
-var dateStr=months[now.getMonth()]+' '+now.getFullYear();
-
+var mos=['January','February','March','April','May','June','July','August','September','October','November','December'];
+var dateStr=mos[now.getMonth()]+' '+now.getFullYear();
 var html='';
 picks.forEach(function(it){
-var mos=monthlyPts>0?Math.ceil(it.pts/monthlyPts):99;
-var cpp=(it.cash/it.pts*100).toFixed(1);
-html+='<div class="itin">';
-html+='<div class="itin-route">'+it.route+'</div>';
-html+='<div class="itin-class">'+it.pax+' via '+it.partner+'</div>';
-html+='<div class="itin-row"><span class="lab">Cash price</span><span class="val cash">$'+it.cash.toLocaleString()+'</span></div>';
-html+='<div class="itin-row"><span class="lab">Points needed</span><span class="val pts">'+it.pts.toLocaleString()+' pts</span></div>';
-html+='<div class="itin-row"><span class="lab">Value per point</span><span class="val">'+cpp+' cents</span></div>';
-html+='<div class="itin-months">At your spend, you earn this in <strong>'+mos+' month'+(mos!==1?'s':'')+'</strong></div>';
-html+='<div class="itin-date">Estimated as of '+dateStr+'</div>';
-html+='</div>';
+if(it.type==='flight'){
+var cpp=(it.cash/it.pts).toFixed(1);
+var m=monthlyPts>0?Math.ceil(it.pts/monthlyPts):99;
+html+='<div class="itin"><div class="itin-top">';
+html+='<div class="itin-type flight"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg> Flight</div>';
+html+='<div class="itin-route-line"><span class="itin-code">'+it.from+'</span><span class="itin-dots"></span><span class="itin-code">'+it.to+'</span></div>';
+html+='<div class="itin-detail">'+it.fromCity+' to '+it.toCity+'</div>';
+html+='<div class="itin-detail">'+it.cls+' ('+it.pax+')</div>';
+html+='<div class="itin-partner">via '+it.partner+'</div>';
+html+='</div><div class="itin-bottom">';
+html+='<div class="itin-price-row"><span class="itin-price-label">Cash price</span><span class="itin-cash">$'+it.cash.toLocaleString()+'</span></div>';
+html+='<div class="itin-price-row"><span class="itin-price-label">Points</span><span class="itin-pts">'+it.pts.toLocaleString()+' pts</span></div>';
+html+='<div class="itin-fees">+ $'+it.fees+' taxes &amp; fees | '+cpp+'x value vs cash</div>';
+html+='<div class="itin-earn">At your earn rate: <strong>'+m+' month'+(m!==1?'s':'')+'</strong> of spend</div>';
+html+='<div class="itin-stamp">'+dateStr+' estimate</div>';
+html+='</div></div>';
+}else{
+var totalPts=it.ptsNight*it.nights;
+var cpp=(it.cash/totalPts).toFixed(1);
+var m=monthlyPts>0?Math.ceil(totalPts/monthlyPts):99;
+html+='<div class="itin"><div class="itin-top">';
+html+='<div class="itin-type hotel"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="10" rx="1"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Hotel</div>';
+html+='<div class="itin-hotel-name">'+it.name+'</div>';
+html+='<div class="itin-hotel-nights">'+it.nights+' nights at '+it.ptsNight.toLocaleString()+' pts/night</div>';
+html+='<div class="itin-partner">'+it.program+'</div>';
+html+='</div><div class="itin-bottom">';
+html+='<div class="itin-price-row"><span class="itin-price-label">Cash ('+it.nights+' nights)</span><span class="itin-cash">$'+it.cash.toLocaleString()+'</span></div>';
+html+='<div class="itin-price-row"><span class="itin-price-label">Points total</span><span class="itin-pts">'+totalPts.toLocaleString()+' pts</span></div>';
+html+='<div class="itin-fees">$'+it.cashNight.toLocaleString()+'/night cash | '+cpp+'x value vs cash</div>';
+html+='<div class="itin-earn">At your earn rate: <strong>'+m+' month'+(m!==1?'s':'')+'</strong> of spend</div>';
+html+='<div class="itin-stamp">'+dateStr+' estimate</div>';
+html+='</div></div>';
+}
 });
 grid.innerHTML=html;
 }
