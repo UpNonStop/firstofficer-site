@@ -147,8 +147,9 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .ft-bot a{color:#aaa;margin-left:16px}.ft-bot a:hover{color:var(--pink)}
 
 
-@keyframes bookScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.book-grid{will-change:transform}
+@keyframes bookScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.book-grid.looping{animation:bookScroll 60s linear infinite;will-change:transform}
+.book-grid.looping:hover{animation-play-state:paused}
 @media(max-width:768px){
 .nk{display:none}.mob{display:flex}
 .step{padding:28px 24px;border-radius:16px}
