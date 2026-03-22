@@ -65,6 +65,7 @@ a{text-decoration:none;color:inherit}
 .tier-text p{font-size:15px;color:#999;line-height:1.7;margin-bottom:20px}
 .tier-features{list-style:none;padding:0}
 .tier-features li{font-size:14px;padding:6px 0;padding-left:24px;position:relative;color:#999}
+.ei-arrow::before{content:'\2192'!important}
 .tier-features li::before{content:'✓';position:absolute;left:0;color:var(--pink);font-weight:700}
 .tier-features.gold li::before{color:var(--gold)}
 .tier-new{display:inline-block;font-size:10px;font-weight:700;background:var(--pink);color:#fff;padding:2px 8px;border-radius:100px;margin-left:6px;letter-spacing:.3px;text-transform:uppercase;vertical-align:middle}
@@ -317,7 +318,7 @@ desc.classList.add('open');
 <h2>Deep strategy for<br>complex portfolios.</h2>
 <p>Multiple entities? Employee cards across different issuers? Quarterly deep-dives that reshape your entire approach? Signature is for businesses where the card stack gets complicated.</p>
 <ul class="tier-features">
-<li>Everything in Preferred</li>
+<li class="ei-arrow">Everything in Preferred</li>
 <li>Multi-entity support <span class="tier-new">New</span></li>
 <li>Quarterly deep-dive strategy <span class="tier-new">New</span></li>
 <li>Full 10-specialist team <span class="tier-new">New</span></li>
@@ -344,7 +345,7 @@ desc.classList.add('open');
 <h2 style="color:var(--gold)">Live specialist.<br>Done for you.</h2>
 <p>A named specialist who knows your business. Check-ins whenever you need them. Phone and transfer execution. Award booking available for $500 per trip, any party size. The calls, the holds, the backup plans. All handled.</p>
 <ul class="tier-features gold">
-<li>Everything in Signature</li>
+<li class="ei-arrow">Everything in Signature</li>
 <li>Dedicated live specialist <span class="tier-new" style="background:var(--gold);color:#000">New</span></li>
 <li>Award booking ($500/trip) <span class="tier-new" style="background:var(--gold);color:#000">New</span></li>
 <li>Phone and transfer execution <span class="tier-new" style="background:var(--gold);color:#000">New</span></li>
