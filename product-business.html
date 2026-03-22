@@ -84,9 +84,9 @@ a{text-decoration:none;color:inherit}
 /* Chat animation */
 .wa-b{height:340px;overflow-y:scroll;scroll-behavior:smooth;-ms-overflow-style:none;scrollbar-width:none}
 .wa-b::-webkit-scrollbar{display:none}
-.wa-m{max-width:82%;font-size:10.5px;line-height:1.45;word-wrap:break-word;padding:6px 9px;margin:0 0 4px;opacity:1;overflow:visible}
-.wa-m.first{}
-.wa-m.show{}
+.wa-m{max-width:82%;font-size:10.5px;line-height:1.45;word-wrap:break-word;padding:0 9px;margin:0;max-height:0;opacity:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease,padding .3s ease,margin .3s ease}
+.wa-m.first{max-height:200px;padding:6px 9px;margin-bottom:4px;opacity:1;overflow:visible}
+.wa-m.show{max-height:200px;padding:6px 9px;margin-bottom:4px;opacity:1;overflow:visible}
 
 /* Section markers */
 .tier-marker{text-align:center;padding:40px 0 0}
@@ -149,8 +149,8 @@ a{text-decoration:none;color:inherit}
 .nk{display:none}.mob{display:flex}
 .tier-in{grid-template-columns:1fr;gap:32px;text-align:center}
 .wa-b{height:240px}
-.wa-m{font-size:9.5px;max-width:88%}
-.wa-m.fo,.wa-m.u{padding:5px 8px!important;margin-bottom:3px!important}
+.wa-m{font-size:9.5px;max-width:88%;max-height:none!important;padding:5px 8px!important;margin:0 0 3px!important;opacity:1!important;overflow:visible!important}
+
 .tier{padding:40px 0}
 .book-card{width:180px;height:240px}
 .book-card:hover .book-inner{transform:none}
