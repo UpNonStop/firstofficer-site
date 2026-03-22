@@ -38,13 +38,12 @@ a{text-decoration:none;color:inherit}
 /* 10-agent bar */
 .agent-bar{padding:48px 0;text-align:center;border-bottom:1px solid #1a1a1a}
 .agent-bar h3{font-size:14px;font-weight:700;color:#666;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
-.agents{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;max-width:800px;margin:0 auto}
-.ag-pill{padding:8px 16px;border-radius:100px;font-size:12px;font-weight:600;border:1px solid #2a2a2a;background:#111;color:#ccc;transition:all .3s;cursor:pointer}
-.ag-pill:hover{border-color:var(--pink);color:var(--pink)}
-.ag-pill.active{border-color:var(--pink);background:var(--pink);color:#fff}
+.agents{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:680px;margin:0 auto}
+.ag-pill{padding:8px 4px;border-radius:100px;font-size:11.5px;font-weight:600;border:1px solid #2a2a2a;background:#111;color:#ccc;transition:all .3s;cursor:pointer;text-align:center;white-space:nowrap}
+.ag-pill:hover{opacity:.85}
 .ag-desc{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease,margin .3s ease;opacity:0;margin:0 auto;max-width:600px}
 .ag-desc.open{max-height:120px;opacity:1;margin:20px auto 0}
-.ag-desc-inner{padding:20px 24px;border-radius:12px;border:1px solid #2a2a2a;background:#0a0a0a;text-align:left}
+.ag-desc-inner{padding:20px 24px;border-radius:12px;border:1px solid #2a2a2a;background:#0a0a0a;text-align:left;transition:border-color .3s}
 .ag-desc-name{font-family:var(--serif);font-size:16px;color:#fff;margin-bottom:4px}
 .ag-desc-text{font-size:13px;color:#999;line-height:1.6}
 
@@ -173,7 +172,7 @@ a{text-decoration:none;color:inherit}
 .hero{padding:110px 0 40px}
 .tier{padding:56px 0}
 .ent-box{padding:28px}
-.agents{gap:8px}.ag-pill{padding:6px 12px;font-size:11px}
+.agents{grid-template-columns:repeat(5,1fr);gap:6px}.ag-pill{padding:6px 2px;font-size:9.5px}
 .ag-desc.open{max-height:160px}
 .ag-desc-inner{padding:16px}
 .ag-desc-name{font-size:14px}
@@ -223,17 +222,18 @@ a{text-decoration:none;color:inherit}
 <div class="ag-pill" data-ag="oracle">Oracle</div>
 <div class="ag-pill" data-ag="ranger">Ranger</div>
 <div class="ag-pill" data-ag="spotter">Spotter</div>
-<div class="ag-pill" data-ag="whisperer">Card Whisperer</div>
+<div class="ag-pill" data-ag="whisperer">Whisperer</div>
 <div class="ag-pill" data-ag="commander">Commander</div>
 <div class="ag-pill" data-ag="strategist">Strategist</div>
 <div class="ag-pill" data-ag="accountant">Accountant</div>
 <div class="ag-pill" data-ag="planner">Planner</div>
-<div class="ag-pill" data-ag="hunter">Bonus Hunter</div>
+<div class="ag-pill" data-ag="hunter">Hunter</div>
 </div>
 <div class="ag-desc" id="agentDesc"><div class="ag-desc-inner"><div class="ag-desc-name" id="agDescName"></div><div class="ag-desc-text" id="agDescText"></div></div></div>
 </div></section>
 <script>
 (function(){
+var C={scout:'#25D366',oracle:'#7B8FF7',ranger:'#F59E0B',spotter:'#8B5CF6',whisperer:'#FA1896',commander:'#EF4444',strategist:'#0EA5E9',accountant:'#14B8A6',planner:'#F97316',hunter:'#C5A226'};
 var D={
 scout:['Scout','Onboards you in 4 questions. Maps your cards, programs, and goals. Builds the foundation everything else runs on.'],
 oracle:['Oracle','Knows how 629+ loyalty programs work. Transfer ratios, sweet spots, devaluations. The brain behind every recommendation.'],
@@ -250,16 +250,27 @@ var pills=document.querySelectorAll('#agentPills .ag-pill');
 var desc=document.getElementById('agentDesc');
 var nm=document.getElementById('agDescName');
 var tx=document.getElementById('agDescText');
+var inner=desc.querySelector('.ag-desc-inner');
 var cur='';
+function resetPills(){pills.forEach(function(x){x.style.background='';x.style.borderColor='';x.style.color=''});}
 pills.forEach(function(p){
-p.addEventListener('click',function(){
 var k=p.getAttribute('data-ag');
-if(cur===k){desc.classList.remove('open');pills.forEach(function(x){x.classList.remove('active')});cur='';return;}
+var col=C[k];
+p.addEventListener('mouseenter',function(){if(!p.classList.contains('active')){p.style.borderColor=col;p.style.color=col}});
+p.addEventListener('mouseleave',function(){if(!p.classList.contains('active')){p.style.borderColor='';p.style.color=''}});
+p.addEventListener('click',function(){
+if(cur===k){desc.classList.remove('open');pills.forEach(function(x){x.classList.remove('active')});resetPills();cur='';return;}
 cur=k;
 pills.forEach(function(x){x.classList.remove('active')});
+resetPills();
 p.classList.add('active');
+p.style.background=col;
+p.style.borderColor=col;
+p.style.color='#fff';
 nm.textContent=D[k][0];
+nm.style.color=col;
 tx.textContent=D[k][1];
+inner.style.borderColor=col;
 desc.classList.add('open');
 });
 });
