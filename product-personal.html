@@ -169,6 +169,19 @@ a{text-decoration:none;color:inherit}
 .ab-box-p{font-size:12px;line-height:1.5;color:#888}
 .ab-fine{font-size:12px;line-height:1.5;color:#aaa}
 
+
+.agent-bar{padding:48px 0;text-align:center;border-bottom:1px solid #e8e9ed}
+.agent-bar h3{font-size:14px;font-weight:700;color:#999;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+.agents{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;max-width:800px;margin:0 auto}
+.ag-pill{padding:8px 16px;border-radius:100px;font-size:12px;font-weight:600;border:1px solid #e0e0e0;background:#fff;color:#666;transition:all .3s;cursor:pointer}
+.ag-pill:hover{border-color:var(--pink);color:var(--pink)}
+.ag-pill.active{border-color:var(--pink);background:var(--pink);color:#fff}
+.ag-desc{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease,margin .3s ease;opacity:0;margin:0 auto;max-width:600px}
+.ag-desc.open{max-height:120px;opacity:1;margin:20px auto 0}
+.ag-desc-inner{padding:20px 24px;border-radius:12px;border:1px solid #e8e9ed;background:#fafaf9;text-align:left}
+.ag-desc-name{font-family:var(--serif);font-size:16px;color:#111;margin-bottom:4px}
+.ag-desc-text{font-size:13px;color:#666;line-height:1.6}
+
 @media(max-width:768px){
 .nk{display:none}.mob{display:flex}
 .tier-card{padding:24px 20px;border-radius:16px}
@@ -188,6 +201,11 @@ a{text-decoration:none;color:inherit}
 .wa-b{height:240px}
 .wa-m{font-size:9.5px;max-width:88%;max-height:none!important;padding:5px 8px!important;margin:0 0 3px!important;opacity:1!important;overflow:visible!important}
 
+.agents{gap:8px}.ag-pill{padding:6px 12px;font-size:11px}
+.ag-desc.open{max-height:160px}
+.ag-desc-inner{padding:16px}
+.ag-desc-name{font-size:14px}
+.ag-desc-text{font-size:12px}
 .book-card{width:180px;height:240px}
 .book-card:hover .book-inner{transform:none}
 .book-back{display:none}
@@ -280,6 +298,57 @@ a{text-decoration:none;color:inherit}
 </div>
 </div>
 </div></div>
+
+<!-- 10-agent bar -->
+<section class="agent-bar"><div class="wrap">
+<h3>Your 10-Specialist Team</h3>
+<div class="agents" id="agentPills">
+<div class="ag-pill" data-ag="scout">Scout</div>
+<div class="ag-pill" data-ag="oracle">Oracle</div>
+<div class="ag-pill" data-ag="ranger">Ranger</div>
+<div class="ag-pill" data-ag="spotter">Spotter</div>
+<div class="ag-pill" data-ag="whisperer">Card Whisperer</div>
+<div class="ag-pill" data-ag="commander">Commander</div>
+<div class="ag-pill" data-ag="strategist">Strategist</div>
+<div class="ag-pill" data-ag="accountant">Accountant</div>
+<div class="ag-pill" data-ag="planner">Planner</div>
+<div class="ag-pill" data-ag="hunter">Bonus Hunter</div>
+</div>
+<div class="ag-desc" id="agentDesc"><div class="ag-desc-inner"><div class="ag-desc-name" id="agDescName"></div><div class="ag-desc-text" id="agDescText"></div></div></div>
+</div></section>
+<script>
+(function(){
+var D={
+scout:['Scout','Onboards you in 4 questions. Maps your cards, programs, and goals. Builds the foundation everything else runs on.'],
+oracle:['Oracle','Knows how 629+ loyalty programs work. Transfer ratios, sweet spots, devaluations. The brain behind every recommendation.'],
+ranger:['Ranger','Monitors expiring credits, forgotten annual benefits, and rotating bonus categories. Catches the money you are about to lose.'],
+spotter:['Spotter','Watches for transfer bonuses, limited-time promotions, and new card offers that match your specific spend profile.'],
+whisperer:['Card Whisperer','Analyzes every transaction to find spend on the wrong card. Shows you exactly which card to use at which store and why.'],
+commander:['Commander','Coordinates strategy when you carry multiple cards. Routes every purchase to the card with the highest earn rate.'],
+strategist:['Strategist','Builds your 90-day and 12-month points roadmap. Tracks progress, adjusts for changes, and keeps your portfolio on target.'],
+accountant:['Accountant','Generates your monthly portfolio snapshot. Total points, estimated value, earn rate, and where the gaps are.'],
+planner:['Planner','Turns a travel goal into a step-by-step plan. Which points to transfer, when to book, and backup options if availability shifts.'],
+hunter:['Bonus Hunter','Tracks minimum spend deadlines on new cards. Alerts you before welcome bonus windows close so you never leave points on the table.']
+};
+var pills=document.querySelectorAll('#agentPills .ag-pill');
+var desc=document.getElementById('agentDesc');
+var nm=document.getElementById('agDescName');
+var tx=document.getElementById('agDescText');
+var cur='';
+pills.forEach(function(p){
+p.addEventListener('click',function(){
+var k=p.getAttribute('data-ag');
+if(cur===k){desc.classList.remove('open');pills.forEach(function(x){x.classList.remove('active')});cur='';return;}
+cur=k;
+pills.forEach(function(x){x.classList.remove('active')});
+p.classList.add('active');
+nm.textContent=D[k][0];
+tx.textContent=D[k][1];
+desc.classList.add('open');
+});
+});
+})();
+</script>
 
 <div style="padding:32px 0 0"><div class="wrap">
 
