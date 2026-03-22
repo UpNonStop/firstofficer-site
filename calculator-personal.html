@@ -602,8 +602,7 @@ grid.classList.add('looping');
 var x=0,paused=false,half=grid.scrollWidth/2,speed=1.2;
 grid.parentElement.addEventListener('mouseenter',function(){paused=true});
 grid.parentElement.addEventListener('mouseleave',function(){paused=false});
-grid.parentElement.addEventListener('touchstart',function(){paused=true},{passive:true});
-grid.parentElement.addEventListener('touchend',function(){setTimeout(function(){paused=false},2000)},{passive:true});
+
 function tick(){
 if(!paused){x-=speed;if(x<=-half)x=0;}
 grid.style.transform='translateX('+x+'px)';
