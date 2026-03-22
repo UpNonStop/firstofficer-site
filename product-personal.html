@@ -172,13 +172,19 @@ a{text-decoration:none;color:inherit}
 
 .agent-bar{padding:48px 0;text-align:center;border-bottom:1px solid #e8e9ed}
 .agent-bar h3{font-size:14px;font-weight:700;color:#999;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
-.agents{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;max-width:800px;margin:0 auto}
-.ag-pill{padding:8px 16px;border-radius:100px;font-size:12px;font-weight:600;border:1px solid #e0e0e0;background:#fff;color:#666;transition:all .3s;cursor:pointer}
-.ag-pill:hover{border-color:var(--pink);color:var(--pink)}
-.ag-pill.active{border-color:var(--pink);background:var(--pink);color:#fff}
+.agents{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:680px;margin:0 auto}
+.ag-pill{padding:8px 4px;border-radius:100px;font-size:11.5px;font-weight:600;border:1px solid #e0e0e0;background:#fff;color:#666;transition:all .3s;cursor:pointer;text-align:center;white-space:nowrap}
+.ag-pill:hover{opacity:.85}
+.ag-pill[data-ag="scout"]{--ag:#25D366}.ag-pill[data-ag="oracle"]{--ag:#7B8FF7}
+.ag-pill[data-ag="ranger"]{--ag:#F59E0B}.ag-pill[data-ag="spotter"]{--ag:#8B5CF6}
+.ag-pill[data-ag="whisperer"]{--ag:#FA1896}.ag-pill[data-ag="commander"]{--ag:#EF4444}
+.ag-pill[data-ag="strategist"]{--ag:#0EA5E9}.ag-pill[data-ag="accountant"]{--ag:#14B8A6}
+.ag-pill[data-ag="planner"]{--ag:#F97316}.ag-pill[data-ag="hunter"]{--ag:#C5A226}
+.ag-pill:hover{border-color:var(--ag);color:var(--ag)}
+.ag-pill.active{border-color:var(--ag);background:var(--ag);color:#fff}
 .ag-desc{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease,margin .3s ease;opacity:0;margin:0 auto;max-width:600px}
-.ag-desc.open{max-height:120px;opacity:1;margin:20px auto 0}
-.ag-desc-inner{padding:20px 24px;border-radius:12px;border:1px solid #e8e9ed;background:#fafaf9;text-align:left}
+.ag-desc.open{max-height:140px;opacity:1;margin:20px auto 0}
+.ag-desc-inner{padding:20px 24px;border-radius:12px;border:1px solid #e8e9ed;background:#fafaf9;text-align:left;transition:border-color .3s}
 .ag-desc-name{font-family:var(--serif);font-size:16px;color:#111;margin-bottom:4px}
 .ag-desc-text{font-size:13px;color:#666;line-height:1.6}
 
@@ -201,8 +207,8 @@ a{text-decoration:none;color:inherit}
 .wa-b{height:240px}
 .wa-m{font-size:9.5px;max-width:88%;max-height:none!important;padding:5px 8px!important;margin:0 0 3px!important;opacity:1!important;overflow:visible!important}
 
-.agents{gap:8px}.ag-pill{padding:6px 12px;font-size:11px}
-.ag-desc.open{max-height:160px}
+.agents{grid-template-columns:repeat(5,1fr);gap:6px}.ag-pill{padding:6px 2px;font-size:9.5px}
+.ag-desc.open{max-height:180px}
 .ag-desc-inner{padding:16px}
 .ag-desc-name{font-size:14px}
 .ag-desc-text{font-size:12px}
@@ -307,12 +313,12 @@ a{text-decoration:none;color:inherit}
 <div class="ag-pill" data-ag="oracle">Oracle</div>
 <div class="ag-pill" data-ag="ranger">Ranger</div>
 <div class="ag-pill" data-ag="spotter">Spotter</div>
-<div class="ag-pill" data-ag="whisperer">Card Whisperer</div>
+<div class="ag-pill" data-ag="whisperer">Whisperer</div>
 <div class="ag-pill" data-ag="commander">Commander</div>
 <div class="ag-pill" data-ag="strategist">Strategist</div>
 <div class="ag-pill" data-ag="accountant">Accountant</div>
 <div class="ag-pill" data-ag="planner">Planner</div>
-<div class="ag-pill" data-ag="hunter">Bonus Hunter</div>
+<div class="ag-pill" data-ag="hunter">Hunter</div>
 </div>
 <div class="ag-desc" id="agentDesc"><div class="ag-desc-inner"><div class="ag-desc-name" id="agDescName"></div><div class="ag-desc-text" id="agDescText"></div></div></div>
 </div></section>
@@ -344,6 +350,9 @@ pills.forEach(function(x){x.classList.remove('active')});
 p.classList.add('active');
 nm.textContent=D[k][0];
 tx.textContent=D[k][1];
+var c=getComputedStyle(p).getPropertyValue('--ag').trim();
+nm.style.color=c;
+desc.querySelector('.ag-desc-inner').style.borderColor=c;
 desc.classList.add('open');
 });
 });
