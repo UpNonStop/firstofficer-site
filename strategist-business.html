@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Strategist for Business | First Officer</title>
+<meta name="description" content="Your business spend has a hidden strategy. The Strategist analyzes every vendor, every card, every category and builds a 12-month game plan that compounds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+ul{list-style:none}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}
+button{cursor:pointer;border:none;font-family:inherit;background:none}
+:root{--pink:#FA1896;--wa:#25D366;--font:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.4,0,.2,1);--r:16px;--r-pill:100px}
+body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#000;color:#f0f0f4}
+.t2{color:#ddd}.t3{color:#999}.pk{color:var(--pink)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+
+/* NAV - matches main site biz mode */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(0,0,0,.88);border-bottom:1px solid #2a2a2a}
+.nav-in{max-width:1180px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nl{font-size:19px;font-weight:700;letter-spacing:-.4px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nm{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;overflow:hidden}
+.nk{display:flex;align-items:center;gap:32px}
+.nka{font-size:14px;font-weight:500;transition:color .3s;white-space:nowrap}.nka:hover{color:var(--pink)}
+.ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:var(--r-pill);box-shadow:0 6px 24px rgba(37,211,102,.25);white-space:nowrap;transition:all .3s var(--ease)}.ncta:hover{transform:translateY(-1px)}
+.mob{display:none;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px}.mob span{width:20px;height:2px;background:currentColor;border-radius:1px}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;border-radius:var(--r-pill);transition:all .3s var(--ease);white-space:nowrap}.btn:hover{transform:translateY(-2px)}
+.btn-l{padding:16px 36px;font-size:16px}
+.btn-pk{background:var(--pink);color:#fff;box-shadow:0 8px 28px rgba(250,24,150,.22)}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 6px 24px rgba(37,211,102,.25)}
+.olb{border:1.5px solid #333;color:#f0f0f4}.olb:hover{border-color:var(--pink);color:var(--pink)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 32px 80px;overflow:hidden}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero-c{position:relative;z-index:2;max-width:860px;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:var(--r-pill);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:28px;background:rgba(250,24,150,.1);color:var(--pink);border:1px solid rgba(250,24,150,.2)}
+.hero-badge .pulse{width:8px;height:8px;background:var(--pink);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.8)}}
+.hero h1{font-size:clamp(36px,6vw,72px);font-weight:900;line-height:1.02;letter-spacing:-2.5px;margin-bottom:24px;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.95)}
+.hero-sub{font-size:18px;max-width:620px;margin:0 auto 40px;line-height:1.7;font-weight:500;color:#ccc}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:64px}
+.hero-stats{display:flex;gap:48px;justify-content:center;flex-wrap:wrap}
+.hv{font-family:var(--mono);font-size:32px;font-weight:800;letter-spacing:-1px;line-height:1;color:#fff}
+.hl{font-size:12px;margin-top:6px;font-weight:500;color:#bbb}
+
+/* SECTIONS */
+.sec{padding:100px 0}.sec.alt{background:#111}
+.ey{font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:2.5px;color:var(--pink);margin-bottom:14px}
+.hd{font-family:var(--serif);font-size:clamp(28px,4.2vw,48px);line-height:1.12;letter-spacing:-.5px;margin-bottom:16px}
+.hd em{font-style:normal;color:var(--pink)}
+.ds{font-size:18px;line-height:1.7;max-width:600px;color:#999}
+.sh{text-align:center;margin-bottom:60px}.sh .ds{margin:0 auto}
+
+/* SHOWSTOPPER: WAKING BOXES */
+.awakening{position:relative;padding:80px 0 100px;overflow:hidden}
+.awaken-grid{position:relative;max-width:1100px;margin:0 auto;padding:0 20px}
+.awaken-tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;position:relative;z-index:1}
+.a-tile{position:relative;padding:14px 12px;border-radius:10px;border:1px solid #1a1a1a;background:#0a0a0a;font-family:var(--mono);font-size:10.5px;line-height:1.45;color:#333;transition:all .7s var(--ease);overflow:hidden;min-height:68px;display:flex;flex-direction:column;justify-content:center}
+.a-tile .a-cat{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#222;margin-bottom:3px;transition:color .7s var(--ease)}
+.a-tile .a-body{transition:color .7s var(--ease)}
+.a-tile.lit{border-color:rgba(250,24,150,.15);background:rgba(250,24,150,.03);box-shadow:0 0 20px rgba(250,24,150,.04)}
+.a-tile.lit .a-cat{color:rgba(250,24,150,.4)}
+.a-tile.lit .a-body{color:#666}
+.a-tile.active-path{border-color:var(--pink);background:rgba(250,24,150,.06);box-shadow:0 0 40px rgba(250,24,150,.12),0 8px 32px rgba(250,24,150,.08);transform:scale(1.04);z-index:3}
+.a-tile.active-path .a-cat{color:var(--pink)}
+.a-tile.active-path .a-body{color:#f0f0f4;font-weight:600}
+#pathSvg{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible}
+.strategy-path{fill:none;stroke:var(--pink);stroke-width:2;stroke-linecap:round;opacity:0;transition:opacity .5s}
+.strategy-path.vis{opacity:.4;stroke-dasharray:6 4;animation:dashFlow 1.2s linear infinite}
+@keyframes dashFlow{to{stroke-dashoffset:-20}}
+.path-dot{fill:var(--pink);opacity:0;transition:opacity .3s}.path-dot.vis{opacity:.7}
+.awaken-header{text-align:center;margin-bottom:48px;position:relative;z-index:3}
+.awaken-counter{font-family:var(--mono);font-size:clamp(48px,8vw,88px);font-weight:900;letter-spacing:-4px;line-height:1;margin-bottom:8px;background:linear-gradient(135deg,var(--pink),#FF6B6B,#9B5DE5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.awaken-label{font-size:16px;font-weight:600;margin-bottom:4px}
+.awaken-sub{font-size:14px;color:#999;max-width:480px;margin:0 auto}
+.active-readout{text-align:center;margin-top:32px;min-height:60px;position:relative;z-index:3}
+.readout-label{font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--pink);margin-bottom:8px;opacity:.6}
+.readout-text{font-size:15px;font-weight:500;color:#ccc;max-width:640px;margin:0 auto;line-height:1.6;opacity:0;transform:translateY(8px);transition:all .6s var(--ease)}
+.readout-text.vis{opacity:1;transform:translateY(0)}
+
+/* CYCLE */
+.cycle-ring{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.cycle-node{position:relative;padding:36px;border-radius:var(--r);border:1px solid #2a2a2a;background:#111;transition:all .5s var(--ease);overflow:hidden}
+.cycle-node::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--r) var(--r) 0 0}
+.cycle-node:nth-child(1)::before{background:linear-gradient(90deg,#25D366,#00B4D8)}
+.cycle-node:nth-child(2)::before{background:linear-gradient(90deg,#FF6B6B,#F8961E)}
+.cycle-node:nth-child(3)::before{background:linear-gradient(90deg,#9B5DE5,#F15BB5)}
+.cycle-node:nth-child(4)::before{background:linear-gradient(90deg,#FEE440,#25D366)}
+.cycle-node:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(250,24,150,.06)}
+.cycle-num{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--pink);opacity:.5;margin-bottom:12px;letter-spacing:2px}
+.cycle-node h3{font-family:var(--serif);font-size:24px;margin-bottom:10px}
+.cycle-node p{font-size:14px;color:#999;line-height:1.7}
+
+/* LOOPHOLE */
+.loop-grid{display:flex;flex-direction:column;gap:2px;max-width:900px;margin:0 auto}
+.loop-card{display:grid;grid-template-columns:80px 1fr;gap:0;border-radius:0;background:#0a0a0a;border:none;border-bottom:1px solid #1a1a1a;transition:all .5s var(--ease);overflow:hidden;position:relative}
+.loop-card:first-child{border-radius:var(--r) var(--r) 0 0}.loop-card:last-child{border-radius:0 0 var(--r) var(--r);border-bottom:none}
+.loop-card:hover{background:rgba(250,24,150,.03)}
+.loop-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;transition:background .5s}
+.loop-card:nth-child(1)::before{background:var(--pink)}.loop-card:nth-child(2)::before{background:#9B5DE5}.loop-card:nth-child(3)::before{background:#00B4D8}.loop-card:nth-child(4)::before{background:#FF6B6B}.loop-card:nth-child(5)::before{background:#FEE440}.loop-card:nth-child(6)::before{background:#25D366}
+.loop-num{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:32px;font-weight:900;color:#1a1a1a;position:relative}
+.loop-num .scan-dot{position:absolute;top:12px;right:12px;width:6px;height:6px;border-radius:50%;animation:pulse 2s infinite}
+.loop-card:nth-child(1) .scan-dot{background:var(--pink)}.loop-card:nth-child(2) .scan-dot{background:#9B5DE5}.loop-card:nth-child(3) .scan-dot{background:#00B4D8}.loop-card:nth-child(4) .scan-dot{background:#FF6B6B}.loop-card:nth-child(5) .scan-dot{background:#FEE440}.loop-card:nth-child(6) .scan-dot{background:#25D366}
+.loop-body{padding:24px 28px 24px 0}
+.loop-tag{font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;display:inline-block;padding:2px 8px;border-radius:4px}
+.loop-card:nth-child(1) .loop-tag{color:var(--pink);background:rgba(250,24,150,.1)}.loop-card:nth-child(2) .loop-tag{color:#9B5DE5;background:rgba(155,93,229,.1)}.loop-card:nth-child(3) .loop-tag{color:#00B4D8;background:rgba(0,180,216,.1)}.loop-card:nth-child(4) .loop-tag{color:#FF6B6B;background:rgba(255,107,107,.1)}.loop-card:nth-child(5) .loop-tag{color:#B8860B;background:rgba(254,228,64,.15)}.loop-card:nth-child(6) .loop-tag{color:#25D366;background:rgba(37,211,102,.1)}
+.loop-card h4{font-size:16px;font-weight:700;margin-bottom:6px}
+.loop-card p{font-size:13px;color:#999;line-height:1.6;margin:0}
+
+/* FEED */
+.feed{max-width:680px;margin:0 auto}
+.feed-item{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid #2a2a2a}
+.feed-dot{width:10px;height:10px;border-radius:50%;margin-top:6px;flex-shrink:0}
+.feed-dot.earn{background:#25D366}.feed-dot.burn{background:#FF6B6B}.feed-dot.move{background:#9B5DE5}.feed-dot.alert{background:#FEE440}
+.feed-time{font-family:var(--mono);font-size:11px;color:#666;margin-bottom:4px}
+.feed-msg{font-size:14px;line-height:1.6;color:#ccc}
+.feed-val{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--pink);margin-top:4px}
+
+/* BEFORE/AFTER */
+.ba-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:stretch;max-width:900px;margin:0 auto}
+.ba-card{padding:36px;border-radius:var(--r);border:1px solid #2a2a2a;background:#111}
+.ba-card.before{opacity:.7}.ba-card.after{border-color:rgba(250,24,150,.3);box-shadow:0 0 40px rgba(250,24,150,.06)}
+.ba-card h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px}
+.ba-card.before h4{color:#555}.ba-card.after h4{color:var(--pink)}
+.ba-line{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #1a1a1a;font-size:14px}
+.ba-line span:last-child{font-family:var(--mono);font-weight:700}
+.ba-arrow{display:flex;align-items:center;justify-content:center;color:var(--pink)}
+
+/* CTA + FOOTER */
+.ctab{background:var(--pink);padding:80px 0;text-align:center}
+.ctab h2{font-size:clamp(26px,3.8vw,42px);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.ctab p{font-size:17px;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 32px;line-height:1.7}
+.ctab .bg{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.ctab .btn-pk{background:#fff;color:var(--pink);box-shadow:0 8px 30px rgba(0,0,0,.1)}
+.ctab .btn-gh{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4);border-radius:var(--r-pill)}
+.ft{border-top:1px solid #2a2a2a;background:#111;padding:24px 0 16px}
+
+
+/* CONSTELLATION CANVASES */
+.constellation-wrap{position:relative;overflow:hidden}
+.constellation-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.constellation-wrap>.wrap{position:relative;z-index:1}
+/* REVEAL + RESPONSIVE */
+.reveal{opacity:0;transform:translateY(30px);transition:all .8s var(--ease)}.reveal.vis{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}
+@media(max-width:1024px){.awaken-tiles{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:768px){.nk{display:none}.mob{display:flex}.hero-stats{flex-direction:column;gap:16px}.cycle-ring,.loop-grid{grid-template-columns:1fr}.ba-grid{grid-template-columns:1fr;gap:16px}.ba-arrow{transform:rotate(90deg)}.awaken-tiles{grid-template-columns:repeat(3,1fr)}.sec{padding:64px 0}}
+@media(max-width:480px){.hero{padding:100px 20px 60px}.wrap{padding:0 20px}.hero-ctas{flex-direction:column;align-items:center}.awaken-tiles{grid-template-columns:repeat(2,1fr)}.hero h1{letter-spacing:-1.5px}.hv{font-size:24px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-in">
+<a href="firstofficer-site.html?biz=1" class="nl"><div class="nm"><img src="data:image/png;base64,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" width="28" height="28" alt="UpNonStop" style="display:block"></div><div><div style="line-height:1.1">First Officer</div><div style="font-size:10px;font-weight:400;letter-spacing:.5px;line-height:1">by <span style="font-weight:700">UpNonStop</span>&trade;</div></div></a>
+<div class="nk">
+<a href="firstofficer-site.html?biz=1" class="nka">Home</a>
+<a href="product-business.html" class="nka act">Product</a>
+<a href="calculator-business.html" class="nka">Calculator</a>
+<a href="firstofficer-site.html?biz=1#pricing" class="nka">Pricing</a>
+<a href="firstofficer-site.html?biz=1#about" class="nka">About</a>
+</div>
+<a href="https://wa.me/16199404040" class="ncta" target="_blank">&#x1F4AC; Start on WhatsApp</a>
+<button class="mob" onclick="document.querySelector('.nk').classList.toggle('show')"><span></span><span></span><span></span></button>
+</div></nav>
+
+<section class="hero">
+<canvas id="heroCanvas"></canvas>
+<div class="hero-c">
+<div class="hero-badge"><div class="pulse"></div> The Strategist for Business</div>
+<h1>Your Spend Has a<br><span class="pk">Hidden Strategy.</span></h1>
+<p class="hero-sub">The Strategist analyzes your business spend across every card, every vendor, every category. It finds the routing no one told you about and builds a 12-month game plan that compounds quarter over quarter.</p>
+<div class="hero-ctas">
+<a href="https://wa.me/16199404040" class="btn btn-wa btn-l" target="_blank">Book a Spend Audit</a>
+<a href="firstofficer-site.html" class="btn olb btn-l">How It Works</a>
+</div>
+<div class="hero-stats">
+<div><div class="hv"><span class="pk">629</span></div><div class="hl">Programs Monitored</div></div>
+<div><div class="hv"><span class="pk">100+</span></div><div class="hl">Cards Mapped</div></div>
+<div><div class="hv"><span class="pk">20+</span></div><div class="hl">Industries Served</div></div>
+<div><div class="hv"><span class="pk">13</span></div><div class="hl">Banks Tracked</div></div>
+</div>
+</div>
+</section>
+
+<section class="awakening sec alt">
+<div class="wrap">
+<div class="awaken-header reveal"><div class="ey">Strategy Depth</div><div class="awaken-counter" id="stratCounter">0</div><div class="awaken-label">Unique strategies evaluated per business portfolio</div><p class="awaken-sub">Every vendor MCC code. Every card combination. Every routing permutation. The Strategist exhausts every possibility and ranks them by real-dollar return for your specific business.</p></div>
+<div class="awaken-grid"><svg id="pathSvg" preserveAspectRatio="none"></svg><div class="awaken-tiles" id="awakenTiles"></div></div>
+<div class="active-readout"><div class="readout-label">Active Strategy Path</div><div class="readout-text" id="readoutText"></div></div>
+</div>
+</section>
+
+<section class="sec constellation-wrap">
+<canvas class="constellation-canvas" id="cycleCanvas"></canvas>
+<div class="wrap">
+<div class="sh reveal"><div class="ey">The Strategy Engine</div><h2 class="hd">Four Forces. <em>One System.</em></h2><p class="ds">Every strategy the Strategist builds for your business optimizes across four dimensions simultaneously. Weighted to your industry, your vendors, your goals.</p></div>
+<div class="cycle-ring">
+<div class="cycle-node reveal reveal-d1"><div class="cycle-num">01 EARN</div><h3>Earn Smarter</h3><p>Card routing rules matched to your actual vendor mix. Google Ads at 3x through Ink Preferred. SaaS subscriptions at 3x. Wholesale at 2x through Blue Business Plus (most bonus cards earn 1x on wholesale MCC codes like 5099). The Strategist recalculates monthly as your spend shifts.</p></div>
+<div class="cycle-node reveal reveal-d2"><div class="cycle-num">02 BURN</div><h3>Burn for Business Travel</h3><p>Team conferences, client meetings, recruiting trips. The Strategist monitors award availability for your specific routes and dates. Transfer 200K UR to Hyatt for 5 nights at a property costing $485 per night in cash. That is $2,425 your travel budget keeps.</p></div>
+<div class="cycle-node reveal reveal-d3"><div class="cycle-num">03 RETURN</div><h3>Measure ROI Per Card</h3><p>Annual fee vs. points earned vs. redemption value. The Strategist calculates the net return on every card in your stack and tells you which ones are paying for themselves and which are dead weight. Monthly portfolio valuation included.</p></div>
+<div class="cycle-node reveal reveal-d4"><div class="cycle-num">04 LEARN</div><h3>Learn Your Industry</h3><p>Every strategy session teaches your team something. Why routing Sysco through Blue Business Plus catches 2x when other bonus cards earn 1x on wholesale. Why splitting SaaS subscriptions across Ink cards captures 3x. The Strategist makes your finance team dangerous.</p></div>
+</div>
+</div>
+</section>
+
+<section class="sec alt constellation-wrap">
+<canvas class="constellation-canvas" id="loopCanvas"></canvas>
+<div class="wrap">
+<div class="sh reveal"><div class="ey">Business Intelligence</div><h2 class="hd">Finds What <em>Your Accountant Missed</em></h2><p class="ds">Vendor MCC codes that kill bonus rates. Employee card timing windows. Spend routing gaps worth thousands per year.</p></div>
+<div class="loop-grid">
+<div class="loop-card reveal reveal-d1"><div class="loop-num">01<div class="scan-dot"></div></div><div class="loop-body"><div class="loop-tag">MCC Intel</div><h4>Vendor MCC Mapping</h4><p>Sysco and US Foods code as wholesale (MCC 5099/5199), earning 1x on most bonus cards. The Strategist maps every vendor to its actual MCC code and routes spend to the card that captures the highest rate.</p></div></div>
+<div class="loop-card reveal reveal-d2"><div class="loop-num">02<div class="scan-dot"></div></div><div class="loop-body"><div class="loop-tag">5/24 Tracking</div><h4>5/24 Window Management</h4><p>Employee cards count against 5/24 for Chase applications. The Strategist tracks every team member and identifies windows for high-value signup bonuses like the Ink Preferred at 100K UR.</p></div></div>
+<div class="loop-card reveal reveal-d3"><div class="loop-num">03<div class="scan-dot"></div></div><div class="loop-body"><div class="loop-tag">Routing</div><h4>Spend Category Splitting</h4><p>Your $14K per month in Google Ads earns 3x on Ink Preferred (MCC 7311). Your $3K in SaaS earns 3x. But your $8K in miscellaneous earns 1x on a generic card. The Strategist splits spend to capture every multiplier.</p></div></div>
+<div class="loop-card reveal reveal-d1"><div class="loop-num">04<div class="scan-dot"></div></div><div class="loop-body"><div class="loop-tag">Fee ROI</div><h4>Annual Fee ROI Analysis</h4><p>Is the $695 Amex Platinum paying for itself through the airline credit, Uber credit, and lounge access for your 3 traveling team members? The Strategist calculates the net return on every card fee and recommends keeps, cancels, and downgrades.</p></div></div>
+<div class="loop-card reveal reveal-d2"><div class="loop-num">05<div class="scan-dot"></div></div><div class="loop-body"><div class="loop-tag">Sequencing</div><h4>Signup Bonus Sequencing</h4><p>Ink Preferred first (100K UR, 3x on ads). Then Amex Business Gold (4x on top 2 auto-selected business categories). Then Blue Business Plus (2x on everything, no annual fee). The order matters. The Strategist builds the 12-month application calendar.</p></div></div>
+<div class="loop-card reveal reveal-d3"><div class="loop-num">06<div class="scan-dot"></div></div><div class="loop-body"><div class="loop-tag">Benchmarks</div><h4>Industry Benchmarks</h4><p>E-commerce: 2.2x to 2.8x blended. Restaurants: 1.8x to 2.2x. HVAC and contractors: 1.6x to 2.0x. The Strategist benchmarks your portfolio against your industry and closes the gap.</p></div></div>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap">
+<div class="sh reveal"><div class="ey">Live Intelligence</div><h2 class="hd">What The Strategist <em>Actually Says</em></h2><p class="ds">Real strategy recommendations for real businesses. Real dollar values. Delivered via WhatsApp.</p></div>
+<div class="feed reveal">
+<div class="feed-item"><div class="feed-dot earn"></div><div><div class="feed-time">Strategy Session / Monthly</div><div class="feed-msg">Your $14K per month in Google Ads is running through a personal Visa earning 1x. Routing through Ink Preferred captures 3x on advertising (MCC 7311). That is 504,000 additional points per year your business is leaving on the table.</div><div class="feed-val">+504,000 pts/year ($5,040+ estimated travel value)</div></div></div>
+<div class="feed-item"><div class="feed-dot move"></div><div><div class="feed-time">Card Stack Optimization</div><div class="feed-msg">Adding Blue Business Plus as your catch-all card captures 2x on the $6,200 per month in miscellaneous spend currently earning 1x. No annual fee. Up to $50,000 per year in 2x spend before dropping to 1x.</div><div class="feed-val">+148,800 pts/year ($1,488+ estimated value)</div></div></div>
+<div class="feed-item"><div class="feed-dot burn"></div><div><div class="feed-time">Team Travel Strategy</div><div class="feed-msg">Your Q3 conference in London for 4 team members: transferring 200,000 UR points to Hyatt books 5 nights at Andaz London at 15,000 per night. Cash rate: $485 per night. Total savings vs. corporate rate: roughly $4,850.</div><div class="feed-val">ROI: roughly 2.4 cents per point (vs. 1.0 cents per point cashback)</div></div></div>
+<div class="feed-item"><div class="feed-dot alert"></div><div><div class="feed-time">5/24 Management</div><div class="feed-msg">Employee card #3 (Marketing Director) is at 4/24 and drops to 3/24 in February. Window opens for Ink Preferred with 100K UR bonus. Recommend applying Feb 1. That single signup bonus covers your team offsite flights.</div><div class="feed-val">Bonus value: $1,250+ estimated in travel</div></div></div>
+</div>
+</div>
+</section>
+
+<section class="sec alt">
+<div class="wrap">
+<div class="sh reveal"><div class="ey">The Difference</div><h2 class="hd">Without Strategy vs. <em>With Strategist</em></h2></div>
+<div class="ba-grid reveal">
+<div class="ba-card before"><h4>Without</h4><div class="ba-line"><span>Cards</span><span>1 business card, 1x flat</span></div><div class="ba-line"><span>Annual spend</span><span>$240,000</span></div><div class="ba-line"><span>Points earned</span><span>240,000 pts</span></div><div class="ba-line"><span>Value captured</span><span>$2,400 cashback</span></div><div class="ba-line"><span>Signup bonuses</span><span>0 (missed)</span></div><div class="ba-line"><span>Team travel cost</span><span>Full cash price</span></div><div class="ba-line"><span>Strategy</span><span>None</span></div></div>
+<div class="ba-arrow"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+<div class="ba-card after"><h4>With Strategist</h4><div class="ba-line"><span>Cards</span><span class="pk">4-card optimized stack</span></div><div class="ba-line"><span>Annual spend</span><span>$240,000</span></div><div class="ba-line"><span>Points earned</span><span class="pk">576,000 pts (2.4x blended)</span></div><div class="ba-line"><span>Value captured</span><span class="pk">$11,520+ estimated travel value</span></div><div class="ba-line"><span>Signup bonuses</span><span class="pk">~220,000 pts (Year 1)</span></div><div class="ba-line"><span>Team travel cost</span><span class="pk">60% to 80% offset by points</span></div><div class="ba-line"><span>Strategy</span><span class="pk">Monthly session + alerts</span></div></div>
+</div>
+</div>
+</section>
+
+<section class="ctab constellation-wrap"><canvas class="constellation-canvas" id="ctaCanvas"></canvas><div class="wrap" style="position:relative;z-index:1">
+<h2>Your Business Spend Deserves a Strategist.</h2>
+<p>Free 20-minute business spend audit. See the exact dollar value your current card stack is leaving behind.</p>
+<div class="bg"><a href="https://wa.me/16199404040" class="btn btn-pk btn-l" target="_blank">Book a Spend Audit</a><a href="firstofficer-site.html" class="btn btn-gh btn-l">See Plans</a></div>
+</div></section>
+
+<footer class="ft"><div class="wrap"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+<a href="firstofficer-site.html?biz=1" class="nl"><div class="nm" style="width:28px;height:28px"><img src="data:image/png;base64,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" width="24" height="24" alt="UpNonStop" style="display:block"></div><div><div style="line-height:1.1;font-size:16px">First Officer</div><div style="font-size:10px;font-weight:400;letter-spacing:.5px">by <span style="font-weight:700">UpNonStop</span>&trade;</div></div></a>
+<div style="font-size:12px;color:#555">&copy; 2026 UpNonStop &middot; <a href="privacy-policy.html" style="color:#555">Privacy</a> &middot; <a href="terms-of-service.html" style="color:#555">Terms</a></div>
+</div></div></footer>
+
+<script>
+var TILES=[
+{cat:"ROUTE",body:"Google Ads routed to Ink Preferred for 3x (MCC 7311)"},
+{cat:"ROUTE",body:"SaaS subscriptions to Ink Preferred for 3x"},
+{cat:"ROUTE",body:"Wholesale vendors (Sysco, US Foods) to BBP for 2x"},
+{cat:"ROUTE",body:"Office supplies to Ink Cash for 5x"},
+{cat:"ROUTE",body:"Gas and fleet fuel to Ink Cash for 2x"},
+{cat:"ROUTE",body:"All uncategorized spend to BBP for 2x (up to $50K/yr)"},
+{cat:"EARN",body:"Ink Preferred: 3x on shipping, advertising, internet"},
+{cat:"EARN",body:"Amex Business Gold: 4x on top 2 auto-selected categories (up to $150K/yr)"},
+{cat:"EARN",body:"Blue Business Plus: 2x on all spend up to $50K/yr"},
+{cat:"EARN",body:"Ink Cash: 5x at office supply stores, 2x on gas"},
+{cat:"EARN",body:"Amex Platinum: 5x flights booked directly or via Amex Travel"},
+{cat:"VENDOR",body:"Sysco/US Foods: MCC 5099 wholesale, typically 1x on bonus cards"},
+{cat:"VENDOR",body:"FedEx/UPS: MCC 4215 shipping, 3x on Ink Preferred"},
+{cat:"VENDOR",body:"Meta/Google Ads: MCC 7311 advertising, 3x on Ink"},
+{cat:"VENDOR",body:"Shopify: typically codes as MCC 5734 software"},
+{cat:"VENDOR",body:"Adobe Creative Cloud: typically codes MCC 5734"},
+{cat:"VENDOR",body:"Home Depot Pro: MCC 5211 lumber, typically 1x"},
+{cat:"VENDOR",body:"Henry Schein: MCC 5047 medical supplies"},
+{cat:"BONUS",body:"Ink Preferred signup: 100K UR after $8K spend"},
+{cat:"BONUS",body:"Amex Business Gold: signup bonus (terms vary, check current offer)"},
+{cat:"BONUS",body:"CSP signup: 80K UR after $4K spend in 3 months"},
+{cat:"BONUS",body:"5/24 window: employee at 3/24, eligible for Chase"},
+{cat:"5/24",body:"Employee #1: 4/24, drops to 3/24 in February"},
+{cat:"5/24",body:"Employee #2: 2/24, window open for Ink Preferred"},
+{cat:"5/24",body:"Owner: 3/24, open for both Chase and Amex"},
+{cat:"TRANSFER",body:"Chase UR to World of Hyatt at 1:1 ratio"},
+{cat:"TRANSFER",body:"Amex MR to ANA Mileage Club at 1:1 ratio"},
+{cat:"TRANSFER",body:"Chase UR to United MileagePlus at 1:1 ratio"},
+{cat:"TRANSFER",body:"Amex MR to Virgin Atlantic at 1:1 ratio"},
+{cat:"TRAVEL",body:"Q3 London conference: Hyatt at 15K/night vs $485 cash"},
+{cat:"TRAVEL",body:"Client meeting NYC: United biz 25K pts vs $800 cash"},
+{cat:"TRAVEL",body:"Team retreat Hawaii: Hyatt Cat 4 at 15K/night"},
+{cat:"TRAVEL",body:"Recruiting trip SFO: economy on points, save $450"},
+{cat:"ALERT",body:"Marriott peak pricing restructuring coming Q2"},
+{cat:"ALERT",body:"Amex Business Gold category rotation: verify top 2 spend"},
+{cat:"ALERT",body:"Ink Preferred annual fee posting in 14 days"},
+{cat:"FEE ROI",body:"Amex Platinum $695: net positive with 3+ travelers"},
+{cat:"FEE ROI",body:"Ink Preferred $95: pays for itself at $3,200/yr spend"},
+{cat:"FEE ROI",body:"Amex Business Gold $375: positive at high-volume category spend"},
+{cat:"CREDIT",body:"Amex Platinum: $200 airline credit via gift cards"},
+{cat:"CREDIT",body:"Amex Business Gold: 25% points back on eligible Amex Travel purchases"},
+{cat:"INDUSTRY",body:"E-commerce: 2.2x to 2.8x blended (shipping + ads)"},
+{cat:"INDUSTRY",body:"Restaurants: 1.8x to 2.2x blended (wholesale drag)"},
+{cat:"INDUSTRY",body:"HVAC/Contractors: 1.6x to 2.0x blended"},
+{cat:"INDUSTRY",body:"Law firms: 1.8x to 2.3x (Westlaw + travel)"},
+{cat:"INDUSTRY",body:"CPA firms: 2.0x to 2.5x (software-heavy)"},
+{cat:"INDUSTRY",body:"Agencies: 2.2x to 2.8x (Adobe + Google Ads)"},
+{cat:"RETENTION",body:"Consider calling Amex at month 13 for retention offer"},
+{cat:"RETENTION",body:"Consider downgrading CSR to Freedom Flex before fee posts"}
+];
+
+var PATHS=[
+{tiles:[0,1,6,12,13],text:"Route Google Ads through Ink Preferred at 3x (MCC 7311). Route SaaS subscriptions through Ink Preferred at 3x. Ink earns 3x on shipping, advertising, internet. FedEx codes as MCC 4215 shipping at 3x. Meta Ads codes as MCC 7311 at 3x. One card captures your three highest-multiplier categories."},
+{tiles:[11,2,8,5,41],text:"Sysco and US Foods code as wholesale (MCC 5099), earning 1x on most bonus cards. Route wholesale through Blue Business Plus for 2x instead. All uncategorized spend also goes to BBP for 2x up to $50K per year. Blended restaurant earn rate moves from 1.0x to 1.8x to 2.2x."},
+{tiles:[18,21,22,23,6],text:"Ink Preferred signup at 100K UR after $8K spend. Employee at 3/24 has a window open for Chase applications. Owner at 3/24 also eligible. Employee #1 at 4/24 drops to 3/24 in February. Ink Preferred at 3x captures your advertising spend immediately."},
+{tiles:[25,29,30,31,32],text:"Transfer Chase UR to Hyatt at 1:1 ratio. Book Q3 London conference at Andaz for 15K per night vs. $485 cash. Client meeting in NYC via United business at 25K points vs. $800 cash. Team retreat in Hawaii at Hyatt Category 4. Recruiting trip to SFO on points."},
+{tiles:[36,37,38,39,40],text:"Amex Platinum $695 annual fee is net positive with 3+ traveling team members. Ink Preferred $95 pays for itself at just $3,200 per year in category spend. Amex Business Gold $375 is positive at high-volume category spend. Stack airline credit via gift cards. Stack 25% points back on Amex Travel bookings."},
+{tiles:[3,9,4,5,7],text:"Route office supplies to Ink Cash for 5x. Route gas and fleet fuel to Ink Cash for 2x. Route everything else to Blue Business Plus for 2x up to $50K per year. Amex Business Gold auto-selects top 2 categories for 4x (up to $150K per year). Four cards cover every business spend category."},
+{tiles:[43,44,45,0,1],text:"Law firms typically achieve 1.8x to 2.3x blended earn rate with Westlaw and travel spend. CPA firms land at 2.0x to 2.5x because they are software-heavy. Agencies hit 2.2x to 2.8x with Adobe and Google Ads. Route Google Ads to Ink at 3x. Route SaaS to Ink at 3x."},
+{tiles:[33,34,35,47,46],text:"Marriott peak pricing restructuring coming in Q2. Amex Business Gold category rotation: verify your top 2 spend categories are triggering correctly. Ink Preferred annual fee posts in 14 days. Consider calling Amex at month 13 for a retention offer. Consider downgrading CSR to Freedom Flex before fee posts."}
+];
+
+function buildTiles(){var c=document.getElementById("awakenTiles");c.innerHTML="";TILES.forEach(function(t,i){var d=document.createElement("div");d.className="a-tile";d.dataset.idx=i;d.innerHTML='<div class="a-cat">'+t.cat+'</div><div class="a-body">'+t.body+'</div>';c.appendChild(d)})}
+
+var currentPath=-1,pathTimeout;
+function runAwakeningCycle(){document.querySelectorAll(".a-tile").forEach(function(t){t.classList.remove("lit","active-path")});var svg=document.getElementById("pathSvg");svg.innerHTML="";var ro=document.getElementById("readoutText");ro.classList.remove("vis");
+var np;do{np=Math.floor(Math.random()*PATHS.length)}while(np===currentPath&&PATHS.length>1);currentPath=np;var path=PATHS[currentPath];
+path.tiles.forEach(function(ti,si){setTimeout(function(){var tile=document.querySelector('.a-tile[data-idx="'+ti+'"]');if(!tile)return;tile.classList.add("active-path");if(si>0){var prev=document.querySelector('.a-tile[data-idx="'+path.tiles[si-1]+'"]');if(prev)drawConn(prev,tile,svg)}if(si===path.tiles.length-1){setTimeout(function(){ro.textContent=path.text;ro.classList.add("vis")},300)}},si*600)});
+var ambient=[];for(var a=0;a<8;a++){var ri=Math.floor(Math.random()*TILES.length);if(path.tiles.indexOf(ri)===-1&&ambient.indexOf(ri)===-1)ambient.push(ri)}
+ambient.forEach(function(ri,ai){setTimeout(function(){var t=document.querySelector('.a-tile[data-idx="'+ri+'"]');if(t&&!t.classList.contains("active-path"))t.classList.add("lit")},200+ai*250)});
+pathTimeout=setTimeout(runAwakeningCycle,path.tiles.length*600+4500)}
+
+function drawConn(f,t,svg){var g=document.querySelector(".awaken-grid"),gr=g.getBoundingClientRect(),fr=f.getBoundingClientRect(),tr=t.getBoundingClientRect();
+var x1=fr.left+fr.width/2-gr.left,y1=fr.top+fr.height/2-gr.top,x2=tr.left+tr.width/2-gr.left,y2=tr.top+tr.height/2-gr.top;
+var dx=x2-x1,dy=y2-y1,cx=(x1+x2)/2-dy*0.18,cy=(y1+y2)/2+dx*0.18;
+var ns="http://www.w3.org/2000/svg",p=document.createElementNS(ns,"path");
+p.setAttribute("d","M "+x1+" "+y1+" Q "+cx+" "+cy+" "+x2+" "+y2);p.setAttribute("class","strategy-path");svg.appendChild(p);
+setTimeout(function(){p.classList.add("vis")},50);
+var dot=document.createElementNS(ns,"circle");dot.setAttribute("cx",x2);dot.setAttribute("cy",y2);dot.setAttribute("r","4");dot.setAttribute("class","path-dot");svg.appendChild(dot);
+setTimeout(function(){dot.classList.add("vis")},100)}
+
+function initHeroCanvas(){var canvas=document.getElementById("heroCanvas"),ctx=canvas.getContext("2d"),dpr=window.devicePixelRatio||1;
+function resize(){canvas.width=canvas.offsetWidth*dpr;canvas.height=canvas.offsetHeight*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}resize();window.addEventListener("resize",resize);
+var nodes=[];for(var i=0;i<30;i++)nodes.push({x:Math.random()*canvas.offsetWidth,y:Math.random()*canvas.offsetHeight,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:2.5+Math.random()*2.5,pulse:Math.random()*Math.PI*2});
+var particles=[];for(var i=0;i<80;i++){var fr=Math.floor(Math.random()*30),to=Math.floor(Math.random()*30);while(to===fr)to=Math.floor(Math.random()*30);particles.push({from:fr,to:to,t:Math.random(),speed:.002+Math.random()*.003,size:1+Math.random()*1.5})}
+function draw(){var w=canvas.offsetWidth,h=canvas.offsetHeight;ctx.clearRect(0,0,w,h);
+nodes.forEach(function(n){n.x+=n.vx;n.y+=n.vy;n.pulse+=.015;if(n.x<0||n.x>w)n.vx*=-1;if(n.y<0||n.y>h)n.vy*=-1});
+for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<220){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle="rgba(250,24,150,"+((1-dist/220)*.1)+")";ctx.lineWidth=.5;ctx.stroke()}}
+particles.forEach(function(p){p.t+=p.speed;if(p.t>=1){p.t=0;p.from=p.to;p.to=Math.floor(Math.random()*30);while(p.to===p.from)p.to=Math.floor(Math.random()*30)}var a=nodes[p.from],b=nodes[p.to],x=a.x+(b.x-a.x)*p.t,y=a.y+(b.y-a.y)*p.t;ctx.beginPath();ctx.arc(x,y,p.size,0,Math.PI*2);ctx.fillStyle="rgba(250,24,150,"+(Math.sin(p.t*Math.PI)*.75)+")";ctx.fill()});
+nodes.forEach(function(n){var g=Math.sin(n.pulse)*.3+.5;ctx.beginPath();ctx.arc(n.x,n.y,n.r+4,0,Math.PI*2);ctx.fillStyle="rgba(250,24,150,"+(g*.08)+")";ctx.fill();ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle="rgba(250,24,150,"+(g*.8)+")";ctx.fill()});
+requestAnimationFrame(draw)}draw()}
+
+function animateCounter(el,target){var start=performance.now();function tick(now){var p=Math.min((now-start)/2000,1),e=1-Math.pow(1-p,3);el.textContent=Math.floor(e*target).toLocaleString();if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)}
+
+function initReveal(){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("vis");var c=document.getElementById("stratCounter");if(c&&!c.dataset.done&&(e.target.querySelector("#stratCounter")||e.target.closest(".awaken-header"))){c.dataset.done="1";animateCounter(c,3412)}}})},{threshold:.2});document.querySelectorAll(".reveal").forEach(function(el){obs.observe(el)})}
+
+
+function initConstellation(canvasId, nodeCount, speed){
+  var canvas=document.getElementById(canvasId);
+  if(!canvas)return;
+  var ctx=canvas.getContext("2d"),dpr=window.devicePixelRatio||1;
+  var parent=canvas.parentElement;
+  function resize(){canvas.width=parent.offsetWidth*dpr;canvas.height=parent.offsetHeight*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+  resize();window.addEventListener("resize",resize);
+  var nodes=[];for(var i=0;i<nodeCount;i++){nodes.push({x:Math.random()*parent.offsetWidth,y:Math.random()*parent.offsetHeight,vx:(Math.random()-.5)*speed,vy:(Math.random()-.5)*speed,r:1.5+Math.random()*2,pulse:Math.random()*Math.PI*2})}
+  var particles=[];for(var i=0;i<Math.floor(nodeCount*1.5);i++){var fr=Math.floor(Math.random()*nodeCount),to=Math.floor(Math.random()*nodeCount);while(to===fr)to=Math.floor(Math.random()*nodeCount);particles.push({from:fr,to:to,t:Math.random(),speed:.001+Math.random()*.003,size:1+Math.random()*1.2})}
+  function draw(){var w=parent.offsetWidth,h=parent.offsetHeight;ctx.clearRect(0,0,w,h);
+  nodes.forEach(function(n){n.x+=n.vx;n.y+=n.vy;n.pulse+=.012;if(n.x<0||n.x>w)n.vx*=-1;if(n.y<0||n.y>h)n.vy*=-1});
+  for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<180){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle="rgba(250,24,150,"+((1-dist/180)*0.08)+")";ctx.lineWidth=.5;ctx.stroke()}}
+  particles.forEach(function(p){p.t+=p.speed;if(p.t>=1){p.t=0;p.from=p.to;p.to=Math.floor(Math.random()*nodeCount);while(p.to===p.from)p.to=Math.floor(Math.random()*nodeCount)}var a=nodes[p.from],b=nodes[p.to],x=a.x+(b.x-a.x)*p.t,y=a.y+(b.y-a.y)*p.t;ctx.beginPath();ctx.arc(x,y,p.size,0,Math.PI*2);ctx.fillStyle="rgba(250,24,150,"+(Math.sin(p.t*Math.PI)*0.5)+")";ctx.fill()});
+  nodes.forEach(function(n){var g=Math.sin(n.pulse)*.3+.5;ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle="rgba(250,24,150,"+(g*0.55)+")";ctx.fill()});
+  requestAnimationFrame(draw)}draw()}
+
+function initCtaConstellation(){
+  var canvas=document.getElementById("ctaCanvas");
+  if(!canvas)return;
+  var ctx=canvas.getContext("2d"),dpr=window.devicePixelRatio||1;
+  var parent=canvas.parentElement;
+  function resize(){canvas.width=parent.offsetWidth*dpr;canvas.height=parent.offsetHeight*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+  resize();window.addEventListener("resize",resize);
+  var nodes=[];for(var i=0;i<15;i++){nodes.push({x:Math.random()*parent.offsetWidth,y:Math.random()*parent.offsetHeight,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:1.5+Math.random()*2,pulse:Math.random()*Math.PI*2})}
+  var particles=[];for(var i=0;i<20;i++){var fr=Math.floor(Math.random()*15),to=Math.floor(Math.random()*15);while(to===fr)to=Math.floor(Math.random()*15);particles.push({from:fr,to:to,t:Math.random(),speed:.001+Math.random()*.002,size:1+Math.random()*1})}
+  function draw(){var w=parent.offsetWidth,h=parent.offsetHeight;ctx.clearRect(0,0,w,h);
+  nodes.forEach(function(n){n.x+=n.vx;n.y+=n.vy;n.pulse+=.01;if(n.x<0||n.x>w)n.vx*=-1;if(n.y<0||n.y>h)n.vy*=-1});
+  for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<200){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle="rgba(255,255,255,"+((1-dist/200)*.1)+")";ctx.lineWidth=.5;ctx.stroke()}}
+  particles.forEach(function(p){p.t+=p.speed;if(p.t>=1){p.t=0;p.from=p.to;p.to=Math.floor(Math.random()*15);while(p.to===p.from)p.to=Math.floor(Math.random()*15)}var a=nodes[p.from],b=nodes[p.to],x=a.x+(b.x-a.x)*p.t,y=a.y+(b.y-a.y)*p.t;ctx.beginPath();ctx.arc(x,y,p.size,0,Math.PI*2);ctx.fillStyle="rgba(255,255,255,"+(Math.sin(p.t*Math.PI)*.25)+")";ctx.fill()});
+  nodes.forEach(function(n){var g=Math.sin(n.pulse)*.3+.5;ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle="rgba(255,255,255,"+(g*.2)+")";ctx.fill()});
+  requestAnimationFrame(draw)}draw()}
+document.addEventListener("DOMContentLoaded",function(){initHeroCanvas();buildTiles();initReveal();setTimeout(runAwakeningCycle,1500);initConstellation("cycleCanvas",18,.15);initConstellation("loopCanvas",25,.2);initCtaConstellation()});
+</script>
+</body>
+</html>
