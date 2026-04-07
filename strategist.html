@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Strategist | First Officer</title>
+<meta name="description" content="Thousands of strategies. One recommendation. The Strategist maps every possible path through your points portfolio and finds the moves you would never see.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+ul{list-style:none}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}
+button{cursor:pointer;border:none;font-family:inherit;background:none}
+:root{--pink:#FA1896;--wa:#25D366;--font:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.4,0,.2,1);--r:16px;--r-pill:100px}
+body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;color:#111}
+.t2{color:#444}.t3{color:#777}.pk{color:var(--pink)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+
+/* NAV - matches main site exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(255,255,255,.88);border-bottom:1px solid #e8e9ed}
+.nav-in{max-width:1180px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nl{font-size:19px;font-weight:700;letter-spacing:-.4px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nm{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;overflow:hidden}
+.nk{display:flex;align-items:center;gap:32px}
+.nka{font-size:14px;font-weight:500;transition:color .3s;white-space:nowrap}.nka:hover{color:var(--pink)}
+.ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:var(--r-pill);box-shadow:0 6px 24px rgba(37,211,102,.25);white-space:nowrap;transition:all .3s var(--ease)}.ncta:hover{transform:translateY(-1px)}
+.mob{display:none;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px}.mob span{width:20px;height:2px;background:currentColor;border-radius:1px}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;border-radius:var(--r-pill);transition:all .3s var(--ease);white-space:nowrap}.btn:hover{transform:translateY(-2px)}
+.btn-l{padding:16px 36px;font-size:16px}
+.btn-pk{background:var(--pink);color:#fff;box-shadow:0 8px 28px rgba(250,24,150,.22)}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 6px 24px rgba(37,211,102,.25)}
+.olb{border:1.5px solid #ddd;color:#111}.olb:hover{border-color:var(--pink);color:var(--pink)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 32px 80px;overflow:hidden}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero-c{position:relative;z-index:2;max-width:860px;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:var(--r-pill);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:28px;background:rgba(250,24,150,.06);color:var(--pink);border:1px solid rgba(250,24,150,.15)}
+.hero-badge .pulse{width:8px;height:8px;background:var(--pink);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.8)}}
+.hero h1{font-size:clamp(36px,6vw,72px);font-weight:900;line-height:1.02;letter-spacing:-2.5px;margin-bottom:24px;color:#111;text-shadow:0 2px 20px rgba(255,255,255,.95)}
+.hero-sub{font-size:18px;max-width:620px;margin:0 auto 40px;line-height:1.7;font-weight:500;color:#333}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:64px}
+.hero-stats{display:flex;gap:48px;justify-content:center;flex-wrap:wrap}
+.hv{font-family:var(--mono);font-size:32px;font-weight:800;letter-spacing:-1px;line-height:1;color:#111}
+.hl{font-size:12px;margin-top:6px;font-weight:500;color:#555}
+
+/* SECTIONS */
+.sec{padding:100px 0}.sec.alt{background:#f5f6f8}
+.ey{font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:2.5px;color:var(--pink);margin-bottom:14px}
+.hd{font-family:var(--serif);font-size:clamp(28px,4.2vw,48px);line-height:1.12;letter-spacing:-.5px;margin-bottom:16px}
+.hd em{font-style:normal;color:var(--pink)}
+.ds{font-size:18px;line-height:1.7;max-width:600px;color:#777}
+.sh{text-align:center;margin-bottom:60px}.sh .ds{margin:0 auto}
+
+/* SHOWSTOPPER: WAKING BOXES */
+.awakening{position:relative;padding:80px 0 100px;overflow:hidden}
+.awaken-grid{position:relative;max-width:1100px;margin:0 auto;padding:0 20px}
+.awaken-tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;position:relative;z-index:1}
+.a-tile{position:relative;padding:14px 12px;border-radius:10px;border:1px solid #eaeaec;background:#fafafa;font-family:var(--mono);font-size:10.5px;line-height:1.45;color:#d0d0d0;transition:all .7s var(--ease);overflow:hidden;min-height:68px;display:flex;flex-direction:column;justify-content:center}
+.a-tile .a-cat{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#e0e0e0;margin-bottom:3px;transition:color .7s var(--ease)}
+.a-tile .a-body{transition:color .7s var(--ease)}
+.a-tile.lit{border-color:rgba(250,24,150,.2);background:rgba(250,24,150,.02);box-shadow:0 0 20px rgba(250,24,150,.04)}
+.a-tile.lit .a-cat{color:rgba(250,24,150,.5)}
+.a-tile.lit .a-body{color:#888}
+.a-tile.active-path{border-color:var(--pink);background:rgba(250,24,150,.05);box-shadow:0 0 40px rgba(250,24,150,.1),0 8px 32px rgba(250,24,150,.06);transform:scale(1.04);z-index:3}
+.a-tile.active-path .a-cat{color:var(--pink)}
+.a-tile.active-path .a-body{color:#111;font-weight:600}
+#pathSvg{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible}
+.strategy-path{fill:none;stroke:var(--pink);stroke-width:2;stroke-linecap:round;opacity:0;transition:opacity .5s}
+.strategy-path.vis{opacity:.35;stroke-dasharray:6 4;animation:dashFlow 1.2s linear infinite}
+@keyframes dashFlow{to{stroke-dashoffset:-20}}
+.path-dot{fill:var(--pink);opacity:0;transition:opacity .3s}.path-dot.vis{opacity:.7}
+.awaken-header{text-align:center;margin-bottom:48px;position:relative;z-index:3}
+.awaken-counter{font-family:var(--mono);font-size:clamp(48px,8vw,88px);font-weight:900;letter-spacing:-4px;line-height:1;margin-bottom:8px;background:linear-gradient(135deg,var(--pink),#FF6B6B,#9B5DE5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.awaken-label{font-size:16px;font-weight:600;margin-bottom:4px;color:#111}
+.awaken-sub{font-size:14px;color:#777;max-width:480px;margin:0 auto}
+.active-readout{text-align:center;margin-top:32px;min-height:60px;position:relative;z-index:3}
+.readout-label{font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--pink);margin-bottom:8px;opacity:.6}
+.readout-text{font-size:15px;font-weight:500;color:#333;max-width:640px;margin:0 auto;line-height:1.6;opacity:0;transform:translateY(8px);transition:all .6s var(--ease)}
+.readout-text.vis{opacity:1;transform:translateY(0)}
+
+/* CYCLE */
+.cycle-ring{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.cycle-node{position:relative;padding:36px;border-radius:var(--r);border:1px solid #e8e9ed;background:#fff;transition:all .5s var(--ease);overflow:hidden}
+.cycle-node::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--r) var(--r) 0 0}
+.cycle-node:nth-child(1)::before{background:linear-gradient(90deg,#25D366,#00B4D8)}
+.cycle-node:nth-child(2)::before{background:linear-gradient(90deg,#FF6B6B,#F8961E)}
+.cycle-node:nth-child(3)::before{background:linear-gradient(90deg,#9B5DE5,#F15BB5)}
+.cycle-node:nth-child(4)::before{background:linear-gradient(90deg,#FEE440,#25D366)}
+.cycle-node:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.06)}
+.cycle-num{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--pink);opacity:.5;margin-bottom:12px;letter-spacing:2px}
+.cycle-node h3{font-family:var(--serif);font-size:24px;margin-bottom:10px}
+.cycle-node p{font-size:14px;color:#777;line-height:1.7}
+
+/* LOOPHOLE */
+.loop-grid{display:flex;flex-direction:column;gap:2px;max-width:900px;margin:0 auto}
+.loop-card{display:grid;grid-template-columns:80px 1fr;gap:0;border-radius:0;background:#fff;border:none;border-bottom:1px solid #eee;transition:all .5s var(--ease);overflow:hidden;position:relative}
+.loop-card:first-child{border-radius:var(--r) var(--r) 0 0}.loop-card:last-child{border-radius:0 0 var(--r) var(--r);border-bottom:none}
+.loop-card:hover{background:rgba(250,24,150,.015)}
+.loop-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;transition:background .5s}
+.loop-card:nth-child(1)::before{background:var(--pink)}.loop-card:nth-child(2)::before{background:#9B5DE5}.loop-card:nth-child(3)::before{background:#00B4D8}.loop-card:nth-child(4)::before{background:#FF6B6B}.loop-card:nth-child(5)::before{background:#FEE440}.loop-card:nth-child(6)::before{background:#25D366}
+.loop-num{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:32px;font-weight:900;color:#eee;position:relative}
+.loop-num .scan-dot{position:absolute;top:12px;right:12px;width:6px;height:6px;border-radius:50%;animation:pulse 2s infinite}
+.loop-card:nth-child(1) .scan-dot{background:var(--pink)}.loop-card:nth-child(2) .scan-dot{background:#9B5DE5}.loop-card:nth-child(3) .scan-dot{background:#00B4D8}.loop-card:nth-child(4) .scan-dot{background:#FF6B6B}.loop-card:nth-child(5) .scan-dot{background:#FEE440}.loop-card:nth-child(6) .scan-dot{background:#25D366}
+.loop-body{padding:24px 28px 24px 0}
+.loop-tag{font-family:var(--mono);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;display:inline-block;padding:2px 8px;border-radius:4px}
+.loop-card:nth-child(1) .loop-tag{color:var(--pink);background:rgba(250,24,150,.06)}.loop-card:nth-child(2) .loop-tag{color:#9B5DE5;background:rgba(155,93,229,.06)}.loop-card:nth-child(3) .loop-tag{color:#00B4D8;background:rgba(0,180,216,.06)}.loop-card:nth-child(4) .loop-tag{color:#FF6B6B;background:rgba(255,107,107,.06)}.loop-card:nth-child(5) .loop-tag{color:#B8860B;background:rgba(254,228,64,.1)}.loop-card:nth-child(6) .loop-tag{color:#25D366;background:rgba(37,211,102,.06)}
+.loop-card h4{font-size:16px;font-weight:700;margin-bottom:6px}
+.loop-card p{font-size:13px;color:#777;line-height:1.6;margin:0}
+
+/* FEED */
+.feed{max-width:680px;margin:0 auto}
+.feed-item{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid #e8e9ed}
+.feed-dot{width:10px;height:10px;border-radius:50%;margin-top:6px;flex-shrink:0}
+.feed-dot.earn{background:#25D366}.feed-dot.burn{background:#FF6B6B}.feed-dot.move{background:#9B5DE5}.feed-dot.alert{background:#FEE440}
+.feed-time{font-family:var(--mono);font-size:11px;color:#aaa;margin-bottom:4px}
+.feed-msg{font-size:14px;line-height:1.6;color:#333}
+.feed-val{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--pink);margin-top:4px}
+
+/* BEFORE/AFTER */
+.ba-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:stretch;max-width:900px;margin:0 auto}
+.ba-card{padding:36px;border-radius:var(--r);border:1px solid #e8e9ed;background:#fff}
+.ba-card.before{opacity:.7}.ba-card.after{border-color:rgba(250,24,150,.3);box-shadow:0 0 40px rgba(250,24,150,.06)}
+.ba-card h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px}
+.ba-card.before h4{color:#aaa}.ba-card.after h4{color:var(--pink)}
+.ba-line{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f0f0f3;font-size:14px}
+.ba-line span:last-child{font-family:var(--mono);font-weight:700}
+.ba-arrow{display:flex;align-items:center;justify-content:center;color:var(--pink)}
+
+/* CTA + FOOTER */
+.ctab{background:var(--pink);padding:80px 0;text-align:center}
+.ctab h2{font-size:clamp(26px,3.8vw,42px);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.ctab p{font-size:17px;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 32px;line-height:1.7}
+.ctab .bg{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.ctab .btn-pk{background:#fff;color:var(--pink);box-shadow:0 8px 30px rgba(0,0,0,.1)}
+.ctab .btn-gh{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4);border-radius:var(--r-pill)}
+.ft{border-top:1px solid #e8e9ed;background:#f5f6f8;padding:24px 0 16px}
+
+
+/* CONSTELLATION CANVASES */
+.constellation-wrap{position:relative;overflow:hidden}
+.constellation-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.constellation-wrap>.wrap{position:relative;z-index:1}
+/* REVEAL + RESPONSIVE */
+.reveal{opacity:0;transform:translateY(30px);transition:all .8s var(--ease)}.reveal.vis{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}
+@media(max-width:1024px){.awaken-tiles{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:768px){.nk{display:none}.mob{display:flex}.hero-stats{flex-direction:column;gap:16px}.cycle-ring,.loop-grid{grid-template-columns:1fr}.ba-grid{grid-template-columns:1fr;gap:16px}.ba-arrow{transform:rotate(90deg)}.awaken-tiles{grid-template-columns:repeat(3,1fr)}.sec{padding:64px 0}}
+@media(max-width:480px){.hero{padding:100px 20px 60px}.wrap{padding:0 20px}.hero-ctas{flex-direction:column;align-items:center}.awaken-tiles{grid-template-columns:repeat(2,1fr)}.hero h1{letter-spacing:-1.5px}.hv{font-size:24px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-in">
+<a href="/" class="nl"><div class="nm"><img src="data:image/png;base64,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" width="28" height="28" alt="UpNonStop" style="display:block"></div><div><div style="line-height:1.1">First Officer</div><div style="font-size:10px;font-weight:400;letter-spacing:.5px;line-height:1">by <span style="font-weight:700">UpNonStop</span>&trade;</div></div></a>
+<div class="nk">
+<a href="/" class="nka">Home</a>
+<a href="product-personal.html" class="nka act">Product</a>
+<a href="calculator-personal.html" class="nka">Calculator</a>
+<a href="firstofficer-site.html#pricing" class="nka">Pricing</a>
+<a href="firstofficer-site.html#about" class="nka">About</a>
+</div>
+<a href="https://wa.me/16199404040" class="ncta" target="_blank">&#x1F4AC; Start on WhatsApp</a>
+<button class="mob" onclick="document.querySelector('.nk').classList.toggle('show')"><span></span><span></span><span></span></button>
+</div></nav>
+
+<section class="hero">
+<canvas id="heroCanvas"></canvas>
+<div class="hero-c">
+<div class="hero-badge"><div class="pulse"></div> The Strategist</div>
+<h1>Thousands of Paths.<br>One <span class="pk">Perfect</span> Move.</h1>
+<p class="hero-sub">The Strategist maps every possible route through your points portfolio. Transfer paths, earn multipliers, redemption windows, partner sweet spots. Then it narrows to the single best action for your wallet right now.</p>
+<div class="hero-ctas">
+<a href="https://wa.me/16199404040" class="btn btn-wa btn-l" target="_blank">See Your Strategy</a>
+<a href="firstofficer-site.html" class="btn olb btn-l">How It Works</a>
+</div>
+<div class="hero-stats">
+<div><div class="hv"><span class="pk">629</span></div><div class="hl">Programs Monitored</div></div>
+<div><div class="hv"><span class="pk">100+</span></div><div class="hl">Cards Mapped</div></div>
+<div><div class="hv"><span class="pk">2,400+</span></div><div class="hl">Transfer Routes</div></div>
+<div><div class="hv"><span class="pk">13</span></div><div class="hl">Banks Tracked</div></div>
+</div>
+</div>
+</section>
+
+<section class="awakening sec alt">
+<div class="wrap">
+<div class="awaken-header reveal"><div class="ey">Strategy Depth</div><div class="awaken-counter" id="stratCounter">0</div><div class="awaken-label">Unique strategies evaluated per portfolio</div><p class="awaken-sub">Every card combination. Every transfer path. Every timing window. The Strategist exhausts every possibility and ranks them by real-dollar return for your specific wallet.</p></div>
+<div class="awaken-grid"><svg id="pathSvg" preserveAspectRatio="none"></svg><div class="awaken-tiles" id="awakenTiles"></div></div>
+<div class="active-readout"><div class="readout-label">Active Strategy Path</div><div class="readout-text" id="readoutText"></div></div>
+</div>
+</section>
+
+<section class="sec constellation-wrap">
+<canvas class="constellation-canvas" id="cycleCanvas"></canvas>
+<div class="wrap">
+<div class="sh reveal"><div class="ey">The Strategy Engine</div><h2 class="hd">Four Forces. <em>One System.</em></h2><p class="ds">Every strategy the Strategist builds optimizes across four dimensions simultaneously. Not one. Not two. All four, weighted to your goals.</p></div>
+<div class="cycle-ring">
+<div class="cycle-node reveal reveal-d1"><div class="cycle-num">01 EARN</div><h3>Earn Smarter</h3><p>Card routing rules matched to your actual spend. Ink Preferred captures 3x on shipping and advertising. Amex Gold earns 4x at restaurants worldwide and 4x at US supermarkets (up to $25K per year, then 1x). Blue Business Plus catches everything else at 2x. The Strategist recalculates monthly as your spend shifts.</p></div>
+<div class="cycle-node reveal reveal-d2"><div class="cycle-num">02 BURN</div><h3>Burn at Peak Value</h3><p>Redemption timing is everything. The Strategist monitors award chart sweet spots, transfer bonuses, and program devaluations. ANA First Class for 55,000 Virgin points returns roughly 12 cents per point. Cash-out returns 1 cent. It tells you when to redeem and when to hold.</p></div>
+<div class="cycle-node reveal reveal-d3"><div class="cycle-num">03 RETURN</div><h3>Measure Real Return</h3><p>Cents-per-point benchmarks against published valuations. Monthly portfolio valuation against market rates. The Strategist tracks whether your strategy is working, showing you the dollar value of every move. Not feelings. Math.</p></div>
+<div class="cycle-node reveal reveal-d4"><div class="cycle-num">04 LEARN</div><h3>Learn Continuously</h3><p>Every strategy session teaches you something. Why a 1:1 Amex-to-ANA transfer at a 30% bonus beats cashing out. Why timing your Hyatt booking to off-peak saves 8,000 points per night. The Strategist builds your instincts over time.</p></div>
+</div>
+</div>
+</section>
+
+<section class="sec alt constellation-wrap">
+<canvas class="constellation-canvas" id="loopCanvas"></canvas>
+<div class="wrap">
+<div class="sh reveal"><div class="ey">Loophole Intelligence</div><h2 class="hd">Finds What <em>Nobody Tells You</em></h2><p class="ds">Transfer bonuses that last 72 hours. Award chart sweet spots before devaluations hit. Category coding quirks that change your earn rate.</p></div>
+<div class="loop-grid">
+<div class="loop-card reveal reveal-d1"><div class="loop-num">01<div class="scan-dot"></div></div><div class="loop-body"><div class="loop-tag">Transfer</div><h4>Transfer Bonus Windows</h4><p>Programs run 20% to 40% transfer bonuses that last days. The Strategist monitors every partner pair across every transferable currency and alerts you the moment a bonus drops.</p></div></div>
+<div class="loop-card reveal reveal-d2"><div class="loop-num">02<div class="scan-dot"></div></div><div class="loop-body"><div class="loop-tag">Timing</div><h4>Devaluation Front-Running</h4><p>Award charts change. The Strategist detects early signals from program announcements and historical patterns. Lock in value before the chart shifts upward.</p></div></div>
+<div class="loop-card reveal reveal-d3"><div class="loop-num">03<div class="scan-dot"></div></div><div class="loop-body"><div class="loop-tag">MCC Intel</div><h4>MCC Category Mapping</h4><p>Your gas station may code as "automated fuel" instead of "gas." Your SaaS subscription may code as "professional services." The Strategist knows which cards earn bonus rates on your real purchases.</p></div></div>
+<div class="loop-card reveal reveal-d1"><div class="loop-num">04<div class="scan-dot"></div></div><div class="loop-body"><div class="loop-tag">Credits</div><h4>Credit Stacking</h4><p>Airline credits that work on gift cards. Dining credits that trigger on delivery apps. The Strategist identifies which annual card credits can be triggered through non-obvious channels before they expire.</p></div></div>
+<div class="loop-card reveal reveal-d2"><div class="loop-num">05<div class="scan-dot"></div></div><div class="loop-body"><div class="loop-tag">Retention</div><h4>Retention Offer Timing</h4><p>Month 13, not month 12. Product change, not cancellation. The Strategist advises you when to call and what to ask for, based on retention playbook data for every major issuer.</p></div></div>
+<div class="loop-card reveal reveal-d3"><div class="loop-num">06<div class="scan-dot"></div></div><div class="loop-body"><div class="loop-tag">Sweet Spots</div><h4>Sweet Spot Library</h4><p>ANA First Class for 55,000 Virgin Atlantic points. Hyatt Category 1 for 3,500 points per night. A living database of the highest-value redemptions across every program, updated continuously.</p></div></div>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap">
+<div class="sh reveal"><div class="ey">Live Intelligence</div><h2 class="hd">What The Strategist <em>Actually Says</em></h2><p class="ds">Real strategy recommendations. Real dollar values. Delivered via WhatsApp. Not a dashboard you will never check.</p></div>
+<div class="feed reveal">
+<div class="feed-item"><div class="feed-dot earn"></div><div><div class="feed-time">Strategy Session / Monthly</div><div class="feed-msg">Your restaurant spend is on a flat 1.5% cashback card earning roughly $22 per month. Amex Gold earns 4x at restaurants worldwide. At your current $1,500 per month dining spend, that is 72,000 MR points per year instead of $264 in cashback. Those points transfer 1:1 to airline partners.</div><div class="feed-val">+48,000 pts/year</div></div></div>
+<div class="feed-item"><div class="feed-dot move"></div><div><div class="feed-time">Transfer Alert / Time-Sensitive</div><div class="feed-msg">Amex is running a 30% transfer bonus to Virgin Atlantic through Friday. Your 80,000 MR points become 104,000 Virgin points. That is enough for ANA First Class one-way to Tokyo. Cash price for that seat typically runs $12,000+.</div><div class="feed-val">Value: roughly 11.5 cents per point</div></div></div>
+<div class="feed-item"><div class="feed-dot burn"></div><div><div class="feed-time">Redemption Recommendation</div><div class="feed-msg">Hyatt released award availability at Park Hyatt Maldives for your March dates. Category 7 at 30,000 points per night. Cash rate is $1,800 per night. This is the highest-value redemption available in your portfolio right now.</div><div class="feed-val">Roughly 6.0 cents per point vs. 1.0 cents per point cash out</div></div></div>
+<div class="feed-item"><div class="feed-dot alert"></div><div><div class="feed-time">Devaluation Shield</div><div class="feed-msg">Marriott is restructuring peak and off-peak pricing in Q2. Your 240,000 Bonvoy points currently book 8 nights at Category 5. After the change, the same dates will likely cost 40,000 per night. Recommend booking now to lock in current value.</div><div class="feed-val">Savings: roughly 80,000 points ($640 estimated value)</div></div></div>
+</div>
+</div>
+</section>
+
+<section class="sec alt">
+<div class="wrap">
+<div class="sh reveal"><div class="ey">The Difference</div><h2 class="hd">Without Strategy vs. <em>With Strategist</em></h2></div>
+<div class="ba-grid reveal">
+<div class="ba-card before"><h4>Without</h4><div class="ba-line"><span>Cards</span><span>2 generic cashback</span></div><div class="ba-line"><span>Earn rate</span><span>1.0x average</span></div><div class="ba-line"><span>Annual points</span><span>~60,000</span></div><div class="ba-line"><span>Redemption value</span><span>$600 statement credit</span></div><div class="ba-line"><span>Transfer bonuses captured</span><span>0</span></div><div class="ba-line"><span>Expiring credits used</span><span>Unknown</span></div><div class="ba-line"><span>Strategy sessions</span><span>None</span></div></div>
+<div class="ba-arrow"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+<div class="ba-card after"><h4>With Strategist</h4><div class="ba-line"><span>Cards</span><span class="pk">4-card optimized stack</span></div><div class="ba-line"><span>Earn rate</span><span class="pk">2.0x to 2.8x blended</span></div><div class="ba-line"><span>Annual points</span><span class="pk">~120,000 to 168,000</span></div><div class="ba-line"><span>Redemption value</span><span class="pk">$2,400 to $6,700 in travel</span></div><div class="ba-line"><span>Transfer bonuses captured</span><span class="pk">3 to 5 per year</span></div><div class="ba-line"><span>Expiring credits used</span><span class="pk">100%</span></div><div class="ba-line"><span>Strategy sessions</span><span class="pk">Monthly deep-dive</span></div></div>
+</div>
+</div>
+</section>
+
+<section class="ctab constellation-wrap"><canvas class="constellation-canvas" id="ctaCanvas"></canvas><div class="wrap" style="position:relative;z-index:1">
+<h2>Your Points Have a Strategy Waiting.</h2>
+<p>Four questions. Two minutes. The Strategist maps your portfolio and shows you what you are missing.</p>
+<div class="bg"><a href="https://wa.me/16199404040" class="btn btn-pk btn-l" target="_blank">Get My Strategy</a><a href="firstofficer-site.html" class="btn btn-gh btn-l">See Plans</a></div>
+</div></section>
+
+<footer class="ft"><div class="wrap"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+<a href="/" class="nl"><div class="nm" style="width:28px;height:28px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAWSElEQVR4nM1be3ScVbX/7X3OTDKvZNKktLWWWuVRWhYqFO9VC2lQqRQsBUy4FBHwURXvxSdKL9AvQ8ULBXX5goVcwKu4wEkVKJSFXGmIFwVdPlArcJGXlNI2aZLpZF6Z+c7Z94/zfTMR0yYtpeuetbqa1Wa+7+x99vntvX+/PcAhXuIJC8BQQGH9AzcVe++/FZpBwf8d6v0c0pXtzioAEBEurbv/FlnTJ7Jmo5SvvP+OZ0SaAECC3zlUiw7Vi6Q7q6ivx7yUy83ouGbLXbER8z6/nDdEJCreoitp9ejIinlnze1asrvf69ddmS7/UOzrkDhAvH5NmS5/8JHfH9m6+W/3RofGjzHVok8ELVYAgq+iSV1rifxv/sSZZ3dccPKTv11zc2TJ9z5Re7339ro7IDR+120D72r70+6fRoYrs3xT8ZlYEyysABABiH2lorra0jQ0vqi9u+XTpwyEn3099/e6OUBECMt6FQ1k/NFrNq9KvFS4I1KqJWq2alhEQQTEBIAgxoKZYMUapZqUaY2NlxekPpr64vt/JN1ZhWy3JSJ5Pfb5ujhARAjUw4Q+M3btg5+Nv7DnGzRWgiGxBDBZgUAA+fsdMDEMxDIxc2sKpcMTVyfWnuaJgOB5RJmMPdh7PehpRzxhIhJSG03R27wh+fzYN5AvWp+sEMAQQAgQImc/uSgAABEBrGUjRuyeMRN/sbKudMWm7/WKEGUyNvs6ZIiDGgGSzSrq6TFbRZJvvuK+22OD1Q+a4h4jTEyg0EqICEgAYoFMDGwRiBWwVrBEICu+aknrUqT6s21rT/7Qwrlzd/d7nu7KZA4aLhw0B9TBrn/r7NbNz/6kacS8yxRzNTAiIAKIIGIBERCCkydC3QNC7lrAgsAAE6AZ5Z05P5G3ujC/5amRnoUfmH/20uek09M0cHCccFAcUDf+rsffmv7V9o3R3PgRvl/xiVjDGggFr7IWgABEIGaICBiBM4RcZJBA2P1/accoaqMFELPfgqguzUq8MvreI86Z95lTH5fOfk0Drz1DvGYHhBsZue6+kxIvFO+J5v0Z1lZ8MGuAALEQAGAGw4W/WAtiBz8i4pwBARmAFENgUd4+CjNWBmsFEMEwTEK08memyoUT5pw30zvzXkG3ArKWcOAZ4oBBUERIurOKBrr8kWs3r049V/x5dGR8hrVVA2ItwWEDACHYokM/F94TjAczAAYphrEWxReHYPIlsFYgIRAIGkqVWSwN5WMtv3nlnpG1P/k0qT4D9JKIHPBBHpADxPOYiYQ29pj8uvuvaHum+COdr0SsMhYgBWGQJYSZLrDWoXzgEAgFGSCogzTDr/kovLATUq6BtQbAEEX1z7MI1zTE5gq2bevod/KfzV5P0a9YIhLxvAOyZb89F9b0z4g0zfU23xjfVvoIimPGMJgnVCsi4d2e+CYKcM+6f+egFIgo+MUyyi8Ng42AIgqwE6NDAAiIGCCAmAW+NbHWtC7OT9y57abVnziGaEw8YcrQftUK++WA0PiXX365fcZ3frcxtn18mS3lfVGknX0u1IWC8Ca3eSE4YBMCSVAEMUHIGlaMaq6oyttHoIRc2IcZgt3fFLiAyDmQ4J4HAz+WSOryvNTDQ5cu7Z5/3PzRcI8H3QFh6tlx92NvSm/Zfn/zzspiUy36pJQO7zQA1G+jAFDBiVvnBAjAzIAiiLVWxWKM3XkMv7jdqkiEmdy1YKVcmVyPmiCSwmqCgoc5R/nNTQldOaxp6+DyuWfOP/99z+9PmpzWvfntmpsjNJDxd93yi3fP2PziY80vFxbbWskXIi3WgqwAYXkbGAECYAWwgR0S1AIEEWOMamnj0tzkrbsS5tb2VJpZYIQgRK4ekImfAUAM8ERHM4PcH12plfzmHcVjZ23a9uiu7/QvpYGM/9sTbo5Mx7YpI0DgMSFjczc8eG78j7tvi+QqcQPfsGYVgpoQh4fl7mwdt6T+MzHDElmyQirdQoW5zetTvWesAwO7L7r9ipbncl+p5gtitBKtFJMiiIT1o3Oqa56CtEloOBoEC5hm0qrWnqyU3jbz4vTlK+4KYmSfKXKfESCex5Be7Lnyns8kfzd4l86V4j5qloiUWAuqo3pgrMD9m23Av/MBQQhGQ7FNx+3YkamPpbwz1skHs0qWerrj1ouvGXnnG9dQe9I0GTAIxiU/CYxn9xaZaHTgWGJ3bZhUVYvl0bHmlicG7yxkNl0OEZ4qO+w1AsK6Ppe5b3nrM4UH7WjOWE3MrqYN3954CJFrcKhxDSQMZ7Z+hJt1NR0bKS/qODd9adfPJ97TOr5cv/mUll/8LRsfrrSXyfjEpN2jKTgqArN7bvj+eiolgJWCFSMKZFV7hxqd37xyxlfPum9fwLh37/xlJgGArvqHYdy3ItaydRDnOAyp1/FWJhy3IKjLrCtzrfUjKq4rM5qfGTth5tL0pV0/lwBT6qcwkPGl09NzLjt9y1DPsScX35j6SyzSrAVSI0UgxYBSIKUgQQk90fg6cIqAhUmUsihVrBrKpwEAg3/Z60FPCYISifhwVSyJFVBAZFDA5Lh0R3WHuGsRYIPxfRVL6fGO6MO5Ncef1PHxZU+J169pEqordMKbLjj5yaevPmlZ/s2pLbHmZAS++GACh6duXSahwAFE7FJiEHGkGMREUMTCMmUmmDoLiKXgIjcMDdMa1dEOEjY6AohYQdUYTrToyvzYHVu/1X3anLcdMSjdWbUviosGMr5ks2rJwoW7f3nrhSv2HNP6/aZUQotvrWmAzAQeRUAcODs4CBBBbL3DnBLk9+GARxo/hg8EINZCjG2Enw16e4LbHFmrjIDTraq4IOHFrlt1wQlEvngeT6dAoZ4eI57HpxFV099ZffGeRTMuj6QTHBEmYbKslKsl0CipGQS20ohCoiBvTvW26fYCE5qXOoFhpX4FbHD6VqxRwuyn49WxxTPWJNevvFpMt+P/JqGzxPMmRWnKZKyLqqxKf+3c63Jvndlj0rFiEzRbsUaCrtIGFaarKoPPqiBjAICamkDS03IAws4tQPfg/hOofi2siK9Vk67NiA8W39Gxuu2Tpz5c79lfFYkSJPjQKQJQcHL1UAt+NtLpabr67L5tNz6wbeYvB7NNI7V5Nb/sQylNEw6GlYIEjpCgalSY2gFTR4AxgG9AYXvreGyIWIj1EZyGr1VMV2YnnhxacVRn2ydPfVi8yQkLZ3wvEUEK6+67as+6TdcQQUC95E0WDQMZX7x+Pe+SFY8Pnb/wXaVZTY9FonENWJ+CPqEOiIE3oVxUGEzdEkwZAcYYIDwnCcpeUFiXCHxjdDylS7P0A7svWfyh+ccdN9rveZPy+QFhaiGCQu+JNyZ2lD8FYpSuvH9m79WnfzJDZCfr6CjT5Ut3VtGKf365X+SUJf92513J7epMv1wyUC4uLRBcVVcrgBjBxve5powApVSAvM4BNiAurYiQD9Etrbp8ROKmxG0Xnj7/uONGs91ZNRlpme3OKsqQfUJ2JEpfvvuexPbypzA2VjNjOT+2s/Lxy9du2vTU0FCKMmQl+4/sL/X1GPGElxGNp27+0KrCUa036LZWxQIIkyUmlx4V4dVX7jU5wK1G+gEJLIllI+B0kvNHpS6Lf737EqleyeJ53DMJ0ovXr3v6eswLv946e+GXHu+PDY6vNKW8bxkRArQp5vzmwcrpC776iy3bN/32cJcJ+v8hOinjokdqV3Fqw9mXjR2dXGPScaOJGUxGlKsJhOEwYBogOG0WRaxjdK1YExVmc1hLdc+SWd2t15x1g0P6Xpkc6R1hujv7+KI33PnMr5p2lU801ZIPQIeIx8TaVgp+08j4kplb/vZo7vv/cwJluvxJnUAkQEb6T/Z0S++qW/JL5pxem5kYZY4qgfhgdtE/zSiY0gHuON3dMtb6UTSp8dnJlwvvPfKUtstXbJROTxP6zGTSlXQ643PfffjUloFtA9Hh0gLflA0R6QlwHxqmfb9sIsOleYnfD24ZufHhlZTp8qVzEicA0hWAY8fnlz+UP3nuuyuzY39VkbiGWD/EKBNmgWWvwQEwCHpy9puaW3VlbvLx4Q8f++72j7z7V3sjHiYSpnuuf/Di+J+GHoiMljp8WzUspBocQaOKExEwsfJt1erhsZaWPw/fnb/+oU/SQJcv6FaTEZ+U6fL7vX7dceGyp3JrTlg6Pie2RcVaNAT+dGN7GiBIFsbYaHNTc+WNTXe+eNsFp85935KX+r3Jjfc8j0EE6usxhcwDl7c8V7otsqfERoxlCxXiSaNbRKOqFAEL2IixKldA6vmxmwpf/dkNpPoMiDBZ0dQVZIg5bzti8L++tur9pXnN3+eWZDOMtVBTp4GpCyFjNTrSXJgl16c2dH8JN52PIFVNivQ9mR6zWEQV1t737cQr459CPmd8EmZBWLXXa3aSsHcIagsE5IpY9skK78mZBKsvFL5w9+y+61Z9pIeoGrbpE98bZggQ+aRwcb5303OpQV6va4XogTvgycUCAJWkLtTiWDujd+W1YjyG9ArRPzKvdV1w19bkEZdv2tg0WF1uy3kfYD3xhK1YgF0PAXGPcTfBsT0cNjvEBMWq/MI2PzFmzl9+/m1znn766XNp4cLd/Z2e7npV9FGGrIiQUI+iq1Z+JbfhgWGpNOUBAIsX75UVmhoqA/1uX/RSiPSj9z6xIPbfz2abcv4SUynWSCES8NhByWxcNmGqd3PixKMgKqQO3sQK5d15VIfHQCC/NRrXpdnxP+dXv331nHPesXVfwxPZ7qzq6esxdTp5X+ZN6QC4pmVv2nxY7+/+wWP/1PLrV34SGSrPNTLuEzk2J3Sbc2FDEkNDJ3eOgHXyGJMzftcemFwBHIlAyJXbLdysy7MTQ6UT55zRcfkHfrMv9ne69PgBS0oCIXT3MfX1mJEbHlqZfGrkjki+mqrZccPMqq77k3VEBUJOgeuoD8AJIOFRaYJYoLxjBLY47nRBIKDDHa8YE6X89kSpePzcj7T3rvyxoFtBsgc8QXJg0pgIAT1MG3vM2IaHPpveOnxvZKSQMrZiGVCwBhADcGD038tD4UMCHHCNFSmG8QXFbUOwYxWnrQYkKAU0GxOpshJLo8X4jN/vumvPZX2fI91nQDRpIzWdtf/SmOcxMhkhhoxddvdXky+Pr0U+b3wtzMwkQZsMFRASBDjtP6h5AqVLTBCdApBW8Ks1lLftBvkWHA2M55B0dZ8XJihFMEyifLGx1rQqHNFyY+qm1Z9G1eCQSWNZkeiKz/XdnthRW20LYz4irIQCrOdGM0IsLtdL0EFyaLHDBWut4YhCbayiyttHwGJBSrluLujswnZX6hyg86QwgS385mSrLs6N/3Tb98676BiiscnS5EFxQGj8jieePaztlt9vbNpZPcmvjPlg0sxcP2HHFXJw2hK0pUCdNyM46tyIUU0JhdExDP9tu1U6yqwCbUUpF0GAI0Pr4oh7idMZgigT8ZujCV0+PPG74ieOXznzhGNeEc/TNM0xmmlmAZdyXv7ho0e3P/LSpubh6lHGL/ukWNevd6D1WycAgibSVKGWxwTrpAOjUq26PCv60z1PvliZvdNfPVYpGKuVKxoUg4JOjpnqgBmKIHXtoTFk4TfrZj0+s/n5Pacdec6sDy19YrozhtOWxoa++/Ou1GM7ftw0Oj7Tsu8D0BO5+cbvw53MBOMlyACWRWAguq2Ni2+MfTv5lZWXwhoMX3T7+vSzuSvLhYIgEhFiYqgJSlB9s8HskGroARPea5opoqqzkrmxE2af2/H55Q/tK31PywHiCdN6trn/eOC8+B923RrJVWI+G8NKKYg0dMCQhQZclReAHpQjKSwJwLDKEqM1geKbWy5L/vuKGwQePwJwF2X8XV/MXpL6485vRnJlXYnAKOZ6M09h+CtutLkhBVbHG4ZATJQjqpaO16qL2z6aXLfyh7Ju307YuzQW3PmR6x7oTP9p5BEM5+GTWCbiuj4X1vRAI6836DKACKwZBmK01qrWFh8vLeq4OH3pe+6cOAFal8bW33tKyx929MV3j88omIqvFGtqhBKgOJDKG8pQPQoCKd6CrLIgNaudRuY3v799/Vk/OzBpLFj6+ZE0lWowDJ8Aro+6hDk81Amcng3AESdM5DKeFV/rmKp2JHdU3nn4e9OXvudO6ezX1NdT5xDq0thVZ24ZvmDJstIb4n9MRhIaVmqO4aEJ5XPD8RLMEFAAjLAEtmBR4qNUFj1UmA3gAKWxRe5DNCseFyLAmuA+B/27Mw6wThdww4/BBAdJKIz6HG3W4x36N3vOfEtny4XvfHRvbLFjfz19+FlL/rzjG2ecWnhLcnMsnoqQEQMmqU+NIDQYUCDwBGmMgvE6IkcLC5vqlAc81S8YF6SAQViT16szEQtyA7CN2V8DiCJR1jdIterKG2L3Dm1Ydd7hRGWXo/chjWWcNEZz5gxC5AP5z9717dSz9OlavmitJiECTxyZsdZCKeUiLaw/wrqDFWBfkzQWLKUa5aoN0rkNtECBAzhqTOpZEoFvBamULs6LfuO+DavOOZyoLJ7wdAqUUBoTImr55nn/OnpsxyU2HaeIBYuIQXAlSLmxOuEAG8KJESAYrjpYpKgxTgwVgbW+u/MTR97CTg+AEWuVIeK2FOcXpi9LXvvBz3eT69P3p0QNpDGRTk/PuO6DN+WXHr7S70iNNHFU2Trxya5gmjgvIAgy0/SFkek5oL6zhhQGAMKAsHOGb62JQHOtPVEqvH3mWa1XnXGDdHr61ZLXtJ1AJA4c+/VhXz79/pHT3tJZnp14slk54rNOsmACpRbihJu7BCme0r796KCCloxC9G9cA7LiR7lJ1WYnX8qdvWh5yxfff4/jCTL+a/2iAw10+eJ5es7Hura++O/vOLk0PzkQjSa0GGtAqDMoxOSGKhnBbCGBmad89/QcEErOFnXtnQDACMQ3vtYxXZmX+N3wBcd3zjp7yV6R/kAXZTK+dGfVokWLhjff9C/vKRyd/qFOJRWMWMsk0AxRXJ9HrO+wPrqy9zU1KapU3aMSsDdEQU3vw0ZSrbo4N9r39HfPu2gJUWkqpD/Q5YhPj0FkSePDY2vveSL5YuRrnCvCgCy7SSpHAzvOPfzB6QIDkz932hEgxhU5AgMLa9mHRFpTqnBUckPylgt6lhCVpov0B7rqcwN+t0qtX/X13JJZ3X57Mq85ytZaAwkoiEAam86aHgiKhdTVDDJRSyztCc4tavtY6vruL0vtHLW/SH+gi4iE0Gek09Ntn3nvxtzSNyyrzo79VTclnTS2H8IosD/aIANC4jchqqrtqd35E+csb7vmrFsDaex1+1bX3lY4N3DYx5b9YeTjxy+tzGn6hUq0aBGqEZRMl+qYhgNUUIKS38QxXZ6b+uvYmUef1PGlFQ9NYGUPqfHhokyXL1mnCj339bPfV3lT7AcqnY6wGDeuNo2vWE0NgswCsdIcizeXZsV+Nvi5ky5acOyCnYfiS43TWa5yFGaiqkT4wmLv5hfiL8Q91BggmhKPptYGrSWkW6k4P/6tDf95wYoFxy7YOdW426FelCFrRUhqV3HiitN6x45Od9eSqkJVEzvgh4ZTGrs33H9Rbu3G64MvN9D/96+4yxo3JT7y7QfPGL72vuUAkO3u3utl+D+uyBSZadkaLgAAAABJRU5ErkJggg==" width="24" height="24" alt="UpNonStop" style="display:block"></div><div><div style="line-height:1.1;font-size:16px">First Officer</div><div style="font-size:10px;font-weight:400;letter-spacing:.5px">by <span style="font-weight:700">UpNonStop</span>&trade;</div></div></a>
+<div style="font-size:12px;color:#999">&copy; 2026 UpNonStop &middot; <a href="privacy-policy.html" style="color:#999">Privacy</a> &middot; <a href="terms-of-service.html" style="color:#999">Terms</a></div>
+</div></div></footer>
+
+<script>
+var TILES=[
+{cat:"EARN",body:"Amex Gold: 4x at restaurants, 4x at US supermarkets"},
+{cat:"EARN",body:"Ink Preferred: 3x on shipping, advertising, internet"},
+{cat:"EARN",body:"Blue Business Plus: 2x on all spend up to $50K/yr"},
+{cat:"EARN",body:"Ink Cash: 5x at office supply stores, 2x on gas"},
+{cat:"EARN",body:"CSR: 3x on travel and dining after $300 annual fee"},
+{cat:"EARN",body:"Amex Platinum: 5x on flights booked directly or via Amex Travel"},
+{cat:"TRANSFER",body:"Amex MR to ANA Mileage Club at 1:1 ratio"},
+{cat:"TRANSFER",body:"Chase UR to World of Hyatt at 1:1 ratio"},
+{cat:"TRANSFER",body:"Citi TY to Turkish Miles and Smiles at 1:1"},
+{cat:"TRANSFER",body:"Amex MR to Virgin Atlantic at 1:1 ratio"},
+{cat:"TRANSFER",body:"Chase UR to United MileagePlus at 1:1 ratio"},
+{cat:"TRANSFER",body:"Capital One to Air Canada Aeroplan at 1:1"},
+{cat:"SWEET SPOT",body:"ANA First Class: 55K Virgin Atlantic pts one-way"},
+{cat:"SWEET SPOT",body:"Hyatt Category 1: 3,500 points per night"},
+{cat:"SWEET SPOT",body:"Turkish Miles: domestic UA flights for 7,500 miles"},
+{cat:"SWEET SPOT",body:"Air France Promo Awards to Europe from 50K RT"},
+{cat:"SWEET SPOT",body:"Etihad Guest: ANA biz class 43K one-way"},
+{cat:"SWEET SPOT",body:"Aeroplan mini-RTW in business for 115K pts"},
+{cat:"BURN",body:"Park Hyatt Maldives: 30K/night vs. $1,800 cash"},
+{cat:"BURN",body:"ANA First SFO-TYO: roughly 12 cpp redemption"},
+{cat:"BURN",body:"Singapore Suites JFK-SIN: 86K Krisflyer miles"},
+{cat:"BURN",body:"Cathay First HKG-JFK: 70K Asia Miles"},
+{cat:"ALERT",body:"Marriott peak/off-peak restructuring coming Q2"},
+{cat:"ALERT",body:"Delta SkyMiles devaluation on partner awards"},
+{cat:"ALERT",body:"Hilton category changes effective March 2026"},
+{cat:"ALERT",body:"United award chart update on Pacific routes"},
+{cat:"MCC",body:"Gas stations: MCC 5541 vs. 5542 automated fuel"},
+{cat:"MCC",body:"SaaS subscriptions typically code as MCC 5734"},
+{cat:"MCC",body:"Google Ads typically codes as MCC 7311 advertising"},
+{cat:"MCC",body:"FedEx/UPS typically codes as MCC 4215 shipping"},
+{cat:"CREDIT",body:"Amex Platinum: $200 airline credit via gift cards"},
+{cat:"CREDIT",body:"CSR: $300 travel credit triggers on DoorDash"},
+{cat:"CREDIT",body:"Amex Gold: $120 annual dining credit at Grubhub"},
+{cat:"CREDIT",body:"Hilton Aspire: $250 resort credit per calendar year"},
+{cat:"BONUS",body:"Ink Preferred signup: 100K UR after $8K spend"},
+{cat:"BONUS",body:"Amex Gold signup: 90K MR after $6K spend"},
+{cat:"BONUS",body:"CSP signup: 80K UR after $4K spend in 3 months"},
+{cat:"BONUS",body:"5/24 window open: eligible for Chase applications"},
+{cat:"RETENTION",body:"Amex Platinum: consider calling month 13 for retention offer"},
+{cat:"RETENTION",body:"CSR: product change to no-fee Freedom Flex"},
+{cat:"ROUTE",body:"Restaurant spend routed to Amex Gold for 4x"},
+{cat:"ROUTE",body:"Shipping routed to Ink Preferred for 3x"},
+{cat:"ROUTE",body:"Uncategorized spend to Blue Biz Plus for 2x"},
+{cat:"ROUTE",body:"Internet and phone bills to Ink Preferred at 3x"},
+{cat:"TIMING",body:"Transfer bonus: MR to Virgin +30% ends Friday"},
+{cat:"TIMING",body:"Hyatt peak night: book before March rate change"},
+{cat:"TIMING",body:"Retention advisory: annual fee posts in 14 days"},
+{cat:"TIMING",body:"Award availability opened: biz class to Tokyo"}
+];
+
+var PATHS=[
+{tiles:[0,9,44,12,19],text:"Earn 4x at restaurants with Amex Gold. Transfer MR to Virgin Atlantic at 1:1. Catch the 30% transfer bonus ending Friday. Unlock the ANA First Class sweet spot at 55K points. Redeem SFO to Tokyo at roughly 12 cents per point."},
+{tiles:[1,11,5,17,21],text:"Route shipping through Ink Preferred at 3x. Transfer to Aeroplan at 1:1. Combine with Amex Platinum flight credits. Book the mini round-the-world in business for 115K points. Fly Cathay First on the Pacific leg."},
+{tiles:[3,2,10,15,20],text:"Capture 5x at office supply with Ink Cash. Earn 2x on everything else with Blue Business Plus. Transfer UR to United at 1:1. Book Air France Promo Award to Europe for 50K RT. Redeem Singapore Suites on the return."},
+{tiles:[4,7,13,18,32],text:"CSR earns 3x on travel and dining. Transfer UR to Hyatt at 1:1. Book Category 1 properties at 3,500 per night. Reserve Park Hyatt Maldives at 30K per night before peak pricing. Stack with the Amex Gold dining and Uber credits."},
+{tiles:[36,37,34,1,29],text:"Apply for CSP at 80K UR bonus. Then Ink Preferred for 100K UR while under 5/24. Route FedEx shipping through Ink at 3x. Capture Google Ads at 3x on advertising. Build 280K+ UR in year one."},
+{tiles:[22,45,18,7,15],text:"Marriott devaluation alert in Q2. Transfer bonus to Virgin at 30% ends Friday. Book Park Hyatt Maldives now at current rates. Transfer UR to Hyatt before category changes. Lock in Air France Promo Awards."},
+{tiles:[27,28,41,1,10],text:"SaaS subscriptions typically code as MCC 5734. Google Ads typically codes as MCC 7311. Route both through Ink Preferred for 3x. Ship via FedEx at 3x. Transfer accumulated UR to United at 1:1."},
+{tiles:[30,31,32,33,46],text:"Stack Amex Platinum airline credit via gift cards. CSR travel credit triggers on DoorDash. Amex Gold dining credit at Grubhub. Hilton Aspire resort credit before renewal. Retention advisory: annual fee posts in 14 days."}
+];
+
+function buildTiles(){var c=document.getElementById("awakenTiles");c.innerHTML="";TILES.forEach(function(t,i){var d=document.createElement("div");d.className="a-tile";d.dataset.idx=i;d.innerHTML='<div class="a-cat">'+t.cat+'</div><div class="a-body">'+t.body+'</div>';c.appendChild(d)})}
+
+var currentPath=-1,pathTimeout;
+function runAwakeningCycle(){document.querySelectorAll(".a-tile").forEach(function(t){t.classList.remove("lit","active-path")});var svg=document.getElementById("pathSvg");svg.innerHTML="";var ro=document.getElementById("readoutText");ro.classList.remove("vis");
+var np;do{np=Math.floor(Math.random()*PATHS.length)}while(np===currentPath&&PATHS.length>1);currentPath=np;var path=PATHS[currentPath];
+path.tiles.forEach(function(ti,si){setTimeout(function(){var tile=document.querySelector('.a-tile[data-idx="'+ti+'"]');if(!tile)return;tile.classList.add("active-path");if(si>0){var prev=document.querySelector('.a-tile[data-idx="'+path.tiles[si-1]+'"]');if(prev)drawConn(prev,tile,svg)}if(si===path.tiles.length-1){setTimeout(function(){ro.textContent=path.text;ro.classList.add("vis")},300)}},si*600)});
+var ambient=[];for(var a=0;a<8;a++){var ri=Math.floor(Math.random()*TILES.length);if(path.tiles.indexOf(ri)===-1&&ambient.indexOf(ri)===-1)ambient.push(ri)}
+ambient.forEach(function(ri,ai){setTimeout(function(){var t=document.querySelector('.a-tile[data-idx="'+ri+'"]');if(t&&!t.classList.contains("active-path"))t.classList.add("lit")},200+ai*250)});
+pathTimeout=setTimeout(runAwakeningCycle,path.tiles.length*600+4500)}
+
+function drawConn(f,t,svg){var g=document.querySelector(".awaken-grid"),gr=g.getBoundingClientRect(),fr=f.getBoundingClientRect(),tr=t.getBoundingClientRect();
+var x1=fr.left+fr.width/2-gr.left,y1=fr.top+fr.height/2-gr.top,x2=tr.left+tr.width/2-gr.left,y2=tr.top+tr.height/2-gr.top;
+var dx=x2-x1,dy=y2-y1,cx=(x1+x2)/2-dy*0.18,cy=(y1+y2)/2+dx*0.18;
+var ns="http://www.w3.org/2000/svg",p=document.createElementNS(ns,"path");
+p.setAttribute("d","M "+x1+" "+y1+" Q "+cx+" "+cy+" "+x2+" "+y2);p.setAttribute("class","strategy-path");svg.appendChild(p);
+setTimeout(function(){p.classList.add("vis")},50);
+var dot=document.createElementNS(ns,"circle");dot.setAttribute("cx",x2);dot.setAttribute("cy",y2);dot.setAttribute("r","4");dot.setAttribute("class","path-dot");svg.appendChild(dot);
+setTimeout(function(){dot.classList.add("vis")},100)}
+
+function initHeroCanvas(){var canvas=document.getElementById("heroCanvas"),ctx=canvas.getContext("2d"),dpr=window.devicePixelRatio||1;
+function resize(){canvas.width=canvas.offsetWidth*dpr;canvas.height=canvas.offsetHeight*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}resize();window.addEventListener("resize",resize);
+var nodes=[];for(var i=0;i<30;i++)nodes.push({x:Math.random()*canvas.offsetWidth,y:Math.random()*canvas.offsetHeight,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:2.5+Math.random()*2.5,pulse:Math.random()*Math.PI*2});
+var particles=[];for(var i=0;i<80;i++){var fr=Math.floor(Math.random()*30),to=Math.floor(Math.random()*30);while(to===fr)to=Math.floor(Math.random()*30);particles.push({from:fr,to:to,t:Math.random(),speed:.002+Math.random()*.003,size:1+Math.random()*1.5})}
+function draw(){var w=canvas.offsetWidth,h=canvas.offsetHeight;ctx.clearRect(0,0,w,h);
+nodes.forEach(function(n){n.x+=n.vx;n.y+=n.vy;n.pulse+=.015;if(n.x<0||n.x>w)n.vx*=-1;if(n.y<0||n.y>h)n.vy*=-1});
+for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<220){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle="rgba(250,24,150,"+((1-dist/220)*.07)+")";ctx.lineWidth=.5;ctx.stroke()}}
+particles.forEach(function(p){p.t+=p.speed;if(p.t>=1){p.t=0;p.from=p.to;p.to=Math.floor(Math.random()*30);while(p.to===p.from)p.to=Math.floor(Math.random()*30)}var a=nodes[p.from],b=nodes[p.to],x=a.x+(b.x-a.x)*p.t,y=a.y+(b.y-a.y)*p.t;ctx.beginPath();ctx.arc(x,y,p.size,0,Math.PI*2);ctx.fillStyle="rgba(250,24,150,"+(Math.sin(p.t*Math.PI)*.55)+")";ctx.fill()});
+nodes.forEach(function(n){var g=Math.sin(n.pulse)*.3+.5;ctx.beginPath();ctx.arc(n.x,n.y,n.r+4,0,Math.PI*2);ctx.fillStyle="rgba(250,24,150,"+(g*.05)+")";ctx.fill();ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle="rgba(250,24,150,"+(g*.55)+")";ctx.fill()});
+requestAnimationFrame(draw)}draw()}
+
+function animateCounter(el,target){var start=performance.now();function tick(now){var p=Math.min((now-start)/2000,1),e=1-Math.pow(1-p,3);el.textContent=Math.floor(e*target).toLocaleString();if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)}
+
+function initReveal(){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("vis");var c=document.getElementById("stratCounter");if(c&&!c.dataset.done&&(e.target.querySelector("#stratCounter")||e.target.closest(".awaken-header"))){c.dataset.done="1";animateCounter(c,2847)}}})},{threshold:.2});document.querySelectorAll(".reveal").forEach(function(el){obs.observe(el)})}
+
+
+function initConstellation(canvasId, nodeCount, speed){
+  var canvas=document.getElementById(canvasId);
+  if(!canvas)return;
+  var ctx=canvas.getContext("2d"),dpr=window.devicePixelRatio||1;
+  var parent=canvas.parentElement;
+  function resize(){canvas.width=parent.offsetWidth*dpr;canvas.height=parent.offsetHeight*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+  resize();window.addEventListener("resize",resize);
+  var nodes=[];for(var i=0;i<nodeCount;i++){nodes.push({x:Math.random()*parent.offsetWidth,y:Math.random()*parent.offsetHeight,vx:(Math.random()-.5)*speed,vy:(Math.random()-.5)*speed,r:1.5+Math.random()*2,pulse:Math.random()*Math.PI*2})}
+  var particles=[];for(var i=0;i<Math.floor(nodeCount*1.5);i++){var fr=Math.floor(Math.random()*nodeCount),to=Math.floor(Math.random()*nodeCount);while(to===fr)to=Math.floor(Math.random()*nodeCount);particles.push({from:fr,to:to,t:Math.random(),speed:.001+Math.random()*.003,size:1+Math.random()*1.2})}
+  function draw(){var w=parent.offsetWidth,h=parent.offsetHeight;ctx.clearRect(0,0,w,h);
+  nodes.forEach(function(n){n.x+=n.vx;n.y+=n.vy;n.pulse+=.012;if(n.x<0||n.x>w)n.vx*=-1;if(n.y<0||n.y>h)n.vy*=-1});
+  for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<180){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle="rgba(250,24,150,"+((1-dist/180)*0.05)+")";ctx.lineWidth=.5;ctx.stroke()}}
+  particles.forEach(function(p){p.t+=p.speed;if(p.t>=1){p.t=0;p.from=p.to;p.to=Math.floor(Math.random()*nodeCount);while(p.to===p.from)p.to=Math.floor(Math.random()*nodeCount)}var a=nodes[p.from],b=nodes[p.to],x=a.x+(b.x-a.x)*p.t,y=a.y+(b.y-a.y)*p.t;ctx.beginPath();ctx.arc(x,y,p.size,0,Math.PI*2);ctx.fillStyle="rgba(250,24,150,"+(Math.sin(p.t*Math.PI)*0.35)+")";ctx.fill()});
+  nodes.forEach(function(n){var g=Math.sin(n.pulse)*.3+.5;ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle="rgba(250,24,150,"+(g*0.35)+")";ctx.fill()});
+  requestAnimationFrame(draw)}draw()}
+
+function initCtaConstellation(){
+  var canvas=document.getElementById("ctaCanvas");
+  if(!canvas)return;
+  var ctx=canvas.getContext("2d"),dpr=window.devicePixelRatio||1;
+  var parent=canvas.parentElement;
+  function resize(){canvas.width=parent.offsetWidth*dpr;canvas.height=parent.offsetHeight*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}
+  resize();window.addEventListener("resize",resize);
+  var nodes=[];for(var i=0;i<15;i++){nodes.push({x:Math.random()*parent.offsetWidth,y:Math.random()*parent.offsetHeight,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:1.5+Math.random()*2,pulse:Math.random()*Math.PI*2})}
+  var particles=[];for(var i=0;i<20;i++){var fr=Math.floor(Math.random()*15),to=Math.floor(Math.random()*15);while(to===fr)to=Math.floor(Math.random()*15);particles.push({from:fr,to:to,t:Math.random(),speed:.001+Math.random()*.002,size:1+Math.random()*1})}
+  function draw(){var w=parent.offsetWidth,h=parent.offsetHeight;ctx.clearRect(0,0,w,h);
+  nodes.forEach(function(n){n.x+=n.vx;n.y+=n.vy;n.pulse+=.01;if(n.x<0||n.x>w)n.vx*=-1;if(n.y<0||n.y>h)n.vy*=-1});
+  for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<200){ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.strokeStyle="rgba(255,255,255,"+((1-dist/200)*.1)+")";ctx.lineWidth=.5;ctx.stroke()}}
+  particles.forEach(function(p){p.t+=p.speed;if(p.t>=1){p.t=0;p.from=p.to;p.to=Math.floor(Math.random()*15);while(p.to===p.from)p.to=Math.floor(Math.random()*15)}var a=nodes[p.from],b=nodes[p.to],x=a.x+(b.x-a.x)*p.t,y=a.y+(b.y-a.y)*p.t;ctx.beginPath();ctx.arc(x,y,p.size,0,Math.PI*2);ctx.fillStyle="rgba(255,255,255,"+(Math.sin(p.t*Math.PI)*.25)+")";ctx.fill()});
+  nodes.forEach(function(n){var g=Math.sin(n.pulse)*.3+.5;ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle="rgba(255,255,255,"+(g*.2)+")";ctx.fill()});
+  requestAnimationFrame(draw)}draw()}
+document.addEventListener("DOMContentLoaded",function(){initHeroCanvas();buildTiles();initReveal();setTimeout(runAwakeningCycle,1500);initConstellation("cycleCanvas",18,.15);initConstellation("loopCanvas",25,.2);initCtaConstellation()});
+</script>
+</body>
+</html>
