@@ -95,7 +95,7 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 @keyframes dashFlow{to{stroke-dashoffset:-20}}
 .path-dot{fill:var(--pink);opacity:0;transition:opacity .3s}.path-dot.vis{opacity:.7}
 .awaken-header{text-align:center;margin-bottom:48px;position:relative;z-index:3}
-.awaken-counter{font-family:var(--mono);font-size:clamp(48px,8vw,88px);font-weight:900;letter-spacing:-4px;line-height:1;margin-bottom:8px;background:linear-gradient(135deg,var(--pink),#FF6B6B,#9B5DE5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.awaken-counter{font-family:var(--mono);font-size:clamp(48px,8vw,88px);font-weight:900;letter-spacing:-4px;line-height:1;margin-bottom:8px;color:var(--pink);-webkit-text-stroke:1.5px #111;text-shadow:0 4px 30px rgba(250,24,150,.35),0 0 80px rgba(250,24,150,.12);paint-order:stroke fill}
 .awaken-label{font-size:16px;font-weight:600;margin-bottom:4px;color:#111}
 .awaken-sub{font-size:14px;color:#777;max-width:480px;margin:0 auto}
 .active-readout{text-align:center;margin-top:32px;min-height:60px;position:relative;z-index:3}
@@ -219,7 +219,7 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 <div class="wrap">
 <div class="sh reveal"><div class="ey">The Strategy Engine</div><h2 class="hd">Four Forces. <em>One System.</em></h2><p class="ds">Every strategy the Strategist builds optimizes across four dimensions simultaneously. Not one. Not two. All four, weighted to your goals.</p></div>
 <div class="cycle-ring">
-<div class="cycle-node reveal reveal-d1"><div class="cycle-num">01 EARN</div><h3>Earn Smarter</h3><p>Card routing rules matched to your actual spend. Ink Preferred captures 3x on shipping and advertising. Amex Gold earns 4x at restaurants worldwide and 4x at US supermarkets (up to $25K per year, then 1x). Blue Business Plus catches everything else at 2x. The Strategist recalculates monthly as your spend shifts.</p></div>
+<div class="cycle-node reveal reveal-d1"><div class="cycle-num">01 EARN</div><h3>Earn Smarter</h3><p>Card routing rules matched to your actual spend. Amex Gold earns 4x at restaurants and US supermarkets. Chase Sapphire Reserve captures 3x on travel and dining. Freedom Flex earns 5x on rotating categories each quarter. The Strategist recalculates monthly as your spend shifts.</p></div>
 <div class="cycle-node reveal reveal-d2"><div class="cycle-num">02 BURN</div><h3>Burn at Peak Value</h3><p>Redemption timing is everything. The Strategist monitors award chart sweet spots, transfer bonuses, and program devaluations. ANA First Class for 55,000 Virgin points returns roughly 12 cents per point. Cash-out returns 1 cent. It tells you when to redeem and when to hold.</p></div>
 <div class="cycle-node reveal reveal-d3"><div class="cycle-num">03 RETURN</div><h3>Measure Real Return</h3><p>Cents-per-point benchmarks against published valuations. Monthly portfolio valuation against market rates. The Strategist tracks whether your strategy is working, showing you the dollar value of every move. Not feelings. Math.</p></div>
 <div class="cycle-node reveal reveal-d4"><div class="cycle-num">04 LEARN</div><h3>Learn Continuously</h3><p>Every strategy session teaches you something. Why a 1:1 Amex-to-ANA transfer at a 30% bonus beats cashing out. Why timing your Hyatt booking to off-peak saves 8,000 points per night. The Strategist builds your instincts over time.</p></div>
@@ -278,12 +278,30 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 
 <script>
 var TILES=[
+{cat:"ALERT",body:"Marriott peak pricing restructure coming Q2"},
+{cat:"ALERT",body:"Delta SkyMiles devaluation on partner awards"},
+{cat:"ALERT",body:"Hilton category changes effective March 2026"},
+{cat:"ALERT",body:"United award chart update on Pacific routes"},
+{cat:"ALERT",body:"Hyatt Category 7 properties moving to 8"},
+{cat:"ALERT",body:"Southwest Companion Pass rules changing Jan"},
+{cat:"TIMING",body:"Transfer bonus: MR to Virgin +30% ends Friday"},
+{cat:"TIMING",body:"Hyatt peak night: book before March rate change"},
+{cat:"TIMING",body:"Award availability opened: biz class to Tokyo"},
+{cat:"TIMING",body:"Amex retention window: call in month 13"},
+{cat:"TIMING",body:"5/24 window opens in 6 weeks: plan apps now"},
+{cat:"TIMING",body:"Chase Sapphire bonus is highest in 2 years"},
 {cat:"EARN",body:"Amex Gold: 4x at restaurants, 4x at US supermarkets"},
-{cat:"EARN",body:"Ink Preferred: 3x on shipping, advertising, internet"},
-{cat:"EARN",body:"Blue Business Plus: 2x on all spend up to $50K/yr"},
-{cat:"EARN",body:"Ink Cash: 5x at office supply stores, 2x on gas"},
-{cat:"EARN",body:"CSR: 3x on travel and dining after $300 annual fee"},
-{cat:"EARN",body:"Amex Platinum: 5x on flights booked directly or via Amex Travel"},
+{cat:"EARN",body:"Chase Sapphire Reserve: 3x on travel and dining"},
+{cat:"EARN",body:"Amex Platinum: 5x on flights booked directly"},
+{cat:"EARN",body:"Freedom Flex: 5x rotating categories quarterly"},
+{cat:"EARN",body:"Capital One Venture X: 2x on everything"},
+{cat:"EARN",body:"Citi Custom Cash: 5x on your top spend category"},
+{cat:"BONUS",body:"Chase Sapphire Preferred: 80K UR after $4K spend"},
+{cat:"BONUS",body:"Amex Gold signup: 90K MR after $6K in 6 months"},
+{cat:"BONUS",body:"Capital One Venture X: 75K miles after $4K spend"},
+{cat:"BONUS",body:"Citi Strata Premier: 75K TY after $4K spend"},
+{cat:"BONUS",body:"5/24 window open: eligible for Chase applications"},
+{cat:"BONUS",body:"Amex referral: earn 30K MR per approved referral"},
 {cat:"TRANSFER",body:"Amex MR to ANA Mileage Club at 1:1 ratio"},
 {cat:"TRANSFER",body:"Chase UR to World of Hyatt at 1:1 ratio"},
 {cat:"TRANSFER",body:"Citi TY to Turkish Miles and Smiles at 1:1"},
@@ -291,52 +309,34 @@ var TILES=[
 {cat:"TRANSFER",body:"Chase UR to United MileagePlus at 1:1 ratio"},
 {cat:"TRANSFER",body:"Capital One to Air Canada Aeroplan at 1:1"},
 {cat:"SWEET SPOT",body:"ANA First Class: 55K Virgin Atlantic pts one-way"},
-{cat:"SWEET SPOT",body:"Hyatt Category 1: 3,500 points per night"},
-{cat:"SWEET SPOT",body:"Turkish Miles: domestic UA flights for 7,500 miles"},
+{cat:"SWEET SPOT",body:"Hyatt Category 1-4: 3,500 to 15,000 pts/night"},
+{cat:"SWEET SPOT",body:"Turkish Miles: domestic UA flights for 7,500 mi"},
 {cat:"SWEET SPOT",body:"Air France Promo Awards to Europe from 50K RT"},
 {cat:"SWEET SPOT",body:"Etihad Guest: ANA biz class 43K one-way"},
-{cat:"SWEET SPOT",body:"Aeroplan mini-RTW in business for 115K pts"},
-{cat:"BURN",body:"Park Hyatt Maldives: 30K/night vs. $1,800 cash"},
+{cat:"SWEET SPOT",body:"Aeroplan mini round-the-world biz for 115K pts"},
+{cat:"BURN",body:"Park Hyatt Maldives: 30K/night vs $1,800 cash"},
 {cat:"BURN",body:"ANA First SFO-TYO: roughly 12 cpp redemption"},
 {cat:"BURN",body:"Singapore Suites JFK-SIN: 86K Krisflyer miles"},
-{cat:"BURN",body:"Cathay First HKG-JFK: 70K Asia Miles"},
-{cat:"ALERT",body:"Marriott peak/off-peak restructuring coming Q2"},
-{cat:"ALERT",body:"Delta SkyMiles devaluation on partner awards"},
-{cat:"ALERT",body:"Hilton category changes effective March 2026"},
-{cat:"ALERT",body:"United award chart update on Pacific routes"},
-{cat:"MCC",body:"Gas stations: MCC 5541 vs. 5542 automated fuel"},
-{cat:"MCC",body:"SaaS subscriptions typically code as MCC 5734"},
-{cat:"MCC",body:"Google Ads typically codes as MCC 7311 advertising"},
-{cat:"MCC",body:"FedEx/UPS typically codes as MCC 4215 shipping"},
+{cat:"BURN",body:"Cathay First HKG-JFK: 70K Asia Miles one-way"},
+{cat:"BURN",body:"Conrad Maldives: 95K Hilton pts vs $1,200 cash"},
+{cat:"BURN",body:"W Maldives: 50K Marriott pts vs $900 cash rate"},
 {cat:"CREDIT",body:"Amex Platinum: $200 airline credit via gift cards"},
 {cat:"CREDIT",body:"CSR: $300 travel credit triggers on DoorDash"},
 {cat:"CREDIT",body:"Amex Gold: $120 annual dining credit at Grubhub"},
-{cat:"CREDIT",body:"Hilton Aspire: $250 resort credit per calendar year"},
-{cat:"BONUS",body:"Ink Preferred signup: 100K UR after $8K spend"},
-{cat:"BONUS",body:"Amex Gold signup: 90K MR after $6K spend"},
-{cat:"BONUS",body:"CSP signup: 80K UR after $4K spend in 3 months"},
-{cat:"BONUS",body:"5/24 window open: eligible for Chase applications"},
-{cat:"RETENTION",body:"Amex Platinum: consider calling month 13 for retention offer"},
-{cat:"RETENTION",body:"CSR: product change to no-fee Freedom Flex"},
-{cat:"ROUTE",body:"Restaurant spend routed to Amex Gold for 4x"},
-{cat:"ROUTE",body:"Shipping routed to Ink Preferred for 3x"},
-{cat:"ROUTE",body:"Uncategorized spend to Blue Biz Plus for 2x"},
-{cat:"ROUTE",body:"Internet and phone bills to Ink Preferred at 3x"},
-{cat:"TIMING",body:"Transfer bonus: MR to Virgin +30% ends Friday"},
-{cat:"TIMING",body:"Hyatt peak night: book before March rate change"},
-{cat:"TIMING",body:"Retention advisory: annual fee posts in 14 days"},
-{cat:"TIMING",body:"Award availability opened: biz class to Tokyo"}
+{cat:"CREDIT",body:"Hilton Aspire: $250 resort credit per calendar yr"},
+{cat:"CREDIT",body:"Capital One Venture X: $300 travel portal credit"},
+{cat:"CREDIT",body:"Amex Platinum: $200 hotel credit at FHR properties"}
 ];
 
 var PATHS=[
-{tiles:[0,9,44,12,19],text:"Earn 4x at restaurants with Amex Gold. Transfer MR to Virgin Atlantic at 1:1. Catch the 30% transfer bonus ending Friday. Unlock the ANA First Class sweet spot at 55K points. Redeem SFO to Tokyo at roughly 12 cents per point."},
-{tiles:[1,11,5,17,21],text:"Route shipping through Ink Preferred at 3x. Transfer to Aeroplan at 1:1. Combine with Amex Platinum flight credits. Book the mini round-the-world in business for 115K points. Fly Cathay First on the Pacific leg."},
-{tiles:[3,2,10,15,20],text:"Capture 5x at office supply with Ink Cash. Earn 2x on everything else with Blue Business Plus. Transfer UR to United at 1:1. Book Air France Promo Award to Europe for 50K RT. Redeem Singapore Suites on the return."},
-{tiles:[4,7,13,18,32],text:"CSR earns 3x on travel and dining. Transfer UR to Hyatt at 1:1. Book Category 1 properties at 3,500 per night. Reserve Park Hyatt Maldives at 30K per night before peak pricing. Stack with the Amex Gold dining and Uber credits."},
-{tiles:[36,37,34,1,29],text:"Apply for CSP at 80K UR bonus. Then Ink Preferred for 100K UR while under 5/24. Route FedEx shipping through Ink at 3x. Capture Google Ads at 3x on advertising. Build 280K+ UR in year one."},
-{tiles:[22,45,18,7,15],text:"Marriott devaluation alert in Q2. Transfer bonus to Virgin at 30% ends Friday. Book Park Hyatt Maldives now at current rates. Transfer UR to Hyatt before category changes. Lock in Air France Promo Awards."},
-{tiles:[27,28,41,1,10],text:"SaaS subscriptions typically code as MCC 5734. Google Ads typically codes as MCC 7311. Route both through Ink Preferred for 3x. Ship via FedEx at 3x. Transfer accumulated UR to United at 1:1."},
-{tiles:[30,31,32,33,46],text:"Stack Amex Platinum airline credit via gift cards. CSR travel credit triggers on DoorDash. Amex Gold dining credit at Grubhub. Hilton Aspire resort credit before renewal. Retention advisory: annual fee posts in 14 days."}
+{tiles:[0,6,27,30,37],text:"Marriott devaluation alert Q2. Transfer bonus MR to Virgin at +30% ends Friday. Transfer Amex MR to Virgin Atlantic at 1:1. Unlock ANA First Class sweet spot at 55K points. Fly SFO to Tokyo at roughly 12 cents per point."},
+{tiles:[5,10,18,29,35,38],text:"Southwest rules changing January. 5/24 window opens in 6 weeks. Apply for Chase Sapphire Preferred at 80K UR. Transfer Capital One to Aeroplan at 1:1. Book mini round-the-world in business for 115K points. Fly Singapore Suites on the return."},
+{tiles:[1,8,14,24,34,39],text:"Delta devaluation on partner awards. Award availability opened biz class to Tokyo. Earn 5x on flights with Amex Platinum. Transfer Amex MR to ANA at 1:1. Book Etihad Guest ANA biz class at 43K one-way. Cathay First HKG to JFK at 70K Asia Miles."},
+{tiles:[3,7,13,25,31,36],text:"United award chart update Pacific routes. Book Hyatt before March rate change. Earn 3x on travel and dining with CSR. Transfer Chase UR to Hyatt at 1:1. Hyatt Cat 1 at 3,500 points per night. Park Hyatt Maldives 30K vs $1,800 cash."},
+{tiles:[42,43,44,45,46,47],text:"Stack all your annual card credits in one quarter. Amex Platinum airline credit via gift cards. CSR travel credit on DoorDash. Amex Gold dining credit at Grubhub. Hilton Aspire resort credit. Venture X portal credit. $1,370 in credits most people miss."},
+{tiles:[2,9,19,28,33,40],text:"Hilton category changes March 2026. Amex retention window at month 13. Apply for Amex Gold at 90K MR bonus. Transfer Chase UR to United at 1:1. Air France Promo Award Europe for 50K RT. Conrad Maldives at 95K Hilton points vs $1,200 cash."},
+{tiles:[4,11,12,26,32,41],text:"Hyatt Cat 7 moving to 8. Chase Sapphire bonus highest in 2 years. Earn 4x at restaurants with Amex Gold. Transfer Citi TY to Turkish at 1:1. Turkish Miles domestic UA flights 7,500 miles. W Maldives 50K Marriott points vs $900 cash."},
+{tiles:[15,17,20,23,16,21],text:"Freedom Flex 5x rotating quarterly. Citi Custom Cash 5x on your top category. Capital One Venture X 75K bonus. Amex referral 30K MR per approval. Venture X 2x on everything. Citi Strata Premier 75K TY after $4K spend."}
 ];
 
 function buildTiles(){var c=document.getElementById("awakenTiles");c.innerHTML="";TILES.forEach(function(t,i){var d=document.createElement("div");d.className="a-tile";d.dataset.idx=i;d.innerHTML='<div class="a-cat">'+t.cat+'</div><div class="a-body">'+t.body+'</div>';c.appendChild(d)})}
