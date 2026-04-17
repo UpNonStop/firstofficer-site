@@ -784,16 +784,17 @@ brainObs.observe(document.querySelector('.brain-section'));
 // ========== HERO BACKGROUND BRAIN (subtle, decorative) ==========
 (function(){
   var svg=document.getElementById('heroBg');
-  var rng=mulberry(7);
+  if(!svg)return;
+  var NS='http://www.w3.org/2000/svg';
   var nodes=[];
   for(var i=0;i<140;i++){
-    nodes.push({x:rng()*1400,y:rng()*500});
+    nodes.push({x:Math.random()*1400,y:Math.random()*500});
   }
   for(var i=0;i<nodes.length;i++){
     for(var j=i+1;j<nodes.length;j++){
       var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y;
       var d=Math.sqrt(dx*dx+dy*dy);
-      if(d<90 && rng()<.4){
+      if(d<90 && Math.random()<.4){
         var ln=document.createElementNS(NS,'line');
         ln.setAttribute('x1',nodes[i].x.toFixed(0));
         ln.setAttribute('y1',nodes[i].y.toFixed(0));
@@ -807,8 +808,8 @@ brainObs.observe(document.querySelector('.brain-section'));
     }
   }
   nodes.forEach(function(n){
-    var r=rng();
-    var radius=r<.8?(.5+rng()*.5):(1.2+rng()*.8);
+    var r=Math.random();
+    var radius=r<.8?(.5+Math.random()*.5):(1.2+Math.random()*.8);
     var c=document.createElementNS(NS,'circle');
     c.setAttribute('cx',n.x.toFixed(0));
     c.setAttribute('cy',n.y.toFixed(0));
