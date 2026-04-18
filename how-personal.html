@@ -28,6 +28,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+/* Unified footer mobile responsive */
+@media (max-width:720px){
+  footer.ft>.wrap>div:first-child{grid-template-columns:1fr 1fr !important;gap:24px !important}
+  footer.ft>.wrap>div:first-child>div:first-child{grid-column:1 / -1}
+}
+@media (max-width:480px){
+  footer.ft>.wrap>div:first-child{grid-template-columns:1fr !important}
+}
+
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 html,body{max-width:100vw;overflow-x:hidden}
@@ -582,10 +591,50 @@ desc.classList.add('open');
 </div>
 </section>
 
-<footer class="ft"><div class="wrap">
-<p class="ft-disc">First Officer by UpNonStop is an educational tool that helps you understand and get more from your credit card rewards. It is not a licensed financial advisor. All claims about agents, knowledge base, and card intelligence reflect product design and current production status as of April 2026. Some agents are designed and partially deployed; full feature rollouts are noted as "in development" where applicable. First Officer is currently available to US residents only. See our <a href="privacy-policy.html#geographic-restrictions" style="color:inherit;text-decoration:underline">geographic restrictions</a>.</p>
-<div class="ft-bot"><span>&copy; 2026 UpNonStop</span><div><a href="privacy-policy.html">Privacy</a><a href="terms-of-service.html">Terms</a><a href="privacy-policy.html#do-not-sell">Do Not Sell My Info</a></div></div>
-</div></footer>
+<!-- ===== UNIFIED FOOTER (B2C) ===== -->
+<footer class="ft" style="background:#faf8f5;border-top:1px solid #eee;padding:56px 0 32px;color:#555">
+<div class="wrap" style="max-width:1140px;margin:0 auto;padding:0 32px">
+<div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px">
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+<div style="width:32px;height:32px;border-radius:8px;display:grid;place-items:center;overflow:hidden">
+<img src="data:image/png;base64,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" width="28" height="28" alt="UpNonStop" style="display:block">
+</div>
+<div>
+<div style="line-height:1.1;font-weight:700;font-size:16px;color:#111">First Officer</div>
+<div style="font-size:10px;font-weight:400;letter-spacing:.5px;color:#888">by <span style="font-weight:700">UpNonStop</span>&trade;</div>
+</div>
+</div>
+<p style="font-size:13px;line-height:1.7;max-width:260px;color:#888">Award travel intelligence. 629+ programs monitored.</p>
+</div>
+<div>
+<h5 style="font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:14px;color:#111">Product</h5>
+<a href="firstofficer-site.html" style="display:block;font-size:13px;padding:4px 0;color:#666;text-decoration:none">Home</a>
+<a href="firstofficer-site.html#pricing" style="display:block;font-size:13px;padding:4px 0;color:#666;text-decoration:none">Pricing</a>
+<a href="calculator-personal.html" style="display:block;font-size:13px;padding:4px 0;color:#666;text-decoration:none">Calculator</a>
+</div>
+<div>
+<h5 style="font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:14px;color:#111">Company</h5>
+<a href="firstofficer-site.html#about" style="display:block;font-size:13px;padding:4px 0;color:#666;text-decoration:none">About</a>
+<a href="how-personal.html" style="display:block;font-size:13px;padding:4px 0;color:#666;text-decoration:none">How It Works</a>
+</div>
+<div>
+<h5 style="font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:14px;color:#111">Connect</h5>
+<a href="https://wa.me/16199404040" target="_blank" style="display:block;font-size:13px;padding:4px 0;color:#666;text-decoration:none">WhatsApp</a>
+<a href="https://billing.stripe.com/p/login/fZe02g10J1In7mMcMM" target="_blank" style="display:block;font-size:13px;padding:4px 0;color:#666;text-decoration:none">Manage Subscription</a>
+</div>
+</div>
+<div style="font-size:11px;line-height:1.6;color:#999;border-top:1px solid #eee;padding-top:20px;margin-bottom:16px">First Officer by UpNonStop is an educational tool that helps you understand and get more from your credit card rewards. It is not a licensed financial advisor. All information is for educational purposes only. Individual results vary based on your specific rewards portfolio, spending patterns, and redemption choices. First Officer is currently available to US residents only. See our <a href="privacy-policy.html#geographic-restrictions" style="color:inherit;text-decoration:underline">geographic restrictions</a>.</div>
+<div style="display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#999;flex-wrap:wrap;gap:8px">
+<span>&copy; 2026 UpNonStop</span>
+<div style="display:flex;gap:20px;flex-wrap:wrap">
+<a href="privacy-policy.html" style="color:#999;text-decoration:none">Privacy</a>
+<a href="terms-of-service.html" style="color:#999;text-decoration:none">Terms</a>
+<a href="privacy-policy.html#do-not-sell" style="color:#999;text-decoration:none">Do Not Sell My Info</a>
+</div>
+</div>
+</div>
+</footer>
 
 <script>
 function toggleMob(){var l=document.querySelector('.nk');if(l.style.display==='flex'){l.style.display='none';return}l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='68px';l.style.left='0';l.style.right='0';l.style.background='rgba(255,255,255,.96)';l.style.backdropFilter='blur(24px)';l.style.padding='24px 32px';l.style.gap='16px';l.style.boxShadow='0 8px 24px rgba(0,0,0,.06)';l.style.borderBottom='1px solid #eee'}
