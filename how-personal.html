@@ -88,7 +88,7 @@ button{cursor:pointer;border:none;font-family:inherit;background:none;color:inhe
 #brainCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
 .brain-overlay{position:relative;z-index:2;max-width:1140px;margin:0 auto;padding:90px 32px;display:grid;grid-template-columns:180px 1fr 340px;gap:56px;align-items:center;min-height:640px}
 
-/* Battery — center-left, prominent */
+/* Battery - center-left, prominent */
 .battery-col{display:flex;flex-direction:column;align-items:center;gap:18px}
 .battery{width:96px;height:360px;border:2px solid rgba(250,24,150,.2);border-radius:18px;position:relative;overflow:hidden;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 24px 48px rgba(250,24,150,.1),0 8px 24px rgba(0,0,0,.04)}
 .battery::after{content:'';position:absolute;top:-2px;left:50%;transform:translateX(-50%);width:50px;height:10px;background:rgba(250,24,150,.2);border-radius:0 0 5px 5px}
@@ -175,7 +175,7 @@ button{cursor:pointer;border:none;font-family:inherit;background:none;color:inhe
 .fw-note{text-align:center;max-width:680px;margin:28px auto 0;font-size:14px;line-height:1.7;color:#666}
 .fw-note strong{color:var(--pink)}
 
-/* ==========  10 AGENTS — interactive pill grid, click to expand inline  ========== */
+/* ==========  10 AGENTS - interactive pill grid, click to expand inline  ========== */
 .agents{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:720px;margin:0 auto}
 .ag-pill{padding:10px 8px;border-radius:100px;font-size:12px;font-weight:600;border:1px solid #e0e0e0;background:#fff;color:#666;transition:all .3s;cursor:pointer;text-align:center;white-space:nowrap;position:relative}
 .ag-pill:hover{opacity:.9}
@@ -450,7 +450,7 @@ button{cursor:pointer;border:none;font-family:inherit;background:none;color:inhe
 <span class="fw-pill fw-pill-2">Email address</span>
 <span class="fw-pill fw-pill-2">Cards you hold (names, not numbers)</span>
 <span class="fw-pill fw-pill-2">Loyalty memberships</span>
-<span class="fw-pill fw-pill-2">Balances via AwardWallet OAuth</span>
+<span class="fw-pill fw-pill-2">Balances via AwardWallet sync</span>
 <span class="fw-pill fw-pill-2">Travel goals</span>
 <span class="fw-pill fw-pill-2">Conversation history</span>
 </div>
@@ -550,7 +550,7 @@ desc.classList.add('open');
 <div class="wrap">
 <div class="sh reveal"><div class="ey">Trust &amp; compliance</div><h2 class="hd">Our <em>integrity</em> wall</h2><p class="ds">Built into the foundation, not bolted on after a privacy scare.</p></div>
 <div class="trust-grid reveal">
-<div class="trust-cell"><div class="trust-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="trust-name">No credential storage</div><div class="trust-desc">We never store passwords or card logins. Wallet connections use OAuth. We never touch your credentials.</div></div>
+<div class="trust-cell"><div class="trust-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="trust-name">No credential storage</div><div class="trust-desc">We never store passwords or card logins. Wallet connections use a secure read-only token. We never touch your credentials.</div></div>
 <div class="trust-cell"><div class="trust-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M3 6h18"/><path d="M3 18h18"/></svg></div><div class="trust-name">Row-level isolation</div><div class="trust-desc">Every client's data lives in its own row, isolated at the infrastructure level. Designed in from day one.</div></div>
 <div class="trust-cell"><div class="trust-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div><div class="trust-name">CCPA &amp; GDPR ready</div><div class="trust-desc">View, export, or delete your data at any time. Full deletion within 30 days of cancellation.</div></div>
 <div class="trust-cell"><div class="trust-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><div class="trust-name">Educational, not fiduciary</div><div class="trust-desc">First Officer is an educational advisory tool. Not a licensed financial advisor. Every decision is yours.</div></div>
@@ -610,7 +610,7 @@ var currentStage=1;
   var lastW=0;
   function resize(){
     var w=parent.offsetWidth,h=parent.offsetHeight;
-    // Only resize when WIDTH actually changes — ignores Safari URL bar toggle
+    // Only resize when WIDTH actually changes - ignores Safari URL bar toggle
     if(w===lastW)return;
     lastW=w;
     canvas.width=w*dpr;
@@ -885,7 +885,7 @@ brainObs.observe(document.querySelector('.brain-section'));
   });
 })();
 
-// Agent cells are now <a> links — navigation happens natively. No JS needed.
+// Agent cells are now <a> links - navigation happens natively. No JS needed.
 </script>
 
 </body>
