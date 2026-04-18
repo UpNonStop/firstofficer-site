@@ -280,10 +280,16 @@ a{text-decoration:none;color:inherit}
 <a href="https://wa.me/16199404040" class="ncta" target="_blank">&#x1F4AC; Start on WhatsApp</a>
 <button class="mob" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </div></nav>
+<!-- US-only geo banner (compliance A1) -->
+<div class="geo-banner" style="background:#FA1896;color:#fff;text-align:center;padding:8px 16px;font-size:13px;font-weight:600;letter-spacing:.3px">
+&#127482;&#127480; First Officer is currently available to US residents only.
+<a href="/privacy-policy.html#geographic-restrictions" style="color:#fff;text-decoration:underline;margin-left:6px">Learn more</a>
+</div>
+
 
 <section class="hero"><div class="wrap">
 <h1>Ten specialists.<br><span style="color:#25D366">One WhatsApp.</span><br><span style="color:var(--pink)">Working for you.</span></h1>
-<p style="max-width:520px;font-size:17px;color:#444">Every interaction personalizes your experience. Every anonymized insight from thousands of members sharpens yours. Your cards, your habits, your goals. All flowing into a system that compounds what it knows about your preferences and the entire points landscape into smarter, faster, more valuable guidance with every conversation.</p>
+<p style="max-width:520px;font-size:17px;color:#444">Every interaction personalizes your experience. Every anonymized insight from other members sharpens yours. Your cards, your habits, your goals. All flowing into a system that compounds what it knows about your preferences and the entire points landscape into smarter, faster, more valuable guidance with every conversation.</p>
 </div></section>
 
 <!-- Value proof strip -->
@@ -416,7 +422,7 @@ desc.classList.add('open');
 <div class="tc-badge">Light</div>
 <div class="tc-price"><strong>$5</strong> <span>/ month</span></div>
 <h2>Ask us anything.<br>Five times a month.</h2>
-<p>Which card at Costco? Transfer to Delta or ANA? You ask, we do the math. Not a chatbot. Real strategy with real numbers.</p>
+<p>Which card at Costco? Transfer to Delta or ANA? You ask, we do the math. Not a generic chatbot. Real analysis with concrete numbers.</p>
 <ul class="tc-features">
 <li class="ei-arrow">Everything in Free</li>
 <li>5 conversations per month <span class="tier-new">New</span></li>
@@ -447,7 +453,7 @@ desc.classList.add('open');
 <li>Expiry monitoring and alerts <span class="tier-new">New</span></li>
 <li>Credits Tracker <span class="tier-new">New</span></li>
 <li>Weekly Points Pulse <span class="tier-new">New</span></li>
-<li>Devaluation Shield <span class="tier-new">New</span></li>
+<li>Devaluation Watch <span class="tier-new">New</span></li>
 </ul>
 </div>
 <div class="tc-demo">
@@ -466,14 +472,14 @@ desc.classList.add('open');
 <div class="tc-badge">Select</div>
 <div class="tc-price"><strong>$39</strong> <span>/ month</span></div>
 <h2>Now we see your spending.<br>And fix it.</h2>
-<p>Connect your bank and we analyze every transaction. Whisperer shows which purchases went on the wrong card.</p>
+<p>Connect your bank via secure OAuth (Plaid) &mdash; we analyze every transaction category without ever seeing your password or account number. Whisperer shows which purchases went on the wrong card.</p>
 <ul class="tc-features">
 <li class="ei-arrow">Everything in Classic</li>
 <li><a href="for-household.html" style="color:inherit;text-decoration:underline;text-decoration-color:var(--pink);text-underline-offset:3px">2 accounts (you + partner)</a> <span class="tier-new">New</span></li>
 <li>Bank spend categorization <span class="tier-new">New</span></li>
 <li>Whisperer reports <span class="tier-new">New</span></li>
 <li>Rewards Calendar <span class="tier-new">New</span></li>
-<li class="ab-gold">Award booking available <span class="tier-new-gold">Add When Needed</span></li>
+
 </ul>
 </div>
 <div class="tc-demo">
@@ -502,7 +508,7 @@ desc.classList.add('open');
 <li>Optioneer + Commander <span class="tier-new">New</span></li>
 <li>Goal Planner with weekly updates <span class="tier-new">New</span></li>
 <li><a href="strategist.html" style="color:inherit;text-decoration:none;border-bottom:1px dashed rgba(250,24,150,.3)">Monthly Strategist session</a> <span class="tier-new">New</span></li>
-<li class="ab-gold">Award booking available <span class="tier-new-gold">Add When Needed</span></li>
+
 </ul>
 </div>
 <div class="tc-demo">
@@ -530,7 +536,7 @@ desc.classList.add('open');
 
 <!-- Member Bookings Carousel -->
 <div style="max-width:920px;margin:48px auto 0;text-align:center">
-<div style="font-family:var(--serif);font-size:22px;color:#111;margin-bottom:4px">Booked for our <span style="color:var(--pink)">Select</span> &amp; <span style="color:var(--pink)">Reserve</span> members this past month</div>
+<div style="font-family:var(--serif);font-size:22px;color:#111;margin-bottom:4px">Example bookings &mdash; illustrative only</div>
 <div style="font-size:13px;color:#999;margin-bottom:20px">Flights and hotel stays redeemed with points. Hover any card to see the breakdown.</div>
 <div class="book-scroll"><div class="book-grid" id="prodBookGrid"></div></div>
 <p style="font-size:10px;color:#ccc;margin-top:4px">Showing 20 of 60+ recent bookings. Reload for different results.</p>
@@ -573,14 +579,14 @@ free:[
 ],
 light:[
 [V(U,'Should I transfer Amex MR to Delta or book through the Amex portal?','','2:15 PM'),V(F,'Depends on the route. Where are you going?','','2:15 PM'),V(U,'NYC to London. 2 people. Economy','','2:16 PM'),V(F,'Checking both options.','','2:16 PM'),V(F,'Amex portal: 100K points for 2 tickets. That is 1 cent per point.','','2:17 PM'),V(F,'Transfer to Virgin Atlantic: <span class="v">60K points total</span> for the same flights. 2.7 cents per point.','','2:17 PM'),V(U,'Same flights, 40% fewer points?','','2:18 PM'),V(F,'Exactly. The 40K you save is worth another <span class="v">$600 to $1,000</span> on a future trip.','','2:18 PM'),V(U,'Transferring now','','2:19 PM'),V(F,'Virgin transfers take about 24 hours. Do it today, book tomorrow. I can remind you.','','2:19 PM')],
-[V(U,'I have 80K Chase points and 60K Amex. What is the best way to use them together?','','4:00 PM'),V(F,'Great question. What are you trying to do with them?','','4:00 PM'),V(U,'Flights to Europe for two','','4:01 PM'),V(F,'Best move: transfer 60K Amex MR to ANA. Two round-trip economy seats to Europe.','','4:01 PM'),V(U,'What about the Chase points?','','4:02 PM'),V(F,'Hold them. Transfer 50K Chase UR to Hyatt for <span class="v">4 nights in Paris</span> at 12,500 pts/night. That is a $1,200 hotel stay.','','4:02 PM'),V(U,'So both currencies cover different parts of the trip?','','4:03 PM'),V(F,'Exactly. Flights from Amex, hotels from Chase. Each used where it gets the highest value.','','4:03 PM'),V(U,'I never thought to split them like that','','4:04 PM'),V(F,'That is what I am here for. Most people use one currency for everything and waste half of it.','','4:04 PM')],
+[V(U,'I have 80K Chase points and 60K Amex. What is the best way to use them together?','','4:00 PM'),V(F,'Great question. What are you trying to do with them?','','4:00 PM'),V(U,'Flights to Europe for two','','4:01 PM'),V(F,'Suggested option: transfer 60K Amex MR to ANA. Two round-trip economy seats to Europe.','','4:01 PM'),V(U,'What about the Chase points?','','4:02 PM'),V(F,'Hold them. Transfer 50K Chase UR to Hyatt for <span class="v">4 nights in Paris</span> at 12,500 pts/night. That is a $1,200 hotel stay.','','4:02 PM'),V(U,'So both currencies cover different parts of the trip?','','4:03 PM'),V(F,'Exactly. Flights from Amex, hotels from Chase. Each used where it gets the highest value.','','4:03 PM'),V(U,'I never thought to split them like that','','4:04 PM'),V(F,'That is what I am here for. Most people use one currency for everything and waste half of it.','','4:04 PM')],
 [V(U,'Which card should I use for groceries?','','6:30 PM'),V(F,'How much do you spend on groceries per month?','','6:30 PM'),V(U,'About $800','','6:31 PM'),V(F,'Amex Gold. 4x on US supermarkets up to $25K/year. You are well under the cap.','','6:31 PM'),V(U,'I have been using my Sapphire for everything','','6:32 PM'),V(F,'Sapphire earns 1x on groceries. Gold earns 4x. On $800/month that is <span class="v">38,400 extra points per year</span>.','','6:32 PM'),V(U,'Just from switching one category?','','6:33 PM'),V(F,'That is $576 to $768 in travel value. One card swap, no extra spending.','','6:33 PM'),V(U,'Done. Gold card going in the wallet now','','6:34 PM'),V(F,'I will check your other categories next month. Groceries is usually the biggest miss.','','6:34 PM')],
 [V(U,'Flying LA to Tokyo. Amex points or Chase points?','','9:00 AM'),V(F,'When and what class?','','9:00 AM'),V(U,'March. Business if possible','','9:01 AM'),V(F,'Business class changes everything. Let me check transfer partners.','','9:01 AM'),V(F,'Best option: transfer Amex MR to ANA. <span class="v">85K points</span> round-trip in business. Cash price: $6,400.','','9:02 AM'),V(F,'Chase option: transfer to United. 80K points but worse seats and more connections.','','9:02 AM'),V(U,'ANA business for 85K points? What is the catch?','','9:03 AM'),V(F,'You need to book via phone with ANA and availability is limited. But you are flying their flagship product at 7.5 cents per point.','','9:03 AM'),V(U,'How do I book it?','','9:04 AM'),V(F,'Transfer Amex to ANA (instant). Call ANA at their partner desk. I can give you the exact script to use.','','9:04 AM')],
 [V(U,'I have a ton of Marriott points. Are they any good?','','1:00 PM'),V(F,'How many are we talking?','','1:00 PM'),V(U,'About 180,000','','1:01 PM'),V(F,'That is solid. Where do you want to go?','','1:01 PM'),V(U,'Somewhere warm. Caribbean maybe','','1:02 PM'),V(F,'St. Regis Bahia Beach in Puerto Rico. Category 7. <span class="v">60K pts/night</span>. Three nights for 180K. Cash price: $2,100.','','1:02 PM'),V(U,'That is a nice hotel for free?','','1:03 PM'),V(F,'You already earned the points. This is just about using them where they stretch furthest.','','1:03 PM'),V(U,'Are there other options at that level?','','1:04 PM'),V(F,'W Punta de Mita in Mexico. Same points. Or the Ritz Carlton Aruba at 70K/night. I can compare availability for your dates.','','1:04 PM')]
 ],
 classic:[
 [V(F,'Heads up. Your <span class="v">$300 Amex airline credit</span> expires in 22 days. You have not used it this year.','Ranger','8:00 AM'),V(U,'I totally forgot about that','','8:12 AM'),V(F,'Happens to everyone. Buy a Southwest gift card through the Amex portal. Counts as airline incidental. 3 minutes.','','8:12 AM'),V(U,'Just did it. $300 saved','','8:18 AM'),V(F,'Also: your 18,000 Hilton points expire in 45 days.','','8:18 AM'),V(U,'How do I keep them?','','8:20 AM'),V(F,'$1 Amazon gift card through the Hilton shopping portal. Resets the clock 12 months.','','8:20 AM'),V(U,'Done. What else am I missing?','','8:22 AM'),V(F,'This week: 3,200 pts earned. Portfolio: <span class="v">145,200</span>. No expirations next 30 days. One new transfer bonus detected.','Weekly Pulse','Mon 7 AM'),V(U,'I love this','','Mon 7:15 AM')],
-[V(F,'Delta just announced SkyMiles devaluation for partner awards starting March 1. Your 48K SkyMiles are affected.','Spotter','7:00 AM'),V(U,'What? How bad?','','7:05 AM'),V(F,'Partner flights going from 32.5K to 50K for Europe in economy. Your 48K currently covers a round-trip. After March 1 it will not.','','7:05 AM'),V(U,'So I need to book NOW?','','7:06 AM'),V(F,'If you have a Europe trip in mind, yes. Lock it in at the old rate. You have 52 days.','','7:06 AM'),V(U,'Looking at Rome in June','','7:08 AM'),V(F,'Available on Air France via SkyMiles. <span class="v">32,500 each way</span>. Book today, save 35,000 points vs waiting.','','7:08 AM'),V(U,'Booking right now. Thank you for catching this','','7:10 AM'),V(F,'That is the Devaluation Shield. We watch every program for changes that affect your specific balances.','','7:10 AM')],
+[V(F,'Delta just announced SkyMiles devaluation for partner awards starting March 1. Your 48K SkyMiles are affected.','Spotter','7:00 AM'),V(U,'What? How bad?','','7:05 AM'),V(F,'Partner flights going from 32.5K to 50K for Europe in economy. Your 48K currently covers a round-trip. After March 1 it will not.','','7:05 AM'),V(U,'So I need to book NOW?','','7:06 AM'),V(F,'If you have a Europe trip in mind, yes. Lock it in at the old rate. You have 52 days.','','7:06 AM'),V(U,'Looking at Rome in June','','7:08 AM'),V(F,'Available on Air France via SkyMiles. <span class="v">32,500 each way</span>. Book today, save 35,000 points vs waiting.','','7:08 AM'),V(U,'Booking right now. Thank you for catching this','','7:10 AM'),V(F,'That is the Devaluation Watch. We watch every program for changes that affect your specific balances.','','7:10 AM')],
 [V(F,'Your Sapphire Reserve <span class="v">$300 travel credit</span> resets in 8 days. Current usage: $0.','Ranger','9:00 AM'),V(U,'I keep forgetting this one too','','9:15 AM'),V(F,'Easiest fix: book a refundable hotel through Chase portal. Credit applies immediately. Cancel later if you want.','','9:15 AM'),V(U,'That works? It is not gaming the system?','','9:16 AM'),V(F,'Completely within the terms. Chase credits post on any travel purchase through their portal. If your plans change, you cancel.','','9:16 AM'),V(U,'Smart. Booking a backup hotel for my trip next month','','9:18 AM'),V(F,'Perfect. Also: your Amex Gold statement credit for dining is at <span class="v">$4 of $10</span> this month. Grab a coffee on the Gold card today.','','9:18 AM'),V(U,'You track the $10 dining credit too?','','9:20 AM'),V(F,'Everything. Every credit, every deadline, every dollar.','Credits Tracker','9:20 AM')],
 [V(F,'Marriott Bonvoy flash promotion: earn <span class="v">double points</span> on stays through March 31. Your upcoming Miami stay qualifies.','Spotter','6:00 AM'),V(U,'I already have that booked. How many extra points?','','6:30 AM'),V(F,'Your 3-night stay at $220/night normally earns 6,600 points. With the promo: <span class="v">13,200 points</span>. Register before checking in.','','6:30 AM'),V(U,'How do I register?','','6:31 AM'),V(F,'Link sent. One click to activate. Make sure the Bonvoy number on your reservation matches your account.','','6:31 AM'),V(U,'Done. 6,600 free points just for clicking a link','','6:33 AM'),V(F,'Exactly. These promos run constantly. Most people miss them because nobody is watching.','','6:33 AM'),V(F,'Your portfolio this week: <span class="v">167,400 total</span>. Up 8,200 from last week. Two new promos detected.','Weekly Pulse','Mon 7 AM')],
 [V(F,'Your Chase Freedom Flex quarterly bonus category changed. New category: <span class="v">5x on PayPal</span> through March 31.','Ranger','8:00 AM'),V(U,'Oh nice. I use PayPal for a lot of stuff','','8:10 AM'),V(F,'You need to activate it. Last quarter you forgot to activate and left about 12,000 points on the table.','','8:10 AM'),V(U,'Ugh. How do I activate?','','8:11 AM'),V(F,'Link sent. One click. Cap is $1,500 in PayPal purchases for 5x.','','8:11 AM'),V(U,'Activated. Will you remind me next quarter too?','','8:12 AM'),V(F,'Automatically. I track every rotating category across all your cards. You will never miss activation again.','','8:12 AM'),V(U,'This already paid for itself','','8:13 AM'),V(F,'That is the point.','','8:13 AM')]
