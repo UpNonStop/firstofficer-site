@@ -175,28 +175,22 @@ button{cursor:pointer;border:none;font-family:inherit;background:none;color:inhe
 .fw-note{text-align:center;max-width:680px;margin:28px auto 0;font-size:14px;line-height:1.7;color:#666}
 .fw-note strong{color:var(--pink)}
 
-/* ==========  10 AGENTS GRID — linkable cells with signature colors  ========== */
-.agent-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:960px;margin:0 auto}
-.agent-cell{padding:22px 16px 22px 20px;border-radius:14px;background:#fff;border:1px solid #eee;text-align:left;transition:all .4s var(--ease);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;min-height:110px;color:#111;text-decoration:none}
-.agent-cell::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--ac);transition:width .3s var(--ease)}
-.agent-cell:hover::before{width:6px}
-.agent-cell:hover{border-color:var(--ac);transform:translateY(-3px);box-shadow:0 12px 32px color-mix(in srgb, var(--ac) 14%, transparent)}
-.agent-cell-name{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px;color:#111;transition:color .3s}
-.agent-cell:hover .agent-cell-name{color:var(--ac)}
-.agent-cell-role{font-size:11px;color:#888;line-height:1.3}
-.agent-pulse{position:absolute;top:10px;right:10px;width:6px;height:6px;border-radius:50%;background:var(--ac);box-shadow:0 0 8px var(--ac);animation:pulse 2s infinite}
-.agent-tag{display:inline-block;font-family:var(--mono);font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:3px 7px;border-radius:4px;background:color-mix(in srgb, var(--ac) 10%, transparent);color:var(--ac);margin-top:10px;align-self:flex-start}
-.agent-arrow{position:absolute;bottom:10px;right:12px;color:var(--ac);font-size:14px;font-weight:700;opacity:0;transform:translateX(-4px);transition:all .3s var(--ease)}
-.agent-cell:hover .agent-arrow{opacity:1;transform:translateX(0)}
-.agent-cell.soon{opacity:.5;cursor:default;pointer-events:none}
-.agent-cell.soon .agent-pulse{background:#ccc;box-shadow:none;animation:none}
-.agent-cell.soon:hover{transform:none;box-shadow:none;border-color:#eee}
-.agent-cell.soon:hover::before{width:3px}
-.agent-cell.soon .agent-tag{background:#f5f5f4;color:#999}
-.agent-foot{text-align:center;font-size:12px;color:#888;margin-top:20px;font-family:var(--mono);letter-spacing:.5px}
+/* ==========  10 AGENTS — interactive pill grid, click to expand inline  ========== */
+.agents{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:720px;margin:0 auto}
+.ag-pill{padding:10px 8px;border-radius:100px;font-size:12px;font-weight:600;border:1px solid #e0e0e0;background:#fff;color:#666;transition:all .3s;cursor:pointer;text-align:center;white-space:nowrap;position:relative}
+.ag-pill:hover{opacity:.9}
+.ag-pill.soon{background:#f7f7f5;color:#999;border-color:#eee}
+.ag-pill.soon::after{content:'';position:absolute;top:6px;right:9px;width:5px;height:5px;border-radius:50%;background:#ccc}
+.ag-desc{max-height:0;overflow:hidden;transition:max-height .45s ease,opacity .3s ease,margin .3s ease;opacity:0;margin:0 auto;max-width:640px}
+.ag-desc.open{max-height:260px;opacity:1;margin:22px auto 0}
+.ag-desc-inner{padding:22px 26px;border-radius:12px;border:1px solid #e8e9ed;background:#fafaf9;text-align:left;transition:border-color .3s}
+.ag-desc-name{font-family:var(--serif);font-size:17px;color:#111;margin-bottom:6px}
+.ag-desc-text{font-size:13px;color:#666;line-height:1.65}
+.ag-desc-tag{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:4px;background:#f5f5f4;color:#999;margin-left:8px;vertical-align:middle;text-transform:uppercase}
+.agent-foot{text-align:center;font-size:12px;color:#888;margin-top:28px;font-family:var(--mono);letter-spacing:.5px}
 .agent-foot strong{color:var(--pink);font-weight:700}
 
-/* Individual agent signature colors — matching product-personal.html palette */
+/* Signature colors per agent */
 .agent-oracle     {--ac:#7B8FF7}
 .agent-archivist  {--ac:#06B6D4}
 .agent-accountant {--ac:#14B8A6}
@@ -271,7 +265,8 @@ button{cursor:pointer;border:none;font-family:inherit;background:none;color:inhe
   .qa-row{grid-template-columns:1fr;padding:0 20px;gap:12px}
   .fw-layer{grid-template-columns:1fr;gap:14px;padding:18px}
   .ing-grid{grid-template-columns:1fr}
-  .agent-grid{grid-template-columns:repeat(3,1fr);gap:10px}
+  .agents{grid-template-columns:repeat(5,1fr);gap:6px}
+  .ag-pill{padding:7px 3px;font-size:10px;white-space:normal;line-height:1.2}
   .gb-grid,.iw{grid-template-columns:1fr}
   .trust-grid{grid-template-columns:1fr 1fr}
   .nk{display:none}
@@ -291,7 +286,7 @@ button{cursor:pointer;border:none;font-family:inherit;background:none;color:inhe
   .battery-num{font-size:28px}
   .live-counter{font-size:clamp(44px,15vw,56px);letter-spacing:-2px}
   .live-counter-lbl{font-size:9.5px}
-  .agent-grid{grid-template-columns:repeat(2,1fr)}
+  .ag-desc.open{max-height:320px}
   .trust-grid{grid-template-columns:1fr}
   .fw-items{flex-direction:column}
   .fw-pill{width:100%;justify-content:flex-start}
@@ -488,21 +483,56 @@ button{cursor:pointer;border:none;font-family:inherit;background:none;color:inhe
 <section class="sec alt2">
 <div class="wrap">
 <div class="sh reveal"><div class="ey">The orchestra</div><h2 class="hd">10 specialists. <em>One conversation.</em></h2><p class="ds">Not a single chatbot wrapped around a generic model. An orchestra of 10 specialists, each with a distinct role, all powered by Claude AI from Anthropic. They work in parallel behind the scenes. You only see the conversation.</p></div>
-<div class="agent-grid">
-<a class="agent-cell agent-oracle reveal reveal-d1" href="product-personal.html#orchestra"><div class="agent-pulse"></div><div><div class="agent-cell-name">ORACLE</div><div class="agent-cell-role">Q&amp;A brain</div></div><span class="agent-tag">Live</span><span class="agent-arrow">&rarr;</span></a>
-<a class="agent-cell agent-archivist reveal reveal-d2" href="product-personal.html#orchestra"><div class="agent-pulse"></div><div><div class="agent-cell-name">ARCHIVIST</div><div class="agent-cell-role">Memory &amp; profile</div></div><span class="agent-tag">Live</span><span class="agent-arrow">&rarr;</span></a>
-<a class="agent-cell agent-accountant reveal reveal-d3" href="product-personal.html#orchestra"><div class="agent-pulse"></div><div><div class="agent-cell-name">ACCOUNTANT</div><div class="agent-cell-role">Portfolio valuation</div></div><span class="agent-tag">Live</span><span class="agent-arrow">&rarr;</span></a>
-<a class="agent-cell agent-optioneer reveal reveal-d4" href="product-personal.html#orchestra"><div class="agent-pulse"></div><div><div class="agent-cell-name">OPTIONEER</div><div class="agent-cell-role">Route options</div></div><span class="agent-tag">Live</span><span class="agent-arrow">&rarr;</span></a>
-<a class="agent-cell agent-commander reveal reveal-d1" href="product-personal.html#orchestra"><div class="agent-pulse"></div><div><div class="agent-cell-name">COMMANDER</div><div class="agent-cell-role">Card routing</div></div><span class="agent-tag">Live</span><span class="agent-arrow">&rarr;</span></a>
-<a class="agent-cell agent-strategist reveal reveal-d2" href="strategist.html"><div class="agent-pulse"></div><div><div class="agent-cell-name">STRATEGIST</div><div class="agent-cell-role">90-day roadmap</div></div><span class="agent-tag">Live</span><span class="agent-arrow">&rarr;</span></a>
-<a class="agent-cell agent-planner reveal reveal-d3" href="product-personal.html#orchestra"><div class="agent-pulse"></div><div><div class="agent-cell-name">PLANNER</div><div class="agent-cell-role">Goal tracking</div></div><span class="agent-tag">Live</span><span class="agent-arrow">&rarr;</span></a>
-<div class="agent-cell agent-ranger soon reveal reveal-d4"><div class="agent-pulse"></div><div><div class="agent-cell-name">RANGER</div><div class="agent-cell-role">Credit monitoring</div></div><span class="agent-tag">Coming soon</span></div>
-<div class="agent-cell agent-spotter soon reveal reveal-d1"><div class="agent-pulse"></div><div><div class="agent-cell-name">SPOTTER</div><div class="agent-cell-role">Opportunities</div></div><span class="agent-tag">Coming soon</span></div>
-<div class="agent-cell agent-hunter soon reveal reveal-d2"><div class="agent-pulse"></div><div><div class="agent-cell-name">BONUS HUNTER</div><div class="agent-cell-role">Sign-up bonuses</div></div><span class="agent-tag">Coming soon</span></div>
+<div class="agents" id="agentPills">
+<div class="ag-pill agent-oracle" data-ag="oracle">Oracle</div>
+<div class="ag-pill agent-archivist" data-ag="archivist">Archivist</div>
+<div class="ag-pill agent-accountant" data-ag="accountant">Accountant</div>
+<div class="ag-pill agent-optioneer" data-ag="optioneer">Optioneer</div>
+<div class="ag-pill agent-commander" data-ag="commander">Commander</div>
+<div class="ag-pill agent-strategist" data-ag="strategist">Strategist</div>
+<div class="ag-pill agent-planner" data-ag="planner">Planner</div>
+<div class="ag-pill agent-ranger soon" data-ag="ranger">Ranger</div>
+<div class="ag-pill agent-spotter soon" data-ag="spotter">Spotter</div>
+<div class="ag-pill agent-hunter soon" data-ag="hunter">Bonus Hunter</div>
 </div>
+<div class="ag-desc" id="agentDesc"><div class="ag-desc-inner"><div class="ag-desc-name" id="agDescName"></div><div class="ag-desc-text" id="agDescText"></div></div></div>
 <p class="agent-foot">Plus <strong>Scout</strong> (onboarding) and <strong>Coach</strong> (education), both embedded across every tier.</p>
 </div>
 </section>
+<script>
+(function(){
+var D={"oracle": ["Oracle", "Knows how 629+ loyalty programs work. Transfer ratios, sweet spots, devaluations. The brain behind every recommendation.", false], "archivist": ["Archivist", "Your memory and profile. Tracks your cards, loyalty programs, goals, and every preference you have shared with First Officer.", false], "accountant": ["Accountant", "Monthly portfolio snapshot. Total points, estimated value, blended earn rate across your stack, and where the gaps are.", false], "optioneer": ["Optioneer", "Turns a travel goal into route options. Which points to transfer, which program to book through, and what the trade-offs look like.", false], "commander": ["Commander", "Routes your spend across your card stack. Tells you exactly which card to use at which store and why.", false], "strategist": ["Strategist", "Builds your 90-day and 12-month points roadmap. Tracks progress, adjusts for program changes, and keeps your portfolio on target. <a href=\"strategist.html\" style=\"color:#0EA5E9;font-weight:700\">See the full Strategist experience &rarr;</a>", false], "planner": ["Planner", "Tracks your travel plans end-to-end. Keeps them current as availability, prices, and programs shift around you.", false], "ranger": ["Ranger", "Will monitor expiring credits, forgotten annual benefits, and rotating bonus categories. Catches money before it expires.", true], "spotter": ["Spotter", "Will watch for transfer bonuses, limited-time promotions, and new card offers that actually match your spend profile.", true], "hunter": ["Bonus Hunter", "Will track minimum spend deadlines on new cards. Alerts you before welcome-bonus windows close so no points are left on the table.", true]};
+var pills=document.querySelectorAll('#agentPills .ag-pill');
+var desc=document.getElementById('agentDesc');
+var nm=document.getElementById('agDescName');
+var tx=document.getElementById('agDescText');
+var inner=desc.querySelector('.ag-desc-inner');
+var cur='';
+function resetPills(){pills.forEach(function(x){x.style.background='';x.style.borderColor='';x.style.color=''});}
+pills.forEach(function(p){
+var col=getComputedStyle(p).getPropertyValue('--ac').trim()||'#FA1896';
+p.addEventListener('mouseenter',function(){if(!p.classList.contains('active')){p.style.borderColor=col;p.style.color=col}});
+p.addEventListener('mouseleave',function(){if(!p.classList.contains('active')){p.style.borderColor='';p.style.color=''}});
+p.addEventListener('click',function(){
+var k=p.getAttribute('data-ag');
+if(cur===k){desc.classList.remove('open');pills.forEach(function(x){x.classList.remove('active')});resetPills();cur='';return;}
+cur=k;
+pills.forEach(function(x){x.classList.remove('active')});
+resetPills();
+p.classList.add('active');
+p.style.background=col;
+p.style.borderColor=col;
+p.style.color='#fff';
+var soonTag=D[k][2]?' <span class="ag-desc-tag">Coming soon</span>':'';
+nm.innerHTML=D[k][0]+soonTag;
+nm.style.color=col;
+tx.innerHTML=D[k][1];
+inner.style.borderColor=col;
+desc.classList.add('open');
+});
+});
+})();
+</script>
 
 <!-- GLASS BOX -->
 <section class="sec alt">
