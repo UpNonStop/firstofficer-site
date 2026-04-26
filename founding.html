@@ -136,8 +136,6 @@ body .dgrid ul li{color:#333}body.biz .dgrid ul li{color:#ccc}
 .dblock.alpha .dgrid ul li .b{color:var(--pink)}
 .dblock.beta .dgrid ul li .b{color:var(--gold)}
 
-.matrix{margin-top:40px}
-.matx{width:100%;border-collapse:collapse;font-size:14px}
 .matx th{text-align:left;padding:14px 16px;font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--pink);border-bottom:2px solid;transition:all .7s}
 body .matx th{border-color:#111}body.biz .matx th{border-color:#fff}
 .dblock.beta .matx th{color:var(--gold)}
@@ -227,10 +225,14 @@ body .ftb{border-color:#e8e9ed}body.biz .ftb{border-color:#2a2a2a}
 .ft-note{font-family:var(--mono);font-size:11px;line-height:1.6;letter-spacing:.3px;transition:color .7s}
 body .ft-note{color:#888}body.biz .ft-note{color:#777}
 
-@media(max-width:900px){.cohorts{grid-template-columns:1fr}.dgrid{grid-template-columns:1fr;gap:28px}.trade{grid-template-columns:1fr}.gfx-row{flex-direction:column;gap:4px}.gfx-row .lhs{width:100%}.matx{display:block;overflow-x:auto;white-space:nowrap}.matx td,.matx th{padding:12px}.ftg{grid-template-columns:1fr;gap:24px}.dblock{padding:36px 24px}}
-.ncta .ncta-sm{display:none}
-@media(max-width:768px){.nk{display:none}.mob{display:none}.ncta{padding:9px 16px}.ncta .ncta-lg{display:none}.ncta .ncta-sm{display:inline}.hero{padding:110px 0 56px}.sec{padding:64px 0}.strip{gap:32px;padding:24px 0}.dblock{padding:32px 22px}.cta-card{padding:44px 28px}.wrap{padding:0 22px}.wrap-n{padding:0 22px}}
-@media(max-width:480px){.strip{flex-direction:column;gap:20px}.dblock h2{font-size:26px}.faq-q{font-size:15px;padding:20px 0}}
+.matrix{margin-top:40px;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+.matx{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+.btn-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:36px}
+.btn-pair>.btn{min-width:0;overflow:hidden;text-overflow:ellipsis}
+
+@media(max-width:900px){.cohorts{grid-template-columns:1fr}.dgrid{grid-template-columns:1fr;gap:28px}.trade{grid-template-columns:1fr}.gfx-row{flex-direction:column;gap:4px}.gfx-row .lhs{width:100%}.matx td,.matx th{padding:12px 14px}.ftg{grid-template-columns:1fr;gap:24px}.dblock{padding:36px 24px}.coh{padding:32px 26px}.tr-side{padding:32px 26px}}
+@media(max-width:768px){.nk{display:none}.mob{display:flex}.ncta{display:none}.hero{padding:110px 0 56px}.sec{padding:60px 0}.strip{gap:32px;padding:24px 0}.dblock{padding:28px 20px}.coh{padding:28px 22px}.tr-side{padding:24px 20px}.gfx{padding:24px 20px}.cta-card{padding:44px 24px}.wrap{padding:0 20px}.wrap-n{padding:0 20px}.wa-mock{max-width:100%}.hero h1{letter-spacing:-1px}.matx{min-width:480px;font-size:13px}.matx td,.matx th{padding:10px 12px}}
+@media(max-width:480px){.strip{flex-direction:column;gap:20px}.dblock h2{font-size:26px}.faq-q{font-size:15px;padding:20px 0}.hero{padding:96px 0 48px}.hero h1{font-size:34px;letter-spacing:-.5px;line-height:1.08}.hero-sub{font-size:16px}.coh{padding:24px 18px}.coh h3{font-size:26px}.gfx{padding:18px 16px}.dblock{padding:22px 16px}.dblock .lede{font-size:15px}.cta-card{padding:36px 18px}.cta-card h2{font-size:26px}.wrap-n{padding:0 18px}.kicker{font-size:11px;padding:6px 14px}.bt{margin-bottom:40px}.tb{padding:14px 18px;font-size:14px}.faq-cat{margin:36px 0 12px}.dgrid h4,.tr-side h4,.gfx h4{margin-bottom:10px}.btn-pair{grid-template-columns:1fr;gap:10px;margin-top:28px}.btn-pair>.btn{font-size:14px;padding:13px 20px}}
 </style>
 </head>
 <body>
@@ -247,7 +249,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <a href="firstofficer-site.html#about" class="nka">About</a>
 <a href="firstofficer-site.html#hub" class="nka">Learn</a>
 </div>
-<a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20I%20got%20the%20founding%20invite" class="ncta" target="_blank">&#128172; <span class="ncta-lg">Reply on WhatsApp</span><span class="ncta-sm">WhatsApp</span></a>
+<a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20I%20got%20the%20founding%20invite" class="ncta" target="_blank">&#128172; Reply on WhatsApp</a>
 <button class="mob" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </div>
 </nav>
@@ -402,8 +404,8 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <tbody>
 <tr>
 <td><div class="tier">Light</div><div class="lock">$5 / month</div></td>
-<td><span class="strike">$5</span></td>
-<td class="price">$5</td>
+<td class="lock">$5</td>
+<td class="lock">$5</td>
 <td><span class="lock">No discount</span></td>
 <td class="lock">Founder badge only</td>
 </tr>
@@ -448,15 +450,15 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 </tr>
 <tr>
 <td><div class="tier">Signature</div><div class="lock">$349 / month</div></td>
-<td><span class="strike">$349</span></td>
-<td class="price">$349</td>
+<td class="lock">$349</td>
+<td class="lock">$349</td>
 <td><span class="lock">Founder badge</span></td>
 <td class="lock">No discount</td>
 </tr>
 <tr class="flag">
 <td><div class="tier">Concierge &#9733;</div><div class="lock">$549 / month</div></td>
-<td><span class="strike">$549</span></td>
-<td class="price">$549</td>
+<td class="lock">$549</td>
+<td class="lock">$549</td>
 <td><span class="lock">Setup waived</span></td>
 <td class="lock">$1,000 onboarding included</td>
 </tr>
@@ -474,11 +476,11 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <div class="gfx-row"><div class="lhs">Refer a founder</div><div class="rhs">Refer one paid founder before May 30, your lock extends by 90 days. Up to four referrals, four extensions.</div></div>
 </div>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px" data-b>
+<div class="btn-pair" data-b>
 <a href="https://buy.stripe.com/dRmaEXbYyge14It9yl3Je02?prefilled_promo_code=BETA_CLASSIC_50" class="btn btn-pk btn-m" target="_blank" style="justify-content:center">Beta Classic at $9.50</a>
 <a href="https://buy.stripe.com/dRmeVdbYy2nbcaV9yl3Je04?prefilled_promo_code=BETA_RESERVE_33" class="btn btn-pk btn-m" target="_blank" style="justify-content:center">Beta Reserve at $39.50</a>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px" data-s>
+<div class="btn-pair" data-s>
 <a href="https://buy.stripe.com/28EbJ1geO8Lz5Mx39X3Je05?prefilled_promo_code=BETA_PREFERRED_30" class="btn btn-gd btn-m" target="_blank" style="justify-content:center">Beta Preferred at $139.30</a>
 <a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20Concierge%20founding%20setup" class="btn btn-gd btn-m" target="_blank" style="justify-content:center">Concierge with founder onboarding</a>
 </div>
