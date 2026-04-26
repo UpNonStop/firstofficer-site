@@ -200,7 +200,8 @@ body .gfx-row .rhs{color:#444}body.biz .gfx-row .rhs{color:#bbb}
 .promo-callout{margin:36px auto 8px;max-width:520px;padding:22px 26px;border:1.5px dashed var(--pink);border-radius:14px;text-align:center;background:rgba(250,24,150,.03);transition:all .7s}
 body.biz .promo-callout{background:rgba(250,24,150,.06)}
 .promo-label{font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2.2px;color:var(--pink);margin-bottom:8px}
-.promo-code{font-family:var(--mono);font-size:30px;font-weight:700;letter-spacing:5px;color:var(--pink);margin-bottom:10px;line-height:1}
+.promo-code{font-family:var(--mono);font-size:30px;font-weight:700;letter-spacing:5px;color:var(--pink);margin-bottom:6px;line-height:1}
+.promo-decode{font-family:var(--instr);font-style:italic;font-size:14px;color:var(--pink);margin-bottom:14px;letter-spacing:.2px;opacity:.85}
 .promo-hint{font-size:12.5px;line-height:1.55;transition:color .7s}
 body .promo-hint{color:#666}body.biz .promo-hint{color:#999}
 
@@ -270,9 +271,11 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 </a>
 <div class="nk">
 <a href="firstofficer-site.html" class="nka">Home</a>
-<a href="firstofficer-site.html#pricing" class="nka">Pricing</a>
-<a href="firstofficer-site.html#about" class="nka">About</a>
-<a href="firstofficer-site.html#hub" class="nka">Learn</a>
+<a href="product-personal.html" class="nka" id="prodLink">Product</a>
+<a href="how-personal.html" class="nka" id="howLink">How</a>
+<a href="calculator-personal.html" class="nka" id="calcLink">Calculator</a>
+<a href="firstofficer-site.html" class="nka">Pricing</a>
+<a href="firstofficer-site.html" class="nka">About</a>
 </div>
 <a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20I%20got%20the%20founding%20invite" class="ncta" target="_blank">💬 <span class="ncta-lg">Start on WhatsApp</span><span class="ncta-sm">WhatsApp</span></a>
 <button class="mob" onclick="toggleMob()"><span></span><span></span><span></span></button>
@@ -355,7 +358,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <div class="coh-line"><span class="ck">&#10003;</span><span>Cancel anytime. Pause up to 30 days without breaking the lock. Cancel and rejoin later, the lock resets to list price.</span></div>
 
 <div class="coh-foot">
-<div class="coh-price">Personal: from $5. Business: from $199.</div>
+<div class="coh-price"><span data-b>From $5 / month. Founding rate locked.</span><span data-s>From $199 / month. Founding rate locked.</span></div>
 <a href="#beta-pricing" class="btn btn-gd btn-m" style="width:100%;justify-content:center">See Beta pricing</a>
 </div>
 </div>
@@ -503,6 +506,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <div class="promo-callout">
 <div class="promo-label">Beta promo code</div>
 <div class="promo-code">FOBF</div>
+<div class="promo-decode">First Officer Beta Founder</div>
 <div class="promo-hint">Auto-fills at Stripe checkout. If you do not see the discount applied, paste <strong>FOBF</strong> into the &ldquo;Add promotion code&rdquo; field on the next page.</div>
 </div>
 
@@ -893,7 +897,8 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 
 <script>
 function setMode(m){
-  if(m==='smbo'){
+  var biz = (m === 'smbo');
+  if(biz){
     document.body.classList.add('biz');
     document.getElementById('togB').classList.remove('sel');
     document.getElementById('togS').classList.add('sel');
@@ -902,6 +907,13 @@ function setMode(m){
     document.getElementById('togB').classList.add('sel');
     document.getElementById('togS').classList.remove('sel');
   }
+  var suffix = biz ? '-business.html' : '-personal.html';
+  var prod = document.getElementById('prodLink');
+  var how = document.getElementById('howLink');
+  var calc = document.getElementById('calcLink');
+  if(prod) prod.href = 'product' + suffix;
+  if(how) how.href = 'how' + suffix;
+  if(calc) calc.href = 'calculator' + suffix;
 }
 window.addEventListener('scroll', function(){
   document.getElementById('mainNav').classList.toggle('stuck', window.scrollY > 20);
