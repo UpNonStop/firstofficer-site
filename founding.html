@@ -136,10 +136,11 @@ body .dgrid ul li{color:#333}body.biz .dgrid ul li{color:#ccc}
 .dblock.alpha .dgrid ul li .b{color:var(--pink)}
 .dblock.beta .dgrid ul li .b{color:var(--gold)}
 
-.matrix{margin-top:40px;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
-.matx{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
-.btn-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:36px}
-.btn-pair>.btn{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.matrix{margin-top:40px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.beta-ctas{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.beta-ctas[data-s]{display:none}body.biz .beta-ctas[data-b]{display:none}body.biz .beta-ctas[data-s]{display:grid}
+.beta-ctas .btn{min-width:0;white-space:normal;text-align:center;padding-left:14px;padding-right:14px}
+.matx{width:100%;border-collapse:collapse;font-size:14px}
 .matx th{text-align:left;padding:14px 16px;font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--pink);border-bottom:2px solid;transition:all .7s}
 body .matx th{border-color:#111}body.biz .matx th{border-color:#fff}
 .dblock.beta .matx th{color:var(--gold)}
@@ -229,10 +230,10 @@ body .ftb{border-color:#e8e9ed}body.biz .ftb{border-color:#2a2a2a}
 .ft-note{font-family:var(--mono);font-size:11px;line-height:1.6;letter-spacing:.3px;transition:color .7s}
 body .ft-note{color:#888}body.biz .ft-note{color:#777}
 
-@media(max-width:900px){.cohorts{grid-template-columns:1fr}.dgrid{grid-template-columns:1fr;gap:28px}.trade{grid-template-columns:1fr}.gfx-row{flex-direction:column;gap:4px}.gfx-row .lhs{width:100%}.matx td,.matx th{padding:12px 14px}.ftg{grid-template-columns:1fr;gap:24px}.dblock{padding:36px 24px}}
+@media(max-width:900px){.cohorts{grid-template-columns:1fr}.dgrid{grid-template-columns:1fr;gap:28px}.trade{grid-template-columns:1fr}.gfx-row{flex-direction:column;gap:4px}.gfx-row .lhs{width:100%}.ftg{grid-template-columns:1fr;gap:24px}.dblock{padding:36px 24px}.matrix{overflow:visible}.matx,.matx thead,.matx tbody,.matx tr,.matx td,.matx th{display:block;width:auto !important}.matx thead{display:none}.matx tr{border:1px solid #e8e9ed;border-radius:12px;padding:18px;margin-bottom:12px;background:#fff}body.biz .matx tr{border-color:#2a2a2a;background:#151515}.matx tr.flag{background:rgba(197,162,38,.04)}body.biz .matx tr.flag{background:rgba(197,162,38,.06)}.matx td{padding:6px 0 !important;border:none !important;display:flex;justify-content:space-between;align-items:center;font-size:14px}.matx td:first-child{padding-bottom:10px !important;border-bottom:1px solid #eee !important;margin-bottom:6px;display:block}body.biz .matx td:first-child{border-bottom-color:#2a2a2a !important}.matx td:not(:first-child)::before{content:attr(data-l);font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:#888;margin-right:12px}}
 .ncta .ncta-sm{display:none}
-@media(max-width:768px){.nk{display:none}.mob{display:none}.ncta{padding:9px 16px}.ncta .ncta-lg{display:none}.ncta .ncta-sm{display:inline}.hero{padding:110px 0 56px}.sec{padding:64px 0}.strip{gap:32px;padding:24px 0}.dblock{padding:32px 22px}.cta-card{padding:44px 28px}.wrap{padding:0 22px}.wrap-n{padding:0 22px}}
-@media(max-width:480px){.strip{flex-direction:column;gap:20px}.dblock h2{font-size:26px}.faq-q{font-size:15px;padding:20px 0}.btn-pair{grid-template-columns:1fr;gap:10px}.btn-pair>.btn{font-size:14px;padding:13px 18px}}
+@media(max-width:768px){.nk{display:none}.mob{display:none}.ncta{padding:9px 16px}.ncta .ncta-lg{display:none}.ncta .ncta-sm{display:inline}.beta-ctas{grid-template-columns:1fr}.hero{padding:110px 0 56px}.sec{padding:64px 0}.strip{gap:32px;padding:24px 0}.dblock{padding:32px 22px}.cta-card{padding:44px 28px}.wrap{padding:0 22px}.wrap-n{padding:0 22px}}
+@media(max-width:480px){.strip{flex-direction:column;gap:20px}.dblock h2{font-size:26px}.faq-q{font-size:15px;padding:20px 0}}
 </style>
 </head>
 <body>
@@ -403,31 +404,31 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <tbody>
 <tr>
 <td><div class="tier">Light</div><div class="lock">$5 / month</div></td>
-<td class="lock">$5</td>
-<td class="lock">$5</td>
-<td><span class="lock">No discount</span></td>
-<td class="lock">Founder badge only</td>
+<td data-l="List"><span class="strike">$5</span></td>
+<td data-l="Founding" class="price">$5</td>
+<td data-l="You save"><span class="lock">No discount</span></td>
+<td data-l="Lock" class="lock">Founder badge only</td>
 </tr>
 <tr class="flag">
 <td><div class="tier">Classic</div><div class="lock">$19 / month</div></td>
-<td><span class="strike">$19</span></td>
-<td class="price">$9.50</td>
-<td><span class="pct">50% off</span></td>
-<td class="lock">12 months from start</td>
+<td data-l="List"><span class="strike">$19</span></td>
+<td data-l="Founding" class="price">$9.50</td>
+<td data-l="You save"><span class="pct">50% off</span></td>
+<td data-l="Lock" class="lock">12 months from start</td>
 </tr>
 <tr>
 <td><div class="tier">Select</div><div class="lock">$39 / month</div></td>
-<td><span class="strike">$39</span></td>
-<td class="price">$23.40</td>
-<td><span class="pct">40% off</span></td>
-<td class="lock">12 months from start</td>
+<td data-l="List"><span class="strike">$39</span></td>
+<td data-l="Founding" class="price">$23.40</td>
+<td data-l="You save"><span class="pct">40% off</span></td>
+<td data-l="Lock" class="lock">12 months from start</td>
 </tr>
 <tr class="flag">
 <td><div class="tier">Reserve</div><div class="lock">$59 / month</div></td>
-<td><span class="strike">$59</span></td>
-<td class="price">$39.50</td>
-<td><span class="pct">33% off</span></td>
-<td class="lock">12 months from start</td>
+<td data-l="List"><span class="strike">$59</span></td>
+<td data-l="Founding" class="price">$39.50</td>
+<td data-l="You save"><span class="pct">33% off</span></td>
+<td data-l="Lock" class="lock">12 months from start</td>
 </tr>
 </tbody>
 </table>
@@ -442,24 +443,24 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <tbody>
 <tr class="flag">
 <td><div class="tier">Preferred</div><div class="lock">$199 / month</div></td>
-<td><span class="strike">$199</span></td>
-<td class="price">$139.30</td>
-<td><span class="pct">30% off</span></td>
-<td class="lock">6 months from start</td>
+<td data-l="List"><span class="strike">$199</span></td>
+<td data-l="Founding" class="price">$139.30</td>
+<td data-l="You save"><span class="pct">30% off</span></td>
+<td data-l="Lock" class="lock">6 months from start</td>
 </tr>
 <tr>
 <td><div class="tier">Signature</div><div class="lock">$349 / month</div></td>
-<td class="lock">$349</td>
-<td class="lock">$349</td>
-<td><span class="lock">Founder badge</span></td>
-<td class="lock">No discount</td>
+<td data-l="List"><span class="strike">$349</span></td>
+<td data-l="Founding" class="price">$349</td>
+<td data-l="You save"><span class="lock">Founder badge</span></td>
+<td data-l="Lock" class="lock">No discount</td>
 </tr>
 <tr class="flag">
 <td><div class="tier">Concierge &#9733;</div><div class="lock">$549 / month</div></td>
-<td class="lock">$549</td>
-<td class="lock">$549</td>
-<td><span class="lock">Setup waived</span></td>
-<td class="lock">$1,000 onboarding included</td>
+<td data-l="List"><span class="strike">$549</span></td>
+<td data-l="Founding" class="price">$549</td>
+<td data-l="You save"><span class="lock">Setup waived</span></td>
+<td data-l="Lock" class="lock">$1,000 onboarding included</td>
 </tr>
 </tbody>
 </table>
@@ -475,11 +476,11 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <div class="gfx-row"><div class="lhs">Refer a founder</div><div class="rhs">Refer one paid founder before May 30, your lock extends by 90 days. Up to four referrals, four extensions.</div></div>
 </div>
 
-<div class="btn-pair" data-b>
+<div class="beta-ctas" data-b>
 <a href="https://buy.stripe.com/dRmaEXbYyge14It9yl3Je02?prefilled_promo_code=BETA_CLASSIC_50" class="btn btn-pk btn-m" target="_blank" style="justify-content:center">Beta Classic at $9.50</a>
 <a href="https://buy.stripe.com/dRmeVdbYy2nbcaV9yl3Je04?prefilled_promo_code=BETA_RESERVE_33" class="btn btn-pk btn-m" target="_blank" style="justify-content:center">Beta Reserve at $39.50</a>
 </div>
-<div class="btn-pair" data-s>
+<div class="beta-ctas" data-s>
 <a href="https://buy.stripe.com/28EbJ1geO8Lz5Mx39X3Je05?prefilled_promo_code=BETA_PREFERRED_30" class="btn btn-gd btn-m" target="_blank" style="justify-content:center">Beta Preferred at $139.30</a>
 <a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20Concierge%20founding%20setup" class="btn btn-gd btn-m" target="_blank" style="justify-content:center">Concierge with founder onboarding</a>
 </div>
