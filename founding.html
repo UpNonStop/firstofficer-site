@@ -172,7 +172,9 @@ body .dgrid ul li{color:#333}body.biz .dgrid ul li{color:#ccc}
 .dblock.beta .dgrid ul li .b{color:var(--gold)}
 
 .matrix{margin:40px auto 0;max-width:880px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.beta-ctas{margin:36px auto 0;max-width:680px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.beta-ctas{margin:36px auto 0;max-width:520px;display:grid;grid-template-columns:1fr;gap:12px}
+.beta-ctas .btn{padding-left:18px;padding-right:18px}
+.beta-ctas .btn .price-strike,.beta-ctas .btn .price-now{font-family:var(--mono)}
 .beta-ctas[data-s]{display:none}body.biz .beta-ctas[data-b]{display:none}body.biz .beta-ctas[data-s]{display:grid}
 .beta-ctas .btn{min-width:0;white-space:normal;text-align:center;padding-left:14px;padding-right:14px}
 .matx{width:100%;border-collapse:collapse;font-size:14px}
@@ -275,7 +277,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 
 @media(max-width:900px){.cohorts{grid-template-columns:1fr}.dgrid{grid-template-columns:1fr;gap:28px}.trade{grid-template-columns:1fr}.gfx-row{flex-direction:column;gap:4px}.gfx-row .lhs{width:100%}.ftg{grid-template-columns:1fr;gap:24px}.dblock{padding:36px 24px}.matrix{overflow:visible}.matx,.matx thead,.matx tbody,.matx tr,.matx td,.matx th{display:block;width:auto !important}.matx thead{display:none}.matx tr{border:1px solid #e8e9ed;border-radius:12px;padding:18px;margin-bottom:12px;background:#fff}body.biz .matx tr{border-color:#2a2a2a;background:#151515}.matx tr.flag{background:rgba(197,162,38,.04)}body.biz .matx tr.flag{background:rgba(197,162,38,.06)}.matx td{padding:6px 0 !important;border:none !important;display:flex;justify-content:space-between;align-items:center;font-size:14px}.matx td:first-child{padding-bottom:10px !important;border-bottom:1px solid #eee !important;margin-bottom:6px;display:block}body.biz .matx td:first-child{border-bottom-color:#2a2a2a !important}.matx td:not(:first-child)::before{content:attr(data-l);font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:#888;margin-right:12px}}
 .ncta .ncta-sm{display:none}
-@media(max-width:768px){.nk{display:none}.mob{display:none}.ncta{padding:9px 16px}.ncta .ncta-lg{display:none}.ncta .ncta-sm{display:inline}.beta-ctas{grid-template-columns:1fr}.hero{padding:110px 0 56px}.sec{padding:64px 0}.strip{gap:32px;padding:24px 0}.dblock{padding:32px 22px}.cta-card{padding:44px 28px}.wrap{padding:0 22px}.wrap-n{padding:0 22px}}
+@media(max-width:768px){.nk{display:none}.mob{display:none}.ncta{padding:9px 16px}.ncta .ncta-lg{display:none}.ncta .ncta-sm{display:inline}.hero{padding:110px 0 56px}.sec{padding:64px 0}.strip{gap:32px;padding:24px 0}.dblock{padding:32px 22px}.cta-card{padding:44px 28px}.wrap{padding:0 22px}.wrap-n{padding:0 22px}}
 @media(max-width:480px){.strip{flex-direction:column;gap:20px}.dblock h2{font-size:26px}.faq-q{font-size:15px;padding:20px 0}}
 </style>
 </head>
@@ -529,11 +531,14 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 </div>
 
 <div class="beta-ctas" data-b>
+<a href="https://buy.stripe.com/8x2cN52nY4vj8YJfWJ3Je01" class="btn btn-pk btn-m" target="_blank" data-cohort="beta" style="justify-content:center">Beta Light <span class="price-now">$5</span> <small style="opacity:.85;font-weight:500">Founder badge</small></a>
 <a href="https://buy.stripe.com/dRmaEXbYyge14It9yl3Je02?prefilled_promo_code=FOBF" class="btn btn-pk btn-m" target="_blank" data-cohort="beta" style="justify-content:center">Beta Classic <span class="price-strike">$19</span> <span class="price-now">$9.50</span> <small style="opacity:.85;font-weight:500">with FOBF</small></a>
+<a href="https://buy.stripe.com/dRm7sLbYyf9X1wh6m93Je03?prefilled_promo_code=FOBF" class="btn btn-pk btn-m" target="_blank" data-cohort="beta" style="justify-content:center">Beta Select <span class="price-strike">$39</span> <span class="price-now">$19.50</span> <small style="opacity:.85;font-weight:500">with FOBF</small></a>
 <a href="https://buy.stripe.com/dRmeVdbYy2nbcaV9yl3Je04?prefilled_promo_code=FOBF" class="btn btn-pk btn-m" target="_blank" data-cohort="beta" style="justify-content:center">Beta Reserve <span class="price-strike">$59</span> <span class="price-now">$29.50</span> <small style="opacity:.85;font-weight:500">with FOBF</small></a>
 </div>
 <div class="beta-ctas" data-s>
 <a href="https://buy.stripe.com/28EbJ1geO8Lz5Mx39X3Je05?prefilled_promo_code=FOBF" class="btn btn-gd btn-m" target="_blank" data-cohort="beta" style="justify-content:center">Beta Preferred <span class="price-strike">$199</span> <span class="price-now">$99.50</span> <small style="opacity:.85;font-weight:500">with FOBF</small></a>
+<a href="https://buy.stripe.com/eVqfZh1jUaTH3Ep8uh3Je06?prefilled_promo_code=FOBF" class="btn btn-gd btn-m" target="_blank" data-cohort="beta" style="justify-content:center">Beta Signature <span class="price-strike">$349</span> <span class="price-now">$174.50</span> <small style="opacity:.85;font-weight:500">with FOBF</small></a>
 <a href="https://buy.stripe.com/9B69AT2nYge11wheSF3Je07?prefilled_promo_code=FOBF12" class="btn btn-gd btn-m" target="_blank" data-cohort="beta" style="justify-content:center">Beta Concierge <span class="price-strike">$549</span> <span class="price-now">$274.50</span> <small style="opacity:.85;font-weight:500">with FOBF12</small></a>
 </div>
 
