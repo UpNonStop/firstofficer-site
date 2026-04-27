@@ -101,6 +101,22 @@ body .strip{border-color:#e8e9ed}body.biz .strip{border-color:#2a2a2a}
 .stm-l{font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;color:var(--pink);margin-bottom:6px}
 .stm-v{font-family:var(--mono);font-size:24px;font-weight:600;letter-spacing:-.5px;line-height:1;transition:color .7s}
 body .stm-v{color:#111}body.biz .stm-v{color:#fff}
+
+/* Cap-reached state: red FULL label + disabled cohort CTAs */
+.cnt-full{color:#d61f4a;font-weight:700;letter-spacing:1px}
+body.alpha-full a[data-cohort="alpha"],
+body.beta-full a[data-cohort="beta"]{
+  pointer-events:none;cursor:not-allowed;
+  background:#e8e8ec !important;color:#9a9a9f !important;
+  box-shadow:none !important;border-color:#e8e8ec !important;
+  opacity:.65;
+}
+body.biz.alpha-full a[data-cohort="alpha"],
+body.biz.beta-full a[data-cohort="beta"]{
+  background:#1f1f22 !important;color:#5a5a5f !important;border-color:#1f1f22 !important;
+}
+body.alpha-full a[data-cohort="alpha"]:hover,
+body.beta-full a[data-cohort="beta"]:hover{transform:none}
 .stm-d{font-size:11px;margin-top:4px;transition:color .7s}
 body .stm-d{color:#777}body.biz .stm-d{color:#999}
 
@@ -342,7 +358,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 
 <div class="coh-foot">
 <div class="coh-price">Cost: $0. Trade: feedback.</div>
-<a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20alpha%20me%20in" class="btn btn-pk btn-m" target="_blank" style="width:100%;justify-content:center">Claim Alpha seat</a>
+<a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20alpha%20me%20in" class="btn btn-pk btn-m" target="_blank" data-cohort="alpha" style="width:100%;justify-content:center">Claim Alpha seat</a>
 </div>
 </div>
 
@@ -407,7 +423,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 </div>
 
 <div style="text-align:center;margin-top:36px">
-<a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20alpha%20me%20in" class="btn btn-pk btn-l" target="_blank">Claim Alpha seat &nbsp;&rarr;</a>
+<a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20alpha%20me%20in" class="btn btn-pk btn-l" target="_blank" data-cohort="alpha">Claim Alpha seat &nbsp;&rarr;</a>
 <p class="ft-note" style="margin-top:10px">Reply with &ldquo;Alpha&rdquo; and your name. Ohad confirms within 24 hours.</p>
 </div>
 </div>
@@ -511,12 +527,12 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 </div>
 
 <div class="beta-ctas" data-b>
-<a href="https://buy.stripe.com/dRmaEXbYyge14It9yl3Je02?prefilled_promo_code=FOBF" class="btn btn-pk btn-m" target="_blank" style="justify-content:center">Beta Classic at $9.50</a>
-<a href="https://buy.stripe.com/dRmeVdbYy2nbcaV9yl3Je04?prefilled_promo_code=FOBF" class="btn btn-pk btn-m" target="_blank" style="justify-content:center">Beta Reserve at $39.50</a>
+<a href="https://buy.stripe.com/dRmaEXbYyge14It9yl3Je02?prefilled_promo_code=FOBF" class="btn btn-pk btn-m" target="_blank" data-cohort="beta" style="justify-content:center">Beta Classic at $9.50</a>
+<a href="https://buy.stripe.com/dRmeVdbYy2nbcaV9yl3Je04?prefilled_promo_code=FOBF" class="btn btn-pk btn-m" target="_blank" data-cohort="beta" style="justify-content:center">Beta Reserve at $39.50</a>
 </div>
 <div class="beta-ctas" data-s>
-<a href="https://buy.stripe.com/28EbJ1geO8Lz5Mx39X3Je05?prefilled_promo_code=FOBF" class="btn btn-gd btn-m" target="_blank" style="justify-content:center">Beta Preferred at $139.30</a>
-<a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20Concierge%20founding%20setup" class="btn btn-gd btn-m" target="_blank" style="justify-content:center">Concierge with founder onboarding</a>
+<a href="https://buy.stripe.com/28EbJ1geO8Lz5Mx39X3Je05?prefilled_promo_code=FOBF" class="btn btn-gd btn-m" target="_blank" data-cohort="beta" style="justify-content:center">Beta Preferred at $139.30</a>
+<a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20Concierge%20founding%20setup" class="btn btn-gd btn-m" target="_blank" data-cohort="beta" style="justify-content:center">Concierge with founder onboarding</a>
 </div>
 
 <div style="text-align:center;margin-top:18px">
@@ -858,8 +874,8 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <h2>Two windows.<br><em>Both close May 30.</em></h2>
 <p>Reply on WhatsApp with &ldquo;Alpha&rdquo; or &ldquo;Beta&rdquo; and your name. Ohad confirms within 24 hours, sends the onboarding flow, and your founding rate is locked.</p>
 <div class="bg">
-<a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20Alpha%20me%20in" class="btn btn-pk btn-l" target="_blank">Alpha: free, 90 days</a>
-<a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20Beta%20me%20in" class="btn btn-ol" target="_blank">Beta: founding rate</a>
+<a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20Alpha%20me%20in" class="btn btn-pk btn-l" target="_blank" data-cohort="alpha">Alpha: free, 90 days</a>
+<a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20Beta%20me%20in" class="btn btn-ol" target="_blank" data-cohort="beta">Beta: founding rate</a>
 </div>
 </div>
 </div>
@@ -936,6 +952,35 @@ function toggleFAQ(btn){
   var item = btn.closest('.faq-item');
   item.classList.toggle('open');
 }
+
+// Live cohort counts from Supabase (anon read-only view: cohort_counts)
+(function(){
+  var SB_URL = 'https://cuzuzzbezswvejnoskum.supabase.co';
+  var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1enV6emJlenN3dmVqbm9za3VtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1OTE2MDMsImV4cCI6MjA4ODE2NzYwM30.U1UkmESQmbntjtLCC-d06YBk8VVD6h-UcCrr761yiVM';
+  var ALPHA_CAP = 50, BETA_CAP = 500;
+  function fmt(n, cap){ return n + ' / ' + cap; }
+  function paint(which, n, cap){
+    var el = document.getElementById(which + 'Count');
+    if(!el) return;
+    if(n >= cap){
+      el.innerHTML = '<span class="cnt-full">FULL</span>';
+      document.body.classList.add(which + '-full');
+    } else {
+      el.innerHTML = fmt(n, cap);
+      document.body.classList.remove(which + '-full');
+    }
+  }
+  fetch(SB_URL + '/rest/v1/cohort_counts', {
+    headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY }
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(rows){
+    if(!rows || !rows.length) return;
+    paint('alpha', rows[0].alpha_count || 0, ALPHA_CAP);
+    paint('beta',  rows[0].beta_count  || 0, BETA_CAP);
+  })
+  .catch(function(){});
+})();
 </script>
 </body>
 </html>
