@@ -321,12 +321,12 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <div class="strip">
   <div class="stm">
     <div class="stm-l">Alpha</div>
-    <div class="stm-v" id="alphaCount">14&thinsp;/&thinsp;50</div>
+    <div class="stm-v" id="alphaCount">—&thinsp;/&thinsp;50</div>
     <div class="stm-d">Free, 90 days.</div>
   </div>
   <div class="stm">
     <div class="stm-l">Beta</div>
-    <div class="stm-v" id="betaCount">0&thinsp;/&thinsp;500</div>
+    <div class="stm-v" id="betaCount">—&thinsp;/&thinsp;500</div>
     <div class="stm-d">Founding rate, locked.</div>
   </div>
   <div class="stm">
@@ -963,10 +963,8 @@ function toggleFAQ(btn){
   item.classList.toggle('open');
 }
 
-// Live cohort counts from Supabase (anon read-only view: cohort_counts)
+// Live cohort counts from Supabase Edge Function
 (function(){
-  var SB_URL = 'https://cuzuzzbezswvejnoskum.supabase.co';
-  var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1enV6emJlenN3dmVqbm9za3VtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1OTE2MDMsImV4cCI6MjA4ODE2NzYwM30.U1UkmESQmbntjtLCC-d06YBk8VVD6h-UcCrr761yiVM';
   var ALPHA_CAP = 50, BETA_CAP = 500;
   function fmt(n, cap){ return n + ' / ' + cap; }
   function paint(which, n, cap){
@@ -980,16 +978,16 @@ function toggleFAQ(btn){
       document.body.classList.remove(which + '-full');
     }
   }
-  fetch('https://cuzuzzbezswvejnoskum.supabase.co/functions/v1/fo-founding-stats', {
-    headers: {}
-  })
-  .then(function(r){ return r.json(); })
-  .then(function(rows){
-    if(!rows) return;
-    paint('alpha', rows.alpha || 0, ALPHA_CAP);
-    paint('beta', rows.beta || 0, BETA_CAP);
-  })
-  .catch(function(){});
+  fetch('https://cuzuzzbezswvejnoskum.supabase.co/functions/v1/fo-founding-stats')
+    .then(function(r){ if(!r.ok) throw new Error('stats ' + r.status); return r.json(); })
+    .then(function(rows){
+      if(!rows) return;
+      paint('alpha', rows.alpha || 0, ALPHA_CAP);
+      paint('beta',  rows.beta  || 0, BETA_CAP);
+    })
+    .catch(function(err){
+      console.warn('[founding] cohort-stats fetch failed:', err && err.message);
+    });
 })();
 </script>
 </body>
