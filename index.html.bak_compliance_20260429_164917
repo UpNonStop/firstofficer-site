@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FJHCJ74L64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FJHCJ74L64');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Officer by UpNonStop | AI-Powered Points and Miles Intelligence</title>
+<meta name="description" content="First Officer turns your credit card spend into a system. 10 AI specialists monitor 629+ loyalty programs, optimize card routing, and show you your best options. Personal and business plans via WhatsApp.">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAHAElEQVR4nL1Xf2yVZxV+znnf7373fu0tpSIwFhpYZjBjMW6gWSLspm4Ki4Q4TYnChgIVKMhGtkwmGj+uyaz/UMMcSIlCykBIq2hYt5E5Vyr6zwIxcRORTJHxq6Mt/Xl77/fd932Pf5ROHFxK2bLz75vzPOc973mfcw7wISwMQw7DkD8Mxm2bXEMsH3cQUtuiAKBjY+Mdxzc23gEA7ZlQfzzkYbsGgH+s3TErt7L5TGHl3jNnVjd9+tqz8di4Uidhu6Zsjfl3fVNmZpw+FsQ0w48xY1oc/Oli/a8ylK0xMs5M0C0RA4RMqKgjazrX7l46seDtSRhJGBNZEkApTxlfxYMpWVm1Y/l+yYQaHVlLgIyFPWYGRIQQhkQdWdNVt3vTlCi5X8XGi03kiFgRszKm6NhYb2JnvO9C5rlnqSNrgJAEMuYFbxqAhCETkdCPs65nxZ7tk0zZT10hb0UsNDGLOHFMwr7H+ct9GDzbaadJuqF7wdYdRFlHIBnrh5SMUGpbFLUusS3hC+Vf/k+wfwLKF9vCoAGgmIlEnDAxOc3IXeoR9OaJEloIsGWpCn3Fi146fq/55oKtz+RGsW45AIEQgeSt+u3TZ/YFh8okOdcWcwaKNBHBwVmtfBVrU8yd66Kg3+higiwrpYgAgEwqmdZDSfPmO1XR1+7b+/SFUcwxn2A0ZWdX7px7V0/yz2UxzzX5fkNONDnAWWe0SimjqbsvhZpLud4vmpS6Uq6TCoBhZihP6bzLm3Kb+Pys/uDYhWU/v/9a7JsGgCxAIKnqk8bA+NVRnCsCpJ0InDFGeyldQHTqMuXmT2la8ZfZbzYcO50enj+UcP8M/HItig2YwUrpgs0XUwhmTsjxzwgkyF6f7ZIFwk4sTOyUEIt1gLVGJ8p0JPnXz6jOeXc2rzklq5s8mdPk3X8ke/L4lIF5A178RjJZoUFkiAhMiuGsY5AryVPqYOQ9wOKcKCtWJwI95AZ3N8w698g9L27ukVCYdq0p0ok1RUHINQey3Ysf6F3Qr/K7E8m0JiJLDIEiBpWmKXkizgHOCFsh9hKqX4Z/mP5N/aotR98vUvSu2r1voK75RZKsCISOnpwtlW0bVvV6Qz/wUinFSjMUCaurNOE4AnBiDYjIKir26vyyykP1z8nCbT51ZM2rG55P951vbqt0wbK0TT42WNf80tFwexm1LrGycJtf9bsnfvJeMr/UpnQEPyCnyIw7Awo8MYa70uXlH6o6tOHX8q09STryZPT2E03V84cmHJ1gk48UoyFjCoOm3CW/8sC5iqNvb2qupiNPRpLZk5x68LsHLibzD8WqeIWZqkrxXKcDAhDCkLpPfqKxGEW7ph1+5uS7tVtT1a1P50/Vb//cjKjit35RTTdxzpBSGuIgIkan0jqK8+dOd5179DOv/ejEqM/Z5Y2zAyr/zqQZF55CNisf7A83FiIRIhoRDaltSVDrkvjsyqbFU+Ngf8Ki3NjYMkMBAnEC8hSKw5HlrmFlGIOXy8zSGa9uahv1HbnYjYWotBQjZMyZpujEmuKlx3aun2RSLyhrYMk5ZmIigrPOkmbEgwVVfK8PDnApL8HiJ6QvsOumtj21U+Y0eVh00VI2e8OvWEKKQQyIALj8jaaGT7rgWRcVnFVCShMJICAS5ScZPYPou9glytdQSpEATrOGH5Rxl19omHx442YC4AC6UXsuWQOtAxX+l84HTZWSftzGOeMIipnJMRwzkQrKaFDlt/T+/SxVq8qwQEWxDFHELExCim3SL9f9XrT3tbuitbUVA9Et1YCgVhFabe/XdzRXuorlJuovklIerjYhT/vK+EpyieK6yua6nQDw7sMNdZNt8hfaQsdkLWmthAlMKPpBlTfEQ83pQ/XfHsW+lu8G3/AeAYBE0d2NuGDFCYuxEGuNx76KNfp7Mbyosrlup2TatWRCXf369395vixeGPvUnUoEyhEME4GUYrii9Zx86lrsMQIYMeNcBOeUE4ETZ7RK6Yjsvy7zwIOTD9S/Ipl2TR01hjqyRjKhvrtt0x9Plw1/IafMW4Gf1qzYQDHgKUWeKpTiuUkvEAIcyFiT0IEeRuHYO7p33vSDG/8mmVBTR8376kYdWdOeCfVnf7/59B+m9Dw4pKOXvWSFJmYriiF0tRmMR4pJ2MGKS/iBP4jhfS/f1/nwva3f65TaFjUy8/2/1XRkTUttrXq0OduXPrxuUb9f2OYF5QliEke30Q3JWQ0/yT08vKWibcPjtdlsUcKQS41WALCktdWGYcgiIVceXL2x28uth++TYkqW8rnOBEICoStfff6NK4sa1wMj8+GtTLj/wwCN7gc9K3YtGVi+67CIkMgtYkgY8l/XbL1zlPyWo/8gzlXfVzZsq7itJfajWDpbbvcCH+XafbPn+y+Gu4yxmzE5DgAAAABJRU5ErkJggg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+ul{list-style:none}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}
+button{cursor:pointer;border:none;font-family:inherit;background:none}
+
+:root{
+--pink:#FA1896;--wa:#25D366;
+--font:'DM Sans',system-ui,sans-serif;
+--serif:'DM Serif Display',Georgia,serif;
+--mono:'JetBrains Mono',monospace;
+--ease:cubic-bezier(.4,0,.2,1);
+--r:16px;--r-pill:100px;
+}
+
+/* === BASE: WHITE (Personal) === */
+body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;color:#111;transition:background .6s var(--ease),color .6s var(--ease)}
+.alt{background:#f7f7f9;transition:background .6s}
+.crd{background:#fff;border:1px solid #e8e9ed;border-radius:var(--r);transition:all .4s var(--ease)}
+.crd:hover{box-shadow:0 16px 48px rgba(0,0,0,.06);transform:translateY(-3px)}
+.t2{color:#555;transition:color .6s}.t3{color:#888;transition:color .6s}
+
+/* === DARK (Business) === */
+body.biz{background:#000;color:#f0f0f4}
+body.biz .alt{background:#0a0a0a}
+body.biz .crd{background:#111;border-color:#222}
+body.biz .crd:hover{box-shadow:0 16px 48px rgba(250,24,150,.05)}
+.exb{background:#f5f6f8;border-left:3px solid var(--pink);border-radius:10px;padding:18px 22px;transition:background .6s,color .6s}
+body.biz .exb{background:#1a1a1a}
+body.biz .t2{color:#ddd}body.biz .t3{color:#bbb}
+
+/* === CONTENT TOGGLE === */
+[data-b]{display:block}[data-s]{display:none}
+span[data-b]{display:inline}span[data-s]{display:none}
+body.biz [data-b]{display:none}body.biz [data-s]{display:block}
+body.biz span[data-b]{display:none}body.biz span[data-s]{display:inline}
+
+/* === LAYOUT === */
+.wrap{max-width:1140px;margin:0 auto;padding:0 32px}
+
+/* === NAV === */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .4s var(--ease)}
+.nav-in{max-width:1140px;margin:0 auto;padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav.stuck{backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+body .nav.stuck{background:rgba(255,255,255,.9);border-bottom:1px solid #eee}
+body.biz .nav.stuck{background:rgba(0,0,0,.9);border-bottom:1px solid #222}
+.nl{font-size:18px;font-weight:700;letter-spacing:-.3px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nm{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;overflow:hidden}
+.nk{display:flex;align-items:center;gap:28px}
+.nka{font-size:14px;font-weight:500;transition:color .3s;white-space:nowrap}
+.nka:hover{color:var(--pink)}
+body .nka{color:#666}body.biz .nka{color:#999}
+.nka.act{color:var(--pink);font-weight:700}body.biz .nka.act{color:#fff;font-weight:700}
+.ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:var(--r-pill);box-shadow:0 4px 16px rgba(37,211,102,.2);white-space:nowrap;transition:all .3s}
+.ncta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(37,211,102,.3)}
+.mob{display:none;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.mob span{width:20px;height:2px;background:currentColor;border-radius:1px}
+
+/* === BUTTONS === */
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;border-radius:var(--r-pill);transition:all .3s var(--ease);white-space:nowrap}
+.btn-l{padding:16px 36px;font-size:16px}.btn-m{padding:12px 28px;font-size:15px}
+.btn-pk{background:var(--pink);color:#fff;box-shadow:0 6px 24px rgba(250,24,150,.2);border:2px solid var(--pink)}
+.btn-pk:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(250,24,150,.28)}
+.btn-ol{border:2px solid #222;color:#111;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.06);transition:all .3s}
+.btn-ol:hover{border-color:var(--pink);color:var(--pink)}
+body.biz .hero .btn-ol{border-color:rgba(255,255,255,.4);color:#fff;background:transparent}
+body.biz .hero .btn-ol:hover{border-color:var(--pink);color:var(--pink)}
+
+/* === PAGES === */
+.pg{display:none}.pg.on{display:block;animation:fi .35s var(--ease)}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:100px 0 80px;overflow:hidden;transition:background .6s var(--ease);background-size:cover;background-position:center;-webkit-background-size:cover}
+body .hero{background-color:#fff}
+body.biz .hero{background-color:#000}
+/* Ghost photo tint */
+.hero::before{content:'';position:absolute;inset:0;transition:background .6s;pointer-events:none;z-index:0}
+body .hero::before{background:rgba(255,255,255,.52)}
+body.biz .hero::before{background:rgba(0,0,0,.48)}
+.hero::after{content:'';position:absolute;top:5%;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(250,24,150,.03) 0%,transparent 70%);pointer-events:none;z-index:0}
+body.biz .hero::after{background:radial-gradient(ellipse,rgba(250,24,150,.06) 0%,transparent 70%)}
+
+.hero-in{position:relative;z-index:5;max-width:1140px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+
+/* Left: copy */
+.hero-copy{max-width:520px}
+
+/* Toggle */
+.tog-row{display:flex;align-items:center;gap:0;margin-bottom:40px}
+.tog-label{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;margin-right:12px;opacity:.4;transition:color .6s}
+.tog{display:flex;align-items:stretch;border-radius:var(--r-pill);padding:3px;transition:all .4s}
+body .tog{background:#f0f0f3;border:1px solid #e0e0e5}
+body.biz .tog{background:#1a1a1a;border:1px solid #333}
+.tb{flex:1;padding:10px 22px;font-size:14px;font-weight:700;border-radius:var(--r-pill);transition:all .35s var(--ease);text-align:center;-webkit-tap-highlight-color:transparent;touch-action:manipulation;user-select:none;white-space:nowrap}
+body .tb:not(.sel){color:#bbb}body.biz .tb:not(.sel){color:#666}
+.tb.sel{background:var(--pink);color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.3)}
+body .tb:not(.sel):hover{color:#888}body.biz .tb:not(.sel):hover{color:#999}
+
+.hero-tag{display:inline-flex;align-items:center;gap:7px;padding:8px 20px;border-radius:var(--r-pill);font-size:13px;font-weight:700;margin-bottom:24px;transition:all .4s}
+body .hero-tag{background:var(--pink);color:#fff;box-shadow:0 4px 16px rgba(250,24,150,.3)}
+body.biz .hero-tag{background:var(--pink);color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.4)}
+.hero-tag .pulse{width:6px;height:6px;background:#fff;border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+
+.hero h1{font-size:clamp(32px,4.5vw,56px);font-weight:900;line-height:1.08;letter-spacing:-1.5px;margin-bottom:20px;transition:color .6s}
+body .hero h1{color:#111;text-shadow:0 2px 28px rgba(255,255,255,1),0 0 60px rgba(255,255,255,.7)}
+body.biz .hero h1{color:#fff;text-shadow:0 2px 28px rgba(0,0,0,1),0 0 60px rgba(0,0,0,.7)}
+.pk{color:var(--pink)}
+.hero h1 .pk{color:var(--pink)}
+
+.hero-sub{font-size:17px;line-height:1.7;margin-bottom:32px;max-width:460px;transition:color .6s;font-weight:500}
+body .hero-sub{color:#333;text-shadow:0 1px 20px rgba(255,255,255,1),0 0 50px rgba(255,255,255,.7)}
+body.biz .hero-sub{color:#ddd;text-shadow:0 1px 20px rgba(0,0,0,1),0 0 50px rgba(0,0,0,.7)}
+
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Right: WhatsApp mockup */
+.wa-mock{width:100%;max-width:380px;margin:0 auto;border-radius:24px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.12);transition:all .6s;-webkit-transform:translateZ(0);transform:translateZ(0)}
+body .wa-mock{background:#ECE5DD}
+body.biz .wa-mock{background:#0B141A;box-shadow:0 24px 80px rgba(250,24,150,.08)}
+.wa-head{background:#075E54;padding:14px 18px;display:flex;align-items:center;gap:12px}
+.wa-av{width:36px;height:36px;background:var(--pink);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:11px;font-weight:800}
+.wa-name{color:#fff;font-size:14px;font-weight:600}
+.wa-status{color:rgba(255,255,255,.6);font-size:11px}
+.wa-body{text-align:left;padding:16px;min-height:320px;position:relative}
+body .wa-body{text-align:left;background:#ECE5DD}
+body.biz .wa-body{text-align:left;background:#0B141A}
+.wa-msg{text-align:left;max-width:85%;padding:8px 12px;border-radius:8px;font-size:13px;line-height:1.55;margin-bottom:8px;animation:msgIn .4s var(--ease) both}
+.wa-msg.fo{background:#DCF8C6;border-radius:8px 8px 8px 2px;margin-right:auto}
+body.biz .wa-msg.fo{background:#005C4B;color:#fff}
+.wa-msg.usr{background:#fff;border-radius:8px 8px 2px 8px;margin-left:auto}
+body.biz .wa-msg.usr{background:#1F2C34;color:#fff}
+.wa-msg .time{font-size:10px;opacity:.5;text-align:right;margin-top:3px}
+.wa-msg .alert{color:var(--pink);font-weight:700;font-size:12px;display:block;margin-bottom:4px}
+.wa-msg .val{color:#075E54;font-weight:700}
+body.biz .wa-msg .val{color:#25D366}
+@keyframes msgIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.wa-msg:nth-child(1){animation-delay:.3s}
+.wa-msg:nth-child(2){animation-delay:.8s}
+.wa-msg:nth-child(3){animation-delay:1.4s}
+.wa-msg:nth-child(4){animation-delay:2s}
+
+/* === STATS BAR === */
+.stats{padding:56px 0;transition:background .6s}
+.stats-in{display:flex;justify-content:center;gap:72px;flex-wrap:wrap}
+.stat-v{font-family:var(--font);font-size:48px;font-weight:900;letter-spacing:-2px;line-height:1;transition:color .6s}
+body .stat-v{color:#111}body.biz .stat-v{color:#fff}
+.stat-v .pk{color:var(--pink)}
+.stat-l{font-family:var(--mono);font-size:11px;margin-top:8px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;transition:color .6s}
+body .stat-l{color:#777}body.biz .stat-l{color:#aaa}
+
+/* === SECTIONS === */
+.sec{padding:88px 0;transition:background .6s var(--ease)}
+.ey{font-family:var(--mono);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:var(--pink);margin-bottom:14px}
+.hd{font-family:var(--serif);font-size:clamp(32px,4.5vw,52px);line-height:1.1;letter-spacing:-.5px;margin-bottom:16px;transition:color .6s}
+.hd em{font-style:normal;color:var(--pink)}
+h1 em,h2 em{font-style:normal;color:var(--pink)}
+.ds{font-size:17px;line-height:1.7;max-width:560px;transition:color .6s}
+.sh{text-align:center;margin-bottom:56px}.sh .ds{margin:0 auto}
+
+/* === "WHAT YOU'RE MISSING" SECTION === */
+.miss-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.miss-card{padding:32px;text-align:center}
+.miss-num{font-family:var(--font);font-size:36px;font-weight:900;color:var(--pink);line-height:1;margin-bottom:12px;letter-spacing:-1.5px}
+.miss-card h4{font-size:16px;font-weight:700;margin-bottom:8px;transition:color .6s}
+
+/* === HOW IT WORKS === */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step}
+.step{text-align:center;padding:8px 0;position:relative}
+.step::before{counter-increment:step;content:counter(step,decimal-leading-zero);font-family:var(--font);font-size:56px;font-weight:900;color:var(--pink);opacity:.18;line-height:1;display:block;margin-bottom:18px;letter-spacing:-2px}
+body.biz .step::before{opacity:.35}
+.step h4{font-family:var(--font);font-size:17px;font-weight:700;margin-bottom:8px;transition:color .6s}
+
+/* === VALUE ROWS (alternating) === */
+.vr{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;padding:64px 0;border-bottom:1px solid #eee;transition:border-color .6s}
+body.biz .vr{border-color:#1a1a1a}
+.vr:last-child{border-bottom:none}
+.vr.flip .vc{order:2}.vr.flip .vm{order:1}
+.vc h3{font-family:var(--serif);font-size:30px;line-height:1.18;margin-bottom:14px;transition:color .6s}
+.vc h3 em{font-style:normal;color:var(--pink)}
+.vm{display:flex;justify-content:center;align-items:center}
+
+
+/* === TESTIMONIALS === */
+.tm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tm{padding:28px}
+.tm-stars{color:var(--pink);font-size:12px;letter-spacing:2px;margin-bottom:12px}
+.tm blockquote{font-size:14px;line-height:1.7;font-style:italic;margin-bottom:16px;transition:color .6s}
+.tm-who{display:flex;align-items:center;gap:10px}
+.tm-av{width:34px;height:34px;border-radius:50%;background:rgba(250,24,150,.08);display:grid;place-items:center;font-weight:700;font-size:12px;color:var(--pink)}
+.tm-meta{font-size:12px;transition:color .6s}
+
+/* === CTA BAND === */
+.ctab{background:var(--pink);padding:72px 0;text-align:center}
+.ctab h2{font-size:clamp(24px,3.5vw,38px);font-weight:800;color:#fff;letter-spacing:-.8px;line-height:1.15;margin-bottom:12px}
+.ctab p{font-size:16px;color:rgba(255,255,255,.7);max-width:480px;margin:0 auto 28px;line-height:1.7}
+.ctab .bg{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.ctab .btn-pk{background:#fff;color:var(--pink);box-shadow:0 6px 24px rgba(0,0,0,.08)}
+.ctab .btn-gh{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+
+/* === PRICING === */
+.pr{display:grid;gap:20px}
+.pr.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pr.c5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.pr.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pr.c2{grid-template-columns:repeat(2,1fr);max-width:640px;margin:0 auto}
+.pc{padding:32px;position:relative;display:flex;flex-direction:column}
+.pc .pfl{flex:1}
+.pc .btn{margin-top:28px}
+.pc.pop{border-color:var(--pink)!important;box-shadow:0 0 0 1px var(--pink),0 12px 36px rgba(250,24,150,.06);overflow:visible}
+.ppb{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--pink);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 16px;border-radius:var(--r-pill);white-space:nowrap;z-index:1}
+.ptt{font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--pink);margin-bottom:8px}
+.pam{font-family:var(--font);font-size:44px;font-weight:900;letter-spacing:-1.5px;line-height:1;margin-bottom:4px;transition:color .6s}
+.pam .sm{font-size:15px;font-weight:500;letter-spacing:0}
+.ptg{font-size:13px;font-style:italic;margin-bottom:20px;transition:color .6s}
+.pfl li{padding:7px 0;font-size:13px;display:flex;align-items:flex-start;gap:9px;line-height:1.5;transition:color .6s}
+.pfl li+li{border-top:1px solid}
+body .pfl li+li{border-color:#f0f0f3}body.biz .pfl li+li{border-color:#1a1a1a}
+.pfl .ck{color:var(--pink);font-weight:700;flex-shrink:0;font-size:12px;margin-top:1px}
+.ab-li{border:none !important;border-left:3px solid #C5A226 !important;border-radius:0 !important;margin:6px 0 0;padding:8px 0 8px 12px !important;background:none}
+
+
+100%{left:200%}}
+
+.pfl .no{font-weight:700;flex-shrink:0;font-size:12px;margin-top:1px}
+body .pfl .no{color:#ddd}body.biz .pfl .no{color:#333}
+.pc .btn{width:100%;justify-content:center}
+
+/* ROI */
+.roi-bar{display:flex;justify-content:center;gap:56px;flex-wrap:wrap}
+.roi-item{text-align:center}
+.roi-num{font-family:var(--font);font-size:38px;font-weight:900;letter-spacing:-1.5px;line-height:1;transition:color .6s}
+.roi-num .pk{color:var(--pink)}
+.roi-lbl{font-family:var(--mono);font-size:11px;margin-top:6px;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:color .6s}
+
+/* === ABOUT VALUES === */
+.val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.val-card{padding:32px;text-align:center}
+.val-card h4{font-size:16px;font-weight:700;margin-bottom:6px;transition:color .6s}
+
+/* === HUB === */
+
+.acbd h4{font-size:15px;font-weight:700;margin-bottom:6px;line-height:1.3;transition:color .6s}
+
+/* === FOOTER === */
+.ft{border-top:1px solid;padding:56px 0 24px;transition:all .6s}
+body .ft{background:#f7f7f9;border-color:#eee}body.biz .ft{background:#0a0a0a;border-color:#1a1a1a}
+.ftg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.ftb{border-top:1px solid;padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:12px;transition:all .6s}
+body .ftb{border-color:#eee}body.biz .ftb{border-color:#1a1a1a}
+.ftl a{margin-left:20px}.ftl a:hover{color:var(--pink)}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media(max-width:1024px){
+.hero-in{grid-template-columns:1fr;text-align:center;gap:40px}
+.hero-copy{max-width:600px;margin:0 auto}
+.hero-ctas{justify-content:center}
+.hero-sub{margin-left:auto;margin-right:auto}
+.tog-row{justify-content:center}
+.wa-mock{max-width:320px}
+.pr.c4{grid-template-columns:repeat(2,1fr)}
+.pr.c5{grid-template-columns:repeat(3,1fr)}
+.pr.c3{grid-template-columns:repeat(2,1fr)}
+.vr{gap:48px}
+}
+@media(max-width:768px){
+.nk{display:none}.mob{display:flex}
+.wrap{padding:0 24px}
+.hero{padding:110px 0 56px;min-height:100vh}
+body .hero::before{background:rgba(255,255,255,.48)!important}
+body.biz .hero::before{background:rgba(0,0,0,.45)!important}
+.hero-in{padding:0 24px;gap:32px}
+.hero h1{font-size:32px;letter-spacing:-1px}
+.hero-sub{font-size:15px;margin-bottom:28px}
+.wa-mock{max-width:300px}
+.wa-body{text-align:left;min-height:240px;padding:12px}
+.wa-msg{font-size:12px}
+.sec{padding:56px 0}
+.sh{margin-bottom:36px}
+.hd{font-size:28px}
+.ds{font-size:15px}
+.miss-grid,.tm-grid,.val-grid{grid-template-columns:1fr;gap:14px}
+[style*="grid-template-columns:repeat(5"]{grid-template-columns:repeat(3,1fr)!important}
+[style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important}
+[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
+.steps{grid-template-columns:1fr 1fr;gap:16px}
+.step::before{font-size:44px}
+.vr{grid-template-columns:1fr;gap:24px;padding:40px 0}
+.vr.flip .vc,.vr.flip .vm{order:unset}
+.vc h3{font-size:24px}
+
+.pr.c4,.pr.c5,.pr.c3,.pr.c2{grid-template-columns:1fr;max-width:380px;margin:0 auto}
+.stats-in{gap:24px}
+.stat-v{font-size:40px}
+.roi-bar{gap:24px}
+.roi-num{font-size:32px}
+.sb{gap:24px}
+.ctab{padding:48px 0}
+.ctab h2{font-size:22px}
+[style*="padding:48px"]{padding:24px!important}
+[style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr!important}
+.ftg{grid-template-columns:1fr 1fr;gap:24px}
+.ftb{flex-direction:column;gap:10px;text-align:center}
+.ft{padding:40px 0 20px}
+.tb{padding:8px 18px;font-size:13px}
+}
+@media(max-width:480px){
+[style*="grid-template-columns:repeat(5"]{grid-template-columns:repeat(2,1fr)!important}
+[style*="grid-template-columns:repeat(2,1fr)"]{grid-template-columns:1fr!important}
+.hero{padding:100px 0 40px}
+.hero::before{background:rgba(255,255,255,.45)!important}
+body.biz .hero::before{background:rgba(0,0,0,.42)!important}
+.hero-in{padding:0 20px}
+.hero h1{font-size:28px}
+.wrap{padding:0 20px}
+.hero-ctas,.ctab .bg{flex-direction:column;align-items:stretch}
+.hero-ctas .btn,.ctab .bg .btn{justify-content:center;text-align:center}
+.steps,.ftg{grid-template-columns:1fr}
+.wa-mock{max-width:280px}
+.sec{padding:44px 0}
+.miss-grid,.tm-grid{gap:12px}
+}
+</style>
+<meta property="og:title" content="First Officer | Supercharge Your Points and Miles">
+<meta property="og:description" content="First Officer monitors your cards, credits, and loyalty programs around the clock. Every missed point, expiring credit, and smarter redemption route.">
+<meta property="og:image" content="https://firstofficer.upnonstop.com/og-image.png">
+<meta property="og:url" content="https://firstofficer.upnonstop.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="First Officer | Supercharge Your Points and Miles">
+<meta name="twitter:description" content="First Officer monitors your cards, credits, and loyalty programs around the clock. Every missed point, expiring credit, and smarter redemption route.">
+<meta name="twitter:image" content="https://firstofficer.upnonstop.com/og-image.png">
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="mainNav">
+<div class="nav-in">
+<a href="#" class="nl" onclick="go('home')"><div class="nm"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAWSElEQVR4nM1be3ScVbX/7X3OTDKvZNKktLWWWuVRWhYqFO9VC2lQqRQsBUy4FBHwURXvxSdKL9AvQ8ULBXX5goVcwKu4wEkVKJSFXGmIFwVdPlArcJGXlNI2aZLpZF6Z+c7Z94/zfTMR0yYtpeuetbqa1Wa+7+x99vntvX+/PcAhXuIJC8BQQGH9AzcVe++/FZpBwf8d6v0c0pXtzioAEBEurbv/FlnTJ7Jmo5SvvP+OZ0SaAECC3zlUiw7Vi6Q7q6ivx7yUy83ouGbLXbER8z6/nDdEJCreoitp9ejIinlnze1asrvf69ddmS7/UOzrkDhAvH5NmS5/8JHfH9m6+W/3RofGjzHVok8ELVYAgq+iSV1rifxv/sSZZ3dccPKTv11zc2TJ9z5Re7339ro7IDR+120D72r70+6fRoYrs3xT8ZlYEyysABABiH2lorra0jQ0vqi9u+XTpwyEn3099/e6OUBECMt6FQ1k/NFrNq9KvFS4I1KqJWq2alhEQQTEBIAgxoKZYMUapZqUaY2NlxekPpr64vt/JN1ZhWy3JSJ5Pfb5ujhARAjUw4Q+M3btg5+Nv7DnGzRWgiGxBDBZgUAA+fsdMDEMxDIxc2sKpcMTVyfWnuaJgOB5RJmMPdh7PehpRzxhIhJSG03R27wh+fzYN5AvWp+sEMAQQAgQImc/uSgAABEBrGUjRuyeMRN/sbKudMWm7/WKEGUyNvs6ZIiDGgGSzSrq6TFbRZJvvuK+22OD1Q+a4h4jTEyg0EqICEgAYoFMDGwRiBWwVrBEICu+aknrUqT6s21rT/7Qwrlzd/d7nu7KZA4aLhw0B9TBrn/r7NbNz/6kacS8yxRzNTAiIAKIIGIBERCCkydC3QNC7lrAgsAAE6AZ5Z05P5G3ujC/5amRnoUfmH/20uek09M0cHCccFAcUDf+rsffmv7V9o3R3PgRvl/xiVjDGggFr7IWgABEIGaICBiBM4RcZJBA2P1/accoaqMFELPfgqguzUq8MvreI86Z95lTH5fOfk0Drz1DvGYHhBsZue6+kxIvFO+J5v0Z1lZ8MGuAALEQAGAGw4W/WAtiBz8i4pwBARmAFENgUd4+CjNWBmsFEMEwTEK08memyoUT5pw30zvzXkG3ArKWcOAZ4oBBUERIurOKBrr8kWs3r049V/x5dGR8hrVVA2ItwWEDACHYokM/F94TjAczAAYphrEWxReHYPIlsFYgIRAIGkqVWSwN5WMtv3nlnpG1P/k0qT4D9JKIHPBBHpADxPOYiYQ29pj8uvuvaHum+COdr0SsMhYgBWGQJYSZLrDWoXzgEAgFGSCogzTDr/kovLATUq6BtQbAEEX1z7MI1zTE5gq2bevod/KfzV5P0a9YIhLxvAOyZb89F9b0z4g0zfU23xjfVvoIimPGMJgnVCsi4d2e+CYKcM+6f+egFIgo+MUyyi8Ng42AIgqwE6NDAAiIGCCAmAW+NbHWtC7OT9y57abVnziGaEw8YcrQftUK++WA0PiXX365fcZ3frcxtn18mS3lfVGknX0u1IWC8Ca3eSE4YBMCSVAEMUHIGlaMaq6oyttHoIRc2IcZgt3fFLiAyDmQ4J4HAz+WSOryvNTDQ5cu7Z5/3PzRcI8H3QFh6tlx92NvSm/Zfn/zzspiUy36pJQO7zQA1G+jAFDBiVvnBAjAzIAiiLVWxWKM3XkMv7jdqkiEmdy1YKVcmVyPmiCSwmqCgoc5R/nNTQldOaxp6+DyuWfOP/99z+9PmpzWvfntmpsjNJDxd93yi3fP2PziY80vFxbbWskXIi3WgqwAYXkbGAECYAWwgR0S1AIEEWOMamnj0tzkrbsS5tb2VJpZYIQgRK4ekImfAUAM8ERHM4PcH12plfzmHcVjZ23a9uiu7/QvpYGM/9sTbo5Mx7YpI0DgMSFjczc8eG78j7tvi+QqcQPfsGYVgpoQh4fl7mwdt6T+MzHDElmyQirdQoW5zetTvWesAwO7L7r9ipbncl+p5gtitBKtFJMiiIT1o3Oqa56CtEloOBoEC5hm0qrWnqyU3jbz4vTlK+4KYmSfKXKfESCex5Be7Lnyns8kfzd4l86V4j5qloiUWAuqo3pgrMD9m23Av/MBQQhGQ7FNx+3YkamPpbwz1skHs0qWerrj1ouvGXnnG9dQe9I0GTAIxiU/CYxn9xaZaHTgWGJ3bZhUVYvl0bHmlicG7yxkNl0OEZ4qO+w1AsK6Ppe5b3nrM4UH7WjOWE3MrqYN3954CJFrcKhxDSQMZ7Z+hJt1NR0bKS/qODd9adfPJ97TOr5cv/mUll/8LRsfrrSXyfjEpN2jKTgqArN7bvj+eiolgJWCFSMKZFV7hxqd37xyxlfPum9fwLh37/xlJgGArvqHYdy3ItaydRDnOAyp1/FWJhy3IKjLrCtzrfUjKq4rM5qfGTth5tL0pV0/lwBT6qcwkPGl09NzLjt9y1DPsScX35j6SyzSrAVSI0UgxYBSIKUgQQk90fg6cIqAhUmUsihVrBrKpwEAg3/Z60FPCYISifhwVSyJFVBAZFDA5Lh0R3WHuGsRYIPxfRVL6fGO6MO5Ncef1PHxZU+J169pEqordMKbLjj5yaevPmlZ/s2pLbHmZAS++GACh6duXSahwAFE7FJiEHGkGMREUMTCMmUmmDoLiKXgIjcMDdMa1dEOEjY6AohYQdUYTrToyvzYHVu/1X3anLcdMSjdWbUviosGMr5ks2rJwoW7f3nrhSv2HNP6/aZUQotvrWmAzAQeRUAcODs4CBBBbL3DnBLk9+GARxo/hg8EINZCjG2Enw16e4LbHFmrjIDTraq4IOHFrlt1wQlEvngeT6dAoZ4eI57HpxFV099ZffGeRTMuj6QTHBEmYbKslKsl0CipGQS20ohCoiBvTvW26fYCE5qXOoFhpX4FbHD6VqxRwuyn49WxxTPWJNevvFpMt+P/JqGzxPMmRWnKZKyLqqxKf+3c63Jvndlj0rFiEzRbsUaCrtIGFaarKoPPqiBjAICamkDS03IAws4tQPfg/hOofi2siK9Vk67NiA8W39Gxuu2Tpz5c79lfFYkSJPjQKQJQcHL1UAt+NtLpabr67L5tNz6wbeYvB7NNI7V5Nb/sQylNEw6GlYIEjpCgalSY2gFTR4AxgG9AYXvreGyIWIj1EZyGr1VMV2YnnhxacVRn2ydPfVi8yQkLZ3wvEUEK6+67as+6TdcQQUC95E0WDQMZX7x+Pe+SFY8Pnb/wXaVZTY9FonENWJ+CPqEOiIE3oVxUGEzdEkwZAcYYIDwnCcpeUFiXCHxjdDylS7P0A7svWfyh+ccdN9rveZPy+QFhaiGCQu+JNyZ2lD8FYpSuvH9m79WnfzJDZCfr6CjT5Ut3VtGKf365X+SUJf92513J7epMv1wyUC4uLRBcVVcrgBjBxve5powApVSAvM4BNiAurYiQD9Etrbp8ROKmxG0Xnj7/uONGs91ZNRlpme3OKsqQfUJ2JEpfvvuexPbypzA2VjNjOT+2s/Lxy9du2vTU0FCKMmQl+4/sL/X1GPGElxGNp27+0KrCUa036LZWxQIIkyUmlx4V4dVX7jU5wK1G+gEJLIllI+B0kvNHpS6Lf737EqleyeJ53DMJ0ovXr3v6eswLv946e+GXHu+PDY6vNKW8bxkRArQp5vzmwcrpC776iy3bN/32cJcJ+v8hOinjokdqV3Fqw9mXjR2dXGPScaOJGUxGlKsJhOEwYBogOG0WRaxjdK1YExVmc1hLdc+SWd2t15x1g0P6Xpkc6R1hujv7+KI33PnMr5p2lU801ZIPQIeIx8TaVgp+08j4kplb/vZo7vv/cwJluvxJnUAkQEb6T/Z0S++qW/JL5pxem5kYZY4qgfhgdtE/zSiY0gHuON3dMtb6UTSp8dnJlwvvPfKUtstXbJROTxP6zGTSlXQ643PfffjUloFtA9Hh0gLflA0R6QlwHxqmfb9sIsOleYnfD24ZufHhlZTp8qVzEicA0hWAY8fnlz+UP3nuuyuzY39VkbiGWD/EKBNmgWWvwQEwCHpy9puaW3VlbvLx4Q8f++72j7z7V3sjHiYSpnuuf/Di+J+GHoiMljp8WzUspBocQaOKExEwsfJt1erhsZaWPw/fnb/+oU/SQJcv6FaTEZ+U6fL7vX7dceGyp3JrTlg6Pie2RcVaNAT+dGN7GiBIFsbYaHNTc+WNTXe+eNsFp85935KX+r3Jjfc8j0EE6usxhcwDl7c8V7otsqfERoxlCxXiSaNbRKOqFAEL2IixKldA6vmxmwpf/dkNpPoMiDBZ0dQVZIg5bzti8L++tur9pXnN3+eWZDOMtVBTp4GpCyFjNTrSXJgl16c2dH8JN52PIFVNivQ9mR6zWEQV1t737cQr459CPmd8EmZBWLXXa3aSsHcIagsE5IpY9skK78mZBKsvFL5w9+y+61Z9pIeoGrbpE98bZggQ+aRwcb5303OpQV6va4XogTvgycUCAJWkLtTiWDujd+W1YjyG9ArRPzKvdV1w19bkEZdv2tg0WF1uy3kfYD3xhK1YgF0PAXGPcTfBsT0cNjvEBMWq/MI2PzFmzl9+/m1znn766XNp4cLd/Z2e7npV9FGGrIiQUI+iq1Z+JbfhgWGpNOUBAIsX75UVmhoqA/1uX/RSiPSj9z6xIPbfz2abcv4SUynWSCES8NhByWxcNmGqd3PixKMgKqQO3sQK5d15VIfHQCC/NRrXpdnxP+dXv331nHPesXVfwxPZ7qzq6esxdTp5X+ZN6QC4pmVv2nxY7+/+wWP/1PLrV34SGSrPNTLuEzk2J3Sbc2FDEkNDJ3eOgHXyGJMzftcemFwBHIlAyJXbLdysy7MTQ6UT55zRcfkHfrMv9ne69PgBS0oCIXT3MfX1mJEbHlqZfGrkjki+mqrZccPMqq77k3VEBUJOgeuoD8AJIOFRaYJYoLxjBLY47nRBIKDDHa8YE6X89kSpePzcj7T3rvyxoFtBsgc8QXJg0pgIAT1MG3vM2IaHPpveOnxvZKSQMrZiGVCwBhADcGD038tD4UMCHHCNFSmG8QXFbUOwYxWnrQYkKAU0GxOpshJLo8X4jN/vumvPZX2fI91nQDRpIzWdtf/SmOcxMhkhhoxddvdXky+Pr0U+b3wtzMwkQZsMFRASBDjtP6h5AqVLTBCdApBW8Ks1lLftBvkWHA2M55B0dZ8XJihFMEyifLGx1rQqHNFyY+qm1Z9G1eCQSWNZkeiKz/XdnthRW20LYz4irIQCrOdGM0IsLtdL0EFyaLHDBWut4YhCbayiyttHwGJBSrluLujswnZX6hyg86QwgS385mSrLs6N/3Tb98676BiiscnS5EFxQGj8jieePaztlt9vbNpZPcmvjPlg0sxcP2HHFXJw2hK0pUCdNyM46tyIUU0JhdExDP9tu1U6yqwCbUUpF0GAI0Pr4oh7idMZgigT8ZujCV0+PPG74ieOXznzhGNeEc/TNM0xmmlmAZdyXv7ho0e3P/LSpubh6lHGL/ukWNevd6D1WycAgibSVKGWxwTrpAOjUq26PCv60z1PvliZvdNfPVYpGKuVKxoUg4JOjpnqgBmKIHXtoTFk4TfrZj0+s/n5Pacdec6sDy19YrozhtOWxoa++/Ou1GM7ftw0Oj7Tsu8D0BO5+cbvw53MBOMlyACWRWAguq2Ni2+MfTv5lZWXwhoMX3T7+vSzuSvLhYIgEhFiYqgJSlB9s8HskGroARPea5opoqqzkrmxE2af2/H55Q/tK31PywHiCdN6trn/eOC8+B923RrJVWI+G8NKKYg0dMCQhQZclReAHpQjKSwJwLDKEqM1geKbWy5L/vuKGwQePwJwF2X8XV/MXpL6485vRnJlXYnAKOZ6M09h+CtutLkhBVbHG4ZATJQjqpaO16qL2z6aXLfyh7Ju307YuzQW3PmR6x7oTP9p5BEM5+GTWCbiuj4X1vRAI6836DKACKwZBmK01qrWFh8vLeq4OH3pe+6cOAFal8bW33tKyx929MV3j88omIqvFGtqhBKgOJDKG8pQPQoCKd6CrLIgNaudRuY3v799/Vk/OzBpLFj6+ZE0lWowDJ8Aro+6hDk81Amcng3AESdM5DKeFV/rmKp2JHdU3nn4e9OXvudO6ezX1NdT5xDq0thVZ24ZvmDJstIb4n9MRhIaVmqO4aEJ5XPD8RLMEFAAjLAEtmBR4qNUFj1UmA3gAKWxRe5DNCseFyLAmuA+B/27Mw6wThdww4/BBAdJKIz6HG3W4x36N3vOfEtny4XvfHRvbLFjfz19+FlL/rzjG2ecWnhLcnMsnoqQEQMmqU+NIDQYUCDwBGmMgvE6IkcLC5vqlAc81S8YF6SAQViT16szEQtyA7CN2V8DiCJR1jdIterKG2L3Dm1Ydd7hRGWXo/chjWWcNEZz5gxC5AP5z9717dSz9OlavmitJiECTxyZsdZCKeUiLaw/wrqDFWBfkzQWLKUa5aoN0rkNtECBAzhqTOpZEoFvBamULs6LfuO+DavOOZyoLJ7wdAqUUBoTImr55nn/OnpsxyU2HaeIBYuIQXAlSLmxOuEAG8KJESAYrjpYpKgxTgwVgbW+u/MTR97CTg+AEWuVIeK2FOcXpi9LXvvBz3eT69P3p0QNpDGRTk/PuO6DN+WXHr7S70iNNHFU2Trxya5gmjgvIAgy0/SFkek5oL6zhhQGAMKAsHOGb62JQHOtPVEqvH3mWa1XnXGDdHr61ZLXtJ1AJA4c+/VhXz79/pHT3tJZnp14slk54rNOsmACpRbihJu7BCme0r796KCCloxC9G9cA7LiR7lJ1WYnX8qdvWh5yxfff4/jCTL+a/2iAw10+eJ5es7Hura++O/vOLk0PzkQjSa0GGtAqDMoxOSGKhnBbCGBmad89/QcEErOFnXtnQDACMQ3vtYxXZmX+N3wBcd3zjp7yV6R/kAXZTK+dGfVokWLhjff9C/vKRyd/qFOJRWMWMsk0AxRXJ9HrO+wPrqy9zU1KapU3aMSsDdEQU3vw0ZSrbo4N9r39HfPu2gJUWkqpD/Q5YhPj0FkSePDY2vveSL5YuRrnCvCgCy7SSpHAzvOPfzB6QIDkz932hEgxhU5AgMLa9mHRFpTqnBUckPylgt6lhCVpov0B7rqcwN+t0qtX/X13JJZ3X57Mq85ytZaAwkoiEAam86aHgiKhdTVDDJRSyztCc4tavtY6vruL0vtHLW/SH+gi4iE0Gek09Ntn3nvxtzSNyyrzo79VTclnTS2H8IosD/aIANC4jchqqrtqd35E+csb7vmrFsDaex1+1bX3lY4N3DYx5b9YeTjxy+tzGn6hUq0aBGqEZRMl+qYhgNUUIKS38QxXZ6b+uvYmUef1PGlFQ9NYGUPqfHhokyXL1mnCj339bPfV3lT7AcqnY6wGDeuNo2vWE0NgswCsdIcizeXZsV+Nvi5ky5acOyCnYfiS43TWa5yFGaiqkT4wmLv5hfiL8Q91BggmhKPptYGrSWkW6k4P/6tDf95wYoFxy7YOdW426FelCFrRUhqV3HiitN6x45Od9eSqkJVEzvgh4ZTGrs33H9Rbu3G64MvN9D/96+4yxo3JT7y7QfPGL72vuUAkO3u3utl+D+uyBSZadkaLgAAAABJRU5ErkJggg==" width="28" height="28" alt="UpNonStop" style="display:block"></div><div><div style="line-height:1.1">First Officer</div><div style="font-size:10px;font-weight:400;letter-spacing:.5px;line-height:1">by <span style="font-weight:700">UpNonStop</span>&trade;</div></div></a>
+<div class="nk">
+<a href="#" class="nka act" data-p="home" onclick="go('home')">Home</a>
+<a href="product-personal.html" class="nka" id="prodLink">Product</a>
+<a href="how-personal.html" class="nka" id="howLink">How</a>
+<a href="calculator-personal.html" class="nka" id="calcLink">Calculator</a>
+<a href="#" class="nka" data-p="pricing" onclick="go('pricing')">Pricing</a>
+<a href="#" class="nka" data-p="about" onclick="go('about')">About</a>
+</div>
+<a href="https://wa.me/16199404040" class="ncta" target="_blank">💬 Start on WhatsApp</a>
+<button class="mob" onclick="toggleMob()"><span></span><span></span><span></span></button>
+</div>
+</nav>
+
+<!-- ============================================
+     HOME
+     ============================================ -->
+<div class="pg on" id="page-home">
+
+<section class="hero" id="mainHero">
+<div class="hero-in">
+<div class="hero-copy">
+
+<div class="tog-row">
+<div class="tog">
+<button class="tb sel" id="togB" onclick="setMode('b2c')">Personal</button>
+<button class="tb" id="togS" onclick="setMode('smbo')">Business</button>
+</div>
+</div>
+
+<div class="hero-tag"><span class="pulse"></span> Your Award Travel Agents</div>
+
+<div data-b>
+<h1>Your Points Are Expiring.<br><span class="pk">We Catch That.</span></h1>
+<p class="hero-sub">First Officer monitors your cards, credits, and loyalty programs around the clock. Every missed point, expiring credit, and smarter redemption route.</p>
+</div>
+<div data-s>
+<h1>$200K In Business Spend.<br><span class="pk">Zero Strategy.</span></h1>
+<p class="hero-sub">Your Amex, Chase, and corporate cards are earning points you never optimize. That's $4,000 to $25,000 a year in potential value left behind. We help you capture it.</p>
+</div>
+
+<div class="hero-ctas">
+<a href="https://wa.me/16199404040" class="btn btn-pk btn-l" target="_blank"><span data-b>See What You're Missing</span><span data-s>Free Business Spend Audit</span></a>
+<a href="#" onclick="go('pricing')" class="btn btn-ol btn-l">See Plans</a>
+</div>
+</div>
+
+<!-- WhatsApp Mockup -->
+<div class="wa-mock">
+<div class="wa-head">
+<div class="wa-av"><img src="data:image/png;base64,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" width="20" height="20" alt="FO" style="display:block;border-radius:3px"></div>
+<div><div class="wa-name">First Officer</div><div class="wa-status">Online</div></div>
+</div>
+<div class="wa-body" id="waBody"></div>
+</div>
+
+</div>
+</section>
+
+<!-- Stats bar -->
+<section class="stats alt"><div class="wrap">
+<div class="stats-in">
+<div style="text-align:center"><div class="stat-v">629<span class="pk">+</span></div><div class="stat-l t3">Programs Monitored</div></div>
+<div style="text-align:center"><div class="stat-v">24<span class="pk">/</span>7</div><div class="stat-l t3">Always-On Intelligence</div></div>
+<div style="text-align:center" data-b><div class="stat-v">3<span class="pk">x</span></div><div class="stat-l t3">Up to 3x better value per point*</div></div>
+<div style="text-align:center" data-s><div class="stat-v">$25K<span class="pk">+</span></div><div class="stat-l t3">Up to $25K+ potential annual value*</div></div>
+</div>
+<p style="text-align:center;font-size:11px;color:#888;margin-top:16px;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.5">*Illustrative. Individual results vary based on your specific portfolio, spending patterns, and redemption choices. Not a guarantee of any outcome.</p>
+</div></section>
+
+<!-- What you're missing -->
+<section class="sec"><div class="wrap">
+<div data-b>
+<div class="sh"><div class="ey">Right Now, In Your Wallet</div><h2 class="hd">Things You Don't Know <em>Are Happening</em></h2><p class="ds t2">Most people have no idea their points are expiring, their credits are resetting, or their card is earning 1x when it could earn 4x. First Officer watches all of it.</p></div>
+<div class="miss-grid">
+<div class="miss-card crd"><div class="miss-num">$1K+</div><h4>In Annual Credits</h4><p class="t3">Hundreds to thousands in airline, dining, and hotel credits reset annually. Most cardholders forget before the window closes.</p></div>
+<div class="miss-card crd"><div class="miss-num">Most</div><h4>Wrong Card Per Category</h4><p class="t3">Most purchases end up on a card that is not earning the best category multiplier.</p></div>
+<div class="miss-card crd"><div class="miss-num">3.2x</div><h4>Value Left Behind</h4><p class="t3">Average points redemption is 1 cent. Optimal is 3 to 8 cents per point.</p></div>
+</div>
+</div>
+<div data-s>
+<div class="sh"><div class="ey">Your Business Right Now</div><h2 class="hd">Every Dollar Spent <em>Should Work Harder</em></h2><p class="ds t2">SMB owners put $100K to $500K+ on cards every year. Without a strategy, you're leaving 2 to 5% of that on the table.</p></div>
+<div class="miss-grid">
+<div class="miss-card crd"><div class="miss-num">$4K to $25K</div><h4>Annual Value Gap</h4><p class="t3">Unrealized points value on typical business spend.</p></div>
+<div class="miss-card crd"><div class="miss-num">6+</div><h4>Cards Without A System</h4><p class="t3">Multiple cards, no category strategy. Every swipe is a missed opportunity.</p></div>
+<div class="miss-card crd"><div class="miss-num">10+ hrs</div><h4>Monthly Research You Skip</h4><p class="t3">Transfer bonuses, category changes, signup windows. Nobody has time for this while running a business.</p></div>
+</div>
+</div>
+</div></section>
+
+<!-- How it works -->
+<section class="sec alt"><div class="wrap">
+<div class="sh"><div class="ey">How It Works</div><h2 class="hd">Four Questions. <em>Then We Go To Work For You.</em></h2></div>
+<div class="steps">
+<div class="step"><h4>Tell Us Your Cards</h4><p class="t3">4 questions. 2 minutes.</p></div>
+<div class="step"><h4>We Map Everything</h4><p class="t3">Balances, credits, expiry dates, opportunities.</p></div>
+<div class="step"><h4>Get Your Strategy</h4><p class="t3">Personalized optimization score and action plan.</p></div>
+<div class="step"><h4>We Watch. You Save Time.</h4><p class="t3">Proactive alerts, weekly digest, ongoing intelligence.</p></div>
+</div>
+</div></section>
+
+<!-- Value props -->
+<section class="sec"><div class="wrap">
+
+<p style="font-size:12px;color:#888;text-align:center;margin:16px auto;max-width:680px;line-height:1.5">Sample conversations below are AI-generated illustrations. Recommendations should be verified before acting. Not financial advice.</p>
+<div class="sh"><div class="ey">What Changes</div><h2 class="hd">Three Things That <em>Happen Immediately</em></h2></div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+
+<div class="crd" style="padding:36px;border-top:3px solid var(--pink)">
+<div style="font-family:var(--font);font-size:56px;font-weight:900;color:var(--pink);letter-spacing:-3px;line-height:1;margin-bottom:16px">4x</div>
+<h3 style="font-size:20px;font-weight:800;margin-bottom:12px;line-height:1.3">Right Card, Every Swipe</h3>
+<p class="t2" data-b style="font-size:14px;line-height:1.65">Groceries on Gold. Gas on Ink. Software on Preferred. We show you which card to use for every category so every dollar earns what it should. Most people use one card for everything and earn 1x. That gap is value you may be leaving on the table.</p>
+<p class="t2" data-s style="font-size:14px;line-height:1.65">Sysco on Ink. SaaS on Preferred. Fleet fuel on the right corporate card. We help you optimize $25K to $200K+ of monthly spend across your entire card stack. Different vendors code differently. We know which card earns the most at each one.</p>
+</div>
+
+<div class="crd" style="padding:36px;border-top:3px solid var(--pink)">
+<div style="font-family:var(--font);font-size:56px;font-weight:900;color:var(--pink);letter-spacing:-3px;line-height:1;margin-bottom:16px">629</div>
+<h3 style="font-size:20px;font-weight:800;margin-bottom:12px;line-height:1.3">Programs Watched Daily</h3>
+<p class="t2" data-b style="font-size:14px;line-height:1.65">Transfer bonuses, flash award sales, error fares, expiring credits, program devaluations. These happen constantly. We watch all 629 programs and tap you on the shoulder the moment something affects your wallet.</p>
+<p class="t2" data-s style="font-size:14px;line-height:1.65">Conference flights at 3x value. Team retreats on points. Transfer windows that open and close in days. We find the opportunities you'd never have time to search for and show you your best options for acting on them.</p>
+</div>
+
+<div class="crd" style="padding:36px;border-top:3px solid var(--pink)">
+<div style="font-family:var(--font);font-size:56px;font-weight:900;color:var(--pink);letter-spacing:-3px;line-height:1;margin-bottom:16px">6x</div>
+<h3 style="font-size:20px;font-weight:800;margin-bottom:12px;line-height:1.3">Same Seat, Better Value</h3>
+<p class="t2" style="font-size:14px;line-height:1.65">100K points redeemed as a statement credit: $1,000. Transferred to Hyatt: $3,000 in stays. Transferred to the right airline during a bonus window: a $6,000 business class seat. We show you where to move your points for the best rate.</p>
+</div>
+
+</div>
+</div></section>
+
+<!-- Founding members placeholder (testimonials removed per compliance A7) -->
+<section class="sec alt"><div class="wrap">
+<div class="sh"><div class="ey">Early Access</div><h2 class="hd">We're Onboarding Our <em>Founding Members</em></h2></div>
+<div style="max-width:680px;margin:0 auto;text-align:center">
+<p class="t2" style="font-size:16px;line-height:1.7;margin-bottom:12px">First Officer is currently in early rollout with a limited cohort of beta members.</p>
+<p class="t2" style="font-size:16px;line-height:1.7">As we collect verified client stories, we'll share them here &mdash; with permission, attribution, and full context. No fabricated numbers, no cherry-picked wins.</p>
+</div>
+</div></section>
+
+<!-- What First Officer Actually Does (deeper) -->
+<section class="sec"><div class="wrap">
+<div data-b>
+<div class="sh"><div class="ey">Your Team</div><h2 class="hd">We Work <em>While You Sleep</em></h2><p class="ds t2">First Officer is a team of 10 dedicated specialists. Some build your strategy. Others protect your portfolio around the clock. Here's who's working for you.</p></div>
+
+<div style="margin-bottom:48px"><h3 style="font-family:var(--serif);font-size:24px;color:var(--pink);margin-bottom:8px">The Foundation</h3><p class="t2" style="font-size:15px;margin-bottom:20px;max-width:640px">Strategy and memory. These two make everything else possible.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+<div class="crd" style="padding:28px;border-top:3px solid #E63946"><h4 style="font-size:17px;font-weight:800;margin-bottom:8px">Strategist</h4><p class="t2" style="font-size:14px;line-height:1.65">Once a month, Strategist sits down with your full portfolio and builds a comprehensive game plan. Which cards to keep, which to cancel, where to apply next, how to restructure your spend routing, and what your points portfolio should look like in 12 months. This is the deep thinking that ties everything together.</p></div>
+<div class="crd" style="padding:28px;border-top:3px solid #9B5DE5"><h4 style="font-size:17px;font-weight:800;margin-bottom:8px">Archivist</h4><p class="t2" style="font-size:14px;line-height:1.65">Remembers everything about you. Every card you have, every program you belong to, your travel preferences, past conversations, goals, and history. When you message First Officer, you never have to repeat yourself. Archivist makes sure every specialist already knows who you are and what you care about.</p></div>
+</div></div>
+
+<div style="margin-bottom:48px"><h3 style="font-family:var(--serif);font-size:24px;color:var(--pink);margin-bottom:8px">Always Watching</h3><p class="t2" style="font-size:15px;margin-bottom:20px;max-width:640px">These specialists run in the background every day. You don't need to ask them anything. They find problems and opportunities before you even know they exist.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+<div class="crd" style="padding:28px;border-top:3px solid #FA1896"><h4 style="font-size:17px;font-weight:800;margin-bottom:8px">Ranger<span style="display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:rgba(250,24,150,.1);color:var(--pink);margin-left:8px;vertical-align:middle;text-transform:uppercase">Coming Soon</span></h4><p class="t2" style="font-size:14px;line-height:1.65">Watches 629 loyalty programs for changes that affect your wallet. Transfer bonuses, program devaluations, expiring points, resetting annual credits. If something is about to cost you money or create an opportunity, Ranger catches it and shows you your best options before the window closes.</p></div>
+<div class="crd" style="padding:28px;border-top:3px solid #FF6B35"><h4 style="font-size:17px;font-weight:800;margin-bottom:8px">Spotter<span style="display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:rgba(250,24,150,.1);color:var(--pink);margin-left:8px;vertical-align:middle;text-transform:uppercase">Coming Soon</span></h4><p class="t2" style="font-size:14px;line-height:1.65">Hunts for award seats, hotel nights, and redemption deals that match your travel goals. Flash sales, error fares, sweet spot routes that most people miss. When business class to Tokyo opens up at 55,000 points instead of 120,000, Spotter finds it first.</p></div>
+<div class="crd" style="padding:28px;border-top:3px solid #6A994E"><h4 style="font-size:17px;font-weight:800;margin-bottom:8px">Hunter<span style="display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:rgba(250,24,150,.1);color:var(--pink);margin-left:8px;vertical-align:middle;text-transform:uppercase">Coming Soon</span></h4><p class="t2" style="font-size:14px;line-height:1.65">Tracks every welcome bonus you're working toward across all your active cards. Knows how much you've spent, how much is left, and when the deadline hits. Also tracks your application timeline so you never miss a window or trigger a restriction.</p></div>
+<div class="crd" style="padding:28px;border-top:3px solid #F4A261"><h4 style="font-size:17px;font-weight:800;margin-bottom:8px">Accountant</h4><p class="t2" style="font-size:14px;line-height:1.65">Delivers your monthly portfolio statement: total points value across all programs, unrealized gains from unoptimized spend, missed opportunities from the previous month, and your redemption performance compared to benchmarks. Think of it as a monthly P&L for your points.</p></div>
+</div></div>
+
+<div><h3 style="font-family:var(--serif);font-size:24px;color:var(--pink);margin-bottom:8px">When You Need Us</h3><p class="t2" style="font-size:15px;margin-bottom:20px;max-width:640px">Ask a question, plan a trip, or request a strategy. These specialists respond in real time with expert-level answers.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+<div class="crd" style="padding:28px;border-top:3px solid #7B2FF7"><h4 style="font-size:17px;font-weight:800;margin-bottom:8px">Oracle</h4><p class="t2" style="font-size:14px;line-height:1.65">Your unlimited Q&A line. Ask anything about points, miles, cards, programs, or travel strategy and get an expert-level answer. Not a search result. Not a generic FAQ. A personalized response that accounts for your specific cards, balances, and goals.</p></div>
+<div class="crd" style="padding:28px;border-top:3px solid #2EC4B6"><h4 style="font-size:17px;font-weight:800;margin-bottom:8px">Optioneer</h4><p class="t2" style="font-size:14px;line-height:1.65">When you have a trip in mind, Optioneer maps every possible path. Which programs to use, which transfer partners to route through, how many points each option costs, and what each is worth in cash. You see all the options side by side. Then Commander picks the best one.</p></div>
+<div class="crd" style="padding:28px;border-top:3px solid #00B4D8"><h4 style="font-size:17px;font-weight:800;margin-bottom:8px">Commander</h4><p class="t2" style="font-size:14px;line-height:1.65">Optioneer shows you the paths. Commander picks THE one. Not five choices. Not "it depends." The option we'd recommend you consider, with suggested steps: which points to transfer, which program to book through, the phone number to call, and a backup plan if the first path doesn't work. Always verify availability directly with the program before transferring.</p></div>
+<div class="crd" style="padding:28px;border-top:3px solid #457B9D"><h4 style="font-size:17px;font-weight:800;margin-bottom:8px">Planner</h4><p class="t2" style="font-size:14px;line-height:1.65">Set a destination and a date. Planner reverse-engineers the entire path: how many points you need, which programs to accumulate in, which cards to apply for, and what your weekly earn rate needs to be. Then sends you progress updates every week until you're fully funded.</p></div>
+</div></div>
+</div>
+<div data-s>
+<div class="sh"><div class="ey">Built For Business</div><h2 class="hd">Your Industry. <em>Your Spend. Your Strategy.</em></h2><p class="ds t2">Every business has a different spend profile. We build strategies around yours, not generic advice.</p></div>
+<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
+<a href="for-restaurants.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Restaurants 👨🏻‍🍳</div><div class="t3" style="font-size:11px">$5K to $20K/yr</div></a>
+<a href="for-ecommerce.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">E-Commerce 📦</div><div class="t3" style="font-size:11px">$6K to $18K/yr</div></a>
+<a href="for-contractors.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Contractors 👷🏻</div><div class="t3" style="font-size:11px">$8K to $25K/yr</div></a>
+<a href="for-hvac.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">HVAC ❄️</div><div class="t3" style="font-size:11px">$3K to $12K/yr</div></a>
+<a href="for-dental.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Dental 🦷</div><div class="t3" style="font-size:11px">$4K to $15K/yr</div></a>
+<a href="for-auto-repair.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Auto Repair 🔧</div><div class="t3" style="font-size:11px">$5K to $16K/yr</div></a>
+<a href="for-law-firms.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Law Firms ⚖️</div><div class="t3" style="font-size:11px">$6K to $20K/yr</div></a>
+<a href="for-salons.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Salons 💇🏻‍♀️</div><div class="t3" style="font-size:11px">$3K to $10K/yr</div></a>
+<a href="for-real-estate.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Real Estate 🏠</div><div class="t3" style="font-size:11px">$5K to $18K/yr</div></a>
+<a href="for-cpa-firms.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">CPA Firms 🧮</div><div class="t3" style="font-size:11px">$4K to $14K/yr</div></a>
+<a href="for-medical.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Medical 👨🏻‍⚕️</div><div class="t3" style="font-size:11px">$6K to $22K/yr</div></a>
+<a href="for-agencies.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Agencies 🎨</div><div class="t3" style="font-size:11px">$5K to $15K/yr</div></a>
+<a href="for-fitness.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Fitness 🏋🏻</div><div class="t3" style="font-size:11px">$3K to $12K/yr</div></a>
+<a href="for-landscaping.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Landscaping 🌿</div><div class="t3" style="font-size:11px">$4K to $14K/yr</div></a>
+<a href="for-veterinary.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Veterinary 🐾</div><div class="t3" style="font-size:11px">$4K to $16K/yr</div></a>
+<a href="for-trucking.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Trucking 🚛</div><div class="t3" style="font-size:11px">$4K to $18K/yr</div></a>
+<a href="for-property-management.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Property Mgmt 🏢</div><div class="t3" style="font-size:11px">$5K to $16K/yr</div></a>
+<a href="for-it-services.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">IT / MSP 💻</div><div class="t3" style="font-size:11px">$6K to $20K/yr</div></a>
+<a href="for-consulting.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Consulting 👨🏻‍💼</div><div class="t3" style="font-size:11px">$6K to $22K/yr</div></a>
+<a href="for-cleaning.html" class="crd" style="padding:20px;text-align:center;text-decoration:none"><div style="font-size:11px;font-weight:700;letter-spacing:.5px;margin-bottom:4px">Cleaning 🧹</div><div class="t3" style="font-size:11px">$3K to $10K/yr</div></a>
+</div>
+<p class="t3" style="text-align:center;margin-top:20px;font-size:13px">Estimated annual unrealized value. Individual results vary based on your specific spend profile. <a href="calculator-business.html" style="color:var(--pink);font-weight:600">Calculate yours in 60 seconds →</a></p>
+</div>
+</div></section>
+
+<!-- The difference -->
+<section class="sec alt"><div class="wrap">
+<div class="sh"><div class="ey">Why First Officer</div><h2 class="hd">Not A Dashboard. <em>A System.</em></h2></div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
+<div style="text-align:center;padding:24px">
+<div style="font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--pink);margin-bottom:12px">Tracking Apps</div>
+<p class="t3" style="font-size:14px;line-height:1.6">Show you a dashboard. You figure out what to do. $30 to $100/year.</p>
+</div>
+<div style="text-align:center;padding:24px;border-left:2px solid var(--pink);border-right:2px solid var(--pink)">
+<div style="font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--pink);margin-bottom:12px">First Officer</div>
+<p style="font-size:14px;line-height:1.6;font-weight:600">Shows you your best options. Does the research. Sends the alert. $19 to $349/mo.</p>
+</div>
+<div style="text-align:center;padding:24px">
+<div style="font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--pink);margin-bottom:12px">Human Consultants</div>
+<p class="t3" style="font-size:14px;line-height:1.6">Expert, per-trip, business hours only.</p>
+</div>
+</div>
+</div></section>
+
+<!-- CTA -->
+<section class="ctab"><div class="wrap">
+<h2 data-b>See What's Happening In Your Wallet Right Now.</h2>
+<h2 data-s>Your Competitors Optimize Their Spend. Do You?</h2>
+<p data-b>4 questions. Your score in 24 hours.</p>
+<p data-s>Free 20-minute business spend audit.</p>
+<div class="bg"><a href="https://wa.me/16199404040" class="btn btn-l" target="_blank" style="background:#25D366;color:#fff;border-radius:100px;box-shadow:0 6px 24px rgba(37,211,102,.3)">💬 Start on WhatsApp</a><a href="#" onclick="go('pricing')" class="btn btn-gh btn-l">See Plans</a></div>
+</div></section>
+</div>
+
+<!-- ============================================
+     PRICING
+     ============================================ -->
+<div class="pg" id="page-pricing">
+<section class="sec" style="padding-top:130px"><div class="wrap">
+<div class="sh"><h2 class="hd">Choose Your <em>Level Of Control</em></h2><p class="ds t2">Expert award travel intelligence. Scales with your needs.</p><p class="t3" style="font-size:12px;margin-top:8px;max-width:520px;margin-left:auto;margin-right:auto">First Officer uses artificial intelligence to analyze your rewards portfolio. AI-generated information should be verified before acting. First Officer is not a licensed financial advisor.</p></div>
+<div data-b><div class="pr c5">
+<div class="pc crd"><div class="ptt">Basic</div><div class="pam">Free</div><div class="ptg t3">See what you're missing.</div><ul class="pfl"><li><span class="ck">&#10003;</span><span class="t2">Weekly newsletter</span></li><li><span class="ck">&#10003;</span><span class="t2">Estimated portfolio snapshot</span></li><li><span class="ck">&#10003;</span><span class="t2">90-day preview</span></li><li><span class="no">&#10005;</span><span class="t3">No wallet connection</span></li><li><span class="no">&#10005;</span><span class="t3">No live conversations</span></li></ul><a href="https://wa.me/16199404040" class="btn btn-ol btn-m" target="_blank">Subscribe Free</a></div>
+<div class="pc crd"><div class="ptt">Light</div><div class="pam">$5<span class="sm t3"> /mo</span></div><div class="ptg t3">Ask us anything. 5 times a month.</div><ul class="pfl"><li><span class="ck">&#10003;</span><span class="t2">5 conversations per month</span></li><li><span class="ck">&#10003;</span><span class="t2">Which-card recommendations</span></li><li><span class="ck">&#10003;</span><span class="t2">Monthly portfolio estimate</span></li></ul><a href="https://buy.stripe.com/8x2cN52nY4vj8YJfWJ3Je01" class="btn btn-pk btn-m" target="_blank">Start Light</a></div>
+<div class="pc crd"><div class="ptt">Classic</div><div class="pam">$19<span class="sm t3"> /mo</span></div><div class="ptg t3">Unlimited advice. Always protected.</div><ul class="pfl"><li><span class="ck">&#10003;</span><span class="t2">Unlimited Q&amp;A</span></li><li><span class="ck">&#10003;</span><span class="t2">Expiry monitoring &amp; alerts</span></li><li><span class="ck">&#10003;</span><span class="t2">Credits Tracker</span></li><li><span class="ck">&#10003;</span><span class="t2">Weekly Points Pulse</span></li><li><span class="ck">&#10003;</span><span class="t2">Devaluation Watch</span></li></ul><a href="https://buy.stripe.com/dRmaEXbYyge14It9yl3Je02" class="btn btn-pk btn-m" target="_blank">Start Classic</a></div>
+<div class="pc crd pop"><div class="ppb">Most Popular</div><div class="ptt">Select</div><div class="pam">$39<span class="sm t3"> /mo</span></div><div class="ptg t3">Proactive optimization across your portfolio.</div><ul class="pfl"><li><span class="ck">&#8594;</span><span class="t2">Everything in Classic</span></li><li><span class="ck">&#10003;</span><span class="t2">2 accounts (you + partner)</span></li><li><span class="ck">&#10003;</span><span class="t2">Bank spend categorization <span style="font-size:11px;color:#888">(secure OAuth via Plaid)</span></span></li><li><span class="ck">&#10003;</span><span class="t2">Whisperer reports</span></li><li><span class="ck">&#10003;</span><span class="t2">Signup Bonus Calendar</span></li></ul><a href="https://buy.stripe.com/dRm7sLbYyf9X1wh6m93Je03" class="btn btn-pk btn-m" target="_blank">Start Select</a></div>
+<div class="pc crd"><div class="ptt">Reserve</div><div class="pam">$59<span class="sm t3"> /mo</span></div><div class="ptg t3">Full team. Full strategy.</div><ul class="pfl"><li><span class="ck">&#8594;</span><span class="t2">Everything in Select</span></li><li><span class="ck">&#10003;</span><span class="t2">Full wallet mapping (629 programs)</span></li><li><span class="ck">&#10003;</span><span class="t2">Up to 4 accounts (family)</span></li><li><span class="ck">&#10003;</span><span class="t2">24/7 Award Monitoring</span></li><li><span class="ck">&#10003;</span><span class="t2">Trip Execution Playbooks</span></li><li><span class="ck">&#10003;</span><span class="t2">Optioneer + Commander</span></li><li><span class="ck">&#10003;</span><span class="t2">Goal Planner with weekly updates</span></li><li><span class="ck">&#10003;</span><span class="t2">Monthly Strategist session</span></li></ul><a href="https://buy.stripe.com/dRmeVdbYy2nbcaV9yl3Je04" class="btn btn-pk btn-m" target="_blank">Start Reserve</a></div>
+
+</div></div>
+<div data-s><div class="pr c3">
+<div class="pc crd"><div class="ptt">Preferred</div><div class="pam">$199<span class="sm t3"> /mo</span></div><div class="ptg t3">Business-grade spend intelligence.</div><ul class="pfl"><li><span class="ck">&#10003;</span><span class="t2">Business spend optimization</span></li><li><span class="ck">&#10003;</span><span class="t2">Employee card tracking</span></li><li><span class="ck">&#10003;</span><span class="t2">Manual bank spend categorization</span></li><li><span class="ck">&#10003;</span><span class="t2">Monthly strategy session</span></li><li><span class="ck">&#10003;</span><span class="t2">Portfolio value reporting</span></li></ul><a href="https://buy.stripe.com/28EbJ1geO8Lz5Mx39X3Je05" class="btn btn-pk btn-m" target="_blank">Start Preferred</a></div>
+<div class="pc crd pop"><div class="ppb">Recommended</div><div class="ptt">Signature</div><div class="pam">$349<span class="sm t3"> /mo</span></div><div class="ptg t3">Deep strategy for complex portfolios.</div><ul class="pfl"><li><span class="ck">&#8594;</span><span class="t2">Everything in Preferred</span></li><li><span class="ck">&#10003;</span><span class="t2">Full 10-specialist team</span></li><li><span class="ck">&#10003;</span><span class="t2">Automated bank spend categorization</span></li><li><span class="ck">&#10003;</span><span class="t2">Multi-entity support</span></li><li><span class="ck">&#10003;</span><span class="t2">Quarterly deep-dive strategy</span></li><li><span class="ck">&#10003;</span><span class="t2">Priority response</span></li><li><span class="ck">&#10003;</span><span class="t2">Custom spend category mapping</span></li></ul><a href="https://buy.stripe.com/eVqfZh1jUaTH3Ep8uh3Je06" class="btn btn-pk btn-m" target="_blank">Start Signature</a></div>
+<div class="pc crd" style="border-color:#E8C547 !important;box-shadow:0 0 0 1px #E8C547,0 12px 40px rgba(232,197,71,.1)"><div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#E8C547;color:#000;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 16px;border-radius:100px;white-space:nowrap">Waitlist Open</div><div class="ptt" style="color:#E8C547">Concierge</div><div class="pam">$549<span class="sm t3"> /mo</span></div><div class="ptg t3">Live specialist. Done for you.<br><span style="font-size:11px;color:#888;font-weight:400">The only tier where a human specialist acts on your behalf, always with your per-trip authorization.</span></div><ul class="pfl"><li><span class="ck" style="color:#E8C547">&#8594;</span><span class="t2">Everything in Signature</span></li><li><span class="ck" style="color:#E8C547">&#10003;</span><span class="t2">Dedicated live specialist</span></li><li><span class="ck" style="color:#E8C547">&#10003;</span><span class="t2">Phone and transfer execution</span></li><li><span class="ck" style="color:#E8C547">&#10003;</span><span class="t2">Check-ins whenever you need them</span></li><li><span class="ck" style="color:#E8C547">&#10003;</span><span class="t2">First priority on award availability</span></li><li><span class="ck" style="color:#E8C547;font-size:14px">&#9733;</span><span class="t2">Award booking available (Add When Needed)</span></li></ul><a href="https://wa.me/16199404040?text=Concierge%20waitlist" class="btn btn-m" style="background:#E8C547;color:#000;box-shadow:0 6px 20px rgba(232,197,71,.25);width:100%;justify-content:center" target="_blank">Join Waitlist</a></div>
+</div>
+<div style="margin-top:48px;padding:36px;border-radius:var(--r);border:2px solid #C5A226;background:#0a0a0a">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:28px">
+<div><div style="font-family:var(--serif);font-size:24px;margin-bottom:4px">Award Booking Service</div><div style="font-size:13px;color:#666">Available to Concierge clients</div></div>
+<div style="text-align:right"><div style="font-size:28px;font-weight:900;color:#E8C547;letter-spacing:-1px">$500</div><div style="font-size:12px;color:#666">per booking, any party size</div></div>
+</div>
+
+<p class="t2" style="font-size:15px;line-height:1.75;margin-bottom:28px;max-width:680px">Award bookings are where the biggest value lives. And where the most value gets left on the table. A business class seat that costs $8,000 cash might cost 55,000 points through the right transfer partner at the right time. But getting there requires navigating hold queues, transfer timing windows, partner availability calendars, and backup routing. One wrong step and the seat is gone.</p>
+
+<p class="t2" style="font-size:15px;line-height:1.75;margin-bottom:32px;max-width:680px">We do all of it for you. For $500, regardless of party size.</p>
+
+<div style="padding:14px 18px;border:1px solid #333;border-radius:8px;background:#0f0f0f;margin-bottom:28px;max-width:680px">
+<p class="t3" style="font-size:12px;line-height:1.6;color:#aaa;margin:0">These actions are performed by our Concierge specialist only with your explicit, per-trip authorization. Our automated system never executes transactions on your behalf.</p>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px">
+<div style="padding:20px;border-radius:12px;border:1px solid #1a1a1a;background:#111">
+<div style="font-size:14px;font-weight:700;color:#E8C547;margin-bottom:8px">The Research</div>
+<p class="t3" style="font-size:13px;line-height:1.55">We search across every transfer partner, every routing, every date combination. Not just "is it available" but "what's the best value path for your specific points."</p>
+</div>
+<div style="padding:20px;border-radius:12px;border:1px solid #1a1a1a;background:#111">
+<div style="font-size:14px;font-weight:700;color:#E8C547;margin-bottom:8px">The Execution</div>
+<p class="t3" style="font-size:13px;line-height:1.55">Point transfers timed to the minute. Phone calls to airline partners. Holds placed while we confirm the rest of the itinerary. Seat assignments. Meal requests. All of it.</p>
+</div>
+<div style="padding:20px;border-radius:12px;border:1px solid #1a1a1a;background:#111">
+<div style="font-size:14px;font-weight:700;color:#E8C547;margin-bottom:8px">The Backup Plan</div>
+<p class="t3" style="font-size:13px;line-height:1.55">Award seats disappear. Transfers fail. Airlines change availability. We have the backup routing ready before the primary one falls through. You never start from zero.</p>
+</div>
+</div>
+
+<div style="padding:20px;border-radius:12px;border:1px solid #1a1a1a;background:#111;margin-bottom:20px">
+<div style="font-size:13px;font-weight:600;color:#666;margin-bottom:12px">What $500 typically replaces:</div>
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #1a1a1a"><span style="font-size:13px;color:#999">Boutique booking service*</span><span style="font-size:13px;font-weight:700;color:#555">commonly $1,500+</span></div>
+<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #1a1a1a"><span style="font-size:13px;color:#999">Consultant hourly (4 to 8 hrs)*</span><span style="font-size:13px;font-weight:700;color:#555">commonly hundreds per hour</span></div>
+<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #1a1a1a"><span style="font-size:13px;color:#999">DIY time investment</span><span style="font-size:13px;font-weight:700;color:#555">8 to 20+ hours</span></div>
+<p class="t3" style="font-size:11px;color:#777;margin-top:10px;line-height:1.5">*Comparison figures are estimated from publicly available industry pricing. Actual costs vary by provider and scope. Results are illustrative.</p>
+</div>
+</div>
+
+<p class="t3" style="font-size:12px;line-height:1.5">$500 flat. No percentage of trip value. No hidden fees. Family of 2 or group of 12, same price. You get the research, the execution, the phone calls, the backup plans, and a confirmed itinerary. We've done the work before you even think about packing.</p>
+</div>
+</div>
+</div></section>
+
+<!-- Enterprise -->
+<section class="sec" data-s><div class="wrap" style="max-width:920px">
+<div style="border:1.5px solid rgba(123,143,247,.3);border-radius:20px;padding:48px;background:rgba(123,143,247,.03);position:relative;overflow:hidden">
+<div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,transparent,#7B8FF7,transparent)"></div>
+
+<div style="text-align:center;margin-bottom:36px">
+<div style="display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border-radius:100px;font-size:12px;font-weight:600;color:#7B8FF7;background:rgba(123,143,247,.1);border:1px solid rgba(123,143,247,.2);margin-bottom:20px">Enterprise</div>
+<h2 style="font-family:var(--serif);font-size:clamp(26px,3.5vw,38px);line-height:1.12;margin-bottom:12px">Have UpNonStop cater<br><span style="color:#7B8FF7">to your organization.</span></h2>
+<p class="t2" style="font-size:15px;line-height:1.7;max-width:580px;margin:0 auto">For companies with 10+ cardholders, multiple entities, or complex travel programs. Custom deployment. Dedicated account management. Organization-wide optimization at scale.</p>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px">
+<div style="padding:22px;border-radius:14px;border:1px solid rgba(123,143,247,.15);background:rgba(123,143,247,.05)">
+<div style="font-size:14px;font-weight:700;margin-bottom:8px;color:#7B8FF7">Organization-Wide Routing</div>
+<p class="t3" style="font-size:13px;line-height:1.55">Every employee card across every entity routed to the highest-earning configuration. One system. One strategy.</p>
+</div>
+<div style="padding:22px;border-radius:14px;border:1px solid rgba(123,143,247,.15);background:rgba(123,143,247,.05)">
+<div style="font-size:14px;font-weight:700;margin-bottom:8px;color:#7B8FF7">Travel Program Intelligence</div>
+<p class="t3" style="font-size:13px;line-height:1.55">Aggregate travel patterns across your team. Negotiate corporate rates with data. Optimize the entire portfolio.</p>
+</div>
+<div style="padding:22px;border-radius:14px;border:1px solid rgba(123,143,247,.15);background:rgba(123,143,247,.05)">
+<div style="font-size:14px;font-weight:700;margin-bottom:8px;color:#7B8FF7">Dedicated Account Team</div>
+<p class="t3" style="font-size:13px;line-height:1.55">Named specialist. Quarterly business reviews. Custom reporting. Integration with your finance and travel teams.</p>
+</div>
+</div>
+
+<!-- Inline calculator preview -->
+<div style="padding:24px;border-radius:14px;border:1px solid rgba(123,143,247,.15);background:rgba(123,143,247,.05);margin-bottom:28px">
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+<div>
+<div style="font-size:14px;font-weight:700;color:#7B8FF7;margin-bottom:4px">What's your organization leaving on the table?</div>
+<p class="t3" style="font-size:13px;line-height:1.5">For example: 10 employees, $50K/month across cards. At an assumed 2x blended rate, that could represent roughly <span style="color:#7B8FF7;font-weight:700">$12,000 to $18,000/year</span> in potential travel value. Illustrative only. Your own numbers will depend on your vendors, card mix, and how points are redeemed.</p>
+</div>
+<a href="calculator-business.html" class="btn btn-m" style="background:#7B8FF7;color:#fff;box-shadow:0 4px 16px rgba(123,143,247,.2);white-space:nowrap;flex-shrink:0">Calculate Your Number</a>
+</div>
+</div>
+
+<div style="text-align:center">
+<a href="https://wa.me/16199404040?text=Enterprise%20inquiry" class="btn btn-m" style="background:transparent;color:#7B8FF7;border:1.5px solid rgba(123,143,247,.3)" target="_blank">Talk To Our Team</a>
+<p class="t3" style="margin-top:16px;font-size:12px">Custom pricing based on organization size and complexity. Starts at 10 cardholders.</p>
+</div>
+
+</div>
+</div></section>
+
+<section class="ctab"><div class="wrap">
+<div data-b>
+<h2>4 Questions. Your Score in 24 Hours.</h2>
+<p>No signup. No app. Just message us on WhatsApp and we'll show you what your points are actually worth.</p>
+<div class="bg"><a href="https://wa.me/16199404040" class="btn btn-l" target="_blank" style="background:#25D366;color:#fff;border-radius:100px;box-shadow:0 6px 24px rgba(37,211,102,.3)">💬 Start on WhatsApp</a></div>
+</div>
+<div data-s>
+<h2>See What Your Business Spend Is Missing.</h2>
+<p>20-minute audit. We'll map your vendors, your cards, and the gap between what you earn and what you should.</p>
+<div class="bg"><a href="https://wa.me/16199404040" class="btn btn-l" target="_blank" style="background:#25D366;color:#fff;border-radius:100px;box-shadow:0 6px 24px rgba(37,211,102,.3)">💬 Start on WhatsApp</a></div>
+</div>
+</div></section>
+</div>
+
+<!-- ============================================
+     ABOUT
+     ============================================ -->
+<div class="pg" id="page-about">
+
+<!-- ==================== B2C ABOUT (Personal) ==================== -->
+<div data-b>
+
+<!-- Problem -->
+<section class="sec" style="padding-top:130px;padding-bottom:60px"><div class="wrap" style="max-width:800px">
+<div class="ey">The Problem</div>
+<h1 style="font-family:var(--serif);font-size:clamp(32px,5vw,52px);line-height:1.08;letter-spacing:-.5px;margin-bottom:24px">You have points in <em>six programs</em> and no plan for any of them.</h1>
+<p class="t2" style="font-size:17px;line-height:1.8;margin-bottom:20px">You signed up for the Sapphire Preferred two years ago. You've got some Amex points from that Gold card. Maybe Marriott Bonvoy and a random airline program. Points are scattered everywhere, some are expiring, and when you finally go to book a trip you just pay cash because figuring out the optimal path takes three hours you don't have.</p>
+<p class="t2" style="font-size:17px;line-height:1.8;margin-bottom:20px">Meanwhile, that couple down the street just flew business class to Tokyo with their kids for $400 in taxes. Same income as you. Same credit cards. Different strategy.</p>
+<p class="t2" style="font-size:17px;line-height:1.8">The difference isn't knowledge. It's having someone who watches your portfolio, catches the right moment, and shows you your best options.</p>
+</div></section>
+
+<!-- Scale -->
+<section class="sec" style="padding-top:0"><div class="wrap">
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:860px;margin:0 auto">
+<div style="padding:28px;border-radius:var(--r);border:1px solid #e8e9ed;transition:all .5s">
+<div style="font-size:36px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:8px">$48B*</div>
+<div style="font-size:14px;font-weight:600;margin-bottom:6px">In points expire unused every year</div>
+<p class="t3" style="font-size:13px;line-height:1.5">Airlines and hotels count on this. Every expired point is revenue for them and lost value for you. <em style="font-size:11px;color:#aaa">*Industry estimate; figures vary by year.</em></p>
+</div>
+<div style="padding:28px;border-radius:var(--r);border:1px solid #e8e9ed;transition:all .5s">
+<div style="font-size:36px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:8px">6x</div>
+<div style="font-size:14px;font-weight:600;margin-bottom:6px">Gap between worst and best redemptions</div>
+<p class="t3" style="font-size:13px;line-height:1.5">100K points as a statement credit: $800. Transferred to the right airline partner: $5,000 in business class. Same points.</p>
+</div>
+<div style="padding:28px;border-radius:var(--r);border:1px solid #e8e9ed;transition:all .5s">
+<div style="font-size:36px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:8px">Most</div>
+<div style="font-size:14px;font-weight:600;margin-bottom:6px">Cardholders never transfer points to partners</div>
+<p class="t3" style="font-size:13px;line-height:1.5">The majority redeem through portals at 1 to 1.25 cents per point. Transfer partners typically pay 2 to 5 cents. That is the gap we show you how to close.</p>
+</div>
+</div>
+</div></section>
+
+<!-- The Gap -->
+<section class="sec alt"><div class="wrap" style="max-width:860px">
+<div class="ey">The Gap</div>
+<h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.12;margin-bottom:12px">Between <em>tracking apps</em> and <em>boutique consultants</em>, there's nothing.</h2>
+<p class="t2" style="font-size:16px;line-height:1.75;margin-bottom:40px">Apps show your balances. Consultants charge $400/hour. Neither watches your portfolio while you sleep. Neither messages you when a transfer bonus goes live that could save you $3,000 on your anniversary trip.</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:40px">
+<div style="padding:28px;border-radius:var(--r);border:1px solid #e8e9ed;text-align:center;transition:all .5s">
+<div style="font-size:28px;font-weight:900;letter-spacing:-1px;line-height:1;margin-bottom:4px">$30 to $260</div>
+<div style="font-size:12px;color:#999;margin-bottom:10px">per year</div>
+<div style="font-size:14px;font-weight:700;color:#999;margin-bottom:6px">Tracking Apps</div>
+<p style="font-size:13px;color:#bbb;line-height:1.5">Show balances. Don't advise.</p>
+</div>
+<div style="padding:28px;border-radius:var(--r);border:2px solid var(--pink);text-align:center;background:rgba(250,24,150,.02)">
+<div style="font-size:28px;font-weight:900;letter-spacing:-1px;line-height:1;margin-bottom:4px;color:var(--pink)">$5 to $59</div>
+<div style="font-size:12px;color:var(--pink);font-weight:500;margin-bottom:10px">per month</div>
+<div style="font-size:14px;font-weight:700;color:var(--pink);margin-bottom:6px">First Officer</div>
+<p style="font-size:13px;color:#888;line-height:1.5">Proactive. Personal. Always on.</p>
+</div>
+<div style="padding:28px;border-radius:var(--r);border:1px solid #e8e9ed;text-align:center;transition:all .5s">
+<div style="font-size:28px;font-weight:900;letter-spacing:-1px;line-height:1;margin-bottom:4px">Per-trip</div>
+<div style="font-size:12px;color:#999;margin-bottom:10px">business hours</div>
+<div style="font-size:14px;font-weight:700;color:#999;margin-bottom:6px">Boutique Consultants</div>
+<p style="font-size:13px;color:#bbb;line-height:1.5">Expert. Per-trip only.</p>
+</div>
+</div>
+</div></section>
+
+<!-- In Practice: Personal -->
+<section class="sec"><div class="wrap" style="max-width:800px">
+<div class="ey">In Practice</div>
+<p style="font-size:12px;color:#888;margin-bottom:20px;font-style:italic">Example messages and scenarios below are illustrative. Recommendations shown are AI-generated and should be verified before acting. Actual value depends on your specific portfolio, availability, and timing. Not financial advice.</p>
+<h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.12;margin-bottom:16px">What proactive intelligence <em>actually looks like.</em></h2>
+<p class="t2" style="font-size:16px;line-height:1.75;margin-bottom:36px">These are the types of messages First Officer sends to clients every week.</p>
+
+<div style="border-left:3px solid var(--pink);padding-left:28px;margin-bottom:32px">
+<div style="font-size:13px;font-weight:700;color:var(--pink);margin-bottom:6px">Tuesday, 10:15 AM</div>
+<p style="font-size:16px;line-height:1.7;font-weight:500;margin-bottom:8px">"Your Amex Platinum airline credit resets in 9 days. You have $200 remaining. Suggested option: buy a Southwest gift card. Credits instantly, never expires, use it anytime."</p>
+<p class="t3" style="font-size:13px">Without this: $200 gone. With it: $200 saved in 2 minutes.</p>
+</div>
+
+<div style="border-left:3px solid #FF6B35;padding-left:28px;margin-bottom:32px">
+<div style="font-size:13px;font-weight:700;color:#FF6B35;margin-bottom:6px">Thursday, 3:00 PM</div>
+<p style="font-size:16px;line-height:1.7;font-weight:500;margin-bottom:8px">"Hyatt award availability just opened for your Hawaii dates in December. Category 4 property. 15,000 points per night instead of $380 cash. You have 62,000 Hyatt points. Want me to walk you through the booking?"</p>
+<p class="t3" style="font-size:13px">Without this: you book at $380/night ($1,520 for 4 nights). With it: 60,000 points for the same room. $1,520 stays in your pocket.</p>
+</div>
+
+<div style="border-left:3px solid #7B2FF7;padding-left:28px;margin-bottom:32px">
+<div style="font-size:13px;font-weight:700;color:#7B2FF7;margin-bottom:6px">Saturday, 9:00 AM</div>
+<p style="font-size:16px;line-height:1.7;font-weight:500;margin-bottom:8px">"Virgin Atlantic just launched a 30% transfer bonus from Chase. You have 85,000 Ultimate Rewards. Transfer 60,000 now and book ANA business class to Tokyo for 2. Normally 120,000 points. Window closes Monday."</p>
+<p class="t3" style="font-size:13px">Without this: you book economy for 70K points next month. With it: business class for less. This weekend.</p>
+</div>
+
+<div style="border-left:3px solid #2EC4B6;padding-left:28px">
+<div style="font-size:13px;font-weight:700;color:#2EC4B6;margin-bottom:6px">Monthly Strategy Session</div>
+<p style="font-size:16px;line-height:1.7;font-weight:500;margin-bottom:8px">"Your 12-month plan: Apply for the Amex Gold next month (you're 3/24). Move groceries and dining there for 4x. Keep your Sapphire for travel at 3x. Start accumulating toward Maldives in February. You need 140K more Hyatt points. At your current earn rate, you'd be on track to reach it by November."</p>
+<p class="t3" style="font-size:13px">This is the deep work that turns scattered points into a family trip to the Maldives.</p>
+</div>
+</div></section>
+
+<!-- Real Example: Personal -->
+<section class="sec alt"><div class="wrap" style="max-width:800px">
+<div class="ey">Real Example</div>
+<h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.12;margin-bottom:16px">A couple spending <em>$6,000 per month</em> on cards.</h2>
+<p class="t2" style="font-size:16px;line-height:1.75;margin-bottom:32px">Same groceries. Same gas. Same Amazon. Same Netflix. Different strategy.</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px">
+<div style="padding:28px;border-radius:var(--r);border:1px solid #e8e9ed">
+<div style="font-size:13px;font-weight:700;color:#999;margin-bottom:16px">BEFORE</div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Cards</div><div style="font-size:15px;font-weight:600">Sapphire Preferred + random cashback</div></div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Earn rate</div><div style="font-size:15px;font-weight:600">~1.2x blended</div></div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Annual points</div><div style="font-size:15px;font-weight:600">86,400</div></div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Redemption</div><div style="font-size:15px;font-weight:600">Travel portal at 1.25 cents each</div></div>
+<div><div style="font-size:13px;color:#999;margin-bottom:2px">Annual travel value</div><div style="font-size:28px;font-weight:900;color:#ccc;letter-spacing:-1.5px">$1,080</div></div>
+</div>
+<div style="padding:28px;border-radius:var(--r);border:2px solid var(--pink);background:rgba(250,24,150,.02)">
+<div style="font-size:13px;font-weight:700;color:var(--pink);margin-bottom:16px">AFTER</div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Cards</div><div style="font-size:15px;font-weight:600">Amex Gold + Sapphire Preferred + Freedom Flex</div></div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Earn rate</div><div style="font-size:15px;font-weight:600">~2.4x blended</div></div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Annual points</div><div style="font-size:15px;font-weight:600">172,800</div></div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Redemption</div><div style="font-size:15px;font-weight:600">Transfer partners at 2 to 3 cents each</div></div>
+<div><div style="font-size:13px;color:#999;margin-bottom:2px">Annual travel value</div><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-1.5px">$3,500 to $5,200</div></div>
+</div>
+</div>
+
+<div class="exb" style="padding:24px;border-radius:var(--r)">
+<div style="font-size:15px;line-height:1.7"><strong>What that buys:</strong> A week at a Hyatt in Maui. Business class to Europe for two. 4 nights at the Park Hyatt in Paris. All from the same groceries, gas, and subscriptions you were buying anyway. Plus $3,000+ in first-year signup bonuses.</div>
+</div>
+<p class="t3" style="margin-top:16px;font-size:12px">Hypothetical example for illustration. Actual results vary based on your specific cards, spending patterns, and redemption choices.</p>
+</div></section>
+
+<!-- Architecture -->
+<section class="sec"><div class="wrap">
+<div class="ey">Your Team</div>
+<h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.12;margin-bottom:12px">10 specialists. <em>One team.</em> Working while you sleep.</h2>
+<p class="t2" style="font-size:16px;line-height:1.75;max-width:680px;margin-bottom:40px">Some watch your portfolio around the clock. Others respond when you have a question or want to plan a trip. All of them remember who you are, what cards you have, and what you're working toward.</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
+<div>
+<h3 style="font-family:var(--serif);font-size:22px;color:var(--pink);margin-bottom:16px">Working in the background</h3>
+<div style="border-left:2px solid var(--pink);padding-left:20px;margin-bottom:16px"><div style="font-size:15px;font-weight:700;margin-bottom:4px">Ranger<span style="display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:rgba(250,24,150,.1);color:var(--pink);margin-left:8px;vertical-align:middle;text-transform:uppercase">Coming Soon</span></div><p class="t3" style="font-size:13px;line-height:1.55">Watches 629 programs for expiring points, transfer bonuses, credit resets, and devaluations.</p></div>
+<div style="border-left:2px solid #FF6B35;padding-left:20px;margin-bottom:16px"><div style="font-size:15px;font-weight:700;margin-bottom:4px">Spotter<span style="display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:rgba(250,24,150,.1);color:var(--pink);margin-left:8px;vertical-align:middle;text-transform:uppercase">Coming Soon</span></div><p class="t3" style="font-size:13px;line-height:1.55">Hunts for award seats, hotel availability, flash sales, and sweet spot routes matched to your goals.</p></div>
+<div style="border-left:2px solid #6A994E;padding-left:20px;margin-bottom:16px"><div style="font-size:15px;font-weight:700;margin-bottom:4px">Hunter<span style="display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1px;padding:2px 7px;border-radius:4px;background:rgba(250,24,150,.1);color:var(--pink);margin-left:8px;vertical-align:middle;text-transform:uppercase">Coming Soon</span></div><p class="t3" style="font-size:13px;line-height:1.55">Tracks signup bonus progress across all your cards and tracks your application timeline.</p></div>
+<div style="border-left:2px solid #F4A261;padding-left:20px"><div style="font-size:15px;font-weight:700;margin-bottom:4px">Accountant</div><p class="t3" style="font-size:13px;line-height:1.55">Monthly portfolio statement: total value, unrealized gains, and how your redemptions performed.</p></div>
+</div>
+<div>
+<h3 style="font-family:var(--serif);font-size:22px;color:var(--pink);margin-bottom:16px">When you need us</h3>
+<div style="border-left:2px solid #7B2FF7;padding-left:20px;margin-bottom:16px"><div style="font-size:15px;font-weight:700;margin-bottom:4px">Oracle</div><p class="t3" style="font-size:13px;line-height:1.55">Ask anything about points, cards, or travel. Get personalized expert answers, not generic FAQs.</p></div>
+<div style="border-left:2px solid #2EC4B6;padding-left:20px;margin-bottom:16px"><div style="font-size:15px;font-weight:700;margin-bottom:4px">Optioneer</div><p class="t3" style="font-size:13px;line-height:1.55">Maps every path for your trip: which programs, which transfers, what each costs, what it's worth.</p></div>
+<div style="border-left:2px solid #00B4D8;padding-left:20px;margin-bottom:16px"><div style="font-size:15px;font-weight:700;margin-bottom:4px">Commander</div><p class="t3" style="font-size:13px;line-height:1.55">Picks THE one. The exact transfer, the booking path, the phone number, the backup plan.</p></div>
+<div style="border-left:2px solid #457B9D;padding-left:20px;margin-bottom:16px"><div style="font-size:15px;font-weight:700;margin-bottom:4px">Planner</div><p class="t3" style="font-size:13px;line-height:1.55">Set a trip goal. Planner reverse-engineers the path and sends weekly progress updates.</p></div>
+<div style="border-left:2px solid #E63946;padding-left:20px;margin-bottom:16px"><div style="font-size:15px;font-weight:700;margin-bottom:4px">Strategist</div><p class="t3" style="font-size:13px;line-height:1.55">Monthly deep-dive: which cards to keep, which to cancel, where to apply, and your 12-month plan.</p></div>
+<div style="border-left:2px solid #9B5DE5;padding-left:20px"><div style="font-size:15px;font-weight:700;margin-bottom:4px">Archivist</div><p class="t3" style="font-size:13px;line-height:1.55">Remembers everything. You never repeat yourself. Every specialist knows your full history.</p></div>
+</div>
+</div>
+</div></section>
+
+<!-- Redemption Value -->
+<section class="sec alt"><div class="wrap" style="max-width:680px">
+<div class="ey">The Real Math</div>
+<h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.12;margin-bottom:16px">Where you redeem matters<br><em>more than where you earn.</em></h2>
+<p class="t2" style="font-size:15px;line-height:1.75;margin-bottom:20px">Most people spend hours optimizing which card to use. Then they cash out at the worst possible rate. The redemption side is where the real money is.</p>
+<div class="exb" style="padding:24px;border-radius:var(--r);margin-bottom:16px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-size:14px;font-weight:600">Statement credit</span><span style="font-size:14px;font-weight:700;color:#ccc">~0.8 cents/pt</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-size:14px;font-weight:600">Cash back</span><span style="font-size:14px;font-weight:700;color:#999">~1.0 cents/pt</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-size:14px;font-weight:600">Travel portal (Chase, Amex)</span><span style="font-size:14px;font-weight:700;color:#666">~1.25 cents/pt</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-size:14px;font-weight:600">Hotel transfer (Hyatt, Hilton)</span><span style="font-size:14px;font-weight:700;color:var(--pink)">~2.0 cents/pt</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:14px;font-weight:600">Airline sweet spot (ANA, Virgin)</span><span style="font-size:14px;font-weight:700;color:var(--pink)">~3 to 5 cents/pt</span></div>
+</div>
+<p class="t2" style="font-size:15px;line-height:1.75">100,000 points as a statement credit: $800. Those same points transferred to Hyatt: a week in Maui. Transferred to ANA: business class to Tokyo. Our job is making sure your points end up on the right side of this table.</p>
+</div></section>
+
+<!-- Trust -->
+<section class="sec"><div class="wrap" style="max-width:800px">
+<div class="ey">Trust</div>
+<h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.12;margin-bottom:16px">No affiliates. No conflicts.<br><em>Your data is yours.</em></h2>
+<p class="t2" style="font-size:16px;line-height:1.75;margin-bottom:32px">The major points media sites earn $200 to $400 per card signup they refer. Their "best card" lists are ranked by commission. We work for you. When we suggest a card, it's our honest recommendation based on your specific spending — not an affiliate placement.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div style="padding:24px;border-radius:var(--r);border:1px solid #e8e9ed;transition:all .5s"><h4 style="font-size:15px;font-weight:700;margin-bottom:6px;color:var(--pink)">No credential storage</h4><p class="t3" style="font-size:13px;line-height:1.55">Our software and AI tools never collect or store your passwords, card logins, or banking credentials. Wallet connections use secure OAuth — you authorize access directly, and we never see your login details. For Concierge award booking only, you may voluntarily share credentials directly with our human specialist for a single trip. That's a separate, explicit, client-initiated engagement, outside the automated system.</p></div>
+<div style="padding:24px;border-radius:var(--r);border:1px solid #e8e9ed;transition:all .5s"><h4 style="font-size:15px;font-weight:700;margin-bottom:6px;color:var(--pink)">Your data stays private</h4><p class="t3" style="font-size:13px;line-height:1.55">Row-level isolation. CCPA compliant. Data export and deletion available on request. Full deletion within 30 days of cancellation.</p></div>
+</div>
+</div></section>
+
+<!-- CTA -->
+<section class="ctab"><div class="wrap">
+<h2>Your points are losing value right now.<br>Let's show you where to start.</h2>
+<p>4 questions. Your personalized score in 24 hours.</p>
+<div class="bg"><a href="https://wa.me/16199404040" class="btn btn-l" target="_blank" style="background:#25D366;color:#fff;border-radius:100px;box-shadow:0 6px 24px rgba(37,211,102,.3)">💬 Start on WhatsApp</a><a href="calculator-personal.html" class="btn btn-gh btn-l">Calculate Your Value</a></div>
+</div></section>
+
+</div>
+
+<!-- ==================== B2B ABOUT (Business) ==================== -->
+<div data-s>
+
+<!-- Problem: Business -->
+<section class="sec" style="padding-top:130px;padding-bottom:60px"><div class="wrap" style="max-width:800px">
+<div class="ey">The Problem</div>
+<h1 style="font-family:var(--serif);font-size:clamp(32px,5vw,52px);line-height:1.08;letter-spacing:-.5px;margin-bottom:24px">Your business puts <em>$100K to $500K+</em> on cards every year. How much of it earns 1x?</h1>
+<p class="t2" style="font-size:17px;line-height:1.8;margin-bottom:20px">You pay vendors, run ads, subscribe to software, fuel vehicles, ship products, and cover insurance. Most of it goes on one card. That card earns 1 point per dollar on nearly everything. A properly routed 3-4 card stack earns 1.6x to 2.8x on the same spend. The gap is $4,000 to $25,000 per year in travel value you're not capturing.</p>
+<p class="t2" style="font-size:17px;line-height:1.8;margin-bottom:20px">The problem isn't the cards. It's that your Sysco orders, your Google Ads, your FedEx shipments, and your SaaS subscriptions all code differently with card networks. Different merchant category codes trigger different multipliers on different cards. Without knowing how your specific vendors code, generic "best business card" advice is useless.</p>
+<p class="t2" style="font-size:17px;line-height:1.8">We've done the research. For more than 20 industries and counting.</p>
+</div></section>
+
+<!-- Scale -->
+<section class="sec" style="padding-top:0"><div class="wrap">
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:920px;margin:0 auto">
+<div style="padding:24px;border-radius:var(--r);border:1px solid #2a2a2a;text-align:center;transition:all .5s">
+<div style="font-size:36px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:8px">Most</div>
+<div style="font-size:13px;font-weight:600;margin-bottom:4px">Business owners</div>
+<p class="t3" style="font-size:12px;line-height:1.4">rely on one primary card for everything</p>
+</div>
+<div style="padding:24px;border-radius:var(--r);border:1px solid #2a2a2a;text-align:center;transition:all .5s">
+<div style="font-size:36px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:8px">1x</div>
+<div style="font-size:13px;font-weight:600;margin-bottom:4px">What most earn</div>
+<p class="t3" style="font-size:12px;line-height:1.4">on wholesale, supplies, insurance</p>
+</div>
+<div style="padding:24px;border-radius:var(--r);border:1px solid #2a2a2a;text-align:center;transition:all .5s">
+<div style="font-size:36px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:8px">2x to 4x</div>
+<div style="font-size:13px;font-weight:600;margin-bottom:4px">What they could earn</div>
+<p class="t3" style="font-size:12px;line-height:1.4">on ads, software, shipping, internet</p>
+</div>
+<div style="padding:24px;border-radius:var(--r);border:1px solid #2a2a2a;text-align:center;transition:all .5s">
+<div style="font-size:36px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:8px">20</div>
+<div style="font-size:13px;font-weight:600;margin-bottom:4px">Industries researched</div>
+<p class="t3" style="font-size:12px;line-height:1.4">with verified MCC codes and caps</p>
+</div>
+</div>
+</div></section>
+
+<!-- Industry Intelligence: Expanded -->
+<section class="sec alt"><div class="wrap">
+<div class="ey">Industry Intelligence</div>
+<h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.12;margin-bottom:12px">We don't guess at multipliers.<br><em>We research them.</em></h2>
+<p class="t2" style="font-size:16px;line-height:1.75;max-width:680px;margin-bottom:16px">Every industry has a different spend profile. A restaurant putting $15K/month through Sysco earns differently than an e-commerce business shipping $20K/month through FedEx. We've verified the actual MCC codes, documented the caps, and calculated honest blended earn rates for every major business vertical.</p>
+<p class="t2" style="font-size:16px;line-height:1.75;max-width:680px;margin-bottom:32px">Critical insight most "best card" articles miss: wholesale distributors (MCC 5099/5199) earn 1x on every bonus card. Industries with heavy supply spend earn less than industries heavy on advertising, software, and shipping. We tell you exactly why.</p>
+
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:32px">
+<a href="for-ecommerce.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">E-Commerce 📦</div><div style="font-size:15px;font-weight:800;color:var(--pink)">2.2x to 2.8x</div><div class="t3" style="font-size:11px">Shipping + ads + SaaS</div></a>
+<a href="for-consulting.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Consulting 👨🏻‍💼</div><div style="font-size:15px;font-weight:800;color:var(--pink)">2.2x to 2.8x</div><div class="t3" style="font-size:11px">Travel + software + dining</div></a>
+<a href="for-agencies.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Agencies 🎨</div><div style="font-size:15px;font-weight:800;color:var(--pink)">2.2x to 2.8x</div><div class="t3" style="font-size:11px">All digital spend</div></a>
+<a href="for-it-services.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">IT / MSP 💻</div><div style="font-size:15px;font-weight:800;color:var(--pink)">2.0x to 2.6x</div><div class="t3" style="font-size:11px">Cloud + SaaS heavy</div></a>
+<a href="for-real-estate.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Real Estate 🏠</div><div style="font-size:15px;font-weight:800;color:var(--pink)">2.0x to 2.8x</div><div class="t3" style="font-size:11px">Ads-heavy profiles</div></a>
+<a href="for-cpa-firms.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">CPA Firms 🧮</div><div style="font-size:15px;font-weight:800;color:var(--pink)">2.0x to 2.5x</div><div class="t3" style="font-size:11px">SaaS + subscriptions</div></a>
+<a href="for-restaurants.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Restaurants 👨🏻‍🍳</div><div style="font-size:15px;font-weight:800;color:var(--pink)">1.8x to 2.2x</div><div class="t3" style="font-size:11px">Sysco limits the ceiling</div></a>
+<a href="for-law-firms.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Law Firms ⚖️</div><div style="font-size:15px;font-weight:800;color:var(--pink)">1.8x to 2.3x</div><div class="t3" style="font-size:11px">Westlaw + travel</div></a>
+<a href="for-trucking.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Trucking 🚛</div><div style="font-size:15px;font-weight:800;color:var(--pink)">1.6x to 2.2x</div><div class="t3" style="font-size:11px">Fleet fuel goldmine</div></a>
+<a href="for-property-management.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Property Mgmt 🏢</div><div style="font-size:15px;font-weight:800;color:var(--pink)">1.7x to 2.3x</div><div class="t3" style="font-size:11px">Vendor + software mix</div></a>
+<a href="for-contractors.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Contractors 👷🏻</div><div style="font-size:15px;font-weight:800;color:var(--pink)">1.6x to 2.0x</div><div class="t3" style="font-size:11px">Home Depot Pro + supply</div></a>
+<a href="for-dental.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Dental 🦷</div><div style="font-size:15px;font-weight:800;color:var(--pink)">1.5x to 2.0x</div><div class="t3" style="font-size:11px">Henry Schein = wholesale</div></a>
+<a href="for-hvac.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">HVAC ❄️</div><div style="font-size:15px;font-weight:800;color:var(--pink)">1.6x to 2.0x</div><div class="t3" style="font-size:11px">Johnstone + parts</div></a>
+<a href="for-medical.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Medical 👨🏻‍⚕️</div><div style="font-size:15px;font-weight:800;color:var(--pink)">1.5x to 2.0x</div><div class="t3" style="font-size:11px">McKesson limits upside</div></a>
+<a href="for-auto-repair.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Auto Repair 🔧</div><div style="font-size:15px;font-weight:800;color:var(--pink)">1.6x to 2.0x</div><div class="t3" style="font-size:11px">Parts + fuel + ads</div></a>
+<a href="for-salons.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Salons 💇🏻‍♀️</div><div style="font-size:15px;font-weight:800;color:var(--pink)">1.5x to 1.9x</div><div class="t3" style="font-size:11px">CosmoProf + rent</div></a>
+<a href="for-fitness.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Fitness 🏋🏻</div><div style="font-size:15px;font-weight:800;color:var(--pink)">1.5x to 1.9x</div><div class="t3" style="font-size:11px">Equipment + software</div></a>
+<a href="for-landscaping.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Landscaping 🌿</div><div style="font-size:15px;font-weight:800;color:var(--pink)">1.7x to 2.1x</div><div class="t3" style="font-size:11px">SiteOne + fuel + ads</div></a>
+<a href="for-veterinary.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Veterinary 🐾</div><div style="font-size:15px;font-weight:800;color:var(--pink)">1.5x to 2.0x</div><div class="t3" style="font-size:11px">MWI + diagnostics</div></a>
+<a href="for-cleaning.html" style="padding:16px;border-radius:12px;border:1px solid #2a2a2a;text-decoration:none;background:#111;transition:all .3s"><div style="font-size:13px;font-weight:700;margin-bottom:2px">Cleaning 🧹</div><div style="font-size:15px;font-weight:800;color:var(--pink)">1.5x to 2.0x</div><div class="t3" style="font-size:11px">Supplies + fuel + ads</div></a>
+</div>
+<p class="t2" style="text-align:center;font-size:15px;margin-bottom:12px"><a href="calculator-business.html" style="color:var(--pink);font-weight:700">Calculate your exact number in 60 seconds &#8594;</a></p>
+<div style="text-align:center;padding:28px;border-radius:var(--r);border:1.5px dashed rgba(250,24,150,.4);background:rgba(250,24,150,.02);max-width:600px;margin:24px auto 0">
+<div style="font-size:17px;font-weight:700;margin-bottom:6px">Don't see your industry?</div>
+<p class="t2" style="font-size:14px;line-height:1.6;margin-bottom:12px">Be the first. We'll run a free Proof of Concept on your specific spend profile and build your custom multiplier analysis from scratch.</p>
+<a href="https://wa.me/16199404040?text=My%20industry%20isn't%20listed" style="color:var(--pink);font-weight:700;font-size:14px" target="_blank">Start your POC &#8594;</a>
+</div>
+</div></section>
+
+<!-- Real Example: Business -->
+<section class="sec"><div class="wrap" style="max-width:800px">
+<div class="ey">Real Example</div>
+<h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.12;margin-bottom:16px">A contractor spending $35K per month on cards.</h2>
+<p class="t2" style="font-size:16px;line-height:1.75;margin-bottom:32px">Same Home Depot Pro orders. Same fuel. Same insurance. Different card routing.</p>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px">
+<div style="padding:28px;border-radius:var(--r);border:1px solid #2a2a2a">
+<div style="font-size:13px;font-weight:700;color:#999;margin-bottom:16px">BEFORE</div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Card used</div><div style="font-size:15px;font-weight:600">One Chase Sapphire Preferred</div></div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Earn rate</div><div style="font-size:15px;font-weight:600">1x on supplies, equipment, insurance</div></div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Annual points</div><div style="font-size:15px;font-weight:600">420,000</div></div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Redemption</div><div style="font-size:15px;font-weight:600">Statement credits at 1 cent each</div></div>
+<div><div style="font-size:13px;color:#999;margin-bottom:2px">Annual travel value</div><div style="font-size:28px;font-weight:900;color:#ccc;letter-spacing:-1.5px">$4,200</div></div>
+</div>
+<div style="padding:28px;border-radius:var(--r);border:2px solid var(--pink);background:rgba(250,24,150,.02)">
+<div style="font-size:13px;font-weight:700;color:var(--pink);margin-bottom:16px">AFTER</div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Card stack</div><div style="font-size:15px;font-weight:600">Optimized 4-card business stack</div></div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Blended earn rate</div><div style="font-size:15px;font-weight:600">1.8x average across all spend</div></div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Annual points</div><div style="font-size:15px;font-weight:600">756,000</div></div>
+<div style="margin-bottom:12px"><div style="font-size:13px;color:#999;margin-bottom:2px">Redemption</div><div style="font-size:15px;font-weight:600">Transfer partners at 2 to 3 cents each</div></div>
+<div><div style="font-size:13px;color:#999;margin-bottom:2px">Annual travel value</div><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-1.5px">$15,100 to $22,700</div></div>
+</div>
+</div>
+
+<div style="background:#1a1a1a;border-left:3px solid var(--pink);border-radius:var(--r);padding:24px">
+<div style="font-size:15px;line-height:1.7;color:#ddd"><strong style="color:#fff">The difference:</strong> $10,900 to $18,500 more per year. Business class to Europe for the whole family. A week at a five-star resort. Conference travel that costs you nothing. Same vendors. Same orders. Different routing. Plus $2,500 to $3,500 in first-year signup bonuses.</div>
+</div>
+<p class="t3" style="margin-top:16px;font-size:12px">This example uses verified contractor industry multipliers. Home Depot Pro codes vary. Actual results depend on specific vendors and card products. <a href="for-contractors.html" style="color:var(--pink);font-weight:600">See the full contractor breakdown.</a></p>
+</div></section>
+
+<!-- How The Routing Works -->
+<section class="sec alt"><div class="wrap" style="max-width:860px">
+<div class="ey">How It Works</div>
+<h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.12;margin-bottom:16px">Every vendor codes differently.<br><em>We know how.</em></h2>
+<p class="t2" style="font-size:16px;line-height:1.75;max-width:680px;margin-bottom:40px">When you swipe a card, the vendor sends a merchant category code (MCC) to the card network. That code determines your multiplier. The same $5,000 payment earns 5,000 points on the wrong card or 20,000 on the right one. Our mapping engine matches every vendor to its highest-earning card recommendation.</p>
+
+<!-- Animated routing demo -->
+<div id="routeDemo" style="border:1px solid #2a2a2a;border-radius:var(--r);overflow:hidden">
+<div style="padding:20px 24px;border-bottom:1px solid #2a2a2a;display:flex;justify-content:space-between;align-items:center">
+<div style="font-size:13px;font-weight:700;color:var(--pink)">VENDOR-TO-CARD MAPPING</div>
+<div style="display:flex;gap:8px;align-items:center"><div style="width:6px;height:6px;background:#25D366;border-radius:50%;animation:blink 2s infinite"></div><span style="font-size:11px;color:#666">Analyzing your spend categories</span></div>
+</div>
+<div style="padding:24px;display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:center">
+<!-- Left: Vendor spend -->
+<div>
+<div style="font-size:11px;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px">Your Spend</div>
+<div id="routeItems" style="display:grid;gap:8px">
+<div class="route-item" style="padding:12px 16px;border-radius:10px;border:1px solid #2a2a2a;transition:all .5s;opacity:.4"><div style="font-size:13px;font-weight:600">Advertising</div><div style="font-size:11px;color:#666">Google, Meta, Yelp</div></div>
+<div class="route-item" style="padding:12px 16px;border-radius:10px;border:1px solid #2a2a2a;transition:all .5s;opacity:.4"><div style="font-size:13px;font-weight:600">Software</div><div style="font-size:11px;color:#666">SaaS, subscriptions</div></div>
+<div class="route-item" style="padding:12px 16px;border-radius:10px;border:1px solid #2a2a2a;transition:all .5s;opacity:.4"><div style="font-size:13px;font-weight:600">Shipping</div><div style="font-size:11px;color:#666">FedEx, UPS, USPS</div></div>
+<div class="route-item" style="padding:12px 16px;border-radius:10px;border:1px solid #2a2a2a;transition:all .5s;opacity:.4"><div style="font-size:13px;font-weight:600">Supplies</div><div style="font-size:11px;color:#666">Wholesale distributors</div></div>
+<div class="route-item" style="padding:12px 16px;border-radius:10px;border:1px solid #2a2a2a;transition:all .5s;opacity:.4"><div style="font-size:13px;font-weight:600">Insurance</div><div style="font-size:11px;color:#666">Business, liability, auto</div></div>
+</div>
+</div>
+<!-- Center: Arrow + multiplier -->
+<div style="text-align:center;min-width:80px">
+<div id="routeMult" style="font-size:32px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:4px;transition:all .3s">3x</div>
+<div style="font-size:10px;color:#666;text-transform:uppercase;letter-spacing:1px">Recommendation</div>
+<div style="margin:8px 0;font-size:20px;color:#333">&#8594;</div>
+<div id="routeCard" style="font-size:11px;color:var(--pink);font-weight:600;transition:all .3s">Card A</div>
+</div>
+<!-- Right: Result -->
+<div>
+<div style="font-size:11px;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px">Potential Points</div>
+<div id="routeResult" style="padding:20px;border-radius:10px;border:1px solid #2a2a2a;text-align:center;transition:all .5s">
+<div style="font-size:11px;color:#666;margin-bottom:8px">Without category strategy</div>
+<div style="font-size:20px;font-weight:900;color:#555;letter-spacing:-1px;margin-bottom:12px" id="routeOld">5,000 pts</div>
+<div style="font-size:11px;color:var(--pink);margin-bottom:8px">With First Officer</div>
+<div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-1.5px" id="routeNew">15,000 pts</div>
+<div style="margin-top:8px;font-size:12px;font-weight:700;color:var(--pink)" id="routeGain">3x more</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+(function(){
+var routes=[
+{cat:0,mult:'3x',card:'Card A',old:'5,000 pts',nw:'15,000 pts',gain:'3x more'},
+{cat:1,mult:'4x',card:'Card B',old:'3,000 pts',nw:'12,000 pts',gain:'4x more'},
+{cat:2,mult:'3x',card:'Card A',old:'8,000 pts',nw:'24,000 pts',gain:'3x more'},
+{cat:3,mult:'2x',card:'Card D',old:'12,000 pts',nw:'24,000 pts',gain:'2x more'},
+{cat:4,mult:'2x',card:'Card D',old:'4,000 pts',nw:'8,000 pts',gain:'2x more'}
+];
+var idx=0;
+function cycle(){
+var r=routes[idx];
+var items=document.querySelectorAll('.route-item');
+if(!items.length)return;
+items.forEach(function(el,i){el.style.opacity=i===r.cat?'1':'0.4';el.style.borderColor=i===r.cat?'#FA1896':'#2a2a2a'});
+var m=document.getElementById('routeMult');if(m)m.textContent=r.mult;
+var c=document.getElementById('routeCard');if(c)c.textContent=r.card;
+var o=document.getElementById('routeOld');if(o)o.textContent=r.old;
+var n=document.getElementById('routeNew');if(n)n.textContent=r.nw;
+var g=document.getElementById('routeGain');if(g)g.textContent=r.gain;
+idx=(idx+1)%routes.length;
+}
+cycle();
+setInterval(cycle,2500);
+})();
+</script>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:32px">
+<div style="padding:20px;border-radius:var(--r);border:1px solid #2a2a2a;text-align:center;transition:all .5s">
+<div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-1.5px;line-height:1;margin-bottom:6px">MCC</div>
+<div style="font-size:13px;font-weight:600;margin-bottom:4px">Vendor Code Analysis</div>
+<p class="t3" style="font-size:12px;line-height:1.4">We\'ve mapped how thousands of vendors code with every major card network. Not guesses. Verified codes.</p>
+</div>
+<div style="padding:20px;border-radius:var(--r);border:1px solid #2a2a2a;text-align:center;transition:all .5s">
+<div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-1.5px;line-height:1;margin-bottom:6px">CAP</div>
+<div style="font-size:13px;font-weight:600;margin-bottom:4px">Spending Cap Awareness</div>
+<p class="t3" style="font-size:12px;line-height:1.4">Every bonus category has annual caps. We track your progress and shift routing before you hit a ceiling and drop to 1x.</p>
+</div>
+<div style="padding:20px;border-radius:var(--r);border:1px solid #2a2a2a;text-align:center;transition:all .5s">
+<div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-1.5px;line-height:1;margin-bottom:6px">CPP</div>
+<div style="font-size:13px;font-weight:600;margin-bottom:4px">Transfer Partner Math</div>
+<p class="t3" style="font-size:12px;line-height:1.4">Earning points is half the equation. We show you the redemption partners where your points are worth 2x to 5x more than cash.</p>
+</div>
+</div>
+
+<p class="t3" style="margin-top:20px;font-size:13px;text-align:center">Your card stack, your routing rules, and your redemption strategy are built specifically for your vendors, your spend profile, and your goals. <a href="https://wa.me/16199404040" style="color:var(--pink);font-weight:600" target="_blank">See what yours looks like.</a></p>
+</div></section>
+
+<!-- Moats -->
+<section class="sec"><div class="wrap">
+<div class="ey">Why Us</div>
+<h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.12;margin-bottom:40px">What makes this<br><em>different from reading a blog.</em></h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+<div style="padding:32px;border-radius:var(--r);border:1px solid #2a2a2a;transition:all .5s"><div style="font-size:36px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:12px">01</div><h4 style="font-size:17px;font-weight:800;margin-bottom:8px">Multi-issuer intelligence</h4><p class="t2" style="font-size:14px;line-height:1.65">Chase can only optimize within Chase. Amex within Amex. We see across every card, every program, every issuer. No bank can replicate this.</p></div>
+<div style="padding:32px;border-radius:var(--r);border:1px solid #2a2a2a;transition:all .5s"><div style="font-size:36px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:12px">02</div><h4 style="font-size:17px;font-weight:800;margin-bottom:8px">Proactive, not reactive</h4><p class="t2" style="font-size:14px;line-height:1.65">We reach out. "New 40% transfer bonus." "Your credit resets in 9 days." "You\'re $800 from your signup bonus." No dashboard to check. No app to open.</p></div>
+<div style="padding:32px;border-radius:var(--r);border:1px solid #2a2a2a;transition:all .5s"><div style="font-size:36px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:12px">03</div><h4 style="font-size:17px;font-weight:800;margin-bottom:8px">Your industry, decoded</h4><p class="t2" style="font-size:14px;line-height:1.65">We\'ve verified how your specific vendors code. Sysco = MCC 5099 = wholesale = 1x on most bonus cards. Google Ads = 3x on the right business card. We know which card earns the most for every vendor in your industry.</p></div>
+<div style="padding:32px;border-radius:var(--r);border:1px solid #2a2a2a;transition:all .5s"><div style="font-size:36px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:12px">04</div><h4 style="font-size:17px;font-weight:800;margin-bottom:8px">Zero affiliate conflicts</h4><p class="t2" style="font-size:14px;line-height:1.65">The major points media sites earn $200 to $400 per card signup they refer. Their recommendations serve them. Ours serve you.</p></div>
+</div>
+</div></section>
+
+<!-- Trust -->
+<section class="sec alt"><div class="wrap" style="max-width:800px">
+<div class="ey">Trust &amp; Privacy</div>
+<h2 style="font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.12;margin-bottom:16px">Your financial data is yours. <span class="pk">Period.</span></h2>
+<p class="t2" style="font-size:16px;line-height:1.75;margin-bottom:32px">We handle business financial data. That comes with responsibility we take seriously.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div style="padding:24px;border-radius:var(--r);border:1px solid #2a2a2a;transition:all .5s"><h4 style="font-size:15px;font-weight:700;margin-bottom:6px;color:var(--pink)">No credential storage</h4><p class="t3" style="font-size:13px;line-height:1.55">Our software and AI tools never collect or store your passwords, card logins, or banking credentials. Wallet connections use secure OAuth — you authorize access directly, and we never see your login details. For Concierge award booking only, you may voluntarily share credentials directly with our human specialist for a single trip. That's a separate, explicit, client-initiated engagement, outside the automated system.</p></div>
+<div style="padding:24px;border-radius:var(--r);border:1px solid #2a2a2a;transition:all .5s"><h4 style="font-size:15px;font-weight:700;margin-bottom:6px;color:var(--pink)">Row-level isolation</h4><p class="t3" style="font-size:13px;line-height:1.55">Every client\'s data is completely isolated. Enforced at the infrastructure level, not just application level.</p></div>
+<div style="padding:24px;border-radius:var(--r);border:1px solid #2a2a2a;transition:all .5s"><h4 style="font-size:15px;font-weight:700;margin-bottom:6px;color:var(--pink)">CCPA &amp; CCPA compliant</h4><p class="t3" style="font-size:13px;line-height:1.55">View, delete, or export your data at any time. Full deletion within 30 days of cancellation.</p></div>
+<div style="padding:24px;border-radius:var(--r);border:1px solid #2a2a2a;transition:all .5s"><h4 style="font-size:15px;font-weight:700;margin-bottom:6px;color:var(--pink)">Educational tool</h4><p class="t3" style="font-size:13px;line-height:1.55">First Officer is an educational tool. All information is for educational purposes only. Your decisions are yours.</p></div>
+</div>
+</div></section>
+
+<!-- CTA -->
+<section class="ctab"><div class="wrap">
+<h2>Your competitors optimize their spend.<br>Shouldn\'t you?</h2>
+<p>Free 20-minute business spend audit. No commitment.</p>
+<div class="bg"><a href="https://wa.me/16199404040" class="btn btn-l" target="_blank" style="background:#25D366;color:#fff;border-radius:100px;box-shadow:0 6px 24px rgba(37,211,102,.3)">💬 Start on WhatsApp</a><a href="calculator-business.html" class="btn btn-gh btn-l">Calculate Your Value</a></div>
+</div></section>
+
+</div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="ft"><div class="wrap">
+<div class="ftg">
+<div><div class="nl"><div class="nm"><img src="data:image/png;base64,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" width="28" height="28" alt="UpNonStop" style="display:block"></div><div><div style="line-height:1.1">First Officer</div><div style="font-size:10px;font-weight:400;letter-spacing:.5px;line-height:1">by <span style="font-weight:700">UpNonStop</span>&trade;</div></div></div><p class="t3" style="font-size:13px;line-height:1.7;max-width:260px;margin-top:12px">Award travel intelligence. 629+ programs monitored.</p></div>
+<div><h5 class="t3" style="font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:14px">Product</h5><a href="#" onclick="go('home')" class="t2" style="display:block;font-size:13px;padding:4px 0">Home</a><a href="#" onclick="go('pricing')" class="t2" style="display:block;font-size:13px;padding:4px 0">Pricing</a></div>
+<div><h5 class="t3" style="font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:14px">Company</h5><a href="#" onclick="go('about')" class="t2" style="display:block;font-size:13px;padding:4px 0">About</a></div>
+<div><h5 class="t3" style="font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:14px">Connect</h5><a href="https://wa.me/16199404040" target="_blank" class="t2" style="display:block;font-size:13px;padding:4px 0">WhatsApp</a><a href="https://billing.stripe.com/p/login/fZe02g10J1In7mMcMM" target="_blank" class="t2" style="display:block;font-size:13px;padding:4px 0">Manage Subscription</a><a href="#" class="t2" style="display:block;font-size:13px;padding:4px 0">LinkedIn</a><a href="#" class="t2" style="display:block;font-size:13px;padding:4px 0">X</a></div>
+</div>
+<div style="font-size:11px;line-height:1.6;max-width:720px;margin:0 auto 16px;text-align:center;transition:color .6s" class="t3">First Officer by UpNonStop is an educational tool that helps you understand and get more from your credit card rewards. It is not a licensed financial advisor, investment advisor, or fiduciary. All information is for educational purposes only and should be verified before acting. Individual results vary based on your specific rewards portfolio, spending patterns, and redemption choices. First Officer uses artificial intelligence to analyze publicly available program information and your self-reported data. First Officer is currently available to US residents only. See our <a href="privacy-policy.html#geographic-restrictions" style="color:inherit;text-decoration:underline">geographic restrictions</a>.</div>
+<div class="ftb t3"><span>&copy; 2026 UpNonStop</span><div class="ftl"><a href="privacy-policy.html" class="t3">Privacy</a><a href="terms-of-service.html" class="t3">Terms</a><a href="privacy-policy.html#do-not-sell" class="t3">Do Not Sell My Info</a><a href="https://wa.me/16199404040?text=manage%20subscription" target="_blank" class="t3">Manage Subscription</a></div></div>
+</div></footer>
+
+<script>
+var b2cPhotos=[
+'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80',
+'https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1600&q=80',
+'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1600&q=80',
+'https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=1600&q=80',
+'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80',
+'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600&q=80',
+'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1600&q=80',
+'https://images.unsplash.com/photo-1433838552652-f9a46b332c40?w=1600&q=80',
+'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1600&q=80',
+'https://images.unsplash.com/photo-1540202404-a2f29016b523?w=1600&q=80',
+'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1600&q=80',
+'https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=1600&q=80',
+'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=1600&q=80',
+'https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=1600&q=80',
+'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1600&q=80',
+'https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1600&q=80'
+];
+var smboPhotos=[
+'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1600&q=80',
+'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1600&q=80',
+'https://images.unsplash.com/photo-1455587734955-081b22074882?w=1600&q=80',
+'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1600&q=80',
+'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1600&q=80',
+'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1600&q=80',
+'https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1600&q=80',
+'https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1600&q=80',
+'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=1600&q=80',
+'https://images.unsplash.com/photo-1606046604972-77cc76aee944?w=1600&q=80',
+'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1600&q=80',
+'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1600&q=80',
+'https://images.unsplash.com/photo-1562778612-e1e0cda9915c?w=1600&q=80',
+'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1600&q=80',
+'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80',
+'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=1600&q=80'
+];
+var b2cIdx=Math.floor(Math.random()*b2cPhotos.length);
+var smboIdx=Math.floor(Math.random()*smboPhotos.length);
+
+function applyPhoto(){
+var isBiz=document.body.classList.contains('biz');
+var url=isBiz?smboPhotos[smboIdx]:b2cPhotos[b2cIdx];
+document.querySelectorAll('.hero').forEach(function(el){el.style.backgroundImage='url('+url+')'});
+}
+applyPhoto();
+
+// === 15 ROTATING WHATSAPP CONVERSATIONS ===
+var b2cChats=[
+[{r:'fo',a:'Expiring Credit Alert',t:'Your $300 Amex airline credit resets in <span class="val">18 days</span>. Want me to find the best use?',h:'10:32 AM'},{r:'usr',t:'Yes please',h:'10:33 AM'},{r:'fo',t:'Delta gift card via Amex portal. Full $300 value, no travel needed. 2 minutes.',h:'10:33 AM'},{r:'fo',t:'Also: Chase UR points worth <span class="val">3.2x more</span> if transferred to Hyatt right now.',h:'10:34 AM'}],
+[{r:'fo',a:'Transfer Bonus',t:'40% bonus Amex MR to ANA just went live. Ends in <span class="val">14 days</span>. Changes your Tokyo plan.',h:'8:15 AM'},{r:'usr',t:'How much do I need?',h:'8:16 AM'},{r:'fo',t:'With the bonus: <span class="val">55K points</span> for business class vs 88K normally. You have 62K. Covered.',h:'8:16 AM'},{r:'fo',t:'Want me to check ANA availability for your March dates?',h:'8:17 AM'}],
+[{r:'fo',a:'Weekly Pulse',t:'Portfolio: <span class="val">$4,280</span> across 4 programs. Up $340 from last week.',h:'9:00 AM'},{r:'fo',t:'Action: 12K Hilton points expire in 22 days. Book any stay to keep them alive.',h:'9:00 AM'},{r:'usr',t:'Cheapest option?',h:'9:05 AM'},{r:'fo',t:'Hampton Inn, 1 night: <span class="val">5,000 points</span>. Resets all 12K for 18 more months.',h:'9:05 AM'}],
+[{r:'fo',a:'Whisperer',t:'Last month: 68% of spend went on the <span class="val">wrong card</span> for that category.',h:'7:45 AM'},{r:'usr',t:'Which ones?',h:'7:48 AM'},{r:'fo',t:'Groceries on Sapphire (1x) should be Gold (4x). Gas on Platinum (1x) should be Ink Cash (5x). Gap: <span class="val">$47/month</span>.',h:'7:48 AM'},{r:'fo',t:'Want a wallet card showing which card for which store?',h:'7:49 AM'}],
+[{r:'fo',a:'Devaluation Alert',t:'Marriott Bonvoy category changes: 3 of your saved hotels going <span class="val">up 15-25%</span> in March.',h:'11:20 AM'},{r:'usr',t:'What should I do?',h:'11:22 AM'},{r:'fo',t:'Book now at current rates. Free cancellation locks in old price risk-free.',h:'11:22 AM'},{r:'fo',t:'Found availability for all 3. Want the booking links?',h:'11:23 AM'}],
+[{r:'fo',t:'Quick: your Chase Sapphire Reserve <span class="val">$300 travel credit</span> has $180 unused. 47 days left.',h:'8:00 AM'},{r:'usr',t:'I keep forgetting that',h:'8:12 AM'},{r:'fo',t:'Easiest: any Lyft or DoorDash counts as travel. Or I find a refundable hotel booking.',h:'8:12 AM'},{r:'fo',t:'This is exactly what I\'m here for. You\'ll never lose a credit again.',h:'8:13 AM'}],
+[{r:'fo',a:'Opportunity Found',t:'Business class LAX to London: <span class="val">70K Virgin points</span>. Cash price: $5,400. Your June dates.',h:'6:30 AM'},{r:'usr',t:'How do I book?',h:'7:15 AM'},{r:'fo',t:'Transfer 70K Chase UR to Virgin (instant). Call +1-800-365-9500. Flight VS24, June 14.',h:'7:15 AM'},{r:'fo',t:'Backup: ANA at 88K + $200 taxes if Virgin sells out.',h:'7:16 AM'}],
+[{r:'fo',a:'5/24 Update',t:'Your count: <span class="val">3/24</span>. Window for 2 more cards in next 6 months.',h:'10:00 AM'},{r:'fo',t:'Top pick: Chase Ink Preferred, 100K bonus after $8K spend. Worth $1,500+ in travel.',h:'10:00 AM'},{r:'usr',t:'When should I apply?',h:'10:15 AM'},{r:'fo',t:'Wait 32 days from your last Chase app. I\'ll remind you March 28.',h:'10:15 AM'}],
+[{r:'fo',a:'Hotel Optimizer',t:'Cancun trip: Hyatt Zilara at <span class="val">25K/night</span> vs $480 cash. That\'s 1.9 cents/point.',h:'2:00 PM'},{r:'usr',t:'Is that good?',h:'2:05 PM'},{r:'fo',t:'Below avg for Hyatt. Better: book cash, earn 5x on Sapphire. Save points for Maldives at <span class="val">4.2 cents/point</span>.',h:'2:05 PM'},{r:'fo',t:'Points are a currency. Spend them where the rate is best.',h:'2:06 PM'}],
+[{r:'fo',t:'Monthly valuation ready. Total: <span class="val">$6,420</span> across 5 programs.',h:'9:00 AM'},{r:'fo',t:'Unrealized: $1,800 if you transfer Amex to ANA during current bonus. Missed: $220 from unused Uber credits.',h:'9:00 AM'},{r:'usr',t:'Don\'t let me miss Uber credits again',h:'9:30 AM'},{r:'fo',t:'Done. Alert set for the 25th monthly. You have $15 Uber credit left this month.',h:'9:30 AM'}],
+[{r:'fo',a:'Status Alert',t:'<span class="val">4 nights away</span> from Hyatt Globalist. Deadline: Dec 31.',h:'11:00 AM'},{r:'usr',t:'Worth it?',h:'11:10 AM'},{r:'fo',t:'Suite upgrades, free breakfast, waived resort fees. Worth <span class="val">$2,400+/year</span> on your pattern.',h:'11:10 AM'},{r:'fo',t:'Cheapest run: Category 1, 4 nights at $85. Investment: $340 for $2,400 value.',h:'11:11 AM'}],
+[{r:'fo',a:'Fee Review',t:'Amex Gold ($250) earned <span class="val">$1,840 value</span> last year. Keep.',h:'3:00 PM'},{r:'fo',t:'Citi Premier ($95) earned $120. Net loss: -$75. Downgrade to Double Cash (no fee).',h:'3:00 PM'},{r:'usr',t:'Do it',h:'3:15 PM'},{r:'fo',t:'Call Citi 800-842-6596. Ask for product change to Double Cash. Points stay. 5 minutes.',h:'3:15 PM'}],
+[{r:'fo',a:'Flash Sale',t:'IHG 30% off award nights in Europe. Includes your Paris dates.',h:'4:00 PM'},{r:'usr',t:'How many points?',h:'4:05 PM'},{r:'fo',t:'InterContinental Paris: normally 70K, now <span class="val">49K</span>. Cash: $420/night. That\'s 8.6 cents/point.',h:'4:05 PM'},{r:'fo',t:'Book now, free cancel until 48hrs. Lock it in.',h:'4:06 PM'}],
+[{r:'fo',t:'<span class="val">23,000 Southwest points</span> expiring in 60 days.',h:'10:00 AM'},{r:'usr',t:'No SW trips planned',h:'10:20 AM'},{r:'fo',t:'Easy: buy anything on Amazon through SW portal. One click resets all 23K points for 24 months.',h:'10:20 AM'},{r:'fo',t:'Sent the link. $1 purchase saves $230+ in point value.',h:'10:21 AM'}],
+[{r:'fo',a:'Goal Update',t:'Bali trip: need 120K Citi. You have <span class="val">84,000</span>. Gap: 36K.',h:'8:30 AM'},{r:'fo',t:'Current rate: 11 weeks. But Citi Premier 80K signup bonus makes you <span class="val">overfunded by 28K</span>.',h:'8:30 AM'},{r:'usr',t:'Apply now?',h:'8:45 AM'},{r:'fo',t:'Yes. You\'re 2/24 on Citi. I\'ll track your $4K minimum spend progress.',h:'8:45 AM'}]
+];
+var smboChats=[
+[{r:'fo',a:'Monthly Spend Report',t:'Team put $47K on cards last month. Current: 1.2x. Optimal: <span class="val">3.8x</span>.',h:'9:15 AM'},{r:'usr',t:'Gap?',h:'9:16 AM'},{r:'fo',t:'$2,340/month unrealized. Software on Ink Preferred = <span class="val">$680/month</span> alone.',h:'9:16 AM'},{r:'fo',t:'12-month strategy ready. Walk through it?',h:'9:17 AM'}],
+[{r:'fo',a:'Employee Card',t:'Ops manager hit <span class="val">$12K</span> on Ink Plus. $3K from quarterly bonus tier.',h:'10:00 AM'},{r:'usr',t:'What do we get?',h:'10:05 AM'},{r:'fo',t:'25,000 bonus points (~$375 travel). Route office supply order this week.',h:'10:05 AM'},{r:'fo',t:'Tracking all 6 employee cards monthly for bonus thresholds.',h:'10:06 AM'}],
+[{r:'fo',a:'Q2 Strategy',t:'Application window: 2 business cards possible, no personal credit impact.',h:'8:00 AM'},{r:'fo',t:'Amex Biz Gold (70K, 4x categories) + Cap One Spark (2x unlimited). Combined: <span class="val">$2,100 in bonuses</span>.',h:'8:00 AM'},{r:'usr',t:'Timeline?',h:'8:30 AM'},{r:'fo',t:'Amex April 3, Cap One May 5. Reminders set with direct links.',h:'8:30 AM'}],
+[{r:'fo',a:'Travel Value',t:'Q4 travel: $14,200 cash. With optimization: <span class="val">$4,800</span>. Annual savings: $37,600.',h:'9:00 AM'},{r:'usr',t:'Send breakdown',h:'9:10 AM'},{r:'fo',t:'Sent. Biggest win: Chicago conferences. SW Business Preferred earns Companion Pass. Cuts airfare 50% for 2.',h:'9:10 AM'},{r:'fo',t:'Want me to restructure Q1 travel bookings?',h:'9:11 AM'}],
+[{r:'fo',a:'Vendor Alert',t:'$8,400 Sysco invoice on <span class="val">wrong card</span>. Chase Visa (1x).',h:'7:30 AM'},{r:'usr',t:'Which card?',h:'7:35 AM'},{r:'fo',t:'Ink Preferred: 3x on first $150K. That invoice = <span class="val">25,200 points</span> vs 8,400. 3x difference.',h:'7:35 AM'},{r:'fo',t:'Setting up vendor routing rules for every supplier.',h:'7:36 AM'}],
+[{r:'fo',t:'Year-to-date: $312K combined card spend. Earned: 486K points.',h:'10:00 AM'},{r:'fo',t:'Properly routed: 1.2M points. That\'s a <span class="val">$730K gap</span> in earning potential.',h:'10:00 AM'},{r:'usr',t:'Fix it',h:'10:15 AM'},{r:'fo',t:'New routing live for all 6 cards today. Monthly reports track improvement.',h:'10:15 AM'}],
+[{r:'fo',a:'Conference Travel',t:'4 Q3 conferences. Award flights found for all. Savings: <span class="val">$8,200</span> vs cash.',h:'11:00 AM'},{r:'usr',t:'All 4?',h:'11:10 AM'},{r:'fo',t:'NYC (Delta), Denver (United), Miami (AA), SF (Southwest). Current balances cover everything.',h:'11:10 AM'},{r:'fo',t:'Step-by-step booking instructions for each?',h:'11:11 AM'}],
+[{r:'fo',a:'Tax Season',t:'Business card fees: <span class="val">tax deductible</span>. Your fees: $1,345 across 4 cards.',h:'2:00 PM'},{r:'fo',t:'Net: $1,009 in fees generated $14,200 travel value. Value ratio: <span class="val">14:1</span>.',h:'2:00 PM'},{r:'usr',t:'Send to my accountant?',h:'2:20 PM'},{r:'fo',t:'Summary PDF ready with fees, cards, deduction categories. Forwarding.',h:'2:20 PM'}],
+[{r:'fo',a:'Multi-Entity',t:'Entity A (restaurant): $22K, 66K pts. Entity B (catering): $8K, 24K pts. Combined: <span class="val">$1,350 value</span>.',h:'9:00 AM'},{r:'fo',t:'Pool both Amex MR for a business class booking worth $4,800.',h:'9:00 AM'},{r:'usr',t:'Can we?',h:'9:20 AM'},{r:'fo',t:'Yes. Amex allows MR pooling across biz cards. I\'ll walk you through it.',h:'9:20 AM'}],
+[{r:'fo',a:'Bonus Tracker',t:'Ink Preferred: <span class="val">$6,200 of $8,000</span> min spend done. 18 days left.',h:'8:00 AM'},{r:'fo',t:'Need $1,800 more. Route utilities + one vendor invoice.',h:'8:00 AM'},{r:'usr',t:'What do we get?',h:'8:15 AM'},{r:'fo',t:'100K Chase UR. Worth <span class="val">$1,500 to $2,000</span>. Don\'t miss this window.',h:'8:15 AM'}],
+[{r:'fo',a:'Fleet Fuel',t:'3 vehicles: $2,800/month on fuel. Current card: <span class="val">1x everywhere</span>.',h:'7:00 AM'},{r:'fo',t:'Sam\'s Club MC: 5%. Costco Visa: 4%. Even Ink Cash: 2%. Leaving $56 to $140/month.',h:'7:00 AM'},{r:'usr',t:'Best option?',h:'7:30 AM'},{r:'fo',t:'Sam\'s Club MC with membership. Otherwise Ink Cash (no fee). You\'d recoup the fee in about 2 months at those rates.',h:'7:30 AM'}],
+[{r:'fo',t:'Card stack review done. <span class="val">2 cards should be replaced</span>, 4 are optimal.',h:'3:00 PM'},{r:'fo',t:'Replace Citi Double Cash (2%) with Amex Biz Gold (4x top categories). Add dedicated fuel card.',h:'3:00 PM'},{r:'usr',t:'Net improvement?',h:'3:15 PM'},{r:'fo',t:'<span class="val">$4,200/year</span> more in points from same spend. Zero extra effort.',h:'3:15 PM'}],
+[{r:'fo',a:'Hotel Strategy',t:'Sales team: <span class="val">40+ hotel nights/year</span>. Currently cash via Expedia.',h:'11:00 AM'},{r:'fo',t:'Switch to direct Hyatt: earn points, elite benefits, 9x on WoH card.',h:'11:00 AM'},{r:'usr',t:'Value?',h:'11:20 AM'},{r:'fo',t:'40 nights = <span class="val">360K points/year</span> + Globalist. Worth $5,400 in free nights.',h:'11:20 AM'}],
+[{r:'fo',a:'Cash Flow',t:'$34K in vendor payments due this week. Route through Amex for <span class="val">45-day float</span>.',h:'8:00 AM'},{r:'fo',t:'Amex Plum: 60 days to pay. Or Amex Gold: 4x points. Cash stays in your account 30+ extra days.',h:'8:00 AM'},{r:'usr',t:'Didn\'t know that',h:'8:15 AM'},{r:'fo',t:'Same spend, better timing, more points, better cash flow. That\'s why you have me.',h:'8:15 AM'}],
+[{r:'fo',a:'Insurance Spend',t:'Biz insurance premiums: <span class="val">$18,000/year</span>. Paid by check.',h:'10:00 AM'},{r:'fo',t:'Most insurers accept cards (0-2% surcharge). Ink Preferred: 3x. Net gain: <span class="val">$180 to $540/year</span> even after fee.',h:'10:00 AM'},{r:'usr',t:'Which insurers take cards?',h:'10:30 AM'},{r:'fo',t:'Checking yours now. Most do via portal or phone. Math works unless surcharge exceeds 3%..',h:'10:30 AM'}]
+];
+var chatIdx=Math.floor(Math.random()*15);
+function renderChat(){
+var isBiz=document.body.classList.contains('biz');
+var chats=isBiz?smboChats:b2cChats;
+var chat=chats[chatIdx%chats.length];
+var el=document.getElementById('waBody');
+if(!el)return;
+el.innerHTML='';
+chat.forEach(function(m,i){
+var d=document.createElement('div');
+d.className='wa-msg '+(m.r==='fo'?'fo':'usr');
+d.style.animationDelay=(0.3+i*0.6)+'s';
+var html='';
+if(m.a)html+='<span class="alert">'+m.a+'</span>';
+html+=m.t+'<div class="time">'+m.h+'</div>';
+d.innerHTML=html;
+el.appendChild(d);
+});
+}
+renderChat();
+
+function go(id){
+document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('on')});
+document.getElementById('page-'+id).classList.add('on');
+document.querySelectorAll('.nka').forEach(function(a){a.classList.toggle('act',a.dataset.p===id)});
+var mob=document.querySelector('.nk');if(mob.style.display==='flex')mob.style.display='none';
+window.scrollTo({top:0});
+}
+
+function setMode(m){
+if(m==='smbo'){
+document.body.classList.add('biz');
+document.getElementById('togB').classList.remove('sel');
+document.getElementById('togS').classList.add('sel');
+document.getElementById('calcLink').href='calculator-business.html';
+document.getElementById('prodLink').href='product-business.html';
+document.getElementById('howLink').href='how-business.html';
+}else{
+document.body.classList.remove('biz');
+document.getElementById('togB').classList.add('sel');
+document.getElementById('togS').classList.remove('sel');
+document.getElementById('calcLink').href='calculator-personal.html';
+document.getElementById('prodLink').href='product-personal.html';
+document.getElementById('howLink').href='how-personal.html';
+}
+smboIdx=Math.floor(Math.random()*smboPhotos.length);
+b2cIdx=Math.floor(Math.random()*b2cPhotos.length);
+chatIdx=Math.floor(Math.random()*15);
+applyPhoto();
+renderChat();
+}
+
+window.addEventListener('scroll',function(){
+document.getElementById('mainNav').classList.toggle('stuck',window.scrollY>20);
+});
+
+function toggleMob(){
+var l=document.querySelector('.nk');
+if(l.style.display==='flex'){l.style.display='none';return}
+l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';
+l.style.top='68px';l.style.left='0';l.style.right='0';
+l.style.background=document.body.classList.contains('biz')?'rgba(0,0,0,.96)':'rgba(255,255,255,.96)';
+l.style.backdropFilter='blur(20px)';l.style.webkitBackdropFilter='blur(20px)';
+l.style.padding='24px 32px';l.style.gap='20px';l.style.boxShadow='0 8px 32px rgba(0,0,0,.08)';
+l.style.borderBottom=document.body.classList.contains('biz')?'1px solid #222':'1px solid #eee';
+l.style.zIndex='99';
+}
+
+// Handle URL hash for deep linking from external pages
+var hash = window.location.hash.replace('#','');
+if(hash && document.getElementById('page-'+hash)){
+  go(hash);
+}
+
+// Auto-switch to Business mode if ?biz=1 in URL
+if(new URLSearchParams(window.location.search).get('biz')==='1'){
+setMode('smbo');
+}
+</script>
+</body>
+</html>

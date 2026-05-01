@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>First Officer by UpNonStop</title>
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://firstofficer.upnonstop.com/">
+<meta http-equiv="refresh" content="0; url=/">
+<script>
+// Preserve query string (e.g. ?biz=1) and hash (e.g. #pricing)
+var qs = window.location.search || '';
+var hash = window.location.hash || '';
+window.location.replace('/' + qs + hash);
+</script>
+</head>
+<body>
+<p>Redirecting to <a href="/">firstofficer.upnonstop.com</a>.</p>
+</body>
+</html>

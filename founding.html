@@ -980,14 +980,14 @@ function toggleFAQ(btn){
       document.body.classList.remove(which + '-full');
     }
   }
-  fetch(SB_URL + '/rest/v1/cohort_counts', {
-    headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY }
+  fetch('https://cuzuzzbezswvejnoskum.supabase.co/functions/v1/fo-founding-stats', {
+    headers: {}
   })
   .then(function(r){ return r.json(); })
   .then(function(rows){
-    if(!rows || !rows.length) return;
-    paint('alpha', rows[0].alpha_count || 0, ALPHA_CAP);
-    paint('beta',  rows[0].beta_count  || 0, BETA_CAP);
+    if(!rows) return;
+    paint('alpha', rows.alpha || 0, ALPHA_CAP);
+    paint('beta', rows.beta || 0, BETA_CAP);
   })
   .catch(function(){});
 })();
