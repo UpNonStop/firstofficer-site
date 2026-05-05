@@ -118,15 +118,8 @@ body.biz .hero::after{background:radial-gradient(ellipse,rgba(250,24,150,.06) 0%
 .hero-copy{max-width:520px}
 
 /* Toggle */
-.tog-row{display:flex;align-items:center;gap:0;margin-bottom:40px}
-.tog-label{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;margin-right:12px;opacity:.4;transition:color .6s}
-.tog{display:flex;align-items:stretch;border-radius:var(--r-pill);padding:3px;transition:all .4s}
-body .tog{background:#f0f0f3;border:1px solid #e0e0e5}
-body.biz .tog{background:#1a1a1a;border:1px solid #333}
-.tb{flex:1;padding:10px 22px;font-size:14px;font-weight:700;border-radius:var(--r-pill);transition:all .35s var(--ease);text-align:center;-webkit-tap-highlight-color:transparent;touch-action:manipulation;user-select:none;white-space:nowrap}
-body .tb:not(.sel){color:#ccc}body.biz .tb:not(.sel){color:#555}
-.tb.sel{background:var(--pink);color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.3)}
-body .tb:not(.sel):hover{color:#aaa}body.biz .tb:not(.sel):hover{color:#777}
+
+
 
 .hero-tag{display:inline-flex;align-items:center;gap:7px;padding:8px 20px;border-radius:var(--r-pill);font-size:13px;font-weight:700;margin-bottom:24px;transition:all .4s}
 body .hero-tag{background:var(--pink);color:#fff;box-shadow:0 4px 16px rgba(250,24,150,.3)}
@@ -290,7 +283,6 @@ body .ftb{border-color:#eee}body.biz .ftb{border-color:#1a1a1a}
 .hero-copy{max-width:600px;margin:0 auto}
 .hero-ctas{justify-content:center}
 .hero-sub{margin-left:auto;margin-right:auto}
-.tog-row{justify-content:center}
 .wa-mock{max-width:320px}
 .pr.c4{grid-template-columns:repeat(2,1fr)}
 .pr.c5{grid-template-columns:repeat(3,1fr)}
@@ -336,7 +328,6 @@ body.biz .hero::before{background:rgba(0,0,0,.45)!important}
 .ftg{grid-template-columns:1fr 1fr;gap:24px}
 .ftb{flex-direction:column;gap:10px;text-align:center}
 .ft{padding:40px 0 20px}
-.tb{padding:8px 18px;font-size:13px}
 }
 @media(max-width:480px){
 [style*="grid-template-columns:repeat(5"]{grid-template-columns:repeat(2,1fr)!important}
@@ -366,6 +357,7 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
 <meta name="twitter:image" content="https://firstofficer.upnonstop.com/og-image.png">
 </head>
 <body>
+<script>if(new URLSearchParams(location.search).get('biz')==='1')document.body.classList.add('biz');</script>
 
 <!-- ===== NAV ===== -->
 <nav class="nav" id="mainNav">
