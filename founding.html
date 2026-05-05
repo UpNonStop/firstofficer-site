@@ -330,7 +330,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
   <div class="stm">
     <div class="stm-grp">
       <div class="stm-l">Alpha Seats</div>
-      <div class="stm-v" id="alphaCount">13&thinsp;/&thinsp;50</div>
+      <div class="stm-v" id="alphaCount">&hellip;</div>
     </div>
     <div class="stm-grp">
       <div class="stm-l">Doors close</div>
@@ -340,7 +340,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
   <div class="stm">
     <div class="stm-grp">
       <div class="stm-l">Beta Seats</div>
-      <div class="stm-v" id="betaCount">13&thinsp;/&thinsp;500</div>
+      <div class="stm-v" id="betaCount">&hellip;</div>
     </div>
     <div class="stm-grp">
       <div class="stm-l">Doors close</div>
@@ -976,10 +976,8 @@ function toggleFAQ(btn){
 // Auto-switch to Business mode if ?biz=1 in URL
 if(new URLSearchParams(window.location.search).get('biz')==='1'){setMode('smbo');}
 
-// Live cohort counts from Supabase Edge Function
+// Live cohort counts from Supabase Edge Function — no hardcoded values
 (function(){
-  var ALPHA_CAP = 50, BETA_CAP = 500;
-  function fmt(n, cap){ return n + ' / ' + cap; }
   function paint(which, n, cap){
     var el = document.getElementById(which + 'Count');
     if(!el) return;
@@ -987,16 +985,16 @@ if(new URLSearchParams(window.location.search).get('biz')==='1'){setMode('smbo')
       el.innerHTML = '<span class="cnt-full">FULL</span>';
       document.body.classList.add(which + '-full');
     } else {
-      el.innerHTML = fmt(n, cap);
+      el.innerHTML = n + ' / ' + cap;
       document.body.classList.remove(which + '-full');
     }
   }
   fetch('https://cuzuzzbezswvejnoskum.supabase.co/functions/v1/fo-founding-stats')
     .then(function(r){ if(!r.ok) throw new Error('stats ' + r.status); return r.json(); })
-    .then(function(rows){
-      if(!rows) return;
-      paint('alpha', rows.alpha || 0, ALPHA_CAP);
-      paint('beta',  rows.beta  || 0, BETA_CAP);
+    .then(function(d){
+      if(!d) return;
+      paint('alpha', d.alpha || 0, d.alpha_max || 50);
+      paint('beta',  d.beta  || 0, d.beta_max  || 500);
     })
     .catch(function(err){
       console.warn('[founding] cohort-stats fetch failed:', err && err.message);
