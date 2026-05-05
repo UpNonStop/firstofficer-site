@@ -58,13 +58,17 @@ body .nav.stuck{background:rgba(255,255,255,.88);border-bottom:1px solid #e8e9ed
 body.biz .nav.stuck{background:rgba(0,0,0,.88);border-bottom:1px solid #2a2a2a}
 .nl{font-size:19px;font-weight:700;letter-spacing:-.4px;display:flex;align-items:center;gap:11px;flex-shrink:0;transition:color .5s}
 .nl-mark{width:32px;height:44px;background-image:var(--logo);background-size:contain;background-repeat:no-repeat;background-position:center;flex-shrink:0}
-.nk{display:flex;align-items:center;gap:32px}
+.nk{display:flex;align-items:center;gap:32px;flex:1;justify-content:center}
 .nka{font-size:14px;font-weight:500;transition:color .3s;white-space:nowrap}
 .nka:hover{color:var(--pink)}
 .ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:var(--r-pill);box-shadow:0 6px 24px rgba(37,211,102,.25);white-space:nowrap;transition:all .3s var(--ease)}
 .ncta:hover{transform:translateY(-1px)}
 .mob{display:none;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px}
 .mob span{width:20px;height:2px;background:currentColor;border-radius:1px}
+.nav-tog{display:flex;align-items:stretch;border-radius:var(--r-pill);padding:3px;flex-shrink:0}
+body .nav-tog{background:#f0f0f3;border:1px solid #e0e0e5}
+body.biz .nav-tog{background:#1a1a1a;border:1px solid #333}
+.nav-tog .tb{padding:8px 18px;font-size:13px;font-weight:600}
 
 .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;border-radius:var(--r-pill);transition:all .3s var(--ease);white-space:nowrap}
 .btn-l{padding:16px 36px;font-size:16px}.btn-m{padding:13px 28px;font-size:15px}
@@ -278,7 +282,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 
 @media(max-width:900px){.cohorts{grid-template-columns:1fr}.dgrid{grid-template-columns:1fr;gap:28px}.trade{grid-template-columns:1fr}.gfx-row{flex-direction:column;gap:4px}.gfx-row .lhs{width:100%}.ftg{grid-template-columns:1fr;gap:24px}.dblock{padding:36px 24px}.matrix{overflow:visible}.matx,.matx thead,.matx tbody,.matx tr,.matx td,.matx th{display:block;width:auto !important}.matx thead{display:none}.matx tr{border:1px solid #e8e9ed;border-radius:12px;padding:18px;margin-bottom:12px;background:#fff}body.biz .matx tr{border-color:#2a2a2a;background:#151515}.matx tr.flag{background:rgba(197,162,38,.04)}body.biz .matx tr.flag{background:rgba(197,162,38,.06)}.matx td{padding:6px 0 !important;border:none !important;display:flex;justify-content:space-between;align-items:center;font-size:14px}.matx td:first-child{padding-bottom:10px !important;border-bottom:1px solid #eee !important;margin-bottom:6px;display:block}body.biz .matx td:first-child{border-bottom-color:#2a2a2a !important}.matx td:not(:first-child)::before{content:attr(data-l);font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:#888;margin-right:12px}}
 .ncta .ncta-sm{display:none}
-@media(max-width:768px){.nk{display:none}.mob{display:none}.ncta{padding:9px 16px}.ncta .ncta-lg{display:none}.ncta .ncta-sm{display:inline}.hero{padding:110px 0 56px}.sec{padding:64px 0}.strip{gap:32px;padding:24px 0}.dblock{padding:32px 22px}.cta-card{padding:44px 28px}.wrap{padding:0 22px}.wrap-n{padding:0 22px}}
+@media(max-width:768px){.nk{display:none}.mob{display:none}.ncta{display:none}.ncta{padding:9px 16px}.ncta .ncta-lg{display:none}.ncta .ncta-sm{display:inline}.hero{padding:110px 0 56px}.sec{padding:64px 0}.strip{gap:32px;padding:24px 0}.dblock{padding:32px 22px}.cta-card{padding:44px 28px}.wrap{padding:0 22px}.wrap-n{padding:0 22px}}
 @media(max-width:480px){.strip{flex-direction:column;gap:20px}.dblock h2{font-size:26px}.faq-q{font-size:15px;padding:20px 0}}
 </style>
 </head>
@@ -298,6 +302,10 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <a href="firstofficer-site.html#pricing" class="nka" id="pricingLink">Pricing</a>
 <a href="firstofficer-site.html#about" class="nka" id="aboutLink">About</a>
 </div>
+<div class="nav-tog">
+<button class="tb sel" id="togB" onclick="setMode('b2c')">Personal</button>
+<button class="tb" id="togS" onclick="setMode('smbo')">Business</button>
+</div>
 <a href="https://wa.me/16199404040?text=Hi%20FirstOfficer%2C%20I%20got%20the%20founding%20invite" class="ncta" target="_blank">💬 <span class="ncta-lg">Start on WhatsApp</span><span class="ncta-sm">WhatsApp</span></a>
 <button class="mob" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </div>
@@ -307,11 +315,6 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <div class="wrap-n">
 <div class="hero-c">
 <div class="kicker"><span class="dot"></span> Private invitation. Not a public page.</div>
-
-<div class="bt">
-<button class="tb sel" id="togB" onclick="setMode('b2c')">Personal</button>
-<button class="tb" id="togS" onclick="setMode('smbo')">Business</button>
-</div>
 
 <h1>This is <em>for you.</em></h1>
 <p class="hero-sub" data-b>You were not found by search. You were sent the link, especially selected to join the founding cohort for First Officer: an independent points and miles strategist that lives inside WhatsApp. Alpha is open by invitation through May 31. Beta opens June 1, by pre-purchase. Founding closes June 30. After that, full pricing, no exceptions.</p>
