@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="First Officer">
 <meta property="og:title" content="Founding Members | First Officer">
-<meta property="og:description" content="Alpha 50, free for 90 days. Beta 500, founding rate locked. Doors close May 30, 2026.">
+<meta property="og:description" content="Alpha 50, free for 60 days. Beta 500, founding rate locked. Doors close June 30, 2026.">
 <meta property="og:url" content="https://firstofficer.upnonstop.com/founding.html">
 <meta property="og:image" content="https://firstofficer.upnonstop.com/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -20,7 +20,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Founding Members | First Officer">
-<meta name="twitter:description" content="Alpha 50, free for 90 days. Beta 500, founding rate locked. Doors close May 30, 2026.">
+<meta name="twitter:description" content="Alpha 50, free for 60 days. Beta 500, founding rate locked. Doors close June 30, 2026.">
 <meta name="twitter:image" content="https://firstofficer.upnonstop.com/og-image.png">
 <meta name="twitter:image:alt" content="First Officer founding members invitation card">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -97,9 +97,10 @@ body .hero h1{color:#111}body.biz .hero h1{color:#fff}
 body .hero-sub{color:#444}body.biz .hero-sub{color:#bbb}
 .signature{font-family:var(--instr);font-style:italic;font-size:18px;color:var(--pink);margin-top:6px}
 
-.strip{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;padding:32px 0;border-top:1px solid;border-bottom:1px solid;transition:border-color .7s;margin-top:40px}
+.strip{display:flex;flex-direction:column;align-items:center;gap:24px;padding:32px 0;border-top:1px solid;border-bottom:1px solid;transition:border-color .7s;margin-top:40px}
 body .strip{border-color:#e8e9ed}body.biz .strip{border-color:#2a2a2a}
-.stm{text-align:center}
+.stm{display:flex;align-items:center;justify-content:center;gap:36px;text-align:center;flex-wrap:wrap}
+.stm-grp{display:flex;flex-direction:column;align-items:center}
 .stm-l{font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;color:var(--pink);margin-bottom:6px}
 .stm-v{font-family:var(--mono);font-size:24px;font-weight:600;letter-spacing:-.5px;line-height:1;transition:color .7s}
 body .stm-v{color:#111}body.biz .stm-v{color:#fff}
@@ -297,7 +298,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <a href="firstofficer-site.html" class="nka">Pricing</a>
 <a href="firstofficer-site.html" class="nka">About</a>
 </div>
-<a href="https://wa.me/16199404040?text=Hi%20Ohad%2C%20I%20got%20the%20founding%20invite" class="ncta" target="_blank">💬 <span class="ncta-lg">Start on WhatsApp</span><span class="ncta-sm">WhatsApp</span></a>
+<a href="https://wa.me/16199404040?text=Hi%20FirstOfficer%2C%20I%20got%20the%20founding%20invite" class="ncta" target="_blank">💬 <span class="ncta-lg">Start on WhatsApp</span><span class="ncta-sm">WhatsApp</span></a>
 <button class="mob" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </div>
 </nav>
@@ -313,26 +314,31 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 </div>
 
 <h1>This is <em>for you.</em></h1>
-<p class="hero-sub" data-b>You were not found by search. You were sent the link, especially selected to join the founding cohort for First Officer: an independent points and miles strategist that lives inside WhatsApp. Two windows are open. Both close on May 30. After that, full pricing, no exceptions.</p>
-<p class="hero-sub" data-s>You were not found by search. You were sent the link, especially selected to join the founding cohort for First Officer: an independent points and miles strategist for owners spending $100K to $500K+ on cards. Two windows are open. Both close on May 30. After that, full pricing, no exceptions.</p>
+<p class="hero-sub" data-b>You were not found by search. You were sent the link, especially selected to join the founding cohort for First Officer: an independent points and miles strategist that lives inside WhatsApp. Alpha is open by invitation through May 31. Beta opens June 1, by pre-purchase. Founding closes June 30. After that, full pricing, no exceptions.</p>
+<p class="hero-sub" data-s>You were not found by search. You were sent the link, especially selected to join the founding cohort for First Officer: an independent points and miles strategist for owners spending $100K to $500K+ on cards. Alpha is open by invitation through May 31. Beta opens June 1, by pre-purchase. Founding closes June 30. After that, full pricing, no exceptions.</p>
 
-<a href="https://wa.me/19083120250?text=Hi%20Ohad%2C%20I%20want%20in" class="btn btn-pk btn-l" target="_blank" style="margin-top:8px">Tell Ohad you are in</a>
+<a href="https://wa.me/16199404040?text=TurningLeft" class="btn btn-pk btn-l" target="_blank" style="margin-top:8px">Apply for Alpha</a>
 
 <div class="strip">
   <div class="stm">
-    <div class="stm-l">Alpha</div>
-    <div class="stm-v" id="alphaCount">–&thinsp;/&thinsp;50</div>
-    <div class="stm-d">Free, 90 days.</div>
+    <div class="stm-grp">
+      <div class="stm-l">Alpha Seats</div>
+      <div class="stm-v" id="alphaCount">–&thinsp;/&thinsp;50</div>
+    </div>
+    <div class="stm-grp">
+      <div class="stm-l">Doors close</div>
+      <div class="stm-v">May 31<sup>st</sup></div>
+    </div>
   </div>
   <div class="stm">
-    <div class="stm-l">Beta</div>
-    <div class="stm-v" id="betaCount">–&thinsp;/&thinsp;500</div>
-    <div class="stm-d">Founding rate, locked.</div>
-  </div>
-  <div class="stm">
-    <div class="stm-l">Doors close</div>
-    <div class="stm-v">May&thinsp;30</div>
-    <div class="stm-d">11:59pm Eastern.</div>
+    <div class="stm-grp">
+      <div class="stm-l">Beta Seats</div>
+      <div class="stm-v" id="betaCount">–&thinsp;/&thinsp;500</div>
+    </div>
+    <div class="stm-grp">
+      <div class="stm-l">Doors close</div>
+      <div class="stm-v">June 30<sup>th</sup></div>
+    </div>
   </div>
 </div>
 </div>
@@ -344,7 +350,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <div class="sh ctr">
 <div class="ey">Why this exists</div>
 <h2 class="hd">An exclusive client list.<br><em>Honest math.</em></h2>
-<p class="ds">First Officer is not a content site, an affiliate referral engine, or a credit card application funnel. It is a points and miles intelligence service delivered through WhatsApp, with no commission paid by any bank or program. Building that takes a tight feedback loop with people who actually run the spend. Fifty of you, free, for 90 days. Five hundred more at a founding rate that does not expire while you stay subscribed.</p>
+<p class="ds">First Officer is not a content site, an affiliate referral engine, or a credit card application funnel. It is a points and miles intelligence service delivered through WhatsApp, with no commission paid by any bank or program. Building that takes a tight feedback loop with people who actually run the spend. Fifty of you, free, for 60 days. Five hundred more at a founding rate that does not expire while you stay subscribed.</p>
 </div>
 
 <div class="cohorts">
@@ -352,28 +358,28 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <div class="coh alpha">
 <div class="coh-tag">Cohort 01 / Alpha</div>
 <h3>The first 50.</h3>
-<div class="coh-meta">Apr 27 to May 16. Free for 90 days.</div>
+<div class="coh-meta">May 1 to May 31. Free for 60 days.</div>
 
 <div class="coh-line"><span class="ck">&#10003;</span><span data-b>Full Reserve tier access, worth $59 / month.</span><span data-s>Full Signature tier access, worth $349 / month.</span></div>
 <div class="coh-line"><span class="ck">&#10003;</span><span>WhatsApp line, one to one, with weekly portfolio snapshot.</span></div>
-<div class="coh-line"><span class="ck">&#10003;</span><span>Direct contact with the founder for the first 90 days.</span></div>
+<div class="coh-line"><span class="ck">&#10003;</span><span>Direct contact with the founder for your first 60 days.</span></div>
 <div class="coh-line"><span class="ck">&#10003;</span><span>You give one short Sunday survey each week and one written or video testimonial we can publish, only if you find it useful.</span></div>
-<div class="coh-line"><span class="ck">&#10003;</span><span>Day 91, you decide: convert to a founding rate, or walk. No auto charge.</span></div>
+<div class="coh-line"><span class="ck">&#10003;</span><span>Day 61, you decide: convert to a founding rate, or walk. No auto charge.</span></div>
 
 <div class="coh-foot">
 <div class="coh-price">Cost: $0. Trade: feedback.</div>
-<a href="https://wa.me/19083120250?text=Hi%20Ohad%2C%20alpha%20me%20in" class="btn btn-pk btn-m" target="_blank" data-cohort="alpha" style="width:100%;justify-content:center">Claim Alpha seat</a>
+<a href="https://wa.me/16199404040?text=TurningLeft" class="btn btn-pk btn-m" target="_blank" data-cohort="alpha" style="width:100%;justify-content:center">Claim Alpha seat</a>
 </div>
 </div>
 
 <div class="coh beta">
 <div class="coh-tag">Cohort 02 / Beta</div>
 <h3>The next 500.</h3>
-<div class="coh-meta">May 11 to May 30. Founding price, locked.</div>
+<div class="coh-meta">Opens June 1, 12:01am Eastern. Closes June 30. Founding price, locked.</div>
 
 <div class="coh-line"><span class="ck">&#10003;</span><span>Choose any tier. Every paid tier carries a flat 50 percent founding discount, locked.</span></div>
 <div class="coh-line"><span class="ck">&#10003;</span><span>The founding rate is locked from the day you start, and stays locked while you remain subscribed. It travels with you if you upgrade or downgrade.</span></div>
-<div class="coh-line"><span class="ck">&#10003;</span><span>Refer one paid founder before May 30 and earn a one-month credit on your tier. Up to four times.</span></div>
+<div class="coh-line"><span class="ck">&#10003;</span><span>Refer one paid founder before June 30 and earn a one-month credit on your tier. Up to four times.</span></div>
 <div class="coh-line"><span class="ck">&#10003;</span><span>Founding members get the Saturday dispatch, the WhatsApp line, the snapshot cadence, and first look at every new feature.</span></div>
 <div class="coh-line"><span class="ck">&#10003;</span><span>Cancel anytime. Pause up to 30 days without breaking the lock. Cancel and rejoin later, the lock resets to list price.</span></div>
 
@@ -385,7 +391,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 
 </div>
 
-<p class="ft-note" style="text-align:center;margin-top:24px">Counts above update each Sunday at 9am Eastern. The link to this page is not in the navigation. If you forwarded it to someone, ask them to message Ohad first.</p>
+<p class="ft-note" style="text-align:center;margin-top:24px">Counts above pull live from our system. The link to this page is not in the navigation. If you forwarded it to someone, ask them to message FirstOfficer first.</p>
 </div>
 </section>
 
@@ -399,13 +405,13 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 
 <div class="dgrid">
 <div>
-<h4>What you get for 90 days</h4>
+<h4>What you get for 60 days</h4>
 <ul>
 <li><span class="b">01</span><span>Full Reserve tier features. Onboarding through Scout (the four-question intake agent that lives inside WhatsApp). Vendor mapping, multiplier routing, transfer math.</span></li>
 <li><span class="b">02</span><span>One portfolio snapshot per week, reviewed and personalised, not auto generated.</span></li>
-<li><span class="b">03</span><span>A direct WhatsApp line. Reply with questions. Ohad responds same business day for the first 90 days.</span></li>
+<li><span class="b">03</span><span>A direct WhatsApp line. Reply with questions. Ohad responds same business day for your first 60 days.</span></li>
 <li><span class="b">04</span><span>Award booking research, two trips per cohort member, included.</span></li>
-<li><span class="b">05</span><span>The founding rate offered to you on day 91 is the lowest rate any new beta member can pay.</span></li>
+<li><span class="b">05</span><span>The founding rate offered to you on day 61 is the lowest rate any new beta member can pay.</span></li>
 </ul>
 </div>
 <div>
@@ -413,22 +419,22 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <ul>
 <li><span class="b">01</span><span>A three minute Sunday survey, weekly. We send it. You answer five questions. That is the loop.</span></li>
 <li><span class="b">02</span><span>Reply to messages with the prefix &ldquo;Feedback:&rdquo; whenever something works or breaks. That is how the product gets shaped.</span></li>
-<li><span class="b">03</span><span>One short testimonial we can publish, in writing or as a 60 second voice note, before day 90. Only if you would honestly say it.</span></li>
+<li><span class="b">03</span><span>One short testimonial we can publish, in writing or as a 60 second voice note, before day 60. Only if you would honestly say it.</span></li>
 <li><span class="b">04</span><span>Patience. You are seeing a product that is shipping. There will be small things to fix, and you will be the reason they get fixed.</span></li>
 </ul>
 </div>
 </div>
 
 <div class="gfx" style="border-left-color:var(--pink);background:rgba(250,24,150,.04)">
-<h4 style="color:var(--pink)">Day 91, what happens</h4>
+<h4 style="color:var(--pink)">Day 61, what happens</h4>
 <div class="gfx-row" style="border-color:rgba(250,24,150,.15)"><div class="lhs">If you find it useful</div><div class="rhs">You convert to any Beta tier at the founding rate. The Sunday survey loop ends. Snapshot cadence continues. Your founding rate is locked from that day, for as long as you stay subscribed.</div></div>
 <div class="gfx-row" style="border-color:rgba(250,24,150,.15)"><div class="lhs">If you do not</div><div class="rhs">You walk. There is no card on file, no auto charge, no recovery flow. You keep the snapshots and any award trips already booked.</div></div>
 <div class="gfx-row" style="border-color:rgba(250,24,150,.15)"><div class="lhs">Either way</div><div class="rhs">You keep the testimonial, the snapshot history, and the Saturday dispatch (which is free for everyone).</div></div>
 </div>
 
 <div style="text-align:center;margin-top:36px">
-<a href="https://wa.me/19083120250?text=Hi%20Ohad%2C%20alpha%20me%20in" class="btn btn-pk btn-l" target="_blank" data-cohort="alpha">Claim Alpha seat &nbsp;&rarr;</a>
-<p class="ft-note" style="margin-top:10px">Reply with &ldquo;Alpha&rdquo; and your name. Ohad confirms within 24 hours.</p>
+<a href="https://wa.me/16199404040?text=TurningLeft" class="btn btn-pk btn-l" target="_blank" data-cohort="alpha">Claim Alpha seat &nbsp;&rarr;</a>
+<p class="ft-note" style="margin-top:10px">Reply with the AlphaGate code <strong>TurningLeft</strong> on WhatsApp. Ohad confirms within 24 hours.</p>
 </div>
 </div>
 
@@ -441,7 +447,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <div class="dblock beta">
 <div class="ey">Cohort 02 / Beta</div>
 <h2>The founding rate.<br><em>Locked, while you stay.</em></h2>
-<p class="lede">Five hundred paid seats across personal and business tiers. Most tiers carry a flat 50 percent founding discount off list. The discount is locked the day you start and stays locked for as long as you remain subscribed. Your rate travels with you if you upgrade or downgrade. Doors close May 30 at 11:59pm Eastern.</p>
+<p class="lede">Five hundred paid seats across personal and business tiers. Most tiers carry a flat 50 percent founding discount off list. The discount is locked the day you start and stays locked for as long as you remain subscribed. Your rate travels with you if you upgrade or downgrade. Doors close June 30 at 11:59pm Eastern.</p>
 
 <div class="matrix" data-b>
 <table class="matx">
@@ -479,7 +485,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 </tr>
 </tbody>
 </table>
-<p class="ft-note" style="margin-top:14px">Award booking flat fee remains $500 per trip across all personal tiers. Founding members get one award booking research credit at no charge in their first 90 days.</p>
+<p class="ft-note" style="margin-top:14px">Award booking flat fee remains $500 per trip across all personal tiers. Founding members get one award booking research credit at no charge in their first 60 days.</p>
 </div>
 
 <div class="matrix" data-s>
@@ -517,10 +523,10 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <div class="gfx">
 <h4>How the founding rate stays yours</h4>
 <div class="gfx-row"><div class="lhs">As long as you stay</div><div class="rhs">No expiry date. The rate you start at is the rate you keep, while you remain subscribed. (The full commitment is in the FAQ.)</div></div>
-<div class="gfx-row"><div class="lhs">Pause up to 30 days</div><div class="rhs">Travel, vacations, slow seasons. Pause once a year for up to 30 days without breaking the lock. Message Ohad and we handle it on our side.</div></div>
+<div class="gfx-row"><div class="lhs">Pause up to 30 days</div><div class="rhs">Travel, vacations, slow seasons. Pause once a year for up to 30 days without breaking the lock. Message FirstOfficer and we handle it on our side.</div></div>
 <div class="gfx-row"><div class="lhs">Cancel and rejoin</div><div class="rhs">If you cancel and come back later, you rejoin at list price. The founding rate is for founding members who stayed.</div></div>
 <div class="gfx-row"><div class="lhs">Upgrade or downgrade</div><div class="rhs">Move between tiers anytime. The 50 percent founding discount applies to your new tier automatically.</div></div>
-<div class="gfx-row"><div class="lhs">Refer a founder</div><div class="rhs">Refer one paid founder before May 30, you get a one-time credit equal to one month of your tier. Up to four referrals, four credits.</div></div>
+<div class="gfx-row"><div class="lhs">Refer a founder</div><div class="rhs">Refer one paid founder before June 30, you get a one-time credit equal to one month of your tier. Up to four referrals, four credits.</div></div>
 </div>
 
 <div class="promo-callout">
@@ -543,7 +549,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 </div>
 
 <div style="text-align:center;margin-top:18px">
-<a href="https://wa.me/19083120250?text=Hi%20Ohad%2C%20I%20want%20Beta%20but%20have%20a%20question" class="t3" target="_blank" style="font-size:13px">Or message Ohad first &rarr;</a>
+<a href="https://wa.me/16199404040?text=Hi%20FirstOfficer%2C%20I%20want%20Beta%20but%20have%20a%20question" class="t3" target="_blank" style="font-size:13px">Or message FirstOfficer first &rarr;</a>
 </div>
 </div>
 
@@ -565,7 +571,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <ul>
 <li><span class="b">A</span><span>A short Sunday survey each week (alpha only). Five questions. Three minutes.</span></li>
 <li><span class="b">B</span><span>Inline feedback prefixed with &ldquo;Feedback:&rdquo; whenever something is wrong, surprising, or genuinely useful.</span></li>
-<li><span class="b">C</span><span>One testimonial before day 90, in writing or voice. Only if you would honestly give one.</span></li>
+<li><span class="b">C</span><span>One testimonial before day 60, in writing or voice. Only if you would honestly give one.</span></li>
 <li><span class="b">D</span><span>A small amount of patience as we ship and iterate. We have a lot of work in front of us, and you are part of why it gets better.</span></li>
 </ul>
 </div>
@@ -574,7 +580,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <h3>A real human,<br>a locked rate,<br>and the dispatch for life.</h3>
 <ul>
 <li><span class="b">A</span><span>The lowest price any new member will ever see for your tier, while you stay subscribed.</span></li>
-<li><span class="b">B</span><span>Direct WhatsApp access to the founder during the first 90 days. After that, your dedicated tier of service stays.</span></li>
+<li><span class="b">B</span><span>Direct WhatsApp access to the founder during the first 60 days. After that, your dedicated tier of service stays.</span></li>
 <li><span class="b">C</span><span>First look at every new feature. Founding members are first in, before public launch each time.</span></li>
 <li><span class="b">D</span><span>The Saturday dispatch, free, for life. Whether or not you remain a paid member.</span></li>
 </ul>
@@ -617,7 +623,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <div class="sh ctr">
 <div class="ey">Questions</div>
 <h2 class="hd">Things people<br><em>actually ask.</em></h2>
-<p class="ds">Twenty-four questions, answered straight. Anything not covered, message Ohad on WhatsApp.</p>
+<p class="ds">Twenty-four questions, answered straight. Anything not covered, message FirstOfficer on WhatsApp.</p>
 </div>
 
 <div class="faq">
@@ -627,9 +633,9 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <div class="faq-item">
 <button class="faq-q" onclick="toggleFAQ(this)">What is the difference between Alpha and Beta? <span class="pls">+</span></button>
 <div class="faq-a"><div class="faq-a-in">
-<p><strong>Alpha</strong> is the first 50 seats. Free for 90 days. The trade is feedback: a three minute Sunday survey weekly, inline notes prefixed with &ldquo;Feedback:&rdquo; whenever something works or breaks, and one short testimonial we can publish if you would honestly give one. You are picked from a small pool of warm contacts and engaged subscribers. Direct line to Ohad during the 90 days.</p>
-<p><strong>Beta</strong> is the next 500 seats. Paid, at a flat 50 percent founding discount off list on every paid tier. The rate is locked the day you start and stays locked for as long as you remain subscribed (the Concierge tier locks for 12 months only). No survey loop. Same direct line, same Saturday dispatch.</p>
-<p>Both close on May 30 at 11:59pm Eastern. After that, list pricing applies, no exceptions.</p>
+<p><strong>Alpha</strong> is the first 50 seats, open May 1 to May 31 by invitation only. Free for 60 days. To claim a seat, reply on WhatsApp with the AlphaGate code <strong>TurningLeft</strong>. The trade is feedback: a three minute Sunday survey weekly, inline notes prefixed with &ldquo;Feedback:&rdquo; whenever something works or breaks, and one short testimonial we can publish if you would honestly give one. You are picked from a small pool of warm contacts and engaged subscribers. Direct line to Ohad during the 60 days. On day 61, you can lock in Founding rates for life.</p>
+<p><strong>Beta</strong> is the next 500 seats, open June 1 to June 30. Beta is claimed by Stripe pre-purchase: the act of paying secures one of the 500 founding slots, first come first served. Every paid tier carries a flat 50 percent founding discount, locked. The rate is locked the day you start and stays locked for as long as you remain subscribed (the Concierge tier locks for 12 months only). No survey loop. Same direct line, same Saturday dispatch.</p>
+<p>Founding closes June 30 at 11:59pm Eastern. After that, list pricing applies, no exceptions.</p>
 </div></div>
 </div>
 
@@ -637,24 +643,24 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <button class="faq-q" onclick="toggleFAQ(this)">Why are you doing this instead of charging full price? <span class="pls">+</span></button>
 <div class="faq-a"><div class="faq-a-in">
 <p>Two reasons.</p>
-<p>The first is product. First Officer needs honest feedback from real subscribers before it scales, and honest feedback comes from people with skin in the game (paid founders) or people who feel the product was offered in good faith (free alpha members). Acquiring 550 of those people in five weeks is worth more than the discount we are giving up, because it lets us ship better, faster, and against real spending behavior, not assumptions.</p>
+<p>The first is product. First Officer needs honest feedback from real subscribers before it scales, and honest feedback comes from people with skin in the game (paid founders) or people who feel the product was offered in good faith (free alpha members). Acquiring 550 of those people across two months is worth more than the discount we are giving up, because it lets us ship better, faster, and against real spending behavior, not assumptions.</p>
 <p>The second is positioning. A founding cohort gives us recurring revenue, real testimonials, and the kind of word of mouth that paid acquisition cannot buy. We would rather give that value to early members than to ad networks. The math works as long as we hold the cap at 500 paid seats, which is why the doors close.</p>
 </div></div>
 </div>
 
 <div class="faq-item">
-<button class="faq-q" onclick="toggleFAQ(this)">What happens after May 30? <span class="pls">+</span></button>
+<button class="faq-q" onclick="toggleFAQ(this)">What happens after June 30? <span class="pls">+</span></button>
 <div class="faq-a"><div class="faq-a-in">
-<p>Doors close at 11:59pm Eastern, May 30, 2026. After that, the public site at firstofficer.upnonstop.com lists full pricing only. There is no second window, no extension, no special pricing for friends, no waitlist that converts to founding pricing later. The founding rate is reserved for founding members.</p>
-<p>Founding members already inside keep their lock as long as they remain subscribed. New members from June 1 onward join at list price. That is the contract.</p>
+<p>Doors close at 11:59pm Eastern, June 30, 2026. After that, the public site at firstofficer.upnonstop.com lists full pricing only. There is no second window, no extension, no special pricing for friends, no waitlist that converts to founding pricing later. The founding rate is reserved for founding members.</p>
+<p>Founding members already inside keep their lock as long as they remain subscribed. New members from July 1, 2026 onward join at list price. That is the contract.</p>
 </div></div>
 </div>
 
 <div class="faq-item">
 <button class="faq-q" onclick="toggleFAQ(this)">How do referrals work, and is there a payout? <span class="pls">+</span></button>
 <div class="faq-a"><div class="faq-a-in">
-<p>If you refer one paying founding member before May 30, you receive a one-time credit equal to one month of your tier. Up to four referrals, four credits. A Reserve member who refers four others, for example, gets $118 in credits applied to upcoming invoices.</p>
-<p>To refer, message Ohad on WhatsApp with the contact. We handle the introduction and confirm the referral once they convert. There is no public referral code during the alpha and beta windows.</p>
+<p>If you refer one paying founding member before June 30, you receive a one-time credit equal to one month of your tier. Up to four referrals, four credits. A Reserve member who refers four others, for example, gets $118 in credits applied to upcoming invoices.</p>
+<p>To refer, message FirstOfficer on WhatsApp with the contact. We handle the introduction and confirm the referral once they convert. There is no public referral code during the alpha and beta windows.</p>
 <p><strong>No cash payout.</strong> The credit is the reward. We do not pay referral commissions for the same reason we do not take affiliate revenue from card issuers: it changes the incentive in ways that compromise the advice.</p>
 </div></div>
 </div>
@@ -674,7 +680,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <div class="faq-a"><div class="faq-a-in">
 <p>No. First Officer lives entirely inside WhatsApp, which you already have. There is no app, no dashboard, no login portal, no browser extension. The product is messages.</p>
 <p>This is a deliberate choice. Points strategy works best when it shows up in the place you actually pay attention. WhatsApp delivers a snapshot to the same screen you use for everything else, with read receipts and the ability to reply with a question whenever something is unclear. No app fatigue, no second password.</p>
-<p>If you do not use WhatsApp, message Ohad on email and we will figure something out.</p>
+<p>If you do not use WhatsApp, message FirstOfficer on email and we will figure something out.</p>
 </div></div>
 </div>
 
@@ -725,7 +731,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <div class="faq-a"><div class="faq-a-in">
 <p>Right now, First Officer is US-only. The advisory is calibrated to US issuer rules (5/24, business application strategies, US-specific transfer partners), US merchant category coding, and US tax treatment. Expanding to UK, Canada, or Australia is on the roadmap but not in 2026.</p>
 <p>If you are a US resident with international travel and foreign currency spend, that works fine. The recommendation engine handles cross-border category coding and currency conversion impacts.</p>
-<p>If you are based outside the US but have US cards in your portfolio, the answer is partly. Message Ohad with your specifics before subscribing.</p>
+<p>If you are based outside the US but have US cards in your portfolio, the answer is partly. Message FirstOfficer with your specifics before subscribing.</p>
 </div></div>
 </div>
 
@@ -755,9 +761,9 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <div class="faq-item">
 <button class="faq-q" onclick="toggleFAQ(this)">What if I cancel after a month? <span class="pls">+</span></button>
 <div class="faq-a"><div class="faq-a-in">
-<p>You can cancel anytime through the Stripe customer portal at billing.stripe.com or by messaging Ohad. Your access continues to the end of the paid period. No save flow, no retention call, no dark patterns.</p>
+<p>You can cancel anytime through the Stripe customer portal at billing.stripe.com or by messaging FirstOfficer. Your access continues to the end of the paid period. No save flow, no retention call, no dark patterns.</p>
 <p>If you cancel and rejoin later, you rejoin at list price. The founding rate is reserved for founders who stayed continuously subscribed. This is the cost of leaving and the value of staying.</p>
-<p>You can also pause once a year, up to 30 days, without breaking the lock. Travel, vacations, slow seasons. Message Ohad to pause.</p>
+<p>You can also pause once a year, up to 30 days, without breaking the lock. Travel, vacations, slow seasons. Message FirstOfficer to pause.</p>
 </div></div>
 </div>
 
@@ -851,7 +857,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <p>What we collect: card names you tell us, monthly spend ranges, loyalty programs you participate in, travel goals, and (if you connect Plaid on Select tier or above) read-only transaction data.</p>
 <p>What we do not collect: card numbers, account credentials, full account numbers, balances, login passwords, or any financial information that could be used to authenticate as you. None of it touches our systems.</p>
 <p>Where it is stored: Supabase, US-based, encrypted at rest. Conversation history on WhatsApp is retained to maintain context for your portfolio. We do not sell, share, repurpose, or train models on your data.</p>
-<p>Deletion: message Ohad to delete your account, or use the Do Not Sell My Info link in the footer. Your data is removed within 30 days. The Privacy Policy linked in the footer has the full breakdown.</p>
+<p>Deletion: message FirstOfficer to delete your account, or use the Do Not Sell My Info link in the footer. Your data is removed within 30 days. The Privacy Policy linked in the footer has the full breakdown.</p>
 </div></div>
 </div>
 
@@ -869,8 +875,8 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <button class="faq-q" onclick="toggleFAQ(this)">What if it does not work for me? <span class="pls">+</span></button>
 <div class="faq-a"><div class="faq-a-in">
 <p>Cancel. We will not chase you, dark pattern you, or run a save flow. Founding members who try the product and decide it is not for them keep their snapshots and any award trips already booked, and they keep the Saturday dispatch which is free for everyone.</p>
-<p>If something is broken, message Ohad first. Half the time, what looks like the product not working is something we can fix in an hour and would rather know about. The Sunday survey loop in alpha exists for exactly this reason: surface what is wrong before someone walks away over it.</p>
-<p>If you are a paid Beta member and the product genuinely does not fit your spend pattern in the first 30 days, message Ohad. We will refund the first month and part on good terms. We would rather have a small refund and an honest review than a stuck subscriber.</p>
+<p>If something is broken, message FirstOfficer first. Half the time, what looks like the product not working is something we can fix in an hour and would rather know about. The Sunday survey loop in alpha exists for exactly this reason: surface what is wrong before someone walks away over it.</p>
+<p>If you are a paid Beta member and the product genuinely does not fit your spend pattern in the first 30 days, message FirstOfficer. We will refund the first month and part on good terms. We would rather have a small refund and an honest review than a stuck subscriber.</p>
 </div></div>
 </div>
 
@@ -881,11 +887,11 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 <section class="sec">
 <div class="wrap-n">
 <div class="cta-card">
-<h2>Doors close May 30.<br><em>You decide before then.</em></h2>
-<p>Reply on WhatsApp with &ldquo;Alpha&rdquo; or &ldquo;Beta&rdquo; and your name. Ohad confirms within 24 hours, sends the onboarding flow, and your founding rate is locked.</p>
+<h2>Doors close June 30.<br><em>You decide before then.</em></h2>
+<p>Alpha is open by invitation through May 31. Reply on WhatsApp with the AlphaGate code <strong>TurningLeft</strong>. Beta opens June 1 by Stripe pre-purchase. After June 30 at 11:59pm Eastern, full pricing applies.</p>
 <div class="bg">
-<a href="https://wa.me/19083120250?text=Hi%20Ohad%2C%20Alpha%20me%20in" class="btn btn-pk btn-l" target="_blank" data-cohort="alpha">Alpha: free, 90 days</a>
-<a href="https://wa.me/19083120250?text=Hi%20Ohad%2C%20Beta%20me%20in" class="btn btn-ol" target="_blank" data-cohort="beta">Beta: founding rate</a>
+<a href="https://wa.me/16199404040?text=TurningLeft" class="btn btn-pk btn-l" target="_blank" data-cohort="alpha">Alpha: free, 60 days</a>
+<a href="#beta-pricing" class="btn btn-ol" data-cohort="beta">Beta: founding rate</a>
 </div>
 </div>
 </div>
@@ -916,7 +922,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 </div>
 <div class="ftb">
 <span class="ft-note">&copy; 2026 UpNonStop LLC. This page is private. Not indexed.</span>
-<span class="ft-note">Founding cohort 01 + 02. Closes May 30, 11:59pm ET.</span>
+<span class="ft-note">Founding cohort 01 + 02. Closes June 30, 11:59pm ET.</span>
 </div>
 </div>
 </footer>
