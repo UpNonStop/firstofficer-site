@@ -38,11 +38,16 @@ a{text-decoration:none;color:inherit}
 .nav-in{max-width:1140px;margin:0 auto;padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .nl{font-size:18px;font-weight:700;letter-spacing:-.3px;display:flex;align-items:center;gap:10px}
 .nm{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;overflow:hidden}
-.nk{display:flex;align-items:center;gap:28px}
+.nk{display:flex;align-items:center;gap:28px;flex:1;justify-content:center}
 .nka{font-size:14px;font-weight:500;color:#666;transition:color .3s;white-space:nowrap}.nka:hover{color:var(--pink)}.nka.act{color:var(--pink);font-weight:700}
 .ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:100px;box-shadow:0 4px 16px rgba(37,211,102,.2);white-space:nowrap}
 .mob{display:none;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;border:none;background:none}
 .mob span{width:20px;height:2px;background:#111;border-radius:1px}
+.nav-tog{display:flex;align-items:stretch;border-radius:100px;padding:3px;flex-shrink:0}
+.nav-tog{background:#f0f0f3;border:1px solid #e0e0e5}
+.nav-tog .tb{padding:8px 18px;font-size:13px;font-weight:600;flex:1;border-radius:100px;transition:all .35s;text-align:center;white-space:nowrap;border:none;cursor:pointer;background:none;color:#bbb}
+.nav-tog .tb:hover{color:#888}
+.nav-tog .tb.sel{background:#FA1896;color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.3)}
 
 .wrap{max-width:1140px;margin:0 auto;padding:0 32px}
 
@@ -204,7 +209,7 @@ a{text-decoration:none;color:inherit}
 .ag-desc-text{font-size:13px;color:#666;line-height:1.6}
 
 @media(max-width:768px){
-.nk{display:none}.mob{display:flex}
+.nk{display:none}.mob{display:flex}.ncta{display:none}
 .tier-card{padding:24px 20px;border-radius:16px}
 .pink-line{height:32px!important}
 .tc-from{display:none!important}
@@ -285,6 +290,10 @@ a{text-decoration:none;color:inherit}
 <a href="calculator-personal.html" class="nka">Calculator</a>
 <a href="firstofficer-site.html#pricing" class="nka">Pricing</a>
 <a href="firstofficer-site.html#about" class="nka">About</a>
+</div>
+<div class="nav-tog">
+<button class="tb sel">Personal</button>
+<button class="tb" onclick="location.href='product-business.html'">Business</button>
 </div>
 <a href="https://wa.me/16199404040" class="ncta" target="_blank">&#x1F4AC; Start on WhatsApp</a>
 <button class="mob" onclick="toggleMob()"><span></span><span></span><span></span></button>
