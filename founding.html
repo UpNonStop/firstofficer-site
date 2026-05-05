@@ -945,6 +945,7 @@ function setMode(m){
   var about = document.getElementById('aboutLink');
   if(pricing) pricing.href = 'firstofficer-site.html' + bizParam + '#pricing';
   if(about) about.href = 'firstofficer-site.html' + bizParam + '#about';
+  var u=new URL(window.location);if(biz)u.searchParams.set('biz','1');else u.searchParams.delete('biz');history.replaceState(null,'',u);
 }
 window.addEventListener('scroll', function(){
   document.getElementById('mainNav').classList.toggle('stuck', window.scrollY > 20);
@@ -967,6 +968,9 @@ function toggleFAQ(btn){
   var item = btn.closest('.faq-item');
   item.classList.toggle('open');
 }
+
+// Auto-switch to Business mode if ?biz=1 in URL
+if(new URLSearchParams(window.location.search).get('biz')==='1'){setMode('smbo');}
 
 // Live cohort counts from Supabase Edge Function
 (function(){
