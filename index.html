@@ -66,13 +66,17 @@ body .nav.stuck{background:rgba(255,255,255,.9);border-bottom:1px solid #eee}
 body.biz .nav.stuck{background:rgba(0,0,0,.9);border-bottom:1px solid #222}
 .nl{font-size:18px;font-weight:700;letter-spacing:-.3px;display:flex;align-items:center;gap:10px;flex-shrink:0}
 .nm{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;overflow:hidden}
-.nk{display:flex;align-items:center;gap:28px}
+.nk{display:flex;align-items:center;gap:28px;flex:1}
 .nka{font-size:14px;font-weight:500;transition:color .3s;white-space:nowrap}
 .nka:hover{color:var(--pink)}
 body .nka{color:#666}body.biz .nka{color:#999}
 .nka.act{color:var(--pink);font-weight:700}body.biz .nka.act{color:#fff;font-weight:700}
 .ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:var(--r-pill);box-shadow:0 4px 16px rgba(37,211,102,.2);white-space:nowrap;transition:all .3s}
 .ncta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(37,211,102,.3)}
+.nav-tog{display:flex;align-items:stretch;border-radius:var(--r-pill);padding:3px;flex-shrink:0}
+body .nav-tog{background:#f0f0f3;border:1px solid #e0e0e5}
+body.biz .nav-tog{background:#1a1a1a;border:1px solid #333}
+.nav-tog .tb{padding:7px 14px;font-size:12px;font-weight:600}
 .mob{display:none;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px}
 .mob span{width:20px;height:2px;background:currentColor;border-radius:1px}
 
@@ -289,7 +293,7 @@ body .ftb{border-color:#eee}body.biz .ftb{border-color:#1a1a1a}
 .vr{gap:48px}
 }
 @media(max-width:768px){
-.nk{display:none}.mob{display:flex}
+.nk{display:none}.mob{display:flex}.ncta{display:none}
 .wrap{padding:0 24px}
 .hero{padding:110px 0 56px;min-height:100vh}
 body .hero::before{background:rgba(255,255,255,.48)!important}
@@ -370,6 +374,10 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
 <a href="#" class="nka" data-p="pricing" onclick="go('pricing')">Pricing</a>
 <a href="#" class="nka" data-p="about" onclick="go('about')">About</a>
 </div>
+<div class="nav-tog">
+<button class="tb sel" id="togB" onclick="setMode('b2c')">Personal</button>
+<button class="tb" id="togS" onclick="setMode('smbo')">Business</button>
+</div>
 <a href="https://wa.me/16199404040" class="ncta" target="_blank">💬 Start on WhatsApp</a>
 <button class="mob" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </div>
@@ -383,13 +391,6 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
 <section class="hero" id="mainHero">
 <div class="hero-in">
 <div class="hero-copy">
-
-<div class="tog-row">
-<div class="tog">
-<button class="tb sel" id="togB" onclick="setMode('b2c')">Personal</button>
-<button class="tb" id="togS" onclick="setMode('smbo')">Business</button>
-</div>
-</div>
 
 <div class="hero-tag"><span class="pulse"></span> Your Award Travel Agents</div>
 
