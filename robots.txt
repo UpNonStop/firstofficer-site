@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://firstofficer.upnonstop.com/sitemap.xml
