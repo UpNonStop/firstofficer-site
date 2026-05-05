@@ -1272,6 +1272,7 @@ document.getElementById('calcLink').href='calculator-personal.html';
 document.getElementById('prodLink').href='product-personal.html';
 document.getElementById('howLink').href='how-personal.html';
 }
+var u=new URL(window.location);if(m==='smbo')u.searchParams.set('biz','1');else u.searchParams.delete('biz');history.replaceState(null,'',u);
 smboIdx=Math.floor(Math.random()*smboPhotos.length);
 b2cIdx=Math.floor(Math.random()*b2cPhotos.length);
 chatIdx=Math.floor(Math.random()*15);
