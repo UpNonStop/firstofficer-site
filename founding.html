@@ -976,8 +976,10 @@ function toggleFAQ(btn){
 // Auto-switch to Business mode if ?biz=1 in URL
 if(new URLSearchParams(window.location.search).get('biz')==='1'){setMode('smbo');}
 
-// Live cohort counts from Supabase Edge Function — no hardcoded values
+// Live cohort counts from Supabase cohort_counts view
 (function(){
+  var SB='https://cuzuzzbezswvejnoskum.supabase.co/rest/v1';
+  var AK='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1enV6emJlenN3dmVqbm9za3VtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1OTE2MDMsImV4cCI6MjA4ODE2NzYwM30.U1UkmESQmbntjtLCC-d06YBk8VVD6h-UcCrr761yiVM';
   function paint(which, n, cap){
     var el = document.getElementById(which + 'Count');
     if(!el) return;
@@ -989,16 +991,19 @@ if(new URLSearchParams(window.location.search).get('biz')==='1'){setMode('smbo')
       document.body.classList.remove(which + '-full');
     }
   }
-  fetch('https://cuzuzzbezswvejnoskum.supabase.co/functions/v1/fo-founding-stats')
-    .then(function(r){ if(!r.ok) throw new Error('stats ' + r.status); return r.json(); })
-    .then(function(d){
-      if(!d) return;
-      paint('alpha', d.alpha || 0, d.alpha_max || 50);
-      paint('beta',  d.beta  || 0, d.beta_max  || 500);
-    })
-    .catch(function(err){
-      console.warn('[founding] cohort-stats fetch failed:', err && err.message);
-    });
+  fetch(SB + '/cohort_counts?select=*', {
+    headers: { 'apikey': AK, 'Authorization': 'Bearer ' + AK }
+  })
+  .then(function(r){ if(!r.ok) throw new Error('stats ' + r.status); return r.json(); })
+  .then(function(rows){
+    if(!rows || !rows[0]) return;
+    var d = rows[0];
+    paint('alpha', d.alpha_count || 0, d.alpha_max || 50);
+    paint('beta',  d.beta_count  || 0, d.beta_max  || 500);
+  })
+  .catch(function(err){
+    console.warn('[founding] cohort-stats fetch failed:', err && err.message);
+  });
 })();
 </script>
 </body>
