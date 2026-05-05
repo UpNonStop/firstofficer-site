@@ -73,10 +73,15 @@ body .nka{color:#666}body.biz .nka{color:#999}body.biz .nka:hover{color:var(--pi
 .nka.act{color:var(--pink);font-weight:700}body.biz .nka.act{color:#fff;font-weight:700}
 .ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:var(--r-pill);box-shadow:0 4px 16px rgba(37,211,102,.2);white-space:nowrap;transition:all .3s}
 .ncta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(37,211,102,.3)}
-.nav-tog{display:flex;align-items:stretch;border-radius:var(--r-pill);padding:3px;flex-shrink:0}
+.nav-tog{display:flex;align-items:stretch;border-radius:100px;padding:3px;flex-shrink:0}
 body .nav-tog{background:#ebebee;border:1px solid #dddde2}
 body.biz .nav-tog{background:#1a1a1a;border:1px solid #333}
-.nav-tog .tb{padding:10px 22px;font-size:13px;font-weight:600}
+.nav-tog .tb{flex:1;padding:10px 22px;font-size:13px;font-weight:600;border-radius:100px;transition:all .35s;text-align:center;white-space:nowrap;border:none;cursor:pointer;background:none;-webkit-tap-highlight-color:transparent;user-select:none}
+body .nav-tog .tb:not(.sel){color:#ccc}
+body.biz .nav-tog .tb:not(.sel){color:#555}
+body .nav-tog .tb:not(.sel):hover{color:#aaa}
+body.biz .nav-tog .tb:not(.sel):hover{color:#777}
+.nav-tog .tb.sel{background:#FA1896;color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.3)}
 .mob{display:none;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px}
 .mob span{width:20px;height:2px;background:currentColor;border-radius:1px}
 
