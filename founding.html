@@ -290,7 +290,7 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 </style>
 </head>
 <body>
-<script>if(new URLSearchParams(location.search).get('biz')==='1')document.body.classList.add('biz');</script>
+<script>if(new URLSearchParams(location.search).get('biz')==='1'){document.body.classList.add('biz');document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('togB'),s=document.getElementById('togS');if(b&&s){b.classList.remove('sel');s.classList.add('sel')}})}</script>
 
 <nav class="nav" id="mainNav">
 <div class="nav-in">
