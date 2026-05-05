@@ -357,7 +357,7 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
 <meta name="twitter:image" content="https://firstofficer.upnonstop.com/og-image.png">
 </head>
 <body>
-<script>if(new URLSearchParams(location.search).get('biz')==='1')document.body.classList.add('biz');</script>
+<script>if(new URLSearchParams(location.search).get('biz')==='1'){document.body.classList.add('biz');document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('togB'),s=document.getElementById('togS');if(b&&s){b.classList.remove('sel');s.classList.add('sel')}})}</script>
 
 <!-- ===== NAV ===== -->
 <nav class="nav" id="mainNav">
