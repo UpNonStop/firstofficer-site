@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trust - First Officer Perspective</title>
+<meta name="description" content="When everyone in the points ecosystem earns from your confusion, independent advice isn't a feature - it's the entire architecture.">
+<meta property="og:title" content="Trust - First Officer Perspective">
+<meta property="og:description" content="When everyone in the points ecosystem earns from your confusion, independent advice isn't a feature - it's the entire architecture.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://firstofficer.upnonstop.com/trust.html">
+<meta property="og:image" content="https://firstofficer.upnonstop.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://firstofficer.upnonstop.com/trust.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="canonical" href="https://firstofficer.upnonstop.com/trust.html">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+ul{list-style:none}a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;font-family:inherit;background:none}
+:root{--pink:#FA1896;--wa:#25D366;--font:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.4,0,.2,1);--r:16px;--r-pill:100px}
+body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;color:#111}
+.alt{background:#f5f6f8}.t2{color:#444}.t3{color:#777}.pk{color:var(--pink)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.crd{background:#fff;border:1px solid #e8e9ed;border-radius:var(--r);transition:all .5s var(--ease)}
+.crd:hover{box-shadow:0 12px 40px rgba(0,0,0,.06);transform:translateY(-4px)}
+.exb{background:#f5f6f8;border-radius:10px;padding:18px 22px;border-left:3px solid var(--pink)}
+.exb .lb{font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.8px;color:var(--pink);margin-bottom:5px}
+.exb p{font-size:14px;font-style:italic;line-height:1.55;margin:0}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .5s var(--ease)}
+.nav-in{max-width:1180px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav.stuck{backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(255,255,255,.88);border-bottom:1px solid #e8e9ed}
+.nl{font-size:19px;font-weight:700;letter-spacing:-.4px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nm{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;overflow:hidden}
+.nm img{display:block}
+.nk{display:flex;align-items:center;gap:28px}
+.nka{font-size:14px;font-weight:500;transition:color .3s;white-space:nowrap}.nka:hover{color:var(--pink)}
+.nka.act{position:relative}.nka.act::after{content:'';position:absolute;bottom:-6px;left:0;right:0;height:2px;background:var(--pink);border-radius:1px}
+.nav-tog{display:flex;align-items:stretch;border-radius:100px;padding:3px;flex-shrink:0;background:#ebebee;border:1px solid #dddde2}
+.tb{flex:1;padding:10px 22px;font-size:13px;font-weight:600;border-radius:100px;transition:all .35s;text-align:center;white-space:nowrap;border:none;cursor:pointer;background:none;-webkit-tap-highlight-color:transparent;user-select:none}
+.tb.sel{background:var(--pink);color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.3)}
+.tb:not(.sel){color:#aaa}
+.tb:not(.sel):hover{color:#777}
+.ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:var(--r-pill);box-shadow:0 6px 24px rgba(37,211,102,.25);white-space:nowrap;transition:all .3s var(--ease)}.ncta:hover{transform:translateY(-1px)}
+.mob{display:none;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px}.mob span{width:20px;height:2px;background:currentColor;border-radius:1px}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;border-radius:var(--r-pill);transition:all .3s var(--ease);white-space:nowrap}
+.btn-l{padding:16px 36px;font-size:16px}.btn-m{padding:13px 28px;font-size:15px}
+.btn-pk{background:var(--pink);color:#fff;box-shadow:0 8px 28px rgba(250,24,150,.22)}.btn-pk:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(250,24,150,.3)}
+.olb{border:1.5px solid #ddd;color:#111;transition:all .3s}.olb:hover{border-color:var(--pink);color:var(--pink)}
+.sec{padding:100px 0}
+.ey{font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:2.5px;color:var(--pink);margin-bottom:14px}
+.hd{font-family:var(--serif);font-size:clamp(30px,4.2vw,48px);line-height:1.12;letter-spacing:-.5px;margin-bottom:16px}.hd em{font-style:normal;color:var(--pink)}
+.ds{font-size:18px;line-height:1.7;max-width:600px}
+.sh{text-align:center;margin-bottom:60px}.sh .ds{margin:0 auto}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 32px 80px;overflow:hidden}
+.hero-photo{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.4;transition:opacity 1s var(--ease)}
+.hero::after{content:'';position:absolute;top:10%;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(250,24,150,.04) 0%,transparent 70%);pointer-events:none}
+.hero-c{position:relative;z-index:2;max-width:860px;width:100%}
+.hero h1{font-size:clamp(34px,5.5vw,64px);font-weight:900;line-height:1.06;letter-spacing:-2px;margin-bottom:28px;color:#111;text-shadow:0 2px 16px rgba(255,255,255,.95)}
+.hero-sub{font-size:18px;max-width:600px;margin:0 auto 40px;line-height:1.7;color:#111;font-weight:500;text-shadow:0 1px 14px rgba(255,255,255,1),0 0 40px rgba(255,255,255,.8)}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.hero-stats{display:flex;gap:48px;justify-content:center;flex-wrap:wrap}
+.hv{font-size:32px;font-weight:800;letter-spacing:-1px;line-height:1;color:#111;text-shadow:0 1px 10px rgba(255,255,255,.9)}.hv .pk{color:var(--pink)}
+.hl{font-size:12px;margin-top:6px;font-weight:500;color:#555}
+
+/* LIVE COUNTER */
+.live-counter{background:#f5f6f8;border-bottom:1px solid #e8e9ed;padding:18px 32px;text-align:center;font-family:var(--mono);font-size:14px;color:#555}
+.live-counter .cval{color:var(--pink);font-weight:800;font-size:20px;letter-spacing:-.5px}
+
+/* CONFUSION ENGINE */
+.ce{background:#fff;padding:64px 0 80px;overflow:hidden}
+.ce-wrap{position:relative;margin-top:40px}
+.ce-wrap::before,.ce-wrap::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
+.ce-wrap::before{left:0;background:linear-gradient(90deg,#fff,transparent)}.ce-wrap::after{right:0;background:linear-gradient(270deg,#fff,transparent)}
+.ce-track{display:flex;gap:20px;width:max-content}
+.ce-track.t1{animation:ceL var(--dur,120s) linear infinite}
+.ce-track.t2r{animation:ceR var(--dur,110s) linear infinite;margin-top:20px}
+@keyframes ceL{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes ceR{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+
+.cc{flex-shrink:0;width:290px;border-radius:var(--r);overflow:hidden;border:1px solid #e8e9ed;background:#fff;transition:all .4s var(--ease)}
+.cc:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 20px 60px rgba(0,0,0,.08);z-index:3}
+.cc-h{padding:16px 20px 12px;display:flex;align-items:center;gap:10px}
+.cc-p{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.cc-p.r{background:#ef4444;box-shadow:0 0 6px rgba(239,68,68,.5);animation:pulse 2s infinite}
+.cc-p.a{background:#f59e0b;box-shadow:0 0 6px rgba(245,158,11,.5);animation:pulse 2.5s infinite}
+.cc-p.g{background:#14b8a6;box-shadow:0 0 6px rgba(20,184,166,.5);animation:pulse 3s infinite}
+.cc-p.pk{background:var(--pink);box-shadow:0 0 6px rgba(250,24,150,.5);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+.cc-t{font-family:var(--mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px}
+.cc-t.wr{color:#ef4444}.cc-t.tr{color:#f59e0b}.cc-t.mi{color:#14b8a6}.cc-t.ex{color:var(--pink)}
+.cc-b{padding:0 20px 20px}
+.cc-b h4{font-size:15px;font-weight:800;margin-bottom:5px;line-height:1.3;letter-spacing:-.2px}
+.cc-b p{font-size:12px;line-height:1.5;color:#555}
+.cc-s{display:flex;gap:2px;margin-top:12px;border-radius:8px;overflow:hidden}
+.cc-s div{flex:1;padding:10px;text-align:center}
+.cc-s .you{background:#fef2f2;color:#b91c1c}
+.cc-s .fo{background:#f0fdf4;color:#15803d}
+.cc-sv{font-family:var(--mono);font-size:18px;font-weight:800;letter-spacing:-1px;line-height:1;margin-bottom:3px}
+.cc-sl{font-size:9px;text-transform:uppercase;letter-spacing:.8px;font-weight:500;opacity:.7}
+
+/* DESTINATION CARDS - full image */
+.cc-d{position:relative;height:100%}
+.cc-di{position:absolute;inset:0;background-size:cover;background-position:center}
+.cc-di::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(0,0,0,.7) 100%)}
+.cc-dinfo{position:absolute;bottom:0;left:0;right:0;padding:20px;z-index:1}
+.cc-dinfo h4{color:#fff;font-size:17px;font-weight:800;margin-bottom:4px;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.cc-dinfo p{color:rgba(255,255,255,.85);font-size:12px;line-height:1.5;text-shadow:0 1px 3px rgba(0,0,0,.3)}
+.cc-dt{position:absolute;top:14px;right:14px;background:var(--pink);color:#fff;font-size:10px;font-weight:700;padding:6px 16px;border-radius:var(--r-pill);letter-spacing:.3px;z-index:1;box-shadow:0 4px 16px rgba(250,24,150,.35)}
+
+/* STAT BAR */
+.stat-bar{display:grid;grid-template-columns:repeat(4,1fr);background:#f5f6f8;border-top:1px solid #e8e9ed;border-bottom:1px solid #e8e9ed}
+.stat-c{padding:40px 24px;text-align:center;border-right:1px solid #e8e9ed}.stat-c:last-child{border-right:none}
+.stat-n{font-family:var(--mono);font-size:clamp(28px,4vw,44px);font-weight:800;color:var(--pink);letter-spacing:-1.5px;line-height:1}
+.stat-l{font-size:13px;color:#777;margin-top:8px;font-weight:500;line-height:1.4}
+
+/* PROBLEM */
+.pc2{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.pc2-l{position:sticky;top:120px}
+.pc2-r{display:flex;flex-direction:column;gap:32px}
+.pi{padding:36px;border-radius:var(--r);border:1px solid #e8e9ed;position:relative;overflow:hidden;transition:all .5s var(--ease)}
+.pi:hover{box-shadow:0 16px 48px rgba(0,0,0,.06);transform:translateY(-3px)}
+.pi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--pink);opacity:.3}
+.pi-n{font-family:var(--mono);font-size:64px;font-weight:800;color:rgba(250,24,150,.06);line-height:1;letter-spacing:-3px;margin-bottom:8px}
+.pi h3{font-family:var(--serif);font-size:22px;margin-bottom:10px;line-height:1.2}
+.pi p{font-size:15px;line-height:1.7;color:#444}
+
+/* WA MOCK */
+.wal{display:grid;grid-template-columns:380px 1fr;gap:64px;align-items:center}
+.wam{width:380px;border-radius:24px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.12);flex-shrink:0}
+.wah{background:#075E54;padding:16px 20px;display:flex;align-items:center;gap:12px}
+.wav{width:36px;height:36px;border-radius:50%;background:#FA1896;overflow:hidden;flex-shrink:0;display:grid;place-items:center}
+.wav img{width:28px;height:28px;display:block}
+.wan{color:#fff;font-size:15px;font-weight:600}.was{color:rgba(255,255,255,.6);font-size:11px}
+.wab{background:#ECE5DD;padding:20px 16px;display:flex;flex-direction:column;gap:8px}
+.wm{max-width:85%;padding:10px 14px;font-size:13.5px;line-height:1.55;border-radius:8px}
+.wm-f{background:#DCF8C6;align-self:flex-start;border-radius:8px 8px 8px 2px}
+.wm-u{background:#fff;align-self:flex-end;border-radius:8px 8px 2px 8px}
+.wm-t{font-size:10px;color:#999;text-align:right;margin-top:4px}
+.wm-a{color:var(--pink);font-weight:700}.wm-v{color:#075E54;font-weight:700}
+
+/* TRUST */
+.tc{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:860px;margin:0 auto}
+.tcol{padding:40px;border-radius:var(--r)}.tcol.them{background:#f5f6f8;border:1px solid #e8e9ed}.tcol.us{background:linear-gradient(135deg,rgba(250,24,150,.02),rgba(250,24,150,.06));border:1.5px solid rgba(250,24,150,.15)}
+.tc-lb{font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px}.tcol.them .tc-lb{color:#999}.tcol.us .tc-lb{color:var(--pink)}
+.tc-i{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.04);font-size:14px;line-height:1.55;color:#444}.tc-i:last-child{border-bottom:none}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.stp{text-align:center;padding:12px 0}.stp-n{font-family:var(--mono);font-size:52px;font-weight:700;color:var(--pink);opacity:.2;line-height:1;margin-bottom:20px}.stp h4{font-size:17px;font-weight:700;margin-bottom:8px}
+
+/* PRICING */
+.pr{display:grid;gap:22px}.pr.c4{grid-template-columns:repeat(4,1fr)}.pr.c5{grid-template-columns:repeat(5,1fr)}
+.prc{padding:36px;position:relative}.prc.pop{border-color:var(--pink) !important;box-shadow:0 0 0 1px var(--pink),0 12px 40px rgba(250,24,150,.08)}
+.ppb{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--pink);color:#fff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 18px;border-radius:var(--r-pill)}
+.ptt{font-family:var(--mono);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--pink);margin-bottom:10px}
+.pam{font-size:44px;font-weight:800;letter-spacing:-1.5px;line-height:1;margin-bottom:4px}.pam .sm{font-size:16px;font-weight:500;letter-spacing:0}
+.ptg{font-size:14px;font-style:italic;margin-bottom:24px}
+.pfl li{padding:8px 0;font-size:14px;display:flex;align-items:flex-start;gap:10px;line-height:1.5}.pfl li+li{border-top:1px solid #f0f0f3}
+.pfl .ck{color:var(--pink);font-weight:700;flex-shrink:0;font-size:13px;margin-top:1px}.pfl .no{color:#ddd;font-weight:700;flex-shrink:0;font-size:13px;margin-top:1px}
+.prc .btn{width:100%;justify-content:center;margin-top:28px}
+
+/* CTA */
+.ctab{background:var(--pink);padding:80px 0;text-align:center}
+.ctab h2{font-size:clamp(26px,3.8vw,42px);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:14px}
+.ctab p{font-size:17px;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 32px;line-height:1.7}
+.ctab .bg{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.ctab .btn-pk{background:#fff;color:var(--pink);box-shadow:0 8px 30px rgba(0,0,0,.1)}
+.ctab .btn-gh{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+
+/* FOOTER */
+.ft{border-top:1px solid #e8e9ed;padding:64px 0 28px;background:#f5f6f8}
+.ftg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.ftb{border-top:1px solid #e8e9ed;padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:13px}
+.ftl a{margin-left:24px}.ftl a:hover{color:var(--pink)}
+
+@media(max-width:1024px){.pr.c4{grid-template-columns:repeat(2,1fr)}.pr.c5{grid-template-columns:repeat(3,1fr)}.pc2{gap:48px}.wal{grid-template-columns:1fr;justify-items:center}}
+@media(max-width:768px){.nk,.nav-tog{display:none}.mob{display:flex}.g2,.tc{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.pc2{grid-template-columns:1fr}.pc2-l{position:static}.stat-bar{grid-template-columns:1fr 1fr}.stat-c{border-bottom:1px solid #e8e9ed}.stat-c:nth-child(2){border-right:none}.pr.c4,.pr.c5{grid-template-columns:1fr;max-width:420px;margin:0 auto}.hero-stats{flex-direction:column;gap:16px}.ftg{grid-template-columns:1fr 1fr;gap:32px}.ftb{flex-direction:column;gap:12px;text-align:center}.sec{padding:64px 0}.wam{width:100%;max-width:380px}.hero h1{font-size:clamp(28px,5vw,48px)}}
+@media(max-width:480px){.hero-ctas,.ctab .bg{flex-direction:column;align-items:center}.steps,.ftg{grid-template-columns:1fr}.stat-bar{grid-template-columns:1fr}.stat-c{border-right:none}}
+
+/* PAGE SHOWSTOPPER */
+
+.ss-trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:920px;margin:0 auto;padding:20px}
+.ss-trust-card{padding:28px 20px;border-radius:var(--r);text-align:center;transition:all .5s var(--ease)}
+.ss-trust-card:hover{transform:translateY(-4px)}
+.ss-trust-bad{background:#fef2f2;border:1px solid #fecaca}
+.ss-trust-good{background:rgba(250,24,150,.04);border:1.5px solid rgba(250,24,150,.2);box-shadow:0 0 30px rgba(250,24,150,.06)}
+.ss-trust-who{font-size:15px;font-weight:800;margin-bottom:10px}
+.ss-trust-how{font-family:var(--mono);font-size:11px;color:var(--pink);margin-bottom:10px}
+.ss-trust-incentive{font-size:12px;color:#555;line-height:1.5}
+@media(max-width:768px){.ss-trust-grid{grid-template-columns:1fr 1fr}}
+
+</style>
+</head>
+<body>
+
+<nav class="nav" id="mainNav">
+<div class="nav-in">
+<a href="https://firstofficer.upnonstop.com" class="nl"><div class="nm"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAWSElEQVR4nM1be3ScVbX/7X3OTDKvZNKktLWWWuVRWhYqFO9VC2lQqRQsBUy4FBHwURXvxSdKL9AvQ8ULBXX5goVcwKu4wEkVKJSFXGmIFwVdPlArcJGXlNI2aZLpZF6Z+c7Z94/zfTMR0yYtpeuetbqa1Wa+7+x99vntvX+/PcAhXuIJC8BQQGH9AzcVe++/FZpBwf8d6v0c0pXtzioAEBEurbv/FlnTJ7Jmo5SvvP+OZ0SaAECC3zlUiw7Vi6Q7q6ivx7yUy83ouGbLXbER8z6/nDdEJCreoitp9ejIinlnze1asrvf69ddmS7/UOzrkDhAvH5NmS5/8JHfH9m6+W/3RofGjzHVok8ELVYAgq+iSV1rifxv/sSZZ3dccPKTv11zc2TJ9z5Re7339ro7IDR+120D72r70+6fRoYrs3xT8ZlYEyysABABiH2lorra0jQ0vqi9u+XTpwyEn3099/e6OUBECMt6FQ1k/NFrNq9KvFS4I1KqJWq2alhEQQTEBIAgxoKZYMUapZqUaY2NlxekPpr64vt/JN1ZhWy3JSJ5Pfb5ujhARAjUw4Q+M3btg5+Nv7DnGzRWgiGxBDBZgUAA+fsdMDEMxDIxc2sKpcMTVyfWnuaJgOB5RJmMPdh7PehpRzxhIhJSG03R27wh+fzYN5AvWp+sEMAQQAgQImc/uSgAABEBrGUjRuyeMRN/sbKudMWm7/WKEGUyNvs6ZIiDGgGSzSrq6TFbRZJvvuK+22OD1Q+a4h4jTEyg0EqICEgAYoFMDGwRiBWwVrBEICu+aknrUqT6s21rT/7Qwrlzd/d7nu7KZA4aLhw0B9TBrn/r7NbNz/6kacS8yxRzNTAiIAKIIGIBERCCkydC3QNC7lrAgsAAE6AZ5Z05P5G3ujC/5amRnoUfmH/20uek09M0cHCccFAcUDf+rsffmv7V9o3R3PgRvl/xiVjDGggFr7IWgABEIGaICBiBM4RcZJBA2P1/accoaqMFELPfgqguzUq8MvreI86Z95lTH5fOfk0Drz1DvGYHhBsZue6+kxIvFO+J5v0Z1lZ8MGuAALEQAGAGw4W/WAtiBz8i4pwBARmAFENgUd4+CjNWBmsFEMEwTEK08memyoUT5pw30zvzXkG3ArKWcOAZ4oBBUERIurOKBrr8kWs3r049V/x5dGR8hrVVA2ItwWEDACHYokM/F94TjAczAAYphrEWxReHYPIlsFYgIRAIGkqVWSwN5WMtv3nlnpG1P/k0qT4D9JKIHPBBHpADxPOYiYQ29pj8uvuvaHum+COdr0SsMhYgBWGQJYSZLrDWoXzgEAgFGSCogzTDr/kovLATUq6BtQbAEEX1z7MI1zTE5gq2bevod/KfzV5P0a9YIhLxvAOyZb89F9b0z4g0zfU23xjfVvoIimPGMJgnVCsi4d2e+CYKcM+6f+egFIgo+MUyyi8Ng42AIgqwE6NDAAiIGCCAmAW+NbHWtC7OT9y57abVnziGaEw8YcrQftUK++WA0PiXX365fcZ3frcxtn18mS3lfVGknX0u1IWC8Ca3eSE4YBMCSVAEMUHIGlaMaq6oyttHoIRc2IcZgt3fFLiAyDmQ4J4HAz+WSOryvNTDQ5cu7Z5/3PzRcI8H3QFh6tlx92NvSm/Zfn/zzspiUy36pJQO7zQA1G+jAFDBiVvnBAjAzIAiiLVWxWKM3XkMv7jdqkiEmdy1YKVcmVyPmiCSwmqCgoc5R/nNTQldOaxp6+DyuWfOP/99z+9PmpzWvfntmpsjNJDxd93yi3fP2PziY80vFxbbWskXIi3WgqwAYXkbGAECYAWwgR0S1AIEEWOMamnj0tzkrbsS5tb2VJpZYIQgRK4ekImfAUAM8ERHM4PcH12plfzmHcVjZ23a9uiu7/QvpYGM/9sTbo5Mx7YpI0DgMSFjczc8eG78j7tvi+QqcQPfsGYVgpoQh4fl7mwdt6T+MzHDElmyQirdQoW5zetTvWesAwO7L7r9ipbncl+p5gtitBKtFJMiiIT1o3Oqa56CtEloOBoEC5hm0qrWnqyU3jbz4vTlK+4KYmSfKXKfESCex5Be7Lnyns8kfzd4l86V4j5qloiUWAuqo3pgrMD9m23Av/MBQQhGQ7FNx+3YkamPpbwz1skHs0qWerrj1ouvGXnnG9dQe9I0GTAIxiU/CYxn9xaZaHTgWGJ3bZhUVYvl0bHmlicG7yxkNl0OEZ4qO+w1AsK6Ppe5b3nrM4UH7WjOWE3MrqYN3954CJFrcKhxDSQMZ7Z+hJt1NR0bKS/qODd9adfPJ97TOr5cv/mUll/8LRsfrrSXyfjEpN2jKTgqArN7bvj+eiolgJWCFSMKZFV7hxqd37xyxlfPum9fwLh37/xlJgGArvqHYdy3ItaydRDnOAyp1/FWJhy3IKjLrCtzrfUjKq4rM5qfGTth5tL0pV0/lwBT6qcwkPGl09NzLjt9y1DPsScX35j6SyzSrAVSI0UgxYBSIKUgQQk90fg6cIqAhUmUsihVrBrKpwEAg3/Z60FPCYISifhwVSyJFVBAZFDA5Lh0R3WHuGsRYIPxfRVL6fGO6MO5Ncef1PHxZU+J169pEqordMKbLjj5yaevPmlZ/s2pLbHmZAS++GACh6duXSahwAFE7FJiEHGkGMREUMTCMmUmmDoLiKXgIjcMDdMa1dEOEjY6AohYQdUYTrToyvzYHVu/1X3anLcdMSjdWbUviosGMr5ks2rJwoW7f3nrhSv2HNP6/aZUQotvrWmAzAQeRUAcODs4CBBBbL3DnBLk9+GARxo/hg8EINZCjG2Enw16e4LbHFmrjIDTraq4IOHFrlt1wQlEvngeT6dAoZ4eI57HpxFV099ZffGeRTMuj6QTHBEmYbKslKsl0CipGQS20ohCoiBvTvW26fYCE5qXOoFhpX4FbHD6VqxRwuyn49WxxTPWJNevvFpMt+P/JqGzxPMmRWnKZKyLqqxKf+3c63Jvndlj0rFiEzRbsUaCrtIGFaarKoPPqiBjAICamkDS03IAws4tQPfg/hOofi2siK9Vk67NiA8W39Gxuu2Tpz5c79lfFYkSJPjQKQJQcHL1UAt+NtLpabr67L5tNz6wbeYvB7NNI7V5Nb/sQylNEw6GlYIEjpCgalSY2gFTR4AxgG9AYXvreGyIWIj1EZyGr1VMV2YnnhxacVRn2ydPfVi8yQkLZ3wvEUEK6+67as+6TdcQQUC95E0WDQMZX7x+Pe+SFY8Pnb/wXaVZTY9FonENWJ+CPqEOiIE3oVxUGEzdEkwZAcYYIDwnCcpeUFiXCHxjdDylS7P0A7svWfyh+ccdN9rveZPy+QFhaiGCQu+JNyZ2lD8FYpSuvH9m79WnfzJDZCfr6CjT5Ut3VtGKf365X+SUJf92513J7epMv1wyUC4uLRBcVVcrgBjBxve5powApVSAvM4BNiAurYiQD9Etrbp8ROKmxG0Xnj7/uONGs91ZNRlpme3OKsqQfUJ2JEpfvvuexPbypzA2VjNjOT+2s/Lxy9du2vTU0FCKMmQl+4/sL/X1GPGElxGNp27+0KrCUa036LZWxQIIkyUmlx4V4dVX7jU5wK1G+gEJLIllI+B0kvNHpS6Lf737EqleyeJ53DMJ0ovXr3v6eswLv946e+GXHu+PDY6vNKW8bxkRArQp5vzmwcrpC776iy3bN/32cJcJ+v8hOinjokdqV3Fqw9mXjR2dXGPScaOJGUxGlKsJhOEwYBogOG0WRaxjdK1YExVmc1hLdc+SWd2t15x1g0P6Xpkc6R1hujv7+KI33PnMr5p2lU801ZIPQIeIx8TaVgp+08j4kplb/vZo7vv/cwJluvxJnUAkQEb6T/Z0S++qW/JL5pxem5kYZY4qgfhgdtE/zSiY0gHuON3dMtb6UTSp8dnJlwvvPfKUtstXbJROTxP6zGTSlXQ643PfffjUloFtA9Hh0gLflA0R6QlwHxqmfb9sIsOleYnfD24ZufHhlZTp8qVzEicA0hWAY8fnlz+UP3nuuyuzY39VkbiGWD/EKBNmgWWvwQEwCHpy9puaW3VlbvLx4Q8f++72j7z7V3sjHiYSpnuuf/Di+J+GHoiMljp8WzUspBocQaOKExEwsfJt1erhsZaWPw/fnb/+oU/SQJcv6FaTEZ+U6fL7vX7dceGyp3JrTlg6Pie2RcVaNAT+dGN7GiBIFsbYaHNTc+WNTXe+eNsFp85935KX+r3Jjfc8j0EE6usxhcwDl7c8V7otsqfERoxlCxXiSaNbRKOqFAEL2IixKldA6vmxmwpf/dkNpPoMiDBZ0dQVZIg5bzti8L++tur9pXnN3+eWZDOMtVBTp4GpCyFjNTrSXJgl16c2dH8JN52PIFVNivQ9mR6zWEQV1t737cQr459CPmd8EmZBWLXXa3aSsHcIagsE5IpY9skK78mZBKsvFL5w9+y+61Z9pIeoGrbpE98bZggQ+aRwcb5303OpQV6va4XogTvgycUCAJWkLtTiWDujd+W1YjyG9ArRPzKvdV1w19bkEZdv2tg0WF1uy3kfYD3xhK1YgF0PAXGPcTfBsT0cNjvEBMWq/MI2PzFmzl9+/m1znn766XNp4cLd/Z2e7npV9FGGrIiQUI+iq1Z+JbfhgWGpNOUBAIsX75UVmhoqA/1uX/RSiPSj9z6xIPbfz2abcv4SUynWSCES8NhByWxcNmGqd3PixKMgKqQO3sQK5d15VIfHQCC/NRrXpdnxP+dXv331nHPesXVfwxPZ7qzq6esxdTp5X+ZN6QC4pmVv2nxY7+/+wWP/1PLrV34SGSrPNTLuEzk2J3Sbc2FDEkNDJ3eOgHXyGJMzftcemFwBHIlAyJXbLdysy7MTQ6UT55zRcfkHfrMv9ne69PgBS0oCIXT3MfX1mJEbHlqZfGrkjki+mqrZccPMqq77k3VEBUJOgeuoD8AJIOFRaYJYoLxjBLY47nRBIKDDHa8YE6X89kSpePzcj7T3rvyxoFtBsgc8QXJg0pgIAT1MG3vM2IaHPpveOnxvZKSQMrZiGVCwBhADcGD038tD4UMCHHCNFSmG8QXFbUOwYxWnrQYkKAU0GxOpshJLo8X4jN/vumvPZX2fI91nQDRpIzWdtf/SmOcxMhkhhoxddvdXky+Pr0U+b3wtzMwkQZsMFRASBDjtP6h5AqVLTBCdApBW8Ks1lLftBvkWHA2M55B0dZ8XJihFMEyifLGx1rQqHNFyY+qm1Z9G1eCQSWNZkeiKz/XdnthRW20LYz4irIQCrOdGM0IsLtdL0EFyaLHDBWut4YhCbayiyttHwGJBSrluLujswnZX6hyg86QwgS385mSrLs6N/3Tb98676BiiscnS5EFxQGj8jieePaztlt9vbNpZPcmvjPlg0sxcP2HHFXJw2hK0pUCdNyM46tyIUU0JhdExDP9tu1U6yqwCbUUpF0GAI0Pr4oh7idMZgigT8ZujCV0+PPG74ieOXznzhGNeEc/TNM0xmmlmAZdyXv7ho0e3P/LSpubh6lHGL/ukWNevd6D1WycAgibSVKGWxwTrpAOjUq26PCv60z1PvliZvdNfPVYpGKuVKxoUg4JOjpnqgBmKIHXtoTFk4TfrZj0+s/n5Pacdec6sDy19YrozhtOWxoa++/Ou1GM7ftw0Oj7Tsu8D0BO5+cbvw53MBOMlyACWRWAguq2Ni2+MfTv5lZWXwhoMX3T7+vSzuSvLhYIgEhFiYqgJSlB9s8HskGroARPea5opoqqzkrmxE2af2/H55Q/tK31PywHiCdN6trn/eOC8+B923RrJVWI+G8NKKYg0dMCQhQZclReAHpQjKSwJwLDKEqM1geKbWy5L/vuKGwQePwJwF2X8XV/MXpL6485vRnJlXYnAKOZ6M09h+CtutLkhBVbHG4ZATJQjqpaO16qL2z6aXLfyh7Ju307YuzQW3PmR6x7oTP9p5BEM5+GTWCbiuj4X1vRAI6836DKACKwZBmK01qrWFh8vLeq4OH3pe+6cOAFal8bW33tKyx929MV3j88omIqvFGtqhBKgOJDKG8pQPQoCKd6CrLIgNaudRuY3v799/Vk/OzBpLFj6+ZE0lWowDJ8Aro+6hDk81Amcng3AESdM5DKeFV/rmKp2JHdU3nn4e9OXvudO6ezX1NdT5xDq0thVZ24ZvmDJstIb4n9MRhIaVmqO4aEJ5XPD8RLMEFAAjLAEtmBR4qNUFj1UmA3gAKWxRe5DNCseFyLAmuA+B/27Mw6wThdww4/BBAdJKIz6HG3W4x36N3vOfEtny4XvfHRvbLFjfz19+FlL/rzjG2ecWnhLcnMsnoqQEQMmqU+NIDQYUCDwBGmMgvE6IkcLC5vqlAc81S8YF6SAQViT16szEQtyA7CN2V8DiCJR1jdIterKG2L3Dm1Ydd7hRGWXo/chjWWcNEZz5gxC5AP5z9717dSz9OlavmitJiECTxyZsdZCKeUiLaw/wrqDFWBfkzQWLKUa5aoN0rkNtECBAzhqTOpZEoFvBamULs6LfuO+DavOOZyoLJ7wdAqUUBoTImr55nn/OnpsxyU2HaeIBYuIQXAlSLmxOuEAG8KJESAYrjpYpKgxTgwVgbW+u/MTR97CTg+AEWuVIeK2FOcXpi9LXvvBz3eT69P3p0QNpDGRTk/PuO6DN+WXHr7S70iNNHFU2Trxya5gmjgvIAgy0/SFkek5oL6zhhQGAMKAsHOGb62JQHOtPVEqvH3mWa1XnXGDdHr61ZLXtJ1AJA4c+/VhXz79/pHT3tJZnp14slk54rNOsmACpRbihJu7BCme0r796KCCloxC9G9cA7LiR7lJ1WYnX8qdvWh5yxfff4/jCTL+a/2iAw10+eJ5es7Hura++O/vOLk0PzkQjSa0GGtAqDMoxOSGKhnBbCGBmad89/QcEErOFnXtnQDACMQ3vtYxXZmX+N3wBcd3zjp7yV6R/kAXZTK+dGfVokWLhjff9C/vKRyd/qFOJRWMWMsk0AxRXJ9HrO+wPrqy9zU1KapU3aMSsDdEQU3vw0ZSrbo4N9r39HfPu2gJUWkqpD/Q5YhPj0FkSePDY2vveSL5YuRrnCvCgCy7SSpHAzvOPfzB6QIDkz932hEgxhU5AgMLa9mHRFpTqnBUckPylgt6lhCVpov0B7rqcwN+t0qtX/X13JJZ3X57Mq85ytZaAwkoiEAam86aHgiKhdTVDDJRSyztCc4tavtY6vruL0vtHLW/SH+gi4iE0Gek09Ntn3nvxtzSNyyrzo79VTclnTS2H8IosD/aIANC4jchqqrtqd35E+csb7vmrFsDaex1+1bX3lY4N3DYx5b9YeTjxy+tzGn6hUq0aBGqEZRMl+qYhgNUUIKS38QxXZ6b+uvYmUef1PGlFQ9NYGUPqfHhokyXL1mnCj339bPfV3lT7AcqnY6wGDeuNo2vWE0NgswCsdIcizeXZsV+Nvi5ky5acOyCnYfiS43TWa5yFGaiqkT4wmLv5hfiL8Q91BggmhKPptYGrSWkW6k4P/6tDf95wYoFxy7YOdW426FelCFrRUhqV3HiitN6x45Od9eSqkJVEzvgh4ZTGrs33H9Rbu3G64MvN9D/96+4yxo3JT7y7QfPGL72vuUAkO3u3utl+D+uyBSZadkaLgAAAABJRU5ErkJggg==" width="28" height="28" alt="UpNonStop" style="display:block"></div><div><div style="line-height:1.1">First Officer</div><div style="font-size:10px;font-weight:400;letter-spacing:.5px;line-height:1">by <span style="font-weight:700">UpNonStop</span>&trade;</div></div></a>
+<div class="nk">
+<a href="https://firstofficer.upnonstop.com" class="nka">Home</a>
+<a href="https://firstofficer.upnonstop.com/product-personal.html" class="nka">Product</a>
+<a href="https://firstofficer.upnonstop.com/how-personal.html" class="nka">How</a>
+<a href="https://firstofficer.upnonstop.com/calculator-personal.html" class="nka">Calculator</a>
+<a href="https://firstofficer.upnonstop.com" class="nka">Pricing</a>
+<a href="https://firstofficer.upnonstop.com" class="nka">About</a>
+</div>
+<div class="nav-tog">
+<button class="tb sel">Personal</button>
+<button class="tb" onclick="window.location.href='https://firstofficer.upnonstop.com#business'">Business</button>
+</div>
+<a href="https://wa.me/16199404040" class="ncta" target="_blank">&#x1F4AC; Start on WhatsApp</a>
+<button class="mob" onclick="toggleMob()"><span></span><span></span><span></span></button>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-photo" id="heroPhoto"></div>
+<div class="hero-c">
+<div class="ey" style="color:var(--pink)">Follow the money</div>
+<h1>In a $27 billion industry built on commissions, <span class='pk'>trust is the rarest product.</span></h1>
+<p class="hero-sub">Programs profit when your credits expire. Blogs profit when you sign up for their affiliate card. Trackers profit when you visit their dashboard. Consultants profit by the hour whether you act or not. Everyone in this ecosystem has a financial incentive that isn't aligned with your outcome. First Officer's only revenue is your subscription. Our only incentive is that the advice works well enough for you to stay.</p>
+<div class="hero-ctas">
+<a href="https://wa.me/16199404040?text=I%20want%20my%20free%20Points%20Score" class="btn btn-pk btn-l" target="_blank">&#x1F4AC; Get My Free Points Score</a>
+<a href="https://firstofficer.upnonstop.com" class="btn olb btn-l">Back to Home</a>
+</div>
+</div>
+</section>
+
+<!-- STAT BAR -->
+<div class="stat-bar"><div class="stat-c"><div class="stat-n">$0</div><div class="stat-l">FO earns from card signups</div></div>
+<div class="stat-c"><div class="stat-n">$0</div><div class="stat-l">FO earns from program partnerships</div></div>
+<div class="stat-c"><div class="stat-n">$0</div><div class="stat-l">FO earns from sponsored content</div></div>
+<div class="stat-c"><div class="stat-n">100%</div><div class="stat-l">Revenue from subscriptions</div></div>
+</div>
+
+<!-- SHOWSTOPPER -->
+<section class="sec alt">
+<div class="wrap"><div class="ss-trust-grid">
+<div class="ss-trust-card ss-trust-bad"><div class="ss-trust-who">Loyalty Programs</div><div class="ss-trust-how">Profit from expiration</div><div class="ss-trust-incentive">Your confusion = their breakage revenue</div></div>
+<div class="ss-trust-card ss-trust-bad"><div class="ss-trust-who">Points Blogs</div><div class="ss-trust-how">Profit from signups</div><div class="ss-trust-incentive">Your application = their $200-$400 payout</div></div>
+<div class="ss-trust-card ss-trust-bad"><div class="ss-trust-who">Balance Trackers</div><div class="ss-trust-how">Profit from eyeballs</div><div class="ss-trust-incentive">Your attention = their ad/data revenue</div></div>
+<div class="ss-trust-card ss-trust-good"><div class="ss-trust-who">First Officer</div><div class="ss-trust-how">Profit from subscriptions</div><div class="ss-trust-incentive">Your results = your renewal = our revenue</div></div>
+</div></div>
+</section>
+
+<!-- PROBLEM -->
+<section class="sec">
+<div class="wrap">
+<div class="pc2">
+<div class="pc2-l">
+<div class="ey">The Problem</div>
+<h2 class="hd" style="font-size:clamp(26px,3.5vw,38px)">In a $27 billion industry built on commissions, <span class='pk'>trust is the rarest product.</span></h2>
+</div>
+<div class="pc2-r"><div class="pi"><div class="pi-n">01</div><h3>The content is accurate. The framing is bought.</h3><p>Points blogs cite real earn rates, real bonus offers, real transfer ratios. The information is correct. But which cards get featured, how they're ranked, and what gets recommended first is determined by commission structures you never see.</p></div>
+<div class="pi"><div class="pi-n">02</div><h3>'Free' tools have a cost.</h3><p>Free credit card comparison sites, free points calculators, free recommendation engines - they're funded by affiliate revenue. The tool is free because YOU are the product. Every recommendation drives toward the highest-paying card, not the highest-earning card for your wallet.</p></div>
+<div class="pi"><div class="pi-n">03</div><h3>Programs don't want you optimized.</h3><p>Airlines and hotels design loyalty programs to be just confusing enough that most members redeem at low value or let points expire. A fully optimized member costs them money. An confused member generates breakage revenue. Your confusion is literally in their financial interest.</p></div>
+<div class="pi"><div class="pi-n">04</div><h3>Independence requires a different business model.</h3><p>You can't give unbiased card advice while earning commissions from card issuers. You can't monitor programs objectively while partnering with them. Independence isn't a marketing claim. It's an architectural decision that shapes every recommendation.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SOLUTION -->
+<section class="sec alt">
+<div class="wrap">
+<div class="sh">
+<div class="ey">How First Officer Helps</div>
+<h2 class="hd">This is what <em>changes</em> when you have an advisor.</h2>
+</div>
+<div class="g2"><div class="crd" style="padding:32px"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:10px">01</div><p class="t2" style="font-size:14px;line-height:1.65">Zero affiliate revenue. Verified. Ask us anything about our business model.</p></div>
+<div class="crd" style="padding:32px"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:10px">02</div><p class="t2" style="font-size:14px;line-height:1.65">Subscription-only revenue means our incentive is your continued success.</p></div>
+<div class="crd" style="padding:32px"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:10px">03</div><p class="t2" style="font-size:14px;line-height:1.65">No partnerships with card issuers, airlines, hotels, or programs.</p></div>
+<div class="crd" style="padding:32px"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:10px">04</div><p class="t2" style="font-size:14px;line-height:1.65">When we recommend against a card, there's no commission we're leaving behind.</p></div>
+<div class="crd" style="padding:32px"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:10px">05</div><p class="t2" style="font-size:14px;line-height:1.65">Your data never gets sold, shared, or used for advertising.</p></div>
+<div class="crd" style="padding:32px"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:10px">06</div><p class="t2" style="font-size:14px;line-height:1.65">Trust isn't a feature we built. It's the foundation everything else stands on.</p></div>
+</div>
+</div>
+</section>
+
+<!-- WA MOCKUP -->
+<section class="sec">
+<div class="wrap"><div class="wal">
+<div class="wam">
+<div class="wah"><div class="wav"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 14 12 9 17 14"/><polyline points="7 20 12 15 17 20"/></svg></div><div><div class="wan">First Officer</div><div class="was">online</div></div></div>
+<div class="wab">
+<div class="wm wm-u">How do I know you're not just another blog selling cards?</div>
+<div class="wm wm-f">Fair question. Here's the difference:
+
+<span class='wm-v'>Our revenue:</span> Your monthly subscription. That's it.
+<span class='wm-v'>Affiliate commissions:</span> $0. We don't participate in any card referral program.
+<span class='wm-v'>Sponsored content:</span> None. No brand has ever paid us to recommend anything.
+
+When I tell you the Amex Gold earns more on your groceries than the Platinum, it's because 4x at $25K cap beats 1x unlimited for your $800/month grocery spend. Not because anyone pays me to say it.
+
+<span class='wm-a'>The math is the recommendation. Nothing else.</span><div class="wm-t">Now</div></div>
+</div>
+</div>
+<div>
+<div class="ey">In Practice</div>
+<h2 class="hd">This is what it sounds like <em>in your pocket.</em></h2>
+<p class="t2" style="font-size:16px;line-height:1.75">Not theory. Not generic advice. A real conversation about your real wallet. Via WhatsApp.</p>
+</div>
+</div></div>
+</section>
+
+<!-- CTA -->
+<section class="ctab"><div class="wrap">
+<h2>Your points are worth more than you think.</h2>
+<p>4 WhatsApp questions. Free Points Score in 24 hours.</p>
+<div class="bg">
+<a href="https://wa.me/16199404040?text=I%20want%20my%20free%20Points%20Score" class="btn btn-pk btn-l">&#x1F4AC; Get My Free Points Score</a>
+<a href="https://firstofficer.upnonstop.com/calculator-personal.html" class="btn btn-gh btn-l">Try The Calculator</a>
+</div>
+</div></section>
+
+<!-- DISCLAIMER -->
+<div style="text-align:center;padding:24px 32px;font-size:11px;color:#999;line-height:1.6;max-width:680px;margin:0 auto">First Officer by UpNonStop LLC is an educational advisory tool, not a licensed financial advisor. All recommendations are informational. Your financial decisions are yours. We earn zero affiliate commissions. Estimated values reflect typical scenarios and vary by card, issuer, and merchant category code.</div>
+
+<footer class="ft"><div class="wrap">
+<div class="ftg">
+<div><div class="nl"><div class="nm"><img src="data:image/png;base64,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" width="28" height="28" alt="UpNonStop" style="display:block"></div><div><div style="line-height:1.1">First Officer</div><div style="font-size:10px;font-weight:400;letter-spacing:.5px;line-height:1">by <span style="font-weight:700">UpNonStop</span>&trade;</div></div></div><p class="t3" style="font-size:14px;line-height:1.7;max-width:280px;margin-top:14px">Your points advisory.</p></div>
+<div><h5 class="t3" style="font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:16px">Product</h5><a href="https://firstofficer.upnonstop.com" class="t2" style="display:block;font-size:14px;padding:5px 0">Home</a><a href="https://firstofficer.upnonstop.com/product-personal.html" class="t2" style="display:block;font-size:14px;padding:5px 0">Product</a><a href="https://firstofficer.upnonstop.com" class="t2" style="display:block;font-size:14px;padding:5px 0">Pricing</a></div>
+<div><h5 class="t3" style="font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:16px">Company</h5><a href="https://firstofficer.upnonstop.com" class="t2" style="display:block;font-size:14px;padding:5px 0">About</a><a href="https://upnonstop.com" target="_blank" class="t2" style="display:block;font-size:14px;padding:5px 0">Blog</a></div>
+<div><h5 class="t3" style="font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:16px">Connect</h5><a href="https://wa.me/16199404040" target="_blank" class="t2" style="display:block;font-size:14px;padding:5px 0">WhatsApp</a><a href="#" class="t2" style="display:block;font-size:14px;padding:5px 0">LinkedIn</a></div>
+</div>
+<div class="ftb t3"><span>&copy; 2026 UpNonStop LLC</span><div class="ftl"><a href="https://firstofficer.upnonstop.com/privacy-policy" class="t3">Privacy</a><a href="https://firstofficer.upnonstop.com/terms-of-service" class="t3">Terms</a></div></div>
+</div></footer>
+
+<script>
+document.getElementById('heroPhoto').style.backgroundImage='url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1600&q=80)';
+window.addEventListener('scroll',function(){document.getElementById('mainNav').classList.toggle('stuck',window.scrollY>20)});
+function toggleMob(){var l=document.querySelector('.nk');if(l.style.display==='flex'){l.style.display='none';return}l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='72px';l.style.left='0';l.style.right='0';l.style.background='#fff';l.style.padding='24px 32px';l.style.gap='16px';l.style.boxShadow='0 8px 24px rgba(0,0,0,.08)'}
+</script>
+</body>
+</html>
