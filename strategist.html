@@ -60,6 +60,10 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 .nav-tog .tb{flex:1;padding:10px 22px;font-size:13px;font-weight:600;border-radius:100px;transition:all .35s;text-align:center;white-space:nowrap;border:none;cursor:pointer;background:none;color:#ccc;-webkit-tap-highlight-color:transparent;user-select:none}
 .nav-tog .tb:hover:not(.sel){color:#aaa}
 .nav-tog .tb.sel{background:#FA1896;color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.3)}
+.nav-tog-mob{display:none}
+.nav-tog-mob{background:#ebebee;border:1px solid #dddde2}
+.nav-tog-mob .tb{flex:1;padding:10px 22px;font-size:13px;font-weight:600;border-radius:100px;transition:all .35s;text-align:center;white-space:nowrap;border:none;cursor:pointer;background:none;color:#ccc;-webkit-tap-highlight-color:transparent;user-select:none}
+.nav-tog-mob .tb.sel{background:#FA1896;color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.3)}
 
 /* BUTTONS */
 .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;border-radius:var(--r-pill);transition:all .3s var(--ease);white-space:nowrap}.btn:hover{transform:translateY(-2px)}
@@ -183,7 +187,7 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 .reveal{opacity:0;transform:translateY(30px);transition:all .8s var(--ease)}.reveal.vis{opacity:1;transform:translateY(0)}
 .reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}
 @media(max-width:1024px){.awaken-tiles{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:768px){.nk{display:none}.mob{display:flex}.ncta{display:none}.hero-stats{flex-direction:column;gap:16px}.cycle-ring,.loop-grid{grid-template-columns:1fr}.ba-grid{grid-template-columns:1fr;gap:16px}.ba-arrow{transform:rotate(90deg)}.awaken-tiles{grid-template-columns:repeat(3,1fr)}.sec{padding:64px 0}}
+@media(max-width:768px){.nk{display:none}.mob{display:flex}.ncta{display:none}.nav-tog{display:none}.nav-tog-mob{display:flex;align-items:stretch;border-radius:100px;padding:3px;margin:12px 0 4px;width:fit-content}.hero-stats{flex-direction:column;gap:16px}.cycle-ring,.loop-grid{grid-template-columns:1fr}.ba-grid{grid-template-columns:1fr;gap:16px}.ba-arrow{transform:rotate(90deg)}.awaken-tiles{grid-template-columns:repeat(3,1fr)}.sec{padding:64px 0}}
 @media(max-width:480px){.hero{padding:100px 20px 60px}.wrap{padding:0 20px}.hero-ctas{flex-direction:column;align-items:center}.awaken-tiles{grid-template-columns:repeat(2,1fr)}.hero h1{letter-spacing:-1.5px}.hv{font-size:24px}}
 </style>
 </head>
@@ -195,8 +199,12 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 <a href="product-personal.html" class="nka act">Product</a>
 <a href="how-personal.html" class="nka">How</a>
 <a href="calculator-personal.html" class="nka">Calculator</a>
-<a href="index.html#pricing" class="nka">Pricing</a>
-<a href="index.html#about" class="nka">About</a>
+<a href="firstofficer-site.html#pricing" class="nka">Pricing</a>
+<a href="firstofficer-site.html#about" class="nka">About</a>
+<div class="nav-tog-mob">
+<button class="tb sel">Personal</button>
+<button class="tb" onclick="location.href='strategist-business.html'">Business</button>
+</div>
 </div>
 <div class="nav-tog">
 <button class="tb sel">Personal</button>
@@ -214,7 +222,7 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 <p class="hero-sub">The Strategist maps every possible route through your points portfolio. Transfer paths, earn multipliers, redemption windows, partner sweet spots. Then it narrows to the single best action for your wallet right now.</p>
 <div class="hero-ctas">
 <a href="https://wa.me/16199404040" class="btn btn-wa btn-l" target="_blank">See Your Strategy</a>
-<a href="index.html" class="btn olb btn-l">How It Works</a>
+<a href="firstofficer-site.html" class="btn olb btn-l">How It Works</a>
 </div>
 <div class="hero-stats">
 <div><div class="hv"><span class="pk">629</span></div><div class="hl">Programs Monitored</div></div>
@@ -287,7 +295,7 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 <section class="ctab constellation-wrap"><canvas class="constellation-canvas" id="ctaCanvas"></canvas><div class="wrap" style="position:relative;z-index:1">
 <h2>Your Points Have a Strategy Waiting.</h2>
 <p>Four questions. Two minutes. The Strategist maps your portfolio and shows you what you are missing.</p>
-<div class="bg"><a href="https://wa.me/16199404040" class="btn btn-pk btn-l" target="_blank">Get My Strategy</a><a href="index.html" class="btn btn-gh btn-l">See Plans</a></div>
+<div class="bg"><a href="https://wa.me/16199404040" class="btn btn-pk btn-l" target="_blank">Get My Strategy</a><a href="firstofficer-site.html" class="btn btn-gh btn-l">See Plans</a></div>
 </div></section>
 
 <!-- ===== UNIFIED FOOTER (B2C) ===== -->
@@ -304,17 +312,17 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 <div style="font-size:10px;font-weight:400;letter-spacing:.5px;color:#888">by <span style="font-weight:700">UpNonStop</span>&trade;</div>
 </div>
 </div>
-<p style="font-size:13px;line-height:1.7;max-width:260px;color:#888">Award Travel Intelligence.<br>The strategy your points were missing.</p>
+<p style="font-size:13px;line-height:1.7;max-width:260px;color:#888">Award travel intelligence. 629+ programs monitored.</p>
 </div>
 <div>
 <h5 style="font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:14px;color:#111">Product</h5>
-<a href="index.html" style="display:block;font-size:13px;padding:4px 0;color:#666;text-decoration:none">Home</a>
-<a href="index.html#pricing" style="display:block;font-size:13px;padding:4px 0;color:#666;text-decoration:none">Pricing</a>
+<a href="firstofficer-site.html" style="display:block;font-size:13px;padding:4px 0;color:#666;text-decoration:none">Home</a>
+<a href="firstofficer-site.html#pricing" style="display:block;font-size:13px;padding:4px 0;color:#666;text-decoration:none">Pricing</a>
 <a href="calculator-personal.html" style="display:block;font-size:13px;padding:4px 0;color:#666;text-decoration:none">Calculator</a>
 </div>
 <div>
 <h5 style="font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-bottom:14px;color:#111">Company</h5>
-<a href="index.html#about" style="display:block;font-size:13px;padding:4px 0;color:#666;text-decoration:none">About</a>
+<a href="firstofficer-site.html#about" style="display:block;font-size:13px;padding:4px 0;color:#666;text-decoration:none">About</a>
 <a href="how-personal.html" style="display:block;font-size:13px;padding:4px 0;color:#666;text-decoration:none">How It Works</a>
 </div>
 <div>
