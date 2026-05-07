@@ -56,6 +56,10 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#000;
 .nav-tog .tb{flex:1;padding:10px 22px;font-size:13px;font-weight:600;border-radius:100px;transition:all .35s;text-align:center;white-space:nowrap;border:none;cursor:pointer;background:none;color:#555;-webkit-tap-highlight-color:transparent;user-select:none}
 .nav-tog .tb:hover:not(.sel){color:#777}
 .nav-tog .tb.sel{background:#FA1896;color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.3)}
+.nav-tog-mob{display:none}
+.nav-tog-mob{background:#1a1a1a;border:1px solid #333}
+.nav-tog-mob .tb{flex:1;padding:10px 22px;font-size:13px;font-weight:600;border-radius:100px;transition:all .35s;text-align:center;white-space:nowrap;border:none;cursor:pointer;background:none;color:#555;-webkit-tap-highlight-color:transparent;user-select:none}
+.nav-tog-mob .tb.sel{background:#FA1896;color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.3)}
 
 
 .ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:var(--r-pill);box-shadow:0 4px 16px rgba(37,211,102,.2);white-space:nowrap;transition:all .3s}
@@ -185,7 +189,7 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 /* Responsive */
 @media(max-width:1024px){.vr{gap:40px}}
 @media(max-width:768px){
-.nk{display:none}.mob{display:flex}.ncta{display:none}
+.nk{display:none}.mob{display:flex}.ncta{display:none}.nav-tog{display:none}.nav-tog-mob{display:flex;align-items:stretch;border-radius:100px;padding:3px;margin:12px 0 4px;width:fit-content}
 .wrap{padding:0 24px}
 .hero{padding:100px 0 56px;min-height:70vh;-webkit-background-size:cover;background-attachment:scroll}
 .hero::before{background:rgba(0,0,0,.6)!important}
@@ -235,6 +239,10 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 <a href="calculator-business.html" class="nka">Calculator</a>
 <a href="index.html?biz=1#pricing" class="nka">Pricing</a>
 <a href="index.html?biz=1#about" class="nka">About</a>
+<div class="nav-tog-mob">
+<button class="tb" onclick="location.href='index.html'">Personal</button>
+<button class="tb sel">Business</button>
+</div>
 </div>
 <div class="nav-tog">
 <button class="tb" onclick="location.href='index.html'">Personal</button>
