@@ -137,7 +137,7 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 
 /* WA MOCK */
 .wal{display:grid;grid-template-columns:380px 1fr;gap:64px;align-items:center}
-.wam{width:380px;border-radius:24px;overflow:visible;flex-shrink:0}
+.wam{width:380px;border-radius:24px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.12);flex-shrink:0}
 .wah{background:#075E54;padding:16px 20px;display:flex;align-items:center;gap:12px}
 .wav{width:36px;height:36px;border-radius:50%;background:#FA1896;overflow:hidden;flex-shrink:0;display:grid;place-items:center}
 .wav img{width:28px;height:28px;display:block}
@@ -198,6 +198,8 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 .ss-spec-line::after{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:20px;height:20px;background:var(--pink);border-radius:50%;box-shadow:0 0 16px rgba(250,24,150,.4)}
 
 
+
+.wa-disc{font-size:10px;font-style:italic;color:#aaa;margin:8px 0 0;max-width:380px}
 </style>
 </head>
 <body>
@@ -293,7 +295,6 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 <section class="sec">
 <div class="wrap"><div class="wal">
 <div class="wam">
-<div style="border-radius:24px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.12)">
 <div class="wah"><div class="wav"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 14 12 9 17 14"/><polyline points="7 20 12 15 17 20"/></svg></div><div><div class="wan">First Officer</div><div class="was">online</div></div></div>
 <div class="wab">
 <div class="wm wm-u">Why would I pay for this when I can just Google it?</div>
@@ -315,9 +316,6 @@ I check your balance, the current rates, any active bonuses, and the cash price.
 Google has the information. We have YOUR information.<div class="wm-t">Now</div></div>
 </div>
 </div>
-<p style="font-size:10px;font-style:italic;color:#aaa;text-align:center;padding-top:8px">Simulated conversation. Actual results vary by portfolio.</p>
-
-</div>
 </div>
 <div>
 <div class="ey">In Practice</div>
@@ -325,6 +323,8 @@ Google has the information. We have YOUR information.<div class="wm-t">Now</div>
 <p class="t2" style="font-size:16px;line-height:1.75">Not theory. Not generic advice. A real conversation about your real wallet. Via WhatsApp.</p>
 </div>
 </div></div>
+<p class="wa-disc">Simulated conversation. Actual results vary by portfolio.</p>
+
 </section>
 
 <!-- CTA -->
