@@ -407,28 +407,12 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
 <script>
 (function(){
   var p=new URLSearchParams(window.location.search);
-  var code=p.get('ref')||'';
-  var name=p.get('f')||'';
-  if(!name&&!code) name='Rodney';
+  var refCode=p.get('f')||'';
   var base='https://wa.me/16199404040?text=';
-  var msg;
-  if(name){
-    document.getElementById('badgeText').textContent='Sent by '+name;
-    document.getElementById('nameInHead').textContent=name;
-    msg=code
-      ?encodeURIComponent('Hi! '+name+' referred me. Code: '+code)
-      :encodeURIComponent('Hi! '+name+' sent me here.');
-  } else {
-    document.getElementById('badgeText').textContent='Your points, working harder';
-    document.getElementById('headline').innerHTML='Your Points Deserve <span class="pk">A Plan.</span>';
-    msg=code
-      ?encodeURIComponent('Hi! Referred by a friend. Code: '+code)
-      :encodeURIComponent('Hi! I found First Officer and want to learn more.');
-  }
-  var link=base+msg;
-  document.getElementById('heroCta').href=link;
-  document.getElementById('navCta').href=link;
+  var heroEl=document.getElementById('heroCta');
+  var navEl=document.getElementById('navCta');
 
+  // Hero photo
   var photos=[
     'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80',
     'https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1600&q=80',
@@ -452,6 +436,51 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
   window.addEventListener('scroll',function(){
     document.getElementById('mainNav').classList.toggle('stuck',window.scrollY>20);
   });
+
+  // No code - show fallback
+  if(!refCode){
+    showFallback();
+    return;
+  }
+
+  // GA: referral page view with code
+  if(typeof gtag==='function'){
+    gtag('event','referral_page_view',{ref_code:refCode});
+  }
+
+  // Look up name from Supabase Edge Function
+  fetch('https://cuzuzzbezswvejnoskum.supabase.co/functions/v1/referral-lookup?code='+encodeURIComponent(refCode))
+    .then(function(r){return r.json()})
+    .then(function(d){
+      if(d.name){
+        showPersonalized(d.name,refCode);
+      } else {
+        showFallback();
+      }
+    })
+    .catch(function(){
+      showFallback();
+    });
+
+  function showPersonalized(name,code){
+    document.getElementById('badgeText').textContent='Sent by '+name;
+    document.getElementById('nameInHead').textContent=name;
+    var msg=encodeURIComponent('Hi! '+name+' sent me here. ('+code+')');
+    heroEl.href=base+msg;
+    navEl.href=base+msg;
+    // GA: track CTA clicks
+    heroEl.addEventListener('click',function(){
+      if(typeof gtag==='function') gtag('event','referral_cta_click',{ref_code:code});
+    });
+  }
+
+  function showFallback(){
+    document.getElementById('badgeText').textContent='Your points, working harder';
+    document.getElementById('headline').innerHTML='Your Points Deserve <span class="pk">A Plan.</span>';
+    var msg=encodeURIComponent('Hi! I found First Officer and want to learn more.');
+    heroEl.href=base+msg;
+    navEl.href=base+msg;
+  }
 })();
 function toggleMob(){
   var l=document.querySelector('.nk');
