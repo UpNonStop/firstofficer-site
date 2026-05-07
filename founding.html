@@ -295,17 +295,17 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 
 <nav class="nav" id="mainNav">
 <div class="nav-in">
-<a href="firstofficer-site.html" class="nl">
+<a href="index.html" class="nl">
 <div class="nl-mark"></div>
 <div><div style="line-height:1.1">First Officer</div><div style="font-size:11px;font-weight:400;letter-spacing:.5px;line-height:1">by <span style="font-weight:700">UpNonStop</span><span style="font-weight:400">&trade;</span></div></div>
 </a>
 <div class="nk">
-<a href="firstofficer-site.html" class="nka">Home</a>
+<a href="index.html" class="nka">Home</a>
 <a href="product-personal.html" class="nka" id="prodLink">Product</a>
 <a href="how-personal.html" class="nka" id="howLink">How</a>
 <a href="calculator-personal.html" class="nka" id="calcLink">Calculator</a>
-<a href="firstofficer-site.html#pricing" class="nka" id="pricingLink">Pricing</a>
-<a href="firstofficer-site.html#about" class="nka" id="aboutLink">About</a>
+<a href="index.html#pricing" class="nka" id="pricingLink">Pricing</a>
+<a href="index.html#about" class="nka" id="aboutLink">About</a>
 </div>
 <div class="nav-tog">
 <button class="tb sel" id="togB" onclick="setMode('b2c')">Personal</button>
@@ -909,9 +909,9 @@ body .ft-note{color:#888}body.biz .ft-note{color:#777}
 </div>
 <div>
 <h5 class="t3" style="font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:14px">Product</h5>
-<a href="firstofficer-site.html" class="t2" style="display:block;font-size:13px;padding:4px 0">Home</a>
-<a href="firstofficer-site.html#pricing" class="t2" style="display:block;font-size:13px;padding:4px 0">Pricing</a>
-<a href="firstofficer-site.html#hub" class="t2" style="display:block;font-size:13px;padding:4px 0">Learn</a>
+<a href="index.html" class="t2" style="display:block;font-size:13px;padding:4px 0">Home</a>
+<a href="index.html#pricing" class="t2" style="display:block;font-size:13px;padding:4px 0">Pricing</a>
+<a href="index.html#hub" class="t2" style="display:block;font-size:13px;padding:4px 0">Learn</a>
 </div>
 <div>
 <h5 class="t3" style="font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:600;margin-bottom:14px">Legal</h5>
@@ -949,8 +949,8 @@ function setMode(m){
   var bizParam = biz ? '?biz=1' : '';
   var pricing = document.getElementById('pricingLink');
   var about = document.getElementById('aboutLink');
-  if(pricing) pricing.href = 'firstofficer-site.html' + bizParam + '#pricing';
-  if(about) about.href = 'firstofficer-site.html' + bizParam + '#about';
+  if(pricing) pricing.href = 'index.html' + bizParam + '#pricing';
+  if(about) about.href = 'index.html' + bizParam + '#about';
   var u=new URL(window.location);if(biz)u.searchParams.set('biz','1');else u.searchParams.delete('biz');history.replaceState(null,'',u);
 }
 window.addEventListener('scroll', function(){
