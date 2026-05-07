@@ -49,7 +49,7 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 .btn-l{padding:16px 36px;font-size:16px}.btn-m{padding:13px 28px;font-size:15px}
 .btn-pk{background:var(--pink);color:#fff;box-shadow:0 8px 28px rgba(250,24,150,.22)}.btn-pk:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(250,24,150,.3)}
 .olb{border:1.5px solid #ddd;color:#111;transition:all .3s}.olb:hover{border-color:var(--pink);color:var(--pink)}
-.sec{padding:100px 0}
+.sec{padding:72px 0}
 .ey{font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:2.5px;color:var(--pink);margin-bottom:14px}
 .hd{font-family:var(--serif);font-size:clamp(30px,4.2vw,48px);line-height:1.12;letter-spacing:-.5px;margin-bottom:16px}.hd em{font-style:normal;color:var(--pink)}
 .ds{font-size:18px;line-height:1.7;max-width:600px}
@@ -115,7 +115,7 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 
 /* STAT BAR */
 .stat-bar{display:grid;grid-template-columns:repeat(4,1fr);background:#f5f6f8;border-top:1px solid #e8e9ed;border-bottom:1px solid #e8e9ed}
-.stat-c{padding:40px 24px;text-align:center;border-right:1px solid #e8e9ed}.stat-c:last-child{border-right:none}
+.stat-c{padding:32px 24px;text-align:center;border-right:1px solid #e8e9ed}.stat-c:last-child{border-right:none}
 .stat-n{font-family:var(--mono);font-size:clamp(28px,4vw,44px);font-weight:800;color:var(--pink);letter-spacing:-1.5px;line-height:1}
 .stat-l{font-size:13px;color:#777;margin-top:8px;font-weight:500;line-height:1.4}
 
@@ -184,10 +184,12 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 @media(max-width:480px){.hero-ctas,.ctab .bg{flex-direction:column;align-items:center}.steps,.ftg{grid-template-columns:1fr}.stat-bar{grid-template-columns:1fr}.stat-c{border-right:none}}
 
 /* === CAROUSEL SHOWSTOPPER === */
-.carousel{position:relative;max-width:900px;margin:0 auto;overflow:hidden;border-radius:var(--r);box-shadow:0 24px 80px rgba(0,0,0,.1)}
+.carousel{position:relative;max-width:900px;margin:0 auto;overflow:hidden;border-radius:20px;box-shadow:0 32px 100px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.04)}
+.carousel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#dc2626 50%,var(--pink) 50%);z-index:3}
+.car-progress{position:absolute;top:0;left:0;height:2px;background:var(--pink);z-index:4;transition:width .3s;width:25%}
 .car-track{display:flex;transition:transform .6s cubic-bezier(.4,0,.2,1)}
 .car-slide{min-width:100%;display:grid;grid-template-columns:1fr 1fr}
-.car-side{padding:32px 28px}
+.car-side{padding:36px 32px;min-height:280px;display:flex;flex-direction:column;justify-content:center}
 .car-them{background:#fef2f2;border-right:1px solid #fecaca}
 .car-us{background:#fff}
 .car-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px}
@@ -196,13 +198,13 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 .car-title{font-family:var(--serif);font-size:18px;line-height:1.25;margin-bottom:8px}
 .car-desc{font-size:13px;color:#555;line-height:1.55;margin-bottom:16px}
 .car-metric{display:flex;align-items:baseline;gap:6px}
-.car-metric-val{font-family:var(--mono);font-size:32px;font-weight:800;letter-spacing:-1.5px}
+.car-metric-val{font-family:var(--mono);font-size:40px;font-weight:900;letter-spacing:-2px;line-height:1}
 .car-them .car-metric-val{color:#dc2626}.car-us .car-metric-val{color:var(--pink)}
 .car-metric-label{font-size:12px;color:#999}
 .car-nav{display:flex;justify-content:center;gap:8px;padding:16px 0;background:#fff}
 .car-dot{width:10px;height:10px;border-radius:50%;background:#e0e0e0;border:none;cursor:pointer;transition:all .3s;padding:0}
 .car-dot.active{background:var(--pink);transform:scale(1.2)}
-.car-vs{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.1);display:grid;place-items:center;font-size:12px;font-weight:900;color:#999;z-index:2}
+.car-vs{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#111;color:#fff;box-shadow:0 8px 32px rgba(0,0,0,.2);display:grid;place-items:center;font-size:11px;font-weight:900;letter-spacing:1px;z-index:5}
 
 /* Trust comparison */
 .tc{display:grid;grid-template-columns:1fr 1fr;gap:24px}.tcol{border-radius:var(--r);padding:32px}
@@ -273,6 +275,7 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 <p class="ds t2">A family spending $5,000/month. Here's what commission-funded rankings show vs. what your spend analysis reveals. Slide through.</p>
 </div>
 <div class="carousel">
+<div class="car-progress" id="carProgress"></div>
 <div class="car-vs">VS</div>
 <div class="car-track" id="carTrack">
 
@@ -389,7 +392,7 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 <div class="wah"><div class="wav"><img src="data:image/png;base64,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" width="28" height="28" alt="FO"></div><div><div class="wan">First Officer</div><div class="was">online</div></div></div>
 <div class="wab">
 <div class="wm wm-u">Everyone keeps recommending the premium platinum card. Is it really the best for me?</div>
-<div class="wm wm-f">It depends entirely on your spend. That card earns 5x on flights booked direct, but the <span class="wm-v">$695 annual fee</span> only pays off if you use all the credits.<br><br>For your pattern (groceries and dining), a <span class="wm-v">mid-tier card at $250/yr</span> earns significantly more on your actual categories.<br><br><span class="wm-a">The premium card pays blogs roughly $300 per signup. The mid-tier pays less. That's often why you see it recommended more.</span><div class="wm-t">11:42 AM</div></div>
+<div class="wm wm-f">It depends entirely on your spend. That card earns 5x on flights booked direct, but the <span class="wm-v">$695 annual fee</span> only pays off if you use all the credits.<br><br>For your pattern (groceries and dining), a <span class="wm-v">mid-tier card at $250/yr</span> earns significantly more on your actual categories.<br><br>The premium card typically pays blogs more per signup than the mid-tier. That's often why you see it featured more prominently.<div class="wm-t">11:42 AM</div></div>
 </div>
 </div>
 <div>
@@ -480,11 +483,14 @@ dots.forEach(function(d){
   d.addEventListener('click',function(){
     goSlide(parseInt(this.dataset.slide));
     clearInterval(autoTimer);
-    autoTimer=setInterval(function(){goSlide((current+1)%total)},6000);
+    autoTimer=setInterval(function(){goSlide((current+1)%total);updateProgress()},6000);
   });
 });
 
-autoTimer=setInterval(function(){goSlide((current+1)%total)},5000);
+var prog=document.getElementById('carProgress');
+function updateProgress(){if(prog)prog.style.width=((current+1)/total*100)+'%'}
+updateProgress();
+autoTimer=setInterval(function(){goSlide((current+1)%total);updateProgress()},5000);
 </script>
 </body>
 </html>
