@@ -3,18 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Affiliates - First Officer Perspective</title>
-<meta name="description" content="Points blogs earn $200-$400 per card signup. Their recommendations serve them. First Officer earns zero affiliate commissions.">
-<meta property="og:title" content="Affiliates - First Officer Perspective">
-<meta property="og:description" content="Points blogs earn $200-$400 per card signup. Their recommendations serve them. First Officer earns zero affiliate commissions.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://firstofficer.upnonstop.com/affiliates.html">
+<title>The Affiliate Problem - First Officer</title>
+<meta name="description" content="Points blogs earn $200 to $400 per card signup. Their recommendations serve them. First Officer earns zero affiliate commissions.">
+<meta property="og:title" content="The Affiliate Problem - First Officer">
+<meta property="og:description" content="Points blogs earn $200 to $400 per card signup. Their recommendations serve them. First Officer earns zero affiliate commissions.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://firstofficer.upnonstop.com/affiliates.html">
 <meta property="og:image" content="https://firstofficer.upnonstop.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://firstofficer.upnonstop.com/affiliates.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="canonical" href="https://firstofficer.upnonstop.com/affiliates.html">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 
@@ -188,16 +185,48 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 @media(max-width:768px){.nk,.nav-tog{display:none}.mob{display:flex}.g2,.tc{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.pc2{grid-template-columns:1fr}.pc2-l{position:static}.stat-bar{grid-template-columns:1fr 1fr}.stat-c{border-bottom:1px solid #e8e9ed}.stat-c:nth-child(2){border-right:none}.pr.c4,.pr.c5{grid-template-columns:1fr;max-width:420px;margin:0 auto}.hero-stats{flex-direction:column;gap:16px}.ftg{grid-template-columns:1fr 1fr;gap:32px}.ftb{flex-direction:column;gap:12px;text-align:center}.sec{padding:64px 0}.wam{width:100%;max-width:380px}.hero h1{font-size:clamp(28px,5vw,48px)}}
 @media(max-width:480px){.hero-ctas,.ctab .bg{flex-direction:column;align-items:center}.steps,.ftg{grid-template-columns:1fr}.stat-bar{grid-template-columns:1fr}.stat-c{border-right:none}}
 
-/* PAGE SHOWSTOPPER */
 
-.ss-flow{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;padding:20px}
-.ss-flow-step{text-align:center;padding:24px 20px;border-radius:var(--r);border:1px solid #e8e9ed;background:#fff;min-width:150px;transition:all .5s var(--ease)}
-.ss-flow-step:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.06)}
-.ss-flow-highlight{border-color:#ef4444;background:rgba(239,68,68,.03);box-shadow:0 0 30px rgba(239,68,68,.08)}
-.ss-flow-icon{font-size:32px;margin-bottom:10px}
-.ss-flow-label{font-size:12px;line-height:1.5;color:#555}
-.ss-flow-arrow{font-size:28px;color:var(--pink);font-weight:800}
+/* === AFFILIATES SHOWSTOPPER === */
+.aff-compare{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:900px;margin:0 auto;border-radius:var(--r);overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.1)}
+.aff-col{padding:0}
+.aff-col-head{padding:20px 28px;font-size:15px;font-weight:800;text-align:center;letter-spacing:-.3px}
+.aff-them .aff-col-head{background:#fef2f2;color:#dc2626;border-bottom:2px solid #fecaca}
+.aff-us .aff-col-head{background:rgba(250,24,150,.05);color:var(--pink);border-bottom:2px solid rgba(250,24,150,.15)}
+.aff-card{padding:20px 28px;border-bottom:1px solid #f0f0f3;transition:all .4s var(--ease)}
+.aff-them .aff-card{background:#fff}.aff-us .aff-card{background:#fafafa}
+.aff-card:last-child{border-bottom:none}
+.aff-card:hover{background:rgba(250,24,150,.02)}
+.aff-card-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px;font-weight:600}
+.aff-them .aff-card-label{color:#dc2626}.aff-us .aff-card-label{color:var(--pink)}
+.aff-card h4{font-size:15px;font-weight:700;margin-bottom:4px;line-height:1.3}
+.aff-card p{font-size:12px;color:#777;line-height:1.5}
+.aff-card-payout{font-family:var(--mono);font-size:20px;font-weight:800;margin-top:8px}
+.aff-them .aff-card-payout{color:#dc2626}.aff-us .aff-card-payout{color:var(--pink)}
+.aff-card-sub{font-size:11px;color:#aaa;margin-top:2px}
+@media(max-width:768px){.aff-compare{grid-template-columns:1fr}}
 
+/* Trust comparison (from Loyalty page) */
+.tc{display:grid;grid-template-columns:1fr 1fr;gap:24px}.tcol{border-radius:var(--r);padding:32px}
+.them{background:#fef2f2;border:1px solid #fecaca}.us{background:rgba(250,24,150,.03);border:1px solid rgba(250,24,150,.15)}
+.tc-lb{font-size:15px;font-weight:800;margin-bottom:20px;letter-spacing:-.3px}
+.tc-i{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:14px;line-height:1.55}
+.tc-i:last-child{border-bottom:none}
+@media(max-width:768px){.tc{grid-template-columns:1fr}}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stp{text-align:center;padding:28px 20px;border-radius:var(--r);border:1px solid #e8e9ed;transition:all .5s var(--ease)}
+.stp:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.06)}
+.stp-n{font-family:var(--mono);font-size:48px;font-weight:800;color:rgba(250,24,150,.08);line-height:1;letter-spacing:-3px;margin-bottom:8px}
+.stp h4{font-size:15px;font-weight:700;margin-bottom:6px}
+@media(max-width:768px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}}
+
+/* Social proof strip */
+.proof-strip{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;align-items:center;padding:48px 32px;background:#f5f6f8;border-top:1px solid #e8e9ed;border-bottom:1px solid #e8e9ed}
+.proof-item{text-align:center}
+.proof-num{font-family:var(--mono);font-size:clamp(28px,4vw,40px);font-weight:800;color:var(--pink);letter-spacing:-1.5px;line-height:1}
+.proof-label{font-size:13px;color:#777;margin-top:6px;font-weight:500}
 </style>
 </head>
 <body>
@@ -227,102 +256,182 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;
 <div class="hero-photo" id="heroPhoto"></div>
 <div class="hero-c">
 <div class="ey" style="color:var(--pink)">The commission conflict</div>
-<h1>When the advice is funded by the card issuer, <span class='pk'>who is it really for?</span></h1>
-<p class="hero-sub">The biggest names in points media earn $200 to $400 every time you click their link and get approved for a credit card. That's not a side business. That's THE business. And it shapes every recommendation they make.</p>
+<h1>When the advice is funded by the card issuer, <span class="pk">who is it really for?</span></h1>
+<p class="hero-sub">The biggest names in points media earn $200 to $400 every time you click their link and get approved. That's not a side business. That's the business. And it shapes every recommendation they make.</p>
 <div class="hero-ctas">
 <a href="https://wa.me/16199404040?text=I%20want%20my%20free%20Points%20Score" class="btn btn-pk btn-l" target="_blank">&#x1F4AC; Get My Free Points Score</a>
-<a href="https://firstofficer.upnonstop.com" class="btn olb btn-l">Back to Home</a>
+<a href="#showstopper" class="btn olb btn-l">See The Comparison &#x2193;</a>
+</div>
+</div>
+</section>
+
+<!-- SHOWSTOPPER: Side-by-side affiliate comparison -->
+<section class="sec" id="showstopper">
+<div class="wrap">
+<div class="sh">
+<div class="ey">The Comparison</div>
+<h2 class="hd">Same person. Same wallet. <em>Different recommendations.</em></h2>
+<p class="ds t2">A family spending $5,000/month, mostly on groceries and dining. Here's what a commission-driven blog recommends vs. what an independent advisor recommends.</p>
+</div>
+<div class="aff-compare">
+<div class="aff-col aff-them">
+<div class="aff-col-head">&#x2717; What Blogs Recommend</div>
+<div class="aff-card">
+<div class="aff-card-label">Their #1 pick</div>
+<h4>Premium travel card ($695/yr)</h4>
+<p>1x on groceries. 1x on dining. 5x on flights only. Great for frequent flyers. Not for this family.</p>
+<div class="aff-card-payout">$300+</div>
+<div class="aff-card-sub">Commission per signup</div>
+</div>
+<div class="aff-card">
+<div class="aff-card-label">Their #2 pick</div>
+<h4>Cash rewards card (no fee)</h4>
+<p>1.5% flat cashback. Safe. Simple. And the lowest return on this family's spend pattern.</p>
+<div class="aff-card-payout">$200</div>
+<div class="aff-card-sub">Commission per signup</div>
+</div>
+<div class="aff-card">
+<div class="aff-card-label">Their #3 pick</div>
+<h4>Hotel co-brand card ($95/yr)</h4>
+<p>Earns hotel points only. Can't transfer. Family doesn't even stay at this chain regularly.</p>
+<div class="aff-card-payout">$175</div>
+<div class="aff-card-sub">Commission per signup</div>
+</div>
+<div class="aff-card">
+<div class="aff-card-label">Typical annual value</div>
+<h4 style="color:#dc2626">Estimated: ~$1,200/year</h4>
+<p>Because the cards aren't matched to the spend. They're matched to the payouts.</p>
+</div>
+</div>
+<div class="aff-col aff-us">
+<div class="aff-col-head">&#x2713; What First Officer Recommends</div>
+<div class="aff-card">
+<div class="aff-card-label">For groceries ($800/mo)</div>
+<h4>A card earning 4x at US supermarkets</h4>
+<p>Matched to their #1 spend category. Earns transferable points, not locked-in hotel currency.</p>
+<div class="aff-card-payout">38,400</div>
+<div class="aff-card-sub">Points/year on groceries alone</div>
+</div>
+<div class="aff-card">
+<div class="aff-card-label">For dining ($600/mo)</div>
+<h4>A card earning 3x on restaurants worldwide</h4>
+<p>Their second-highest category. Transferable points that combine with the grocery card's bank.</p>
+<div class="aff-card-payout">21,600</div>
+<div class="aff-card-sub">Points/year on dining alone</div>
+</div>
+<div class="aff-card">
+<div class="aff-card-label">For everything else</div>
+<h4>A 2x unlimited card (no annual fee)</h4>
+<p>Catches the remaining $3,600/mo at 2x. Same transferable currency. No cap.</p>
+<div class="aff-card-payout">86,400</div>
+<div class="aff-card-sub">Points/year on remaining spend</div>
+</div>
+<div class="aff-card">
+<div class="aff-card-label">Typical annual value</div>
+<h4 style="color:var(--pink)">Estimated: ~$3,600/year</h4>
+<p>Because the cards are matched to the wallet. Not to anyone's commission.</p>
+</div>
+</div>
 </div>
 </div>
 </section>
 
 <!-- STAT BAR -->
-<div class="stat-bar"><div class="stat-c"><div class="stat-n">$200-$400</div><div class="stat-l">Per approved card signup</div></div>
+<div class="stat-bar">
+<div class="stat-c"><div class="stat-n">$200-$400</div><div class="stat-l">Per approved card signup</div></div>
 <div class="stat-c"><div class="stat-n">$100M+</div><div class="stat-l">Annual affiliate revenue, top sites</div></div>
 <div class="stat-c"><div class="stat-n">0</div><div class="stat-l">Disclosures at top of article</div></div>
 <div class="stat-c"><div class="stat-n">$0</div><div class="stat-l">FO earns from card signups</div></div>
 </div>
-
-<!-- SHOWSTOPPER -->
-<section class="sec alt">
-<div class="wrap"><div class="ss-flow">
-<div class="ss-flow-step"><div class="ss-flow-icon">📝</div><div class="ss-flow-label">Blog publishes<br>"Best Cards of 2026"</div></div>
-<div class="ss-flow-arrow">→</div>
-<div class="ss-flow-step"><div class="ss-flow-icon">👆</div><div class="ss-flow-label">You click<br>the affiliate link</div></div>
-<div class="ss-flow-arrow">→</div>
-<div class="ss-flow-step"><div class="ss-flow-icon">✅</div><div class="ss-flow-label">You get approved<br>for the card</div></div>
-<div class="ss-flow-arrow">→</div>
-<div class="ss-flow-step ss-flow-highlight"><div class="ss-flow-icon">💰</div><div class="ss-flow-label">Blog earns<br><strong style="font-size:24px;color:#dc2626">$200-$400</strong></div></div>
-<div class="ss-flow-arrow">→</div>
-<div class="ss-flow-step"><div class="ss-flow-icon">🤷</div><div class="ss-flow-label">Was it the best card<br><em>for you?</em></div></div>
-</div></div>
-</section>
 
 <!-- PROBLEM -->
 <section class="sec">
 <div class="wrap">
 <div class="pc2">
 <div class="pc2-l">
-<div class="ey">The Problem</div>
-<h2 class="hd" style="font-size:clamp(26px,3.5vw,38px)">When the advice is funded by the card issuer, <span class='pk'>who is it really for?</span></h2>
+<div class="ey">The Real Problem</div>
+<h2 class="hd">The content is accurate. <em>The framing is bought.</em></h2>
+<p class="ds t2">Every earn rate they cite is real. Every bonus structure is correct. But which cards get featured, how they're ranked, and what's recommended first is shaped by commission structures you never see.</p>
 </div>
-<div class="pc2-r"><div class="pi"><div class="pi-n">01</div><h3>The recommendation isn't for you.</h3><p>When a blog ranks cards, the card paying the highest commission consistently appears first. The 'best' card is often the best-paying card. You'd never know because the commission structure isn't disclosed at the top of the article.</p></div>
-<div class="pi"><div class="pi-n">02</div><h3>Comparison tables are ad placements.</h3><p>Those clean, helpful-looking comparison tables? Each row is a paid placement. Cards that don't pay affiliates don't appear. You're comparing options from a pre-filtered list designed to generate revenue, not to show you every option.</p></div>
-<div class="pi"><div class="pi-n">03</div><h3>'Reviews' are sales pages.</h3><p>A 2,000-word 'review' of a premium travel card exists because that card pays $300+ per signup. Cards with lower commissions get shorter reviews, worse ratings, or no coverage at all. The depth of coverage correlates with payout, not value.</p></div>
-<div class="pi"><div class="pi-n">04</div><h3>The math is real. The motive isn't.</h3><p>The earn rates and bonus structures they cite are accurate. That's what makes it effective. The facts are right. The framing is bought. You get correct information arranged to lead you to the most profitable conclusion for the publisher.</p></div>
+<div class="pc2-r">
+<div class="pi"><div class="pi-n">01</div><h3>The recommendation isn't for you.</h3><p>When a blog ranks cards, the one paying the highest commission consistently appears first. The "best" card is often the best-paying card. You'd never know because the payout isn't disclosed at the top of the article.</p></div>
+<div class="pi"><div class="pi-n">02</div><h3>Comparison tables are ad placements.</h3><p>Those clean, helpful-looking comparison tables? Each row is a paid position. Cards that don't pay affiliates don't appear. You're comparing options from a pre-filtered list designed to generate revenue, not to show you every option.</p></div>
+<div class="pi"><div class="pi-n">03</div><h3>"Reviews" are sales pages.</h3><p>A 2,000-word "review" of a premium travel card exists because that card pays $300+ per signup. Cards with lower commissions get shorter reviews or no coverage at all. The depth of coverage correlates with payout, not value to you.</p></div>
+<div class="pi"><div class="pi-n">04</div><h3>The math is real. The motive isn't.</h3><p>The facts are right. The framing is bought. You get correct information arranged to lead you to the most profitable conclusion for the publisher, not for your wallet.</p></div>
 </div>
-</div>
-</div>
-</section>
-
-<!-- SOLUTION -->
-<section class="sec alt">
-<div class="wrap">
-<div class="sh">
-<div class="ey">How First Officer Helps</div>
-<h2 class="hd">This is what <em>changes</em> when you have an advisor.</h2>
-</div>
-<div class="g2"><div class="crd" style="padding:32px"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:10px">01</div><p class="t2" style="font-size:14px;line-height:1.65">Zero affiliate commissions. Our revenue is your subscription.</p></div>
-<div class="crd" style="padding:32px"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:10px">02</div><p class="t2" style="font-size:14px;line-height:1.65">We recommend what earns the most for YOUR spend, not what pays us.</p></div>
-<div class="crd" style="padding:32px"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:10px">03</div><p class="t2" style="font-size:14px;line-height:1.65">No comparison tables. No ranked lists. Just your cards, your math.</p></div>
-<div class="crd" style="padding:32px"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:10px">04</div><p class="t2" style="font-size:14px;line-height:1.65">When we say Amex Gold over Platinum, it's because the math says so.</p></div>
-<div class="crd" style="padding:32px"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:10px">05</div><p class="t2" style="font-size:14px;line-height:1.65">No sponsored content. No paid placements. No advertising deals.</p></div>
-<div class="crd" style="padding:32px"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1;margin-bottom:10px">06</div><p class="t2" style="font-size:14px;line-height:1.65">Our incentive is your renewal. That only happens if the advice works.</p></div>
 </div>
 </div>
 </section>
 
 <!-- WA MOCKUP -->
-<section class="sec">
+<section class="sec alt">
 <div class="wrap"><div class="wal">
 <div class="wam">
-<div class="wah"><div class="wav"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 14 12 9 17 14"/><polyline points="7 20 12 15 17 20"/></svg></div><div><div class="wan">First Officer</div><div class="was">online</div></div></div>
+<div class="wah"><div class="wav"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px"><polyline points="7 14 12 9 17 14"/><polyline points="7 20 12 15 17 20"/></svg></div><div><div class="wan">First Officer</div><div class="was">online</div></div></div>
 <div class="wab">
-<div class="wm wm-u">I keep seeing blogs recommend the Amex Platinum. Is it really the best card for me?</div>
-<div class="wm wm-f">It depends entirely on your spend. The Platinum earns 5x on flights booked direct and has strong credits, but the $695 annual fee only makes sense if you use the $200 airline credit, $200 hotel credit, $200 Uber credit, and $100 Saks credit.
-
-For your spending pattern (mostly groceries and dining), the <span class='wm-v'>Amex Gold at $250/yr</span> earns significantly more on your actual categories.
-
-The Platinum pays blogs roughly $300 per signup. The Gold pays less. That's why you see it recommended more often.<div class="wm-t">Now</div></div>
+<div class="wm wm-u">Everyone recommends the premium platinum card. Is it really the best for me?</div>
+<div class="wm wm-f">It depends entirely on your spend. That card earns 5x on flights booked direct, but the <span class="wm-v">$695 annual fee</span> only makes sense if you use all the credits: airline, hotel, rideshare, and department store credits.<br><br>For your spending pattern (mostly groceries and dining), a <span class="wm-v">mid-tier card at $250/yr</span> earns significantly more on your actual categories.<br><br><span class="wm-a">The premium card pays blogs roughly $300 per signup. The mid-tier pays less. That's often why you see it recommended more.</span><div class="wm-t">11:42 AM</div></div>
+<div class="wm wm-u">That explains a lot. What should I actually do?</div>
+<div class="wm wm-f">Keep the card you have for dining (3x). Add a <span class="wm-v">4x grocery card</span> for supermarkets. Route everything else through a <span class="wm-v">2x unlimited card</span>.<br><br>Same monthly spend. Estimated 3x the return.<br><br>No commission influences this recommendation. Just your numbers.<div class="wm-t">11:43 AM</div></div>
 </div>
 </div>
 <div>
 <div class="ey">In Practice</div>
-<h2 class="hd">This is what it sounds like <em>in your pocket.</em></h2>
-<p class="t2" style="font-size:16px;line-height:1.75">Not theory. Not generic advice. A real conversation about your real wallet. Via WhatsApp.</p>
+<h2 class="hd">We tell you what blogs <em>won't.</em></h2>
+<p class="t2" style="font-size:16px;line-height:1.75;margin-bottom:28px">When a recommendation costs someone $300 in lost commission, you'll only hear it from an advisor with no affiliate ties. That's us.</p>
+<div class="exb" style="margin-bottom:16px"><div class="lb">No affiliates</div><p class="t2">Zero commission revenue. Not reduced. Zero.</p></div>
+<div class="exb" style="margin-bottom:16px"><div class="lb">Your spend</div><p class="t2">Recommendations based on YOUR categories, not generic rankings.</p></div>
+<div class="exb" style="margin-bottom:16px"><div class="lb">Full picture</div><p class="t2">Every card option, including ones blogs won't show you.</p></div>
+<div class="exb"><div class="lb">One incentive</div><p class="t2">Your renewal. That only happens if the advice works.</p></div>
 </div>
 </div></div>
 </section>
 
-<!-- CTA -->
-<section class="ctab"><div class="wrap">
-<h2>Your points are worth more than you think.</h2>
-<p>4 WhatsApp questions. Free Points Score in 24 hours.</p>
-<div class="bg">
-<a href="https://wa.me/16199404040?text=I%20want%20my%20free%20Points%20Score" class="btn btn-pk btn-l">&#x1F4AC; Get My Free Points Score</a>
-<a href="https://firstofficer.upnonstop.com/calculator-personal.html" class="btn btn-gh btn-l">Try The Calculator</a>
+<!-- TRUST COMPARISON -->
+<section class="sec">
+<div class="wrap"><div class="sh"><div class="ey">The Difference</div><h2 class="hd">Everyone else has a second agenda. <em>We only have yours.</em></h2></div>
+<div class="tc">
+<div class="tcol them"><div class="tc-lb">Commission-Funded Media</div>
+<div class="tc-i"><span style="color:#dc2626;font-weight:700;flex-shrink:0">&#x2717;</span><span class="t2">Earn $200-$400 per card signup they refer</span></div>
+<div class="tc-i"><span style="color:#dc2626;font-weight:700;flex-shrink:0">&#x2717;</span><span class="t2">Rank cards by commission, not by fit</span></div>
+<div class="tc-i"><span style="color:#dc2626;font-weight:700;flex-shrink:0">&#x2717;</span><span class="t2">Generic advice for generic readers</span></div>
+<div class="tc-i"><span style="color:#dc2626;font-weight:700;flex-shrink:0">&#x2717;</span><span class="t2">You do all the work after reading</span></div>
+<div class="tc-i"><span style="color:#dc2626;font-weight:700;flex-shrink:0">&#x2717;</span><span class="t2">Disclosure buried at bottom of page</span></div>
+<div class="tc-i"><span style="color:#dc2626;font-weight:700;flex-shrink:0">&#x2717;</span><span class="t2">No ongoing relationship. To them, you're a click.</span></div>
 </div>
+<div class="tcol us"><div class="tc-lb">First Officer</div>
+<div class="tc-i"><span style="color:var(--pink);font-weight:700;flex-shrink:0">&#x2713;</span><span>Zero affiliate commissions. None.</span></div>
+<div class="tc-i"><span style="color:var(--pink);font-weight:700;flex-shrink:0">&#x2713;</span><span>Recommends what earns the most for you</span></div>
+<div class="tc-i"><span style="color:var(--pink);font-weight:700;flex-shrink:0">&#x2713;</span><span>Knows your specific cards and goals</span></div>
+<div class="tc-i"><span style="color:var(--pink);font-weight:700;flex-shrink:0">&#x2713;</span><span>Tells you what to do and when to do it</span></div>
+<div class="tc-i"><span style="color:var(--pink);font-weight:700;flex-shrink:0">&#x2713;</span><span>No disclosure needed. No conflicts exist.</span></div>
+<div class="tc-i"><span style="color:var(--pink);font-weight:700;flex-shrink:0">&#x2713;</span><span>Ongoing advisor. Gets smarter over time.</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<div class="proof-strip">
+<div class="proof-item"><div class="proof-num">500+</div><div class="proof-label">Clients served</div></div>
+<div class="proof-item"><div class="proof-num">108</div><div class="proof-label">Cards tracked</div></div>
+<div class="proof-item"><div class="proof-num">629+</div><div class="proof-label">Programs monitored</div></div>
+<div class="proof-item"><div class="proof-num">$0</div><div class="proof-label">Affiliate commissions</div></div>
+</div>
+
+<!-- STEPS -->
+<section class="sec"><div class="wrap"><div class="sh"><div class="ey">Getting Started</div><h2 class="hd">4 Questions. Under 5 Minutes. <em>That's It.</em></h2></div>
+<div class="steps">
+<div class="stp"><div class="stp-n">01</div><h4>Tell us your cards</h4><p class="t2" style="font-size:14px">Which cards do you carry?</p></div>
+<div class="stp"><div class="stp-n">02</div><h4>Share your spend</h4><p class="t2" style="font-size:14px">Roughly how much and where?</p></div>
+<div class="stp"><div class="stp-n">03</div><h4>Name your programs</h4><p class="t2" style="font-size:14px">Airlines, hotels, any loyalty.</p></div>
+<div class="stp"><div class="stp-n">04</div><h4>Set your goals</h4><p class="t2" style="font-size:14px">Where do you want to go?</p></div>
+</div>
+<div style="text-align:center;margin-top:48px"><a href="https://wa.me/16199404040?text=I%20want%20my%20free%20Points%20Score" class="btn btn-pk btn-l" target="_blank">&#x1F4AC; Get My Free Points Score</a></div>
 </div></section>
+
+<!-- CTA -->
+<section class="ctab"><div class="wrap"><h2>Your points are worth more than you think.</h2><p>4 WhatsApp questions. Free Points Score in 24 hours.</p><div class="bg"><a href="https://wa.me/16199404040?text=I%20want%20my%20free%20Points%20Score" class="btn btn-pk btn-l">&#x1F4AC; Get My Free Points Score</a><a href="https://firstofficer.upnonstop.com/calculator-personal.html" class="btn btn-gh btn-l">Try The Calculator</a></div></div></section>
 
 <!-- DISCLAIMER -->
 <div style="text-align:center;padding:24px 32px;font-size:11px;color:#999;line-height:1.6;max-width:680px;margin:0 auto">First Officer by UpNonStop LLC is an educational advisory tool, not a licensed financial advisor. All recommendations are informational. Your financial decisions are yours. We earn zero affiliate commissions. Estimated values reflect typical scenarios and vary by card, issuer, and merchant category code.</div>
@@ -338,7 +447,8 @@ The Platinum pays blogs roughly $300 per signup. The Gold pays less. That's why 
 </div></footer>
 
 <script>
-document.getElementById('heroPhoto').style.backgroundImage='url(https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&q=80)';
+var photos=["photo-1554224155-6726b3ff858f","photo-1507525428034-b723cf961d3e","photo-1476514525535-07fb3b4ae5f1","photo-1469474968028-56623f02e42e"];
+document.getElementById('heroPhoto').style.backgroundImage='url(https://images.unsplash.com/'+photos[Math.floor(Math.random()*photos.length)]+'?w=1600&q=80)';
 window.addEventListener('scroll',function(){document.getElementById('mainNav').classList.toggle('stuck',window.scrollY>20)});
 function toggleMob(){var l=document.querySelector('.nk');if(l.style.display==='flex'){l.style.display='none';return}l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='72px';l.style.left='0';l.style.right='0';l.style.background='#fff';l.style.padding='24px 32px';l.style.gap='16px';l.style.boxShadow='0 8px 24px rgba(0,0,0,.08)'}
 </script>
