@@ -43,4 +43,8 @@
   <url><loc>https://firstofficer.upnonstop.com/for-it-services.html</loc><priority>0.6</priority></url>
   <url><loc>https://firstofficer.upnonstop.com/for-property-management.html</loc><priority>0.6</priority></url>
   <url><loc>https://firstofficer.upnonstop.com/for-trucking.html</loc><priority>0.6</priority></url>
+  <url>
+    <loc>https://firstofficer.upnonstop.com/referral.html</loc>
+    <priority>0.6</priority>
+  </url>
 </urlset>
