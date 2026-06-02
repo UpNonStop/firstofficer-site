@@ -441,7 +441,7 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
       n.appendChild(el('<div class="cap">'+capTxt+'</div>'));
       var box=el('<div class="chips"></div>');
       r.accounts.forEach(function(a){
-        box.appendChild(el('<div class="chip"><span class="cd"></span><span class="ce">'+esc(a.account||"connected")+'</span><button class="cx" data-dc="'+esc(a.provider)+'" aria-label="Remove">'+X+'</button></div>'));
+        box.appendChild(el('<div class="chip"><span class="cd"></span><span class="ce">'+esc(a.account||"connected")+'</span><button class="cx" data-dc="'+esc(a.provider)+'" data-acct="'+esc(a.account||"")+'" aria-label="Remove">'+X+'</button></div>'));
       });
       n.appendChild(box);
     }
@@ -458,7 +458,7 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
   function wire(host){
     host.querySelectorAll("[data-c]").forEach(function(b){b.addEventListener("click",function(){location.href=CONNECT[b.getAttribute("data-c")]+"?action=connect&t="+encodeURIComponent(T);});});
     host.querySelectorAll("[data-up]").forEach(function(b){b.addEventListener("click",function(){var u=b.getAttribute("data-up");location.href=WA+"?text="+encodeURIComponent("I want to upgrade to unlock "+(u==="seats"?"more connected accounts":u));});});
-    host.querySelectorAll("[data-dc]").forEach(function(b){b.addEventListener("click",function(){if(!confirm("Remove this connection? First Officer will stop reading it."))return;location.href=CONNECT[b.getAttribute("data-dc")]+"?action=disconnect&t="+encodeURIComponent(T);});});
+    host.querySelectorAll("[data-dc]").forEach(function(b){b.addEventListener("click",function(){if(!confirm("Remove this connection? First Officer will stop reading it."))return;var acct=b.getAttribute("data-acct")||"";location.href=CONNECT[b.getAttribute("data-dc")]+"?action=disconnect&t="+encodeURIComponent(T)+(acct?"&account="+encodeURIComponent(acct):"");});});
   }
   function render(s){
     var g=document.getElementById("greeting"), fn=s.persona&&s.persona.first_name;
@@ -472,6 +472,16 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
     document.getElementById("ct").textContent=lit+" of "+order.length;
   }
   function fail(msg){document.getElementById("render").innerHTML='<div class="msg">'+esc(msg)+'<br><br><a class="ncta" style="display:inline-flex" href="'+WA+'">Open WhatsApp</a></div>';}
+  function showToast(status){
+    var map={connected:["Inbox connected","#1FAE62"],cancelled:["Connection cancelled","#8A8A93"],disconnected:["Disconnected","#8A8A93"]};
+    var m=map[status]; if(!m) return;
+    var t=document.createElement("div"); t.textContent=m[0];
+    t.style.cssText="position:fixed;top:78px;left:50%;transform:translateX(-50%);background:"+m[1]+";color:#fff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:13.5px;padding:10px 18px;border-radius:100px;box-shadow:0 6px 20px rgba(0,0,0,.15);z-index:9999;opacity:0;transition:opacity .3s";
+    document.body.appendChild(t);
+    requestAnimationFrame(function(){t.style.opacity="1";});
+    setTimeout(function(){t.style.opacity="0";setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},300);},2600);
+  }
+  showToast(qp("status"));
   if(!T){fail("This link is missing its connection token. Please open the link First Officer sent you on WhatsApp.");return;}
   fetch(STATE+"?t="+encodeURIComponent(T)).then(function(res){return res.json().then(function(j){return {ok:res.ok,j:j};});})
     .then(function(o){ if(!o.ok||o.j.error){fail("This connection link has expired. Ask First Officer for a fresh one on WhatsApp.");return;} render(o.j); })
