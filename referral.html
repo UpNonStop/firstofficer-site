@@ -92,6 +92,10 @@ body.biz .nav-tog .tb:not(.sel){color:#555}
 body .nav-tog .tb:not(.sel):hover{color:#aaa}
 body.biz .nav-tog .tb:not(.sel):hover{color:#777}
 .nav-tog .tb.sel{background:#FA1896;color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.3)}
+.nav-tog-mob{display:none}
+.nav-tog-mob{background:#1a1a1a;border:1px solid #333}
+.nav-tog-mob .tb{flex:1;padding:10px 22px;font-size:13px;font-weight:600;border-radius:100px;transition:all .35s;text-align:center;white-space:nowrap;border:none;cursor:pointer;background:none;color:#555;-webkit-tap-highlight-color:transparent;user-select:none}
+.nav-tog-mob .tb.sel{background:#FA1896;color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.3)}
 .mob{display:none;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px}
 .mob span{width:20px;height:2px;background:currentColor;border-radius:1px}
 
@@ -297,7 +301,7 @@ body .ftb{border-color:#eee}body.biz .ftb{border-color:#1a1a1a}
 .vr{gap:48px}
 }
 @media(max-width:768px){
-.nk{display:none}.mob{display:flex}.ncta{display:none}
+.nk{display:none}.mob{display:flex}.ncta{display:none}.nav-tog{display:none}.nav-tog-mob{display:flex;align-items:stretch;border-radius:100px;padding:3px;margin:12px 0 4px;width:fit-content}
 .wrap{padding:0 24px}
 .hero{padding:110px 0 56px;min-height:100vh}
 body .hero::before{background:rgba(255,255,255,.48)!important}
@@ -390,7 +394,11 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
     <a href="https://firstofficer.upnonstop.com" class="nka">Pricing</a>
     <a href="https://firstofficer.upnonstop.com" class="nka">About</a>
   </div>
-  <a href="#" class="ncta" id="navCta" target="_blank">💬 Start on WhatsApp</a>
+  <div class="nav-tog">
+<button class="tb sel" onclick="location.href='index.html'">Personal</button>
+<button class="tb" onclick="location.href='index.html?biz=1'">Business</button>
+</div>
+<a href="#" class="ncta" id="navCta" target="_blank">💬 Start on WhatsApp</a>
   <button class="mob" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </div>
 </nav>
@@ -402,7 +410,11 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
       <h1 id="headline"><span id="nameInHead" class="pk">Rodney</span> Uses First Officer.<br>We Think You Should Too.</h1>
       <p class="hero-sub">It catches expiring credits, tells you the best card for every purchase, and runs entirely on WhatsApp. No app to download.</p>
       <div class="hero-ctas">
-        <a href="#" class="ncta" id="heroCta" target="_blank">💬 Start on WhatsApp</a>
+        <div class="nav-tog">
+<button class="tb sel" onclick="location.href='index.html'">Personal</button>
+<button class="tb" onclick="location.href='index.html?biz=1'">Business</button>
+</div>
+<a href="#" class="ncta" id="heroCta" target="_blank">💬 Start on WhatsApp</a>
       </div>
       <p style="font-size:13px;margin-top:14px" class="t3">Free to start. Cancel anytime. Just WhatsApp.</p>
     </div>
