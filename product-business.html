@@ -32,7 +32,7 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 :root{--pink:#FA1896;--wa:#25D366;--gold:#E8C547;--blue:#7B8FF7;--font:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.4,0,.2,1);--r:16px}
-body{font-family:var(--font);background:#000;color:#f0f0f4;line-height:1.65}
+body{font-family:var(--font);background:#000;color:#fff;line-height:1.65}
 button{cursor:pointer;border:none;font-family:inherit;background:none;color:inherit}
 a{text-decoration:none;color:inherit}
 
@@ -154,11 +154,11 @@ a{text-decoration:none;color:inherit}
 .book-sub{font-size:11px;color:#fff;position:relative;z-index:1;text-shadow:0 1px 3px rgba(0,0,0,.8)}
 .book-back{background:#111;border:1px solid #2a2a2a;padding:16px;display:flex;flex-direction:column;justify-content:space-between;transform:rotateY(180deg)}
 .book-back-top{flex:1}
-.book-back-dest{font-family:var(--serif);font-size:14px;color:#f0f0f4;margin-bottom:2px}
+.book-back-dest{font-family:var(--serif);font-size:14px;color:#fff;margin-bottom:2px}
 .book-back-detail{font-size:10px;color:#666;margin-bottom:10px}
 .book-back-row{display:flex;justify-content:space-between;font-size:11px;padding:4px 0;border-bottom:1px solid #1a1a1a}
 .book-back-row:last-of-type{border:none}
-.book-back-row .bl{color:#666}.book-back-row .bv{font-weight:700;color:#f0f0f4}
+.book-back-row .bl{color:#666}.book-back-row .bv{font-weight:700;color:#fff}
 .book-back-row .bv.strike{color:#444;text-decoration:line-through}
 .book-back-row .bv.pk{color:var(--pink)}
 .book-stamp{font-family:var(--mono);font-size:8px;color:var(--pink);text-transform:uppercase;letter-spacing:.5px;text-align:center;margin-top:6px;font-weight:600}
@@ -229,6 +229,7 @@ a{text-decoration:none;color:inherit}
 <meta name="twitter:description" content="From spend routing to award booking. See what business-grade points intelligence looks like inside WhatsApp.">
 <meta name="twitter:image" content="https://firstofficer.upnonstop.com/og-image.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Intelligence That Works While You Don't | First Officer for Business","description":"See how First Officer optimizes business card spend across 20 industries. WhatsApp conversations showing real routing, real math, real value.","url":"https://firstofficer.upnonstop.com/product-business.html","publisher":{"@type":"Organization","name":"First Officer","logo":{"@type":"ImageObject","url":"https://firstofficer.upnonstop.com/og-image.png"}},"provider":{"@type":"Organization","name":"First Officer"},"serviceType":"Points and Miles Advisory","areaServed":"US"}</script>
+<link rel="apple-touch-icon" href="favicon.png">
 </head>
 <body>
 
@@ -421,7 +422,7 @@ desc.classList.add('open');
 <!-- CTA -->
 <!-- Member Bookings Carousel -->
 <div style="max-width:920px;margin:56px auto 0;text-align:center">
-<div style="font-family:var(--serif);font-size:22px;color:#f0f0f4;margin-bottom:4px">Booked for our <span style="color:var(--pink)">Preferred</span> &amp; <span style="color:var(--pink)">Signature</span> members this past month</div>
+<div style="font-family:var(--serif);font-size:22px;color:#fff;margin-bottom:4px">Booked for our <span style="color:var(--pink)">Preferred</span> &amp; <span style="color:var(--pink)">Signature</span> members this past month</div>
 <div style="font-size:13px;color:#666;margin-bottom:20px">Flights and hotel stays redeemed with points. Hover any card to see the breakdown.</div>
 <div class="book-scroll"><div class="book-grid" id="prodBookGrid"></div></div>
 <p style="font-size:10px;color:#444;margin-top:4px">Showing 20 of 60+ recent bookings. Reload for different results.</p>
