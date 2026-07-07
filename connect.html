@@ -443,10 +443,15 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
   var PLAID_FN="https://cuzuzzbezswvejnoskum.supabase.co/functions/v1/fo-plaid-link";
   var WEBAUTHN_FN="https://cuzuzzbezswvejnoskum.supabase.co/functions/v1/fo-webauthn";
   function qp(k){return new URLSearchParams(location.search).get(k);}
+  function stSet(k,v){try{sessionStorage.setItem(k,v);}catch(e){}try{localStorage.setItem(k,v);}catch(e){}}
+  function stGet(k){var v=null;try{v=sessionStorage.getItem(k);}catch(e){}if(!v){try{v=localStorage.getItem(k);}catch(e){}}return v;}
+  function stDel(k){try{sessionStorage.removeItem(k);}catch(e){}try{localStorage.removeItem(k);}catch(e){}}
   var T=qp("t");
   // OAuth return leg: the bank redirects back to the registered URI, which
   // carries oauth_state_id but not our t. Restore the session from storage.
-  if(!T&&qp("oauth_state_id")){try{T=sessionStorage.getItem("fo_t")||"";}catch(e){}}
+  // localStorage backs up sessionStorage because Safari can run the bank hop
+  // in a context that drops per-tab storage.
+  if(!T&&qp("oauth_state_id")){T=stGet("fo_t")||"";}
   var ICONS={
     snapshots:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 8.5A1.5 1.5 0 014.5 7H7l1.3-2h7.4L17 7h2.5A1.5 1.5 0 0121 8.5v9A1.5 1.5 0 0119.5 19h-15A1.5 1.5 0 013 17.5z"/><circle cx="12" cy="13" r="3.1"/></svg>',
     inbox:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.2"/><path d="M4 7.5l8 5.5 8-5.5"/></svg>',
@@ -534,13 +539,13 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
   function finishExchange(pt,meta,mfa,onFail){
     fetch(PLAID_FN,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"exchange",t:T,mfa:mfa,public_token:pt,institution:(meta&&meta.institution)?meta.institution.name:null})})
       .then(function(r){return r.json();})
-      .then(function(x){ if(x&&x.ok){ try{sessionStorage.removeItem("fo_lt");sessionStorage.removeItem("fo_mfa");}catch(e){} location.href=location.pathname+"?t="+encodeURIComponent(T)+"&status=connected_spend"; } else { onFail((x&&x.error)||"could_not_finish"); } })
+      .then(function(x){ if(x&&x.ok){ stDel("fo_lt");stDel("fo_mfa");stDel("fo_rec"); location.href=location.pathname+"?t="+encodeURIComponent(T)+"&status=connected_spend"; } else { onFail((x&&x.error)||"could_not_finish"); } })
       .catch(function(){onFail("could_not_finish");});
   }
   function finishReconnect(item,mfa,onFail){
     fetch(PLAID_FN,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"reconnected",t:T,mfa:mfa,item:item})})
       .then(function(r){return r.json();})
-      .then(function(x){ if(x&&x.ok){ try{sessionStorage.removeItem("fo_lt");sessionStorage.removeItem("fo_mfa");sessionStorage.removeItem("fo_rec");}catch(e){} location.href=location.pathname+"?t="+encodeURIComponent(T)+"&status=reconnected_spend"; } else { onFail((x&&x.error)||"could_not_finish"); } })
+      .then(function(x){ if(x&&x.ok){ stDel("fo_lt");stDel("fo_mfa");stDel("fo_rec"); location.href=location.pathname+"?t="+encodeURIComponent(T)+"&status=reconnected_spend"; } else { onFail((x&&x.error)||"could_not_finish"); } })
       .catch(function(){onFail("could_not_finish");});
   }
   function launchPlaid(btn,rec){
@@ -557,7 +562,7 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
         .then(function(r){return r.json();})
         .then(function(j){
           if(!j||!j.ok||!j.link_token){throw new Error((j&&j.error)||"could_not_start");}
-          try{sessionStorage.setItem("fo_t",T);sessionStorage.setItem("fo_lt",j.link_token);sessionStorage.setItem("fo_mfa",mfa);if(rec){sessionStorage.setItem("fo_rec",rec);}else{sessionStorage.removeItem("fo_rec");}}catch(e){}
+          stSet("fo_t",T);stSet("fo_lt",j.link_token);stSet("fo_mfa",mfa);if(rec){stSet("fo_rec",rec);}else{stDel("fo_rec");}
           var h=Plaid.create({token:j.link_token,
             onSuccess:function(pt,meta){
               if(rec){finishReconnect(rec,mfa,function(msg){btn.disabled=false;alert(msg);});}
@@ -602,16 +607,19 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
   // with the SAME link_token plus receivedRedirectUri. Everything needed was
   // stashed in sessionStorage before Link opened.
   if(qp("oauth_state_id")){
-    var rlt=null,rmfa=null,rrec=null;
-    try{rlt=sessionStorage.getItem("fo_lt");rmfa=sessionStorage.getItem("fo_mfa");rrec=sessionStorage.getItem("fo_rec");}catch(e){}
+    var rlt=stGet("fo_lt"),rmfa=stGet("fo_mfa"),rrec=stGet("fo_rec");
     if(rlt&&T){
       var rh=Plaid.create({token:rlt,receivedRedirectUri:window.location.href,
         onSuccess:function(pt,meta){
           if(rrec){finishReconnect(rrec,rmfa||"",function(msg){alert(msg);});}
           else{finishExchange(pt,meta,rmfa||"",function(msg){alert(msg);});}
         },
-        onExit:function(){}});
+        onExit:function(err){
+          if(err){alert("Bank connection did not complete: "+((err.error_message||err.error_code)||"unknown")+". Tap Connect bank to try again.");}
+        }});
       rh.open();
+    } else {
+      alert("The session was lost during the bank hop. Tap Connect bank to finish - one more Touch ID and you are done.");
     }
   }
   showToast(qp("status"));
