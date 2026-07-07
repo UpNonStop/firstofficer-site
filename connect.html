@@ -441,8 +441,12 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
   var CONNECT={google:"https://cuzuzzbezswvejnoskum.supabase.co/functions/v1/fo-mail-google-callback",microsoft:"https://cuzuzzbezswvejnoskum.supabase.co/functions/v1/fo-mail-oauth-callback"};
   var WA="https://wa.me/16199404040";
   var PLAID_FN="https://cuzuzzbezswvejnoskum.supabase.co/functions/v1/fo-plaid-link";
+  var WEBAUTHN_FN="https://cuzuzzbezswvejnoskum.supabase.co/functions/v1/fo-webauthn";
   function qp(k){return new URLSearchParams(location.search).get(k);}
   var T=qp("t");
+  // OAuth return leg: the bank redirects back to the registered URI, which
+  // carries oauth_state_id but not our t. Restore the session from storage.
+  if(!T&&qp("oauth_state_id")){try{T=sessionStorage.getItem("fo_t")||"";}catch(e){}}
   var ICONS={
     snapshots:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 8.5A1.5 1.5 0 014.5 7H7l1.3-2h7.4L17 7h2.5A1.5 1.5 0 0121 8.5v9A1.5 1.5 0 0119.5 19h-15A1.5 1.5 0 013 17.5z"/><circle cx="12" cy="13" r="3.1"/></svg>',
     inbox:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.2"/><path d="M4 7.5l8 5.5 8-5.5"/></svg>',
@@ -491,23 +495,65 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
     if(key==="inbox"&&st==="available") n.appendChild(el('<div class="prime">You may see a "Google hasn\u2019t verified this app" notice, expected while we finish verification. Tap Advanced, then continue.</div>'));
     return n;
   }
-  function launchPlaid(btn){
-    btn.disabled=true;
-    fetch(PLAID_FN,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"create_link_token",t:T})})
+  // ── passkey gate (WebAuthn) ─────────────────────────────────────────
+  // Bank connection requires a passkey ceremony first. fo-webauthn returns a
+  // short-lived proof; fo-plaid-link refuses to create or exchange a Link
+  // token without it. First visit registers a passkey, returns verify it.
+  function b64uToBuf(s){s=String(s).replace(/-/g,"+").replace(/_/g,"/");while(s.length%4)s+="=";var bin=atob(s),u=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return u.buffer;}
+  function bufToB64u(b){var u=new Uint8Array(b),s="";for(var i=0;i<u.length;i++)s+=String.fromCharCode(u[i]);return btoa(s).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");}
+  function passkey(done){
+    if(!window.PublicKeyCredential){done(new Error("passkeys_unsupported"));return;}
+    fetch(WEBAUTHN_FN,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"options",t:T})})
       .then(function(r){return r.json();})
       .then(function(j){
-        if(!j||!j.ok||!j.link_token){throw new Error((j&&j.error)||"could_not_start");}
-        var h=Plaid.create({token:j.link_token,
-          onSuccess:function(pt,meta){
-            fetch(PLAID_FN,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"exchange",t:T,public_token:pt,institution:(meta&&meta.institution)?meta.institution.name:null})})
-              .then(function(r){return r.json();})
-              .then(function(x){ if(x&&x.ok){location.href=location.pathname+"?t="+encodeURIComponent(T)+"&status=connected_spend";} else { btn.disabled=false; alert((x&&x.error)||"could_not_finish"); } })
-              .catch(function(){btn.disabled=false;alert("could_not_finish");});
-          },
-          onExit:function(){btn.disabled=false;}});
-        h.open();
+        if(!j||!j.ok||!j.options){throw new Error((j&&j.error)||"could_not_start");}
+        var o=j.options;
+        if(j.mode==="register"){
+          o.challenge=b64uToBuf(o.challenge);
+          o.user.id=b64uToBuf(o.user.id);
+          (o.excludeCredentials||[]).forEach(function(c){c.id=b64uToBuf(c.id);});
+          return navigator.credentials.create({publicKey:o}).then(function(cred){
+            return {ref:j.challenge_ref,resp:{id:cred.id,rawId:bufToB64u(cred.rawId),type:cred.type,clientExtensionResults:cred.getClientExtensionResults?cred.getClientExtensionResults():{},response:{clientDataJSON:bufToB64u(cred.response.clientDataJSON),attestationObject:bufToB64u(cred.response.attestationObject),transports:(cred.response.getTransports?cred.response.getTransports():[])}}};
+          });
+        }
+        o.challenge=b64uToBuf(o.challenge);
+        (o.allowCredentials||[]).forEach(function(c){c.id=b64uToBuf(c.id);});
+        return navigator.credentials.get({publicKey:o}).then(function(cred){
+          return {ref:j.challenge_ref,resp:{id:cred.id,rawId:bufToB64u(cred.rawId),type:cred.type,clientExtensionResults:cred.getClientExtensionResults?cred.getClientExtensionResults():{},response:{clientDataJSON:bufToB64u(cred.response.clientDataJSON),authenticatorData:bufToB64u(cred.response.authenticatorData),signature:bufToB64u(cred.response.signature),userHandle:cred.response.userHandle?bufToB64u(cred.response.userHandle):null}}};
+        });
       })
-      .catch(function(e){btn.disabled=false; alert(e.message==="locked_tier"?"Bank connection unlocks on a higher plan.":(e.message==="at_capacity"?"You have connected the maximum number of accounts for your plan.":"Could not start. Please try again."));});
+      .then(function(p){
+        return fetch(WEBAUTHN_FN,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"verify",t:T,challenge_ref:p.ref,response:p.resp})}).then(function(r){return r.json();});
+      })
+      .then(function(v){ if(!v||!v.ok||!v.mfa){throw new Error((v&&v.error)||"verify_failed");} done(null,v.mfa); })
+      .catch(function(e){done(e||new Error("verify_failed"));});
+  }
+  function finishExchange(pt,meta,mfa,onFail){
+    fetch(PLAID_FN,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"exchange",t:T,mfa:mfa,public_token:pt,institution:(meta&&meta.institution)?meta.institution.name:null})})
+      .then(function(r){return r.json();})
+      .then(function(x){ if(x&&x.ok){ try{sessionStorage.removeItem("fo_lt");sessionStorage.removeItem("fo_mfa");}catch(e){} location.href=location.pathname+"?t="+encodeURIComponent(T)+"&status=connected_spend"; } else { onFail((x&&x.error)||"could_not_finish"); } })
+      .catch(function(){onFail("could_not_finish");});
+  }
+  function launchPlaid(btn){
+    btn.disabled=true;
+    passkey(function(perr,mfa){
+      if(perr){
+        btn.disabled=false;
+        alert(perr.message==="passkeys_unsupported"?"Your browser does not support passkeys. Please open this page in Safari or Chrome.":"Quick security check did not complete. Please try again.");
+        return;
+      }
+      fetch(PLAID_FN,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"create_link_token",t:T,mfa:mfa})})
+        .then(function(r){return r.json();})
+        .then(function(j){
+          if(!j||!j.ok||!j.link_token){throw new Error((j&&j.error)||"could_not_start");}
+          try{sessionStorage.setItem("fo_t",T);sessionStorage.setItem("fo_lt",j.link_token);sessionStorage.setItem("fo_mfa",mfa);}catch(e){}
+          var h=Plaid.create({token:j.link_token,
+            onSuccess:function(pt,meta){finishExchange(pt,meta,mfa,function(msg){btn.disabled=false;alert(msg);});},
+            onExit:function(){btn.disabled=false;}});
+          h.open();
+        })
+        .catch(function(e){btn.disabled=false; alert(e.message==="locked_tier"?"Bank connection unlocks on a higher plan.":(e.message==="at_capacity"?"You have connected the maximum number of accounts for your plan.":(e.message==="mfa_required"?"Quick security check did not complete. Please try again.":"Could not start. Please try again.")));});
+    });
   }
   function wire(host){
     host.querySelectorAll("[data-plaid]").forEach(function(b){b.addEventListener("click",function(){launchPlaid(b);});});
@@ -535,6 +581,20 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
     document.body.appendChild(t);
     requestAnimationFrame(function(){t.style.opacity="1";});
     setTimeout(function(){t.style.opacity="0";setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},300);},2600);
+  }
+  // ── OAuth return resume ─────────────────────────────────────────────
+  // Coming back from a bank's OAuth flow, Plaid requires re-initializing Link
+  // with the SAME link_token plus receivedRedirectUri. Everything needed was
+  // stashed in sessionStorage before Link opened.
+  if(qp("oauth_state_id")){
+    var rlt=null,rmfa=null;
+    try{rlt=sessionStorage.getItem("fo_lt");rmfa=sessionStorage.getItem("fo_mfa");}catch(e){}
+    if(rlt&&T){
+      var rh=Plaid.create({token:rlt,receivedRedirectUri:window.location.href,
+        onSuccess:function(pt,meta){finishExchange(pt,meta,rmfa||"",function(msg){alert(msg);});},
+        onExit:function(){}});
+      rh.open();
+    }
   }
   showToast(qp("status"));
   if(!T){fail("This link is missing its connection token. Please open the link First Officer sent you on WhatsApp.");return;}
