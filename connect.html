@@ -566,7 +566,7 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
             onExit:function(){btn.disabled=false;}});
           h.open();
         })
-        .catch(function(e){btn.disabled=false; alert(e.message==="locked_tier"?"Bank connection unlocks on a higher plan.":(e.message==="at_capacity"?"You have connected the maximum number of accounts for your plan.":(e.message==="mfa_required"?"Quick security check did not complete. Please try again.":"Could not start. Please try again.")));});
+        .catch(function(e){btn.disabled=false; alert(e.message==="locked_tier"?"Bank connection unlocks on a higher plan.":(e.message==="at_capacity"?"You have connected the maximum number of accounts for your plan.":(e.message==="mfa_required"?"Quick security check did not complete. Please try again.":"Could not start: "+(e.message||"unknown error"))));});
     });
   }
   function wire(host){
