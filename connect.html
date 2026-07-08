@@ -572,9 +572,11 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
         .then(function(r){return r.json();})
         .then(function(j){
           if(!j||!j.ok||!j.hosted_link_url){throw new Error((j&&j.error)||"could_not_start");}
-          // stash the link token AND connect token so finalize can run on return
+          // stash link token, connect token, AND mfa proof so finalize can
+          // satisfy the token's MFA requirement on return
           if(j.link_token){stSet("fo_hlt",j.link_token);}
           stSet("fo_t",T);
+          stSet("fo_mfa",mfa);
           // full-page navigation to Plaid's hosted flow; completion redirect brings us back
           window.location.href=j.hosted_link_url;
         })
@@ -629,15 +631,16 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
   // on SESSION_FINISHED webhook delivery.
   if(qp("finalize")==="1" && T){
     var hlt=stGet("fo_hlt");
+    var fmfa=stGet("fo_mfa")||"";
     if(hlt){
       var tries=0;
       var doFinalize=function(){
-        fetch(PLAID_FN,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"finalize",t:T,link_token:hlt})})
+        fetch(PLAID_FN,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"finalize",t:T,mfa:fmfa,link_token:hlt})})
           .then(function(r){return r.json();})
           .then(function(x){
-            if(x&&x.ok){ stDel("fo_hlt"); location.href=location.pathname+"?t="+encodeURIComponent(T)+"&status=connected_spend"; }
+            if(x&&x.ok){ stDel("fo_hlt");stDel("fo_mfa"); location.href=location.pathname+"?t="+encodeURIComponent(T)+"&status=connected_spend"; }
             else if(x&&x.error==="no_public_token_yet" && tries<8){ tries++; setTimeout(doFinalize,3000); }
-            else if(x&&x.error==="token_already_used"){ stDel("fo_hlt"); location.href=location.pathname+"?t="+encodeURIComponent(T); }
+            else if(x&&x.error==="token_already_used"){ stDel("fo_hlt");stDel("fo_mfa"); location.href=location.pathname+"?t="+encodeURIComponent(T); }
             else if(x&&x.error==="no_public_token_yet"){ alert("Almost there - the bank connection is still finishing. Tap OK, wait a few seconds, then refresh this page."); }
             else { alert("Could not finish: "+((x&&x.error)||"unknown")+". Refresh to retry."); }
           })
