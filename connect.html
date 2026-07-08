@@ -450,8 +450,9 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
   // OAuth return leg: the bank redirects back to the registered URI, which
   // carries oauth_state_id but not our t. Restore the session from storage.
   // localStorage backs up sessionStorage because Safari can run the bank hop
-  // in a context that drops per-tab storage.
-  if(!T&&qp("oauth_state_id")){T=stGet("fo_t")||"";}
+  // in a context that drops per-tab storage. The Hosted Link completion returns
+  // with finalize=1 (and may drop t), so restore for that case too.
+  if(!T&&(qp("oauth_state_id")||qp("finalize")==="1")){T=stGet("fo_t")||"";}
   var ICONS={
     snapshots:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 8.5A1.5 1.5 0 014.5 7H7l1.3-2h7.4L17 7h2.5A1.5 1.5 0 0121 8.5v9A1.5 1.5 0 0119.5 19h-15A1.5 1.5 0 013 17.5z"/><circle cx="12" cy="13" r="3.1"/></svg>',
     inbox:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.2"/><path d="M4 7.5l8 5.5 8-5.5"/></svg>',
@@ -571,8 +572,9 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
         .then(function(r){return r.json();})
         .then(function(j){
           if(!j||!j.ok||!j.hosted_link_url){throw new Error((j&&j.error)||"could_not_start");}
-          // stash the link token so finalize can pull the public_token on return
+          // stash the link token AND connect token so finalize can run on return
           if(j.link_token){stSet("fo_hlt",j.link_token);}
+          stSet("fo_t",T);
           // full-page navigation to Plaid's hosted flow; completion redirect brings us back
           window.location.href=j.hosted_link_url;
         })
