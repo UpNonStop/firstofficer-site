@@ -548,6 +548,12 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
       .then(function(x){ if(x&&x.ok){ stDel("fo_lt");stDel("fo_mfa");stDel("fo_rec"); location.href=location.pathname+"?t="+encodeURIComponent(T)+"&status=reconnected_spend"; } else { onFail((x&&x.error)||"could_not_finish"); } })
       .catch(function(){onFail("could_not_finish");});
   }
+  // HOSTED LINK: for new connections we get a hosted_link_url from the backend
+  // and redirect the whole page to Plaid. Plaid runs the bank OAuth on its own
+  // domain and delivers the public_token to our webhook (SESSION_FINISHED), then
+  // redirects back to completion_redirect_uri. No Plaid.create, no onSuccess, no
+  // sessionStorage round-trip -- which is exactly the fragile path that failed
+  // for Capital One and Amex. Reconnect (update mode) still uses the JS SDK.
   function launchPlaid(btn,rec){
     btn.disabled=true;
     passkey(function(perr,mfa){
@@ -556,23 +562,30 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
         alert(perr.message==="passkeys_unsupported"?"Your browser does not support passkeys. Please open this page in Safari or Chrome.":"Quick security check did not complete. Please try again.");
         return;
       }
-      var payload={action:"create_link_token",t:T,mfa:mfa};
-      if(rec)payload.reconnect=rec;
-      fetch(PLAID_FN,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
+      if(rec){ launchReconnect(btn,rec,mfa); return; }
+      fetch(PLAID_FN,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"create_link_token",t:T,mfa:mfa})})
         .then(function(r){return r.json();})
         .then(function(j){
-          if(!j||!j.ok||!j.link_token){throw new Error((j&&j.error)||"could_not_start");}
-          stSet("fo_t",T);stSet("fo_lt",j.link_token);stSet("fo_mfa",mfa);if(rec){stSet("fo_rec",rec);}else{stDel("fo_rec");}
-          var h=Plaid.create({token:j.link_token,
-            onSuccess:function(pt,meta){
-              if(rec){finishReconnect(rec,mfa,function(msg){btn.disabled=false;alert(msg);});}
-              else{finishExchange(pt,meta,mfa,function(msg){btn.disabled=false;alert(msg);});}
-            },
-            onExit:function(err){btn.disabled=false;if(err){alert("Bank connection did not complete: "+((err.error_message||err.display_message||err.error_code)||"unknown")+".");}}});
-          h.open();
+          if(!j||!j.ok||!j.hosted_link_url){throw new Error((j&&j.error)||"could_not_start");}
+          // full-page navigation to Plaid's hosted flow; completion redirect brings us back
+          window.location.href=j.hosted_link_url;
         })
         .catch(function(e){btn.disabled=false; alert(e.message==="locked_tier"?"Bank connection unlocks on a higher plan.":(e.message==="at_capacity"?"You have connected the maximum number of accounts for your plan.":(e.message==="mfa_required"?"Quick security check did not complete. Please try again.":"Could not start: "+(e.message||"unknown error"))));});
     });
+  }
+  // Reconnect / update mode keeps the JS SDK (rare path, Chase-only in practice).
+  function launchReconnect(btn,rec,mfa){
+    fetch(PLAID_FN,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"create_link_token",t:T,mfa:mfa,reconnect:rec})})
+      .then(function(r){return r.json();})
+      .then(function(j){
+        if(!j||!j.ok||!j.link_token){throw new Error((j&&j.error)||"could_not_start");}
+        stSet("fo_t",T);stSet("fo_lt",j.link_token);stSet("fo_mfa",mfa);stSet("fo_rec",rec);
+        var h=Plaid.create({token:j.link_token,
+          onSuccess:function(pt,meta){finishReconnect(rec,mfa,function(msg){btn.disabled=false;alert(msg);});},
+          onExit:function(err){btn.disabled=false;if(err){alert("Reconnect did not complete: "+((err.error_message||err.display_message||err.error_code)||"unknown")+".");}}});
+        h.open();
+      })
+      .catch(function(e){btn.disabled=false; alert("Could not start reconnect: "+(e.message||"unknown"));});
   }
   function wire(host){
     host.querySelectorAll("[data-plaid]").forEach(function(b){b.addEventListener("click",function(){launchPlaid(b);});});
@@ -602,24 +615,18 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
     requestAnimationFrame(function(){t.style.opacity="1";});
     setTimeout(function(){t.style.opacity="0";setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},300);},2600);
   }
-  // ── OAuth return resume ─────────────────────────────────────────────
-  // Coming back from a bank's OAuth flow, Plaid requires re-initializing Link
-  // with the SAME link_token plus receivedRedirectUri. Everything needed was
-  // stashed in sessionStorage before Link opened.
+  // ── OAuth return resume (RECONNECT / update mode only) ──────────────
+  // New connections use Hosted Link and return via completion_redirect_uri
+  // (a plain hub reload with ?status=connected_spend), so no resume is needed
+  // for them. Reconnect still uses the JS SDK, so we re-init only when a
+  // stashed reconnect link token is present.
   if(qp("oauth_state_id")){
     var rlt=stGet("fo_lt"),rmfa=stGet("fo_mfa"),rrec=stGet("fo_rec");
-    if(rlt&&T){
+    if(rlt&&rrec&&T){
       var rh=Plaid.create({token:rlt,receivedRedirectUri:window.location.href,
-        onSuccess:function(pt,meta){
-          if(rrec){finishReconnect(rrec,rmfa||"",function(msg){alert(msg);});}
-          else{finishExchange(pt,meta,rmfa||"",function(msg){alert(msg);});}
-        },
-        onExit:function(err){
-          if(err){alert("Bank connection did not complete: "+((err.error_message||err.error_code)||"unknown")+". Tap Connect bank to try again.");}
-        }});
+        onSuccess:function(pt,meta){finishReconnect(rrec,rmfa||"",function(msg){alert(msg);});},
+        onExit:function(err){if(err){alert("Reconnect did not complete: "+((err.error_message||err.error_code)||"unknown")+".");}}});
       rh.open();
-    } else {
-      alert("The session was lost during the bank hop. Tap Connect bank to finish - one more Touch ID and you are done.");
     }
   }
   showToast(qp("status"));
