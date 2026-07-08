@@ -636,11 +636,12 @@ body.biz .hero::before{background:rgba(0,0,0,.42)!important}
           .then(function(r){return r.json();})
           .then(function(x){
             if(x&&x.ok){ stDel("fo_hlt"); location.href=location.pathname+"?t="+encodeURIComponent(T)+"&status=connected_spend"; }
-            else if(x&&x.error==="no_public_token_yet" && tries<4){ tries++; setTimeout(doFinalize,2000); }
+            else if(x&&x.error==="no_public_token_yet" && tries<8){ tries++; setTimeout(doFinalize,3000); }
             else if(x&&x.error==="token_already_used"){ stDel("fo_hlt"); location.href=location.pathname+"?t="+encodeURIComponent(T); }
-            else { alert("Almost there - the bank connection is still finishing. Give it a moment and refresh."); }
+            else if(x&&x.error==="no_public_token_yet"){ alert("Almost there - the bank connection is still finishing. Tap OK, wait a few seconds, then refresh this page."); }
+            else { alert("Could not finish: "+((x&&x.error)||"unknown")+". Refresh to retry."); }
           })
-          .catch(function(){ if(tries<4){tries++;setTimeout(doFinalize,2000);} });
+          .catch(function(){ if(tries<8){tries++;setTimeout(doFinalize,3000);} });
       };
       doFinalize();
     }
