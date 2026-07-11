@@ -772,7 +772,7 @@ if(strip)cobs.observe(strip);
 
 // UpNonStop Booking Cards - Shared Inventory & Renderer
 // 60 items: flights (mixed classes) + hotels (premium properties)
-// Transfer bonuses current as of March 2026
+// Transfer partner sweet spots — evergreen (reviewed July 2026)
 
 var IMGS={
 // Flight destinations
@@ -856,14 +856,14 @@ var BINV=[
 {t:'f',from:'JFK',to:'TLV',fc:'New York',tc:'Tel Aviv',cls:'J',pts:62000,fees:420,pa:'Aeroplan',cash:5600},
 {t:'f',from:'SFO',to:'HKG',fc:'San Francisco',tc:'Hong Kong',cls:'J',pts:70000,fees:150,pa:'Cathay Pacific',cash:6800},
 // BUSINESS CLASS - with transfer bonus applied
-{t:'f',from:'JFK',to:'LHR',fc:'New York',tc:'London',cls:'J',pts:48333,fees:650,pa:'British Airways via Avios',cash:5800,bonus:'20% Chase transfer bonus applied'},
-{t:'f',from:'BOS',to:'MAD',fc:'Boston',tc:'Madrid',cls:'J',pts:53333,fees:380,pa:'Iberia via Avios',cash:5400,bonus:'20% Chase transfer bonus applied'},
+{t:'f',from:'JFK',to:'LHR',fc:'New York',tc:'London',cls:'J',pts:48333,fees:650,pa:'British Airways via Avios',cash:5800,bonus:'Chase UR → Avios · off-peak sweet spot'},
+{t:'f',from:'BOS',to:'MAD',fc:'Boston',tc:'Madrid',cls:'J',pts:53333,fees:380,pa:'Iberia via Avios',cash:5400,bonus:'Chase UR → Avios · off-peak sweet spot'},
 // PREMIUM ECONOMY - international
 {t:'f',from:'JFK',to:'NRT',fc:'New York',tc:'Tokyo',cls:'W',pts:60000,fees:240,pa:'ANA',cash:3200},
 {t:'f',from:'LAX',to:'SYD',fc:'Los Angeles',tc:'Sydney',cls:'W',pts:65000,fees:160,pa:'Qantas',cash:3800},
-{t:'f',from:'ORD',to:'LHR',fc:'Chicago',tc:'London',cls:'W',pts:40000,fees:580,pa:'British Airways via Avios',cash:2800,bonus:'20% Chase transfer bonus applied'},
+{t:'f',from:'ORD',to:'LHR',fc:'Chicago',tc:'London',cls:'W',pts:40000,fees:580,pa:'British Airways via Avios',cash:2800,bonus:'Chase UR → Avios · off-peak sweet spot'},
 {t:'f',from:'SFO',to:'CDG',fc:'San Francisco',tc:'Paris',cls:'W',pts:42000,fees:540,pa:'Air France',cash:2600},
-{t:'f',from:'MIA',to:'LIS',fc:'Miami',tc:'Lisbon',cls:'W',pts:35000,fees:320,pa:'Avianca LifeMiles',cash:2200,bonus:'15% Amex transfer bonus applied'},
+{t:'f',from:'MIA',to:'LIS',fc:'Miami',tc:'Lisbon',cls:'W',pts:35000,fees:320,pa:'Avianca LifeMiles',cash:2200,bonus:'Amex MR → LifeMiles · Star Alliance sweet spot'},
 {t:'f',from:'EWR',to:'BCN',fc:'Newark',tc:'Barcelona',cls:'W',pts:38000,fees:380,pa:'Aeroplan',cash:2400},
 // DOMESTIC FIRST CLASS
 {t:'f',from:'JFK',to:'LAX',fc:'New York',tc:'Los Angeles',cls:'F',pts:25000,fees:11,pa:'American Airlines',cash:900},
@@ -874,8 +874,8 @@ var BINV=[
 // ECONOMY - aspirational routes for B2C
 {t:'f',from:'JFK',to:'FCO',fc:'New York',tc:'Rome',cls:'Y',pts:30000,fees:120,pa:'Aeroplan',cash:650},
 {t:'f',from:'LAX',to:'CUN',fc:'Los Angeles',tc:'Cancun',cls:'Y',pts:17500,fees:45,pa:'United',cash:420},
-{t:'f',from:'BOS',to:'DUB',fc:'Boston',tc:'Dublin',cls:'Y',pts:26000,fees:180,pa:'Aer Lingus via Avios',cash:580,bonus:'20% Chase transfer bonus applied'},
-{t:'f',from:'MIA',to:'GRU',fc:'Miami',tc:'Sao Paulo',cls:'Y',pts:30000,fees:85,pa:'Avianca LifeMiles',cash:620,bonus:'15% Amex transfer bonus applied'},
+{t:'f',from:'BOS',to:'DUB',fc:'Boston',tc:'Dublin',cls:'Y',pts:26000,fees:180,pa:'Aer Lingus via Avios',cash:580,bonus:'Chase UR → Avios · off-peak sweet spot'},
+{t:'f',from:'MIA',to:'GRU',fc:'Miami',tc:'Sao Paulo',cls:'Y',pts:30000,fees:85,pa:'Avianca LifeMiles',cash:620,bonus:'Amex MR → LifeMiles · Star Alliance sweet spot'},
 {t:'f',from:'ORD',to:'BCN',fc:'Chicago',tc:'Barcelona',cls:'Y',pts:34000,fees:140,pa:'Aeroplan',cash:680},
 {t:'f',from:'SFO',to:'ICN',fc:'San Francisco',tc:'Seoul',cls:'Y',pts:35000,fees:90,pa:'Korean Air',cash:720},
 {t:'f',from:'LAX',to:'BKK',fc:'Los Angeles',tc:'Bangkok',cls:'Y',pts:37500,fees:65,pa:'EVA Air',cash:780},
