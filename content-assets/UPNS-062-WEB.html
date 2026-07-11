@@ -7,6 +7,14 @@
 ============================================================================
 -->
 <style>
+html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
+.fo{color-scheme:light}
+@media (prefers-color-scheme: dark){
+  html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
+  .fo,.fo *{ -webkit-text-fill-color:initial }
+}
+</style>
+<style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&display=swap');
 .fo *{margin:0;padding:0;box-sizing:border-box}
 .fo{--pink:#FA1896;--wa:#25D366;--cyan:#00B4D8;--purple:#9B5DE5;--coral:#FF6B6B;--amber:#F8961E;--mag:#F15BB5;--teal:#14b8a6;--gold:#c47d15;
@@ -33,7 +41,7 @@
 .fo .dots{background-image:radial-gradient(rgba(250,24,150,.1) 1.1px,transparent 1.1px);background-size:26px 26px}
 
 /* masthead - daily dispatch letterpress */
-.fo .mast{background:var(--paper);padding:20px 40px 16px;border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
+.fo .mast{background:var(--paper);padding:20px 40px 16px;border-bottom:1px solid var(--ink)}
 .fo .mast-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .fo .mast-row .l,.fo .mast-row .r{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--t3);flex:1;line-height:1.6}
 .fo .mast-row .r{text-align:right}
