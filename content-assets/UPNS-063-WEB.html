@@ -13,6 +13,27 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
   html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
   .fo,.fo *{ -webkit-text-fill-color:initial }
 }
+
+/* ===== FLIGHT STRIPS (settled calls) ===== */
+.fo .vstrips{display:flex;flex-direction:column;gap:7px;margin:14px 0 4px}
+.fo .strip{position:relative;display:flex;align-items:center;gap:12px;background:var(--card);border:1.4px solid var(--ink);border-radius:6px;padding:9px 12px 9px 18px;overflow:hidden}
+.fo .strip::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--sc,var(--green))}
+.fo .strip::after{content:"";position:absolute;left:9px;top:4px;bottom:4px;width:3px;background-image:radial-gradient(circle,var(--line) 1.1px,transparent 1.2px);background-size:3px 6px;background-repeat:repeat-y}
+.fo .strip .sroute{font-family:var(--mono);font-size:9.5px;font-weight:800;letter-spacing:.4px;white-space:nowrap}
+.fo .strip .ssub{font-family:var(--mono);font-size:8px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--t3);margin-top:2px}
+.fo .strip .sgrow{flex:1}
+.fo .stamp{font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sc,var(--green));border:2px double var(--sc,var(--green));border-radius:4px;padding:3px 7px;transform:rotate(-4deg);white-space:nowrap;text-align:center;line-height:1.5;opacity:.92;flex:none}
+.fo .strip:nth-child(2) .stamp{transform:rotate(2.5deg)}
+.fo .strip:nth-child(3) .stamp{transform:rotate(-2deg)}
+/* ===== PASSPORT PAGE (trending) ===== */
+.fo .pp{background:linear-gradient(180deg,var(--card),#fbf6ea);border:1.4px solid var(--ink);border-radius:12px;padding:14px 14px 10px;position:relative;overflow:hidden}
+.fo .pph{display:flex;justify-content:space-between;font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--t4);margin-bottom:10px}
+.fo .ppg{display:flex;flex-wrap:wrap;gap:9px 10px;justify-content:center}
+.fo .pstamp{border:2.2px solid var(--pc,var(--teal));border-radius:9px;padding:7px 11px 6px;text-align:center;transform:rotate(var(--rot,-2deg));color:var(--pc,var(--teal));background:transparent;min-width:118px;position:relative}
+.fo .pstamp::after{content:"";position:absolute;inset:2.5px;border:1px solid var(--pc,var(--teal));border-radius:6px;opacity:.55}
+.fo .pstamp .pn{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;line-height:1.25}
+.fo .pstamp .pv{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:1px;margin-top:3px;opacity:.85}
+.fo .ppmrz{font-family:var(--mono);font-size:8.5px;letter-spacing:2.5px;color:var(--t4);margin-top:11px;white-space:nowrap;overflow:hidden;opacity:.8}
 </style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&display=swap');
@@ -395,11 +416,17 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
       <div class="rwgrid rv">
         <div class="rwcard">
           <div class="rwh"><span class="t">Trending redemptions</span><span class="s">vs last week</span></div>
-          <div class="tr"><div class="trk">1</div><div class="trn">Southern Europe<span class="sub">Hotels, Accor last-call routing</span></div><div class="theat"><i style="width:100%"></i></div><div class="twow up">&#9650;41%</div></div>
-          <div class="tr"><div class="trk">2</div><div class="trn">City stays<span class="sub">IHG searches on the 1:2 window</span></div><div class="theat"><i style="width:88%"></i></div><div class="twow up">&#9650;96%</div></div>
-          <div class="tr"><div class="trk">3</div><div class="trn">London<span class="sub">Cooling since the Virgin close</span></div><div class="theat"><i style="width:44%"></i></div><div class="twow down">&#9660;24%</div></div>
-          <div class="tr"><div class="trk">4</div><div class="trn">Maldives<span class="sub">Overwater award searches</span></div><div class="theat"><i style="width:31%"></i></div><div class="twow flat">0%</div></div>
-          <div class="tr"><div class="trk">5</div><div class="trn">Hawaii<span class="sub">Domestic saver, last-minute</span></div><div class="theat"><i style="width:27%"></i></div><div class="twow up">&#9650;9%</div></div>
+          <div class="pp">
+            <div class="pph"><span>Destinations &middot; This Week</span><span>217 Wallets &middot; Entries</span></div>
+            <div class="ppg">
+              <div class="pstamp" style="--pc:var(--pink);--rot:-3deg"><div class="pn">Southern<br>Europe</div><div class="pv">&#9650;41% &middot; Accor</div></div>
+              <div class="pstamp" style="--pc:var(--teal);--rot:2deg"><div class="pn">City<br>Stays</div><div class="pv">&#9650;96% &middot; IHG 1:2</div></div>
+              <div class="pstamp" style="--pc:var(--t3);--rot:-1.5deg"><div class="pn">London</div><div class="pv">&#9660;24% &middot; door shut</div></div>
+              <div class="pstamp" style="--pc:var(--cyan);--rot:2.5deg"><div class="pn">Maldives</div><div class="pv">0% &middot; steady</div></div>
+              <div class="pstamp" style="--pc:var(--gold);--rot:-2deg"><div class="pn">Hawaii</div><div class="pv">&#9650;9% &middot; saver</div></div>
+            </div>
+            <div class="ppmrz">FO&lt;&lt;DISPATCH&lt;063&lt;&lt;JUL2026&lt;&lt;READ&lt;ACROSS&lt;217&lt;WALLETS&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</div>
+          </div>
         </div>
         <div class="rwcard">
           <div class="rwh"><span class="t">Where points flowed</span><span class="s">net transfer volume</span></div>
@@ -471,10 +498,10 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
           <span class="tag"><span class="tdot"></span>Airlines &middot; The nerfs</span>
           <div class="stat"><em>3</em> doors, settled</div>
           <div class="sh">Last week&rsquo;s calls, closed as printed</div>
-          <div class="viz vnerf">
-            <div class="nr"><span class="nl">Chase &rarr; Virgin Atlantic &middot; +30%</span><span class="nd">as called</span><span class="nv"><s>open</s><span class="arw">&#9650;</span><b>closed Jul 14</b></span></div>
-            <div class="nr"><span class="nl">Amex &rarr; Avianca &middot; +15%</span><span class="nd">as called</span><span class="nv"><s>open</s><span class="arw">&#9650;</span><b>closed Jul 15</b></span></div>
-            <div class="nr"><span class="nl">Amex &rarr; Hilton &middot; +20% &middot; trap</span><span class="nd">skipped</span><span class="nv"><s>open</s><span class="arw">&#9650;</span><b>expired Jul 14</b></span></div>
+          <div class="viz vstrips">
+            <div class="strip" style="--sc:var(--green)"><div><div class="sroute">CHASE &rarr; VIRGIN</div><div class="ssub">+30% &middot; printed Sat</div></div><div class="sgrow"></div><span class="stamp">Closed Jul 14<br>as called</span></div>
+            <div class="strip" style="--sc:var(--green)"><div><div class="sroute">AMEX &rarr; AVIANCA</div><div class="ssub">+15% &middot; printed Sat</div></div><div class="sgrow"></div><span class="stamp">Closed Jul 15<br>as called</span></div>
+            <div class="strip" style="--sc:var(--gold)"><div><div class="sroute">AMEX &rarr; HILTON</div><div class="ssub">+20% &middot; flagged trap</div></div><div class="sgrow"></div><span class="stamp">Expired<br>not taken</span></div>
           </div>
           <div class="read">Chase to Virgin Atlantic closed <b>July 14, exactly as this page printed.</b> Amex to Avianca closed July 15. And the Hilton +20% expired the same Tuesday with our clients still holding their points: a bonus on a 0.5&cent; currency was still 0.5&cent;. Three doors, three calls, three checks.</div>
           <div class="micro">Read across the industry &middot; dated &amp; verified</div>
