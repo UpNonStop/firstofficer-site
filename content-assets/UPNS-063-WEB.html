@@ -1,0 +1,682 @@
+<!--
+============================================================================
+  FIRST OFFICER · SATURDAY DISPATCH · UPNS-063 · WEB CARD
+  THE INTELLIGENCE GALLERY: 13 aggregated, PII-removed insight mockups the
+  room saw this week. Award travel you already earned, and the trips still
+  hiding inside it. Warm daily-dispatch template. Namespaced .fo.
+============================================================================
+-->
+<style>
+html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
+.fo{color-scheme:light}
+@media (prefers-color-scheme: dark){
+  html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
+  .fo,.fo *{ -webkit-text-fill-color:initial }
+}
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&display=swap');
+.fo *{margin:0;padding:0;box-sizing:border-box}
+.fo h1,.fo h2,.fo h3,.fo h4,.fo p,.fo ul,.fo li,.fo figure,.fo blockquote{margin:0;padding:0}
+.fo{--pink:#FA1896;--wa:#25D366;--cyan:#00B4D8;--purple:#9B5DE5;--coral:#FF6B6B;--amber:#F8961E;--mag:#F15BB5;--teal:#14b8a6;--gold:#c47d15;
+  --ink:#23201a;--t2:#544e42;--t3:#8a8175;--t4:#b3aa9a;--line:#e4ddce;--hair:#efe9dc;--paper:#fbf7ef;--alt:#f4eee1;--card:#fffdf8;
+  --serif:'DM Serif Display',Georgia,serif;--font:'DM Sans',system-ui,sans-serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.4,0,.2,1);
+  font-family:var(--font);line-height:1.6;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;max-width:820px;margin:0 auto;overflow:hidden}
+.fo img{max-width:100%;display:block}
+.fo .wrap{padding:0 40px}
+.fo em{font-style:normal}
+@keyframes forev{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.fo .rv{animation:forev .6s var(--ease) both}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.8)}}
+
+.fo .kick{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.fo .kick .k{font-family:var(--mono);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2.6px;color:var(--pink);white-space:nowrap}
+.fo .kick .fl{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:1.4px;color:var(--t4)}
+.fo .kick .rule{flex:1;height:1px;background:var(--line)}
+.fo .hd{font-family:var(--serif);font-size:26px;line-height:1.1;letter-spacing:-.5px;margin-bottom:12px;color:var(--ink)}
+.fo .hd em{color:var(--pink)}
+.fo .ds{font-size:13.5px;line-height:1.65;color:var(--t3);max-width:600px}
+
+.fo .sec{padding:50px 0 14px}
+.fo .sec.alt{padding:50px 0 14px}
+.fo .dots{background-image:radial-gradient(rgba(250,24,150,.1) 1.1px,transparent 1.1px);background-size:26px 26px}
+
+/* masthead - daily dispatch letterpress */
+.fo .mast{background:var(--paper);padding:20px 40px 16px;border-bottom:1px solid var(--ink)}
+.fo .mast-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.fo .mast-row .l,.fo .mast-row .r{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--t3);flex:1;line-height:1.6}
+.fo .mast-row .r{text-align:right}
+.fo .mast-row .c{display:flex;align-items:center;gap:9px}
+.fo .mast-row .c img{width:22px;height:auto}
+.fo .mast-row .c .wm{display:flex;flex-direction:column;line-height:1.05;text-align:left}
+.fo .mast-row .c .wm .n{font-family:var(--font);font-size:16px;font-weight:800;letter-spacing:-.2px;color:var(--ink)}
+.fo .mast-row .c .wm .by{font-family:var(--font);font-size:12px;font-weight:400;letter-spacing:0;color:var(--t3)}
+.fo .mast-row .c .wm .by b{font-weight:700;color:var(--ink)}
+.fo .mast-title{text-align:center;font-family:var(--serif);font-size:54px;line-height:1;letter-spacing:-1.5px;color:var(--ink);margin:16px 0 10px}
+.fo .mast-title em{color:var(--pink)}
+.fo .mast-foot{display:flex;align-items:center;gap:11px;justify-content:center;flex-wrap:wrap;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:2.4px;text-transform:uppercase;color:var(--t3);padding-top:12px;border-top:1px solid var(--line)}
+.fo .mast-foot .pk{color:var(--pink)}
+
+/* hero intro */
+.fo .hero{padding:46px 40px 40px;background:var(--paper);max-height:none !important;height:auto !important;min-height:0 !important;overflow:visible !important}
+.fo .hero .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border-radius:100px;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;background:rgba(250,24,150,.06);color:var(--pink);border:1px solid rgba(250,24,150,.15);margin-bottom:20px}
+.fo .hero .badge .dot{width:7px;height:7px;background:var(--pink);border-radius:50%;animation:pulse 2s infinite}
+.fo .hero h1{font-family:var(--serif);font-size:40px;line-height:1.06;letter-spacing:-1px;margin-bottom:16px;color:var(--ink)}
+.fo .hero h1 em{color:var(--pink)}
+.fo .hero .sub{font-size:15px;line-height:1.7;color:#2c2c30;max-width:600px}
+.fo .hstats{display:flex;flex-wrap:wrap;gap:10px}
+.fo .hk{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--t3);margin:28px 0 13px}
+.fo .hk i{width:6px;height:6px;border-radius:50%;background:var(--pink)}
+.fo .hstat{flex:1;min-width:110px;background:var(--card);border:1.6px solid var(--ink);border-radius:14px;padding:18px 12px 15px;text-align:center;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.fo .hstat::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--hc,var(--pink))}
+.fo .hstat .v{font-family:var(--serif);font-size:28px;letter-spacing:-.5px;line-height:1;color:var(--hc,var(--ink))}
+.fo .hstat .l{font-size:12px;color:var(--t3);margin-top:7px;line-height:1.35}
+.fo .bluf{margin-top:40px}
+.fo .bluf .bk{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--t3);margin-bottom:18px}
+.fo .bluf .bk i{width:6px;height:6px;border-radius:50%;background:var(--pink)}
+.fo .bluf .bl{font-family:var(--font);font-weight:400;font-size:16.5px;line-height:1.55;letter-spacing:0;color:var(--ink);margin-bottom:15px;max-width:640px}
+.fo .bluf .bl:last-child{margin-bottom:0}
+.fo .bluf .bl em{font-style:normal;font-family:var(--serif);font-size:22px;line-height:1;color:var(--pink);margin-right:3px}
+
+/* ============ INSIGHT CARD SYSTEM ============ */
+.fo .gal{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+.fo .ic{grid-column:span 1;background:var(--card);border:1.6px solid var(--ink);border-radius:16px;padding:23px 22px 20px;position:relative;overflow:hidden;box-shadow:0 14px 40px -32px rgba(35,32,26,.4);display:flex;flex-direction:column}
+.fo .ic.wide{grid-column:span 2}
+.fo .ic::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--vc,#FA1896)}
+.fo .ic .tag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--vc,#FA1896);margin-bottom:12px}
+.fo .ic .tag .tdot{width:6px;height:6px;border-radius:50%;background:var(--vc,#FA1896)}
+.fo .ic .stat{font-family:var(--serif);font-size:33px;line-height:1;letter-spacing:-.5px;margin-bottom:6px}
+.fo .ic .stat em{color:var(--vc,#FA1896)}
+.fo .ic .sh{font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:14px;line-height:1.3}
+.fo .ic .viz{margin-bottom:14px;margin:4px 0 14px}
+.fo .ic .read{margin-top:auto;padding-top:12px;border-top:1px solid var(--hair);font-size:12px;color:var(--t3);line-height:1.5}
+.fo .ic .read b{color:var(--ink);font-weight:700}
+.fo .ic .micro{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--t4);margin-top:8px}
+/* weekly-insights theming: auto-number every tile */
+.fo .gal{counter-reset:ins}
+.fo .ic{counter-increment:ins}
+.fo .ic .tag::before{content:"No." counter(ins,decimal-leading-zero);font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.4px;color:#fff;background:var(--vc,#FA1896);padding:3px 7px;border-radius:5px;margin-right:3px;flex:none}
+.fo .ic .insight{font-family:var(--serif);font-size:15px;line-height:1.22;color:var(--ink);margin:2px 0 12px;letter-spacing:-.2px}
+.fo .ic .insight em{color:var(--vc,#FA1896)}
+/* vertical colors */
+.fo .v-air{--vc:#00B4D8}.fo .v-hotel{--vc:#9B5DE5}.fo .v-rental{--vc:#F8961E}.fo .v-cruise{--vc:#14b8a6}
+.fo .v-portal{--vc:#FF6B6B}.fo .v-dining{--vc:#FA1896}.fo .v-transfer{--vc:#F15BB5}.fo .v-credit{--vc:#c47d15}
+.fo .v-return{--vc:#FA1896}.fo .v-beyond{--vc:#25D366}
+
+/* viz: horizontal bars */
+.fo .vbars{display:flex;flex-direction:column;gap:9px}
+.fo .vbar{display:grid;grid-template-columns:1fr auto;gap:4px}
+.fo .vbar .vl{display:flex;justify-content:space-between;font-size:12px;color:var(--t2);font-weight:600}
+.fo .vbar .vl .vn{font-family:var(--mono);font-weight:800;color:var(--ink)}
+.fo .vbar .vt{grid-column:1/-1;height:8px;background:var(--hair);border-radius:5px;overflow:hidden}
+.fo .vbar .vt i{display:block;height:100%;border-radius:5px;background:var(--vc);opacity:.85}
+.fo .vbar.mut .vt i{background:rgba(17,17,17,.16)}
+.fo .vbar .vc2{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--vc);text-transform:uppercase;letter-spacing:.5px}
+
+/* viz: heat calendar */
+.fo .vheat{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.fo .vheat .hc{aspect-ratio:1;border-radius:5px;background:var(--hair);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;font-weight:700;color:var(--t4)}
+.fo .vheat .hc.w1{background:color-mix(in srgb,var(--vc) 20%,#fff);color:var(--vc)}
+.fo .vheat .hc.w2{background:color-mix(in srgb,var(--vc) 55%,#fff);color:#fff}
+.fo .vheat .hc.w3{background:var(--vc);color:#fff}
+.fo .vhkey{display:flex;gap:12px;margin-top:9px;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--t3)}
+.fo .vhkey span{display:flex;align-items:center;gap:5px}.fo .vhkey i{width:9px;height:9px;border-radius:3px}
+
+/* viz: delta before/after */
+.fo .vdelta{display:flex;flex-direction:column;gap:11px}
+.fo .vdrow{display:grid;grid-template-columns:74px 1fr auto;align-items:center;gap:10px}
+.fo .vdrow .vdl{font-size:12px;font-weight:600;color:var(--t2)}
+.fo .vdbars{display:flex;align-items:center;gap:6px}
+.fo .vdbars .ob{height:14px;background:rgba(17,17,17,.12);border-radius:4px}
+.fo .vdbars .nb{height:14px;background:var(--vc);border-radius:4px;opacity:.85}
+.fo .vdrow .vdd{font-family:var(--mono);font-size:12px;font-weight:800;color:var(--ink);text-align:right}
+
+/* viz: gauge */
+.fo .vgauge{display:flex;align-items:center;gap:18px}
+.fo .vgauge svg{width:120px;height:70px;flex-shrink:0}
+.fo .vgauge .gv{font-family:var(--serif);font-size:22px;line-height:1;color:var(--ink)}
+.fo .vgauge .gl{font-size:9px;color:var(--t3);margin-top:4px;line-height:1.4}
+.fo .vgauge .gflag{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--coral);margin-top:6px}
+
+/* viz: leaderboard */
+.fo .vlead{display:flex;flex-direction:column;gap:8px}
+.fo .vlrow{display:grid;grid-template-columns:16px 1fr 42px;align-items:center;gap:9px}
+.fo .vlrow .vr{font-family:var(--serif);font-size:16px;color:var(--t4);text-align:center}
+.fo .vlrow:first-child .vr{color:var(--vc)}
+.fo .vlrow .vln{font-size:12px;font-weight:600;color:var(--t2)}
+.fo .vlrow .vlt{height:7px;background:var(--hair);border-radius:4px;overflow:hidden;margin-top:3px}
+.fo .vlrow .vlt i{display:block;height:100%;border-radius:4px;background:var(--vc);opacity:.8}
+.fo .vlrow .vlv{font-family:var(--mono);font-size:12px;font-weight:800;color:var(--ink);text-align:right}
+
+/* viz: histogram */
+.fo .vhist{display:flex;align-items:flex-end;gap:6px;height:96px}
+.fo .vhcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.fo .vhcol .hb{width:100%;border-radius:4px 4px 0 0;background:rgba(17,17,17,.1)}
+.fo .vhcol.hot .hb{background:var(--vc)}
+.fo .vhcol .hx{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--t3);margin-top:6px;letter-spacing:.3px}
+
+/* viz: flow */
+.fo .vflow{position:relative;height:96px}
+.fo .vflow svg{width:100%;height:100%;overflow:visible}
+.fo .vflow .fnode{font-family:var(--mono);font-size:9px;font-weight:700}
+
+/* viz: donut */
+.fo .vdonut{display:flex;align-items:center;gap:16px}
+.fo .vdonut .dring{width:96px;height:96px;border-radius:50%;flex-shrink:0;position:relative;
+  background:conic-gradient(var(--cyan) 0 34%,var(--purple) 34% 58%,var(--coral) 58% 74%,var(--pink) 74% 88%,var(--amber) 88% 100%)}
+.fo .vdonut .dring:after{content:"";position:absolute;inset:26%;background:var(--card);border-radius:50%}
+.fo .vdonut .dring .dc{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:800;color:var(--ink);z-index:2}
+.fo .vleg{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--t2)}
+.fo .vleg .lgrow{display:flex;align-items:center;gap:8px}
+.fo .vleg .lgrow i{width:9px;height:9px;border-radius:3px}
+.fo .vleg .lgrow b{margin-left:auto;font-family:var(--mono);font-weight:800;color:var(--ink)}
+
+/* viz: big stat + gap bar */
+.fo .vbig{text-align:left}
+.fo .vgap{margin-top:10px}
+.fo .vgap .gl2{display:flex;justify-content:space-between;font-size:9px;font-weight:700;color:var(--t3);margin-bottom:4px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.5px}
+.fo .vgap .gt{height:22px;border-radius:6px;background:var(--hair);position:relative;overflow:hidden}
+.fo .vgap .gt .now{position:absolute;left:0;top:0;bottom:0;background:rgba(17,17,17,.14);border-radius:6px}
+.fo .vgap .gt .could{position:absolute;left:0;top:0;bottom:0;border-right:2px dashed var(--vc)}
+.fo .vgap .gt .lab{position:absolute;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:9px;font-weight:800;color:var(--vc)}
+
+/* viz: spark rows */
+.fo .vspark{display:flex;flex-direction:column;gap:9px}
+.fo .vsrow{display:grid;grid-template-columns:1fr 64px 44px;align-items:center;gap:10px}
+.fo .vsrow .vsl{font-size:12px;font-weight:600;color:var(--t2)}
+.fo .vsrow svg{width:64px;height:22px}
+.fo .vsrow .vsv{font-family:var(--mono);font-size:12px;font-weight:800;text-align:right}
+.fo .vsrow .vsv.up{color:var(--vc)}.fo .vsrow .vsv.dn{color:var(--coral)}
+
+/* viz: multiplier comparison (visceral 1x vs Nx) */
+.fo .vmult{display:flex;flex-direction:column;gap:14px;padding:4px 0}
+.fo .vm{display:grid;grid-template-columns:58px 1fr auto;align-items:center;gap:12px}
+.fo .vm .ml{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--t3)}
+.fo .vm .mt{height:26px;display:flex;align-items:center}
+.fo .vm .mt i{display:block;height:100%;border-radius:6px}
+.fo .vm .mt i.lo{background:rgba(35,32,26,.14)}
+.fo .vm .mt i.hi{background:var(--vc)}
+.fo .vm .mx{font-family:var(--serif);font-size:22px;line-height:1;color:var(--t3);min-width:52px;text-align:right}
+.fo .vm .mx.big{font-size:33px;color:var(--vc)}
+.fo .vmnote{display:flex;align-items:baseline;gap:8px;margin-top:6px;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--t3)}
+.fo .vmnote .dollar{font-family:var(--serif);font-size:22px;color:var(--ink);text-transform:none;letter-spacing:-.5px}
+
+/* viz: was -> now nerf ledger */
+.fo .vnerf{display:flex;flex-direction:column}
+.fo .nr{display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--hair)}
+.fo .nr:last-child{border-bottom:none}
+.fo .nr .nl{font-size:12px;font-weight:700;color:var(--t2);grid-column:1}
+.fo .nr .nd{grid-column:2;grid-row:1/3;font-family:var(--mono);font-size:12px;font-weight:800;color:var(--coral);align-self:center}
+.fo .nr .nv{grid-column:1;display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;font-weight:800}
+.fo .nr .nv s{color:var(--t4);font-weight:600;text-decoration-thickness:1.5px}
+.fo .nr .nv .arw{color:var(--coral);font-size:12px}
+.fo .nr .nv b{color:var(--ink)}
+
+/* ledger + win + cta (compact) reuse */
+.fo .ledger{background:var(--card);border:1.6px solid var(--ink);border-radius:18px;overflow:hidden;box-shadow:0 18px 50px -34px rgba(15,15,18,.26)}
+.fo .lhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:20px 24px 16px;border-bottom:1px solid var(--line)}
+.fo .lhead .lt{font-family:var(--serif);font-size:22px}
+.fo .lhead .ls{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3)}
+.fo .lstats{display:grid;grid-template-columns:repeat(4,1fr)}
+.fo .lstat{padding:20px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.fo .lstat:nth-child(4n){border-right:none}
+.fo .lstat .n{font-family:var(--serif);font-size:28px;line-height:1;letter-spacing:-.5px}
+.fo .lstat .n em{color:var(--pink)}
+.fo .lstat .l{font-size:12px;color:var(--t3);margin-top:6px;line-height:1.4}
+.fo .chart{padding:22px 24px 18px}
+.fo .chart .ch-t{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--t3);margin-bottom:6px}
+.fo .chart .ch-fig{position:relative;height:170px;margin-top:12px}
+.fo .chart svg{width:100%;height:100%;overflow:visible;display:block}
+.fo .chdot{position:absolute;left:98.1%;top:8%;width:11px;height:11px;background:var(--pink);border-radius:50%;transform:translate(-50%,-50%)}
+.fo .chdot::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:2px solid var(--pink);animation:chping 2.2s ease-out infinite}
+@keyframes chping{0%{transform:scale(1);opacity:.55}100%{transform:scale(2.4);opacity:0}}
+.fo .yah{position:absolute;top:4px;left:12px;display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.fo .yah .big{font-family:var(--serif);font-size:28px;color:var(--pink);line-height:1}
+.fo .yah .lab{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--pink)}
+.fo .chax{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;font-weight:600;color:var(--t4);text-transform:uppercase;margin-top:8px;padding-top:8px;border-top:1px solid var(--hair)}
+
+.fo .win{background:var(--card);border:1.6px solid var(--ink);border-radius:18px;overflow:hidden;box-shadow:0 18px 50px -34px rgba(15,15,18,.26)}
+.fo .win .wtop{padding:12px 22px 13px;background:linear-gradient(135deg,var(--pink),#e0117f);color:#fff}
+.fo .win .wb{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:7px;line-height:1}
+.fo .win .wb .dot{width:6px;height:6px;background:var(--card);border-radius:50%;animation:pulse 2s infinite}
+.fo .win .wtop h3{font-family:var(--serif);font-size:23px;line-height:1.15;margin-bottom:4px;color:#fff}
+.fo .win .wtop .wl{font-size:13px;color:rgba(255,255,255,.9);line-height:1.55}
+.fo .win .wacts{display:grid;grid-template-columns:1fr 1fr 1fr}
+.fo .win .wmath{display:flex;justify-content:center;align-items:baseline;gap:8px;flex-wrap:wrap;padding:13px 18px;background:var(--alt);border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;font-weight:800;color:var(--ink);letter-spacing:.3px}
+.fo .win .wmath .mut{color:var(--t3);font-weight:600}
+.fo .win .wmath .pk{color:var(--pink)}
+.fo .win .wact{position:relative;overflow:hidden;padding:18px 18px 16px;border-right:1px solid var(--hair)}
+.fo .win .wact .ghost{position:absolute;top:-6px;right:8px;font-family:var(--serif);font-size:88px;line-height:1;color:rgba(35,32,26,.06);pointer-events:none}
+.fo .win .wact.w .ghost{color:rgba(250,24,150,.09)}
+.fo .win .wact:last-child{border-right:none}
+.fo .win .wact .an{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--t4);margin-bottom:7px}
+.fo .win .wact .at{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--t2);border:1.4px solid currentColor;border-radius:5px;padding:3px 8px;margin-bottom:10px;position:relative}
+.fo .win .wact.w .at{color:var(--pink)}
+.fo .win .wact.f .at{color:#16a34a}
+.fo .win .wact .av{font-family:var(--serif);font-size:27px;line-height:1;margin-bottom:8px;position:relative}
+.fo .win .wact.w .av{color:var(--pink)}
+.fo .win .wact .ac{font-size:12px;color:var(--t3);line-height:1.5;position:relative}
+
+.fo .cta{background:linear-gradient(135deg,var(--pink),#e0117f);border-radius:20px;padding:42px 34px;text-align:center;position:relative;overflow:hidden}
+.fo .cta h3{font-family:var(--serif);font-size:26px;color:#fff;line-height:1.15;margin-bottom:12px;position:relative;z-index:2}
+.fo .cta p{font-size:15px;color:rgba(255,255,255,.9);max-width:440px;margin:0 auto 24px;line-height:1.6;position:relative;z-index:2}
+.fo .cta a{display:inline-flex;align-items:center;gap:9px;background:var(--card);color:var(--pink);font-weight:800;font-size:15px;text-decoration:none;padding:14px 28px;border-radius:100px;box-shadow:0 12px 30px -8px rgba(0,0,0,.3);position:relative;z-index:2}
+.fo .cta .fine{font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.78);margin-top:16px;position:relative;z-index:2}
+.fo .closer{padding:56px 40px 48px;text-align:center}
+.fo .closer p{font-family:var(--serif);font-size:34px;line-height:1.22;letter-spacing:-.5px;color:var(--ink)}
+.fo .closer p em{font-style:normal;color:var(--pink)}
+.fo .closer .sig{font-family:var(--mono);font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--t3);margin-top:14px}
+.fo .foot{background:var(--paper);border-top:1px solid var(--line);padding:32px 40px;text-align:center}
+.fo .foot .tag{font-family:var(--serif);font-size:16px;margin-bottom:12px}
+.fo .foot .tag em{color:var(--pink)}
+.fo .foot .meta{font-family:var(--mono);font-size:12px;letter-spacing:.5px;color:var(--t3);line-height:1.9}
+.fo .foot .meta a{color:var(--pink);text-decoration:none;font-weight:600}
+.fo .foot .disc{font-size:12px;color:#999;margin-top:12px;line-height:1.6}
+
+/* ===== OUR CLIENTS' WEEK (aggregated daily-redemption trends) ===== */
+.fo .rwpulse{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+.fo .rpc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 13px;position:relative}
+.fo .rpc .rl{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--t3);line-height:1.3;margin-bottom:9px}
+.fo .rpc .rv2{font-family:var(--serif);font-size:26px;line-height:1;color:var(--ink);letter-spacing:-.5px}
+.fo .rpc .rv2 em{color:var(--pink)}
+.fo .rpc .rw{display:inline-flex;align-items:center;gap:3px;font-family:var(--mono);font-size:9px;font-weight:800;margin-top:8px}
+.fo .rpc .rw.up{color:#16a34a}.fo .rpc .rw.down{color:var(--coral)}.fo .rpc .rw.flat{color:var(--t4)}
+.fo .rpc .rspark{position:absolute;right:14px;bottom:12px;width:52px;height:22px}
+.fo .rpc .rspark svg{width:100%;height:100%;overflow:visible;display:block}
+.fo .rwgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fo .rwcard{background:var(--card);border:1.6px solid var(--ink);border-radius:16px;overflow:hidden}
+.fo .rwh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:16px 18px 12px;border-bottom:1px solid var(--hair)}
+.fo .rwh .t{font-family:var(--serif);font-size:16px;color:var(--ink)}
+.fo .rwh .s{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--t3)}
+/* trending destinations */
+.fo .tr{display:grid;grid-template-columns:24px 1fr 66px 44px;align-items:center;gap:11px;padding:11px 18px;border-bottom:1px solid var(--hair)}
+.fo .tr:last-child{border-bottom:none}
+.fo .trk{font-family:var(--serif);font-size:16px;color:var(--t4);text-align:center}
+.fo .rwcard .tr:first-of-type .trk{color:var(--pink)}
+.fo .trn{font-size:13.5px;font-weight:700;color:var(--ink)}
+.fo .trn .sub{display:block;font-family:var(--font);font-size:12px;font-weight:500;color:var(--t3);margin-top:1px}
+.fo .theat{height:9px;background:var(--hair);border-radius:5px;overflow:hidden}
+.fo .theat i{display:block;height:100%;border-radius:5px;background:var(--pink)}
+.fo .twow{font-family:var(--mono);font-size:12px;font-weight:800;text-align:right}
+.fo .twow.up{color:#16a34a}.fo .twow.down{color:var(--coral)}.fo .twow.flat{color:var(--t4)}
+/* transfer flow */
+.fo .fr{display:grid;grid-template-columns:112px 1fr 60px;align-items:center;gap:11px;padding:11px 18px;border-bottom:1px solid var(--hair)}
+.fo .fr:last-child{border-bottom:none}
+.fo .frn{font-size:12.5px;font-weight:700;color:var(--ink)}
+.fo .frn .sub{display:block;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--t3);margin-top:2px}
+.fo .fbar{position:relative;height:14px;background:var(--hair);border-radius:5px;overflow:hidden}
+.fo .fbar .mid{position:absolute;top:-2px;bottom:-2px;left:50%;width:1.5px;background:var(--ink);opacity:.35;z-index:2}
+.fo .fbar i{position:absolute;top:0;bottom:0;border-radius:5px}
+.fo .fbar i.pos{left:50%;background:#16a34a}
+.fo .fbar i.neg{right:50%;background:var(--coral)}
+.fo .fwow{font-family:var(--mono);font-size:12px;font-weight:800;text-align:right}
+.fo .fwow.up{color:#16a34a}.fo .fwow.down{color:var(--coral)}
+
+@media(max-width:640px){
+  .fo .rwpulse{grid-template-columns:1fr 1fr}
+  .fo .rwgrid{grid-template-columns:1fr}
+  .fo .wrap,.fo .mast,.fo .hero,.fo .closer,.fo .foot{padding-left:20px;padding-right:20px}
+  .fo .closer p{font-size:26px}
+  .fo .bluf .bl{font-size:15px}
+  .fo .bluf .bl em{font-size:19px}
+  .fo .hero h1{font-size:32px}.fo .hd{font-size:26px}
+  .fo .gal{grid-template-columns:1fr}.fo .ic.wide{grid-column:span 1}
+  .fo .lstats{grid-template-columns:1fr 1fr}.fo .lstat:nth-child(2n){border-right:none}
+  .fo .win .wacts{grid-template-columns:1fr}.fo .win .wact{border-right:none;border-bottom:1px solid var(--hair)}
+  .fo .vgauge{gap:12px}.fo .mast .mr{font-size:9px}
+}
+</style>
+
+<div class="fo">
+
+  <div class="mast">
+    <div class="mast-row">
+      <span class="l">629 Programs<br>13 Banks</span>
+      <span class="c"><img src="data:image/png;base64,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" alt=""><span class="wm"><span class="n">First Officer</span><span class="by">by <b>UpNonStop</b>&trade;</span></span></span>
+      <span class="r">Weekend<br>Edition</span>
+    </div>
+    <div class="mast-title">Saturday <em>Dispatch</em></div>
+    <div class="mast-foot"><span class="pk">UPNS-063</span><span>&middot;</span><span>July 18, 2026</span><span>&middot;</span><span>The Intelligence Report</span></div>
+  </div>
+
+  <div class="hero dots">
+    <div class="badge rv"><span class="dot"></span>Pour the coffee &middot; Saturday's dispatch is here</div>
+    <h1 class="rv">A 100% transfer window just opened.<br><em>The richest one closes tonight.</em></h1>
+    <p class="sub rv">Every Saturday, First Officer reads the week across 13 banks and 629 loyalty programs and hands you what matters. This week that read starts with a scoreboard: last Saturday this dispatch printed two Tuesday deadlines, and both landed exactly as written. Then the new board: a currency that briefly doubles, a hotel chart cracking for September, and one door that shuts at midnight tonight.</p>
+    <div class="hk rv"><i></i>During this past week</div>
+    <div class="hstats rv">
+      <div class="hstat" style="--hc:var(--pink)"><div class="v">$41,700</div><div class="l">Value surfaced</div></div>
+      <div class="hstat" style="--hc:var(--cyan)"><div class="v">217</div><div class="l">Wallets read</div></div>
+      <div class="hstat" style="--hc:var(--purple)"><div class="v">13</div><div class="l">Patterns flagged</div></div>
+      <div class="hstat" style="--hc:var(--coral)"><div class="v">4</div><div class="l">Traps caught</div></div>
+    </div>
+    <div class="bluf rv">
+      <div class="bk"><i></i>What it means for your wallet</div>
+      <div class="bl"><em>Stronger.</em> Chase points briefly buy double: 1 point becomes 2 IHG points through July 30, the biggest ratio of the year.</div>
+      <div class="bl"><em>Weaker.</em> Wyndham cracks its chart September 15: top stays jump 50% to 45,000 points a night. The old chart honors bookings made before the switch.</div>
+      <div class="bl"><em>Closing.</em> The 50% Citi to Accor window, the richest hotel door of July, shuts tonight at midnight. Roughly 3 cents of hotel credit per ThankYou point until then.</div>
+    </div>
+  </div>
+
+  <!-- THE WIN (compact lead) -->
+  <div class="sec">
+    <div class="wrap">
+      <div class="kick rv"><span class="k">The Win</span><span class="rule"></span><span class="fl">Caught this week</span></div>
+      <div class="win rv">
+        <div class="wtop">
+          <div class="wb"><span class="dot"></span>One call, kept in print</div>
+          <h3>Last Saturday this page printed a Tuesday deadline. K. moved 100,000 points through it on Sunday.</h3>
+          <div class="wl">The Virgin door closed Tuesday as printed. The same move today needs 30,000 more points, roughly $1,200 by our valuation. Anonymized, one detail changed, number verified.</div>
+        </div>
+        <div class="wacts">
+          <div class="wact"><span class="ghost">01</span><div class="an">Printed &middot; Sat 6:00am</div><div class="at">The call</div><div class="av">2 doors</div><div class="ac">Last Saturday, line two of this dispatch: 2 of them close Tuesday night. Dated, in writing.</div></div>
+          <div class="wact f"><span class="ghost">02</span><div class="an">Moved &middot; Sun 9:40am</div><div class="at">Through the door</div><div class="av">130,000</div><div class="ac">K. transferred 100,000 points at +30% and landed 130,000 on the other side. Seat held first.</div></div>
+          <div class="wact w"><span class="ghost">03</span><div class="an">Settled &middot; Tue 11:59pm</div><div class="at">Door closed</div><div class="av">+30,000</div><div class="ac">The window shut as printed. The same 130,000 landing today would cost 130,000 flat.</div></div>
+        </div>
+        <div class="wmath"><span class="mut">The math</span><span>130,000 landed for 100,000 = 30,000 points ahead</span><span class="mut">&middot;</span><span class="pk">roughly $1,200 by our valuation</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUR CLIENTS' WEEK (aggregated daily-redemption trends) -->
+  <div class="sec alt">
+    <div class="wrap">
+      <div class="kick rv"><span class="k">Our Clients' Week</span><span class="rule"></span><span class="fl">Aggregated daily activity</span></div>
+      <div class="hd rv">One wallet sees its week. <em>First Officer sees the weather.</em></div>
+      <p class="ds rv" style="margin-bottom:24px">M. is one line. Behind that line, First Officer has read roughly 3,260 redemptions and 934 transfers across our client base since Jan 1, 2026. Rolled together, individual moves become trends, and trends are the thing no single wallet can ever see on its own.</p>
+
+      <div class="rwpulse rv">
+        <div class="rpc"><div class="rl">Redemptions read</div><div class="rv2">3,260</div><div class="rw">since Jan 1, 2026</div><div class="rspark"><svg viewBox="0 0 52 22"><polyline points="2,18 12,16 22,13 32,11 42,6 50,4" fill="none" stroke="#16a34a" stroke-width="2"/></svg></div></div>
+        <div class="rpc"><div class="rl">Median return</div><div class="rv2"><em>1.4&cent;</em></div><div class="rw up">&#9650; +0.1&cent; wk</div><div class="rspark"><svg viewBox="0 0 52 22"><polyline points="2,17 12,16 22,14 32,12 42,9 50,7" fill="none" stroke="#16a34a" stroke-width="2"/></svg></div></div>
+        <div class="rpc"><div class="rl">Points in motion</div><div class="rv2">23M</div><div class="rw">since Jan 1, 2026</div><div class="rspark"><svg viewBox="0 0 52 22"><polyline points="2,19 12,17 22,15 32,10 42,5 50,3" fill="none" stroke="#16a34a" stroke-width="2"/></svg></div></div>
+        <div class="rpc"><div class="rl">Traps flagged</div><div class="rv2">4</div><div class="rw">&#9660; 2 fewer wk</div><div class="rspark"><svg viewBox="0 0 52 22"><polyline points="2,18 12,17 22,14 32,13 42,8 50,6" fill="none" stroke="#FA1896" stroke-width="2"/></svg></div></div>
+      </div>
+
+      <div class="rwgrid rv">
+        <div class="rwcard">
+          <div class="rwh"><span class="t">Trending redemptions</span><span class="s">vs last week</span></div>
+          <div class="tr"><div class="trk">1</div><div class="trn">Southern Europe<span class="sub">Hotels, Accor last-call routing</span></div><div class="theat"><i style="width:100%"></i></div><div class="twow up">&#9650;41%</div></div>
+          <div class="tr"><div class="trk">2</div><div class="trn">City stays<span class="sub">IHG searches on the 1:2 window</span></div><div class="theat"><i style="width:88%"></i></div><div class="twow up">&#9650;96%</div></div>
+          <div class="tr"><div class="trk">3</div><div class="trn">London<span class="sub">Cooling since the Virgin close</span></div><div class="theat"><i style="width:44%"></i></div><div class="twow down">&#9660;24%</div></div>
+          <div class="tr"><div class="trk">4</div><div class="trn">Maldives<span class="sub">Overwater award searches</span></div><div class="theat"><i style="width:31%"></i></div><div class="twow flat">0%</div></div>
+          <div class="tr"><div class="trk">5</div><div class="trn">Hawaii<span class="sub">Domestic saver, last-minute</span></div><div class="theat"><i style="width:27%"></i></div><div class="twow up">&#9650;9%</div></div>
+        </div>
+        <div class="rwcard">
+          <div class="rwh"><span class="t">Where points flowed</span><span class="s">net transfer volume</span></div>
+          <div class="fr"><div class="frn">IHG<span class="sub">100% bonus, Chase, new this week</span></div><div class="fbar"><span class="mid"></span><i class="pos" style="width:48%"></i></div><div class="fwow up">+212%</div></div>
+          <div class="fr"><div class="frn">Accor<span class="sub">50% bonus, final week</span></div><div class="fbar"><span class="mid"></span><i class="pos" style="width:34%"></i></div><div class="fwow up">+148%</div></div>
+          <div class="fr"><div class="frn">EVA Air<span class="sub">30% bonus, Capital One</span></div><div class="fbar"><span class="mid"></span><i class="pos" style="width:14%"></i></div><div class="fwow up">+22%</div></div>
+          <div class="fr"><div class="frn">Virgin Atlantic<span class="sub">Window closed Jul 14</span></div><div class="fbar"><span class="mid"></span><i class="neg" style="width:32%"></i></div><div class="fwow down">&#8722;71%</div></div>
+        </div>
+      </div>
+
+      <p class="body rv" style="margin-top:24px">Read the two boards together and the week has a shape. The closed Virgin door cooled London overnight, and the flow turned hotel-ward: Accor&rsquo;s final week and the new IHG double pulled the volume. <em>The board follows the doors, not the dreams.</em> <strong>That collective read is what hundreds of wallets produce together</strong>, and it is the same intelligence pointed at your wallet the moment you send it.</p>
+    </div>
+  </div>
+
+  <!-- THE LEDGER -->
+  <div class="sec">
+    <div class="wrap">
+      <div class="kick rv"><span class="k">The Officer's Ledger</span><span class="rule"></span><span class="fl">Our clients, aggregated</span></div>
+      <div class="ledger rv">
+        <div class="lhead"><span class="lt">Week of Jul 11, 2026</span><span class="ls">Aggregated &middot; anonymized &middot; internal valuation</span></div>
+        <div class="lstats">
+          <div class="lstat"><div class="n"><em>$41,700</em></div><div class="l">Surfaced across our clients this week</div></div>
+          <div class="lstat"><div class="n">217</div><div class="l">Wallets read for opportunity</div></div>
+          <div class="lstat"><div class="n">11</div><div class="l">Credits caught before expiry</div></div>
+          <div class="lstat"><div class="n">6</div><div class="l">Traps flagged pre-transfer</div></div>
+        </div>
+        <div class="chart">
+          <div class="ch-t">Cumulative value captured since launch</div>
+          <div class="ch-fig">
+            <svg viewBox="0 0 640 150" preserveAspectRatio="none">
+              <defs><linearGradient id="fofill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(250,24,150,.28)"/><stop offset="100%" stop-color="rgba(250,24,150,0)"/></linearGradient></defs>
+              <line x1="0" y1="140" x2="640" y2="140" stroke="#e8e9ed"/><line x1="0" y1="90" x2="640" y2="90" stroke="#f0f0f3"/><line x1="0" y1="45" x2="640" y2="45" stroke="#f0f0f3"/>
+              <path d="M8,138 C90,132 110,120 190,104 C270,88 300,78 370,60 C440,42 470,36 560,22 L628,12 L628,140 L8,140 Z" fill="url(#fofill)"/>
+              <path d="M8,138 C90,132 110,120 190,104 C270,88 300,78 370,60 C440,42 470,36 560,22 L628,12" fill="none" stroke="#FA1896" stroke-width="2.5"/>
+            </svg>
+            <span class="chdot"></span>
+            <div class="yah"><span class="big">$1.28M</span><span class="lab">Our clients &middot; to date</span></div>
+          </div>
+          <div class="chax"><span>Apr '25</span><span>Jul</span><span>Oct</span><span>Jan '26</span><span>Apr</span><span>Jul</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE INTELLIGENCE GALLERY -->
+  <div class="sec alt">
+    <div class="wrap">
+      <div class="kick rv"><span class="k">This Week's Insights</span><span class="rule"></span><span class="fl">13 reads &middot; aggregated &middot; PII removed</span></div>
+      <div class="hd rv">Thirteen things First Officer saw. <em>That one wallet couldn't.</em></div>
+      <p class="ds rv" style="margin-bottom:26px">Each card below is one insight from this week's aggregate: a pattern that only appears when hundreds of wallets are read at the same time. A chart that got hungrier, a portal tax hiding on one route, a hotel bonus that priced like a loss, our clients' points sorted by what they actually returned. Numbered, dated, and stripped of every name. This is the weekly read.</p>
+
+      <div class="gal">
+
+        <div class="ic v-air rv">
+          <span class="tag"><span class="tdot"></span>Airlines &middot; Transfer bonuses</span>
+          <div class="stat"><em>4</em> windows open</div>
+          <div class="sh">Live transfer bonuses, by close date</div>
+          <div class="viz vbars">
+            <div class="vbar"><div class="vl"><span>Citi &rarr; Accor &middot; +50%</span><span class="vn">Tonight</span></div><div class="vt"><i style="width:6%"></i></div></div>
+            <div class="vbar"><div class="vl"><span>Chase &rarr; IHG &middot; +100%</span><span class="vn">Jul 30</span></div><div class="vt"><i style="width:70%"></i></div></div>
+            <div class="vbar"><div class="vl"><span>Amex &rarr; Virgin Atlantic &middot; +30%</span><span class="vn">Jul 31</span></div><div class="vt"><i style="width:78%"></i></div></div>
+            <div class="vbar"><div class="vl"><span>Cap One &rarr; EVA Air &middot; +30%</span><span class="vn">Jul 31</span></div><div class="vt"><i style="width:78%"></i></div></div>
+          </div>
+          <div class="read">Bar length is time left, not size. <b>Citi to Accor at +50% closes tonight at midnight,</b> the richest hotel door of July. Chase to IHG doubles points through July 30. Amex to Virgin Atlantic and Cap One to EVA both run to July 31.</div>
+          <div class="micro">Read across the industry &middot; this week</div>
+        </div>
+
+        <div class="ic v-air rv">
+          <span class="tag"><span class="tdot"></span>Airlines &middot; The nerfs</span>
+          <div class="stat"><em>3</em> doors, settled</div>
+          <div class="sh">Last week&rsquo;s calls, closed as printed</div>
+          <div class="viz vnerf">
+            <div class="nr"><span class="nl">Chase &rarr; Virgin Atlantic &middot; +30%</span><span class="nd">as called</span><span class="nv"><s>open</s><span class="arw">&#9650;</span><b>closed Jul 14</b></span></div>
+            <div class="nr"><span class="nl">Amex &rarr; Avianca &middot; +15%</span><span class="nd">as called</span><span class="nv"><s>open</s><span class="arw">&#9650;</span><b>closed Jul 15</b></span></div>
+            <div class="nr"><span class="nl">Amex &rarr; Hilton &middot; +20% &middot; trap</span><span class="nd">skipped</span><span class="nv"><s>open</s><span class="arw">&#9650;</span><b>expired Jul 14</b></span></div>
+          </div>
+          <div class="read">Chase to Virgin Atlantic closed <b>July 14, exactly as this page printed.</b> Amex to Avianca closed July 15. And the Hilton +20% expired the same Tuesday with our clients still holding their points: a bonus on a 0.5&cent; currency was still 0.5&cent;. Three doors, three calls, three checks.</div>
+          <div class="micro">Read across the industry &middot; dated &amp; verified</div>
+        </div>
+
+        <div class="ic v-hotel rv">
+          <span class="tag"><span class="tdot"></span>Hotels &middot; Hyatt's new chart</span>
+          <div class="stat"><em>75 days</em> to Oct 1</div>
+          <div class="sh">Sapphire Preferred keeps 1:1 to Hyatt until Oct 1</div>
+          <div class="viz vheat">
+            <div class="hc"></div><div class="hc w1"></div><div class="hc w2"></div><div class="hc w3"></div><div class="hc w3"></div><div class="hc w1"></div><div class="hc"></div>
+            <div class="hc"></div><div class="hc"></div><div class="hc w1"></div><div class="hc w2"></div><div class="hc w3"></div><div class="hc w2"></div><div class="hc"></div>
+            <div class="hc w1"></div><div class="hc"></div><div class="hc"></div><div class="hc w1"></div><div class="hc w3"></div><div class="hc w3"></div><div class="hc w2"></div>
+            <div class="hc"></div><div class="hc w1"></div><div class="hc"></div><div class="hc"></div><div class="hc w1"></div><div class="hc w2"></div><div class="hc w3"></div>
+          </div>
+          <div class="vhkey"><span><i style="background:var(--hair)"></i>Lowest</span><span><i style="background:color-mix(in srgb,var(--vc) 55%,#fff)"></i>Moderate</span><span><i style="background:var(--vc)"></i>Top</span></div>
+          <div class="read">Hyatt went from three price levels to five: lowest, low, moderate, upper, top. Top properties climbed as much as <b>67%</b>. More levels means more dates hidden at the bottom. First Officer's job is finding the lowest one.</div>
+          <div class="micro">Read across the industry &middot; effective May 20</div>
+        </div>
+
+        <div class="ic v-hotel rv">
+          <span class="tag"><span class="tdot"></span>Hotels &middot; Wyndham, cracked</span>
+          <div class="stat"><em>+50%</em> at the top</div>
+          <div class="sh">New 45,000-point tier lands September 15</div>
+          <div class="viz vbars">
+            <div class="vbar"><div class="vl"><span>New top tier &middot; Sept 15</span><span class="vn">45,000 &middot; +50%</span></div><div class="vt"><i style="width:100%"></i></div></div>
+            <div class="vbar"><div class="vl"><span>Today&rsquo;s ceiling</span><span class="vn">30,000</span></div><div class="vt"><i style="width:67%"></i></div></div>
+            <div class="vbar"><div class="vl"><span>Bottom tier &middot; drops</span><span class="vn">7,500 &rarr; 5,000</span></div><div class="vt"><i style="width:11%"></i></div></div>
+          </div>
+          <div class="read">Wyndham cracks its chart <b>September 15</b>: a new top tier at 45,000 points a night, up 50% from today&rsquo;s ceiling. The quiet gift underneath: the bottom tier drops from 7,500 to <b>5,000</b>. Big stays get booked on the old chart; small stays get cheaper after it.</div>
+          <div class="micro">Read across the industry &middot; this week</div>
+        </div>
+
+        <div class="ic v-rental rv">
+          <span class="tag"><span class="tdot"></span>Car rentals &middot; Portal catch</span>
+          <div class="stat"><em>$96K</em> caught &amp; moved</div>
+          <div class="sh">Rental spend moved off the floor rate &middot; since Jan 1, 2026</div>
+          <div class="viz vmult">
+            <div class="vm"><span class="ml">Direct</span><div class="mt"><i class="lo" style="width:12.5%"></i></div><span class="mx">1x</span></div>
+            <div class="vm"><span class="ml">Portal</span><div class="mt"><i class="hi" style="width:100%"></i></div><span class="mx big">8x</span></div>
+            <div class="vmnote"><span class="dollar">$96K</span><span>of rentals, moved into the 5x to 8x lane</span></div>
+          </div>
+          <div class="read">Since Jan 1, 2026, First Officer flagged <b>$96K</b> of rentals booked direct at 1x while the same cards' portals paid <b>5x to 8x</b>. The identical bookings now run through the portal lane.</div>
+          <div class="micro">Aggregated &middot; across our clients</div>
+        </div>
+
+        <div class="ic v-cruise rv">
+          <span class="tag"><span class="tdot"></span>Cruises &middot; Redemption return</span>
+          <div class="stat"><em>0.7&cent;</em> per point</div>
+          <div class="sh">Cruise-points redemptions &middot; since Jan 1, 2026</div>
+          <div class="viz vgauge">
+            <svg viewBox="0 0 120 70">
+              <path d="M10,60 A50,50 0 0 1 110,60" fill="none" stroke="#eceef1" stroke-width="9" stroke-linecap="round"/>
+              <path d="M10,60 A50,50 0 0 1 28,26" fill="none" stroke="#14b8a6" stroke-width="9" stroke-linecap="round"/>
+              <line x1="60" y1="18" x2="60" y2="10" stroke="#FF6B6B" stroke-width="2"/>
+              <line x1="60" y1="60" x2="28.8" y2="31.9" stroke="#0f0f12" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="60" cy="60" r="4" fill="#0f0f12"/>
+            </svg>
+            <div><div class="gv">0.7&cent;</div><div class="gl">Keep-line: 1.5&cent;<br>(red tick)</div><div class="gflag">Flagged: hold the points</div></div>
+          </div>
+          <div class="read">Since Jan 1, 2026, cruise portal redemptions returned <b>0.7&cent;</b>, well below the keep-line. The read: pay cash, earn on the card, keep the points for a seat that pays 5&cent;.</div>
+          <div class="micro">Aggregated &middot; across our clients</div>
+        </div>
+
+        <div class="ic v-portal rv">
+          <span class="tag"><span class="tdot"></span>Transfers &middot; The 100% verdict</span>
+          <div class="stat"><em>1&rarr;2</em> through Jul 30</div>
+          <div class="sh">Chase to IHG, the biggest ratio of the year</div>
+          <div class="viz vlead">
+            <div class="vlrow"><span class="vr">1</span><div><div class="vln">Standard rate, any week</div><div class="vlt"><i style="width:50%"></i></div></div><span class="vlv">1 : 1</span></div>
+            <div class="vlrow"><span class="vr">2</span><div><div class="vln">Through July 30</div><div class="vlt"><i style="width:100%"></i></div></div><span class="vlv">1 : 2</span></div>
+            <div class="vlrow"><span class="vr">3</span><div><div class="vln">Against a priced stay, this week</div><div class="vlt"><i style="width:60%"></i></div></div><span class="vlv">1.2&cent;</span></div>
+          </div>
+          <div class="read">One Chase point becomes <b>two IHG points</b> through July 30. Doubling into a dynamically priced program only pays against a priced stay: 60,000 points became a $1,400 two-night booking this week, roughly <b>1.2&cent;</b> per Chase point. Unpriced, the same transfer is a coin flip.</div>
+          <div class="micro">Read across the industry &middot; this week</div>
+        </div>
+
+        <div class="ic v-portal rv">
+          <span class="tag"><span class="tdot"></span>Portals &middot; The portal tax</span>
+          <div class="stat"><em>5x</em> the points</div>
+          <div class="sh">Air France business, JFK to Paris, one seat</div>
+          <div class="viz vmult">
+            <div class="vm"><span class="ml">Transfer</span><div class="mt"><i class="lo" style="width:18%"></i></div><span class="mx" style="font-family:var(--mono);font-size:13px;min-width:66px">50,000</span></div>
+            <div class="vm"><span class="ml">Portal</span><div class="mt"><i class="hi" style="width:100%"></i></div><span class="mx" style="font-family:var(--mono);font-size:13px;color:var(--vc);min-width:66px">273,500</span></div>
+            <div class="vmnote"><span class="dollar">5x</span><span>the points, same seat &middot; cash $4,103</span></div>
+          </div>
+          <div class="read">Same lie-flat seat. Through a card's travel portal: about <b>273,500 points</b>. Transferred straight to the airline: <b>50,000</b>. Cash price: about $4,103. The portal is the convenient number. The transfer is the real one, at roughly a fifth of the points.</div>
+          <div class="micro">Read across the industry &middot; priced July 2026</div>
+        </div>
+
+        <div class="ic v-dining rv">
+          <span class="tag"><span class="tdot"></span>Dining &middot; The MCC catch</span>
+          <div class="stat"><em>$218K</em> caught &amp; moved</div>
+          <div class="sh">Dining spend moved off the wrong code &middot; since Jan 1, 2026</div>
+          <div class="viz vmult">
+            <div class="vm"><span class="ml">Flat card</span><div class="mt"><i class="lo" style="width:20%"></i></div><span class="mx">1x</span></div>
+            <div class="vm"><span class="ml">Right code</span><div class="mt"><i class="hi" style="width:100%"></i></div><span class="mx big">5x</span></div>
+            <div class="vmnote"><span class="dollar">$218K</span><span>of dining, now earning 4x to 5x</span></div>
+          </div>
+          <div class="read">Since Jan 1, 2026, First Officer flagged <b>$218K</b> of client dining running on flat cards at 1x. Moved to the right code, the same meals earn <b>4x to 5x</b> every month since.</div>
+          <div class="micro">Aggregated &middot; across our clients</div>
+        </div>
+
+        <div class="ic v-transfer rv">
+          <span class="tag"><span class="tdot"></span>Transfers &middot; The one-way door</span>
+          <div class="stat"><em>180K</em> stranded</div>
+          <div class="sh">Speculative transfers with no award space</div>
+          <div class="viz vflow">
+            <svg viewBox="0 0 300 96">
+              <text x="8" y="20" class="fnode" fill="#777">MOVED</text>
+              <text x="232" y="20" class="fnode" fill="#FF6B6B">STRANDED</text>
+              <circle cx="22" cy="56" r="11" fill="none" stroke="#F15BB5" stroke-width="2.5"/>
+              <text x="22" y="60" text-anchor="middle" font-family="'JetBrains Mono'" font-size="8" font-weight="700" fill="#F15BB5">UR</text>
+              <rect x="40" y="50" width="150" height="12" rx="4" fill="#F15BB5" opacity=".8"/>
+              <line x1="192" y1="56" x2="262" y2="56" stroke="#FF6B6B" stroke-width="2.5" stroke-dasharray="5 5"/>
+              <circle cx="274" cy="56" r="11" fill="none" stroke="#FF6B6B" stroke-width="2.5"/>
+              <line x1="269" y1="51" x2="279" y2="61" stroke="#FF6B6B" stroke-width="2.5"/><line x1="279" y1="51" x2="269" y2="61" stroke="#FF6B6B" stroke-width="2.5"/>
+              <text x="115" y="82" text-anchor="middle" font-family="'JetBrains Mono'" font-size="9" font-weight="700" fill="#777">no seat to book</text>
+            </svg>
+          </div>
+          <div class="read">Points move one way, and the partner rewrites the rules after you land. Four major banks repriced or dropped Emirates transfers over the past year, and Chase is the newest: <b>Sapphire Preferred transfers to Hyatt drop to 4:3 by October 1, while Sapphire Reserve keeps 1:1.</b> Our clients transfer for a seat they can see, never a hunch for someday, because someday is when the ratio moves.</div>
+          <div class="micro">Read across the industry &middot; July 2026</div>
+        </div>
+
+        <div class="ic v-return wide rv">
+          <span class="tag"><span class="tdot"></span>Redemption &middot; Return rate &middot; all our clients</span>
+          <div class="stat">Median <em>1.4&cent;</em> &middot; top decile <em>6.1&cent;</em></div>
+          <div class="sh">What every point actually returned this week, across 217 wallets</div>
+          <div class="viz vhist">
+            <div class="vhcol"><div class="hb" style="height:22%"></div><div class="hx">0.8&cent;</div></div>
+            <div class="vhcol"><div class="hb" style="height:52%"></div><div class="hx">1.0&cent;</div></div>
+            <div class="vhcol hot"><div class="hb" style="height:100%"></div><div class="hx">1.4&cent;</div></div>
+            <div class="vhcol"><div class="hb" style="height:70%"></div><div class="hx">1.6&cent;</div></div>
+            <div class="vhcol"><div class="hb" style="height:44%"></div><div class="hx">2.2&cent;</div></div>
+            <div class="vhcol"><div class="hb" style="height:30%"></div><div class="hx">3.1&cent;</div></div>
+            <div class="vhcol"><div class="hb" style="height:19%"></div><div class="hx">4.4&cent;</div></div>
+            <div class="vhcol hot"><div class="hb" style="height:12%"></div><div class="hx">6.1&cent;</div></div>
+          </div>
+          <div class="read">Every client wallet, sorted by what its points came back at. Most land near <b>1.4&cent;</b>. The top tenth land at <b>6.1&cent;</b>, more than four times higher on the same currency. The distance between the tall bar and the short one on the right is the entire reason First Officer exists.</div>
+          <div class="micro">Aggregated &middot; across our clients</div>
+        </div>
+
+        <div class="ic v-credit rv">
+          <span class="tag"><span class="tdot"></span>Credits &middot; Expiring value</span>
+          <div class="stat"><em>$11,900</em> at risk</div>
+          <div class="sh">Statement credits expiring in 14 days</div>
+          <div class="viz vgauge">
+            <svg viewBox="0 0 120 70">
+              <path d="M10,60 A50,50 0 0 1 110,60" fill="none" stroke="#eceef1" stroke-width="9" stroke-linecap="round"/>
+              <path d="M10,60 A50,50 0 0 1 85.7,26.8" fill="none" stroke="#c47d15" stroke-width="9" stroke-linecap="round"/>
+              <line x1="60" y1="60" x2="85.7" y2="26.8" stroke="#0f0f12" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="60" cy="60" r="4" fill="#0f0f12"/>
+            </svg>
+            <div><div class="gv">71%</div><div class="gl">flagged in time<br>before expiry</div></div>
+          </div>
+          <div class="read">Unused credits are the quietest loss in the wallet: nothing happens, then it is simply gone. <b>71%</b> were caught this week. The rest is why First Officer reads calendars, not just charts.</div>
+          <div class="micro">Aggregated &middot; across our clients</div>
+        </div>
+
+        <div class="ic v-beyond wide rv">
+          <span class="tag"><span class="tdot"></span>Beyond &middot; Where the value was</span>
+          <div class="stat"><em>$41,700</em> surfaced this week</div>
+          <div class="sh">The week's captured value, by source</div>
+          <div class="viz vdonut">
+            <div class="dring"><div class="dc">$41.7K</div></div>
+            <div class="vleg">
+              <div class="lgrow"><i style="background:var(--cyan)"></i>Flights <b>34%</b></div>
+              <div class="lgrow"><i style="background:var(--purple)"></i>Hotel stays <b>24%</b></div>
+              <div class="lgrow"><i style="background:var(--coral)"></i>Shopping &amp; portals <b>16%</b></div>
+              <div class="lgrow"><i style="background:var(--pink)"></i>Dining &amp; everyday spend <b>14%</b></div>
+              <div class="lgrow"><i style="background:var(--amber)"></i>Everything else earned <b>12%</b></div>
+            </div>
+          </div>
+          <div class="read">No single source carries a wallet. The value you already earned hides across all of them, a little at a time, which is exactly why it goes unnoticed without First Officer reading the entire board at once. That reading is the product. Everything above is one week of it.</div>
+          <div class="micro">Aggregated &middot; across our clients</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="sec">
+    <div class="wrap">
+      <div class="cta dots rv">
+        <h3>What is happening in your wallet right now that you don't know about?</h3>
+        <p>Send First Officer your cards on WhatsApp and get a Points Score inside 24 hours: what you hold, what it is worth at every altitude, and the one move this week is offering you.</p>
+        <a href="https://wa.me/16199404040">Message First Officer</a>
+        <div class="fine">WhatsApp +1 619 940 4040 &middot; Free Points Score in 24h</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="closer">
+    <p>13 signals this week.<br>Next week, 13 more.<br><em>That's my promise.</em></p>
+    <div class="sig">Enjoy your weekend. - Ohad</div>
+  </div>
+
+  <div class="foot">
+    <div class="tag">The strategy your points were <em>missing.</em></div>
+    <div class="meta">First Officer &middot; UpNonStop &middot; Saturday Dispatch UPNS-063<br><a href="https://wa.me/16199404040">WhatsApp +1 619 940 4040</a> &middot; <a href="https://firstofficer.upnonstop.com">firstofficer.upnonstop.com</a></div>
+    <div class="disc">Educational tool. Not financial advice. All figures aggregated at First Officer's internal valuation, with client detail removed. Illustrative of the patterns the intelligence surfaces. Award availability, transfer rates, and program pricing change without notice. Verify every booking before you act.</div>
+  </div>
+
+</div>
