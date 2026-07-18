@@ -25,15 +25,7 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
 .fo .stamp{font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sc,var(--green));border:2px double var(--sc,var(--green));border-radius:4px;padding:3px 7px;transform:rotate(-4deg);white-space:nowrap;text-align:center;line-height:1.5;opacity:.92;flex:none}
 .fo .strip:nth-child(2) .stamp{transform:rotate(2.5deg)}
 .fo .strip:nth-child(3) .stamp{transform:rotate(-2deg)}
-/* ===== PASSPORT PAGE (trending) ===== */
-.fo .pp{background:linear-gradient(180deg,var(--card),#fbf6ea);border:1.4px solid var(--ink);border-radius:12px;padding:14px 14px 10px;position:relative;overflow:hidden}
-.fo .pph{display:flex;justify-content:space-between;font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--t4);margin-bottom:10px}
-.fo .ppg{display:flex;flex-wrap:wrap;gap:9px 10px;justify-content:center}
-.fo .pstamp{border:2.2px solid var(--pc,var(--teal));border-radius:9px;padding:7px 11px 6px;text-align:center;transform:rotate(var(--rot,-2deg));color:var(--pc,var(--teal));background:transparent;min-width:118px;position:relative}
-.fo .pstamp::after{content:"";position:absolute;inset:2.5px;border:1px solid var(--pc,var(--teal));border-radius:6px;opacity:.55}
-.fo .pstamp .pn{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;line-height:1.25}
-.fo .pstamp .pv{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:1px;margin-top:3px;opacity:.85}
-.fo .ppmrz{font-family:var(--mono);font-size:8.5px;letter-spacing:2.5px;color:var(--t4);margin-top:11px;white-space:nowrap;overflow:hidden;opacity:.8}
+
 
 /* ===== THE BOARD v3: letterpress field, ink flaps ===== */
 .fo .board{background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:18px 20px 12px;box-shadow:0 24px 60px -40px rgba(35,32,26,.28);overflow:hidden}
@@ -80,6 +72,26 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
   .fo .f-status{flex:1.5;width:auto}
   .fo .f-ratio,.fo .f-when,.fo .f-status i{font-size:8px;padding:5px 0 4px}
 }
+/* ===== DESTINATION RADAR ===== */
+.fo .scope{background:var(--card);border:1.4px solid var(--ink);border-radius:12px;padding:13px 13px 11px;position:relative}
+.fo .sch{display:flex;justify-content:space-between;font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--t4);margin-bottom:9px}
+.fo .disc{position:relative;width:100%;aspect-ratio:1;max-width:300px;margin:0 auto}
+.fo .ring{position:absolute;border:1px solid var(--line);border-radius:50%}
+.fo .ring.r1{inset:33%}.fo .ring.r2{inset:16.5%}.fo .ring.r3{inset:0}
+.fo .ax{position:absolute;background:var(--hair)}
+.fo .ax.h{left:0;right:0;top:50%;height:1px}.fo .ax.v{top:0;bottom:0;left:50%;width:1px}
+.fo .sweep{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(250,24,150,.20),rgba(250,24,150,.05) 55deg,transparent 70deg);animation:swp 6s linear infinite;pointer-events:none}
+@keyframes swp{to{transform:rotate(360deg)}}
+.fo .hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:7px;height:7px;border-radius:50%;background:var(--ink)}
+.fo .hub::after{content:"FO";position:absolute;top:9px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:6.5px;font-weight:800;letter-spacing:1px;color:var(--t4)}
+.fo .blip{position:absolute;transform:translate(-50%,-50%)}
+.fo .blip .dot{width:9px;height:9px;border-radius:50%;background:var(--bc,var(--pink));margin:0 auto;position:relative}
+.fo .blip .dot::after{content:"";position:absolute;inset:-5px;border:1.4px solid var(--bc,var(--pink));border-radius:50%;animation:png 2.8s ease-out var(--pd,0s) infinite}
+@keyframes png{0%{transform:scale(.4);opacity:.9}70%,100%{transform:scale(1.5);opacity:0}}
+.fo .blip .bl2{margin-top:5px;text-align:center;font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--bc,var(--pink));line-height:1.4;white-space:nowrap;background:rgba(255,253,248,.85);border-radius:4px;padding:1px 4px}
+.fo .blip.down .dot::after{animation:none}
+.fo .scfoot{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--t4);margin-top:9px;text-align:center}
+@media (prefers-reduced-motion: reduce){.fo .sweep,.fo .blip .dot::after{animation:none}}
 </style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800&display=swap');
@@ -480,16 +492,20 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
       <div class="rwgrid rv">
         <div class="rwcard">
           <div class="rwh"><span class="t">Trending redemptions</span><span class="s">vs last week</span></div>
-          <div class="pp">
-            <div class="pph"><span>Destinations &middot; This Week</span><span>217 Wallets &middot; Entries</span></div>
-            <div class="ppg">
-              <div class="pstamp" style="--pc:var(--pink);--rot:-3deg"><div class="pn">Southern<br>Europe</div><div class="pv">&#9650;41% &middot; Accor</div></div>
-              <div class="pstamp" style="--pc:var(--teal);--rot:2deg"><div class="pn">City<br>Stays</div><div class="pv">&#9650;96% &middot; IHG 1:2</div></div>
-              <div class="pstamp" style="--pc:var(--t3);--rot:-1.5deg"><div class="pn">London</div><div class="pv">&#9660;24% &middot; door shut</div></div>
-              <div class="pstamp" style="--pc:var(--cyan);--rot:2.5deg"><div class="pn">Maldives</div><div class="pv">0% &middot; steady</div></div>
-              <div class="pstamp" style="--pc:var(--gold);--rot:-2deg"><div class="pn">Hawaii</div><div class="pv">&#9650;9% &middot; saver</div></div>
+          <div class="scope">
+            <div class="sch"><span>Destination Radar &middot; This Week</span><span>217 Wallets</span></div>
+            <div class="disc">
+              <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+              <div class="ax h"></div><div class="ax v"></div>
+              <div class="sweep"></div>
+              <div class="hub"></div>
+              <div class="blip" style="--bc:var(--teal);--pd:0s;left:64%;top:26%"><div class="dot"></div><div class="bl2">City stays<br>&#9650;96% &middot; IHG 1:2</div></div>
+              <div class="blip" style="--bc:var(--pink);--pd:.9s;left:26%;top:38%"><div class="dot"></div><div class="bl2">S. Europe<br>&#9650;41% &middot; Accor</div></div>
+              <div class="blip" style="--bc:var(--gold);--pd:1.7s;left:71%;top:66%"><div class="dot"></div><div class="bl2">Hawaii<br>&#9650;9% &middot; saver</div></div>
+              <div class="blip down" style="--bc:var(--t3);left:33%;top:76%"><div class="dot"></div><div class="bl2">London<br>&#9660;24% &middot; door shut</div></div>
+              <div class="blip down" style="--bc:var(--t3);left:15%;top:60%"><div class="dot"></div><div class="bl2">Tokyo<br>&#9660;12% &middot; settling</div></div>
             </div>
-            <div class="ppmrz">FO&lt;&lt;DISPATCH&lt;063&lt;&lt;JUL2026&lt;&lt;READ&lt;ACROSS&lt;217&lt;WALLETS&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</div>
+            <div class="scfoot">Closer to center = hotter this week &middot; sweep = the weekly read</div>
           </div>
         </div>
         <div class="rwcard">
