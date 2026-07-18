@@ -63,6 +63,7 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
 .fo .brow:nth-of-type(10) .f-status i{--fd:11.8s;--fdel:-8.9s}
 @keyframes flapflip{0%,88%{transform:rotateX(0)}91%{transform:rotateX(-86deg)}93.5%{transform:rotateX(8deg)}95%,100%{transform:rotateX(0)}}
 @media (prefers-reduced-motion: reduce){.fo .f-status i{animation:none}}
+.fo .bnote{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--t3);padding:1px 2px 7px;border-bottom:1px solid var(--hair);margin-bottom:6px}
 .fo .bfoot{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--t4);margin-top:10px;text-align:center}
 @media(max-width:640px){
   .fo .bcols{display:none}
@@ -88,7 +89,7 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
 .fo .blip .dot{width:9px;height:9px;border-radius:50%;background:var(--bc,var(--pink));margin:0 auto;position:relative}
 .fo .blip .dot::after{content:"";position:absolute;inset:-5px;border:1.4px solid var(--bc,var(--pink));border-radius:50%;animation:png 2.8s ease-out var(--pd,0s) infinite}
 @keyframes png{0%{transform:scale(.4);opacity:.9}70%,100%{transform:scale(1.5);opacity:0}}
-.fo .blip .bl2{margin-top:5px;text-align:center;font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--bc,var(--pink));line-height:1.4;white-space:nowrap;background:rgba(255,253,248,.85);border-radius:4px;padding:1px 4px}
+.fo .blip .bl2{margin-top:5px;text-align:center;font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--bc,var(--pink));line-height:1.4;white-space:nowrap;background:transparent;padding:1px 0}
 .fo .blip.down .dot::after{animation:none}
 .fo .scfoot{font-family:var(--mono);font-size:7.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--t4);margin-top:9px;text-align:center}
 @media (prefers-reduced-motion: reduce){.fo .sweep,.fo .blip .dot::after{animation:none}}
@@ -446,10 +447,12 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
       <div class="brow"><div class="flap f-door"><span>Citi &rarr; Accor</span></div><div class="flap f-ratio">+50%</div><div class="flap f-status st-final"><i>Final call</i></div><div class="flap f-when">Tonight</div></div>
       <div class="brow"><div class="flap f-door"><span>Chase &rarr; IHG</span></div><div class="flap f-ratio">1 : 2</div><div class="flap f-status st-board"><i>Boarding</i></div><div class="flap f-when">Jul 30</div></div>
       <div class="brow"><div class="flap f-door"><span><span class="lg">Amex &rarr; Virgin Atlantic</span><span class="sm">Amex &rarr; Virgin Atl</span></span></div><div class="flap f-ratio">+30%</div><div class="flap f-status st-ontime"><i>On time</i></div><div class="flap f-when">Jul 31</div></div>
-      <div class="brow"><div class="flap f-door"><span><span class="lg">Cap One &rarr; EVA Air</span><span class="sm">Cap One &rarr; EVA</span></span></div><div class="flap f-ratio">+30%</div><div class="flap f-status st-ontime"><i>On time</i></div><div class="flap f-when">Jul 31</div></div>
-      <div class="brow"><div class="flap f-door"><span><span class="lg">Wyndham top tier</span><span class="sm">Wyndham top</span></span></div><div class="flap f-ratio">+50%</div><div class="flap f-status st-sched"><i>Scheduled</i></div><div class="flap f-when">Sept 15</div></div>
-      <div class="brow"><div class="flap f-door"><span><span class="lg">Sapphire Pref &rarr; Hyatt</span><span class="sm">Sapph P &rarr; Hyatt</span></span></div><div class="flap f-ratio">4 : 3</div><div class="flap f-status st-sched"><i>In 75 days</i></div><div class="flap f-when">Oct 1</div></div>
       <div class="brow"><div class="flap f-door"><span><span class="lg">Chase &rarr; Virgin Atlantic</span><span class="sm">Chase &rarr; Virgin Atl</span></span></div><div class="flap f-ratio">+30%</div><div class="flap f-status st-closed"><i>Closed</i></div><div class="flap f-when">Jul 14</div></div>
+      <div class="bnote">Same airline, 2 bank doors. The Amex door to Virgin is open. The Chase door closed as we called it.</div>
+      <div class="brow"><div class="flap f-door"><span><span class="lg">Cap One &rarr; EVA Air</span><span class="sm">Cap One &rarr; EVA</span></span></div><div class="flap f-ratio">&#8776;1 : 1</div><div class="flap f-status st-ontime"><i>On time</i></div><div class="flap f-when">Jul 31</div></div>
+      <div class="brow"><div class="flap f-door"><span><span class="lg">Wyndham top tier</span><span class="sm">Wyndham top</span></span></div><div class="flap f-ratio">+50%</div><div class="flap f-status st-sched"><i>Price hike</i></div><div class="flap f-when">Sept 15</div></div>
+      <div class="brow"><div class="flap f-door"><span><span class="lg">Sapphire Pref &rarr; Hyatt</span><span class="sm">Sapph P &rarr; Hyatt</span></span></div><div class="flap f-ratio">4 : 3</div><div class="flap f-status st-sched"><i>1:1 ends</i></div><div class="flap f-when">Oct 1</div></div>
+      
       <div class="brow"><div class="flap f-door"><span>Amex &rarr; Avianca</span></div><div class="flap f-ratio">+15%</div><div class="flap f-status st-closed"><i>Closed</i></div><div class="flap f-when">Jul 15</div></div>
       <div class="bfoot">Read across 13 banks &middot; 629 programs &middot; the board resets every Saturday 6:00 AM ET</div>
     </div>
@@ -467,7 +470,7 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
         </div>
         <div class="wacts">
           <div class="wact"><span class="ghost">01</span><div class="an">Printed &middot; Sat 6:00am</div><div class="at">The call</div><div class="av">2 doors</div><div class="ac">Last Saturday, line two of this dispatch: 2 of them close Tuesday night. Dated, in writing.</div></div>
-          <div class="wact f"><span class="ghost">02</span><div class="an">Moved &middot; Sun 9:40am</div><div class="at">Through the door</div><div class="av">130,000</div><div class="ac">K. transferred 100,000 points at +30% and landed 130,000 on the other side. Seat held first.</div></div>
+          <div class="wact f"><span class="ghost">02</span><div class="an">Moved &middot; Sun 9:40am</div><div class="at">Through the door</div><div class="av">130,000</div><div class="ac">K. transferred 100,000 points through the Chase door at +30% and landed 130,000 on the other side. Seat held first.</div></div>
           <div class="wact w"><span class="ghost">03</span><div class="an">Settled &middot; Tue 11:59pm</div><div class="at">Door closed</div><div class="av">+30,000</div><div class="ac">The window shut as printed. The same 130,000 landing today would cost 130,000 flat.</div></div>
         </div>
         <div class="wmath"><span class="mut">The math</span><span>130,000 landed for 100,000 = 30,000 points ahead</span><span class="mut">&middot;</span><span class="pk">roughly $1,200 by our valuation</span></div>
@@ -569,7 +572,7 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
             <div class="vbar"><div class="vl"><span>Amex &rarr; Virgin Atlantic &middot; +30%</span><span class="vn">Jul 31</span></div><div class="vt"><i style="width:78%"></i></div></div>
             <div class="vbar"><div class="vl"><span>Cap One &rarr; EVA Air &middot; +30%</span><span class="vn">Jul 31</span></div><div class="vt"><i style="width:78%"></i></div></div>
           </div>
-          <div class="read">Bar length is time left, not size. <b>Citi to Accor at +50% closes tonight at midnight,</b> the richest hotel door of July. Chase to IHG doubles points through July 30. Amex to Virgin Atlantic and Cap One to EVA both run to July 31.</div>
+          <div class="read">Bar length is time left, not size. <b>Citi to Accor at +50% closes tonight at midnight,</b> the richest hotel door of July. Chase to IHG doubles points through July 30. Amex to Virgin Atlantic runs to July 31: same airline as the Chase door that closed, different bank. Cap One to EVA runs to July 31 too, landing just under 1:1 from a 1:0.75 base.</div>
           <div class="micro">Read across the industry &middot; this week</div>
         </div>
 
