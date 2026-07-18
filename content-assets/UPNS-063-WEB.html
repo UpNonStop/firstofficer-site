@@ -58,9 +58,10 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
 @keyframes flapflip{0%,86%{transform:rotateX(0)}90%{transform:rotateX(-86deg)}94%,100%{transform:rotateX(0)}}
 .fo .bfoot{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--t4);margin-top:10px;text-align:center}
 @media(max-width:640px){
-  .fo .f-door .lg{display:none}.fo .f-door .sm{display:inline}
-  .fo .flap{font-size:8.5px;letter-spacing:1px;padding:8px 7px}
-  .fo .f-ratio{width:52px}.fo .f-status{width:88px}.fo .f-when{width:64px}
+  .fo .brow{flex-wrap:wrap;gap:4px}
+  .fo .flap{font-size:8.5px;letter-spacing:1px;padding:7px 9px}
+  .fo .f-door{flex-basis:100%}
+  .fo .f-ratio,.fo .f-status,.fo .f-when{flex:1;width:auto}
 }
 </style>
 <style>
@@ -416,7 +417,7 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
       <div class="brow"><div class="flap f-door"><span>Chase &rarr; IHG</span></div><div class="flap f-ratio">1 : 2</div><div class="flap f-status st-board">Boarding</div><div class="flap f-when">Jul 30</div></div>
       <div class="brow"><div class="flap f-door"><span><span class="lg">Amex &rarr; Virgin Atlantic</span><span class="sm">Amex &rarr; Virgin Atl</span></span></div><div class="flap f-ratio">+30%</div><div class="flap f-status st-ontime">On time</div><div class="flap f-when">Jul 31</div></div>
       <div class="brow"><div class="flap f-door"><span><span class="lg">Cap One &rarr; EVA Air</span><span class="sm">Cap One &rarr; EVA</span></span></div><div class="flap f-ratio">+30%</div><div class="flap f-status st-ontime">On time</div><div class="flap f-when">Jul 31</div></div>
-      <div class="brow"><div class="flap f-door"><span>Wyndham top tier</span></div><div class="flap f-ratio">+50%</div><div class="flap f-status st-sched">Scheduled</div><div class="flap f-when">Sept 15</div></div>
+      <div class="brow"><div class="flap f-door"><span><span class="lg">Wyndham top tier</span><span class="sm">Wyndham top</span></span></div><div class="flap f-ratio">+50%</div><div class="flap f-status st-sched">Scheduled</div><div class="flap f-when">Sept 15</div></div>
       <div class="brow"><div class="flap f-door"><span><span class="lg">Sapphire Pref &rarr; Hyatt</span><span class="sm">Sapph P &rarr; Hyatt</span></span></div><div class="flap f-ratio">4 : 3</div><div class="flap f-status st-sched">In 75 days</div><div class="flap f-when">Oct 1</div></div>
       <div class="brow"><div class="flap f-door"><span><span class="lg">Chase &rarr; Virgin Atlantic</span><span class="sm">Chase &rarr; Virgin Atl</span></span></div><div class="flap f-ratio">+30%</div><div class="flap f-status st-closed">Closed</div><div class="flap f-when">Jul 14</div></div>
       <div class="brow"><div class="flap f-door"><span>Amex &rarr; Avianca</span></div><div class="flap f-ratio">+15%</div><div class="flap f-status st-closed">Closed</div><div class="flap f-when">Jul 15</div></div>
