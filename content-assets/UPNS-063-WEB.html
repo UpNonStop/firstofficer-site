@@ -35,33 +35,41 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
 .fo .pstamp .pv{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:1px;margin-top:3px;opacity:.85}
 .fo .ppmrz{font-family:var(--mono);font-size:8.5px;letter-spacing:2.5px;color:var(--t4);margin-top:11px;white-space:nowrap;overflow:hidden;opacity:.8}
 
-/* ===== THE BOARD: split-flap departures (letterpress light) ===== */
+/* ===== THE BOARD: split-flap departures (letterpress light v2) ===== */
 .fo .board{background:var(--alt);border:2px solid var(--ink);border-radius:16px;padding:18px 18px 14px;box-shadow:0 24px 60px -40px rgba(35,32,26,.28);overflow:hidden}
-.fo .bhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px;padding:0 2px}
+.fo .bhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding:0 2px}
 .fo .bhead .bt{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--t3)}
 .fo .bhead .bclock{font-family:var(--mono);font-size:12px;font-weight:800;letter-spacing:2px;background:var(--card);color:var(--ink);border:1.6px solid var(--ink);border-radius:5px;padding:3px 10px}
-.fo .brow{display:flex;align-items:stretch;gap:5px;margin-bottom:5px;perspective:600px}
-.fo .flap{position:relative;background:var(--card);color:var(--ink);border:1.4px solid var(--ink);font-family:var(--mono);font-weight:700;font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;border-radius:5px;padding:8px 11px 7px;white-space:nowrap;overflow:hidden;display:flex;align-items:center}
-.fo .flap::after{content:"";position:absolute;left:0;right:0;top:50%;height:1.3px;background:var(--line)}
-.fo .flap::before{content:"";position:absolute;left:0;right:0;top:0;height:50%;background:linear-gradient(180deg,rgba(255,255,255,.65),transparent)}
+.fo .bcols{display:flex;gap:5px;font-family:var(--mono);font-size:7px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--t4);padding:0 14px 6px}
+.fo .bcols .c1{flex:1}.fo .bcols .c2{width:74px;text-align:center}.fo .bcols .c3{width:118px;text-align:center}.fo .bcols .c4{width:86px;text-align:center}
+.fo .brow{position:relative;display:flex;align-items:center;gap:0;margin-bottom:6px;perspective:600px;background:var(--card);border:1.5px solid var(--ink);border-radius:6px;padding:9px 14px 8px;overflow:hidden}
+.fo .brow::before{content:"";position:absolute;left:0;right:0;top:0;height:50%;background:#f5efe2}
+.fo .brow::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(35,32,26,.28);box-shadow:0 1px 0 rgba(255,255,255,.7)}
+.fo .axle-l,.fo .axle-r{position:absolute;top:50%;width:5px;height:9px;transform:translateY(-50%);background:var(--ink);border-radius:1.5px;z-index:2}
+.fo .axle-l{left:-1px}.fo .axle-r{right:-1px}
+.fo .flap{position:relative;z-index:1;background:transparent;border:0;font-family:var(--mono);font-weight:700;font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink);white-space:nowrap;display:flex;align-items:center;padding:0}
 .fo .f-door{flex:1;min-width:0}
 .fo .f-door span{overflow:hidden;text-overflow:ellipsis}
 .fo .f-door .sm{display:none}
-.fo .f-ratio{width:74px;justify-content:center;color:var(--t2)}
-.fo .f-status{width:118px;justify-content:center;font-weight:800}
-.fo .f-when{width:86px;justify-content:center;color:var(--t2)}
-.fo .st-closed{background:#eef6ec;color:var(--green);border-color:var(--green)}
-.fo .st-final{background:#fdeef6;color:var(--pink);border-color:var(--pink);animation:flapflip 5.2s cubic-bezier(.55,0,.3,1) infinite}
-.fo .st-board{background:#eaf6f4;color:#0e8d81;border-color:#14b8a6}
-.fo .st-ontime{background:var(--card);color:var(--t2)}
-.fo .st-sched{background:#faf3e2;color:var(--gold);border-color:var(--gold)}
+.fo .f-ratio{width:74px;justify-content:center;color:var(--t2);border-left:1px solid var(--line)}
+.fo .f-status{width:118px;justify-content:center}
+.fo .f-when{width:86px;justify-content:center;color:var(--t2);border-left:1px solid var(--line)}
+.fo .f-status i{font-style:normal;font-weight:800;font-size:8.5px;letter-spacing:1.2px;border:1.6px solid currentColor;border-radius:4px;padding:3px 8px;background:var(--card)}
+.fo .st-closed{color:var(--green)}
+.fo .st-final{color:var(--pink)}
+.fo .st-final i{animation:flapflip 5.2s cubic-bezier(.55,0,.3,1) infinite}
+.fo .st-board{color:#0e8d81}
+.fo .st-ontime{color:var(--t2)}
+.fo .st-sched{color:var(--gold)}
 @keyframes flapflip{0%,86%{transform:rotateX(0)}90%{transform:rotateX(-86deg)}94%,100%{transform:rotateX(0)}}
-.fo .bfoot{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--t4);margin-top:10px;text-align:center}
+.fo .bfoot{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--t4);margin-top:9px;text-align:center}
 @media(max-width:640px){
-  .fo .brow{flex-wrap:wrap;gap:4px}
-  .fo .flap{font-size:8.5px;letter-spacing:1px;padding:7px 9px}
-  .fo .f-door{flex-basis:100%}
-  .fo .f-ratio,.fo .f-status,.fo .f-when{flex:1;width:auto}
+  .fo .bcols{display:none}
+  .fo .brow{flex-wrap:wrap;gap:3px 0;padding:8px 12px 7px}
+  .fo .flap{font-size:8.5px;letter-spacing:1px}
+  .fo .f-door{flex-basis:100%;margin-bottom:2px}
+  .fo .f-ratio,.fo .f-when{flex:1;width:auto;border-left:0}
+  .fo .f-status{flex:1.4;width:auto}
 }
 </style>
 <style>
@@ -413,14 +421,15 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
     <div class="kick rv"><span class="k">The Board</span><span class="rule"></span><span class="feed"><i></i>every door &middot; one glance</span></div>
     <div class="board rv">
       <div class="bhead"><span class="bt">Saturday Dispatch &middot; Departures</span><span class="bclock">06:00</span></div>
-      <div class="brow"><div class="flap f-door"><span>Citi &rarr; Accor</span></div><div class="flap f-ratio">+50%</div><div class="flap f-status st-final">Final call</div><div class="flap f-when">Tonight</div></div>
-      <div class="brow"><div class="flap f-door"><span>Chase &rarr; IHG</span></div><div class="flap f-ratio">1 : 2</div><div class="flap f-status st-board">Boarding</div><div class="flap f-when">Jul 30</div></div>
-      <div class="brow"><div class="flap f-door"><span><span class="lg">Amex &rarr; Virgin Atlantic</span><span class="sm">Amex &rarr; Virgin Atl</span></span></div><div class="flap f-ratio">+30%</div><div class="flap f-status st-ontime">On time</div><div class="flap f-when">Jul 31</div></div>
-      <div class="brow"><div class="flap f-door"><span><span class="lg">Cap One &rarr; EVA Air</span><span class="sm">Cap One &rarr; EVA</span></span></div><div class="flap f-ratio">+30%</div><div class="flap f-status st-ontime">On time</div><div class="flap f-when">Jul 31</div></div>
-      <div class="brow"><div class="flap f-door"><span><span class="lg">Wyndham top tier</span><span class="sm">Wyndham top</span></span></div><div class="flap f-ratio">+50%</div><div class="flap f-status st-sched">Scheduled</div><div class="flap f-when">Sept 15</div></div>
-      <div class="brow"><div class="flap f-door"><span><span class="lg">Sapphire Pref &rarr; Hyatt</span><span class="sm">Sapph P &rarr; Hyatt</span></span></div><div class="flap f-ratio">4 : 3</div><div class="flap f-status st-sched">In 75 days</div><div class="flap f-when">Oct 1</div></div>
-      <div class="brow"><div class="flap f-door"><span><span class="lg">Chase &rarr; Virgin Atlantic</span><span class="sm">Chase &rarr; Virgin Atl</span></span></div><div class="flap f-ratio">+30%</div><div class="flap f-status st-closed">Closed</div><div class="flap f-when">Jul 14</div></div>
-      <div class="brow"><div class="flap f-door"><span>Amex &rarr; Avianca</span></div><div class="flap f-ratio">+15%</div><div class="flap f-status st-closed">Closed</div><div class="flap f-when">Jul 15</div></div>
+      <div class="bcols"><span class="c1">Door</span><span class="c2">Ratio</span><span class="c3">Status</span><span class="c4">Date</span></div>
+      <div class="brow"><span class="axle-l"></span><span class="axle-r"></span><div class="flap f-door"><span>Citi &rarr; Accor</span></div><div class="flap f-ratio">+50%</div><div class="flap f-status st-final"><i>Final call</i></div><div class="flap f-when">Tonight</div></div>
+      <div class="brow"><span class="axle-l"></span><span class="axle-r"></span><div class="flap f-door"><span>Chase &rarr; IHG</span></div><div class="flap f-ratio">1 : 2</div><div class="flap f-status st-board"><i>Boarding</i></div><div class="flap f-when">Jul 30</div></div>
+      <div class="brow"><span class="axle-l"></span><span class="axle-r"></span><div class="flap f-door"><span><span class="lg">Amex &rarr; Virgin Atlantic</span><span class="sm">Amex &rarr; Virgin Atl</span></span></div><div class="flap f-ratio">+30%</div><div class="flap f-status st-ontime"><i>On time</i></div><div class="flap f-when">Jul 31</div></div>
+      <div class="brow"><span class="axle-l"></span><span class="axle-r"></span><div class="flap f-door"><span><span class="lg">Cap One &rarr; EVA Air</span><span class="sm">Cap One &rarr; EVA</span></span></div><div class="flap f-ratio">+30%</div><div class="flap f-status st-ontime"><i>On time</i></div><div class="flap f-when">Jul 31</div></div>
+      <div class="brow"><span class="axle-l"></span><span class="axle-r"></span><div class="flap f-door"><span><span class="lg">Wyndham top tier</span><span class="sm">Wyndham top</span></span></div><div class="flap f-ratio">+50%</div><div class="flap f-status st-sched"><i>Scheduled</i></div><div class="flap f-when">Sept 15</div></div>
+      <div class="brow"><span class="axle-l"></span><span class="axle-r"></span><div class="flap f-door"><span><span class="lg">Sapphire Pref &rarr; Hyatt</span><span class="sm">Sapph P &rarr; Hyatt</span></span></div><div class="flap f-ratio">4 : 3</div><div class="flap f-status st-sched"><i>In 75 days</i></div><div class="flap f-when">Oct 1</div></div>
+      <div class="brow"><span class="axle-l"></span><span class="axle-r"></span><div class="flap f-door"><span><span class="lg">Chase &rarr; Virgin Atlantic</span><span class="sm">Chase &rarr; Virgin Atl</span></span></div><div class="flap f-ratio">+30%</div><div class="flap f-status st-closed"><i>Closed</i></div><div class="flap f-when">Jul 14</div></div>
+      <div class="brow"><span class="axle-l"></span><span class="axle-r"></span><div class="flap f-door"><span>Amex &rarr; Avianca</span></div><div class="flap f-ratio">+15%</div><div class="flap f-status st-closed"><i>Closed</i></div><div class="flap f-when">Jul 15</div></div>
       <div class="bfoot">Read across 13 banks &middot; 629 programs &middot; the board resets every Saturday 06:00</div>
     </div>
   </div></div>
