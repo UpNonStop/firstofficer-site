@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Header Licensing Queue</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#fbf7ef;--ink:#23201a;--pink:#FA1896;--dim:#8a8579;--green:#1a7f4e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;padding-bottom:80px;}
+header{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:2px solid var(--ink);padding:12px 14px;display:flex;justify-content:space-between;align-items:center;}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;}
+.count{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;}
+.count b{color:var(--green);}
+.hint{font-size:12px;color:var(--dim);padding:10px 14px 0;line-height:1.5;}
+h2{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:22px 14px 8px;border-bottom:1px solid var(--ink);margin:0 0 2px;}
+h2 span{color:var(--dim);font-weight:400;}
+.row{display:flex;gap:10px;padding:10px 14px;border-bottom:1px solid rgba(35,32,26,.12);align-items:center;}
+.row.done{opacity:.45;}
+.row img{width:110px;height:74px;object-fit:cover;border-radius:4px;flex-shrink:0;}
+.meta{flex:1;min-width:0;}
+.open{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--ink);text-decoration:none;border:2px solid var(--ink);border-radius:4px;padding:6px 12px;margin-bottom:6px;}
+.mark{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim);background:none;border:none;padding:4px 0;cursor:pointer;text-align:left;}
+.row.done .mark{color:var(--green);font-weight:700;}
+footer{position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:var(--paper);padding:12px 14px;font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;justify-content:space-between;}
+footer b{color:var(--pink);}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Licensing queue</div>
+  <div class="count"><b id="done">0</b> / <span id="total">0</span></div>
+</header>
+<div class="hint">Set the project name once on your first download, then work the list at your own pace over a few sittings. Open the item, hit Download on Envato, come back, tap "mark licensed". Progress saves instantly.</div>
+<div id="app"></div>
+<footer>
+  <div>Project name: <b>FO Daily Headers</b></div>
+  <div id="prog"></div>
+</footer>
+<script>
+const BASE='https://cuzuzzbezswvejnoskum.supabase.co/rest/v1/header_candidates';
+const K='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1enV6emJlenN3dmVqbm9za3VtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1OTE2MDMsImV4cCI6MjA4ODE2NzYwM30.U1UkmESQmbntjtLCC-d06YBk8VVD6h-UcCrr761yiVM';
+const H={'apikey':K,'Authorization':'Bearer '+K,'Content-Type':'application/json'};
+let rows=[];
+function refresh(){
+  const d=rows.filter(r=>r.status==='licensed').length;
+  document.getElementById('done').textContent=d;
+  document.getElementById('total').textContent=rows.length;
+  document.getElementById('prog').textContent=d>=rows.length?'all licensed, tell Claude':(rows.length-d)+' remaining';
+}
+async function toggle(row,el,btn){
+  const next=row.status==='licensed'?'keep':'licensed';
+  const prev=row.status;
+  row.status=next;
+  el.classList.toggle('done',next==='licensed');
+  btn.textContent=next==='licensed'?'licensed on '+new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'}):'mark licensed';
+  refresh();
+  try{
+    const res=await fetch(BASE+'?id=eq.'+row.id,{method:'PATCH',headers:H,body:JSON.stringify({status:next})});
+    if(!res.ok)throw 0;
+  }catch(e){
+    row.status=prev;el.classList.toggle('done',prev==='licensed');refresh();
+  }
+}
+async function load(){
+  const res=await fetch(BASE+'?status=in.(keep,licensed)&select=id,search_term,item_url,preview_url,status&order=search_term,id&limit=500',{headers:H});
+  rows=await res.json();
+  const app=document.getElementById('app');
+  const groups={};
+  rows.forEach(r=>{(groups[r.search_term]=groups[r.search_term]||[]).push(r);});
+  Object.keys(groups).sort().forEach(term=>{
+    const h=document.createElement('h2');
+    h.innerHTML=term+' <span>('+groups[term].length+')</span>';
+    app.appendChild(h);
+    groups[term].forEach(r=>{
+      const d=document.createElement('div');d.className='row'+(r.status==='licensed'?' done':'');
+      const img=document.createElement('img');img.loading='lazy';img.src=r.preview_url;
+      const m=document.createElement('div');m.className='meta';
+      const a=document.createElement('a');a.className='open';a.href=r.item_url;a.target='_blank';a.rel='noopener';a.textContent='Open on Envato';
+      const b=document.createElement('button');b.className='mark';b.textContent=r.status==='licensed'?'licensed':'mark licensed';
+      b.addEventListener('click',()=>toggle(r,d,b));
+      m.appendChild(a);m.appendChild(b);
+      d.appendChild(img);d.appendChild(m);
+      app.appendChild(d);
+    });
+  });
+  refresh();
+}
+load();
+</script>
+</body>
+</html>
