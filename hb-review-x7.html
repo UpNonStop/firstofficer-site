@@ -17,12 +17,12 @@ header{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:2p
 .hint{font-size:11px;color:var(--dim);padding:10px 14px 0;}
 h2{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:22px 14px 8px;border-bottom:1px solid var(--ink);margin:0 0 2px;}
 h2 span{color:var(--dim);font-weight:400;}
-.grid{display:grid;grid-template-columns:1fr;gap:10px;padding:8px;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px;align-items:start;}
 .tile{position:relative;border:4px solid transparent;border-radius:4px;overflow:hidden;background:#eee;min-height:60px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
 .tile img{width:100%;height:auto;display:block;}
 .tile.keep{border-color:var(--pink);}
 .tile.kill{opacity:.25;filter:grayscale(1);}
-.tile .st{position:absolute;top:8px;left:8px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;padding:4px 10px;border-radius:3px;background:rgba(35,32,26,.75);color:#fff;display:none;}
+.tile .st{position:absolute;top:5px;left:5px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:3px 7px;border-radius:3px;background:rgba(35,32,26,.75);color:#fff;display:none;}
 .tile.keep .st{display:block;background:var(--pink);}
 .tile.kill .st{display:block;}
 .tile .pr{position:absolute;bottom:4px;right:4px;font-family:'JetBrains Mono',monospace;font-size:9px;padding:1px 5px;border-radius:3px;background:rgba(35,32,26,.6);color:#fff;display:none;}
@@ -37,7 +37,7 @@ footer .goal b{color:var(--pink);}
   <div class="kicker">Daily header cull</div>
   <div class="count"><b id="kept">0</b> / 180 kept</div>
 </header>
-<div class="hint">Full images at natural size, no cropping. Tap once to keep, again to kill, third tap resets. PORTRAIT tiles will need a center crop as headers. Saves are instant.</div>
+<div class="hint">Whole images, no cropping, scaled to fit two per row. Tap once to keep, again to kill, third tap resets. PORTRAIT tiles will need a center crop as headers. Saves are instant.</div>
 <div id="app"></div>
 <footer>
   <div class="goal">Target <b>180</b></div>
