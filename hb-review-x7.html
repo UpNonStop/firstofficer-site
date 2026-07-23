@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Header Board</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#fbf7ef;--ink:#23201a;--pink:#FA1896;--dim:#8a8579;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;padding-bottom:80px;}
+header{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:2px solid var(--ink);padding:12px 14px;display:flex;justify-content:space-between;align-items:center;}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;}
+.count{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;}
+.count b{color:var(--pink);}
+.hint{font-size:11px;color:var(--dim);padding:10px 14px 0;}
+h2{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:22px 14px 8px;border-bottom:1px solid var(--ink);margin:0 0 2px;}
+h2 span{color:var(--dim);font-weight:400;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:8px;}
+.tile{position:relative;border:3px solid transparent;border-radius:4px;overflow:hidden;background:#eee;min-height:90px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.tile img{width:100%;height:120px;object-fit:cover;display:block;}
+.tile.keep{border-color:var(--pink);}
+.tile.kill{opacity:.25;filter:grayscale(1);}
+.tile .st{position:absolute;top:4px;left:4px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px;background:rgba(35,32,26,.75);color:#fff;display:none;}
+.tile.keep .st{display:block;background:var(--pink);}
+.tile.kill .st{display:block;}
+.tile .pr{position:absolute;bottom:4px;right:4px;font-family:'JetBrains Mono',monospace;font-size:9px;padding:1px 5px;border-radius:3px;background:rgba(35,32,26,.6);color:#fff;display:none;}
+.tile.portrait .pr{display:block;}
+footer{position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:var(--paper);padding:12px 14px;font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;justify-content:space-between;align-items:center;}
+footer .goal b{color:var(--pink);}
+.err{padding:20px 14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#b00;}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Daily header cull</div>
+  <div class="count"><b id="kept">0</b> / 180 kept</div>
+</header>
+<div class="hint">Tap once to keep. Tap again to kill. Third tap resets. PORTRAIT tiles need a center crop to work as headers. Saves happen instantly.</div>
+<div id="app"></div>
+<footer>
+  <div class="goal">Target <b>180</b></div>
+  <div id="prog">loading</div>
+</footer>
+<script>
+const BASE='https://cuzuzzbezswvejnoskum.supabase.co/rest/v1/header_candidates';
+const K='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1enV6emJlenN3dmVqbm9za3VtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1OTE2MDMsImV4cCI6MjA4ODE2NzYwM30.U1UkmESQmbntjtLCC-d06YBk8VVD6h-UcCrr761yiVM';
+const H={'apikey':K,'Authorization':'Bearer '+K,'Content-Type':'application/json'};
+const CYCLE={candidate:'keep',keep:'kill',kill:'candidate'};
+let rows=[];
+
+function updateCount(){
+  const n=rows.filter(r=>r.status==='keep').length;
+  document.getElementById('kept').textContent=n;
+  document.getElementById('prog').textContent=n>=180?'done, tell Claude':(180-n)+' to go';
+}
+
+async function setStatus(row,el){
+  const next=CYCLE[row.status]||'keep';
+  const prev=row.status;
+  row.status=next;
+  el.className='tile '+(next==='candidate'?'':next)+(el.dataset.portrait==='1'?' portrait':'');
+  el.querySelector('.st').textContent=next.toUpperCase();
+  updateCount();
+  try{
+    const res=await fetch(BASE+'?id=eq.'+row.id,{method:'PATCH',headers:H,body:JSON.stringify({status:next})});
+    if(!res.ok)throw new Error(res.status);
+  }catch(e){
+    row.status=prev;
+    el.className='tile '+(prev==='candidate'?'':prev)+(el.dataset.portrait==='1'?' portrait':'');
+    updateCount();
+  }
+}
+
+async function load(){
+  const app=document.getElementById('app');
+  try{
+    let all=[],from=0;
+    while(true){
+      const res=await fetch(BASE+'?select=id,search_term,preview_url,status&order=search_term,id&limit=500&offset='+from,{headers:H});
+      const batch=await res.json();
+      all=all.concat(batch);
+      if(batch.length<500)break;
+      from+=500;
+    }
+    rows=all;
+    const groups={};
+    rows.forEach(r=>{(groups[r.search_term]=groups[r.search_term]||[]).push(r);});
+    Object.keys(groups).sort().forEach(term=>{
+      const h=document.createElement('h2');
+      h.innerHTML=term+' <span>('+groups[term].length+')</span>';
+      app.appendChild(h);
+      const g=document.createElement('div');g.className='grid';
+      groups[term].forEach(r=>{
+        const t=document.createElement('div');
+        t.className='tile '+(r.status==='candidate'?'':r.status);
+        const img=document.createElement('img');
+        img.loading='lazy';img.src=r.preview_url;
+        img.onload=function(){if(img.naturalHeight>img.naturalWidth){t.dataset.portrait='1';t.classList.add('portrait');}};
+        const st=document.createElement('div');st.className='st';st.textContent=r.status.toUpperCase();
+        const pr=document.createElement('div');pr.className='pr';pr.textContent='PORTRAIT';
+        t.appendChild(img);t.appendChild(st);t.appendChild(pr);
+        t.addEventListener('click',()=>setStatus(r,t));
+        g.appendChild(t);
+      });
+      app.appendChild(g);
+    });
+    updateCount();
+  }catch(e){
+    app.innerHTML='<div class="err">Load failed: '+e+'</div>';
+  }
+}
+load();
+</script>
+</body>
+</html>
