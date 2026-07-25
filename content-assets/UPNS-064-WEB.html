@@ -73,7 +73,7 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
   .fo .f-ratio,.fo .f-when,.fo .f-status i{font-size:8px;padding:5px 0 4px}
 }
 /* ===== DESTINATION RADAR ===== */
-.fo .scope{background:transparent;border:0;border-radius:0;padding:2px 0 0;position:relative}
+.fo .scope{background:transparent;border:0;border-radius:0;padding:2px 0 0;position:relative;overflow:hidden}
 .fo .sch{display:flex;justify-content:space-between;font-family:var(--mono);font-size:7.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--t4);margin-bottom:9px}
 .fo .disc{position:relative;width:100%;aspect-ratio:1;max-width:300px;margin:0 auto}
 .fo .ring{position:absolute;border:1px solid var(--line);border-radius:50%}
@@ -113,7 +113,7 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
 .fo .kick .fl{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:1.4px;color:var(--t4)}
 .fo .kick .feed{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--t4);white-space:nowrap;min-width:0}
 @media(max-width:330px){.fo .flap{font-size:7.5px;letter-spacing:.5px}.fo .f-ratio,.fo .f-when,.fo .f-status i{padding:5px 0 4px}}
-@media(max-width:420px){.fo .kick{flex-wrap:wrap}.fo .kick .feed{white-space:normal;letter-spacing:1px}}
+@media(max-width:420px){.fo .kick{flex-wrap:wrap;gap:8px}.fo .kick .k{font-size:11px;letter-spacing:1.8px}.fo .kick .rule{min-width:6px}.fo .kick .feed{white-space:normal;letter-spacing:1px}}
 .fo .kick .feed i{width:5px;height:5px;border-radius:50%;background:var(--pink);flex:none;display:block}
 .fo .kick .rule{flex:1;height:1px;background:var(--line)}
 .fo .hd{font-family:var(--serif);font-size:26px;line-height:1.1;letter-spacing:-.5px;margin-bottom:12px;color:var(--ink)}
@@ -426,6 +426,15 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
   .fo .win .wacts{grid-template-columns:1fr}.fo .win .wact{border-right:none;border-bottom:1px solid var(--hair)}
   .fo .vgauge{gap:12px}.fo .mast .mr{font-size:9px}
 }
+@media(max-width:345px){
+.fo .vm{grid-template-columns:42px 1fr auto;gap:7px}
+.fo .vm .ml{font-size:8px;letter-spacing:.2px}
+.fo .vm .mx{font-size:13px;min-width:36px}
+.fo .vm .mx.big{font-size:15px}
+.fo .vmnote .dollar{font-size:13px}
+.fo .blip .bl2{font-size:6.5px;letter-spacing:.3px}
+.fo .blip .dot{width:7px;height:7px}
+}
 </style>
 
 <div class="fo">
@@ -524,7 +533,7 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
               <div class="blip" style="--bc:var(--pink);--pd:.9s;left:26%;top:38%"><div class="dot"></div><div class="bl2">IHG cities<br>&#9650;41% &middot; deadline</div></div>
               <div class="blip" style="--bc:var(--gold);--pd:1.7s;left:71%;top:66%"><div class="dot"></div><div class="bl2">Taipei<br>&#9650;23% &middot; EVA</div></div>
               <div class="blip down" style="--bc:var(--t3);left:33%;top:76%"><div class="dot"></div><div class="bl2">S. Europe<br>&#9660;18% &middot; door shut</div></div>
-              <div class="blip down" style="--bc:var(--t3);left:15%;top:60%"><div class="dot"></div><div class="bl2">London<br>&#9650;7% &middot; steadying</div></div>
+              <div class="blip down" style="--bc:var(--t3);left:20%;top:56%"><div class="dot"></div><div class="bl2">London<br>&#9650;7% &middot; steadying</div></div>
             </div>
             <div class="scfoot">Closer to center = hotter this week &middot; sweep = the weekly read</div>
           </div>
