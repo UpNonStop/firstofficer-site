@@ -333,8 +333,16 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
 @media(max-width:640px){.fo .hstat .v{font-size:clamp(15px,4.6vw,23px);letter-spacing:-.5px}}
 @media(max-width:360px){
   .fo .strip{padding:8px 9px 8px 15px;gap:8px}
-  .fo .strip .ssub{white-space:normal;line-height:1.35}
   .fo .stamp{font-size:7px;letter-spacing:.7px;padding:3px 5px}
+}
+/* strips must survive narrow theme columns (608px page shell -> ~294px card) */
+.fo .strip{flex-wrap:wrap}
+.fo .strip .ssub{white-space:normal;line-height:1.35}
+.fo .strip .sgrow{flex:1 1 auto;min-width:0}
+@media(max-width:640px){
+  .fo .strip{gap:6px 10px}
+  .fo .stamp{flex:0 0 auto}
+  .fo .strip>div:first-of-type{flex:1 1 100%}
 }
 .fo .win .wmath .mut{color:var(--t3);font-weight:600}
 .fo .win .wmath .pk{color:var(--pink)}
