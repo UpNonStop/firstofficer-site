@@ -34,19 +34,19 @@ html,body,.gh-content,.gh-canvas,.post-content{background:#fbf7ef !important}
 .fo .bhead .bclock{font-family:var(--mono);font-size:10.5px;font-weight:800;letter-spacing:1.4px;background:#075E54;color:#fbf7ef;border-radius:5px;padding:5px 11px}
 .fo .bcols{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:7px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--t4);padding:6px 2px;border-bottom:1.5px solid var(--ink)}
 .fo .bcols .c1{flex:1}.fo .bcols .c2{width:70px;text-align:center}.fo .bcols .c3{width:112px;text-align:center}.fo .bcols .c4{width:80px;text-align:center}
-.fo .brow{display:flex;align-items:center;gap:6px;padding:8px 2px;border-bottom:1px solid var(--hair);perspective:600px}
+.fo .brow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:8px 2px;border-bottom:1px solid var(--hair);perspective:600px}
 .fo .brow:last-of-type{border-bottom:0}
 .fo .flap{font-family:var(--mono);font-weight:700;letter-spacing:1.4px;text-transform:uppercase;white-space:nowrap;display:flex;align-items:center}
-.fo .f-door{flex:1;min-width:0;font-size:10.5px;font-weight:800;color:var(--ink)}
+.fo .f-door{flex:1 1 190px;min-width:0;font-size:10.5px;font-weight:800;color:var(--ink);overflow:hidden}
 .fo .f-door span{overflow:hidden;text-overflow:ellipsis}
 .fo .f-door .sm{display:none}
-.fo .f-ratio,.fo .f-when,.fo .f-status i{position:relative;justify-content:center;text-align:center;background:var(--ink);color:#e8e1d1;border-radius:5px;font-size:9px;font-weight:800;letter-spacing:1.2px;padding:6px 0 5px;overflow:hidden}
+.fo .f-ratio,.fo .f-when,.fo .f-status i{position:relative;justify-content:center;text-align:center;background:var(--ink);color:#e8e1d1;border-radius:5px;font-size:9px;font-weight:800;letter-spacing:1.2px;padding:6px 3px 5px;overflow:hidden;white-space:normal;line-height:1.25;word-break:normal}
 .fo .f-ratio::after,.fo .f-when::after,.fo .f-status i::after{content:"";position:absolute;left:0;right:0;top:50%;height:1.4px;background:rgba(251,247,239,.16)}
 .fo .f-ratio::before,.fo .f-when::before,.fo .f-status i::before{content:"";position:absolute;left:0;right:0;top:0;height:50%;background:linear-gradient(180deg,rgba(255,255,255,.09),transparent)}
-.fo .f-ratio{width:70px}
-.fo .f-status{width:112px}
+.fo .f-ratio{flex:1 1 58px;min-width:0;width:auto}
+.fo .f-status{flex:1.5 1 88px;min-width:0;width:auto}
 .fo .f-status i{font-style:normal;display:flex;width:100%}
-.fo .f-when{width:80px}
+.fo .f-when{flex:1 1 64px;min-width:0;width:auto}
 .fo .st-closed i{background:#123f22;color:#7ce09b}
 .fo .st-final i{background:#4a1020;color:#ff8aa8}
 .fo .st-board i{background:#0e3a3f;color:#6fe0d6}
