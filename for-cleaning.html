@@ -433,5 +433,14 @@ function toggleMob(){var l=document.querySelector('.nk');if(l.style.display==='f
 </script>
 <div class="nsheet" id="nsheet" aria-hidden="true"><button class="nclose" aria-label="Close menu" onclick="foNav(false)">×</button><nav class="nlist"><a href="product-business.html">Product</a><a href="pricing.html">Pricing</a><a href="how-business.html">How</a><a href="trust-business.html">Trust</a><a href="calculator-business.html">Calculator</a><a href="about.html">About</a><a href="https://upnonstop.com">The Daily Redemption</a></nav><a class="pill green nsheet-cta" href="https://wa.me/16199404040?text=First%20Officer%20check" style="text-decoration:none">💬 Text Your First Officer</a></div>
 <script>function foNav(open){var sh=document.getElementById("nsheet");var b=document.querySelector(".nburger");sh.classList.toggle("open",open);document.body.classList.toggle("nolock",open);sh.setAttribute("aria-hidden",open?"false":"true");if(b)b.setAttribute("aria-expanded",open?"true":"false");}</script>
-<style>.hero h1,.hero .hero-sub,.hero-c{color:#fff;}.hero .btn{border-color:rgba(255,255,255,.75);}.hero .btn:not(.pink):not(.green){color:#fff;}</style></body>
+<style>.hero h1,.hero .hero-sub,.hero-c{color:#fff;}.hero .btn{border-color:rgba(255,255,255,.75);}.hero .btn:not(.pink):not(.green){color:#fff;}</style><style id="fo66">
+.fonav.overcream{background:transparent;border-bottom:none;}
+.pill, a[href*="wa.me"]{justify-content:center;}
+@media (max-width:840px){
+.fonav.stuck{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--white)!important;border-bottom:1px solid var(--hairline)!important;}
+.fonav.overhero.stuck .links a,.fonav.overhero.stuck .brand .n{color:var(--ink)!important;}
+.fonav.overhero.stuck .brand .by{color:var(--mute)!important;}
+.fonav.overhero.stuck .nburger span{background:var(--ink)!important;}
+}
+</style><script id="fo66js">(function(){var nav=document.querySelector('.fonav');if(!nav)return;var mq=matchMedia('(max-width:840px)');var inflow=!nav.classList.contains('overhero');function on(){var m=mq.matches&&(window.scrollY||0)>24;nav.classList.toggle('stuck',m);if(inflow){document.body.style.paddingTop=m?nav.offsetHeight+'px':'';}}addEventListener('scroll',on,{passive:true});addEventListener('resize',on);on();})();</script></body>
 </html>

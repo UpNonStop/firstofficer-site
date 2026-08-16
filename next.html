@@ -892,6 +892,7 @@
 
 .hero{padding-top:112px !important;}
 @media (max-width:360px){.tchart{overflow-x:auto;max-width:100%;}.tun,.turow,.tun-h{min-width:0;}}
+.indsel{appearance:none;-webkit-appearance:none;width:100%;max-width:340px;background:var(--white) url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2710%27 height=%276%27%3E%3Cpath d=%27M1 1l4 4 4-4%27 stroke=%27%23e60f86%27 stroke-width=%271.6%27 fill=%27none%27/%3E%3C/svg%3E") no-repeat right 14px center;border:1px solid var(--line);border-radius:12px;padding:12px 38px 12px 14px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;color:var(--ink);cursor:pointer;margin-bottom:24px;}.indsel:focus{outline:none;border-color:var(--pinkdeep);}
 </style>
 <link rel="icon" type="image/png" href="favicon.png">
 <meta name="description" content="Your business spend already bought the seats. First Officer finds them, books them, and reports captured dollars every Friday on WhatsApp. One flat fee: $550 a month.">
@@ -907,7 +908,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://firstofficer.upnonstop.com/og-card.png">
 </head>
-<body>
+<body><div id="bcount" hidden></div><div id="bdepth" hidden></div><div id="cyclecount" hidden></div><div id="statusline" hidden></div><div id="vfill" hidden></div>
 <div class="gallery">
 
   
@@ -1037,16 +1038,28 @@
         <div class="ros">
           <div class="in">
             <div class="lbl">01 · What is your industry?</div>
-            <div class="indpick" id="indpick">
-              <button class="ipill on" data-d="0.026" data-m="2.2 to 2.8x">E-Commerce</button>
-              <button class="ipill" data-d="0.026" data-m="2.2 to 2.8x">Agency</button>
-              <button class="ipill" data-d="0.026" data-m="2.2 to 2.8x">Consulting</button>
-              <button class="ipill" data-d="0.022" data-m="2.0 to 2.6x">IT / MSP</button>
-              <button class="ipill" data-d="0.017" data-m="1.6 to 2.0x">Contractor</button>
-              <button class="ipill" data-d="0.017" data-m="1.6 to 2.2x">Trucking</button>
-              <button class="ipill" data-d="0.017" data-m="1.8 to 2.3x">Law</button>
-              <button class="ipill" data-d="0.012" data-m="1.5 to 2.0x">Restaurant / Medical / Dental</button>
-            </div>
+            <select class="indsel" id="indsel" aria-label="Your industry">
+<option value="0.026|2.2 to 2.8x">Agencies</option>
+<option value="0.017|1.6 to 2.0x">Auto Repair</option>
+<option value="0.017|1.5 to 2.0x">Cleaning</option>
+<option value="0.026|2.2 to 2.8x">Consulting</option>
+<option value="0.017|1.6 to 2.0x">Contractors</option>
+<option value="0.022|2.0 to 2.5x">CPA Firms</option>
+<option value="0.017|1.6 to 2.0x">Dental</option>
+<option value="0.026|2.2 to 2.8x" selected>E-Commerce</option>
+<option value="0.012|1.5 to 1.9x">Fitness</option>
+<option value="0.017|1.6 to 2.0x">HVAC</option>
+<option value="0.022|2.0 to 2.6x">IT & MSP</option>
+<option value="0.017|1.7 to 2.1x">Landscaping</option>
+<option value="0.022|1.8 to 2.3x">Law Firms</option>
+<option value="0.017|1.5 to 2.0x">Medical</option>
+<option value="0.017|1.7 to 2.3x">Property Management</option>
+<option value="0.026|2.0 to 2.8x">Real Estate</option>
+<option value="0.017|1.8 to 2.2x">Restaurants</option>
+<option value="0.012|1.5 to 1.9x">Salons</option>
+<option value="0.017|1.6 to 2.2x">Trucking</option>
+<option value="0.017|1.5 to 2.0x">Veterinary</option>
+</select>
             <div class="lbl">02 · Your monthly non-payroll spend</div>
             <div class="spendrow"><span class="sv" id="spendv">$40,000<small> / month</small></span></div>
             <input type="range" id="spend" min="10000" max="150000" step="1000" value="40000">
@@ -1613,15 +1626,7 @@
         : '● UNDER THE BAR · HONEST NO, NEWSLETTER FIRST';
     }
     spend.addEventListener('input', calc);
-    document.querySelectorAll('.ipill').forEach(function(b){
-      b.addEventListener('click', function(){
-        document.querySelectorAll('.ipill').forEach(function(x){ x.classList.remove('on'); });
-        b.classList.add('on');
-        delta = parseFloat(b.getAttribute('data-d'));
-        mult = b.getAttribute('data-m');
-        calc();
-      });
-    });
+    var indsel=document.getElementById('indsel');function applyInd(){var v=indsel.value.split('|');delta=parseFloat(v[0]);mult=v[1];calc();}indsel.addEventListener('change',applyInd);applyInd();
     calc();
   })();
 </script>
@@ -1834,5 +1839,14 @@
 <div class="nsheet" id="nsheet" aria-hidden="true"><button class="nclose" aria-label="Close menu" onclick="foNav(false)">×</button><nav class="nlist"><a href="product-business.html">Product</a><a href="#pricing" onclick="foNav(false)">Pricing</a><a href="how-business.html">How</a><a href="trust-business.html">Trust</a><a href="#calc" onclick="foNav(false)">Calculator</a><a href="#team" onclick="foNav(false)">About</a><a href="#industries" onclick="foNav(false)">Your Industry</a><a href="#notes" onclick="foNav(false)">Field Notes</a><a href="https://upnonstop.com">The Daily Redemption</a></nav><a class="pill green nsheet-cta" href="https://wa.me/16199404040?text=First%20Officer%20check" style="text-decoration:none">💬 Text Your First Officer</a></div>
 <script>function foNav(open){var sh=document.getElementById("nsheet");var b=document.querySelector(".nburger");sh.classList.toggle("open",open);document.body.classList.toggle("nolock",open);sh.setAttribute("aria-hidden",open?"false":"true");if(b)b.setAttribute("aria-expanded",open?"true":"false");}</script>
 <script>window.addEventListener('load',function(){setTimeout(function(){document.querySelectorAll('.rv:not(.inview)').forEach(function(e){e.classList.add('inview');});},2200);});</script>
-</body>
+<style id="fo66">
+.fonav.overcream{background:transparent;border-bottom:none;}
+.pill, a[href*="wa.me"]{justify-content:center;}
+@media (max-width:840px){
+.fonav.stuck{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--white)!important;border-bottom:1px solid var(--hairline)!important;}
+.fonav.overhero.stuck .links a,.fonav.overhero.stuck .brand .n{color:var(--ink)!important;}
+.fonav.overhero.stuck .brand .by{color:var(--mute)!important;}
+.fonav.overhero.stuck .nburger span{background:var(--ink)!important;}
+}
+</style><script id="fo66js">(function(){var nav=document.querySelector('.fonav');if(!nav)return;var mq=matchMedia('(max-width:840px)');var inflow=!nav.classList.contains('overhero');function on(){var m=mq.matches&&(window.scrollY||0)>24;nav.classList.toggle('stuck',m);if(inflow){document.body.style.paddingTop=m?nav.offsetHeight+'px':'';}}addEventListener('scroll',on,{passive:true});addEventListener('resize',on);on();})();</script></body>
 </html>
