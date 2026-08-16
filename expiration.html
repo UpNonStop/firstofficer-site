@@ -416,10 +416,8 @@ updateCounter();
 <style id="fo66">
 .fonav.overcream{background:transparent;border-bottom:none;}
 .pill, a[href*="wa.me"]{justify-content:center;}
-@media (max-width:840px){
-.fonav.stuck{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--white)!important;border-bottom:1px solid var(--hairline)!important;}
+.fonav.stuck{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(255,255,255,.84)!important;-webkit-backdrop-filter:saturate(1.3) blur(12px);backdrop-filter:saturate(1.3) blur(12px);border-bottom:1px solid var(--hairline)!important;}
 .fonav.overhero.stuck .links a,.fonav.overhero.stuck .brand .n{color:var(--ink)!important;}
 .fonav.overhero.stuck .brand .by{color:var(--mute)!important;}
 .fonav.overhero.stuck .nburger span{background:var(--ink)!important;}
-}
-</style><script id="fo66js">(function(){var nav=document.querySelector('.fonav');if(!nav)return;var mq=matchMedia('(max-width:840px)');var inflow=!nav.classList.contains('overhero');function on(){var m=mq.matches&&(window.scrollY||0)>24;nav.classList.toggle('stuck',m);if(inflow){document.body.style.paddingTop=m?nav.offsetHeight+'px':'';}}addEventListener('scroll',on,{passive:true});addEventListener('resize',on);on();})();</script><style id="fo68m">.wav{background:#075E54 !important;}.wav img{width:90% !important;height:90% !important;object-fit:contain;filter:brightness(0) invert(.92);}</style></body></html>
+</style><script id="fo66js">(function(){var nav=document.querySelector('.fonav');if(!nav)return;var inflow=!nav.classList.contains('overhero');function on(){var m=(window.scrollY||0)>24;nav.classList.toggle('stuck',m);if(inflow){document.body.style.paddingTop=m?nav.offsetHeight+'px':'';}}addEventListener('scroll',on,{passive:true});addEventListener('resize',on);on();})();</script><style id="fo68m">.wav{background:#075E54 !important;}.wav img{width:90% !important;height:90% !important;object-fit:contain;filter:brightness(0) invert(.92);}</style></body></html>
