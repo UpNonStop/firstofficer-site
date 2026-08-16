@@ -917,7 +917,7 @@
 </section>
 <div class="statband about4">
   <div><div class="v pk">$550</div><div class="l">Flat monthly · Cancel anytime</div></div>
-  <div><div class="v">20 min</div><div class="l">The free check, before any payment</div></div>
+  <div><div class="v">20 min</div><div class="l">Free spend check · We size your capture first</div></div>
   <div><div class="v">Friday</div><div class="l">Dollars saved reported every Friday</div></div>
   <div><div class="v">Yours</div><div class="l">Every decision, always</div></div>
 </div>
@@ -981,7 +981,7 @@
     <h3>A note from Ohad</h3>
     <p>I built First Officer because I kept watching brilliant business owners leave real money on the table. Not from carelessness. From busyness. Nobody has spare hours to babysit transfer bonuses and statement credits.</p>
     <p>So the desk babysits them for you. The machine watches, the humans command, and every single decision stays yours: shown with its math, approved by you, cancel anytime. That is what financial freedom looks like to me. Not a lottery ticket. A system that quietly hands you back what you already earned.</p>
-    <p class="sig">You've already earned it. <span id="signame"></span><span class="cursor"></span></p>
+    <p class="sig">You've already earned it.<br><span id="signame"></span><span class="cursor"></span></p>
   </div>
 </section>
 <div class="pinkband">
@@ -1099,7 +1099,7 @@ var day=new Date().getDate();
 [].slice.call(document.querySelectorAll('.sec.photo')).forEach(function(sec,k){
   sec.style.setProperty('--ph', 'url("'+POOL[(day+k*4)%POOL.length]+'")');
 });
-var name=' · Ohad', el=document.getElementById('signame'), i=0;
+var name='--Ohad', el=document.getElementById('signame'), i=0;
 if(el){ if(reduced){ el.textContent=name; } else { var io=new IntersectionObserver(function(en){ if(en[0].isIntersecting){ io.disconnect();
   (function type(){ if(i<name.length){ el.textContent+=name[i++]; setTimeout(type,120);} })(); } });
   io.observe(el); } }
