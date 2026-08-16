@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /next.html
 Sitemap: https://firstofficer.upnonstop.com/sitemap.xml
