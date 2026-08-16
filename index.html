@@ -828,12 +828,12 @@
     .lg-v{font-size:13.5px;}
   }
   /* section kickers: vertical rail, mobile first */
-  .sec{position:relative;padding-left:52px;}
+  .sec{position:relative;}
   .fok{position:absolute;left:12px;top:48px;bottom:46px;margin:0;writing-mode:vertical-rl;text-orientation:mixed;text-align:left;display:flex;align-items:center;gap:10px;font-size:11.5px;letter-spacing:.26em;}
   .fok::before{content:'';width:7px;height:7px;background:var(--pink);flex:none;}
   .fok::after{content:'';flex:1;width:1px;min-height:0;background:linear-gradient(180deg,var(--pink),rgba(250,24,150,0));}
   @media (min-width:841px){
-    .sec{padding-left:104px;}
+    
     .fok{left:34px;top:70px;bottom:64px;font-size:14px;letter-spacing:.3em;gap:14px;}
     .fok::before{width:9px;height:9px;}
   }
@@ -1903,5 +1903,5 @@ play();
 .hero::after{content:'';position:absolute;left:0;right:0;top:0;height:140px;background:linear-gradient(rgba(10,12,16,.44),rgba(10,12,16,0));pointer-events:none;z-index:2;}
 .fonav.overhero{z-index:10;}
 .fonav.overhero:not(.stuck) .links a,.fonav.overhero:not(.stuck) .brand .n{text-shadow:0 1px 10px rgba(0,0,0,.45);}
-</style></body>
+</style><style id="fo72">@media (max-width:840px){.sec{padding-left:18px !important;padding-right:18px !important;}}</style></body>
 </html>
