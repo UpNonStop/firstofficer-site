@@ -57,7 +57,7 @@ button{cursor:pointer;border:none;font-family:inherit;background:none;color:inhe
 .nka{font-size:14px;font-weight:500;color:#8a8492;transition:color .3s;white-space:nowrap}
 .nka:hover{color:var(--pink)}
 .nka.act{color:#141216;font-weight:700}
-.ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#141216;font-size:13px;font-weight:600;border-radius:100px;box-shadow:0 4px 16px rgba(37,211,102,.2);white-space:nowrap}
+.ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:100px;box-shadow:0 4px 16px rgba(37,211,102,.2);white-space:nowrap}
 .mob{display:none;width:36px;height:36px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;border:none;background:none}
 .mob span{width:20px;height:2px;background:#f0f0f4;border-radius:1px}
 .nav-tog{display:flex;align-items:stretch;border-radius:100px;padding:3px;flex-shrink:0;background:#ffffff;border:1px solid #e9e7ee}
@@ -254,7 +254,7 @@ button{cursor:pointer;border:none;font-family:inherit;background:none;color:inhe
 .ctab{background:var(--pink);padding:80px 0;text-align:center}
 .ctab h2{font-family:var(--serif);font-size:clamp(26px,3.8vw,42px);font-weight:700;color:#141216;letter-spacing:-.5px;line-height:1.15;margin-bottom:14px}
 .ctab p{font-size:17px;color:rgba(255,255,255,.78);max-width:520px;margin:0 auto 28px;line-height:1.7}
-.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 34px;background:#25D366;color:#141216;font-size:15px;font-weight:700;border-radius:100px;box-shadow:0 6px 24px rgba(37,211,102,.3);transition:transform .3s}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 34px;background:#25D366;color:#fff;font-size:15px;font-weight:700;border-radius:100px;box-shadow:0 6px 24px rgba(37,211,102,.3);transition:transform .3s}
 .cta-btn:hover{transform:translateY(-2px)}
 
 .ft{background:#faf6ee;padding:32px 0 20px;border-top:1px solid #ffffff}
@@ -360,6 +360,11 @@ body.nolock{overflow:hidden;}
 <link rel="apple-touch-icon" href="favicon.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<style id="pinklaw">/* nothing dark on brand pink */
+.ctab h2{color:#fff !important;}
+.ctab p{color:rgba(255,255,255,.92) !important;}
+.stage-btn.active{color:#fff !important;}
+</style>
 </head>
 <body>
 
