@@ -1,10 +1,11 @@
 {
-  "build": 122,
-  "generated": "2026-08-17T19:29:41.787769+00:00Z",
+  "build": 123,
+  "generated": "2026-08-17T19:41:25.920627+00:00Z",
   "files": 58,
   "canon_hash": "51a240d5c9c3",
   "battery": {
     "statics": 0,
+    "hygiene": 0,
     "sitemap": 0,
     "links": 0,
     "runtime": "42/42",
@@ -72,6 +73,6 @@
     "og-card.png": "41c922106c9ab696",
     "apple-touch-icon.png": "af0a8cfe8f76da6b",
     "sitemap.xml": "0cdfc538677b191d",
-    "robots.txt": "ff58474f4c090d44"
+    "robots.txt": "666bd622b1316eb7"
   }
 }
