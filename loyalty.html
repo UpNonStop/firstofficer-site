@@ -242,6 +242,18 @@ body.nolock{overflow:hidden;}
 </script>
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<style id="h3law">.cc-b h3{font-size:15px;font-weight:800;margin-bottom:5px;line-height:1.3;letter-spacing:-.2px}
+.cc-dinfo h3{color:#fff;font-size:17px;font-weight:800;margin-bottom:4px;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.stp h3{font-size:17px;font-weight:700;margin-bottom:8px}
+</style>
+<style id="h3law2">.cc-b h3{font-size:15px;font-weight:800;margin-bottom:5px;line-height:1.3;letter-spacing:-.2px}
+.cc-dinfo h3{color:#fff;font-size:17px;font-weight:800;margin-bottom:4px;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.stp h3{font-size:17px;font-weight:700;margin-bottom:8px}
+</style>
+<style id="h3law3">.cc-b h3{font-size:15px;font-weight:800;margin-bottom:5px;line-height:1.3;letter-spacing:-.2px}
+.cc-dinfo h3{color:#fff;font-size:17px;font-weight:800;margin-bottom:4px;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.stp h3{font-size:17px;font-weight:700;margin-bottom:8px}
+</style>
 </head>
 <body><div id="mainNav" hidden></div>
 
@@ -409,10 +421,10 @@ body.nolock{overflow:hidden;}
 <!-- STEPS -->
 <section class="sec alt"><div class="wrap"><div class="sh"><div class="ey">Getting Started</div><h2 class="hd">4 Questions. Under 5 Minutes. <em>That's It.</em></h2></div>
 <div class="steps">
-<div class="stp"><div class="stp-n">01</div><h4>Tell us your cards</h4><p class="t2" style="font-size:14px">Which credit cards do you carry?</p></div>
-<div class="stp"><div class="stp-n">02</div><h4>Share your spend</h4><p class="t2" style="font-size:14px">Roughly how much and where?</p></div>
-<div class="stp"><div class="stp-n">03</div><h4>Name your programs</h4><p class="t2" style="font-size:14px">Airlines, hotels, any loyalty.</p></div>
-<div class="stp"><div class="stp-n">04</div><h4>Set your goals</h4><p class="t2" style="font-size:14px">Where do you want to go?</p></div>
+<div class="stp"><div class="stp-n">01</div><h3>Tell us your cards</h3><p class="t2" style="font-size:14px">Which credit cards do you carry?</p></div>
+<div class="stp"><div class="stp-n">02</div><h3>Share your spend</h3><p class="t2" style="font-size:14px">Roughly how much and where?</p></div>
+<div class="stp"><div class="stp-n">03</div><h3>Name your programs</h3><p class="t2" style="font-size:14px">Airlines, hotels, any loyalty.</p></div>
+<div class="stp"><div class="stp-n">04</div><h3>Set your goals</h3><p class="t2" style="font-size:14px">Where do you want to go?</p></div>
 </div>
 <div style="text-align:center;margin-top:48px"><a href="https://wa.me/16199404040?text=First%20Officer%20check" class="btn btn-wa btn-l" target="_blank">💬 Text Your First Officer</a></div>
 </div></section>
@@ -434,11 +446,11 @@ shuffle(T1);shuffle(T2);
 
 function buildCard(c){
 if(c.type==='dest'){
-return '<div class="cc cc-d" style="min-height:220px"><div class="cc-di" style="background-image:url(https://images.unsplash.com/'+c.img+'?w=600&q=80)"></div><div class="cc-dt">Typical savings: '+c.save+'</div><div class="cc-dinfo"><h4>'+c.title+'</h4><p>'+c.desc+'</p></div></div>';
+return '<div class="cc cc-d" style="min-height:220px"><div class="cc-di" style="background-image:url(https://images.unsplash.com/'+c.img+'?w=600&q=80)"></div><div class="cc-dt">Typical savings: '+c.save+'</div><div class="cc-dinfo"><h3>'+c.title+'</h3><p>'+c.desc+'</p></div></div>';
 }
 var pcls=c.type==='wrong'||c.type==='burn'?'r':c.type==='trap'||c.type==='deval'?'a':c.type==='missed'?'g':'pk';
 var tcls=c.type==='wrong'||c.type==='burn'?'wr':c.type==='trap'||c.type==='deval'?'tr':c.type==='missed'?'mi':'ex';
-return '<div class="cc"><div class="cc-h"><div class="cc-p '+pcls+'"></div><div class="cc-t '+tcls+'">'+c.label+'</div></div><div class="cc-b"><h4>'+c.title+'</h4><p>'+c.desc+'</p><div class="cc-s"><div class="you"><div class="cc-sv">'+c.you+'</div><div class="cc-sl">'+c.yo_l+'</div></div><div class="fo"><div class="cc-sv">'+c.fo+'</div><div class="cc-sl">'+c.fo_l+'</div></div></div></div></div>';
+return '<div class="cc"><div class="cc-h"><div class="cc-p '+pcls+'"></div><div class="cc-t '+tcls+'">'+c.label+'</div></div><div class="cc-b"><h3>'+c.title+'</h3><p>'+c.desc+'</p><div class="cc-s"><div class="you"><div class="cc-sv">'+c.you+'</div><div class="cc-sl">'+c.yo_l+'</div></div><div class="fo"><div class="cc-sv">'+c.fo+'</div><div class="cc-sl">'+c.fo_l+'</div></div></div></div></div>';
 }
 
 function renderTrack(el,data){
