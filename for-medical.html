@@ -55,11 +55,11 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#faf6
 .nav-tog{display:flex;align-items:stretch;border-radius:100px;padding:3px;flex-shrink:0;background:#ffffff;border:1px solid #e9e7ee}
 .nav-tog .tb{flex:1;padding:10px 22px;font-size:13px;font-weight:600;border-radius:100px;transition:all .35s;text-align:center;white-space:nowrap;border:none;cursor:pointer;background:none;color:#6b6672;-webkit-tap-highlight-color:transparent;user-select:none}
 .nav-tog .tb:hover:not(.sel){color:#8a8492}
-.nav-tog .tb.sel{background:#FA1896;color:#141216;box-shadow:0 4px 20px rgba(250,24,150,.3)}
+.nav-tog .tb.sel{background:#FA1896;color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.3)}
 .nav-tog-mob{display:none}
 .nav-tog-mob{background:#ffffff;border:1px solid #e9e7ee}
 .nav-tog-mob .tb{flex:1;padding:10px 22px;font-size:13px;font-weight:600;border-radius:100px;transition:all .35s;text-align:center;white-space:nowrap;border:none;cursor:pointer;background:none;color:#6b6672;-webkit-tap-highlight-color:transparent;user-select:none}
-.nav-tog-mob .tb.sel{background:#FA1896;color:#141216;box-shadow:0 4px 20px rgba(250,24,150,.3)}
+.nav-tog-mob .tb.sel{background:#FA1896;color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.3)}
 
 
 .ncta{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:var(--wa);color:#fff;font-size:13px;font-weight:600;border-radius:var(--r-pill);box-shadow:0 4px 16px rgba(37,211,102,.2);white-space:nowrap;transition:all .3s}
@@ -71,7 +71,7 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#faf6
 .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;border-radius:12px;transition:all .3s var(--ease);white-space:nowrap;letter-spacing:-.2px}
 .btn:hover{transform:translateY(-2px)}
 .btn-l{padding:16px 36px;font-size:16px}.btn-m{padding:12px 28px;font-size:15px}
-.btn-pk{background:var(--pink);color:#141216;box-shadow:0 4px 16px rgba(250,24,150,.15);border:2px solid var(--pink);min-width:200px;justify-content:center}
+.btn-pk{background:var(--pink);color:#fff;box-shadow:0 4px 16px rgba(250,24,150,.15);border:2px solid var(--pink);min-width:200px;justify-content:center}
 .btn-ol{border:2px solid #e9e7ee;color:#ddd;background:transparent;min-width:200px;justify-content:center}.btn-ol:hover{border-color:var(--pink);color:var(--pink)}
 
 /* Hero */
@@ -79,7 +79,7 @@ body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#faf6
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.55);pointer-events:none;z-index:0}
 .hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.6) 50%,#faf6ee 100%);pointer-events:none;z-index:1}
 .hero-c{position:relative;z-index:2;max-width:620px}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:7px 18px;border-radius:100px;font-size:12px;font-weight:700;color:#141216;background:var(--pink);margin-bottom:24px;letter-spacing:.3px;box-shadow:0 4px 16px rgba(250,24,150,.3)}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:7px 18px;border-radius:100px;font-size:12px;font-weight:700;color:#fff;background:var(--pink);margin-bottom:24px;letter-spacing:.3px;box-shadow:0 4px 16px rgba(250,24,150,.3)}
 .hero h1{font-size:clamp(32px,5vw,56px);font-weight:900;line-height:1.06;letter-spacing:-1.5px;color:#141216;margin-bottom:20px;text-shadow:0 2px 24px rgba(0,0,0,1),0 0 48px rgba(0,0,0,.85)}
 .hero-sub{font-size:17px;color:#ddd;font-weight:500;line-height:1.7;margin-bottom:32px;text-shadow:0 1px 16px rgba(0,0,0,1)}
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
@@ -275,6 +275,11 @@ body.nolock{overflow:hidden;}
 .ctab p{color:rgba(255,255,255,.92) !important;}
 </style>
 <style id="h3law">.stp h3{font-size:16px;font-weight:700;margin-bottom:6px}
+</style>
+<style id="brandlaw">/* nothing dark on brand pink or WhatsApp green */
+.ctab h2,.ctab .h2{color:#fff !important;}
+.ctab p{color:rgba(255,255,255,.92) !important;}
+.btn-wa{color:#fff !important;}
 </style>
 </head>
 <body>

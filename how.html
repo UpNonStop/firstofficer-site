@@ -63,11 +63,11 @@ button{cursor:pointer;border:none;font-family:inherit;background:none;color:inhe
 .nav-tog{display:flex;align-items:stretch;border-radius:100px;padding:3px;flex-shrink:0;background:#ffffff;border:1px solid #e9e7ee}
 .nav-tog .tb{flex:1;padding:10px 22px;font-size:13px;font-weight:600;border-radius:100px;transition:all .35s;text-align:center;white-space:nowrap;border:none;cursor:pointer;background:none;color:#6b6672;-webkit-tap-highlight-color:transparent;user-select:none}
 .nav-tog .tb:hover:not(.sel){color:#8a8492}
-.nav-tog .tb.sel{background:#FA1896;color:#141216;box-shadow:0 4px 20px rgba(250,24,150,.3)}
+.nav-tog .tb.sel{background:#FA1896;color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.3)}
 .nav-tog-mob{display:none}
 .nav-tog-mob{background:#ffffff;border:1px solid #e9e7ee}
 .nav-tog-mob .tb{flex:1;padding:10px 22px;font-size:13px;font-weight:600;border-radius:100px;transition:all .35s;text-align:center;white-space:nowrap;border:none;cursor:pointer;background:none;color:#6b6672;-webkit-tap-highlight-color:transparent;user-select:none}
-.nav-tog-mob .tb.sel{background:#FA1896;color:#141216;box-shadow:0 4px 20px rgba(250,24,150,.3)}
+.nav-tog-mob .tb.sel{background:#FA1896;color:#fff;box-shadow:0 4px 20px rgba(250,24,150,.3)}
 .wrap{max-width:1140px;margin:0 auto;padding:0 32px}
 
 /* ==========  HERO: SIMPLE, TEXT-ONLY, MATCHES PRODUCT PAGE PATTERN  ========== */
@@ -135,7 +135,7 @@ button{cursor:pointer;border:none;font-family:inherit;background:none;color:inhe
 
 .stages-ctrl{display:flex;gap:6px;padding:5px;background:rgba(17,17,17,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid #ddd6c8;border-radius:100px}
 .stage-btn{padding:9px 18px;border-radius:100px;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#8a8492;transition:all .3s;cursor:pointer;border:none;background:none}
-.stage-btn.active{background:var(--pink);color:#141216;box-shadow:0 4px 14px rgba(250,24,150,.3)}
+.stage-btn.active{background:var(--pink);color:#fff;box-shadow:0 4px 14px rgba(250,24,150,.3)}
 
 /* Right column: copy */
 .brain-copy{min-width:0;position:relative;z-index:3}
@@ -364,6 +364,11 @@ body.nolock{overflow:hidden;}
 .ctab h2{color:#fff !important;}
 .ctab p{color:rgba(255,255,255,.92) !important;}
 .stage-btn.active{color:#fff !important;}
+</style>
+<style id="brandlaw">/* nothing dark on brand pink or WhatsApp green */
+.ctab h2,.ctab .h2{color:#fff !important;}
+.ctab p{color:rgba(255,255,255,.92) !important;}
+.btn-wa{color:#fff !important;}
 </style>
 </head>
 <body>
