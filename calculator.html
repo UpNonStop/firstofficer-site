@@ -604,4 +604,12 @@ renderBookingCards('bookGrid',mp);
 .fonav.overhero.stuck .links a,.fonav.overhero.stuck .brand .n{color:var(--ink)!important;}
 .fonav.overhero.stuck .brand .by{color:var(--mute)!important;}
 .fonav.overhero.stuck .nburger span{background:var(--ink)!important;}
-</style><script id="fo66js">(function(){var nav=document.querySelector('.fonav');if(!nav)return;var inflow=!nav.classList.contains('overhero');function on(){var m=(window.scrollY||0)>24;nav.classList.toggle('stuck',m);if(inflow){document.body.style.paddingTop=m?nav.offsetHeight+'px':'';}}addEventListener('scroll',on,{passive:true});addEventListener('resize',on);on();})();</script></body></html>
+</style><script id="fo66js">(function(){var nav=document.querySelector('.fonav');if(!nav)return;var inflow=!nav.classList.contains('overhero');function on(){var m=(window.scrollY||0)>24;nav.classList.toggle('stuck',m);if(inflow){document.body.style.paddingTop=m?nav.offsetHeight+'px':'';}}addEventListener('scroll',on,{passive:true});addEventListener('resize',on);on();})();</script><script id="fo-track">(function(){
+  function ev(n,p){ if(typeof gtag==='function') gtag('event', n, p||{}); }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a'); if(!a) return;
+    var h = a.getAttribute('href')||'';
+    if (h.indexOf('wa.me') > -1) ev('whatsapp_click', {page_path: location.pathname, link_text: (a.textContent||'').trim().slice(0,40)});
+    else if (h.indexOf('calculator') > -1) ev('calculator_open', {page_path: location.pathname});
+  }, true);
+})();</script></body></html>

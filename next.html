@@ -907,6 +907,13 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://firstofficer.upnonstop.com/og-card.png">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FJHCJ74L64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FJHCJ74L64');
+</script>
 </head>
 <body><div id="bcount" hidden></div><div id="bdepth" hidden></div><div id="cyclecount" hidden></div><div id="statusline" hidden></div><div id="vfill" hidden></div>
 <div class="gallery">
@@ -1903,5 +1910,13 @@ play();
 .hero::after{content:'';position:absolute;left:0;right:0;top:0;height:140px;background:linear-gradient(rgba(10,12,16,.44),rgba(10,12,16,0));pointer-events:none;z-index:2;}
 .fonav.overhero{z-index:10;}
 .fonav.overhero:not(.stuck) .links a,.fonav.overhero:not(.stuck) .brand .n{text-shadow:0 1px 10px rgba(0,0,0,.45);}
-</style><style id="fo72">@media (max-width:840px){.sec{padding-left:18px !important;padding-right:18px !important;}}</style></body>
+</style><style id="fo72">@media (max-width:840px){.sec{padding-left:18px !important;padding-right:18px !important;}}</style><script id="fo-track">(function(){
+  function ev(n,p){ if(typeof gtag==='function') gtag('event', n, p||{}); }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a'); if(!a) return;
+    var h = a.getAttribute('href')||'';
+    if (h.indexOf('wa.me') > -1) ev('whatsapp_click', {page_path: location.pathname, link_text: (a.textContent||'').trim().slice(0,40)});
+    else if (h.indexOf('calculator') > -1) ev('calculator_open', {page_path: location.pathname});
+  }, true);
+})();</script></body>
 </html>
