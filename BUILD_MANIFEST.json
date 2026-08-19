@@ -1,10 +1,11 @@
 {
-  "build": 129,
-  "generated": "2026-08-19T17:15:02.302903+00:00Z",
+  "build": 130,
+  "generated": "2026-08-19T17:45:15.165212+00:00Z",
   "files": 60,
   "canon_hash": "3c79127c827f",
   "battery": {
     "statics": 0,
+    "images": 0,
     "hygiene": 0,
     "sitemap": 0,
     "links": 0,
@@ -53,7 +54,7 @@
     "how-business.html": "de8270ea96d79732",
     "how-personal.html": "de8270ea96d79732",
     "how.html": "4e19a43f0af7fbeb",
-    "index.html": "d6293640f635aec8",
+    "index.html": "cbc316c54780e988",
     "loyalty.html": "ddade9a0fa0cac0b",
     "next.html": "3d41216c88be2781",
     "pricing.html": "b375cd7d7960636c",
@@ -75,6 +76,21 @@
     "og-card.png": "41c922106c9ab696",
     "apple-touch-icon.png": "af0a8cfe8f76da6b",
     "sitemap.xml": "24f633d69817b2e2",
-    "robots.txt": "666bd622b1316eb7"
+    "robots.txt": "666bd622b1316eb7",
+    "img/fo-alps.jpg": "364e0f7e5362fc4c",
+    "img/fo-bali.jpg": "83771de59d5f277a",
+    "img/fo-barcelona.jpg": "18b266b612d95b1f",
+    "img/fo-cabo.jpg": "69f2e4428ce897b7",
+    "img/fo-connemara.jpg": "a2e2351ae79965df",
+    "img/fo-costarica.jpg": "eddae582796836a9",
+    "img/fo-dubai.jpg": "6c508fe336655689",
+    "img/fo-iceland.jpg": "342f9966a3b3a56f",
+    "img/fo-kyoto.jpg": "a5fcf87ab945d39d",
+    "img/fo-lisbon.jpg": "66a469f34125ddea",
+    "img/fo-maldives.jpg": "d956cbc06167fa98",
+    "img/fo-nyc.jpg": "1acd6e24bb043af0",
+    "img/fo-paris.jpg": "7f489835794259a1",
+    "img/fo-rome.jpg": "8cb9951dba38a392",
+    "img/fo-santorini.jpg": "40f3e2d95cb3bebf"
   }
 }
