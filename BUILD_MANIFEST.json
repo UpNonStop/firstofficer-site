@@ -1,14 +1,14 @@
 {
-  "build": 127,
-  "generated": "2026-08-17T21:02:16.547320+00:00Z",
-  "files": 59,
+  "build": 128,
+  "generated": "2026-08-19T14:52:59.614477+00:00Z",
+  "files": 60,
   "canon_hash": "3c79127c827f",
   "battery": {
     "statics": 0,
     "hygiene": 0,
     "sitemap": 0,
     "links": 0,
-    "runtime": "34/34",
+    "runtime": "35/35",
     "shells": "23/23"
   },
   "sha256": {
@@ -49,6 +49,7 @@
     "founding.html": "64b0173a63c51b9b",
     "hb-license-x7.html": "d86f0bf64c79cbf1",
     "hb-review-x7.html": "9a13656620686137",
+    "hello.html": "60b3e4a274bb2e75",
     "how-business.html": "de8270ea96d79732",
     "how-personal.html": "de8270ea96d79732",
     "how.html": "4e19a43f0af7fbeb",
@@ -73,7 +74,7 @@
     "value.html": "3690534f0bfaae28",
     "og-card.png": "41c922106c9ab696",
     "apple-touch-icon.png": "af0a8cfe8f76da6b",
-    "sitemap.xml": "19c8bd8ccaa661e9",
+    "sitemap.xml": "24f633d69817b2e2",
     "robots.txt": "666bd622b1316eb7"
   }
 }
