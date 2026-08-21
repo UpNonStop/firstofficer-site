@@ -1,6 +1,6 @@
 {
-  "build": 142,
-  "generated": "2026-08-21T00:18:28.779085+00:00Z",
+  "build": 144,
+  "generated": "2026-08-21T03:38:32.312268+00:00Z",
   "files": 60,
   "canon_hash": "3c79127c827f",
   "battery": {
@@ -21,7 +21,7 @@
     "affiliates.html": "043c61e0e427f333",
     "calculator-business.html": "042797cd4f679b96",
     "calculator-personal.html": "042797cd4f679b96",
-    "calculator.html": "725696b12f5b2c3c",
+    "calculator.html": "ee21988de46a0319",
     "cashback.html": "9cf9ad0de421843a",
     "complexity.html": "1bb55bbc8d3038c5",
     "connect.html": "aa3bc1cf8f681a30",
