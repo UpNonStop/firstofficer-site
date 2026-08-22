@@ -5,4 +5,5 @@ Disallow: /*.bak_compliance_20260429_164917
 Disallow: /hb-license-x7.html
 Disallow: /hb-review-x7.html
 Disallow: /BUILD_MANIFEST.json
+Disallow: /tools/
 Sitemap: https://firstofficer.upnonstop.com/sitemap.xml
