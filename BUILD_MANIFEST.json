@@ -1,6 +1,6 @@
 {
-  "build": 161,
-  "generated": "2026-08-23T01:55:38.244532+00:00",
+  "build": 163,
+  "generated": "2026-08-23T03:13:26.914927+00:00",
   "files": 60,
   "canon_hash": "3c79127c827f",
   "battery": {
@@ -60,7 +60,7 @@
     "proactive.html": "c15b0d3d13935f43",
     "product-business.html": "af2df7dbc866bde4",
     "product-personal.html": "af2df7dbc866bde4",
-    "product.html": "5c9f8a2feec551d0",
+    "product.html": "764e7625bb53011b",
     "referral.html": "fcb31af596de929a",
     "strategist-business.html": "b795a1063fb06455",
     "strategist.html": "33370c1397567de7",
