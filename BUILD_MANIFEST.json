@@ -1,6 +1,6 @@
 {
-  "build": 167,
-  "generated": "2026-08-23T05:34:31.533217+00:00",
+  "build": 168,
+  "generated": "2026-08-24T19:19:31.694352+00:00",
   "files": 60,
   "canon_hash": "3c79127c827f",
   "battery": {
@@ -47,13 +47,13 @@
     "founding.html": "e983022c4e6e38fd",
     "hb-license-x7.html": "2cb089cec183fc96",
     "hb-review-x7.html": "90615e2db4a392c6",
-    "hello.html": "77b716ffe96d48ce",
+    "hello.html": "e3fd07ec8b0825e6",
     "how-business.html": "de8270ea96d79732",
     "how-personal.html": "de8270ea96d79732",
-    "how.html": "13f7842e383b2fef",
+    "how.html": "964cf464963e1d1b",
     "index.html": "9ff4f6ef1db6d280",
     "loyalty.html": "ddade9a0fa0cac0b",
-    "next.html": "d18eda6777ee20b8",
+    "next.html": "49c737cc61796664",
     "pricing.html": "6a8f74e1a2ba03c9",
     "privacy-policy.html": "700b2390b02bd87a",
     "privacy.html": "547fc672eefce067",
@@ -63,12 +63,12 @@
     "product.html": "da8ef0ff045be906",
     "referral.html": "fcb31af596de929a",
     "strategist-business.html": "b795a1063fb06455",
-    "strategist.html": "33370c1397567de7",
-    "terms-of-service.html": "7b9f597badff73ab",
+    "strategist.html": "ed541ab913debc8b",
+    "terms-of-service.html": "d0c9c7f8c10b75a2",
     "timing.html": "0947c94e571d6aa4",
     "trust-business.html": "a742ac0b1e3f28be",
     "trust-personal.html": "a742ac0b1e3f28be",
-    "trust.html": "19ad7ca449eacb62",
+    "trust.html": "3145c70660caef04",
     "value.html": "3690534f0bfaae28"
   }
 }
