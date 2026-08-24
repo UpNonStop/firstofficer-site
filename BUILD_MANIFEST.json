@@ -1,6 +1,6 @@
 {
-  "build": 168,
-  "generated": "2026-08-24T19:19:31.694352+00:00",
+  "build": 169,
+  "generated": "2026-08-24T19:36:01.983496+00:00",
   "files": 60,
   "canon_hash": "3c79127c827f",
   "battery": {
@@ -47,10 +47,10 @@
     "founding.html": "e983022c4e6e38fd",
     "hb-license-x7.html": "2cb089cec183fc96",
     "hb-review-x7.html": "90615e2db4a392c6",
-    "hello.html": "e3fd07ec8b0825e6",
+    "hello.html": "4f20a073ea9adf21",
     "how-business.html": "de8270ea96d79732",
     "how-personal.html": "de8270ea96d79732",
-    "how.html": "964cf464963e1d1b",
+    "how.html": "894d252b46bd3c47",
     "index.html": "9ff4f6ef1db6d280",
     "loyalty.html": "ddade9a0fa0cac0b",
     "next.html": "49c737cc61796664",
