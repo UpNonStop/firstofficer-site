@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJHCJ74L64"></script>
 <script>
@@ -166,6 +168,39 @@ body.nolock{overflow:hidden;}
 .focap-in{background:transparent !important;border:none !important;box-shadow:none !important;border-radius:0 !important;padding:0 !important;max-width:760px !important;}
 .focap-k,.focap-h,.focap-s{text-shadow:0 1px 18px rgba(250,246,238,.85);}
 </style><style id="ftsepfix">.ftsep:last-child{display:none;}.ftbar .ftsep+.ftsep{display:none;}</style><style id="rmguard">@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}}</style><style id="focap160">.focap{margin-top:0 !important;}.focap{position:relative;isolation:isolate;overflow:hidden;background:transparent !important;border:none !important;padding:96px 24px !important;width:100vw !important;max-width:none !important;margin-left:calc(50% - 50vw) !important;margin-right:calc(50% - 50vw) !important;}.focap::before{content:'';position:absolute;inset:-40px;background-image:url('img/fo-santorini.jpg');background-size:cover;background-position:center;filter:blur(9px) saturate(1.3);transform:scale(1.12);z-index:-2;}.focap::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,246,238,.42),rgba(250,246,238,.58),rgba(250,246,238,.42));z-index:-1;}.focap-in{background:transparent !important;border:none !important;box-shadow:none !important;border-radius:0 !important;padding:0 !important;max-width:760px !important;}.focap-k,.focap-h,.focap-s{text-shadow:0 1px 18px rgba(250,246,238,.85);}.focap{background:#fff;border-top:1px solid rgba(20,18,22,.07);border-bottom:1px solid rgba(20,18,22,.07);padding:64px 24px;}.focap-in{max-width:640px;margin:0 auto;text-align:center;}.focap-k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#FA1896;font-weight:700;}.focap-h{font-weight:900;font-size:clamp(22px,3.2vw,30px);letter-spacing:-0.02em;margin-top:10px;color:#141216;}.focap-s{color:#5b5566;font-size:14.5px;line-height:1.7;margin:12px auto 0;max-width:520px;}.focap-f{display:flex;gap:10px;margin:22px auto 0;max-width:460px;}.focap-i{flex:1;min-width:0;padding:14px 16px;border:1px solid rgba(20,18,22,.16);border-radius:999px;font:inherit;font-size:15px;color:#141216;background:#fff;}.focap-i:focus{outline:none;border-color:#FA1896;box-shadow:0 0 0 3px rgba(250,24,150,.15);}.focap-b{background:#FA1896;color:#fff;border:none;border-radius:999px;padding:14px 24px;font-weight:800;font-size:14.5px;cursor:pointer;white-space:nowrap;min-height:44px;}.focap-b:disabled{opacity:.55;cursor:default;}.focap-msg{min-height:20px;margin-top:12px;font-size:13.5px;font-weight:700;color:#FA1896;}@media (max-width:560px){.focap-f{flex-direction:column;}.focap-b{width:100%;}}</style>
+
+<style id="fo-disclosure-legibility">
+/* Compliance: FTC 16 CFR 255.0(f) requires a disclosure to stand out by size and contrast.
+   These were rendering at 8.5 to 9.5px at ratios of 3.62 to 3.86:1, below the 4.5:1 minimum. */
+.dcap, .fodisc, .lgnote, .fonote, .l4note, .miccap, .fineprint {
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  color: #423d4a !important;
+  letter-spacing: .02em !important;
+}
+@media (prefers-color-scheme: dark) {
+  .dcap, .fodisc, .lgnote, .fonote, .l4note, .miccap, .fineprint { color: #ded9e4 !important; }
+}
+</style>
+<style id="fo-a11y">
+/* WCAG 2.4.7: every interactive control needs a visible keyboard focus state. */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #FA1896 !important;
+  outline-offset: 2px !important;
+}
+/* WCAG 2.3.3: honour the operating system motion preference. The site runs
+   two dozen named keyframe animations, so this is written to catch all of them. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -193,6 +228,11 @@ body.nolock{overflow:hidden;}
 <h2>AI-Generated Recommendations</h2>
 <p>First Officer uses artificial intelligence (including models from Anthropic/Claude) to analyze your rewards portfolio and generate personalized recommendations. While we work hard to ensure accuracy, AI-generated information can contain errors. You should always verify recommendations before acting on them, especially before making transfers, bookings, or card applications.</p>
 
+<h2>What We Are, and What We Are Not</h2>
+<p>UpNonStop provides information, research and advice. <strong>You hold your own points, in your own accounts, and you make your own bookings.</strong> UpNonStop is not a travel agency, tour operator, air carrier, ticket agent or seller of travel. We do not hold funds in trust, do not take custody of loyalty balances or account credentials, and do not book, ticket, hold or reserve travel.</p>
+<p><strong>Your responsibilities.</strong> You are responsible for reviewing every recommendation before acting on it, for verifying current terms, fares, availability and program rules directly with the issuer, airline or hotel before you transfer points or book, and for executing every transfer and booking yourself. Point transfers are generally irreversible.</p>
+<p><strong>No guarantee of outcome.</strong> We do not control award inventory, transfer ratios, issuer approval decisions or program rules, and we do not promise any particular redemption, availability, valuation or saving. Figures we publish are estimates based on stated assumptions and are not a projection of your results.</p>
+
 <h2>Subscription &amp; Billing</h2>
 <p>First Officer is a recurring monthly subscription billed through Stripe. By subscribing, you authorize automatic renewal each billing cycle at your plan's current rate. Pricing may change with at least 30 days' written notice before the new rate takes effect.</p>
 <p>Your subscription begins on the date you first subscribe and renews on the same date each month.</p>
@@ -203,22 +243,22 @@ body.nolock{overflow:hidden;}
 <h2>Refund Policy</h2>
 <p>We do not issue refunds for partial billing periods. If you cancel mid-cycle, your subscription remains active through the end of that cycle, but no prorated refund will be provided.</p>
 
-<h2>Award Booking Service</h2>
-<p>Award booking is available for $500 per booking, regardless of party size. This fee covers research, execution, phone calls to airline and hotel partners, and backup routing. The booking fee is non-refundable once execution begins. That means once we start transferring points, placing holds, or making calls on your behalf.</p>
+<h2>Redemption Research Service</h2>
+<p>Redemption research is available for $500 per itinerary, regardless of party size. This fee covers the search: availability across dates and routing options, the transfer path, the timing, and a fallback if the primary option disappears. You receive a written itinerary plan with the exact steps in order, and you execute the transfers and the booking yourself, in your own accounts. The fee is non-refundable once the research begins, which means once we start searching availability and pricing routes for your dates.</p>
 
 <h2>No Credential Storage</h2>
 <p>Our software and AI tools never store your loyalty program passwords, credit card login credentials, or banking credentials. Our automated systems never ask for or retain your login passwords.</p>
 
 <h2>Data Handling &amp; Privacy</h2>
-<p>Your data is stored with row-level isolation in Supabase, meaning every client's data is completely separated at the infrastructure level. We are compliant with both CCPA and GDPR. You can request full deletion of your data at any time by contacting us, and we will complete deletion within 30 days.</p>
-<p>For more detail on what we collect and how we use it, see our <a href="privacy-policy.html">Privacy Policy</a><a href="privacy.html">Do Not Sell My Info</a><span class="ftsep"> &middot; </span><a href="privacy.html">Do Not Sell My Info</a>.</p>
+<p>Your data is stored with row-level isolation in Supabase, meaning every client's data is completely separated at the infrastructure level. We handle access, correction and deletion requests to CCPA standards for every client, whatever their nationality or where they live. You can request full deletion of your data at any time by contacting us, and we complete it within 30 days.</p>
+<p>For more detail on what we collect and how we use it, see our <a href="privacy-policy.html">Privacy Policy</a><span class="ftsep"> &middot; </span><a href="privacy.html">Do Not Sell My Info</a>.</p>
 
 <h2>Your Responsibilities</h2>
 <p>As a First Officer user, you agree to:</p>
 <ul>
 <li>Verify all recommendations before acting on them, including point transfers, card applications, and bookings</li>
 <li>Provide accurate information about your cards, balances, and travel goals</li>
-<li>Not share your First Officer account access with others outside your plan's account limit</li>
+<li>Not share your First Officer account access with anyone outside your own business</li>
 <li>Use the service for lawful purposes only</li>
 </ul>
 
@@ -226,6 +266,7 @@ body.nolock{overflow:hidden;}
 <p>To the maximum extent permitted by law, UpNonStop and its officers, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of points, loss of award availability, missed bookings, or loss of promotional value, arising from your use of First Officer.</p>
 <p>Our total liability for any claim arising from or related to the service shall not exceed the amount you paid us in the twelve (12) months preceding the claim.</p>
 <p>First Officer is provided "as is" without warranties of any kind, express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+<p><strong>What this section does not limit.</strong> Nothing in these terms limits or excludes liability for fraud, intentional misconduct or gross negligence, or any liability that cannot lawfully be limited or excluded. Nothing in these terms waives any right you have under the New Jersey Consumer Fraud Act or any other consumer protection statute of your state, and any provision of these terms that would be void or unenforceable under New Jersey law is void and unenforceable in New Jersey only, without affecting the remainder.</p>
 
 <h2>Governing Law</h2>
 <p>These Terms of Service are governed by and construed in accordance with the laws of the State of New Jersey, without regard to conflict of law principles. Any disputes arising under these terms shall be resolved in the courts located in the State of New Jersey.</p>

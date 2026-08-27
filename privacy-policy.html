@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJHCJ74L64"></script>
 <script>
@@ -166,6 +168,39 @@ body.nolock{overflow:hidden;}
 .focap-in{background:transparent !important;border:none !important;box-shadow:none !important;border-radius:0 !important;padding:0 !important;max-width:760px !important;}
 .focap-k,.focap-h,.focap-s{text-shadow:0 1px 18px rgba(250,246,238,.85);}
 </style><style id="rmguard">@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}}</style><style id="focap160">.focap{margin-top:0 !important;}.focap{position:relative;isolation:isolate;overflow:hidden;background:transparent !important;border:none !important;padding:96px 24px !important;width:100vw !important;max-width:none !important;margin-left:calc(50% - 50vw) !important;margin-right:calc(50% - 50vw) !important;}.focap::before{content:'';position:absolute;inset:-40px;background-image:url('img/fo-santorini.jpg');background-size:cover;background-position:center;filter:blur(9px) saturate(1.3);transform:scale(1.12);z-index:-2;}.focap::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,246,238,.42),rgba(250,246,238,.58),rgba(250,246,238,.42));z-index:-1;}.focap-in{background:transparent !important;border:none !important;box-shadow:none !important;border-radius:0 !important;padding:0 !important;max-width:760px !important;}.focap-k,.focap-h,.focap-s{text-shadow:0 1px 18px rgba(250,246,238,.85);}.focap{background:#fff;border-top:1px solid rgba(20,18,22,.07);border-bottom:1px solid rgba(20,18,22,.07);padding:64px 24px;}.focap-in{max-width:640px;margin:0 auto;text-align:center;}.focap-k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#FA1896;font-weight:700;}.focap-h{font-weight:900;font-size:clamp(22px,3.2vw,30px);letter-spacing:-0.02em;margin-top:10px;color:#141216;}.focap-s{color:#5b5566;font-size:14.5px;line-height:1.7;margin:12px auto 0;max-width:520px;}.focap-f{display:flex;gap:10px;margin:22px auto 0;max-width:460px;}.focap-i{flex:1;min-width:0;padding:14px 16px;border:1px solid rgba(20,18,22,.16);border-radius:999px;font:inherit;font-size:15px;color:#141216;background:#fff;}.focap-i:focus{outline:none;border-color:#FA1896;box-shadow:0 0 0 3px rgba(250,24,150,.15);}.focap-b{background:#FA1896;color:#fff;border:none;border-radius:999px;padding:14px 24px;font-weight:800;font-size:14.5px;cursor:pointer;white-space:nowrap;min-height:44px;}.focap-b:disabled{opacity:.55;cursor:default;}.focap-msg{min-height:20px;margin-top:12px;font-size:13.5px;font-weight:700;color:#FA1896;}@media (max-width:560px){.focap-f{flex-direction:column;}.focap-b{width:100%;}}</style>
+
+<style id="fo-disclosure-legibility">
+/* Compliance: FTC 16 CFR 255.0(f) requires a disclosure to stand out by size and contrast.
+   These were rendering at 8.5 to 9.5px at ratios of 3.62 to 3.86:1, below the 4.5:1 minimum. */
+.dcap, .fodisc, .lgnote, .fonote, .l4note, .miccap, .fineprint {
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  color: #423d4a !important;
+  letter-spacing: .02em !important;
+}
+@media (prefers-color-scheme: dark) {
+  .dcap, .fodisc, .lgnote, .fonote, .l4note, .miccap, .fineprint { color: #ded9e4 !important; }
+}
+</style>
+<style id="fo-a11y">
+/* WCAG 2.4.7: every interactive control needs a visible keyboard focus state. */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #FA1896 !important;
+  outline-offset: 2px !important;
+}
+/* WCAG 2.3.3: honour the operating system motion preference. The site runs
+   two dozen named keyframe animations, so this is written to catch all of them. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -188,7 +223,10 @@ body.nolock{overflow:hidden;}
 <li>Loyalty program point and mile balances</li>
 <li>Travel preferences, goals, and dates</li>
 <li>Conversation history with First Officer via WhatsApp</li>
+<li>If you connect your email (Level 2): the travel, rewards and expense messages in that mailbox, so bookings, transfers and expiring credits can be tracked. We do not read the rest of your inbox and we never send mail as you.</li>
+<li>If you connect a card or account through Plaid (Level 3): read-only transaction and balance data, so spend can be routed to the right card. Never your login, your full card number or your account credentials.</li>
 </ul>
+<p>Both connections are optional, read-only, and revocable at any time from your email provider, your bank or Plaid, without telling us first. The <a href="trust.html" style="color:var(--pink);text-decoration:underline">Trust page</a> sets out exactly what each level can and cannot see.</p>
 
 <div class="callout">Our software and AI tools do not collect or store: passwords, credit card numbers, Social Security numbers, bank account credentials, or financial login information.</div>
 
@@ -213,9 +251,12 @@ body.nolock{overflow:hidden;}
 <h2>Third-Party Processors</h2>
 <p>We work with a small number of trusted third-party processors to deliver the service:</p>
 <ul>
-<li><strong>Stripe</strong>: payment processing for subscriptions and booking fees</li>
+<li><strong>Supabase</strong>: database and application hosting, on managed Postgres infrastructure in the United States, encrypted at rest and in transit</li>
+<li><strong>Stripe</strong>: payment processing for subscriptions and research fees</li>
 <li><strong>Anthropic / Claude</strong>: AI processing to generate personalized recommendations</li>
 <li><strong>Meta / WhatsApp</strong>: message delivery for the advisory service</li>
+<li><strong>Plaid</strong>: read-only card and bank connections, when you choose Level 3. Your credentials go to Plaid and your bank, never to us. Plaid processes that data under its own <a href="https://plaid.com/legal/#end-user-privacy-policy" style="color:var(--pink);text-decoration:underline">End User Privacy Policy</a>.</li>
+<li><strong>Resend</strong>: transactional email, for receipts and account mail when the message thread is not the right channel</li>
 </ul>
 <p>Each processor operates under its own privacy policy and is contractually required to protect your data.</p>
 
@@ -235,11 +276,10 @@ body.nolock{overflow:hidden;}
 <li><strong>Non-discrimination</strong>: we will not treat you differently for exercising your privacy rights</li>
 </ul>
 
-<h2 id="geographic-restrictions">Service Availability &amp; Geographic Restrictions</h2>
-<p>First Officer is offered exclusively to residents of the United States. The service is not available to, and is not intended for, residents of the European Union, the European Economic Area, the United Kingdom, Canada, or any other jurisdiction outside the United States.</p>
-<p>By using First Officer, you represent and warrant that you are a US resident. If you are not, you must discontinue use of this service immediately.</p>
-<p>UpNonStop LLC does not knowingly collect personal data from individuals outside the United States. If we become aware that a non-US user has provided personal data, we will take reasonable steps to delete it within 30 days.</p>
-<p>Questions about geographic availability? Contact <a href="mailto:compliance@upnonstop.com" style="color:var(--pink);text-decoration:underline">compliance@upnonstop.com</a>.</p>
+<h2 id="geographic-restrictions">Where We Operate, and Your Rights Wherever You Live</h2>
+<p>First Officer is sold to businesses and residents of the United States. We operate from the United States and our processors store data there, so if you use the service your information is processed in the United States.</p>
+<p>Your rights do not depend on your passport. Whatever your citizenship, and wherever you live, you can ask us what personal information we hold about you, ask us to correct it, and ask us to delete it. We verify the request, act on it, and confirm in writing within 45 days, and we will never treat you differently for asking. That is the same commitment we make to California residents, extended to everybody, because splitting it by nationality would be both harder to administer and worse.</p>
+<p>If you are physically in the European Economic Area or the United Kingdom while using the service, European data protection law may apply to that processing, and the rights above are how you exercise it. Write to <a href="mailto:compliance@upnonstop.com" style="color:var(--pink);text-decoration:underline">compliance@upnonstop.com</a> and we will handle it on the same terms.</p>
 
 <h2>Cookies</h2>
 <p>We use minimal cookies. Stripe sets what it requires for secure checkout processing, and we use Google Analytics 4 to understand how the site is used, which sets analytics cookies and collects a truncated IP address, pages viewed, and general device information. We do not use advertising cookies or advertising tracking pixels, we do not sell or share this data, and we do not use it to build advertising profiles. You can opt out of Google Analytics entirely with Google&#39;s browser add-on, or by using your browser&#39;s Do Not Track or cookie controls.</p>
