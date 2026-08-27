@@ -1746,6 +1746,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid rgba(
           <a class="pill green" href="https://wa.me/16199404040?text=First%20Officer%20check" style="text-decoration:none">&#x1F4AC; Text Your First Officer</a>
           <a class="dghost" href="calculator.html">See the full breakdown</a>
         </div>
+        <div class="dcap" style="margin-top:10px">MODELLED AT A BLENDED 2.1x EARN, 85% OF POINTS ACTUALLY USED, AND 2.6 CENTS OF VALUE PER POINT &middot; STICKER VALUE OF THE TRAVEL, BEFORE OUR FEE &middot; YOUR CATEGORY MIX AND YOUR REDEMPTIONS WILL DIFFER &middot; THE <a href="calculator.html" style="color:inherit;text-decoration:underline">FULL CALCULATOR</a> SHOWS THE NUMBER NET OF OUR FEE</div>
         <div class="dnote" id="dNote">TWENTY MINUTES &middot; FREE &middot; NO CARD REQUIRED</div>
       </div>
         <div class="duo">
@@ -2254,7 +2255,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid rgba(
       nt=document.getElementById('dNote'), sv2=document.getElementById('sVal');
   function fmt(n){ return '$'+Math.round(n).toLocaleString('en-US'); }
   function go(){
-    var v=+r.value, cap=v*12*0.047;
+    var v=+r.value, cap=v*12*(2.1*0.85*0.026);
     sv.textContent=fmt(v); cv.textContent=fmt(cap); if(sv2) sv2.textContent=fmt(cap);
     fl.textContent=fmt(cap*0.6); ho.textContent=fmt(cap*0.3); re2.textContent=fmt(cap*0.1);
     nt.textContent = v<25000 ? 'BELOW $25K A MONTH WE USUALLY SAY NO, AND WE SAY IT FOR FREE'
