@@ -984,10 +984,10 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
   <p class="fosub">If you read nothing else on this page, read these.</p>
   <div class="tl">
     <div class="tlrow"><div class="ty">01</div><div><h5 aria-level="3">Read-only, always</h5><p>Every connection you grant is read-only. First Officer can see transactions and balances. It cannot move money, open accounts, close accounts, redeem points, or make a purchase. There is no mode in which it can.</p></div></div>
-    <div class="tlrow"><div class="ty">02</div><div><h5 aria-level="4">Our software never holds your credentials</h5><p>You connect through your provider's own sign-in. Our software and AI tools never see, receive, or store your passwords, and we never ask you to send them in the thread. If anyone claiming to be First Officer asks for a password, it is not us.</p></div></div>
-    <div class="tlrow"><div class="ty">03</div><div><h5>Nothing moves without your approval</h5><p>Applications, transfers, and bookings happen only after you say yes in writing, in your own thread. A recommendation is a recommendation until you approve it.</p></div></div>
-    <div class="tlrow"><div class="ty">04</div><div><h5>We do not sell or rent your data</h5><p>Your information is not sold, rented, or shared with advertisers, data brokers, or card issuers for marketing. We take no affiliate commissions, so there is no incentive to steer you anywhere.</p></div></div>
-    <div class="tlrow"><div class="ty">05</div><div><h5>You can revoke at any time</h5><p>Revoke any connection from the provider's own settings whenever you want, without telling us first. Access ends immediately. You can also ask us to delete your data at any point, and we will.</p></div></div>
+    <div class="tlrow"><div class="ty">02</div><div><h5 aria-level="3">Our software never holds your credentials</h5><p>You connect through your provider's own sign-in. Our software and AI tools never see, receive, or store your passwords, and we never ask you to send them in the thread. If anyone claiming to be First Officer asks for a password, it is not us.</p></div></div>
+    <div class="tlrow"><div class="ty">03</div><div><h5 aria-level="3">Nothing moves without your approval</h5><p>Applications, transfers, and bookings happen only after you say yes in writing, in your own thread. A recommendation is a recommendation until you approve it.</p></div></div>
+    <div class="tlrow"><div class="ty">04</div><div><h5 aria-level="3">We do not sell or rent your data</h5><p>Your information is not sold, rented, or shared with advertisers, data brokers, or card issuers for marketing. We take no affiliate commissions, so there is no incentive to steer you anywhere.</p></div></div>
+    <div class="tlrow"><div class="ty">05</div><div><h5 aria-level="3">You can revoke at any time</h5><p>Revoke any connection from the provider's own settings whenever you want, without telling us first. Access ends immediately. You can also ask us to delete your data at any point, and we will.</p></div></div>
   </div>
 </section>
 
@@ -997,8 +997,8 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
   <p class="fosub">Three levels, and you can stop at any of them or step back down at any time. More access means better advice, and less access still works.</p>
   <div class="tl">
     <div class="tlrow"><div class="ty">LEVEL 1</div><div><h5 aria-level="3">Screenshots only</h5><p><b>What it reads:</b> only the numbers in an image you choose to send. <b>What it never reads:</b> anything else. Nothing is connected to any account. This is the same as texting a balance to a colleague.</p></div></div>
-    <div class="tlrow"><div class="ty">LEVEL 2</div><div><h5 aria-level="4">Email connection</h5><p><b>What it reads:</b> travel, rewards, and expense messages, so bookings, transfers, and expiring credits can be tracked. <b>What it never reads:</b> the rest of your inbox, and it never sends mail as you. Granted through your email provider's official sign-in and revocable there.</p></div></div>
-    <div class="tlrow"><div class="ty">LEVEL 3</div><div><h5>Card and spend connection</h5><p><b>What it reads:</b> transactions and balances, so the desk can route spend to the right card. <b>What it never reads or stores:</b> your login, your full card number, and your account credentials. Read-only, revocable from your bank or from Plaid at any time.</p></div></div>
+    <div class="tlrow"><div class="ty">LEVEL 2</div><div><h5 aria-level="3">Email connection</h5><p><b>What it reads:</b> travel, rewards, and expense messages, so bookings, transfers, and expiring credits can be tracked. <b>What it never reads:</b> the rest of your inbox, and it never sends mail as you. Granted through your email provider's official sign-in and revocable there.</p></div></div>
+    <div class="tlrow"><div class="ty">LEVEL 3</div><div><h5 aria-level="3">Card and spend connection</h5><p><b>What it reads:</b> transactions and balances, so the desk can route spend to the right card. <b>What it never reads or stores:</b> your login, your full card number, and your account credentials. Read-only, revocable from your bank or from Plaid at any time.</p></div></div>
   </div>
 </section>
 
@@ -1008,11 +1008,11 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
   <p class="fosub">First Officer is a small operation built on established infrastructure. These are the services that may process your information, and the only reason each one does.</p>
   <div class="tl">
     <div class="tlrow"><div class="ty">SUPABASE</div><div><h5 aria-level="3">Database and application hosting</h5><p>Where your profile, spend context, and history are stored, on managed Postgres infrastructure in the United States, encrypted at rest and in transit.</p></div></div>
-    <div class="tlrow"><div class="ty">META</div><div><h5 aria-level="4">WhatsApp Business Platform</h5><p>Delivers the messages in your thread. Meta handles message transport under its own terms, the same as any WhatsApp Business conversation.</p></div></div>
-    <div class="tlrow"><div class="ty">ANTHROPIC</div><div><h5>AI processing</h5><p>Powers the agents that read your spend and draft recommendations. Anthropic processes this data to return a response and does not use business API traffic to train its models.</p></div></div>
-    <div class="tlrow"><div class="ty">PLAID</div><div><h5>Read-only card and bank connections</h5><p>Handles the connection itself when you choose Level 3, so your credentials go to Plaid and your bank, never to us.</p></div></div>
-    <div class="tlrow"><div class="ty">STRIPE</div><div><h5>Payments</h5><p>Processes your $550 monthly fee. Your card details go to Stripe directly. We never see or store a full card number.</p></div></div>
-    <div class="tlrow"><div class="ty">RESEND</div><div><h5>Transactional email</h5><p>Sends receipts and account email when message delivery is not the right channel.</p></div></div>
+    <div class="tlrow"><div class="ty">META</div><div><h5 aria-level="3">WhatsApp Business Platform</h5><p>Delivers the messages in your thread. Meta handles message transport under its own terms, the same as any WhatsApp Business conversation.</p></div></div>
+    <div class="tlrow"><div class="ty">ANTHROPIC</div><div><h5 aria-level="3">AI processing</h5><p>Powers the agents that read your spend and draft recommendations. Anthropic processes this data to return a response and does not use business API traffic to train its models.</p></div></div>
+    <div class="tlrow"><div class="ty">PLAID</div><div><h5 aria-level="3">Read-only card and bank connections</h5><p>Handles the connection itself when you choose Level 3, so your credentials go to Plaid and your bank, never to us.</p></div></div>
+    <div class="tlrow"><div class="ty">STRIPE</div><div><h5 aria-level="3">Payments</h5><p>Processes your $550 monthly fee. Your card details go to Stripe directly. We never see or store a full card number.</p></div></div>
+    <div class="tlrow"><div class="ty">RESEND</div><div><h5 aria-level="3">Transactional email</h5><p>Sends receipts and account email when message delivery is not the right channel.</p></div></div>
   </div>
 </section>
 
@@ -1045,7 +1045,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
   <div class="fok">The integrity wall</div>
   <h2 class="foh2">Built into the foundation <span class="pk">from day one.</span></h2>
   <div class="tl">
-    <div class="tlrow"><div class="ty">01</div><div><h3>No credential storage</h3><p>Connections are read-only, always. Our software and AI tools never see, collect or store passwords, card logins or banking credentials, and nothing moves without your written yes. The one exception is deliberate and human: when you engage the $500 redemption research service, you work directly with a human specialist on the search, and you make the booking yourself in your own account. Our software and AI layer is never in that loop.</p></div></div>
+    <div class="tlrow"><div class="ty">01</div><div><h3>No credential storage</h3><p>Connections are read-only, always. Our software and AI tools never see, collect or store passwords, card logins or banking credentials, and nothing moves without your written yes. The one exception is deliberate and human: when you engage the $500 award search, you work directly with a human specialist. They find the space; you claim it in your own account, which is the only place your points ever sit. Our software and AI layer is never in that loop.</p></div></div>
     <div class="tlrow"><div class="ty">02</div><div><h3>Row level isolation</h3><p>Every client's data lives in its own row, isolated at the database level. Patterns flow into the shared brain. Records never do.</p></div></div>
     <div class="tlrow"><div class="ty">03</div><div><h3>No affiliate money</h3><p>Nobody pays us to recommend a card. The only person who pays us is you, which is the only arrangement where our advice can be trusted.</p></div></div>
   </div>
@@ -1058,9 +1058,9 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
   <div class="eq">
     <div class="eqcard"><div class="eqk">01</div><h5 aria-level="3">We are not certified</h5><p>First Officer does not hold SOC 2, ISO 27001, or any similar certification today. If that is a requirement for your business, tell us before you sign up.</p></div>
     <div class="eqop">+</div>
-    <div class="eqcard mid"><div class="eqk">02</div><h5 aria-level="4">We are not a financial advisor</h5><p>We are an educational and advisory service for rewards and business spend. We are not a bank, lender, broker, or licensed financial, tax, or legal advisor.</p></div>
+    <div class="eqcard mid"><div class="eqk">02</div><h5 aria-level="3">We are not a financial advisor</h5><p>We are an educational and advisory service for rewards and business spend. We are not a bank, lender, broker, or licensed financial, tax, or legal advisor.</p></div>
     <div class="eqop">+</div>
-    <div class="eqcard"><div class="eqk">03</div><h5>We do not guarantee outcomes</h5><p>Award availability, transfer bonuses, and issuer rules change without notice. We report what we actually capture, and we never promise a specific result in advance.</p></div>
+    <div class="eqcard"><div class="eqk">03</div><h5 aria-level="3">We do not guarantee outcomes</h5><p>Award availability, transfer bonuses, and issuer rules change without notice. We report what we actually capture, and we never promise a specific result in advance.</p></div>
   </div>
   <p class="fosub" style="margin-top:26px;">Read the full <a href="privacy-policy.html" style="color:var(--pinkdeep);font-weight:700;">Privacy Policy</a> and <a href="terms-of-service.html" style="color:var(--pinkdeep);font-weight:700;">Terms of Service</a><span class="ftsep"> &middot; </span><a href="privacy.html">Do Not Sell My Info</a>, or ask the desk anything on this page directly.</p>
 </section>
