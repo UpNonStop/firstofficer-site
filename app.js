@@ -4,7 +4,8 @@
    One fetch, five tabs. This file selects strings out of the payload and puts
    them on screen. It does not add, divide, round or format a single number:
    fo_app_state did that in SQL, so every surface says the same thing and the
-   money has one author. Search this file for arithmetic and you will not find
+   money has one author. Every money value arrives as words: there is no bare
+   dollar amount in the payload for this file to put a sign in front of. Search this file for arithmetic and you will not find
    any. That is deliberate, and predeploy_app_state.ts fails the deploy if the
    edge function ever starts doing it either.
    ========================================================================== */
@@ -92,21 +93,21 @@ function screenHome(){
   var s = STATE, f = document.createDocumentFragment();
   var e = s.earn || {}, b = s.burn || {};
   var top = (e.lines || [])[0];
-  hero(f,'home','Where you stand', e.annual_gain_text || ('$' + (e.annual_gain_usd || 0)),
+  hero(f,'home','Where you stand', e.annual_gain_text,
     'found in bills you were already paying, across ' + (e.months_observed || 0) + ' months of statements.');
   var body = el('div','body');
 
   zone(body, 'Needs you');
   if (top) row(body, { tone:'a', title:top.label + ' could earn more',
     sub:'you are on the ' + top.using_now + ', the ' + top.use_instead + ' pays more',
-    value:'$' + top.annual_gain_usd, vclass:'g' });
+    value:top.annual_gain_text, vclass:'g' });
   var best = (b.destinations || [])[0];
   if (best) row(body, { tone:'p', title:best.trips + ' trips waiting on a date',
     sub:best.zone + ', ' + best.cabin + ' class', value:'Free', vclass:'p' });
 
   zone(body, 'Going well');
   row(body, { tone:'g', title:e.already_correct_txns + ' charges already on the right card',
-    value:'$' + e.already_correct_spend_usd, vclass:'g' });
+    value:e.already_correct_spend_text, vclass:'g' });
   if (b.transferable_text) row(body, { tone:'g', title:'Points that can move to an airline',
     sub:'across the currencies with a live transfer path', value:b.transferable_text, vclass:'d' });
 
@@ -127,7 +128,7 @@ function screenEarn(){
       sub:'on the ' + l.using_now + ', move to the ' + l.use_instead +
           (l.condition ? '. ' + l.condition : ''),
       badge:l.rate_better_cpd && l.rate_now_cpd ? null : null,
-      value:'$' + l.annual_gain_usd, vclass:'g' });
+      value:l.annual_gain_text, vclass:'g' });
   });
 
   if (e.must_state) note(body, 'How to read this', e.must_state);
@@ -142,18 +143,18 @@ function screenEarn(){
 function screenBurn(){
   var b = STATE.burn || {}, f = document.createDocumentFragment();
   var find = b.find;
-  hero(f,'burn','What the balance buys', b.transferable_text || '0',
+  hero(f,'burn','What the balance buys', b.transferable_text,
     'transferable points, across the currencies with a live path to an airline.', true);
   var body = el('div','body');
 
   if (find){
     zone(body, 'The find');
     card(body, find.origin + ' to ' + find.destination + ', ' + find.program,
-      find.points_text, 'The cheapest chart this wallet can reach wants ' +
-      find.chart_points_text + '. Verified ' + find.last_verified + '.');
+      find.points_text, 'The cheapest chart this wallet can reach wants ' + find.chart_points_text +
+      ' points. Verified ' + find.last_verified + '.');
     var p = el('div','pair');
     [['You would pay', find.points_text + ' pts'],
-     ['Taxes', '$' + find.taxes_usd],
+     ['Taxes', find.taxes_text],
      ['Points saved', find.saved_points_text],
      ['Worth', find.saved_usd_text]].forEach(function(kv){
       var d = el('div'); d.appendChild(el('p','k',kv[0])); d.appendChild(el('p','v2',kv[1]));
@@ -184,7 +185,7 @@ function screenBurn(){
 
 function screenReturn(){
   var r = STATE['return'] || {}, f = document.createDocumentFragment();
-  hero(f,'return','Since you joined', r.found_annual_text || '$0',
+  hero(f,'return','Since you joined', r.found_annual_text,
     'found in bills you were already paying. This number only goes up.');
   var body = el('div','body');
 
