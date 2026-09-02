@@ -119,8 +119,8 @@ function screenHome(){
   var body = el('div','body');
 
   zone(body, 'Running as designed');
-  row(body, { tone:'g', title:plan.on_plan_text ? plan.on_plan_text + ' charges on the right card'
-                                                : e.already_correct_txns + ' charges on the right card',
+  // the meter above already gives the count, so this row carries the money
+  row(body, { tone:'g', title:'Already on the right card',
     sub:'no change needed, this is the plan working',
     value:e.already_correct_spend_text, vclass:'g' });
   if (b.transferable_text) row(body, { tone:'g', title:'Points ready to move to an airline',
@@ -151,7 +151,7 @@ function screenHome(){
 function screenEarn(){
   var e = STATE.earn || {}, f = document.createDocumentFragment();
   hero(f,'earn','Room to grow', e.annual_gain_text || '', 
-    e.switches + ' moves across cards you already hold. Nothing to apply for.');
+    e.switches + ' moves across cards already in the wallet. Nothing to apply for.');
   var body = el('div','body');
 
   zone(body, 'Ranked by what they pay');
@@ -166,7 +166,7 @@ function screenEarn(){
   if (e.must_state) note(body, 'How to read this', e.must_state);
   if (e.scope) note(body, 'What this covers', e.scope);
   note(body, 'What we cannot do',
-    'We read your statements one to three days after a charge and message you. We never touch a card at the register and we never move a card for you. We spot it, you tap the card.');
+    'We read the statements one to three days after a charge and send word. We never touch a card at the register and we never move a card on anyone behalf. We spot it, you tap the card.');
   action(body, 'Send me the whole map', e.annual_gain_text + ' a year', 'Send me the routing map');
   f.appendChild(body);
   return f;
@@ -195,13 +195,13 @@ function screenBurn(){
     body.appendChild(p);
   }
 
-  zone(body, 'Where you can go');
+  zone(body, 'Where we can go');
   (b.destinations || []).forEach(function(d){
     row(body, { title:d.zone + ', ' + d.cabin, sub:d.points_text + ' points each round trip',
       value:String(d.trips), vclass:'p' });
   });
 
-  zone(body, 'What you hold');
+  zone(body, 'What we hold');
   (b.balances || []).forEach(function(x){
     row(body, { tone:x.transferable ? 'g' : null, title:x.program,
       sub:x.freshness + ', read ' + x.days_old + ' days ago' +
@@ -218,22 +218,22 @@ function screenBurn(){
 function screenReturn(){
   var r = STATE['return'] || {}, f = document.createDocumentFragment();
   hero(f,'return','Since you joined', r.found_annual_text,
-    'found in bills you were already paying. This number only goes up.');
+    'found in bills that were already being paid. This number only goes up.');
   var body = el('div','body');
 
   zone(body, 'What we have found');
   row(body, { tone:'g', title:'Every year, from the switches',
-    sub:r.switches + ' moves across cards you already hold', value:r.found_annual_text, vclass:'g' });
+    sub:r.switches + ' moves across cards already in the wallet', value:r.found_annual_text, vclass:'g' });
   row(body, { tone:'g', title:'Every trip, on top of that',
     sub:'against the cheapest published price this wallet can reach', value:r.per_trip_text, vclass:'g' });
   row(body, { tone:'g', title:'What the next seat is worth',
     sub:'at the top of the band for these points', value:r.seat_text, vclass:'g' });
 
   note(body, 'Two different units', r.units_note +
-    '. The first is a year of bills. The second happens each time you fly.');
+    '. The first is a year of bills. The second happens each time we fly.');
   note(body, 'Reading since', 'We started counting on ' + r.reading_since +
     ' and have never counted down from a fee. Everything above is what was found, not what is owed.');
-  action(body, 'See the full report', 'Sent to you', 'Send me my return report');
+  action(body, 'See the full report', 'Sent to the thread', 'Send me my return report');
   f.appendChild(body);
   return f;
 }
@@ -255,7 +255,7 @@ function screenLearn(){
     });
   } else {
     note(body, 'Nothing claimed', sh.no_match_reason ||
-      'We do not have enough proven facts to place you against a shape yet.');
+      'We do not have enough proven facts to place us against a shape yet.');
   }
 
   zone(body, 'What the desk watches');
@@ -316,7 +316,6 @@ function afterSplash(fn){
 
 function splash(){
   SPLASH_AT = Date.now();
-  document.body.style.paddingBottom = '0';
   screenEl.textContent = '';
   var d = el('div','splash');
   var h = el('h2');
@@ -331,8 +330,6 @@ function splash(){
 }
 
 function stateScreen(title, body, cta, waText){
-  // no tab bar while we are in a state screen, so no clearance for one
-  document.body.style.paddingBottom = '0';
   screenEl.textContent = '';
   var s = el('div','state');
   s.appendChild(icon('chev','mk'));
@@ -391,7 +388,6 @@ function boot(){
       }
       STATE = res.j.state;
       NAME  = res.j.first_name || '';
-      document.body.style.paddingBottom = '';
       buildTabs();
       var want = (location.hash || '').replace('#','');
       // The landing screen is the plan and how far through it we are.
