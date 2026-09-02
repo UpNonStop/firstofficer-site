@@ -995,8 +995,8 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 
 /* the readout: the answer, a pink strip pinned under the nav while the inputs move. Inline text on purpose:
    copied, read aloud or rendered without CSS it still reads "Net this month $2,968 · Return on spend 3.2%". */
-.ros2 .readout{position:-webkit-sticky;position:sticky;top:var(--navh);z-index:40;background:#FA1896;color:#fff;margin:0 -18px 14px;padding:8px 18px 9px;}
-.ros2 .readout .rk{font-family:'JetBrains Mono',monospace;font-size:var(--t-label);font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.9);line-height:1.3;white-space:nowrap;}
+.ros2 .readout{position:-webkit-sticky;position:sticky;top:var(--navh);z-index:40;background:#FA1896;color:#fff;margin:0 -18px 14px;padding:8px 18px 9px;text-align:center;}
+.ros2 .readout .rk{font-family:'DM Sans',system-ui,sans-serif;font-size:var(--t-note);font-weight:500;letter-spacing:0;color:rgba(255,255,255,.92);line-height:1.3;white-space:nowrap;}
 .ros2 .readout .rline{margin:3px 0 0;white-space:nowrap;line-height:1.1;color:#fff;}
 .ros2 .readout .rl{font-size:var(--t-note);color:#fff;}
 .ros2 .readout .val{font-family:'DM Sans',system-ui,sans-serif;font-weight:900;font-size:var(--t-input);letter-spacing:-.025em;color:#fff;}
@@ -1088,7 +1088,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
   <div class="ros2">
 
     <div class="readout" role="status" aria-live="polite" aria-atomic="true">
-      <div class="rk">Live estimate &middot; changes with the sliders</div>
+      <div class="rk">Live estimate &middot; changes with your answers below</div>
       <p class="rline"><span class="ro net"><span class="rl">Net<span class="lx"> this month</span></span> <span class="val" id="roNet">$0</span></span> <span class="sep" aria-hidden="true">&middot;</span> <span class="ro"><span class="rl">Return on spend</span> <span class="val" id="roRos">0.0%</span></span> <span class="sep cash" aria-hidden="true">&middot;</span> <span class="ro cash"><span class="rl">Flat 2% cash back</span> <span class="val" id="roCash">$0</span></span></p>
     </div>
 
