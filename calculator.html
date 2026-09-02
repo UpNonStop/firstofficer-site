@@ -1075,13 +1075,9 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 @media (min-width:820px){.ros2 .cmp{grid-template-columns:1fr 1fr;}}
 #machine .fineprint{font-family:'DM Sans',system-ui,sans-serif !important;letter-spacing:0 !important;text-transform:none;max-width:70ch;margin-top:22px;}
 
-/* the plain-words close, on the same scale */
-#plain{text-align:center;}
-#plain .fok{position:static !important;writing-mode:horizontal-tb !important;transform:none !important;display:block !important;width:auto !important;max-width:none !important;text-align:center !important;float:none !important;margin:0 auto 12px !important;padding:0;left:auto !important;top:auto !important;font-size:11px !important;letter-spacing:.1em !important;}
-#plain .fok::before{display:none !important;}
-#plain .foh2{font-size:clamp(26px,3.2vw,36px) !important;line-height:1.12 !important;font-weight:400 !important;margin-top:4px;}
-#plain .fosub{font-size:15px !important;line-height:1.65 !important;margin-left:auto;margin-right:auto;}
-@media (min-width:820px){#plain .fosub{font-size:16px !important;}}
+/* the way out: the receipt shows the fee, this is where it goes */
+.ros2 .ctarow{margin:24px 0 0;}
+.ros2 .ctarow .pill{font-size:var(--t-body);font-weight:800;padding:13px 24px;text-decoration:none;}
 </style><section class="sec white photo secphoto dhero" id="top" style="--ph:url('img/fo-nyc.jpg')">
   <h1 class="foh2">What is your&#160;<span class="pk">return on spend?</span></h1>
   <p class="fosub">Everyone quotes an earn rate. Almost nobody tells you what the points are worth once they are spent, and that second number decides everything. Here is the whole formula, in the open.</p>
@@ -1174,18 +1170,12 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
           <div class="vsb win"><span class="lab">Routed, booked, after our fee</span><div class="val" id="vsUs">$0</div>
             <div class="t">Discounted to what you would have paid cash for, so this is a like for like comparison rather than a sticker price.</div></div>
         </div>
-        <div class="fineprint">Estimate only, built from category averages and common transfer partner valuations. Starting spend figures are illustrative profiles, not client data. Award pricing and availability change constantly and we control neither. Not a guarantee of any outcome and not financial or tax advice.</div>
+        <p class="ctarow"><a class="pill pink" href="pricing.html">See what the desk costs &rarr;</a></p>
+        <div class="fineprint">Point valuations are estimates based on common redemption benchmarks. Actual value depends on how and when you redeem. Estimate only, built from category averages and common transfer partner valuations. Starting spend figures are illustrative profiles, not client data. Award pricing and availability change constantly and we control neither. Not a guarantee of any outcome and not financial or tax advice.</div>
       </div>
 
     </div>
   </div>
-</section>
-
-<section class="sec white" id="plain">
-  <div class="fok">The formula in plain words</div>
-  <h2 class="foh2">4 numbers decide it.<br><span class="pk">Everyone argues about 1.</span></h2>
-  <p class="fosub">Earn is where your spend lands. Burn is what the points buy. Use is the share you actually redeem. And the honest discount is what you would have paid for anyway. Multiply the first 3, apply the fourth, subtract the fee, and you have a number you can defend to your accountant.</p>
-  <p class="fosub" style="margin-top:20px;"><a href="pricing.html" style="color:var(--pinkdeep);font-weight:800;">See what the desk costs &rarr;</a></p>
 </section>
 
 <script id="rosjs">(function(){
@@ -1249,7 +1239,6 @@ sel.addEventListener('change', build);
 ['cpp','util','real'].forEach(function(id){document.getElementById(id).addEventListener('input', calc);});
 build();
 })();</script>
-<style id="l4css">.l4note{max-width:900px;margin:22px auto 0;padding:12px 18px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;line-height:1.75;color:#8a8490;text-align:center;border-top:1px solid rgba(20,18,22,.07);}</style><div class="l4note" role="note">Point valuations are estimates based on common redemption benchmarks. Actual value depends on how and when you redeem.</div>
 <div class="pinkband">
         <h2>Your Competitors Route Their Spend. Do You?</h2>
         <p>A 20-minute spend check, in your messages. Your capture number, computed. An honest no if the math says no.</p>
