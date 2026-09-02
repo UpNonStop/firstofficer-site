@@ -351,8 +351,12 @@ function boot(){
   // bundle and passes ?k=, an owner_app read token that lasts thirty days.
   var qs = new URLSearchParams(location.search);
   var KEY = qs.get('k') || '';
-  // the app has no browser chrome, so the top rule has nothing to sit under
-  if (KEY) {
+  // The app has no browser chrome, so the top rule has nothing to sit under.
+  // This asked for KEY, which meant a keyless cold open in the app got the
+  // web page's rule and its zoomable viewport. Being in the app is the fact
+  // that matters here, and the app says so with app=1.
+  var INAPP = qs.get('app') === '1' || !!KEY;
+  if (INAPP) {
     document.documentElement.classList.add('inapp');
     // the web page keeps pinch zoom; the app is a fixed layout and should not
     // be scalable at all
