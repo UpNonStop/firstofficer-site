@@ -45,18 +45,48 @@
 html{-webkit-text-size-adjust:100%}
 body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;
   line-height:1.5;-webkit-font-smoothing:antialiased;
-  padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+  padding-bottom:calc(66px + env(safe-area-inset-bottom))}
 .wrap{max-width:520px;margin:0 auto;min-height:100vh;position:relative}
-.rule{position:fixed;top:0;left:0;right:0;height:5px;background:var(--sect);z-index:40}
+/* A 5px accent, not a status-bar fill. Painting the safe area in the section
+   colour put a pink stripe above a black hero on Home: two colours meeting at a
+   hard edge under the notch. The hero paints its own ground all the way up; the
+   rule is just the line. */
+.rule{position:fixed;top:0;left:0;right:0;z-index:40;background:var(--sect);height:5px}
+/* In the app there is no browser chrome for this line to sit under, so it
+   becomes a stripe across the notch. The app sets .inapp on <html>. */
+.inapp .rule{display:none}
+/* touch-action:manipulation drops the double-tap-to-zoom gesture and the 300ms
+   click delay that comes with it. Only in the app: pinch zoom on the web page
+   is an accessibility feature and stays. */
+.inapp,.inapp *{touch-action:manipulation}
+
+/* ---- the plan, in execution ----------------------------------------------- */
+.meter{margin-top:18px}
+.meter .track{height:8px;border-radius:99px;background:rgba(255,255,255,.22);overflow:hidden}
+.meter .fill{height:100%;border-radius:99px;background:#fff;transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.meter .ends{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-top:9px;
+  font:700 10px/1.35 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+.meter .ends span:first-child{color:#fff;font-size:11.5px;white-space:nowrap}
+.meter .ends span:last-child{text-align:right}
 
 /* ---- hero ---------------------------------------------------------------- */
-.hero{color:#fff;padding:calc(24px + env(safe-area-inset-top)) 20px 22px;position:relative;overflow:hidden}
+.hero{color:#fff;padding:calc(44px + env(safe-area-inset-top)) 20px 30px;position:relative;overflow:hidden}
 .hero.earn  {background:linear-gradient(163deg,#12a054,var(--green) 52%,#04381f)}
 .hero.burn  {background:linear-gradient(163deg,#D8382A,var(--red) 54%,#6B120D)}
 .hero.return{background:linear-gradient(163deg,var(--pink),#E0107F 56%,#9C0A5C)}
 .hero.learn {background:linear-gradient(163deg,#1E63AE,var(--blue) 52%,#08243F)}
 .hero.home  {background:linear-gradient(163deg,#2b2724,#141210 60%,#0a0908)}
-.hero .mk{position:absolute;right:-26px;top:10px;width:126px;height:172px;opacity:.13;color:#fff}
+.hero::before{content:'';position:absolute;inset:0;z-index:0;
+  background-image:var(--shot);background-size:cover;background-position:center 42%;
+  opacity:.5;mix-blend-mode:luminosity}
+.hero::after{content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(0,0,0,.22) 0%,rgba(0,0,0,.10) 38%,rgba(0,0,0,.66) 100%)}
+.hero.home  {--shot:url('img/cabin.jpg')}
+.hero.earn  {--shot:url('img/newyork.jpg')}
+.hero.burn  {--shot:url('img/tokyo.jpg')}
+.hero.return{--shot:url('img/hotel.jpg')}
+.hero.learn {--shot:url('img/rome.jpg')}
+.hero .mk{position:absolute;right:-26px;top:10px;width:126px;height:172px;opacity:.16;color:#fff;z-index:2}
 .hero .in{position:relative;z-index:2}
 .kicker{display:inline-block;font:700 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
   background:rgba(255,255,255,.16);padding:6px 11px;border-radius:100px;margin-bottom:14px}
@@ -107,26 +137,49 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 /* ---- tabs ---------------------------------------------------------------- */
 .tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;
   background:var(--paper);border-top:1px solid var(--rule);
-  padding:8px 4px calc(10px + env(safe-area-inset-bottom));max-width:520px;margin:0 auto}
-.tab{flex:1;background:none;border:0;font:700 9.5px/1 var(--mono);letter-spacing:.09em;
+  padding:4px 4px calc(3px + env(safe-area-inset-bottom));max-width:520px;margin:0 auto}
+.tab{flex:1;background:none;border:0;font:700 11.5px/1 var(--mono);letter-spacing:.07em;
   text-transform:uppercase;color:var(--ink3);display:flex;flex-direction:column;align-items:center;
-  gap:6px;padding:6px 0;cursor:pointer;font-family:var(--mono)}
-.tab svg{width:21px;height:21px}
+  gap:5px;padding:4px 0;cursor:pointer;font-family:var(--mono)}
+.tab svg{width:23px;height:23px}
 .tab[aria-current="true"]{color:var(--sect)}
-.tab.mid{position:relative}
-.tab.mid .hb{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  margin-top:-22px;border:3px solid var(--paper);
-  background:radial-gradient(90% 90% at 32% 18%,#FF52B6,transparent 60%),
-             linear-gradient(150deg,var(--pink),#E0107F 55%,var(--pink-deep));
-  box-shadow:0 6px 16px rgba(250,24,150,.4)}
+.tab.mid{position:relative;justify-content:flex-start}
+/* The home button is the brand mark, so it should read as one colour. The old
+   gradient ran down into #C40F75, which meant most of the circle was not the
+   brand pink at all. Now it is #FA1896 with one soft lift top-left, and bigger,
+   so more of that pink shows around a chevron that has not changed size. */
+.tab.mid .hb{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin-top:-30px;border:4px solid var(--paper);
+  background:radial-gradient(70% 70% at 30% 20%,rgba(255,255,255,.28),transparent 62%),var(--pink);
+  box-shadow:0 10px 24px rgba(250,24,150,.42),0 2px 6px rgba(250,24,150,.3)}
 .tab.mid .hb svg{width:22px;height:30px;color:#fff}
+.tab.mid:active .hb{transform:scale(.95)}
+.tab.mid .hb{transition:transform .12s ease}
 
 /* ---- states -------------------------------------------------------------- */
-.state{padding:64px 26px;text-align:center}
+.state{min-height:100vh;min-height:100dvh;box-sizing:border-box;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:40px 26px calc(40px + env(safe-area-inset-bottom));text-align:center}
 .state h2{font-family:var(--sans);font-stretch:113%;font-weight:800;font-size:26px;
   letter-spacing:-.03em;line-height:1.1}
 .state p{color:var(--ink2);margin-top:12px;font-size:14.5px;line-height:1.5}
 .state .mk{width:52px;height:71px;color:var(--pink);margin:0 auto 22px;display:block}
+
+/* The splash. Not a state screen with a different colour: the loading moment is
+   the brand mark, so it is the ground, the words, and the chevrons under them. */
+.splash{position:fixed;inset:0;z-index:60;background:#F41886;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:40px 26px;text-align:center}
+.splash h2{font-family:var(--sans);font-stretch:113%;font-weight:800;
+  font-size:31px;line-height:1.12;letter-spacing:-.025em;color:#fff;margin:0}
+/* The mark is the supplied artwork, already composited on #FA1896, so it needs
+   no colour of its own and has no cutout edge to fringe against the ground. */
+.splash .mk{width:112px;height:auto;margin:28px auto 0;display:block}
+@media (prefers-reduced-motion:no-preference){
+  .splash .mk{animation:lift 1.9s cubic-bezier(.4,0,.3,1) infinite}
+  @keyframes lift{0%,100%{transform:translateY(4px);opacity:.85}
+                  50%{transform:translateY(-4px);opacity:1}}
+}
 .state a{display:inline-block;margin-top:20px;background:var(--pink);color:#fff;text-decoration:none;
   border-radius:100px;padding:13px 22px;font-weight:700;font-size:14.5px}
 .skel{height:13px;border-radius:6px;background:var(--rule);animation:p 1.3s ease-in-out infinite}
@@ -141,6 +194,11 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 <linearGradient id="cvFold" x1="401" y1="180" x2="682" y2="492" gradientUnits="userSpaceOnUse">
   <stop offset="0" stop-color="#F13484"/><stop offset=".34" stop-color="#F53F8C"/>
   <stop offset=".68" stop-color="#FA4F97"/><stop offset="1" stop-color="#FD5A9E"/></linearGradient>
+<linearGradient id="cvArmW" x1="332" y1="0" x2="332" y2="524" gradientUnits="userSpaceOnUse">
+  <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#CDCECD"/></linearGradient>
+<linearGradient id="cvFoldW" x1="401" y1="180" x2="682" y2="492" gradientUnits="userSpaceOnUse">
+  <stop offset="0" stop-color="#CACACA"/><stop offset=".42" stop-color="#E4E4E4"/>
+  <stop offset="1" stop-color="#F7F7F7"/></linearGradient>
 </defs>
 <symbol id="chev" viewBox="0 0 666 906"><g>
   <path d="M332 0 L0 285 L0 524 L332 241 Z" fill="url(#cvArm)"/>
@@ -153,6 +211,13 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 <symbol id="chevw" viewBox="0 0 666 906"><g fill="currentColor">
   <path d="M332 0 L0 285 L0 524 L332 241 Z"/>
   <path d="M332 0 L666 285 L666 524 L332 241 Z" opacity=".86"/>
+  <path d="M332 0 L470 119 L332 241 Z"/>
+  <path d="M332 382 L0 667 L0 906 L332 623 Z"/>
+  <path d="M332 382 L666 667 L666 906 L332 623 Z" opacity=".86"/>
+  <path d="M332 382 L470 501 L332 623 Z"/></g></symbol>
+<symbol id="chevs" viewBox="0 0 666 906"><g>
+  <path d="M332 0 L0 285 L0 524 L332 241 Z" fill="url(#cvArmW)"/>
+  <path d="M332 0 L666 285 L666 524 L332 241 Z" fill="url(#cvFoldW)"/>
   <path d="M332 0 L470 119 L332 241 Z"/>
   <path d="M332 382 L0 667 L0 906 L332 623 Z"/>
   <path d="M332 382 L666 667 L666 906 L332 623 Z" opacity=".86"/>

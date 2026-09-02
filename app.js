@@ -16,7 +16,7 @@ var WA   = 'https://wa.me/16199404040?text=';
 var TABS = [
   { id:'home',   label:'Earn',   icon:'i-earn'  },
   { id:'burn',   label:'Burn',   icon:'i-burn'  },
-  { id:'mid',    label:'Home',   icon:null      },
+  { id:'mid',    label:'',       icon:null      },
   { id:'learn',  label:'Learn',  icon:'i-learn' },
   { id:'return', label:'Return', icon:'i-ret'   }
 ];
@@ -91,25 +91,57 @@ function hero(parent, kind, kicker, big, say, small){
 /* --- the five screens ----------------------------------------------------- */
 function screenHome(){
   var s = STATE, f = document.createDocumentFragment();
-  var e = s.earn || {}, b = s.burn || {};
+  var e = s.earn || {}, b = s.burn || {}, plan = e.plan || {};
   var top = (e.lines || [])[0];
-  hero(f,'home','Where you stand', e.annual_gain_text,
-    'found in bills you were already paying, across ' + (e.months_observed || 0) + ' months of statements.');
+
+  // The landing screen is the strategy and how far through it we are, not a
+  // list of findings. Every figure below is composed in SQL, including the
+  // percentage: the page never counts or divides.
+  var heroEl = hero(f,'home','Where we stand',
+    (plan.on_plan_pct != null ? plan.on_plan_pct + '%' : e.annual_gain_text),
+    'of spending already goes on the card we planned for it. ' +
+    (plan.moves_left || 0) + ' moves left, worth ' + (e.annual_gain_text || '') + ' a year.');
+
+  // the meter sits inside the hero so the progress reads against the section colour
+  var hero_el = heroEl.querySelector('.in');
+  if (plan.on_plan_pct != null && hero_el) {
+    var m = el('div','meter');
+    var tr = el('div','track'), fi = el('div','fill');
+    fi.style.width = plan.on_plan_pct + '%';
+    tr.appendChild(fi); m.appendChild(tr);
+    var ends = el('div','ends');
+    var a = el('span'); a.textContent = plan.on_plan_text + ' charges';
+    var z = el('span'); z.textContent = plan.basis || '';
+    ends.appendChild(a); ends.appendChild(z); m.appendChild(ends);
+    hero_el.appendChild(m);
+  }
+
   var body = el('div','body');
 
-  zone(body, 'Needs you');
-  if (top) row(body, { tone:'a', title:top.label + ' could earn more',
-    sub:'you are on the ' + top.using_now + ', the ' + top.use_instead + ' pays more',
-    value:top.annual_gain_text, vclass:'g' });
-  var best = (b.destinations || [])[0];
-  if (best) row(body, { tone:'p', title:best.trips + ' trips waiting on a date',
-    sub:best.zone + ', ' + best.cabin + ' class', value:'Free', vclass:'p' });
-
-  zone(body, 'Going well');
-  row(body, { tone:'g', title:e.already_correct_txns + ' charges already on the right card',
+  zone(body, 'Running as designed');
+  row(body, { tone:'g', title:plan.on_plan_text ? plan.on_plan_text + ' charges on the right card'
+                                                : e.already_correct_txns + ' charges on the right card',
+    sub:'no change needed, this is the plan working',
     value:e.already_correct_spend_text, vclass:'g' });
-  if (b.transferable_text) row(body, { tone:'g', title:'Points that can move to an airline',
+  if (b.transferable_text) row(body, { tone:'g', title:'Points ready to move to an airline',
     sub:'across the currencies with a live transfer path', value:b.transferable_text, vclass:'d' });
+
+  zone(body, 'Still to put in place');
+  (e.lines || []).slice(0,3).forEach(function(l){
+    row(body, { tone:'a', title:l.label,
+      sub:(l.misrouted_monthly_text || '') + ' a month on the ' + l.using_now +
+          ', the ' + l.use_instead + ' pays more',
+      value:l.annual_gain_text, vclass:'g' });
+  });
+
+  var find = b.find;
+  if (find && find.saved_usd_text) {
+    zone(body, 'What it buys');
+    row(body, { tone:'p', title:find.origin + ' to ' + find.destination + ' and back',
+      sub:find.points_text + ' points on ' + find.program + ' plus ' + find.taxes_text +
+          ', against ' + find.chart_points_text + ' published',
+      value:find.saved_usd_text, vclass:'p' });
+  }
 
   action(body, 'Pick your dates', 'First one free', 'I want to book a trip');
   f.appendChild(body);
@@ -153,7 +185,7 @@ function screenBurn(){
       find.points_text, 'The cheapest chart this wallet can reach wants ' + find.chart_points_text +
       ' points. Verified ' + find.last_verified + '.');
     var p = el('div','pair');
-    [['You would pay', find.points_text + ' pts'],
+    [['We would pay', find.points_text + ' pts'],
      ['Taxes', find.taxes_text],
      ['Points saved', find.saved_points_text],
      ['Worth', find.saved_usd_text]].forEach(function(kv){
@@ -264,13 +296,43 @@ function buildTabs(){
     } else {
       b.appendChild(icon(t.icon));
     }
-    b.appendChild(document.createTextNode(t.label));
+    if (t.label) b.appendChild(document.createTextNode(t.label));
     b.addEventListener('click', function(){ show(b.dataset.id); });
     tabsEl.appendChild(b);
   });
   tabsEl.hidden = false;
 }
+var SPLASH_AT = 0, SPLASH_MIN = 1500;
+
+/* The read usually answers in well under a second, which makes the mark flash
+   and look like a glitch rather than a moment. Hold it long enough to register,
+   and never longer: if the answer takes two seconds the wait is already spent
+   and nothing is added on top. */
+function afterSplash(fn){
+  var waited = Date.now() - SPLASH_AT;
+  if (waited >= SPLASH_MIN) { fn(); return; }
+  setTimeout(fn, SPLASH_MIN - waited);
+}
+
+function splash(){
+  SPLASH_AT = Date.now();
+  document.body.style.paddingBottom = '0';
+  screenEl.textContent = '';
+  var d = el('div','splash');
+  var h = el('h2');
+  h.appendChild(document.createTextNode('Talking to Your'));
+  h.appendChild(document.createElement('br'));
+  h.appendChild(document.createTextNode('First Officer'));
+  d.appendChild(h);
+  var mk = document.createElement('img');
+  mk.className = 'mk'; mk.src = 'img/chev-silver.png'; mk.alt = '';
+  d.appendChild(mk);
+  screenEl.appendChild(d);
+}
+
 function stateScreen(title, body, cta, waText){
+  // no tab bar while we are in a state screen, so no clearance for one
+  document.body.style.paddingBottom = '0';
   screenEl.textContent = '';
   var s = el('div','state');
   s.appendChild(icon('chev','mk'));
@@ -287,41 +349,59 @@ function stateScreen(title, body, cta, waText){
 
 /* --- boot ----------------------------------------------------------------- */
 function boot(){
-  TOKEN = new URLSearchParams(location.search).get('t') || '';
-  if (!TOKEN){
+  // Two credentials, because two surfaces. The web page arrives with the
+  // thread's fifteen minute ?t=; the native app loads this file from its own
+  // bundle and passes ?k=, an owner_app read token that lasts thirty days.
+  var qs = new URLSearchParams(location.search);
+  var KEY = qs.get('k') || '';
+  // the app has no browser chrome, so the top rule has nothing to sit under
+  if (KEY) {
+    document.documentElement.classList.add('inapp');
+    // the web page keeps pinch zoom; the app is a fixed layout and should not
+    // be scalable at all
+    var vp = document.querySelector('meta[name=viewport]');
+    if (vp) vp.setAttribute('content',
+      'width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover');
+  }
+  TOKEN = qs.get('t') || '';
+  if (!TOKEN && !KEY){
     stateScreen('This link needs to come from your thread',
-      'Your app opens from a link First Officer sends you, so nobody else can read your numbers. Ask for a fresh one and it opens straight to this page.',
+      'This opens from a link we send, so it stays between us. Ask for a fresh one and we open straight back to this page.',
       'Send me a link', 'Send me my app link');
     return;
   }
-  stateScreen('Reading your statements', 'One moment.');
-  fetch(API + '?t=' + encodeURIComponent(TOKEN), { cache:'no-store' })
+  splash();
+  fetch(API + (KEY ? '?k=' + encodeURIComponent(KEY)
+                   : '?t=' + encodeURIComponent(TOKEN)), { cache:'no-store' })
     .then(function(r){
       return r.json().then(function(j){ return { ok:r.ok, status:r.status, j:j }; });
     })
-    .then(function(res){
+    .then(function(res){ afterSplash(function(){
       if (res.status === 401){
         stateScreen('That link has expired',
-          'App links last a few minutes on purpose, because anyone holding one can read your numbers. Ask in your thread and a fresh one arrives straight away.',
+          'App links last a few minutes on purpose, because anyone holding one could open this. Ask in your thread and a fresh one arrives straight away.',
           'Send me a new link', 'Send me my app link');
         return;
       }
       if (!res.ok || !res.j || !res.j.state){
-        stateScreen('We cannot read your numbers right now',
+        stateScreen('We cannot get through right now',
           'Nothing is wrong with your account. Try again in a minute, or say so in your thread and a person will look.',
           'Tell First Officer', 'The app is not loading for me');
         return;
       }
       STATE = res.j.state;
       NAME  = res.j.first_name || '';
+      document.body.style.paddingBottom = '';
       buildTabs();
       var want = (location.hash || '').replace('#','');
-      show(SCREENS[want] ? want : 'earn');
-    })
-    .catch(function(){
+      // The landing screen is the plan and how far through it we are.
+      // Earn is where the detail lives; it is not where an owner starts.
+      show(SCREENS[want] ? want : 'home');
+    }); })
+    .catch(function(){ afterSplash(function(){
       stateScreen('We cannot reach First Officer',
         'That is usually the connection rather than your account. Try again in a minute.',
         'Tell First Officer', 'The app is not loading for me');
-    });
+    }); });
 }
 boot();
