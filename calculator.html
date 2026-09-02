@@ -993,10 +993,11 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 .ros2 .lab.pink{color:var(--pinkdeep);}
 
 /* the readout: the answer, a flush sub-header under the nav while the inputs move */
-.ros2 .readout{position:-webkit-sticky;position:sticky;top:var(--navh);z-index:40;display:flex;flex-wrap:nowrap;gap:18px;align-items:baseline;
+.ros2 .readout{position:-webkit-sticky;position:sticky;top:var(--navh);z-index:40;display:flex;flex-wrap:nowrap;gap:10px;align-items:baseline;
   background:#fff;border-bottom:1px solid var(--line2);margin:0 -18px 14px;padding:9px 18px;}
 .ros2 .readout .ro{display:flex;align-items:baseline;gap:6px;white-space:nowrap;min-width:0;}
-.ros2 .readout .ro.cash{display:none;}
+.ros2 .readout .ro.cash,.ros2 .readout .sep.cash{display:none;}
+.ros2 .readout .sep{color:var(--lab);font-size:var(--t-body);line-height:1;}
 .ros2 .readout .val{font-family:'DM Sans',system-ui,sans-serif;font-weight:900;font-size:var(--t-input);letter-spacing:-.025em;color:var(--ink);line-height:1.1;}
 .ros2 .readout .ro.net .val{color:var(--pinkdeep);}
 .ros2 .readout .rl{font-size:var(--t-note);color:var(--body);line-height:1.2;}
@@ -1004,6 +1005,8 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 @media (min-width:820px){
   .ros2 .readout{margin:0 calc(50% - 50vw) 16px;padding:10px max(20px,calc(50vw - 430px));gap:36px;}
   .ros2 .readout .ro.cash{display:flex;}
+  .ros2 .readout .sep.cash{display:inline;}
+  .ros2 .readout{gap:16px;}
   .ros2 .readout .lx{display:inline;}
 }
 /* the panel: four parts, one surface */
@@ -1087,9 +1090,11 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
   <div class="ros2">
 
     <div class="readout" role="status" aria-live="polite" aria-atomic="true">
-      <div class="ro net"><span class="val" id="roNet">$0</span><span class="rl">net<span class="lx">, this month</span></span></div>
-      <div class="ro"><span class="val" id="roRos">0.0%</span><span class="rl">return on spend</span></div>
-      <div class="ro cash"><span class="val" id="roCash">$0</span><span class="rl">at a flat 2% cash back card</span></div>
+      <div class="ro net"><span class="rl">Net<span class="lx"> this month</span></span> <span class="val" id="roNet">$0</span></div>
+      <span class="sep" aria-hidden="true">&middot;</span>
+      <div class="ro"><span class="rl">Return on spend</span> <span class="val" id="roRos">0.0%</span></div>
+      <span class="sep cash" aria-hidden="true">&middot;</span>
+      <div class="ro cash"><span class="rl">Flat 2% cash back</span> <span class="val" id="roCash">$0</span></div>
     </div>
 
     <div class="panel">
