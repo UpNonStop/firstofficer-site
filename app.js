@@ -181,9 +181,12 @@ function screenBurn(){
 
   if (find){
     zone(body, 'The find');
+    // One string, composed in SQL beside the query that ranked it. This used
+    // to be assembled here and claimed the cheapest chart outright, which the
+    // destinations list three rows below contradicted. A superlative is a claim
+    // about every other row and only the query that ranked them can make it.
     card(body, find.origin + ' to ' + find.destination + ', ' + find.program,
-      find.points_text, 'The cheapest chart this wallet can reach wants ' + find.chart_points_text +
-      ' points. Verified ' + find.last_verified + '.');
+      find.points_text, find.basis_text || '');
     var p = el('div','pair');
     [['We would pay', find.points_text + ' pts'],
      ['Taxes', find.taxes_text],
@@ -225,7 +228,7 @@ function screenReturn(){
   row(body, { tone:'g', title:'Every year, from the switches',
     sub:r.switches + ' moves across cards already in the wallet', value:r.found_annual_text, vclass:'g' });
   row(body, { tone:'g', title:'Every trip, on top of that',
-    sub:'against the cheapest published price this wallet can reach', value:r.per_trip_text, vclass:'g' });
+    sub:r.per_trip_basis || '', value:r.per_trip_text, vclass:'g' });
   row(body, { tone:'g', title:'What the next seat is worth',
     sub:'at the top of the band for these points', value:r.seat_text, vclass:'g' });
 
@@ -249,10 +252,18 @@ function screenLearn(){
   if (m){
     zone(body, 'Why this one');
     (sh.derived_from || []).forEach(function(w){ row(body, { tone:'g', title:w }); });
-    zone(body, 'What else was considered');
-    (sh.considered || []).forEach(function(c){
-      row(body, { title:c.name, sub:c.why, value:String(c.score), vclass:'d' });
-    });
+    // The match used to appear in this list, under a heading saying these are
+    // the alternatives, beside the scorer's own tally as owner copy. SQL now
+    // excludes it and answers in sentences. When nothing else had a fact behind
+    // it, one true line replaces a column of zeroes pretending to be diligence.
+    if (sh.considered_note){
+      note(body, 'What else was considered', sh.considered_note);
+    } else if ((sh.considered || []).length){
+      zone(body, 'What else was considered');
+      sh.considered.forEach(function(c){
+        row(body, { title:c.name, sub:c.why, value:String(c.score), vclass:'d' });
+      });
+    }
   } else {
     note(body, 'Nothing claimed', sh.no_match_reason ||
       'We do not have enough proven facts to place us against a shape yet.');
