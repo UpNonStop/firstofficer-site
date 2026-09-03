@@ -173,7 +173,7 @@ function merchantRow(parent, m){
 function screenEarn(){
   var e = STATE.earn || {}, sm = e.summary || {}, f = document.createDocumentFragment();
   hero(f,'earn','Room to grow', e.annual_gain_text || '',
-    (e.switches === 1 ? '1 move' : e.switches + ' moves') + ' across cards already in the wallet. Nothing to apply for.');
+    (e.switches === 1 ? '1 move' : (e.switches || 0) + ' moves') + ' across cards already in the wallet. Nothing to apply for.');
   var body = el('div','body');
 
   if (sm.say){
@@ -431,6 +431,15 @@ function handoff(cred, kind){
   if (wrap) wrap.appendChild(w);
 }
 
+/* A page with nothing to read says so, once, instead of five tabs of blanks.
+   Months observed is Earn's count of months with analysed transactions;
+   balances is Burn's list of programs on file. Either one is something. */
+function hasData(st){
+  var months = (st && st.meta && st.meta.months_observed) || 0;
+  var bal = (st && st.burn && st.burn.balances) || [];
+  return months > 0 || bal.length > 0;
+}
+
 /* --- boot ----------------------------------------------------------------- */
 function boot(){
   // Two credentials, because two surfaces. The web page arrives with the
@@ -484,6 +493,16 @@ function boot(){
       }
       STATE = res.j.state;
       NAME  = res.j.first_name || '';
+      // Nothing to read yet. Thirty-nine of forty clients have no analysed
+      // spend and no balance on file, and for them the five tabs rendered
+      // blank heroes and the word undefined, which is a sentence the rows
+      // never said. One honest screen instead, until there is a row to show.
+      if (!hasData(STATE)){
+        stateScreen('Nothing to read yet',
+          'We have no transactions or balances for this business on file, so there is nothing here to show. Connect spend or send a statement in the thread and every tab fills in from it.',
+          'Tell First Officer', 'I want to connect my spend to First Officer');
+        return;
+      }
       buildTabs();
       var want = (location.hash || '').replace('#','');
       // The landing screen is the plan and how far through it we are.
