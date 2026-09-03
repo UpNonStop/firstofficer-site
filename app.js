@@ -160,6 +160,23 @@ function subFor(l){
                       : 'move to the ' + l.use_instead;
   return s + (l.condition ? '. ' + l.condition : '');
 }
+/* --- What we have flown --------------------------------------------------
+   One card per award on the ledger. when_text, say, cpp_text and tier_text are
+   composed by fo_app_flown; the tier word picks the colour in app.html and the
+   page never works out a cent of its own. A row without a cash fare on record
+   says so in the reader's words and gets the 'none' badge. */
+function flownCard(parent, x){
+  var c = el('div','fc');
+  var head = el('div','mh');
+  head.appendChild(el('span','fw', x.when_text));
+  head.appendChild(el('span','flag ' + (x.tier || 'none'), x.cpp_text || 'no fare on record'));
+  c.appendChild(head);
+  c.appendChild(el('p','ft', x.provider + (x.sub ? ', ' + x.sub : '')));
+  c.appendChild(el('p','ms', x.say));
+  if (x.travel_text) c.appendChild(el('p','md', 'Travel ' + x.travel_text + '.'));
+  if (x.confirmation_ref) c.appendChild(el('p','fr', 'Confirmation ' + x.confirmation_ref));
+  parent.appendChild(c);
+}
 function merchantRow(parent, m){
   var d = el('div','mr ' + (m.flag || ''));
   var head = el('div','mh');
@@ -255,6 +272,26 @@ function screenBurn(){
       value:x.balance_text, vclass:'d' });
   });
 
+  zone(body, 'What we have flown');
+  var ft = b.flown_totals;
+  if (ft) {
+    var pf = el('div','pair');
+    [['Trips', ft.trips_text],
+     ['Points used', ft.points_text],
+     ['Taxes and fees', ft.taxes_text],
+     ['Fares replaced', ft.cash_text || 'none on record']].forEach(function(kv){
+      var d = el('div'); d.appendChild(el('p','k',kv[0])); d.appendChild(el('p','v2',kv[1]));
+      pf.appendChild(d);
+    });
+    body.appendChild(pf);
+    if (ft.cpp_text) {
+      var tr = row(body, { title:'Each point returned', sub:ft.cpp_basis || '', value:ft.cpp_text, vclass:'p' });
+      tr.appendChild(el('span','flag ' + (ft.tier || 'none'), ft.tier_text));
+    } else if (ft.cpp_basis) {
+      note(body, 'No figure claimed', ft.cpp_basis);
+    }
+  }
+  (b.flown || []).forEach(function(x){ flownCard(body, x); });
   if (b.flown_note) note(body, 'Nothing flown yet', b.flown_note);
   action(body, 'Ask for these dates', 'First one free', 'I want to use my points');
   f.appendChild(body);
@@ -263,7 +300,7 @@ function screenBurn(){
 
 function screenReturn(){
   var r = STATE['return'] || {}, f = document.createDocumentFragment();
-  hero(f,'return','Since you joined', r.found_annual_text,
+  hero(f,'return','Since we started', r.found_annual_text,
     'found in bills that were already being paid. This number only goes up.');
   var body = el('div','body');
 
@@ -274,6 +311,16 @@ function screenReturn(){
     sub:r.per_trip_basis || '', value:r.per_trip_text, vclass:'g' });
   row(body, { tone:'g', title:'What the next seat is worth',
     sub:'at the top of the band for these points', value:r.seat_text, vclass:'g' });
+
+  if (r.flown_trips_text) {
+    zone(body, 'What we have flown');
+    row(body, { tone:'p', title:'Cash fares replaced',
+      sub:r.flown_trips_text + ' on the ledger, ' + r.flown_points_text + ' points, ' +
+          r.flown_taxes_text + ' in taxes and fees',
+      value:r.flown_cash_text || 'not on record', vclass:'p' });
+    if (r.flown_cpp_text) row(body, { tone:'p', title:'Each point returned',
+      sub:r.flown_basis || '', value:r.flown_cpp_text, vclass:'p' });
+  }
 
   note(body, 'Two different units', r.units_note +
     '. The first is a year of bills. The second happens each time we fly.');
@@ -437,7 +484,8 @@ function handoff(cred, kind){
 function hasData(st){
   var months = (st && st.meta && st.meta.months_observed) || 0;
   var bal = (st && st.burn && st.burn.balances) || [];
-  return months > 0 || bal.length > 0;
+  var flown = (st && st.meta && st.meta.flown_count) || 0;
+  return months > 0 || bal.length > 0 || flown > 0;
 }
 
 /* --- boot ----------------------------------------------------------------- */
