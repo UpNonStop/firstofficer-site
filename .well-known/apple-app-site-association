@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["G85N2K8XNH.com.upnonstop.firstofficer"],
+        "components": [
+          {
+            "/": "/app.html",
+            "comment": "The owner app. The token rides in the query, and a components entry with no ? clause matches the path whatever the query carries, so both ?t= and ?k= open the app."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -355,6 +355,39 @@ function stateScreen(title, body, cta, waText){
   screenEl.appendChild(s);
 }
 
+/* --- the hand-off ---------------------------------------------------------
+   The app registers firstofficer:// and its onOpenURL already knows both
+   credentials: a ?k= is stored as-is, a ?t= is spent once at fo-app-grant for
+   a thirty day one. Every part of that wire existed except the part that emits
+   the link. Nothing, anywhere, ever produced a firstofficer:// URL.
+
+   So a fresh TestFlight install had an empty Keychain, opened this page with
+   app=1 and no key, and got the state screen telling it to ask its thread for
+   a link, which is the screen it was already stuck on. The link the thread
+   sends is https, and https reaches Safari and stops there until Universal
+   Links are wired at all three ends: the AASA file, the entitlement, and the
+   App ID capability.
+
+   This is the wire, and it needs none of those three. The page the https link
+   opens hands the app the same credential it is itself holding. One tap, on
+   the build already on the phone.
+
+   Web only: in the app this page already has the session. And it promises
+   nothing, because tapping a scheme no app claims is Safari refusing an
+   address, and we cannot install an app for anyone. */
+function handoff(cred, kind){
+  var old = document.getElementById('handoff');
+  if (old) old.parentNode.removeChild(old);
+  var w = el('div','handoff'); w.id = 'handoff';
+  var a = el('a', null, 'Open in the app');
+  a.href = 'firstofficer://open?' + kind + '=' + encodeURIComponent(cred);
+  w.appendChild(a);
+  w.appendChild(el('p', null,
+    'Only if the app is already on this phone. Safari refuses the address if it is not.'));
+  var wrap = document.querySelector('.wrap');
+  if (wrap) wrap.appendChild(w);
+}
+
 /* --- boot ----------------------------------------------------------------- */
 function boot(){
   // Two credentials, because two surfaces. The web page arrives with the
@@ -366,7 +399,12 @@ function boot(){
   // This asked for KEY, which meant a keyless cold open in the app got the
   // web page's rule and its zoomable viewport. Being in the app is the fact
   // that matters here, and the app says so with app=1.
-  var INAPP = qs.get('app') === '1' || !!KEY;
+  // And app=1 is now the whole of it. `|| !!KEY` also called a browser tab
+  // holding a thirty day key the app, which is exactly backwards: it is the
+  // one page in a browser that has a credential worth handing over, and it
+  // was the one page the hand-off below was hidden from. Nothing is lost:
+  // OwnerAppView builds app=1 unconditionally, key or no key.
+  var INAPP = qs.get('app') === '1';
   if (INAPP) {
     document.documentElement.classList.add('inapp');
     // the web page keeps pinch zoom; the app is a fixed layout and should not
@@ -408,6 +446,7 @@ function boot(){
       // The landing screen is the plan and how far through it we are.
       // Earn is where the detail lives; it is not where an owner starts.
       show(SCREENS[want] ? want : 'home');
+      if (!INAPP) handoff(KEY || TOKEN, KEY ? 'k' : 't');
     }); })
     .catch(function(){ afterSplash(function(){
       stateScreen('We cannot reach First Officer',
