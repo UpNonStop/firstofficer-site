@@ -337,8 +337,8 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 <section class="hero" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80')">
 <div class="wrap"><div class="hero-c">
   <div class="hero-badge">First Officer for Real Estate</div>
-  <h1>Your Zillow Ads Are Earning <span class="pk">4x Points.</span> But Only on the Right Card.</h1>
-  <p class="hero-sub">Real estate agents and brokerages spend heavily on advertising. and advertising is one of the highest-earning bonus categories. Yet most agents put everything on one card at 1x.</p>
+  <h1>Your Zillow Ads Are Earning<br><span class="pk">4x Points.</span> But Only on the Right Card.</h1>
+  <p class="hero-sub">A real estate office profile at $48,000 a month of card-able spend earns about 131,000 points a month with every bonus rate capped on published terms, and nets about $1,855 a month after our fee at our current valuation. The routing is the work. The receipt is on the calculator.</p>
   <div class="hero-ctas">
     <a href="https://wa.me/16199404040?text=First%20Officer%20check" class="btn btn-wa btn-l" target="_blank" style="padding:18px 44px;font-size:17px">Free Spend Check</a>
     <a href="#calculator" class="btn btn-ol btn-l" style="padding:18px 44px;font-size:17px">Try the Calculator</a>
@@ -346,79 +346,64 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 </div></div>
 </section>
 
-<section class="sec alt" id="calculator"><div class="wrap">
+<section class="sec alt"><div class="wrap">
   <div class="sh"><div class="ey">Your numbers</div>
-  <h2 class="hd">See What You're <span class="pk">Leaving Behind</span></h2>
-  <p class="ds">Adjust the sliders to match your monthly business spend. Each category shows which card earns the most and why.</p></div>
-  <div class="calc">
-    <div class="calc-title">Monthly spend calculator</div>
-    <div class="slider-group"><div class="slider-head"><label>Advertising (Zillow, Google, Meta, Realtor.com)</label><span id="v1">$6,000</span></div><input type="range" min="2000" max="30000" value="6000" step="500" id="s1" oninput="calc()" aria-label="Monthly spend, category 1"><div class="slider-note">3x on the right business card or 4x on the right business card. your highest category</div></div>
-    <div class="slider-group"><div class="slider-head"><label>CRM & software (KvCORE, Follow Up Boss)</label><span id="v2">$800</span></div><input type="range" min="200" max="5000" value="800" step="100" id="s2" oninput="calc()" aria-label="Monthly spend, category 2"><div class="slider-note">May code as software. up to 4x on the right business card</div></div>
-    <div class="slider-group"><div class="slider-head"><label>Travel (showings, open houses, conferences)</label><span id="v3">$2,000</span></div><input type="range" min="500" max="8000" value="2000" step="500" id="s3" oninput="calc()" aria-label="Monthly spend, category 3"><div class="slider-note">3x on the right business card on travel</div></div>
-    <div class="slider-group"><div class="slider-head"><label>Office supplies & printing</label><span id="v4">$500</span></div><input type="range" min="200" max="3000" value="500" step="100" id="s4" oninput="calc()" aria-label="Monthly spend, category 4"><div class="slider-note">5x at office supply stores on the right card</div></div>
-    <div class="slider-group"><div class="slider-head"><label>Brokerage fees, E&O & overhead</label><span id="v5">$4,000</span></div><input type="range" min="1000" max="15000" value="4000" step="500" id="s5" oninput="calc()" aria-label="Monthly spend, category 5"><div class="slider-note">Most at 1x-2x depending on payment method</div></div>
-    <div class="calc-divider">
-      <div class="calc-total"><span>Total monthly spend</span><span id="total">$13,300</span></div>
-      <div class="calc-boxes">
-        <div class="calc-box cbox-base"><span class="cb-label">Without optimization</span><div class="cb-val" id="without">$1,596</div><div class="cb-sub">at 1x flat, no routing / year</div></div>
-        <div class="calc-box cbox-opt"><span class="cb-label">With First Officer</span><div class="cb-val" id="with">$4,644</div><div class="cb-sub">at 2.0 to 2.8x blended earn / year</div></div>
-      </div>
-      <div class="calc-gap">You're leaving <strong id="gap">$3,048</strong> per year in unrealized value</div>
-      <div class="dcap" style="margin-top:10px;text-align:left">SHOWN AT 1 CENT PER POINT, THE STATEMENT-CREDIT FLOOR &middot; TRANSFERRED TO AIRLINE AND HOTEL PARTNERS THE SAME POINTS TYPICALLY CARRY 2 TO 4 CENTS, WHICH IS THE RANGE IN THE TABLE BELOW &middot; ILLUSTRATIVE, NOT A PROJECTION OF YOUR RESULTS</div>
-    </div>
+  <h2 class="hd">See What You're<br><span class="pk">Leaving Behind</span></h2>
+  <p class="ds">This page's profile is the starting point on the calculator. Move the sliders to your own numbers. Every bonus rate is capped on published terms, rent and payroll stay off the card, and our fee comes out before you see a number.</p></div>
+  <div class="scenario" style="margin:0 auto">
+    <h3>The starting profile</h3>
+    <div class="sc-row"><span>Marketing and photography</span><span>$18,000 at up to 4x</span></div>
+    <div class="sc-row"><span>Staging and prep</span><span>$12,000 at 2x</span></div>
+    <div class="sc-row"><span>Client travel and entertainment</span><span>$7,000 at up to 3x</span></div>
+    <div class="sc-row"><span>MLS, dues and licensing</span><span>$2,500 at 1x</span></div>
+    <div class="sc-row"><span>CRM and software</span><span>$3,500 at up to 4x</span></div>
+    <div class="sc-row"><span>Everything else</span><span>$5,000 at 2x</span></div>
+    <div class="sc-row hot"><span>Net, this month, after our fee</span><span>$1,855</span></div>
   </div>
+  <p style="text-align:center;margin-top:22px"><a href="calculator.html?ind=realestate" class="btn btn-ol btn-l" style="padding:16px 36px;font-size:16px">Run your numbers &rarr;</a></p>
 </div></section>
 
 <section class="sec"><div class="wrap">
-  <div class="sh"><div class="ey">The mistakes</div><h2 class="hd">What Real Estate Get <span class="pk">Wrong</span></h2><p class="ds">These aren't obvious. Nobody in the real estate industry talks about points optimization. Here's what we see over and over.</p></div>
+  <div class="sh"><div class="ey">The mistakes</div><h2 class="hd">What Real Estate Get <span class="pk">Wrong</span></h2><p class="ds">None of this is obvious from a statement. It is what the desk sees on a real estate office profile, line by line.</p></div>
   <div style="padding:44px 0;border-bottom:1px solid #ffffff;max-width:680px;margin:0 auto">
-    <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><span style="font-family:var(--font);font-size:42px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1">01</span><h3 style="font-family:var(--serif);font-size:24px;line-height:1.2">Running Zillow Premier Agent on a card that earns 1x</h3></div>
-    <p class="t2" style="font-size:15px;line-height:1.7;margin-bottom:16px">Zillow advertising typically codes as online advertising. earning 3x on the right business card or 4x on the right card. If you're spending $6K/month and earning 1x, you're leaving 144,000 to 216,000 points per year behind.</p>
-    <div class="exb"><div class="lb">The math</div><p>$6K/month Zillow at 3.5x avg = 252K pts/year vs 72K at 1x.</p></div>
+    <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><span style="font-family:var(--font);font-size:42px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1">01</span><h3 style="font-family:var(--serif);font-size:24px;line-height:1.2">Putting marketing and photography on the same card as everything else</h3></div>
+    <p class="t2" style="font-size:15px;line-height:1.7;margin-bottom:16px">Your biggest line, $18,000 a month, sits in a 4x category on published terms and earns one point on the card most firms actually use. The rate holds on the first $150,000 a year of its pool, combined with the other lines in that pool, then drops to 1x. Routing it is the single largest decision in this profile.</p>
+    <div class="exb"><div class="lb">The math</div><p>$216,000 a year. On the card most firms use, at 1x: 216,000 points. Routed, caps applied: 864,000 points. The difference is the whole argument.</p></div>
   </div>
   <div style="padding:44px 0;border-bottom:1px solid #ffffff;max-width:680px;margin:0 auto">
-    <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><span style="font-family:var(--font);font-size:42px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1">02</span><h3 style="font-family:var(--serif);font-size:24px;line-height:1.2">Not routing CRM subscriptions to a software-bonus card</h3></div>
-    <p class="t2" style="font-size:15px;line-height:1.7;margin-bottom:16px">KvCORE, Follow Up Boss, and DocuSign may code as software, earning up to 4x. Combined with your other software tools, this category adds up fast.</p>
-    <div class="exb"><div class="lb">The math</div><p>$800/month software at 4x = 38,400 pts/year.</p></div>
-  </div>
-  <div style="padding:44px 0;border-bottom:1px solid #ffffff;max-width:680px;margin:0 auto">
-    <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><span style="font-family:var(--font);font-size:42px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1">03</span><h3 style="font-family:var(--serif);font-size:24px;line-height:1.2">Booking client meetings and travel on a personal card</h3></div>
-    <p class="t2" style="font-size:15px;line-height:1.7;margin-bottom:16px">Flights to conferences, hotel stays for market research, car rentals for showings. all earn 3x on the right business card. Agents who travel regularly leave significant value on the table.</p>
-    <div class="exb"><div class="lb">The math</div><p>$2K/month travel at 3x = 72K pts/year.</p></div>
-  </div>
-  <div style="padding:44px 0;border-bottom:none;max-width:680px;margin:0 auto">
-    <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><span style="font-family:var(--font);font-size:42px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1">04</span><h3 style="font-family:var(--serif);font-size:24px;line-height:1.2">Printing marketing materials at FedEx instead of Staples</h3></div>
-    <p class="t2" style="font-size:15px;line-height:1.7;margin-bottom:16px">Office supply stores earn 5x on a card that earns at office supply stores. FedEx and print shops don't hit that category. When possible, routing print jobs through Staples print services earns you 5x instead of 1x.</p>
-    <div class="exb"><div class="lb">The math</div><p>$500/month at Staples at 5x = 30K pts/year vs 6K at 1x.</p></div>
+    <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:12px"><span style="font-family:var(--font);font-size:42px;font-weight:900;color:var(--pink);letter-spacing:-2px;line-height:1">02</span><h3 style="font-family:var(--serif);font-size:24px;line-height:1.2">Leaving the other bonus lines on the same card as everything else</h3></div>
+    <p class="t2" style="font-size:15px;line-height:1.7;margin-bottom:16px">The bonus lines carry this profile: marketing and photography, CRM and software, client travel and entertainment, $28,500 a month on this profile. On published terms, 4x holds on the first $150,000 a year of advertising, software, fuel and tolls combined, and 3x on the first $150,000 of shipping, travel, internet and phone combined, then 1x. This profile passes the pool: $150,000 a year of bonus-eligible spend runs at the next rate down. Past the pools, a second entity or a second issuer is a desk decision, not a promise.</p>
+    <div class="exb"><div class="lb">The math</div><p>$28,500 a month on the bonus lines, routed: 1,284,000 points a year. On the invoice card at 2x: 684,000. On a debit card: 0.</p></div>
   </div>
 </div></section>
 
 <section class="sec alt"><div class="wrap" style="max-width:780px">
-  <div class="sh"><div class="ey">How it works</div><h2 class="hd">Your vendors. <span class="pk">Our routing.</span></h2><p class="ds">Every vendor sends a merchant category code (MCC) when you swipe. That code determines your multiplier. The same $5,000 payment earns 5,000 points on the wrong card or 20,000 on the right one. We match every vendor to its highest-earning card.</p></div>
+  <div class="sh"><div class="ey">How it works</div><h2 class="hd">Your vendors. <span class="pk">Our routing.</span></h2><p class="ds">Every vendor sends a merchant category code (MCC) when you swipe. That code determines your multiplier. The same $5,000 payment earns 5,000 points on the wrong card or up to 20,000 on the right one, inside the pool. We match every vendor to its highest-earning card.</p></div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:28px">
   <div style="padding:20px;border-radius:var(--r);border:1px solid #f0ece2;text-align:center;background:#ffffff"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-1.5px;line-height:1;margin-bottom:6px">MCC</div><div style="font-size:13px;font-weight:600;margin-bottom:4px">Vendor Code Analysis</div><p class="t3" style="font-size:12px;line-height:1.4">We've mapped how your vendors code with card networks. Verified, not guessed.</p></div>
-  <div style="padding:20px;border-radius:var(--r);border:1px solid #f0ece2;text-align:center;background:#ffffff"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-1.5px;line-height:1;margin-bottom:6px">CAP</div><div style="font-size:13px;font-weight:600;margin-bottom:4px">Spending Cap Tracking</div><p class="t3" style="font-size:12px;line-height:1.4">Every bonus category has annual caps. We shift routing before you hit a ceiling and drop to 1x.</p></div>
-  <div style="padding:20px;border-radius:var(--r);border:1px solid #f0ece2;text-align:center;background:#ffffff"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-1.5px;line-height:1;margin-bottom:6px">CPP</div><div style="font-size:13px;font-weight:600;margin-bottom:4px">Transfer Partner Math</div><p class="t3" style="font-size:12px;line-height:1.4">Earning is half. We show you the redemption partners where points are worth 2x to 5x more than cash.</p></div>
+  <div style="padding:20px;border-radius:var(--r);border:1px solid #f0ece2;text-align:center;background:#ffffff"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-1.5px;line-height:1;margin-bottom:6px">CAP</div><div style="font-size:13px;font-weight:600;margin-bottom:4px">Spending Cap Tracking</div><p class="t3" style="font-size:12px;line-height:1.4">Every bonus category has annual caps. We flag the pool before it fills, so the next dollar goes to the next rate down instead of to 1x.</p></div>
+  <div style="padding:20px;border-radius:var(--r);border:1px solid #f0ece2;text-align:center;background:#ffffff"><div style="font-size:28px;font-weight:900;color:var(--pink);letter-spacing:-1.5px;line-height:1;margin-bottom:6px">CPP</div><div style="font-size:13px;font-weight:600;margin-bottom:4px">Transfer Partner Math</div><p class="t3" style="font-size:12px;line-height:1.4">Earning is half. We show you which redemptions clear our current valuation and which do not, and we print the call before the booking.</p></div>
   </div>
   <p style="text-align:center;font-size:13px;color:#666">Your card stack, routing rules, and redemption strategy are built specifically for your vendors and spend. <a href="https://wa.me/16199404040?text=First%20Officer%20check" style="color:var(--pink);font-weight:600" target="_blank">See what yours looks like.</a></p>
 </div></section>
 
 <section class="sec"><div class="wrap">
   <div class="sh"><div class="ey">Real math</div>
-  <h2 class="hd">What This Looks Like for a <span class="pk">$13K/Month Real Estate</span></h2>
+  <h2 class="hd">What This Looks Like for a<br><span class="pk">$48,000 a Month Real Estate Profile</span></h2>
   <p class="ds">Same spend. Different strategy. Different outcome.</p></div>
   <div class="scenario" style="margin:0 auto">
-    <h3>Annual breakdown</h3>
-    <div class="sc-row"><span>Monthly business spend</span><span>$13,300</span></div>
-    <div class="sc-row"><span>Annual spend</span><span>$159,600</span></div>
-    <div class="sc-row"><span>Points earned (unoptimized, ~1x)</span><span>159,600 pts</span></div>
-    <div class="sc-row"><span>Points earned (First Officer, ~2.4x avg)</span><span>383,040 pts</span></div>
-    <div class="sc-row"><span>Signup bonus points (year one)</span><span>~200,000 pts</span></div>
-    <div class="sc-row"><span>Total optimized points (year one)</span><span>583,040 pts</span></div>
-    <div class="sc-row"><span>Value at 1 cent/point (statement credit)</span><span>$5,830.4</span></div>
-    <div class="sc-row hot"><span>Value at 2 to 4 cents/point (travel partners)</span><span>$11,660.8 to $23,321.6</span></div>
+    <h3>One year, on the calculator's defaults</h3>
+    <div class="sc-row"><span>Monthly card-able spend</span><span>$48,000</span></div>
+    <div class="sc-row"><span>Annual spend</span><span>$576,000</span></div>
+    <div class="sc-row"><span>Points on one card at 1x</span><span>576,000</span></div>
+    <div class="sc-row"><span>Points routed, caps applied</span><span>1,572,000</span></div>
+    <div class="sc-row"><span>Blended earn rate</span><span>2.7x</span></div>
+    <div class="sc-row"><span>Travel value at sticker, 85% redeemed, 3.0 cents</span><span>$40,086</span></div>
+    <div class="sc-row"><span>Valued honestly, 60% you would have bought anyway</span><span>$28,862</span></div>
+    <div class="sc-row"><span>Our fee, twelve months</span><span>$6,600</span></div>
+    <div class="sc-row hot"><span>Net, this year</span><span>$22,262</span></div>
   </div>
-  <p style="font-size:12px;color:#666;margin-top:16px;line-height:1.5;text-align:center;max-width:620px;margin-left:auto;margin-right:auto">Hypothetical example for illustration. Actual results vary based on your specific vendors, card products, and redemption choices. This is not financial advice.</p>
+  <p class="fineprint" style="margin-top:16px;text-align:center;max-width:620px;margin-left:auto;margin-right:auto">Illustrative profile, not client data. Point valuations are estimates based on common redemption benchmarks; actual value depends on how and when you redeem. Bonus rates capped on published product terms, before card annual fees. Not a guarantee of any outcome and not financial or tax advice.</p>
 </div></section>
 
 <section class="sec alt"><div class="wrap">
@@ -434,31 +419,30 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 <section class="sec"><div class="wrap">
   <div style="text-align:center;margin-bottom:32px">
   <div class="ey">Trusted across industries</div>
-  <p style="font-size:15px;color:#8a8492;max-width:480px;margin:0 auto">The same routing intelligence, applied to 20+ verticals. Different vendors, different MCC codes, same rigorous math.</p>
+  <p style="font-size:15px;color:#8a8492;max-width:480px;margin:0 auto">The same routing, applied to 20 verticals. Different vendors, different coding, one set of published terms, our fee already out.</p>
   </div>
   <div class="carousel-wrap">
   <div class="carousel" id="proofCarousel">
-    <div class="proof-card"><div class="proof-rate">2.2x to 2.8x</div><div class="proof-ind">E-Commerce 📦</div><div class="proof-stat">Shipping + ads + SaaS. Highest ceiling of any vertical.</div></div>
-    <div class="proof-card"><div class="proof-rate">1.8x to 2.3x</div><div class="proof-ind">Law Firms ⚖️</div><div class="proof-stat">Westlaw, travel, and marketing. $4K to $14K/yr recovered.</div></div>
-    <div class="proof-card"><div class="proof-rate">1.6x to 2.0x</div><div class="proof-ind">Contractors 👷🏻</div><div class="proof-stat">Materials at 1x is the killer. We help you work around it.</div></div>
-    <div class="proof-card"><div class="proof-rate">2.2x to 2.8x</div><div class="proof-ind">Agencies 🎨</div><div class="proof-stat">All digital spend. Ad budgets alone fund annual trips.</div></div>
-    <div class="proof-card"><div class="proof-rate">2.0x to 2.8x</div><div class="proof-ind">Real Estate 🏠</div><div class="proof-stat">Ads-heavy profiles. Google and Zillow spend at 3x to 4x.</div></div>
-    <div class="proof-card"><div class="proof-rate">1.5x to 2.0x</div><div class="proof-ind">Medical 👨🏻‍⚕️</div><div class="proof-stat">Supply distributors code wholesale. We catch the gap.</div></div>
-    <div class="proof-card"><div class="proof-rate">2.0x to 2.5x</div><div class="proof-ind">CPA Firms 🧮</div><div class="proof-stat">Software-heavy. Tax season spend becomes travel budget.</div></div>
-    <div class="proof-card"><div class="proof-rate">1.6x to 2.2x</div><div class="proof-ind">Trucking 🚛</div><div class="proof-stat">Fleet fuel is a goldmine when routed to the right cards.</div></div>
-    <div class="proof-card"><div class="proof-rate">1.8x to 2.2x</div><div class="proof-ind">Restaurants 👨🏻‍🍳</div><div class="proof-stat">Sysco at 1x is the ceiling. We break through it.</div></div>
-    <div class="proof-card"><div class="proof-rate">1.5x to 1.9x</div><div class="proof-ind">Salons 💇🏻‍♀️</div><div class="proof-stat">Product distributors + marketing. Small margins, big points.</div></div>
-    <!-- duplicate for seamless loop -->
-    <div class="proof-card"><div class="proof-rate">2.2x to 2.8x</div><div class="proof-ind">E-Commerce 📦</div><div class="proof-stat">Shipping + ads + SaaS. Highest ceiling of any vertical.</div></div>
-    <div class="proof-card"><div class="proof-rate">1.8x to 2.3x</div><div class="proof-ind">Law Firms ⚖️</div><div class="proof-stat">Westlaw, travel, and marketing. $4K to $14K/yr recovered.</div></div>
-    <div class="proof-card"><div class="proof-rate">1.6x to 2.0x</div><div class="proof-ind">Contractors 👷🏻</div><div class="proof-stat">Materials at 1x is the killer. We help you work around it.</div></div>
-    <div class="proof-card"><div class="proof-rate">2.2x to 2.8x</div><div class="proof-ind">Agencies 🎨</div><div class="proof-stat">All digital spend. Ad budgets alone fund annual trips.</div></div>
-    <div class="proof-card"><div class="proof-rate">2.0x to 2.8x</div><div class="proof-ind">Real Estate 🏠</div><div class="proof-stat">Ads-heavy profiles. Google and Zillow spend at 3x to 4x.</div></div>
-    <div class="proof-card"><div class="proof-rate">1.5x to 2.0x</div><div class="proof-ind">Medical 👨🏻‍⚕️</div><div class="proof-stat">Supply distributors code wholesale. We catch the gap.</div></div>
-    <div class="proof-card"><div class="proof-rate">2.0x to 2.5x</div><div class="proof-ind">CPA Firms 🧮</div><div class="proof-stat">Software-heavy. Tax season spend becomes travel budget.</div></div>
-    <div class="proof-card"><div class="proof-rate">1.6x to 2.2x</div><div class="proof-ind">Trucking 🚛</div><div class="proof-stat">Fleet fuel is a goldmine when routed to the right cards.</div></div>
-    <div class="proof-card"><div class="proof-rate">1.8x to 2.2x</div><div class="proof-ind">Restaurants 👨🏻‍🍳</div><div class="proof-stat">Sysco at 1x is the ceiling. We break through it.</div></div>
-    <div class="proof-card"><div class="proof-rate">1.5x to 1.9x</div><div class="proof-ind">Salons 💇🏻‍♀️</div><div class="proof-stat">Product distributors + marketing. Small margins, big points.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.0x</div><div class="proof-ind">Trucking</div><div class="proof-stat">$9,530 a month net of our fee on a $275,000 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.2x</div><div class="proof-ind">E-Commerce</div><div class="proof-stat">$8,382 a month net of our fee on a $224,500 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.2x</div><div class="proof-ind">Agencies</div><div class="proof-stat">$6,381 a month net of our fee on a $170,000 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.2x</div><div class="proof-ind">IT Services</div><div class="proof-stat">$5,215 a month net of our fee on a $144,500 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.1x</div><div class="proof-ind">Contractors</div><div class="proof-stat">$4,793 a month net of our fee on a $138,000 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">1.9x</div><div class="proof-ind">Property Management</div><div class="proof-stat">$4,664 a month net of our fee on a $147,500 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.2x</div><div class="proof-ind">HVAC</div><div class="proof-stat">$3,921 a month net of our fee on a $112,500 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.2x</div><div class="proof-ind">Landscaping</div><div class="proof-stat">$2,755 a month net of our fee on a $80,000 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.0x</div><div class="proof-ind">Auto Repair</div><div class="proof-stat">$2,424 a month net of our fee on a $81,000 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.1x</div><div class="proof-ind">Restaurants</div><div class="proof-stat">$2,314 a month net of our fee on a $74,500 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.2x</div><div class="proof-ind">Veterinary</div><div class="proof-stat">$2,259 a month net of our fee on a $71,000 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.1x</div><div class="proof-ind">Dental</div><div class="proof-stat">$2,222 a month net of our fee on a $71,000 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.0x</div><div class="proof-ind">Medical</div><div class="proof-stat">$2,149 a month net of our fee on a $73,500 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.3x</div><div class="proof-ind">Cleaning</div><div class="proof-stat">$1,919 a month net of our fee on a $59,000 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.7x</div><div class="proof-ind">Real Estate</div><div class="proof-stat">$1,855 a month net of our fee on a $48,000 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.5x</div><div class="proof-ind">Fitness</div><div class="proof-stat">$1,558 a month net of our fee on a $45,700 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.6x</div><div class="proof-ind">Consulting</div><div class="proof-stat">$1,534 a month net of our fee on a $43,000 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.3x</div><div class="proof-ind">Salons</div><div class="proof-stat">$1,198 a month net of our fee on a $41,300 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.3x</div><div class="proof-ind">CPA Firms</div><div class="proof-stat">$956 a month net of our fee on a $35,500 profile.</div></div>
+    <div class="proof-card"><div class="proof-rate">2.1x</div><div class="proof-ind">Law Firms</div><div class="proof-stat">$891 a month net of our fee on a $37,500 profile.</div></div>
   </div>
   </div>
   <div style="text-align:center;margin-top:20px;font-size:13px;color:#6b6672">Restaurants. HVAC. Dental. Salons. Fitness. Landscaping. Veterinary. IT. Consulting. Cleaning. Property Management. Auto Repair. <span style="color:var(--pink);font-weight:600">And yours.</span></div>
@@ -477,7 +461,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
   <div class="indfacts">
     <div class="indfact"><div class="ifk">The cash cycle</div><div class="ifv">You spend on a listing months before the commission arrives.</div></div>
     <div class="indfact"><div class="ifk">The calendar</div><div class="ifv">Spring listing season carries a disproportionate share of the year.</div></div>
-    <div class="indfact"><div class="ifk">A profile at $38K a month</div><div class="ifv">Roughly $456K a year moving through the business, and the routing decision on the 4 lines above is worth more than every other optimisation combined.</div></div>
+    <div class="indfact"><div class="ifk">A profile at $48,000 a month</div><div class="ifv">Roughly $576,000 a year of card-able spend, and the routing decision on the lines above is worth more than every other optimization combined.</div></div>
   </div>
   <div class="indnote">Coding varies by processor, location and how each vendor is registered, so we verify yours against real transactions during the free check rather than assuming.</div>
 </section>
@@ -492,25 +476,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 <div class="sitedir"><div class="sd-col"><div class="sd-h">Product</div><a href="pricing.html">Pricing</a><a href="how.html">How It Works</a><a href="product.html">The Product</a><a href="strategist.html">The Strategist</a><a href="trust.html">Trust & Security</a><a href="calculator.html">Run The Numbers</a></div><div class="sd-col" id="industries"><div class="sd-h">Your Industry</div><a href="for-agencies.html">Agencies</a><a href="for-auto-repair.html">Auto Repair</a><a href="for-cleaning.html">Cleaning</a><a href="for-consulting.html">Consulting</a><a href="for-contractors.html">Contractors</a><a href="for-cpa-firms.html">CPA Firms</a><a href="for-dental.html">Dental</a><a href="for-ecommerce.html">E-Commerce</a><a href="for-fitness.html">Fitness</a><a href="for-hvac.html">HVAC</a><a href="for-it-services.html">IT & MSP</a><a href="for-landscaping.html">Landscaping</a><a href="for-law-firms.html">Law Firms</a><a href="for-medical.html">Medical</a><a href="for-property-management.html">Property Management</a><a href="for-real-estate.html">Real Estate</a><a href="for-restaurants.html">Restaurants</a><a href="for-salons.html">Salons</a><a href="for-trucking.html">Trucking</a><a href="for-veterinary.html">Veterinary</a></div><div class="sd-col" id="notes"><div class="sd-h">Field Notes</div><a href="field-notes.html#loyalty">Loyalty</a><a href="field-notes.html#affiliates">Affiliates</a><a href="field-notes.html#cashback">Cashback</a><a href="field-notes.html#expiration">Expiration</a><a href="field-notes.html#complexity">Complexity</a><a href="field-notes.html#timing">Timing</a><a href="field-notes.html#proactive">Proactive</a><a href="field-notes.html#value">Value</a><a href="field-notes.html">Field Notes</a></div><div class="sd-col"><div class="sd-h">More</div><a href="https://upnonstop.com">The Daily Redemption</a><a href="connect.html">Connect</a><a href="privacy-policy.html">Privacy Policy</a><span class="ftsep"> &middot; </span><a href="privacy.html">Do Not Sell My Info</a><a href="terms-of-service.html">Terms of Service</a></div></div>
 <div class="ftbar"><div class="ftbrand"><a href="https://firstofficer.upnonstop.com/" style="text-decoration:none;color:inherit;">First Officer <span>by UpNonStop™</span></a></div><div class="ftlegal">Independent: no affiliate relationships with any issuer. An educational tool, not a licensed financial advisor. US businesses only. © 2026 UpNonStop.</div></div><style>.ftbar{max-width:1080px;margin:0 auto;padding:16px 28px 34px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;border-top:1px solid var(--hairline);}.ftbrand{font-size:13.5px;font-weight:800;color:var(--ink);}.ftbrand span{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--mute);letter-spacing:.06em;font-weight:700;}.ftlegal{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;color:var(--mute);text-transform:uppercase;line-height:1.9;max-width:620px;text-align:right;}@media (max-width:840px){.ftbar{flex-direction:column;text-align:center;}.ftlegal{text-align:center;}}</style>
 
-<script>
-function calc(){
-  var v=[];
-  v[0]=+document.getElementById('s1').value;document.getElementById('v1').textContent='$'+v[0].toLocaleString();
-  v[1]=+document.getElementById('s2').value;document.getElementById('v2').textContent='$'+v[1].toLocaleString();
-  v[2]=+document.getElementById('s3').value;document.getElementById('v3').textContent='$'+v[2].toLocaleString();
-  v[3]=+document.getElementById('s4').value;document.getElementById('v4').textContent='$'+v[3].toLocaleString();
-  v[4]=+document.getElementById('s5').value;document.getElementById('v5').textContent='$'+v[4].toLocaleString();
-  var t=v[0]+v[1]+v[2]+v[3]+v[4];
-  document.getElementById('total').textContent='$'+t.toLocaleString();
-  var base=Math.round(t*12*0.01);
-  var opt=Math.round((v[0]*0.035+v[1]*0.04+v[2]*0.03+v[3]*0.05+v[4]*0.015)*12);
-  document.getElementById('without').textContent='$'+base.toLocaleString();
-  document.getElementById('with').textContent='$'+opt.toLocaleString();
-  document.getElementById('gap').textContent='$'+(opt-base).toLocaleString();
-}
-calc();
-function toggleMob(){var l=document.querySelector('.nk');if(l.style.display==='flex'){l.style.display='none';return}l.style.display='flex';l.style.flexDirection='column';l.style.position='absolute';l.style.top='68px';l.style.left='0';l.style.right='0';l.style.background='rgba(0,0,0,.96)';l.style.backdropFilter='blur(20px)';l.style.padding='24px 32px';l.style.gap='16px';l.style.boxShadow='0 8px 24px rgba(0,0,0,.3)';l.style.borderBottom='1px solid #f0ece2'}
-</script>
+
 <div class="nsheet" id="nsheet" aria-hidden="true"><button class="nclose" aria-label="Close menu" onclick="foNav(false)">×</button><nav class="nlist"><a href="product.html">Product</a><a href="pricing.html">Pricing</a><a href="how.html">How</a><a href="trust.html">Trust</a><a href="calculator.html">Calculator</a><a href="about.html">About</a><a href="https://upnonstop.com">The Daily Redemption</a></nav><a class="pill green nsheet-cta" href="https://wa.me/16199404040?text=First%20Officer%20check" style="text-decoration:none">💬 Text Your First Officer</a></div>
 <script>function foNav(open){var sh=document.getElementById("nsheet");var b=document.querySelector(".nburger");sh.classList.toggle("open",open);document.body.classList.toggle("nolock",open);sh.setAttribute("aria-hidden",open?"false":"true");if(b)b.setAttribute("aria-expanded",open?"true":"false");}</script>
 <style>.hero h1,.hero .hero-sub,.hero-c{color:#fff;}.hero .btn{border-color:rgba(255,255,255,.75);}.hero .btn:not(.pink):not(.green){color:#fff;}</style><style id="fo66">
