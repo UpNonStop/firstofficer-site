@@ -1053,6 +1053,8 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
   .ros2 .key .val{margin-top:4px;}
 }
 
+.ros2 .note{font-size:var(--t-note);line-height:1.5;color:var(--body);max-width:66ch;margin:12px 0 0;}
+
 /* the receipt: the formula as four lines */
 .ros2 .receipt{margin-top:18px;border-top:1px solid var(--line2);}
 .ros2 .receipt .row{display:grid;grid-template-columns:22px 1fr auto;align-items:baseline;column-gap:8px;padding:12px 0;border-bottom:1px solid var(--line2);}
@@ -1105,6 +1107,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
           <div class="key"><span class="lab">Blended earn rate</span><div class="val" id="mEarn">0.0x</div></div>
           <div class="key"><span class="lab">Points a month</span><div class="val" id="mPts">0</div></div>
         </div>
+        <p class="note" id="capNote"></p>
       </div>
 
       <div class="part" id="burn">
@@ -1171,7 +1174,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
             <div class="t">Discounted to what you would have paid cash for, so this is a like for like comparison rather than a sticker price.</div></div>
         </div>
         <p class="ctarow"><a class="pill pink" href="pricing.html">See what the desk costs &rarr;</a></p>
-        <div class="fineprint">Point valuations are estimates based on common redemption benchmarks. Actual value depends on how and when you redeem. Estimate only, built from category averages and common transfer partner valuations. Starting spend figures are illustrative profiles, not client data. Award pricing and availability change constantly and we control neither. Not a guarantee of any outcome and not financial or tax advice.</div>
+        <div class="fineprint">Point valuations are estimates based on common redemption benchmarks. Actual value depends on how and when you redeem. Estimate only, built from category averages and common transfer partner valuations, before card annual fees. Bonus rates are capped on published product terms: 4x and 3x hold on the first $150,000 a year at each rate, then 1x; flat 2x assumes a card with an annual fee. Starting spend figures are illustrative profiles, not client data. Award pricing and availability change constantly and we control neither. Not a guarantee of any outcome and not financial or tax advice.</div>
       </div>
 
     </div>
@@ -1204,8 +1207,14 @@ function build(){
   calc();
 }
 function calc(){
-  var spend=0, pts=0;
-  cur.cats.forEach(function(c,i){ spend+=vals[i]||0; pts+=(vals[i]||0)*c.mx; });
+  /* Caps, per bonus rate, on published product terms: a 4x or 3x rate holds on the first $150,000 a year of
+     spend at that rate (combined across its lines), then 1x. Flat 2x is modeled as uncapped, which assumes a
+     flat-2x card that carries an annual fee; the no-fee 2x product caps at $50,000 a year. */
+  var CAP={4:150000,3:150000};
+  var spend=0, pts=0, ann={}, over={};
+  cur.cats.forEach(function(c,i){ var v=vals[i]||0; spend+=v; ann[c.mx]=(ann[c.mx]||0)+v*12; });
+  Object.keys(ann).forEach(function(k){ var mx=+k, a=ann[k], cap=CAP[mx];
+    if(cap && a>cap){ pts+=(cap*mx+(a-cap)*1)/12; over[mx]=a-cap; } else { pts+=a*mx/12; } });
   var earn = spend>0 ? pts/spend : 0;
   var cpp = +document.getElementById('cpp').value/10;
   var util = +document.getElementById('util').value/100;
@@ -1219,6 +1228,8 @@ function calc(){
   var gross = spend>0 ? (cashLike/spend)*100 : 0;
   var set=function(id,v){document.getElementById(id).textContent=v;};
   set('mSpend',money(spend)); set('mEarn',earn.toFixed(1)+'x'); set('mPts',Math.round(pts).toLocaleString('en-US'));
+  var hits=Object.keys(over).sort(function(a,b){return b-a;}).map(function(k){return 'the '+k+'x lines pass their cap by '+money(over[k])+' a year, and that spend earns 1x';});
+  set('capNote', 'Caps applied: 4x and 3x rates hold on the first $150,000 a year at each rate, then 1x. The 2x lines assume a flat-2x card that carries an annual fee.'+(hits.length?' At this spend, '+hits.join('; ')+'.':''));
   document.getElementById('cppVal').innerHTML=cpp.toFixed(1)+'&cent;';
   set('mUtil',Math.round(util*100)+'%'); set('mUsed',Math.round(used).toLocaleString('en-US')); set('mValue',money(sticker));
   set('realVal',Math.round(real*100)+'%');
