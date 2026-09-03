@@ -24,7 +24,7 @@
   --green:#0d6e3a; --green-lift:#12b45f; --green-soft:#e8f7ef;
   --red:#B4241C;   --red-lift:#F2614E;   --red-soft:#FDEDEA;
   --blue:#12457F;  --blue-lift:#3E8FD8;  --blue-soft:#EAF2FB;
-  --amber:#b06d0c; --amber-lift:#f0a93d;
+  --amber:#b06d0c; --amber-lift:#f0a93d; --amber-soft:#FBF1DD;
   --ink:#141210; --ink2:#4a453f; --ink3:#8b8177;
   --paper:#ffffff; --alt:#f7f5f2; --rule:#e7e3dd;
   --sect:var(--pink);
@@ -114,6 +114,23 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 .bul.p{background:var(--pink)} .bul.r{background:var(--red-lift)}
 .mult{font:700 9.5px/1 var(--mono);background:var(--green-soft);color:var(--green);
   padding:4px 6px;border-radius:5px;flex:0 0 auto}
+.rw.exp{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.rw.exp::after{content:'';width:7px;height:7px;border-right:1.5px solid var(--ink3);border-bottom:1.5px solid var(--ink3);
+  transform:rotate(45deg);margin:0 3px 3px 2px;flex:0 0 auto;transition:transform .15s}
+.rw.exp.open::after{transform:rotate(-135deg);margin:3px 3px 0 2px}
+.rw.exp.open{border-bottom-color:transparent}
+.dd{padding:0 0 10px 20px;border-bottom:1px solid var(--rule)}
+.mr{padding:10px 0 6px}
+.mr+.mr{border-top:1px dashed var(--rule)}
+.mh{display:flex;align-items:center;gap:8px}
+.flag{font:700 9.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 7px;border-radius:100px;flex:0 0 auto}
+.flag.red{background:var(--red-soft);color:var(--red)}
+.flag.yellow{background:var(--amber-soft);color:var(--amber)}
+.flag.grey{background:var(--alt);color:var(--ink3)}
+.mw{margin-left:auto;font:600 12.5px/1 var(--mono);color:var(--ink2);text-align:right}
+.ms{margin:7px 0 0;font-size:13.5px;line-height:1.45;color:var(--ink)}
+.md{margin:4px 0 0;font-size:12.5px;line-height:1.45;color:var(--ink2)}
+@media (prefers-reduced-motion: reduce){.rw.exp::after{transition:none}}
 .note{background:var(--alt);border-radius:14px;padding:13px 15px;margin-top:16px;
   font-size:13px;line-height:1.5;color:var(--ink2)}
 .note b{display:block;font:700 10px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;

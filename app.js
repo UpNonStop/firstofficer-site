@@ -148,25 +148,68 @@ function screenHome(){
   return f;
 }
 
+/* --- Earn, drilled down ------------------------------------------------------
+   Every string here arrives composed from SQL: the badge word, the sentence
+   that counts months, the action, the worth. The page decides only what is
+   open and what is closed. A category line with merchants behind it is a
+   button; tapping it shows each merchant with its badge (Recurring, red;
+   One time or One month, amber; Unmatched, grey), what happened, and what
+   to do. Nothing is computed here, so nothing here can be wrong on its own. */
+function subFor(l){
+  var s = l.using_now ? 'on the ' + l.using_now + ', move to the ' + l.use_instead
+                      : 'move to the ' + l.use_instead;
+  return s + (l.condition ? '. ' + l.condition : '');
+}
+function merchantRow(parent, m){
+  var d = el('div','mr ' + (m.flag || ''));
+  var head = el('div','mh');
+  head.appendChild(el('span','flag ' + (m.flag || ''), m.badge));
+  if (m.worth_text) head.appendChild(el('span','mw', m.worth_text));
+  d.appendChild(head);
+  d.appendChild(el('p','ms', m.say));
+  if (m['do']) d.appendChild(el('p','md', m['do']));
+  parent.appendChild(d);
+}
 function screenEarn(){
-  var e = STATE.earn || {}, f = document.createDocumentFragment();
-  hero(f,'earn','Room to grow', e.annual_gain_text || '', 
-    e.switches + ' moves across cards already in the wallet. Nothing to apply for.');
+  var e = STATE.earn || {}, sm = e.summary || {}, f = document.createDocumentFragment();
+  hero(f,'earn','Room to grow', e.annual_gain_text || '',
+    (e.switches === 1 ? '1 move' : e.switches + ' moves') + ' across cards already in the wallet. Nothing to apply for.');
   var body = el('div','body');
+
+  if (sm.say){
+    zone(body, 'Where we can do better');
+    note(body, null, sm.say);
+  }
 
   zone(body, 'Ranked by what they pay');
   (e.lines || []).forEach(function(l){
-    row(body, { title:l.label,
-      sub:'on the ' + l.using_now + ', move to the ' + l.use_instead +
-          (l.condition ? '. ' + l.condition : ''),
-      badge:l.rate_better_cpd && l.rate_now_cpd ? null : null,
+    var ms = l.merchants || [];
+    var r = row(body, { title:l.label, sub:subFor(l),
+      badge: ms.length ? (ms.length === 1 ? '1 merchant' : ms.length + ' merchants') : null,
       value:l.annual_gain_text, vclass:'g' });
+    if (!ms.length) return;
+    r.classList.add('exp');
+    r.setAttribute('role','button'); r.tabIndex = 0; r.setAttribute('aria-expanded','false');
+    var dd = el('div','dd'); dd.hidden = true;
+    ms.forEach(function(m){ merchantRow(dd, m); });
+    body.appendChild(dd);
+    var toggle = function(){
+      var open = dd.hidden;
+      dd.hidden = !open;
+      r.classList.toggle('open', open);
+      r.setAttribute('aria-expanded', String(open));
+    };
+    r.addEventListener('click', toggle);
+    r.addEventListener('keydown', function(ev){
+      if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); toggle(); }
+    });
   });
 
+  if (sm.basis) note(body, 'What the badges mean', sm.basis);
   if (e.must_state) note(body, 'How to read this', e.must_state);
   if (e.scope) note(body, 'What this covers', e.scope);
   note(body, 'What we cannot do',
-    'We read the statements one to three days after a charge and send word. We never touch a card at the register and we never move a card on anyone behalf. We spot it, you tap the card.');
+    'We read the statements one to three days after a charge and send word. We never touch a card at the register and never move a card on anyone\'s behalf. We spot it; the tap is the one step that stays in hand.');
   action(body, 'Send me the whole map', e.annual_gain_text + ' a year', 'Send me the routing map');
   f.appendChild(body);
   return f;
