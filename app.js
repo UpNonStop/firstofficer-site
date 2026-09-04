@@ -450,6 +450,30 @@ function stateScreen(title, body, cta, waText){
   screenEl.appendChild(s);
 }
 
+/* Which refusal this is, in the owner's terms. fo-app-state answers 401 with a
+   reason (expired, revoked, unknown) or 403 when the token opens another
+   surface. The recovery is always the thread; the honest part is not calling a
+   switched-off link expired, nor telling an owner to try a permanent refusal
+   again in a minute. */
+function refusalScreen(status, reason){
+  if (status === 403){
+    stateScreen('This is not your app link',
+      'This link opens a different page, so it does not show your app. Ask in your thread and we send the one that does.',
+      'Send me my app link', 'Send me my app link');
+    return;
+  }
+  if (reason === 'revoked'){
+    stateScreen('This app link was turned off',
+      'Access through this link was switched off. Ask in your thread and a person will sort it out.',
+      'Tell First Officer', 'My app link was turned off');
+    return;
+  }
+  // expired, unknown, or the thread link with no reason: a fresh one fixes it
+  stateScreen('That link has expired',
+    'App links last a few minutes on purpose, because anyone holding one could open this. Ask in your thread and a fresh one arrives straight away.',
+    'Send me a new link', 'Send me my app link');
+}
+
 /* --- the hand-off ---------------------------------------------------------
    The app registers firstofficer:// and its onOpenURL already knows both
    credentials: a ?k= is stored as-is, a ?t= is spent once at fo-app-grant for
@@ -526,16 +550,25 @@ function boot(){
     return;
   }
   splash();
+  // A read that never answers used to spin the splash forever, which to an
+  // owner is a blank screen. It cannot run past twelve seconds now; the abort
+  // lands in the catch below as the connection screen.
+  var ctrl = ('AbortController' in window) ? new AbortController() : null;
+  var timedOut = false;
+  var timer = setTimeout(function(){ timedOut = true; if (ctrl) ctrl.abort(); }, 12000);
   fetch(API + (KEY ? '?k=' + encodeURIComponent(KEY)
-                   : '?t=' + encodeURIComponent(TOKEN)), { cache:'no-store' })
+                   : '?t=' + encodeURIComponent(TOKEN)),
+        { cache:'no-store', signal: ctrl ? ctrl.signal : undefined })
     .then(function(r){
-      return r.json().then(function(j){ return { ok:r.ok, status:r.status, j:j }; });
+      // A body that is not JSON is a refusal we still read by its status.
+      return r.json().then(function(j){ return { ok:r.ok, status:r.status, j:j }; },
+                           function(){ return { ok:r.ok, status:r.status, j:null }; });
     })
-    .then(function(res){ afterSplash(function(){
-      if (res.status === 401){
-        stateScreen('That link has expired',
-          'App links last a few minutes on purpose, because anyone holding one could open this. Ask in your thread and a fresh one arrives straight away.',
-          'Send me a new link', 'Send me my app link');
+    .then(function(res){ clearTimeout(timer); afterSplash(function(){
+      // A refusal says which kind it is, from the reason fo-app-state returns:
+      // a link to refresh, access switched off, or a link for another page.
+      if (res.status === 401 || res.status === 403){
+        refusalScreen(res.status, res.j && res.j.reason);
         return;
       }
       if (!res.ok || !res.j || !res.j.state){
@@ -563,9 +596,10 @@ function boot(){
       show(SCREENS[want] ? want : 'home');
       if (!INAPP) handoff(KEY || TOKEN, KEY ? 'k' : 't');
     }); })
-    .catch(function(){ afterSplash(function(){
+    .catch(function(){ clearTimeout(timer); afterSplash(function(){
       stateScreen('We cannot reach First Officer',
-        'That is usually the connection rather than your account. Try again in a minute.',
+        (timedOut ? 'That is taking longer than it should, which is usually the connection rather than your account. '
+                  : 'That is usually the connection rather than your account. ') + 'Try again in a minute.',
         'Tell First Officer', 'The app is not loading for me');
     }); });
 }
