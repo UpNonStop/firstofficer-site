@@ -264,10 +264,13 @@ function screenBurn(){
   // over its cost. via names that program, reach_text says how many points get
   // there. Both come from fo_reach; the page only prints them.
   (b.destinations || []).forEach(function(d){
-    row(body, { title:d.zone + ', ' + d.cabin,
-      sub:d.points_text + ' points each round trip' + (d.via ? ', via ' + d.via : '') +
-          (d.reach_text ? '. ' + d.reach_text + ' reach it' : ''),
-      value:String(d.trips), vclass:'p' });
+    // The seat, then how to take it: reach_text says the points that get there,
+    // path (fo_reach_path) says which to move. All in the left column.
+    var sub = d.points_text + ' points each round trip';
+    if (d.via) sub += ', via ' + d.via;
+    if (d.reach_text) sub += '. ' + d.reach_text + ' reach it';
+    if (d.path) sub += '. ' + d.path;
+    row(body, { title:d.zone + ', ' + d.cabin, sub:sub, value:String(d.trips), vclass:'p' });
   });
 
   zone(body, 'What we hold');
