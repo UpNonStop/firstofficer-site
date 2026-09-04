@@ -223,6 +223,34 @@ function screenEarn(){
     });
   });
 
+  var offers = STATE.offers || [];
+  if (offers.length){
+    zone(body, 'On the table this month');
+    offers.forEach(function(o){
+      var r = row(body, { title:o.card, sub:o.spend_text, badge:o.ends_text,
+                          value:o.bonus_text, vclass:'g' });
+      r.classList.add('exp');
+      r.setAttribute('role','button'); r.tabIndex = 0; r.setAttribute('aria-expanded','false');
+      var dd = el('div','dd'); dd.hidden = true;
+      var d = el('div','mr');
+      d.appendChild(el('p','ms', o.headline));
+      if (o.sources_text) d.appendChild(el('p','md', o.sources_text));
+      dd.appendChild(d);
+      body.appendChild(dd);
+      var toggle = function(){
+        var open = dd.hidden;
+        dd.hidden = !open;
+        r.classList.toggle('open', open);
+        r.setAttribute('aria-expanded', String(open));
+      };
+      r.addEventListener('click', toggle);
+      r.addEventListener('keydown', function(ev){
+        if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); toggle(); }
+      });
+    });
+    if (STATE.offers_basis) note(body, 'How to read these', STATE.offers_basis);
+  }
+
   if (sm.basis) note(body, 'What the badges mean', sm.basis);
   if (e.must_state) note(body, 'How to read this', e.must_state);
   if (e.scope) note(body, 'What this covers', e.scope);
