@@ -380,9 +380,20 @@ function screenLearn(){
     m ? m.tease : (sh.no_match_reason || ''), true);
   var body = el('div','body');
 
+  var po = sh.posture;
+  if (po){
+    zone(body, 'Where we stand');
+    row(body, { tone: (po.source === 'declared') ? 'g' : 'd', title: po.say,
+                sub: po.evidence || po.because || null });
+    if (po.contract){
+      note(body, (po.source === 'declared') ? 'What we promised' : 'What this is not', po.contract);
+    }
+  }
+
   if (m){
     zone(body, 'Why this one');
     (sh.derived_from || []).forEach(function(w){ row(body, { tone:'g', title:w }); });
+    if (sh.posture_note) note(body, 'How this relates to where we stand', sh.posture_note);
     // The match used to appear in this list, under a heading saying these are
     // the alternatives, beside the scorer's own tally as owner copy. SQL now
     // excludes it and answers in sentences. When nothing else had a fact behind
