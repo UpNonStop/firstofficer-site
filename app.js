@@ -175,6 +175,7 @@ function flownCard(parent, x){
   c.appendChild(el('p','ms', x.say));
   if (x.travel_text) c.appendChild(el('p','md', 'Travel ' + x.travel_text + '.'));
   if (x.confirmation_ref) c.appendChild(el('p','fr', 'Confirmation ' + x.confirmation_ref));
+  if (x.booking_ref) c.appendChild(el('p','md', 'Desk reference ' + x.booking_ref));
   parent.appendChild(c);
 }
 function merchantRow(parent, m){
@@ -267,8 +268,12 @@ function screenBurn(){
   zone(body, 'What we hold');
   (b.balances || []).forEach(function(x){
     row(body, { tone:x.transferable ? 'g' : null, title:x.program,
-      sub:x.freshness + ', read ' + x.days_old + ' days ago' +
-          (x.transferable ? '' : '. No transfer path from this one.'),
+      sub:(function(){
+        var parts = [x.freshness + ', read ' + x.days_old + ' days ago'];
+        if (!x.transferable) parts.push('No transfer path from this one');
+        if (x.since_text) parts.push(x.since_text);
+        return parts.join('. ') + (parts.length > 1 ? '.' : '');
+      })(),
       value:x.balance_text, vclass:'d' });
   });
 
