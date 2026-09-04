@@ -260,8 +260,13 @@ function screenBurn(){
   }
 
   zone(body, 'Where we can go');
+  // trips is the points that actually reach the program that books this seat,
+  // over its cost. via names that program, reach_text says how many points get
+  // there. Both come from fo_reach; the page only prints them.
   (b.destinations || []).forEach(function(d){
-    row(body, { title:d.zone + ', ' + d.cabin, sub:d.points_text + ' points each round trip',
+    row(body, { title:d.zone + ', ' + d.cabin,
+      sub:d.points_text + ' points each round trip' + (d.via ? ', via ' + d.via : '') +
+          (d.reach_text ? '. ' + d.reach_text + ' reach it' : ''),
       value:String(d.trips), vclass:'p' });
   });
 
