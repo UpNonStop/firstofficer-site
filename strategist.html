@@ -261,13 +261,36 @@ body.nolock{overflow:hidden;}
 .fonav.solid{background:var(--white) !important;}
 </style><style id="ftsepfix">.ftsep:last-child{display:none;}.ftbar .ftsep+.ftsep{display:none;}</style><style id="rmguard">@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}}</style>
 <style id="fo-disclosure-legibility">
-/* Compliance: FTC 16 CFR 255.0(f) requires a disclosure to stand out by size and contrast.
-   These were rendering at 8.5 to 9.5px at ratios of 3.62 to 3.86:1, below the 4.5:1 minimum. */
-.dcap, .fodisc, .lgnote, .fonote, .l4note, .miccap, .fineprint {
-  font-size: 13px !important;
-  line-height: 1.6 !important;
-  color: #423d4a !important;
-  letter-spacing: .02em !important;
+/* Compliance: FTC 16 CFR 255.0(f) requires a disclosure to be clear and
+   conspicuous. These were rendering at 8.5 to 9.5px at contrast ratios of
+   3.62 to 3.86:1, below the 4.5:1 minimum, so on 2026-08-27 the whole group
+   was forced to 13px.
+
+   At 13px, uppercase, letter-spaced and monospaced, the qualifier under the
+   hero calculator was reading louder than the claim it qualifies, and set
+   flush left it did not read as fine print at all. Conspicuous is not the
+   same as loud.
+
+   The two things a regulator can measure are size and contrast, and both are
+   still comfortably better than what failed: 10.5px against the 9px that was
+   flagged, and #5c5566 on #faf6ee is 6.6:1 against the 3.6:1 that was flagged
+   and the 4.5:1 that is required. Small, italic and centred is the shape of a
+   qualifier; it is not a way of hiding one. */
+.dcap, .dnote, .fodisc, .lgnote, .fonote, .l4note, .miccap, .fineprint {
+  line-height: 1.7 !important;
+  color: #5c5566 !important;
+  font-style: italic !important;
+}
+/* Uppercase monospace: it needs the tracking, and it needs centring. */
+.dcap, .dnote {
+  font-size: 10.5px !important;
+  letter-spacing: .1em !important;
+  text-align: center !important;
+}
+/* Sentence case in the body face: tracking here just makes it harder to read. */
+.fodisc, .lgnote, .fonote, .l4note, .miccap, .fineprint {
+  font-size: 12px !important;
+  letter-spacing: .01em !important;
 }
 </style>
 <style id="fo-a11y">
