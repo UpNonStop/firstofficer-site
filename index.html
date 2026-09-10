@@ -8,7 +8,7 @@
 <title>First Officer | The Rewards Desk for Small Business</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://images.unsplash.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --white:#ffffff; --soft:#f5f5f7; --cream:#faf6ee;
@@ -927,37 +927,29 @@
 .fonav.solid{background:var(--white) !important;}
 </style><style id="ftsepfix">.ftsep:last-child{display:none;}.ftbar .ftsep+.ftsep{display:none;}</style>
 <style id="fo-disclosure-legibility">
-/* Compliance: FTC 16 CFR 255.0(f) requires a disclosure to be clear and
-   conspicuous. These were rendering at 8.5 to 9.5px at contrast ratios of
-   3.62 to 3.86:1, below the 4.5:1 minimum, so on 2026-08-27 the whole group
-   was forced to 13px.
-
-   At 13px, uppercase, letter-spaced and monospaced, the qualifier under the
-   hero calculator was reading louder than the claim it qualifies, and set
-   flush left it did not read as fine print at all. Conspicuous is not the
-   same as loud.
-
-   The two things a regulator can measure are size and contrast, and both are
-   still comfortably better than what failed: 10.5px against the 9px that was
-   flagged, and #5c5566 on #faf6ee is 6.6:1 against the 3.6:1 that was flagged
-   and the 4.5:1 that is required. Small, italic and centred is the shape of a
-   qualifier; it is not a way of hiding one. */
-.dcap, .dnote, .fodisc, .lgnote, .fonote, .l4note, .miccap, .fineprint {
-  line-height: 1.7 !important;
-  color: #5c5566 !important;
+/* Fine print: small, italic, sentence case, tucked into the bottom of whatever it qualifies. Same voice as the caption inside the phone. */
+.dcap, .dnote, .wa-cap, .fine, .l4note, .fodisc, .lgnote, .fonote, .miccap, .fineprint {
+  font-family: 'DM Sans', system-ui, sans-serif !important;
   font-style: italic !important;
-}
-/* Uppercase monospace: it needs the tracking, and it needs centring. */
-.dcap, .dnote {
-  font-size: 10.5px !important;
-  letter-spacing: .1em !important;
+  font-weight: 400 !important;
+  font-size: 11px !important;
+  line-height: 1.55 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: #47414f !important;
   text-align: center !important;
+  text-wrap: balance;
 }
-/* Sentence case in the body face: tracking here just makes it harder to read. */
-.fodisc, .lgnote, .fonote, .l4note, .miccap, .fineprint {
-  font-size: 12px !important;
-  letter-spacing: .01em !important;
-}
+.dnote { margin-top: 10px !important; }
+.dial2 > .dcap, #fomoBox > .dcap, .sbeat > .dcap { margin: 16px 0 0 !important; padding-top: 11px; border-top: 1px dashed rgba(20,18,22,.13); }
+.sbeat > .dcap { grid-column: 1 / -1; }
+.friday > .dcap { margin: 0 !important; padding: 11px 20px 13px; border-top: 1px dashed rgba(20,18,22,.13); }
+.phone > .dcap { flex: none; margin: 0 !important; padding: 9px 16px 11px; background: #fff; border-top: 1px solid rgba(20,18,22,.07); }
+.sec > .dcap { max-width: 620px !important; margin: 16px auto 0 !important; }
+.ledger > .fine { margin: 0 !important; padding: 11px 20px 14px !important; border-top: 1px dashed rgba(20,18,22,.13); }
+.wa-cap { padding: 6px 8px 2px !important; }
+/* the hero's buttons centre over the centred line beneath them, so the card's bottom reads as one block */
+.dial2 > .dcta { justify-content: center; }
 </style>
 <style id="fo-a11y">
 /* WCAG 2.4.7: every interactive control needs a visible keyboard focus state. */
@@ -1766,8 +1758,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid rgba(
           <a class="pill green" href="https://wa.me/16199404040?text=First%20Officer%20check" style="text-decoration:none">&#x1F4AC; Text Your First Officer</a>
           <a class="dghost" href="calculator.html">See the full breakdown</a>
         </div>
-        <div class="dcap" style="margin-top:10px">MODELLED AT A BLENDED 2.1x EARN, 85% OF POINTS ACTUALLY USED, AND 2.6 CENTS OF VALUE PER POINT &middot; STICKER VALUE OF THE TRAVEL, BEFORE OUR FEE &middot; YOUR CATEGORY MIX AND YOUR REDEMPTIONS WILL DIFFER &middot; THE <a href="calculator.html" style="color:inherit;text-decoration:underline">FULL CALCULATOR</a> SHOWS THE NUMBER NET OF OUR FEE</div>
-        <div class="dnote" id="dNote">TWENTY MINUTES &middot; FREE &middot; NO CARD REQUIRED</div>
+        <div class="dnote" id="dNote">Twenty minutes. Free. No card required.</div>
+        <div class="dcap">Modelled at a blended 2.1x earn, 85% of points actually used, and 2.6 cents of value per point. Sticker value of the travel, before our fee. Your category mix and your redemptions will differ. The <a href="calculator.html" style="color:inherit;text-decoration:underline">full calculator</a> shows the number net of our fee.</div>
       </div>
         <div class="duo">
           <div class="duo-k">Machines watch &middot; Operators decide &middot; You approve</div>
@@ -1788,8 +1780,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid rgba(
           <div class="wa-chat">
             <div class="wa-cap">Simulated conversation. Actual results vary by portfolio.</div>
           </div>
+          <div class="dcap">This is the entire product. One thread, no app to install.</div>
         </div>
-      <div class="dcap">THIS IS THE ENTIRE PRODUCT. ONE THREAD, NO APP TO INSTALL.</div>
     </div>
   </div>
 </section>
@@ -1811,16 +1803,19 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid rgba(
       <div class="sbn">01</div>
       <div><div class="sbh">Miles are a product. You are not the customer.</div>
       <div class="sbp">Airlines do not give miles away, they <b>sell them in bulk to banks</b>. Delta collected roughly <b>$7.4 billion</b> from its card partner in 2024, larger than the airline's entire operating profit that year. American and United run the same play. When the planes were grounded they mortgaged the loyalty programs alongside everything else: $9 billion raised against SkyMiles and $6.8 billion against MileagePlus in 2020, then $10 billion against AAdvantage in March 2021.</div></div>
+      <div class="dcap">Delta figure from its 2024 Form 10-K. Loyalty financings from the 2020 and 2021 offering documents.</div>
     </div>
     <div class="sbeat">
       <div class="sbn">02</div>
       <div><div class="sbh">They win on the spread.</div>
       <div class="sbp">Programs sell miles to the banks for somewhere between <b>1.25 and 2 cents</b> each, and independent valuations put typical redemption value at <b>1.1 to 1.5</b>. Neither number appears in any filing, because co-brand pricing is confidential, but the direction of the gap is the business model and it repeats across every mile issued. In the 2019 figures the airlines showed bond investors, AAdvantage ran a <b>49 percent EBITDA margin</b> and MileagePlus 34. The airlines themselves earned operating margins of 4.8 to 9.7 percent in 2024.</div></div>
+      <div class="dcap">Margins from the 2019 AAdvantage and MileagePlus investor presentations.</div>
     </div>
     <div class="sbeat">
       <div class="sbn">03</div>
       <div><div class="sbh">They win again when you forget.</div>
       <div class="sbp">Points earned and never used have a name on the balance sheet: <b>breakage</b>. McKinsey estimated in 2018 that more than <b>30 trillion frequent flyer miles</b> were sitting unredeemed, and it is still the most-cited figure in the industry. Breakage typically runs a quarter to a third of everything issued, around 25 percent in retail programs and 15 to 30 in airline ones, and every one of those forgotten points is margin nobody has to deliver. Your balance is in that number.</div></div>
+      <div class="dcap">Breakage and unredeemed miles from McKinsey, 2018. See the Ghost Economy on The Daily Redemption for the full working.</div>
     </div>
     <div class="sbeat hit">
       <div class="sbn">04</div>
@@ -1828,7 +1823,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid rgba(
       <div class="sbp">Redeem above the spread. Move the points into the airline or hotel program itself, at the right moment, against the right chart, on dates that actually have space, and the value lands on <b>your</b> side of the table instead of theirs. That takes somebody watching all day, every day. That is the entire job you are hiring.</div></div>
     </div>
   </div>
-  <div class="dcap" style="margin-top:18px">DELTA FIGURE FROM ITS 2024 FORM 10-K &middot; LOYALTY FINANCINGS FROM THE 2020 AND 2021 OFFERING DOCUMENTS &middot; MARGINS FROM THE 2019 AAdvantage AND MileagePlus INVESTOR PRESENTATIONS &middot; BREAKAGE AND UNREDEEMED MILES FROM McKINSEY, 2018 &middot; SEE THE GHOST ECONOMY ON THE DAILY REDEMPTION FOR THE FULL WORKING</div>
   <div class="punch">2 departments are working on your points.<br><em>Until now, neither one worked for you.</em></div>
 </section>
 
@@ -1861,8 +1855,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid rgba(
     <div class="fomo-bar"><i class="l" id="fBarL" style="width:14%"></i><i class="r" id="fBarR" style="width:86%"></i></div>
     <div class="fomo-legend"><span>Their store</span><span id="fGap">6x more for the same points</span></div>
     <div class="fomo-dots" id="fDots"></div>
+    <div class="dcap">Illustrative examples. Award pricing and availability change constantly. We control neither.</div>
   </div>
-  <div class="dcap" style="margin-top:14px">ILLUSTRATIVE EXAMPLES &middot; AWARD PRICING AND AVAILABILITY CHANGE CONSTANTLY &middot; WE CONTROL NEITHER</div>
 </section>
 
 <section class="sec secphoto deep" id="receipts" style="--ph:url('img/fo-connemara.jpg')">
@@ -1938,7 +1932,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid rgba(
   </div>
   <div class="taxend">One arrives with a tax drag.<br><em>The other arrives as a trip.</em></div>
   <div class="taxdis">We are not your accountant and we will not pretend to be one. Ask yours which of the two they would rather see on your return. It is a 2 minute question with a 4 figure answer.</div>
-  <div class="dcap" style="margin-top:14px">MODELLED ON A $35,000 A MONTH PROFILE &middot; POINTS COLUMN ASSUMES A BLENDED 2.9x EARN REDEEMED AT 1.8 CENTS &middot; BOTH COLUMNS SUBTRACT THE SAME FOUR FRICTIONS &middot; NEITHER COLUMN PRICES TAX TREATMENT &middot; CAPS, FEES, CODING AND TAX TREATMENT VARY BY BUSINESS &middot; GENERAL INFORMATION, NOT TAX ADVICE</div>
+  <div class="dcap">Modelled on a $35,000 a month profile. Points column assumes a blended 2.9x earn redeemed at 1.8 cents. Both columns subtract the same four frictions. Neither column prices tax treatment. Caps, fees, coding and tax treatment vary by business. General information, not tax advice.</div>
 </section>
 
 <section class="sec cream" id="deck">
@@ -2220,7 +2214,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid rgba(
     </div>
   </div>
   <div class="carhint" id="carHint">HOVER TO PAUSE &middot; 15 TRIPS ON A LOOP</div>
-  <div class="dcap" style="margin-top:8px">ILLUSTRATIVE REDEMPTIONS IN THE STYLE THE DESK FINDS &middot; AVAILABILITY AND PRICING CHANGE</div>
+  <div class="dcap">Illustrative redemptions in the style the desk finds. Availability and pricing change.</div>
 </section>
 
 <section class="sec secphoto deep" id="pillars" style="--ph:url('img/fo-iceland.jpg')">
@@ -2249,8 +2243,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid rgba(
       <div class="fline"><span>Expiring balance rescued</span><b>$940</b></div>
       <div class="ftot"><span class="bk">Captured this week</span><span class="fv">$3,900</span></div>
     </div>
+    <div class="dcap">Illustrative week. Your report shows your own captures.</div>
   </div>
-  <div class="dcap" style="margin-top:14px">ILLUSTRATIVE WEEK &middot; YOUR REPORT SHOWS YOUR OWN CAPTURES</div>
 </section>
 
 <section class="sec secphoto deep" id="explore" style="--ph:url('img/fo-santorini.jpg')">
@@ -2278,8 +2272,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid rgba(
     var v=+r.value, cap=v*12*(2.1*0.85*0.026);
     sv.textContent=fmt(v); cv.textContent=fmt(cap); if(sv2) sv2.textContent=fmt(cap);
     fl.textContent=fmt(cap*0.6); ho.textContent=fmt(cap*0.3); re2.textContent=fmt(cap*0.1);
-    nt.textContent = v<25000 ? 'BELOW $25K A MONTH WE USUALLY SAY NO, AND WE SAY IT FOR FREE'
-                             : 'TWENTY MINUTES · FREE · NO CARD REQUIRED';
+    nt.textContent = v<25000 ? 'Below $25K a month we usually say no, and we say it for free.'
+                             : 'Twenty minutes. Free. No card required.';
   }
   r.addEventListener('input', go); go();
   var track=document.querySelector('.cartrack'), wrap=document.querySelector('.carwrap'), hint=document.getElementById('carHint'), paused=false;
