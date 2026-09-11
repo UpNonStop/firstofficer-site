@@ -948,8 +948,9 @@
 .sec > .dcap { max-width: 620px !important; margin: 16px auto 0 !important; }
 .ledger > .fine { margin: 0 !important; padding: 11px 20px 14px !important; border-top: 1px dashed rgba(20,18,22,.13); }
 .wa-cap { padding: 6px 8px 2px !important; }
-/* the hero's buttons centre over the centred line beneath them, so the card's bottom reads as one block */
-.dial2 > .dcta { justify-content: center; }
+/* the hero card reads down one centre line: the question, the dial, the answer, the buttons, the fine print */
+.dial2 { text-align: center; }
+.dial2 .osplit, .dial2 > .dcta { justify-content: center; }
 </style>
 <style id="fo-a11y">
 /* WCAG 2.4.7: every interactive control needs a visible keyboard focus state. */
