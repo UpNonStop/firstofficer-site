@@ -1016,8 +1016,8 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 .bk-hl{font-weight:700;color:#c40e74}
 .bk-facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .bk-facts span{background:#fff;border:1px solid #eae3d6;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;color:#141216}
-.bk-art{margin:0;border-radius:24px;overflow:hidden;background:#fff;border:1px solid #eae3d6;box-shadow:0 18px 40px -26px rgba(20,18,22,.3)}
-.bk-art svg{display:block;width:100%;height:auto}
+
+
 .bk-ctx{display:none;background:#fff5d6;border:2px solid #e8b931;border-radius:14px;padding:14px 18px;margin:0 0 24px;font-size:15px}
 .bk-ctx.on{display:block}
 .bk-ctx b{font-family:'JetBrains Mono',monospace;font-weight:600}
@@ -1059,8 +1059,8 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 .bk-done .ck{width:56px;height:56px;border-radius:50%;background:#e7f5ec;display:grid;place-items:center;margin:0 auto 12px}
 .bk-done .ck svg{width:28px;height:28px;stroke:#138a43;fill:none;stroke-width:3}
 .bk-done ol{text-align:left;max-width:520px;margin:16px auto;color:#4a4550}
-.bk-after{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:center;margin-top:48px}
-.bk-steps{display:grid;grid-template-columns:1fr;gap:12px}
+.bk-after{margin-top:48px}
+.bk-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .bk-step{background:#fff;border:1px solid #eae3d6;border-radius:16px;padding:18px}
 .bk-step b{font-family:'JetBrains Mono',monospace;color:#FA1896;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
 .bk-step a{color:#FA1896}
@@ -1068,7 +1068,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 .bk-note{margin-top:28px;font-size:14px;color:#4a4550;border-top:1px solid #eae3d6;padding-top:18px}
 .bk-note a{color:#FA1896}
 @media (max-width:560px){.bk-grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:980px){.bk-after{grid-template-columns:1fr}}
+@media (max-width:860px){.bk-steps{grid-template-columns:1fr !important}}
 @media (max-width:560px){.bk{padding:32px 16px 56px}.bk-form{grid-template-columns:1fr}.bk-steps{grid-template-columns:1fr}.bk-panel{padding:18px}}
 .focap::before,.focap::after{display:none !important;content:none !important}
 .focap{background:#fff0f8 !important}
@@ -1155,13 +1155,6 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
   </section>
 
   <div class="bk-after">
-  <figure class="bk-art" aria-label="Illustration: a calendar, a text bubble, an email and a phone all leading to one desk"><svg viewBox="0 0 480 380" role="img" aria-hidden="true"><rect width="480" height="380" fill="#fff"/><g fill="none" stroke="#FA1896" stroke-width="2" stroke-dasharray="4 7" stroke-linecap="round" opacity=".55"><path d="M92 92 C150 140 190 180 240 236"/><path d="M388 92 C330 140 290 180 240 236"/><path d="M70 236 C130 236 180 240 240 248"/><path d="M410 236 C350 236 300 240 240 248"/></g>
-<g transform="translate(52 50)"><rect width="80" height="80" rx="20" fill="#fff0f8"/><rect x="20" y="24" width="40" height="36" rx="6" fill="none" stroke="#FA1896" stroke-width="3"/><path d="M20 36h40M30 18v12M50 18v12" stroke="#FA1896" stroke-width="3" stroke-linecap="round"/></g>
-<g transform="translate(348 50)"><rect width="80" height="80" rx="20" fill="#e7f5ec"/><path d="M22 28h36a6 6 0 0 1 6 6v18a6 6 0 0 1-6 6H38l-10 8v-8h-6a6 6 0 0 1-6-6V34a6 6 0 0 1 6-6z" fill="none" stroke="#138a43" stroke-width="3" stroke-linejoin="round"/></g>
-<g transform="translate(20 196)"><rect width="80" height="80" rx="20" fill="#fff5d6"/><rect x="18" y="26" width="44" height="30" rx="5" fill="none" stroke="#b8860b" stroke-width="3"/><path d="M18 30l22 15 22-15" fill="none" stroke="#b8860b" stroke-width="3" stroke-linejoin="round"/></g>
-<g transform="translate(380 196)"><rect width="80" height="80" rx="20" fill="#fff0f8"/><path d="M28 22h8l4 10-5 3a22 22 0 0 0 10 10l3-5 10 4v8a4 4 0 0 1-4 4A32 32 0 0 1 24 26a4 4 0 0 1 4-4z" fill="none" stroke="#FA1896" stroke-width="3" stroke-linejoin="round"/></g>
-<g transform="translate(140 222)"><rect x="0" y="40" width="200" height="14" rx="7" fill="#eae3d6"/><rect x="20" y="54" width="10" height="70" rx="4" fill="#eae3d6"/><rect x="170" y="54" width="10" height="70" rx="4" fill="#eae3d6"/><rect x="60" y="0" width="80" height="40" rx="6" fill="#fff" stroke="#141216" stroke-width="2.5"/><path d="M76 14h48M76 24h30" stroke="#FA1896" stroke-width="3" stroke-linecap="round"/><rect x="150" y="20" width="22" height="20" rx="4" fill="#fff" stroke="#141216" stroke-width="2.5"/><path d="M172 26h4a4 4 0 0 1 0 8h-4" fill="none" stroke="#141216" stroke-width="2.5"/></g>
-<text x="240" y="362" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="1.5" fill="#8a8492">EVERY WAY IN. ONE DESK.</text></svg></figure>
   <div class="bk-steps">
     <div class="bk-step"><b>01 / The call</b><p>20 minutes on where your card spend goes and what it earns today.</p></div>
     <div class="bk-step"><b>02 / The written answer</b><p>A yes with the math behind it, or an honest no if it won't clear the fee.</p></div>
