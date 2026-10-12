@@ -8,7 +8,7 @@ Audited live on 2026-09-09 across all 34 pages:
   21 pages have NO Daily Redemption block at all: the 20 for-*.html industry
      pages plus strategist.html. On those, .ctab sits directly above .sitedir.
    2 pages, trust.html and terms-of-service.html, carry the block but their
-     site directory is missing one link: "Do Not Sell My Info -> privacy.html".
+     site directory is missing one link: "Do Not Sell My Info -> privacy-policy.html#do-not-sell".
 
 This inserts the canonical block immediately before <div class="sitedir"> where
 it is absent, and adds the missing directory link where that is the only fault.
@@ -67,7 +67,7 @@ FOCAP = r"""<section class="focap" style="--phcap:url(&quot;img/fo-bali.jpg&quot
   });
 })();</script>"""
 
-MISSING_LINK = '<a href="privacy.html">Do Not Sell My Info</a>'
+MISSING_LINK = '<a href="privacy-policy.html#do-not-sell">Do Not Sell My Info</a>'
 AFTER_LINK   = '<a href="privacy-policy.html">Privacy Policy</a>'
 
 def main():
