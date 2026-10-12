@@ -1013,7 +1013,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 .bk-hero h1{text-align:center !important;max-width:none !important;margin-left:auto !important;margin-right:auto !important}
 .bk h1 .l2{display:block;color:#FA1896}
 .bk-lede{font-size:18px;font-weight:500;line-height:1.7;color:#4a4550;max-width:560px;margin:0}
-.bk-hl{background:linear-gradient(100deg,rgba(250,24,150,0) 1%,rgba(250,24,150,.28) 4%,rgba(250,24,150,.22) 94%,rgba(250,24,150,0) 99%);padding:0 4px;border-radius:6px 3px 7px 4px;font-weight:600;color:#141216}
+.bk-hl{font-weight:700;color:#c40e74}
 .bk-facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .bk-facts span{background:#fff;border:1px solid #eae3d6;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;color:#141216}
 .bk-art{margin:0;border-radius:24px;overflow:hidden;background:#fff;border:1px solid #eae3d6;box-shadow:0 18px 40px -26px rgba(20,18,22,.3)}
@@ -1052,7 +1052,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 .bk-btn.g:hover{background:#0f7337}
 .bk-fine{font-size:13px;color:#8a8492;margin-top:12px}
 .bk-fine a{color:#FA1896}
-.bk-embed{min-height:560px;border-radius:14px;overflow:hidden;border:1px solid #eae3d6}
+.bk-form input,.bk-form select,.bk-form textarea{font-family:'DM Sans',system-ui,sans-serif!important;text-transform:none!important;letter-spacing:normal!important}.bk-alt{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}.bk-btn.ghost{background:#fff;color:#c40e74;border:1.5px solid #f6c6de}.bk-btn.ghost:hover{background:#fff0f8}.bk-embed{min-height:560px;border-radius:14px;overflow:hidden;border:1px solid #eae3d6}
 .bk-embed iframe{width:100%;height:640px;border:0;display:block}
 .bk-done{display:none;text-align:center;background:#fff;border:2px solid #138a43;border-radius:20px;padding:34px 24px}
 .bk-done.on{display:block}
@@ -1079,7 +1079,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
     <div>
       <div class="bk-eyebrow">The Found Money Call. Free, 20 minutes</div>
       <h1>Twenty minutes, your way.<span class="l2">See what your spend missed.</span></h1>
-      <p class="bk-lede">We look at where your business card spend goes and what it already earns. If the math won't clear the fee, <span class="bk-hl">you get an honest no, in writing.</span></p>
+      <p class="bk-lede">We look at where your business card spend goes and what it already earns. If the math won't clear the fee, <strong class="bk-hl">you get an honest no, in writing.</strong></p>
       <div class="bk-facts"><span>No cost</span><span>No card login needed</span><span>No affiliate links</span><span>$550/month only if you say yes</span></div>
     </div>
   </div>
@@ -1091,7 +1091,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
     <p class="bk-sub">Pick the one that fits your day. Same call, same honest answer.</p>
     <div class="bk-grid" role="group" aria-label="Choose a channel">
       <button class="bk-tile" type="button" data-ch="sms" aria-pressed="false"><span class="bk-free">Free</span><span class="ic"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18h4"/></svg></span><b>Text me</b><small>A plain text from your phone.</small></button>
-      <button class="bk-tile" type="button" data-ch="calendar" id="tileCal" aria-pressed="false"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><b>Pick a time</b><small>Book a 20-minute slot on the calendar.</small></button>
+      <button class="bk-tile" type="button" data-ch="calendar" id="tileCal" aria-pressed="false"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><b>Pick a time</b><small>A 20-minute Google Meet video call.</small></button>
       <button class="bk-tile" type="button" data-ch="email" aria-pressed="false"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 7l9 6 9-6"/></svg></span><b>Email me</b><small>Send a note, get a reply by email.</small></button>
       <button class="bk-tile" type="button" data-ch="callback" aria-pressed="false"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><b>Call me back</b><small>Leave a number and a good time.</small></button>
       <button class="bk-tile" type="button" data-ch="whatsapp" aria-pressed="false"><span class="ic"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12z"/></svg></span><b>WhatsApp me</b><small>Message us, we reply in the thread.</small></button>
@@ -1100,8 +1100,11 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
     <!-- Calendar -->
     <div class="bk-panel" id="p-calendar">
       <h3>Pick a time that works</h3>
-      <p>Choose a slot and you'll get a calendar invite and email reminders.</p>
+      <div id="calLive" hidden><p>Choose a 20-minute slot. Google Calendar sends you an invite with a Google Meet video link.</p>
       <div class="bk-embed" id="bkEmbed"></div>
+      <p class="bk-fine">Calendar not loading? <a id="calOpen" href="#" target="_blank" rel="noopener">Open the booking page in a new tab</a>. Booking runs on Google Calendar, as listed in our <a href="privacy-policy.html">Privacy Policy</a>.</p></div>
+      <div id="calWait"><p>Our live calendar is on its way. Tell us a time that suits you and we'll send a Google Meet invite for a 20-minute video call.</p>
+      <div class="bk-alt"><button class="bk-btn" type="button" data-alt="email">Email me a time</button><button class="bk-btn ghost" type="button" data-alt="callback">Call me back instead</button></div></div>
     </div>
 
     <!-- SMS -->
@@ -1158,7 +1161,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 <g transform="translate(20 196)"><rect width="80" height="80" rx="20" fill="#fff5d6"/><rect x="18" y="26" width="44" height="30" rx="5" fill="none" stroke="#b8860b" stroke-width="3"/><path d="M18 30l22 15 22-15" fill="none" stroke="#b8860b" stroke-width="3" stroke-linejoin="round"/></g>
 <g transform="translate(380 196)"><rect width="80" height="80" rx="20" fill="#fff0f8"/><path d="M28 22h8l4 10-5 3a22 22 0 0 0 10 10l3-5 10 4v8a4 4 0 0 1-4 4A32 32 0 0 1 24 26a4 4 0 0 1 4-4z" fill="none" stroke="#FA1896" stroke-width="3" stroke-linejoin="round"/></g>
 <g transform="translate(140 222)"><rect x="0" y="40" width="200" height="14" rx="7" fill="#eae3d6"/><rect x="20" y="54" width="10" height="70" rx="4" fill="#eae3d6"/><rect x="170" y="54" width="10" height="70" rx="4" fill="#eae3d6"/><rect x="60" y="0" width="80" height="40" rx="6" fill="#fff" stroke="#141216" stroke-width="2.5"/><path d="M76 14h48M76 24h30" stroke="#FA1896" stroke-width="3" stroke-linecap="round"/><rect x="150" y="20" width="22" height="20" rx="4" fill="#fff" stroke="#141216" stroke-width="2.5"/><path d="M172 26h4a4 4 0 0 1 0 8h-4" fill="none" stroke="#141216" stroke-width="2.5"/></g>
-<text x="240" y="362" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="1.5" fill="#8a8492">FOUR WAYS IN. ONE DESK.</text></svg></figure>
+<text x="240" y="362" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" letter-spacing="1.5" fill="#8a8492">EVERY WAY IN. ONE DESK.</text></svg></figure>
   <div class="bk-steps">
     <div class="bk-step"><b>01 / The call</b><p>20 minutes on where your card spend goes and what it earns today.</p></div>
     <div class="bk-step"><b>02 / The written answer</b><p>A yes with the math behind it, or an honest no if it won't clear the fee.</p></div>
@@ -1170,9 +1173,10 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 </div>
 <script>
 (function(){
-  /* ===== CONFIG: paste Ohad's Cal.com booking link here (e.g. "https://cal.com/USERNAME/found-money-call").
-     TODO(Ohad): Cal.com link not set yet. While this is empty, the calendar tile is hidden and the other options show. ===== */
-  var CAL_URL = "";
+  /* ===== CONFIG: paste Ohad's Google Calendar appointment schedule link here
+     (e.g. "https://calendar.google.com/calendar/appointments/schedules/XXXX" or "https://calendar.app.google/XXXX").
+     TODO(Ohad): link not set yet. While empty, "Pick a time" asks for a preferred time by email or callback. ===== */
+  var GOOGLE_BOOKING_URL = "";
   var WA = "16199404040", EMAIL = "desk@upnonstop.com";
   var IND = {agencies:"Agencies","auto-repair":"Auto repair",cleaning:"Cleaning",consulting:"Consulting",contractors:"Contractors","cpa-firms":"CPA firms",dental:"Dental",ecommerce:"E-commerce",fitness:"Fitness",hvac:"HVAC","it-services":"IT services",landscaping:"Landscaping","law-firms":"Law firms",medical:"Medical","property-management":"Property management","real-estate":"Real estate",restaurants:"Restaurants",salons:"Salons",trucking:"Trucking",veterinary:"Veterinary",other:"Other"};
   function ev(n,p){ if(typeof gtag==='function') gtag('event',n,p||{}); }
@@ -1191,8 +1195,11 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
   var SMS='+16199404040'; var ios=/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent); document.getElementById('smsLink').href='sms:'+SMS+(ios?'&':'?')+'body='+encodeURIComponent(summary());
   document.getElementById('waLink').href='https://wa.me/'+WA+'?text='+encodeURIComponent(summary());
   ev('book_view',{from:ctx.from||'direct',industry:ctx.industry||'none'});
-  var calOK = /^https:\/\/(app\.)?cal\.com\/[\w.\-\/]+$/.test(CAL_URL);
-  if (!calOK){ document.getElementById('tileCal').hidden = true; }
+  var calOK = /^https:\/\/(calendar\.google\.com\/calendar\/(u\/\d+\/)?appointments\/[\w.\-\/?=&]+|calendar\.app\.google\/[\w\-]+)$/.test(GOOGLE_BOOKING_URL);
+  document.getElementById('calLive').hidden = !calOK; document.getElementById('calWait').hidden = calOK;
+  if (calOK) document.getElementById('calOpen').href = GOOGLE_BOOKING_URL;
+  var wantTime=false;
+  document.querySelectorAll('[data-alt]').forEach(function(b){ b.addEventListener('click',function(){ wantTime=true; show(b.dataset.alt); }); });
   var panels = {sms:'p-sms',calendar:'p-calendar',whatsapp:'p-whatsapp',email:'p-form',callback:'p-form'}, mode='';
   function show(ch){
     mode=ch; document.querySelectorAll('.bk-tile').forEach(function(t){ t.setAttribute('aria-pressed', t.dataset.ch===ch?'true':'false'); });
@@ -1200,13 +1207,14 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
     document.getElementById('bkDone').classList.remove('on');
     var p=document.getElementById(panels[ch]); p.classList.add('on');
     if (ch==='calendar' && calOK && !document.querySelector('#bkEmbed iframe')){
-      var f=document.createElement('iframe'); var u=new URL(CAL_URL); u.searchParams.set('embed','true'); u.searchParams.set('notes',summary());
-      f.src=u.toString(); f.title='Pick a time for The Found Money Call'; f.loading='lazy'; document.getElementById('bkEmbed').appendChild(f);
+      var f=document.createElement('iframe'); var u=new URL(GOOGLE_BOOKING_URL); if(/calendar\.google\.com/.test(u.hostname)) u.searchParams.set('gv','true');
+      f.src=u.toString(); f.title='Pick a time for your Found Money Call (Google Calendar)'; f.loading='lazy'; document.getElementById('bkEmbed').appendChild(f);
     }
     var cb = ch==='callback';
-    document.getElementById('lEmail').hidden=cb; document.getElementById('lPhone').hidden=!cb; document.getElementById('lWhen').hidden=!cb;
+    if(ch!=='email'&&ch!=='callback') wantTime=false;
+    document.getElementById('lEmail').hidden=cb; document.getElementById('lPhone').hidden=!cb; document.getElementById('lWhen').hidden=!(cb||wantTime);
     document.getElementById('fTitle').textContent = cb ? 'Call me back' : 'Email me about the call';
-    document.getElementById('fSub').textContent = cb ? 'Four fields. We call you at the time you pick.' : 'Four fields. We reply by email to set up the call.';
+    document.getElementById('fSub').textContent = cb ? 'Four fields. We call you at the time you pick.' : (wantTime ? 'Tell us a time that suits you. We reply by email with a Google Meet invite.' : 'Four fields. We reply by email to set up the call.');
     ev('channel_select',{channel:ch});
     if(window.__bkUser) p.scrollIntoView({behavior:'smooth',block:'nearest'});
   }
@@ -1226,15 +1234,14 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
     if(!cb && em.indexOf('@')<1){ m.textContent='Please add an email we can reply to.'; f.email.focus(); return; }
     if(cb && ph.replace(/\D/g,'').length<10){ m.textContent='Please add a 10-digit number.'; f.phone.focus(); return; }
     var ind=IND[f.industry.value]||'Not given';
-    var body=['Name: '+name, cb?('Phone: '+ph+'\nBest time: '+f.when.value):('Email: '+em), 'Industry: '+ind];
+    var body=['Name: '+name, cb?('Phone: '+ph+'\nBest time: '+f.when.value):('Email: '+em+(wantTime?'\nPreferred time for a Google Meet call: '+f.when.value:'')), 'Industry: '+ind];
     if(ctx.spend) body.push('Calculator monthly spend (estimate): '+ctx.spend);
     if(ctx.score) body.push('Found Money Score: '+ctx.score);
     if(f.note.value.trim()) body.push('Note: '+f.note.value.trim());
     location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent((cb?'Callback request':'Email request')+': The Found Money Call')+'&body='+encodeURIComponent(body.join('\n'));
     done(cb?'callback':'email');
   });
-  window.addEventListener('message',function(e){ if(/cal\.com$/.test(new URL(e.origin).hostname) && e.data && JSON.stringify(e.data).indexOf('bookingSuccessful')>-1) done('calendar'); });
-  if (q.get('ch') && panels[q.get('ch')] && (q.get('ch')!=='calendar'||calOK)) show(q.get('ch'));
+  if (q.get('ch') && panels[q.get('ch')] && true) show(q.get('ch'));
 })();
 </script>
 </main>
