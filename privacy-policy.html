@@ -45,7 +45,7 @@ button{cursor:pointer;border:none;font-family:inherit;background:none}
 --r:16px;--r-pill:100px;
 }
 
-body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#fff;color:#111;transition:background .6s var(--ease),color .6s var(--ease)}
+body{font-family:var(--font);line-height:1.65;overflow-x:hidden;background:#faf6ee;color:#141216;transition:background .6s var(--ease),color .6s var(--ease)}
 body.biz{background:#000;color:#f0f0f4}
 .t2{color:#555;transition:color .6s}.t3{color:#888;transition:color .6s}
 body.biz .t2{color:#ddd}body.biz .t3{color:#bbb}
@@ -93,13 +93,14 @@ body .ftb{border-color:#eee}body.biz .ftb{border-color:#1a1a1a}
 
 /* LEGAL PAGE CONTENT */
 .legal-hero{padding:120px 0 48px;text-align:center;transition:background .6s}
-body .legal-hero{background:#f7f7f9}body.biz .legal-hero{background:#0a0a0a}
+body .legal-hero{background:transparent}body.biz .legal-hero{background:#0a0a0a}
 .legal-hero h1{font-family:var(--serif);font-size:clamp(28px,4vw,44px);line-height:1.1;letter-spacing:-.5px;margin-bottom:12px}
 .legal-hero .updated{font-family:var(--mono);font-size:12px;color:var(--pink);text-transform:uppercase;letter-spacing:2px;font-weight:600}
 
 .legal{max-width:760px;margin:0 auto;padding:56px 32px 80px}
 .legal h2{font-family:var(--serif);font-size:24px;line-height:1.2;margin:48px 0 16px;letter-spacing:-.3px;padding-top:8px}
 .legal h2:first-child{margin-top:0}
+.legal h3{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--pinkdeep,#e60f86);margin:28px 0 10px}
 .legal p{font-size:15px;line-height:1.8;margin-bottom:16px}
 .legal .callout{background:rgba(250,24,150,.04);border-left:3px solid var(--pink);border-radius:0 10px 10px 0;padding:20px 24px;margin:24px 0;font-weight:600;font-size:15px;line-height:1.7}
 body.biz .legal .callout{background:rgba(250,24,150,.08)}
@@ -229,7 +230,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 <section class="legal-hero">
 <div class="wrap">
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: March 23, 2026</p>
+<p class="updated">Last updated: October 11, 2026</p>
 </div>
 </section>
 
@@ -266,7 +267,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 <li><strong>Private to you.</strong> Your name, phone, email, card names, loyalty program names, balances, travel goals, and conversation history are stored in your isolated row. They are never visible to other clients.</li>
 <li><strong>Anonymized patterns.</strong> Aggregated, de-identified patterns: question and answer structures, vendor MCC behavior observations, transfer route outcomes, all flow into the shared knowledge base that informs future recommendations for all clients. Your identity, specific portfolio, and individual history never enter this layer.</li>
 </ul>
-<p>You can request deletion of your private layer at any time via email to <a href="mailto:compliance@upnonstop.com" style="color:var(--pink);text-decoration:underline">compliance@upnonstop.com</a> or through the <a href="#do-not-sell" style="color:var(--pink);text-decoration:underline">Do Not Sell My Info</a> section below.</p>
+<p>You can request deletion of your private layer at any time via email to <a href="mailto:compliance@upnonstop.com" style="color:var(--pink);text-decoration:underline">compliance@upnonstop.com</a> or through the <a href="#do-not-sell" style="color:var(--pink);text-decoration:underline">Your Rights</a> section below.</p>
 
 <h2>Third-Party Processors</h2>
 <p>We work with a small number of trusted third-party processors to deliver the service:</p>
@@ -287,18 +288,22 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 <h2>Data Security</h2>
 <p>All client data is stored with row-level isolation in Supabase, meaning your data is completely separated from every other client at the infrastructure level. We use encryption in transit and at rest.</p>
 
-<h2 id="do-not-sell">Your Rights Under CCPA (California)</h2>
-<p>If you are a California resident, you have the right to:</p>
+<h2 id="do-not-sell">Your Rights, and Do Not Sell My Info</h2>
+<p>We do not sell your personal information and we do not share it for cross-context behavioral advertising. You can still exercise every right below, at any time, in one email.</p>
 <ul>
-<li><strong>Know</strong> what personal information we collect and how it is used</li>
-<li><strong>Delete</strong> your personal information upon request</li>
-<li><strong>Opt out</strong> of the sale of your personal information, though we want to be clear: we do not sell your data to anyone, ever</li>
-<li><strong>Non-discrimination</strong>: we will not treat you differently for exercising your privacy rights</li>
+<li><strong>Know</strong>: ask what personal information we hold about you, where it came from, and what it is used for. We answer in plain language.</li>
+<li><strong>Correct</strong>: if anything we hold is inaccurate, tell us and we correct it.</li>
+<li><strong>Delete</strong>: ask us to delete your personal information. We delete all of it within 30 days and confirm in writing what was removed.</li>
+<li><strong>Opt out</strong> of the sale or sharing of your personal information. We do not sell personal information and we do not share it for cross-context behavioral advertising. If that ever changed, this is where you would opt out first. You can register the request now and it stands.</li>
+<li><strong>Non-discrimination</strong>: we will not treat you differently for exercising your privacy rights.</li>
 </ul>
+<p>If you are a California resident, these are your rights under the CCPA.</p>
+<h3 id="make-a-request">How to make a request</h3>
+<p>One email, no forms, no portal. Send your request to <a href="mailto:compliance@upnonstop.com">compliance@upnonstop.com</a> from the email or phone number on your account, and say what you want: know, correct, delete, or opt out. We verify it is you, act on it, and confirm in writing within 30 days.</p>
 
 <h2 id="geographic-restrictions">Where We Operate, and Your Rights Wherever You Live</h2>
 <p>First Officer is sold to businesses and residents of the United States. We operate from the United States and our processors store data there, so if you use the service your information is processed in the United States.</p>
-<p>Your rights do not depend on your passport. Whatever your citizenship, and wherever you live, you can ask us what personal information we hold about you, ask us to correct it, and ask us to delete it. We verify the request, act on it, and confirm in writing within 45 days, and we will never treat you differently for asking. That is the same commitment we make to California residents, extended to everybody, because splitting it by nationality would be both harder to administer and worse.</p>
+<p>Your rights do not depend on your passport. Whatever your citizenship, and wherever you live, you can ask us what personal information we hold about you, ask us to correct it, and ask us to delete it. We verify the request, act on it, and confirm in writing within 30 days, and we will never treat you differently for asking. That is the same commitment we make to California residents, extended to everybody, because splitting it by nationality would be both harder to administer and worse.</p>
 <p>If you are physically in the European Economic Area or the United Kingdom while using the service, European data protection law may apply to that processing, and the rights above are how you exercise it. Write to <a href="mailto:compliance@upnonstop.com" style="color:var(--pink);text-decoration:underline">compliance@upnonstop.com</a> and we will handle it on the same terms.</p>
 
 <h2>Cookies</h2>
@@ -329,7 +334,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
   </div>
 </section>
 
-<div class="sitedir"><div class="sd-col"><div class="sd-h">Product</div><a href="pricing.html">Pricing</a><a href="how.html">How It Works</a><a href="product.html">The Product</a><a href="strategist.html">The Strategist</a><a href="trust.html">Trust & Security</a><a href="calculator.html">Run The Numbers</a></div><div class="sd-col" id="industries"><div class="sd-h">Your Industry</div><a href="for-agencies.html">Agencies</a><a href="for-auto-repair.html">Auto Repair</a><a href="for-cleaning.html">Cleaning</a><a href="for-consulting.html">Consulting</a><a href="for-contractors.html">Contractors</a><a href="for-cpa-firms.html">CPA Firms</a><a href="for-dental.html">Dental</a><a href="for-ecommerce.html">E-Commerce</a><a href="for-fitness.html">Fitness</a><a href="for-hvac.html">HVAC</a><a href="for-it-services.html">IT & MSP</a><a href="for-landscaping.html">Landscaping</a><a href="for-law-firms.html">Law Firms</a><a href="for-medical.html">Medical</a><a href="for-property-management.html">Property Management</a><a href="for-real-estate.html">Real Estate</a><a href="for-restaurants.html">Restaurants</a><a href="for-salons.html">Salons</a><a href="for-trucking.html">Trucking</a><a href="for-veterinary.html">Veterinary</a></div><div class="sd-col" id="notes"><div class="sd-h">Field Notes</div><a href="field-notes.html#loyalty">Loyalty</a><a href="field-notes.html#affiliates">Affiliates</a><a href="field-notes.html#cashback">Cashback</a><a href="field-notes.html#expiration">Expiration</a><a href="field-notes.html#complexity">Complexity</a><a href="field-notes.html#timing">Timing</a><a href="field-notes.html#proactive">Proactive</a><a href="field-notes.html#value">Value</a><a href="field-notes.html">Field Notes</a></div><div class="sd-col"><div class="sd-h">More</div><a href="https://upnonstop.com">The Daily Redemption</a><a href="connect.html">Connect</a><a href="privacy-policy.html">Privacy Policy</a><a href="privacy.html">Do Not Sell My Info</a><a href="terms-of-service.html">Terms of Service</a></div></div>
+<div class="sitedir"><div class="sd-col"><div class="sd-h">Product</div><a href="pricing.html">Pricing</a><a href="how.html">How It Works</a><a href="product.html">The Product</a><a href="strategist.html">The Strategist</a><a href="trust.html">Trust & Security</a><a href="calculator.html">Run The Numbers</a></div><div class="sd-col" id="industries"><div class="sd-h">Your Industry</div><a href="for-agencies.html">Agencies</a><a href="for-auto-repair.html">Auto Repair</a><a href="for-cleaning.html">Cleaning</a><a href="for-consulting.html">Consulting</a><a href="for-contractors.html">Contractors</a><a href="for-cpa-firms.html">CPA Firms</a><a href="for-dental.html">Dental</a><a href="for-ecommerce.html">E-Commerce</a><a href="for-fitness.html">Fitness</a><a href="for-hvac.html">HVAC</a><a href="for-it-services.html">IT & MSP</a><a href="for-landscaping.html">Landscaping</a><a href="for-law-firms.html">Law Firms</a><a href="for-medical.html">Medical</a><a href="for-property-management.html">Property Management</a><a href="for-real-estate.html">Real Estate</a><a href="for-restaurants.html">Restaurants</a><a href="for-salons.html">Salons</a><a href="for-trucking.html">Trucking</a><a href="for-veterinary.html">Veterinary</a></div><div class="sd-col" id="notes"><div class="sd-h">Field Notes</div><a href="field-notes.html#loyalty">Loyalty</a><a href="field-notes.html#affiliates">Affiliates</a><a href="field-notes.html#cashback">Cashback</a><a href="field-notes.html#expiration">Expiration</a><a href="field-notes.html#complexity">Complexity</a><a href="field-notes.html#timing">Timing</a><a href="field-notes.html#proactive">Proactive</a><a href="field-notes.html#value">Value</a><a href="field-notes.html">Field Notes</a></div><div class="sd-col"><div class="sd-h">More</div><a href="https://upnonstop.com">The Daily Redemption</a><a href="connect.html">Connect</a><a href="privacy-policy.html">Privacy Policy</a><a href="privacy-policy.html#do-not-sell">Do Not Sell My Info</a><a href="terms-of-service.html">Terms of Service</a></div></div>
 <div class="ftbar"><div class="ftbrand"><a href="https://firstofficer.upnonstop.com/" style="text-decoration:none;color:inherit;">First Officer <span>by UpNonStop™</span></a></div><div class="ftlegal">Independent: no affiliate relationships with any issuer. An educational tool, not a licensed financial advisor. US businesses only. © 2026 UpNonStop.</div></div><style>.ftbar{max-width:1080px;margin:0 auto;padding:16px 28px 34px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;border-top:1px solid var(--hairline);}.ftbrand{font-size:13.5px;font-weight:800;color:var(--ink);}.ftbrand span{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--mute);letter-spacing:.06em;font-weight:700;}.ftlegal{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;color:var(--mute);text-transform:uppercase;line-height:1.9;max-width:620px;text-align:right;}@media (max-width:840px){.ftbar{flex-direction:column;text-align:center;}.ftlegal{text-align:center;}}</style>
 <div class="nsheet" id="nsheet" aria-hidden="true"><button class="nclose" aria-label="Close menu" onclick="foNav(false)">×</button><nav class="nlist"><a href="product.html">Product</a><a href="pricing.html">Pricing</a><a href="how.html">How</a><a href="trust.html">Trust</a><a href="calculator.html">Calculator</a><a href="about.html">About</a><a href="https://upnonstop.com">The Daily Redemption</a></nav><a class="pill green nsheet-cta" href="https://wa.me/16199404040?text=First%20Officer%20check" style="text-decoration:none">💬 Text Your First Officer</a></div>
 <script>function foNav(open){var sh=document.getElementById("nsheet");var b=document.querySelector(".nburger");sh.classList.toggle("open",open);document.body.classList.toggle("nolock",open);sh.setAttribute("aria-hidden",open?"false":"true");if(b)b.setAttribute("aria-expanded",open?"true":"false");}</script>
