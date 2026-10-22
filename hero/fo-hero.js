@@ -42,7 +42,7 @@ const KICK=el('div','kick','<span class="ld"></span>Earn · Burn · Return · Le
 const H1=el('h1','',H.h1,{left:px(TX),top:px(MOB?64:74),fontSize:MOB?'30px':'52px'});
 const SUB0=subFill(el('div','sub',null,MOB?{left:px(TX),width:'354px'}:{left:px(TX),width:'460px'}));
 let B2T='';const SUB=SUB0;
-const CTAS=el('div','ctas','<b class="c1">Get your desk</b><b class="c2">See how it works</b>',MOB?{left:'16px',right:'16px',justifyContent:'center'}:{left:px(TX)});
+const CTAS=el('div','ctas','<a href="book.html?from=index" style="display:flex;text-decoration:none"><b class="c1">Get your desk</b></a><a href="how.html" style="display:flex;text-decoration:none"><b class="c2">See how it works</b></a>',MOB?{left:'16px',right:'16px',justifyContent:'center'}:{left:px(TX)});
 const DESKH=el('div','deskh',MOB?`<span class="k"><span class="lv"></span>First Officer's specialists · 50+ programs, trained on new data nightly</span>`:`<span class="k"><span class="lv"></span><b>First Officer's specialists</b><em>50+ programs, trained on new data nightly</em></span>`,MOB?{left:'0',right:'0',justifyContent:'center'}:{left:px(TX)});
 const MICRO=el('div','micro',MOB?H.microM:H.micro,MOB?{left:'18px',width:'354px',textAlign:'center'}:{left:'120px',width:'1200px',textAlign:'center'});
 const TMK=el('div','tmk',H.tmk,MOB?{left:'18px',width:'354px',textAlign:'center'}:{left:'120px',width:'1200px',textAlign:'center'});
@@ -196,7 +196,7 @@ function buildCard(p){SC=code();NX=false;const[bg,fg]=PAL[p.s%5];const ini=p.ini
  if(false){card.innerHTML=`<svg class="ring"><rect class="r1" rx="18"/><rect class="r2" rx="18" pathLength="100"/></svg><div class="hd on"><div class="pav6" style="width:36px;height:36px;background:${bg};color:${fg};font-size:13px">${ini}</div><div style="min-width:0;flex:1"><div class="l1"><span class="nm6">${p.name}</span></div><div class="bz l2">${p.biz} · ${p.city}</div></div><div class="sc">Bespoke strategy<span class="code" id="sc"></span></div></div>
   <div class="ml"><b>Next</b><span class="t" id="nx"><span class="plan">Planning with the desk<span class="typ2"><i></i><i></i><i></i></span></span></span></div>
   <div class="ml"><b>Pending</b>${p.pend.slice(0,2).map(x=>`<span class="pc">${x}</span>`).join('')}</div>`;return}
- const cds=p.cards.map(x=>`<i><img src="${LOGO(C.cn[x.split(' ')[0]])}">${x}</i>`).join('');
+ const cds=p.cards.map(x=>`<i><img src="${C.cardg}" alt="">${x}</i>`).join('');
  card.innerHTML=`<svg class="ring"><rect class="r1" rx="20"/><rect class="r2" rx="20" pathLength="100"/></svg>
  <div class="hd"><div class="pav6" style="width:44px;height:44px;background:${bg};color:${fg}">${ini}<span class="em">${p.emo}</span></div><div><span class="nm6">${p.name}</span><span class="bz">${p.biz} · ${p.city}</span></div></div>
  <div class="pill"><span class="lbl">Bespoke strategy</span><span class="code" id="sc"></span></div>
@@ -229,7 +229,7 @@ function richCard(p,kind){const d=p.dest,m=p.mer;
 function msgEl(b,typing){const k=who(b.w),d=document.createElement('div');d.className='mm '+k+(k==='s'?' sp':'');
  const body=typing?`<div class="b6 typ"><i></i><i></i><i></i></div>`:`<div class="b6">${b.q?`<div class="q">${b.q}</div>`:''}${lines(b.h)}</div>`;
  if(k==='o'){d.innerHTML=body;return d}
- const same=lastW===String(b.w)&&!typing;const avh=k==='f'?`<img class="av" src="${C.foi}">`:`<img class="av" src="${LOGO(b.w)}">`;
+ const same=lastW===String(b.w)&&!typing;const avh=k==='f'?`<img class="av avfo" src="${C.foi}">`:`<img class="av" src="${LOGO(b.w)}">`;
  const nm=k==='s'&&!same?`<div class="nm5">${NAME[b.w]} specialist<b>${CUR.rel.find(r=>r[0]===b.w)[1]}</b></div>`:(k==='f'&&!same&&!typing?`<div class="nm5">First Officer</div>`:'');
  const rich=(!typing&&b.card)?richCard(CUR,b.card):'';
  d.innerHTML=avh+`<div class="col">${nm}${body}${rich}</div>`;return d}
@@ -281,7 +281,7 @@ function watch(){if(!MOB||STOP>=0||!window.IntersectionObserver)return;const io=
   if(e.target===card&&!SEEN.card){SEEN.card=1;if(PEND.c===CUR)cardIntro(CUR);PEND.c=null}
   if(e.target===FOel&&!SEEN.desk){SEEN.desk=1;if(PEND.r&&PEND.r[0]===CUR)run(PEND.r[0],PEND.r[1]);PEND.r=null}}),{threshold:.6});io.observe(card);io.observe(FOel)}
 const ALIN={'Amex':['Membership Rewards'],'Citi':['ThankYou'],'Chase':['Ultimate Rewards'],'Capital One':['Venture'],'Marriott':['Bonvoy'],'Qatar Airways':['Privilege Club','Qsuites'],'British Airways':['Executive Club'],'Air Canada':['Aeroplan'],'Hilton':['Hilton Honors'],'Hyatt':['World of Hyatt']};
-function tgt(b){const t=b.t||'';let best=null,bi=1e9;REL.filter(n=>n!==b.w).forEach(n=>{const nm=NAME[n],fw=nm.split(' ')[0];const keys=[nm].concat(fw.length>=4&&!['Virgin','United','Air'].includes(fw)?[fw]:[],ALIN[nm]||[]);keys.forEach(k=>{const i=t.indexOf(k);if(i>=0&&i<bi){bi=i;best=n}})});return best}
+function tgt(b){if('to' in b)return b.to;const t=b.t||'';let best=null,bi=1e9;REL.filter(n=>n!==b.w).forEach(n=>{const nm=NAME[n],fw=nm.split(' ')[0];const keys=[nm].concat(fw.length>=4&&!['Virgin','United','Air'].includes(fw)?[fw]:[],ALIN[nm]||[]);keys.forEach(k=>{const i=t.indexOf(k);if(i>=0&&i<bi){bi=i;best=n}})});return best}
 const PRON={Ines:'Her',Lucia:'Her',Imani:'Her',Yuki:'Her',Teresa:'Her',Leila:'Her',Anjali:'Her',Marisol:'Her',Joanne:'Her'};
 function beats(p){BT[0].innerHTML=`<i>1</i>Meet ${p.name}`;BT[1].innerHTML=`<i>2</i>${PRON[p.name]||'His'} desk`;BT[2].innerHTML=`<i>3</i>What ${p.name} sees<em>in the app</em>`}
 function placeDesk(){if(MOB){const keepY=ph&&G.PH[1]&&scrollY>200?ph.getBoundingClientRect().top:null;G.cardMax=measureCards(CUR?[CUR]:PS);if(CUR)beats(CUR);let y=G.B1;
@@ -332,8 +332,8 @@ const TX=MOB?18:148;
 const KICK=el('div','kick','<span class="ld"></span>Earn · Burn · Return · Learn',{left:px(TX),top:px(MOB?22:34)});
 const H1=el('h1','',H.h1,{left:px(TX),top:px(MOB?64:74),fontSize:MOB?'30px':'52px'});
 const SUB=subFill(el('div','sub',null,MOB?{left:px(TX),width:'354px'}:{left:px(TX),width:'460px'}));
-const CTAS=el('div','ctas','<b class="c1">Get your desk</b><b class="c2">See how it works</b>',MOB?{left:'16px',right:'16px',justifyContent:'center'}:{left:px(TX)});
-const DESKH=el('div','deskh',MOB?`<span class="k"><img src="${C.foi}" style="height:14px;width:14px;border-radius:50%;flex:none"><span class="lv"></span>First Officer's specialists · 50+ programs, trained on new data nightly</span>`:`<span class="k"><span class="lv"></span><b>First Officer's specialists</b><em>50+ programs, trained on new data nightly</em></span>`,MOB?{left:'0',right:'0',justifyContent:'center'}:{left:px(TX)});
+const CTAS=el('div','ctas','<a href="book.html?from=index" style="display:flex;text-decoration:none"><b class="c1">Get your desk</b></a><a href="how.html" style="display:flex;text-decoration:none"><b class="c2">See how it works</b></a>',MOB?{left:'16px',right:'16px',justifyContent:'center'}:{left:px(TX)});
+const DESKH=el('div','deskh',MOB?`<span class="k"><img src="${C.foi}" style="height:14px;width:14px;object-fit:contain;flex:none"><span class="lv"></span>First Officer's specialists · 50+ programs, trained on new data nightly</span>`:`<span class="k"><span class="lv"></span><b>First Officer's specialists</b><em>50+ programs, trained on new data nightly</em></span>`,MOB?{left:'0',right:'0',justifyContent:'center'}:{left:px(TX)});
 const MICRO=el('div','micro',MOB?H.microM:H.micro,MOB?{left:'18px',width:'354px',textAlign:'center'}:{left:'120px',width:'1200px',textAlign:'center'});
 const TMK=el('div','tmk',H.tmk,MOB?{left:'18px',width:'354px',textAlign:'center'}:{left:'120px',width:'1200px',textAlign:'center'});
 // ---------- geometry (set in layout)
@@ -483,7 +483,7 @@ function buildCard(p){SC=code();NX=false;const[bg,fg]=PAL[p.s%5];const ini=p.ini
  if(MOB){card.innerHTML=`<svg class="ring"><rect class="r1" rx="18"/><rect class="r2" rx="18" pathLength="100"/></svg><div class="hd on"><div class="pav6" style="width:36px;height:36px;background:${bg};color:${fg};font-size:13px">${ini}</div><div style="min-width:0;flex:1"><div class="l1"><span class="nm6">${p.name}</span></div><div class="bz l2">${p.biz} · ${p.city}</div></div><div class="sc">Bespoke strategy<span class="code" id="sc"></span></div></div>
   <div class="ml"><b>Next</b><span class="t" id="nx"><span class="plan">Planning with the desk<span class="typ2"><i></i><i></i><i></i></span></span></span></div>
   <div class="ml"><b>Pending</b>${p.pend.slice(0,2).map(x=>`<span class="pc">${x}</span>`).join('')}</div>`;return}
- const cds=p.cards.map(x=>`<i><img src="${LOGO(C.cn[x.split(' ')[0]])}">${x}</i>`).join('');
+ const cds=p.cards.map(x=>`<i><img src="${C.cardg}" alt="">${x}</i>`).join('');
  card.innerHTML=`<svg class="ring"><rect class="r1" rx="20"/><rect class="r2" rx="20" pathLength="100"/></svg>
  <div class="hd"><div class="pav6" style="width:44px;height:44px;background:${bg};color:${fg}">${ini}<span class="em">${p.emo}</span></div><div><span class="nm6">${p.name}</span><span class="bz">${p.biz} · ${p.city}</span></div></div>
  <div class="pill"><span class="lbl">Bespoke strategy</span><span class="code" id="sc"></span></div>
@@ -516,7 +516,7 @@ function richCard(p,kind){const d=p.dest,m=p.mer;
 function msgEl(b,typing){const k=who(b.w),d=document.createElement('div');d.className='mm '+k+(k==='s'?' sp':'');
  const body=typing?`<div class="b6 typ"><i></i><i></i><i></i></div>`:`<div class="b6">${b.q?`<div class="q">${b.q}</div>`:''}${lines(b.h)}</div>`;
  if(k==='o'){d.innerHTML=body;return d}
- const same=lastW===String(b.w)&&!typing;const avh=k==='f'?`<img class="av" src="${C.foi}">`:`<img class="av" src="${LOGO(b.w)}">`;
+ const same=lastW===String(b.w)&&!typing;const avh=k==='f'?`<img class="av avfo" src="${C.foi}">`:`<img class="av" src="${LOGO(b.w)}">`;
  const nm=k==='s'&&!same?`<div class="nm5">${NAME[b.w]} specialist<b>${CUR.rel.find(r=>r[0]===b.w)[1]}</b></div>`:(k==='f'&&!same&&!typing?`<div class="nm5">First Officer</div>`:'');
  const rich=(!typing&&b.card)?richCard(CUR,b.card):'';
  d.innerHTML=avh+`<div class="col">${nm}${body}${rich}</div>`;return d}
