@@ -7,7 +7,7 @@ paths='';lbl=''
 for k,(n,_,v,x,_m) in enumerate(LINES):
     y=ys[k]; hi=x>2
     paths+=f'<path class="fl{" h" if hi else ""}" d="M232 {y} C300 {y} 300 160 352 160"/>'
-    lbl+=f'<g class="vl" style="animation-delay:{k*.12:.2f}s"><rect x="0" y="{y-19}" width="226" height="38" rx="12"/><text class="n" x="14" y="{y+4}">{SH[k]}</text><text class="a" x="212" y="{y+4}" text-anchor="end">${v//1000}K · {x}x</text></g>'
+    lbl+=f'<g class="vl" style="animation-delay:{k*.12:.2f}s"><rect x="0" y="{y-19}" width="226" height="38" rx="12"/><text class="n" x="14" y="{y+4}">{SH[k]}</text><text class="a" x="212" y="{y+4}" text-anchor="end">${(str(v/1000).rstrip("0").rstrip("."))}K · {x}x</text></g>'
 flow=f'''<div class="gl flow" data-rv="2"><div class="fhd"><span>The starting profile · per month</span><span class="estl">Illustrative</span></div>
 <svg viewBox="0 0 560 320" role="img" aria-label="Six spending lines routed through the desk to about 151,000 points a month">
 {paths}<path class="fl o" d="M398 160 L430 160"/>
