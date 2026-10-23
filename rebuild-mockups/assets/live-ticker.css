@@ -1,0 +1,39 @@
+/* Live-site tickers, restored exactly as on origin/main (8587e8d), Oct 23.
+   Rules are copied verbatim from index.html (.fotick) and hello.html (.tickerbar). They are scoped under
+   .fotick / .tickerbar, the live colour variables are written out, and font-weight/line-height are pinned,
+   so the mockup's own .tk and .pk rules in fo.css cannot leak in. Look and content are unchanged. */
+
+/* home: running ticker under the nav (live index.html) */
+.fotick{font-size:16px;line-height:normal;position:relative;width:100vw;margin-left:calc(50% - 50vw);background:#141216;overflow:hidden;padding:9px 0;z-index:5;}
+.fotick-in{display:flex;gap:0;width:max-content;animation:tickmove 46s linear infinite;}
+.fotick:hover .fotick-in{animation-play-state:paused;}
+@keyframes tickmove{to{transform:translateX(-50%);}}
+@media (prefers-reduced-motion:reduce){.fotick-in{animation:none;}}
+.fotick .tk{display:inline-flex;align-items:center;gap:9px;padding:0 22px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:rgba(255,255,255,.72);white-space:nowrap;text-transform:uppercase;font-weight:400;font-style:normal;line-height:normal;}
+.fotick .tk b{color:#fff;font-weight:700;}
+.fotick .tk i{color:#FA1896;font-style:normal;font-weight:700;}
+.fotick .tk .no{color:rgba(255,255,255,.45);}
+.fotick .tk-dot{width:6px;height:6px;border-radius:50%;background:#FA1896;animation:livepulse 1.6s ease-out infinite;flex:none;}
+@keyframes livepulse{0%{box-shadow:0 0 0 0 rgba(250,24,150,.5);opacity:1;}70%{box-shadow:0 0 0 7px rgba(250,24,150,0);opacity:.55;}100%{box-shadow:0 0 0 0 rgba(250,24,150,0);opacity:1;}}
+
+/* hello: operator-desk wire (live hello.html); live-ticker.js wraps it in .tk > .tk-in x2 as on live */
+.tickerbar{background:#101014;color:#cfcbd6;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;gap:24px;align-items:center;padding:9px 26px;white-space:nowrap;overflow:hidden;font-weight:400;line-height:normal;}
+.tickerbar .live{color:#2ec27e;}
+.tickerbar b{color:#fff;font-weight:500;}
+.tickerbar .pk{color:#FA1896;}
+.tickerbar .tk{display:flex;overflow:hidden;font:inherit;letter-spacing:inherit;color:inherit;text-transform:inherit;}
+.tickerbar .tk-in{display:flex;gap:24px;align-items:center;padding:9px 26px;flex:none;min-width:100%;animation:tkmove 60s linear infinite;white-space:nowrap;}
+@keyframes tkmove{to{transform:translateX(-100%);}}
+@media (prefers-reduced-motion: reduce){.tickerbar .tk-in{animation:none;}}
+@media (max-width:560px){.tickerbar .tk-in{font-size:9px;gap:16px;}}
+.tickerbar .bdot{display:inline-block;animation:bpulse 1.5s ease-in-out infinite;}
+@keyframes bpulse{0%,100%{opacity:.35;}50%{opacity:1;}}
+@media (prefers-reduced-motion: reduce){.tickerbar .bdot{animation:none;}}
+.tickerbar .tks{font-style:normal;color:#6e6878;flex:none;}
+.tickerbar,.tickerbar .tk-in{gap:14px;}
+@media (max-width:560px){.tickerbar .tk-in{gap:10px;}}
+.tickerbar .tkE{color:#2ec27e;}
+.tickerbar .tkL{color:#37c3dc;}
+.tickerbar .tkR{color:#f0a02c;}
+.tickerbar .tkB{color:#FA1896;}
+.tickerbar .tk-in{animation-duration:150s;}

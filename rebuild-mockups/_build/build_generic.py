@@ -23,6 +23,6 @@ PAGES={
 for k in (sys.argv[1:] or PAGES):
     t,act,ph,cap=PAGES[k]
     body=convert(f'{SRC}/{k}.html',fix,k+'.html',ph,cap)
-    write(k+'.html',page(f'{t} · First Officer',body,active=act,src=k))
+    write(k+'.html',page(f'{t} · First Officer',body,active=act,src=k,tick=('hello' if k=='hello' else False)))
     print('wrote',k)
 save_log()

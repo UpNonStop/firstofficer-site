@@ -28,6 +28,15 @@ def ticker():
     one=f'<span class="lab">◉ A month at the desk, illustrated</span>{items}'
     return f'<div class="ticker" aria-label="Illustrative month"><div class="tk-in">{one}{one}</div></div>'
 
+def live_ticker(kind, pre=''):
+    """The live site's ticker, exactly as on origin/main (8587e8d): home gets index.html's .fotick, hello gets
+    hello.html's .tickerbar. Markup is the verbatim live fragment (not run through the copy fixes); CSS and JS are
+    in assets/live-ticker.css / live-ticker.js."""
+    import os
+    frag=open(os.path.join(os.path.dirname(__file__),f'live_ticker_{kind}.html')).read()
+    js=f'<script src="{pre}assets/live-ticker.js"></script>' if kind=='hello' else ''
+    return f'<link rel="stylesheet" href="{pre}assets/live-ticker.css">{frag}{js}'
+
 def pinkband(pre='', src='site', h='Your Competitors Route Their Spend. Do You?', p='The Found Money Call: free, 20 minutes, 6 questions, on the channel you choose. Your capture number, computed. An honest no if the math says no.'):
     return f'''<section class="pinkband"><img class="mk" src="{pre}img/fo-chevron-alpha.png" alt=""><h2>{h}</h2><p>{p}</p>
 <div class="ctas"><a class="pill white" href="{pre}book.html?from={src}">Book Your "Found Money" Call</a><a class="pill outline" href="#focap">Get the weekday note</a></div></section>'''
@@ -56,7 +65,7 @@ def page(title, body, pre='', active='', extra_head='', tick=False, band=True, s
 <title>{title}</title><meta name="description" content="{H.escape(desc)}"><meta name="robots" content="noindex">
 {fonts or FONTS}<link rel="icon" href="{pre}img/fo-chevron-alpha.png"><link rel="stylesheet" href="{pre}assets/fo.css">{extra_head}</head><body>
 <!-- MOCKUP · First Officer rebuild v1 · static HTML, not production -->
-{nav(pre,active)}{ticker() if tick else ''}
+{nav(pre,active)}{live_ticker(tick,pre) if tick in ('home','hello') else (ticker() if tick else '')}
 <main id="main">{body}</main>
 {footer(pre,band,src) if foot else ''}
 <script src="{pre}assets/fo.js"></script></body></html>'''

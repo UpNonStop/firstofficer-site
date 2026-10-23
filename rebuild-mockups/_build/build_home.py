@@ -69,8 +69,16 @@ B.append(f'''<section class="sec cream" id="explore"><div class="wrap">{head("If
 <div class="l4note">Your points stay in your accounts, in your name, and nothing moves without you. The separate $500 award search finds the space; claiming it is a few minutes of your time.</div>
 <div class="l4note">Point valuations are estimates based on common redemption benchmarks. Actual value depends on how and when you redeem.</div></div></section>''')
 body=fix('\n'.join(B),'home.html')
-extra=f'''{sub}<style id="fo9hero">#top.dhero{{padding:0!important;display:block}}
+PHOTO_CSS='''<style id="fo9photo">/* hero background photo, verbatim from hero-v9 / PR #11 index.html (Oct 23 restore) */
+.secphoto{position:relative;isolation:isolate;overflow:hidden;}
+.secphoto::before{content:'';position:absolute;inset:-60px;background-image:var(--ph);background-size:cover;background-position:center;filter:blur(20px) saturate(1.25);transform:scale(1.12);z-index:-2;}
+.secphoto::after{content:'';position:absolute;inset:0;background:rgba(250,246,238,.62);z-index:-1;}
+#top.secphoto::before{content:"";position:absolute;inset:0 !important;background-image:var(--ph);background-size:cover !important;background-position:center !important;filter:none !important;transform:none !important;z-index:0;}
+#top.secphoto::after{content:"";position:absolute;inset:0;background:linear-gradient(98deg,rgba(255,255,255,.93) 0%,rgba(255,255,255,.82) 40%,rgba(255,255,255,.44) 68%,rgba(255,255,255,.22) 100%) !important;z-index:1;}
+#top > *{position:relative;z-index:2;}
+</style>'''
+extra=PHOTO_CSS+f'''{sub}<style id="fo9hero">#top.dhero{{padding:0!important;display:block}}
 #top>#fohero{{max-width:none!important;width:100%!important;margin:0!important;padding:0!important;position:relative!important;left:auto!important}}</style>'''
-html=page('First Officer · You are not bad at Points & Miles',body,extra_head=extra,src='home',fonts=HERO_FONTS)
+html=page('First Officer · You are not bad at Points & Miles',body,extra_head=extra,src='home',fonts=HERO_FONTS,tick='home')
 html=html.replace('</body>','<script src="hero/fo-hero-data.js"></script><script src="hero/fo-hero.js"></script></body>')
 write('home.html',html); save_log(); print('ok')

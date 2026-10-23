@@ -575,3 +575,17 @@ document.querySelectorAll('#disc .more').forEach(a=>a.onclick=()=>document.getEl
 })();
 }
 })();
+/* Logo-tile containment (Oct 23): a desktop tile's name and status line stay on one line inside the
+   label plate. Text is unchanged; only when a line is wider than its plate is its font size stepped down
+   to fit (never below 9px). Runs on every re-render and status change. */
+(function(){
+ function fit(root){root.querySelectorAll('.ag .tx').forEach(tx=>{const a=tx.parentNode;const cs=getComputedStyle(tx);
+  const avail=a.clientWidth-8-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+  tx.querySelectorAll('b,.st').forEach(el=>{if(el.dataset.fitT===el.textContent&&el.dataset.fitA==avail)return;
+   el.style.fontSize='';if(getComputedStyle(el).display==='none'){return}
+   const w=el.scrollWidth;if(w>avail+0.5){const fs=parseFloat(getComputedStyle(el).fontSize);el.style.fontSize=Math.max(9,Math.floor(fs*avail/w*10)/10)+'px'}
+   el.dataset.fitT=el.textContent;el.dataset.fitA=avail})})}
+ const go=()=>{const R=window.HROOT;if(!R){setTimeout(go,200);return}
+  const run=()=>fit(R);new MutationObserver(run).observe(R,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['class']});run()};
+ go();
+})();
