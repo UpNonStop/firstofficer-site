@@ -30,7 +30,8 @@
 - Verticals lede "The same routing, applied to 20 verticals…"
 
 ## Flags for Ohad (not changed by me)
-- Hero (another helper's port) uses Inter and shows brand logos — conflicts with fonts and no-card/issuer-names rules. HERO-LOGO-FIX.md never appeared during this run.
+- Hero (Oct 23 update): the HERO-LOGO-FIX / PR #11 hero is now in, with Inter removed and chips generic. Still open for Ohad's call, not changed here: (a) the desk floor's issuer pod still shows 8 issuer logo tiles (Amex, Chase, Capital One, Citi, Bilt, Wells Fargo, Bank of America, U.S. Bank), inherited from v9; (b) a few persona chat lines name an issuer currency ("Capital One miles transfer 1:1 to…", "Membership Rewards") and one card is "Southwest business card". Proposal: swap the issuer tiles for generic "Issuer 1–13" tiles and the chat lines for "Your transferable points move 1:1 to…". Needs a yes because it is hero copy.
+- Brand-pink small mono labels (#FA1896) on cream sit near 3.2:1, below AA for small text. This predates this round; proposal: a darker pink (#C8106F) for text under 18px.
 - Vendor name "Henry Schein" in the dental H1 (live copy) — a vendor, not a card/issuer, but your call.
 - "Trusted across industries" (live) — reads like a customer claim.
 - Footer "Client stories are shared with permission…" uses "client".

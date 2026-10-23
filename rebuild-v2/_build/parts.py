@@ -1,6 +1,7 @@
 import sys, json, html as H
 sys.path.insert(0,'/workspace/fo-rebuild-mockups/_build')
 import common as C
+C.HERO_FONTS=C.HERO_FONTS.replace('&family=Inter:wght@400;500;600;700','')  # v2: no Inter (locked fonts)
 WA=C.WA
 APPROVED=C.APPROVED
 TICK_HTML=open('/workspace/fo-rebuild-v2/_build/ticker.html').read().strip()

@@ -6,12 +6,12 @@
   --ease:cubic-bezier(.2,.8,.2,1)}
 body{background:var(--cr)}
 /* ---------- exact live ticker (copied from origin/main) ---------- */
-.fotick{position:relative;width:100vw;margin-left:calc(50% - 50vw);background:#141216;overflow:hidden;padding:9px 0;z-index:5;}
+.fotick{font-size:16px;line-height:normal;position:relative;width:100vw;margin-left:calc(50% - 50vw);background:#141216;overflow:hidden;padding:9px 0;z-index:5;}
 .fotick-in{display:flex;gap:0;width:max-content;animation:tickmove 46s linear infinite;}
 .fotick:hover .fotick-in{animation-play-state:paused;}
 @keyframes tickmove{to{transform:translateX(-50%);}}
 @media (prefers-reduced-motion:reduce){.fotick-in{animation:none;}}
-.fotick .tk{display:inline-flex;align-items:center;gap:9px;padding:0 22px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:rgba(255,255,255,.72);white-space:nowrap;text-transform:uppercase;line-height:1.6}
+.fotick .tk{display:inline-flex;align-items:center;gap:9px;padding:0 22px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:rgba(255,255,255,.72);white-space:nowrap;text-transform:uppercase;font-weight:400;font-style:normal;line-height:normal;}
 .fotick .tk b{color:#fff;font-weight:700;}
 .fotick .tk i{color:#FA1896;font-style:normal;font-weight:700;}
 .fotick .tk .no{color:rgba(255,255,255,.45);}
@@ -829,3 +829,33 @@ body{background:var(--cr)}
 .fst .mult .ml{font-size:24px;white-space:nowrap}.fst .mult b{min-width:2.6ch}@media (max-width:760px){.fst .mult .ml{font-size:18px}}
 .netbig b span{color:#141216}
 .opt .soonb{font-size:9px!important;padding:4px 8px!important;letter-spacing:.12em}
+/* review fixes, Oct 23 */
+.mcta{transition:opacity .25s ease,transform .3s var(--ease,ease)}
+.mcta.mhide{opacity:0!important;transform:translateY(130%)!important;pointer-events:none!important}
+@media (max-width:760px){body{padding-bottom:84px}
+  .way .ws{font:500 10px/1.35 'JetBrains Mono',monospace!important;letter-spacing:.03em!important;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:5px 0 8px}
+  .way .wl{gap:8px}}
+/* photos, not pastels: lighter scrims so the photo reads at roughly 20-45% strength.
+   AA is kept by darker secondary text over photos and the white panels under body copy. */
+.phx{background:#e9e1d3}
+.phx::after{background:linear-gradient(98deg,rgba(255,253,248,.80) 0%,rgba(255,253,248,.66) 38%,rgba(255,253,248,.42) 66%,rgba(255,253,248,.24) 100%)}
+.phx::before{background:linear-gradient(180deg,var(--cr) 0,rgba(250,246,238,0) 60px,rgba(250,246,238,0) calc(100% - 60px),var(--cr) 100%)}
+.phx.c::after{background:radial-gradient(1100px 620px at 50% 46%,rgba(255,253,248,.76) 0,rgba(255,253,248,.58) 55%,rgba(255,253,248,.32) 100%)}
+.phx.r::after{background:linear-gradient(262deg,rgba(255,253,248,.80) 0%,rgba(255,253,248,.66) 40%,rgba(255,253,248,.40) 70%,rgba(255,253,248,.22) 100%)}
+.phx.lite::after{background:linear-gradient(180deg,rgba(255,253,248,.56),rgba(255,253,248,.40) 50%,rgba(255,253,248,.56))}
+.phx.c2::after{background:linear-gradient(180deg,rgba(255,253,248,.68),rgba(255,253,248,.56) 40%,rgba(255,253,248,.72))}
+#top>.phx::after{background:linear-gradient(98deg,rgba(255,255,255,.86) 0%,rgba(255,255,255,.70) 40%,rgba(255,255,255,.34) 68%,rgba(255,255,255,.14) 100%)}
+.focap.ps .phx::after{background:radial-gradient(900px 420px at 50% 50%,rgba(255,253,248,.76),rgba(255,253,248,.40))}
+@media (max-width:760px){
+  .phx::after{background:linear-gradient(180deg,rgba(255,253,248,.72) 0%,rgba(255,253,248,.56) 45%,rgba(255,253,248,.72) 100%)}
+  .phx.c::after,.phx.r::after{background:linear-gradient(180deg,rgba(255,253,248,.72) 0%,rgba(255,253,248,.54) 50%,rgba(255,253,248,.72) 100%)}
+  .phx.lite::after{background:linear-gradient(180deg,rgba(255,253,248,.58),rgba(255,253,248,.42) 50%,rgba(255,253,248,.58))}
+  #top>.phx::after{background:linear-gradient(180deg,rgba(255,255,255,.80) 0%,rgba(255,255,255,.54) 55%,rgba(255,255,255,.74) 100%)}
+}
+.ps{--mute:#332e39;--mute2:#3b3641;--body:#26222b}
+/* 390 story foot (Oct 23): the estimate pill and taxes line stay on one line each */
+@media (max-width:760px){.ft.fn{gap:8px}.ft.fn .estl,.ft.fn #ftx{white-space:nowrap}.ft.fn .estl{font-size:9px;letter-spacing:.06em}.ft.fn #ftx{font-size:10px;letter-spacing:.03em}}
+/* Small print over photos (Oct 23): a soft cream plate behind method/fine notes so 11px text never sits on a busy photo patch */
+.ps p.method,.ps p.fine,.ps p.meth{background:rgba(255,253,248,.82);border-radius:10px;padding:6px 12px;width:fit-content;max-width:min(100%,980px);margin-left:auto;margin-right:auto;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.ps p.fine:not(.c){margin-left:0;margin-right:0}
+@media (max-width:760px){.sc .ft{gap:8px;flex-wrap:nowrap}.sc .ft .estl,.sc .ft small{white-space:nowrap}.sc .ft .estl{font-size:9px;letter-spacing:.06em}.sc .ft small{font-size:10px;letter-spacing:.03em}}

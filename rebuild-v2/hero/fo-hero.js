@@ -5,8 +5,8 @@
 /* the live page loads its web fonts asynchronously, so wait for the hero's faces before measuring the layout (max 4s) */
 function FOREADY(){if(!document.fonts)return Promise.resolve();var t0=Date.now();
  var has=function(f){var ok=false;document.fonts.forEach(function(x){if(x.family.replace(/["']/g,'')===f)ok=true});return ok};
- return new Promise(function(res){(function w(){if((has('DM Sans')&&has('DM Serif Display')&&has('Inter'))||Date.now()-t0>4000){
-  Promise.all(['400 16px "DM Sans"','700 16px "DM Sans"','400 16px "DM Serif Display"','400 16px Inter','600 16px Inter','700 16px Inter'].map(function(f){return document.fonts.load(f).catch(function(){})})).then(function(){return document.fonts.ready}).then(res,res)}else setTimeout(w,50)})()})}
+ return new Promise(function(res){(function w(){if((has('DM Sans')&&has('DM Serif Display'))||Date.now()-t0>4000){
+  Promise.all(['400 16px "DM Sans"','700 16px "DM Sans"','400 16px "DM Serif Display"','400 16px "DM Sans"','600 16px "DM Sans"'].map(function(f){return document.fonts.load(f).catch(function(){})})).then(function(){return document.fonts.ready}).then(res,res)}else setTimeout(w,50)})()})}
 var Q=new URLSearchParams(location.search);var MOB=Q.has('m')?Q.get('m')==='1':innerWidth<760;var C=window.CFG;if(!C)return;
 /* desktop shows the v9 wording where the v9 and v10 data differ (one short line in one persona) */
 if(!MOB&&C.personasD){C.personas.forEach(function(p){var o=C.personasD[p.s];if(o)for(var k in o)p.beats[+k]=o[k];});}
@@ -574,4 +574,18 @@ $$('.micro a').forEach(a=>a.onclick=()=>{const d=document.getElementById('disc')
 document.querySelectorAll('#disc .more').forEach(a=>a.onclick=()=>document.getElementById('disc').classList.remove('col'));
 })();
 }
+})();
+/* Logo-tile containment (Oct 23): a desktop tile's name and status line stay on one line inside the
+   label plate. Text is unchanged; only when a line is wider than its plate is its font size stepped down
+   to fit (never below 9px). Runs on every re-render and status change. */
+(function(){
+ function fit(root){root.querySelectorAll('.ag .tx').forEach(tx=>{const a=tx.parentNode;const cs=getComputedStyle(tx);
+  const avail=a.clientWidth-8-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+  tx.querySelectorAll('b,.st').forEach(el=>{if(el.dataset.fitT===el.textContent&&el.dataset.fitA==avail)return;
+   el.style.fontSize='';if(getComputedStyle(el).display==='none'){return}
+   const w=el.scrollWidth;if(w>avail+0.5){const fs=parseFloat(getComputedStyle(el).fontSize);el.style.fontSize=Math.max(9,Math.floor(fs*avail/w*10)/10)+'px'}
+   el.dataset.fitT=el.textContent;el.dataset.fitA=avail})})}
+ const go=()=>{const R=window.HROOT;if(!R){setTimeout(go,200);return}
+  const run=()=>fit(R);new MutationObserver(run).observe(R,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['class']});run()};
+ go();
 })();
