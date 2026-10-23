@@ -1,0 +1,598 @@
+{
+ "how.html": [
+  [
+   ">Windows open<",
+   ">Worth acting on<",
+   "No \"just opened\"/window-open availability language",
+   1
+  ]
+ ],
+ "pricing.html": [
+  [
+   "coverage across 50 programs",
+   "coverage across 96 programs",
+   "Counts: 96 programs",
+   1
+  ],
+  [
+   "Software-led coverage across 96 programs, a person when needed,",
+   "Coverage across 96 programs, strategy within 24 hours,",
+   "Approved human-review line",
+   1
+  ],
+  [
+   "You run a business with roughly \\$25K a month or more of non-payroll spend\\.",
+   "You run a business with real non-payroll spend on cards and vendors. Not sure it is enough? <a href=\"calculator.html\">Run your number on the calculator</a>.",
+   "No minimum spend shown; point to calculator",
+   1
+  ],
+  [
+   ">\\$500 FLAT<",
+   ">$500 PER TRIP<",
+   "Award search is a separate $500 per trip, always",
+   1
+  ],
+  [
+   "Award space, when the trip is real",
+   "Award search, always separate",
+   "Award search is a separate $500 per trip, always",
+   1
+  ],
+  [
+   "Per award itinerary, any party size",
+   "Award search, per trip, any party size",
+   "Award search is a separate $500 per trip, always",
+   1
+  ],
+  [
+   "Flat per itinerary,",
+   "Flat per trip, always separate from the monthly fee,",
+   "Award search is a separate $500 per trip, always",
+   1
+  ]
+ ],
+ "about.html": [
+  [
+   "WhatsApp and SMS today, the app next\\.",
+   "WhatsApp today. Texting and the app are coming soon.",
+   "Texting/app coming soon",
+   1
+  ],
+  [
+   "watches 108 cards and 13 issuers around the clock",
+   "watches 108 cards and 13 issuers on scheduled scans",
+   "Truth: scheduled scans, not around the clock",
+   1
+  ]
+ ],
+ "trust.html": [
+  [
+   "(?i)\\baward availability\\b",
+   "(case-matched)",
+   "No seats or availability",
+   1
+  ],
+  [
+   "We find the space; you claim it in your own account, which is the only place your points ever sit\\.",
+   "We vet your requirements, and once you approve, a person on the desk books it in your own account, which is the only place your points ever sit.",
+   "Burn vets, desk books",
+   1
+  ]
+ ],
+ "product.html": [
+  [
+   "Coverage across 50 programs",
+   "Coverage across 96 programs",
+   "Counts: 96 programs",
+   1
+  ],
+  [
+   "(?i)\\bour customers\\b",
+   "(case-matched)",
+   "Never \"our customers\"",
+   1
+  ],
+  [
+   "When a seat does not exist",
+   "When award space does not exist",
+   "No seats or availability",
+   1
+  ],
+  [
+   "as availability, prices, and programs shift",
+   "as award space, prices, and programs shift",
+   "No seats or availability",
+   1
+  ],
+  [
+   "own profile held in isolation",
+   "own profile kept in isolation",
+   "No \"held\" wording",
+   1
+  ],
+  [
+   "Below roughly \\$25K a month in non-payroll spend, the fee is unlikely",
+   "When non-payroll spend is light, the fee is unlikely",
+   "No minimum spend shown",
+   1
+  ],
+  [
+   "OPS (\u00b7|&middot;) LIVE WATCH",
+   "OPS \\1 SCHEDULED SCANS",
+   "Truth: scheduled scans, not live watch",
+   1
+  ]
+ ],
+ "hello.html": [
+  [
+   "business class seat\\b",
+   "business class ticket",
+   "No seats or availability",
+   2
+  ],
+  [
+   "Coverage across 50 programs",
+   "Coverage across 96 programs",
+   "Counts: 96 programs",
+   1
+  ],
+  [
+   "coverage across 50 programs",
+   "coverage across 96 programs",
+   "Counts: 96 programs",
+   1
+  ],
+  [
+   "a consortium brain underneath, with a person stepping in when needed, one thread in your messages\\.",
+   "specialists underneath, one thread in your messages. Your strategy is reviewed and fine-tuned by a person before it reaches you. Every redemption is booked by a person. Day-to-day answers are software-led, and a person steps in when needed.",
+   "Approved human-review line; minimal \"AI\"",
+   1
+  ],
+  [
+   "You put \\$35K\\+ a month on vendors and cards\\.",
+   "You put serious money on vendors and cards every month.",
+   "No minimum spend shown",
+   1
+  ],
+  [
+   "on WhatsApp or SMS \\(and soon on your App!\\)",
+   "on WhatsApp for now (texting and the app are coming soon)",
+   "Texting and app are coming soon",
+   1
+  ],
+  [
+   "after EFS coding verification",
+   "after fuel-card coding verification",
+   "No card names",
+   1
+  ],
+  [
+   "Seats Are Hard",
+   "Award Space Is Hard",
+   "No seats or availability",
+   1
+  ],
+  [
+   "Award seats vanish",
+   "Award space vanishes",
+   "No seats or availability",
+   1
+  ],
+  [
+   "<div class=\"v\">\\$15K</div><div class=\"l\">Minimum 12-mo capture to join</div>",
+   "<div class=\"v\">24 hrs</div><div class=\"l\">Your strategy, reviewed by a person</div>",
+   "No minimum spend shown",
+   1
+  ],
+  [
+   "<div class=\"v\">\\$35K</div><div class=\"l\">Monthly spend floor \u00b7 We check first</div>",
+   "<div class=\"v\"><a href=\"calculator.html\">Calculator</a></div><div class=\"l\">Run your own number first</div>",
+   "No minimum spend shown",
+   1
+  ],
+  [
+   "You own a business with <b>\\$35K\\+ a month of non-payroll spend</b>",
+   "You own a business with <b>real non-payroll spend</b> (<a href=\"calculator.html\">run your number</a>)",
+   "No minimum spend shown",
+   1
+  ],
+  [
+   "You spend <b>under \\$25K a month</b> on cards",
+   "Your card spend is <b>still light</b>",
+   "No minimum spend shown",
+   1
+  ],
+  [
+   "<h3>Clears the bar at \\$35K\\+/mo non-payroll</h3>",
+   "<h3>Clears the bar on the calculator</h3>",
+   "No minimum spend shown",
+   1
+  ],
+  [
+   "Between \\$25K and \\$35K a month, same rule: the call computes your 12-month capture, and if it clears \\$15K, you're in\\.",
+   "Wherever you land, same rule: the call computes your 12-month capture, and if it clears the fee with room to spare, you're in.",
+   "No minimum spend shown",
+   1
+  ],
+  [
+   "<h3>Below \\$25K a month</h3>",
+   "<h3>When the math is thin</h3>",
+   "No minimum spend shown",
+   1
+  ],
+  [
+   "THE CALL: \\$35K\\+ MONTHLY NON-PAYROLL SPEND, OR A COMPUTED 12-MONTH CAPTURE ABOVE \\$15K",
+   "THE CALL: WE RUN YOUR NUMBER FIRST \u00b7 <a href=\"calculator.html\">TRY THE CALCULATOR</a>",
+   "No minimum spend shown",
+   1
+  ],
+  [
+   "WHATSAPP TODAY \u00b7 APP \\+ SMS NEXT",
+   "WHATSAPP TODAY \u00b7 TEXTING + APP COMING SOON",
+   "Texting/app coming soon",
+   1
+  ],
+  [
+   "Costco only accepts Visa in-store\\.",
+   "Costco only accepts one card network in-store.",
+   "No card/issuer/source names",
+   1
+  ],
+  [
+   "Costco in-store takes Visa only: route accordingly",
+   "Costco in-store takes one card network only: route accordingly",
+   "No card/issuer/source names",
+   1
+  ],
+  [
+   "Sample outputs are AI-generated illustrations",
+   "Sample outputs are software-generated illustrations",
+   "Minimal \"AI\"",
+   1
+  ],
+  [
+   "<b>629</b> PROGRAMS MONITORED",
+   "<b>96</b> PROGRAMS MONITORED",
+   "Counts: 96 programs",
+   1
+  ],
+  [
+   "Two-minute fix: seat assignments for the Denver run",
+   "Two-minute fix: bag fees for the Denver run",
+   "No seats or availability",
+   1
+  ],
+  [
+   "Airline credits cover seats and bags, not fares",
+   "Airline credits cover add-ons like bags, not fares",
+   "No seats or availability",
+   1
+  ]
+ ],
+ "strategist.html": [
+  [
+   "(?i)\\baward availability\\b",
+   "(case-matched)",
+   "No seats or availability",
+   1
+  ],
+  [
+   "a personal Visa earning 1x",
+   "a personal card earning 1x",
+   "No card/issuer/source names",
+   1
+  ],
+  [
+   "<span class=\"pk\">13</span></span><span>Banks Tracked",
+   "<span class=\"pk\">96</span></span><span>Programs Monitored",
+   "Counts: 96 programs / 13 issuers (duplicate 13 Banks row)",
+   1
+  ],
+  [
+   "The Strategist monitors award space for your specific routes and dates\\.",
+   "The Strategist scans award pricing for your routes and dates on a schedule, and the desk books once you approve.",
+   "Truth: scheduled scans; desk books",
+   1
+  ]
+ ],
+ "field-notes.html": [
+  [
+   "business class seat\\b",
+   "business class ticket",
+   "No seats or availability",
+   1
+  ],
+  [
+   "(?i)\\baward availability\\b",
+   "(case-matched)",
+   "No seats or availability",
+   1
+  ],
+  [
+   "the availability, and the timing",
+   "the award space, and the timing",
+   "No seats or availability",
+   1
+  ],
+  [
+   "Airlines release award seats",
+   "Airlines release award space",
+   "No seats or availability",
+   1
+  ],
+  [
+   "The best seats \\(First, Business\\) go fast",
+   "The best cabins (First, Business) go fast",
+   "No seats or availability",
+   1
+  ],
+  [
+   "the seat you want books for",
+   "the flight you want prices at",
+   "No seats or availability",
+   1
+  ],
+  [
+   "The same seat can cost",
+   "The same flight can cost",
+   "No seats or availability",
+   1
+  ],
+  [
+   "The same seat costs",
+   "The same flight costs",
+   "No seats or availability",
+   1
+  ]
+ ],
+ "briefing.html": [
+  [
+   "Award seats and rates change",
+   "Award space and rates change",
+   "No seats or availability",
+   1
+  ]
+ ],
+ "home.html": [
+  [
+   "we do not own the seats",
+   "we do not control award space",
+   "No seats or availability",
+   1
+  ],
+  [
+   "Award pricing and availability change constantly",
+   "Award pricing and award space change constantly",
+   "No seats or availability",
+   1
+  ],
+  [
+   "Availability and pricing change\\.",
+   "Award space and pricing change.",
+   "No seats or availability",
+   1
+  ],
+  [
+   "Coverage across 50 programs",
+   "Coverage across 96 programs",
+   "Counts: 96 programs",
+   1
+  ],
+  [
+   "after EFS coding verification",
+   "after fuel-card coding verification",
+   "No card names",
+   1
+  ],
+  [
+   "McKinsey estimated in 2018",
+   "An industry study estimated in 2018",
+   "No source names",
+   1
+  ],
+  [
+   "Breakage and unredeemed miles from McKinsey, 2018\\.",
+   "Breakage and unredeemed miles from a 2018 industry study.",
+   "No source names",
+   1
+  ]
+ ],
+ "calculator.html": [
+  [
+   "Award pricing and availability change constantly",
+   "Award pricing and award space change constantly",
+   "No seats or availability",
+   1
+  ]
+ ],
+ "for-cpa-firms.html": [
+  [
+   "Visa defines",
+   "The card networks define",
+   "No card/network source names",
+   1
+  ]
+ ],
+ "for-trucking.html": [
+  [
+   "Visa defines",
+   "The card networks define",
+   "No card/network source names",
+   1
+  ]
+ ],
+ "upns-062.html": [
+  [
+   "(?i)\\b629 (loyalty )?programs",
+   "(case-matched)",
+   "Counts: 96 programs",
+   2
+  ],
+  [
+   "\\b13 Banks\\b",
+   "13 Issuers",
+   "Counts: 13 issuers",
+   1
+  ],
+  [
+   "\\b13 banks\\b",
+   "13 issuers",
+   "Counts: 13 issuers",
+   1
+  ],
+  [
+   "across our client base",
+   "across an illustrative client base",
+   "Personas fictional; never \"our clients\"",
+   1
+  ],
+  [
+   "(?i)\\bour clients\\b",
+   "(case-matched)",
+   "Personas fictional; never \"our clients\"",
+   15
+  ],
+  [
+   "no seat to book",
+   "no award to book",
+   "No seats or availability",
+   1
+  ],
+  [
+   ">UR</text>",
+   ">A</text>",
+   "No card, issuer or source names",
+   1
+  ],
+  [
+   "for wallets holding Bank D points",
+   "for wallets with Bank D points",
+   "Never \"holding\"",
+   1
+  ],
+  [
+   "(?i)\\baward availability\\b",
+   "(case-matched)",
+   "No seats or availability",
+   1
+  ]
+ ],
+ "upns-063.html": [
+  [
+   "(?i)\\b629 (loyalty )?programs",
+   "(case-matched)",
+   "Counts: 96 programs",
+   3
+  ],
+  [
+   "\\b13 Banks\\b",
+   "13 Issuers",
+   "Counts: 13 issuers",
+   1
+  ],
+  [
+   "\\b13 banks\\b",
+   "13 issuers",
+   "Counts: 13 issuers",
+   2
+  ],
+  [
+   "across our client base",
+   "across an illustrative client base",
+   "Personas fictional; never \"our clients\"",
+   1
+  ],
+  [
+   "(?i)\\bour clients\\b",
+   "(case-matched)",
+   "Personas fictional; never \"our clients\"",
+   15
+  ],
+  [
+   "no seat to book",
+   "no award to book",
+   "No seats or availability",
+   1
+  ],
+  [
+   ">UR</text>",
+   ">A</text>",
+   "No card, issuer or source names",
+   1
+  ],
+  [
+   "still holding their points",
+   "still sitting on their points",
+   "Never \"holding\"",
+   1
+  ],
+  [
+   "(?i)\\baward availability\\b",
+   "(case-matched)",
+   "No seats or availability",
+   1
+  ]
+ ],
+ "upns-064.html": [
+  [
+   "(?i)\\b629 (loyalty )?programs",
+   "(case-matched)",
+   "Counts: 96 programs",
+   3
+  ],
+  [
+   "\\b13 Banks\\b",
+   "13 Issuers",
+   "Counts: 13 issuers",
+   1
+  ],
+  [
+   "\\b13 banks\\b",
+   "13 issuers",
+   "Counts: 13 issuers",
+   2
+  ],
+  [
+   "across our client base",
+   "across an illustrative client base",
+   "Personas fictional; never \"our clients\"",
+   2
+  ],
+  [
+   "(?i)\\bour clients\\b",
+   "(case-matched)",
+   "Personas fictional; never \"our clients\"",
+   17
+  ],
+  [
+   "no seat to book",
+   "no award to book",
+   "No seats or availability",
+   1
+  ],
+  [
+   ">629</(div|span)>(\\s*)<div class=\"l\">Programs read",
+   "(case-matched)",
+   "Counts: 96 programs",
+   2
+  ],
+  [
+   "Verdict held",
+   "Verdict stood",
+   "Never \"held\"",
+   1
+  ],
+  [
+   "verdict held",
+   "verdict stood",
+   "Never \"held\"",
+   1
+  ],
+  [
+   "(?i)\\baward availability\\b",
+   "(case-matched)",
+   "No seats or availability",
+   1
+  ]
+ ]
+}
