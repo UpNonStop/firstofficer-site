@@ -51,3 +51,8 @@ One signature moment per page, built from app components and real tokens only:
 - **Dental, "Worth it" card (signature):** replaces the "Net, this month" hero card. Cream2 card with goldLine (app shot 15), net this year $26,668 as the big number, a value-vs-fee split bar (earn vs ink2), and rows: valued honestly $33,268 / our fee −$6,600 / net per month $2,222. All numbers are the v2 numbers.
 - **One accent per section:** dental profile all Earn; mistakes in Burn with grey; routing in Learn; real math in Earn with grey sticker/honest bars; book hero in gold.
 - Reduced motion: count-up, bars, meters and split bars are static under `prefers-reduced-motion`.
+
+## Brand rule fix (mark on transparent only)
+- Every site mark now uses /workspace/brand/firstofficer-chevron-transparent.png (copied to img/fo-chevron-transparent.png), including the favicon link.
+- Removed every tile, fill, border, radius and shadow behind the mark: nav brand, home chat header, booking card header, "one desk behind every door" note, CTA card, footer. A global guard rule `.mk,.bkm{background:none;border:0;box-shadow:none;border-radius:0}` stops it returning.
+- The hero data's mark path swapped to the transparent file; hero styling not changed (see open item on the hero node rings).

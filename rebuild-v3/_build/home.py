@@ -63,7 +63,7 @@ yn=f'''<section class="sec" id="number">{ph(['bg-04','d-costarica','bg-08','d-ba
 <p style="margin-top:8px">Before First Officer, Ohad built fraud and authentication products for financial institutions (<a href="about.html" style="color:var(--pink2)">public profile</a>). The same rule applies here: read-only access, no passwords, nothing moves without your written yes.</p></div>
 </div>
 <div class="sticky" data-rv><span class="lab zone" style="margin-top:0">This is the entire product</span>
-<div class="chat"><div class="ch"><span class="mk"><img src="img/fo-chevron-alpha.png" alt=""></span><div><b>First Officer</b><small>Online</small></div><span class="badge">2 at work</span></div>
+<div class="chat"><div class="ch"><span class="mk"><img src="img/fo-chevron-transparent.png" alt=""></span><div><b>First Officer</b><small>Online</small></div><span class="badge">2 at work</span></div>
 <div class="th wac" aria-live="polite"></div><div class="cf"><div class="in">Ask your First Officer<i>↑</i></div></div></div>
 <p class="cap" style="margin-top:10px">One thread, no app to install. Simulated conversation. Actual results vary by portfolio.</p></div>
 </div></div></section>'''

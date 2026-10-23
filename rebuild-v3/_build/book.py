@@ -16,7 +16,7 @@ hero=f'''<section class="sec" id="book" style="padding-top:28px">{ph(['e-phone',
 <div class="card" style="margin-top:14px;display:flex;gap:14px;align-items:center" data-rv><span class="num s tn" style="flex:none">20<small>min</small></span><div><b style="display:block;font-size:15px">Same call, same honest answer.</b><span class="sub" style="margin:0;font-size:14px">Whichever way you reach us.</span></div></div>
 </div>
 <div><div class="card hero bookcard" id="console" data-rv>
-<div class="bkh"><span class="bkm"><img src="img/fo-chevron-alpha.png" alt=""></span><span class="bd"><b>The Found Money Call</b><small>Free · 20 minutes · your way</small></span><span class="pill" style="--c:var(--green)">Open</span></div>
+<div class="bkh"><span class="bkm"><img src="img/fo-chevron-transparent.png" alt=""></span><span class="bd"><b>The Found Money Call</b><small>Free · 20 minutes · your way</small></span><span class="pill" style="--c:var(--green)">Open</span></div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 10px"><span class="lab">Your request</span><span class="cap" id="stepl" style="margin:0">Step 1 of 3</span></div>
 <div class="steps" style="--n:3"><i class="on"></i><i></i><i></i></div>
 <div class="steps" style="--n:3;margin-bottom:0"><span class="cap" style="margin:0">Reach us</span><span class="cap" style="margin:0">The call</span><span class="cap" style="margin:0">Your details</span></div>
@@ -65,7 +65,7 @@ ways=f'''<section class="sec" id="ways">{ph(['bg-02','d-lisbon','bg-07'])}<div c
 <div class="head" data-rv><span class="lab">One desk</span><h2 class="h2">Four ways in. <em>One desk.</em></h2></div>
 <div class="split"><div class="card hero" data-rv><span class="lab">Every door leads to the same desk</span>
 <div class="rows" style="margin-top:8px">{row('WhatsApp','',c='var(--green)')}{row('Email','',c='var(--gold2)')}{row('Call me back','',c='var(--gold2)')}{row('Text me','',c='var(--ink3)',extra='<span style="display:block;margin-top:6px"><span class="pill" style="--c:var(--gold2)">Coming soon</span></span>')}</div>
-<div class="note" style="margin-top:12px;align-items:center"><span class="mk" style="width:34px;height:34px;border-radius:10px;background:var(--paper);display:grid;place-items:center;border:1px solid var(--goldLine);flex:none"><img src="img/fo-chevron-alpha.png" alt="" style="width:22px"></span><span><b>First Officer</b> · one desk behind every door.</span></div></div>
+<div class="note" style="margin-top:12px;align-items:center"><span class="mk" style="width:26px;height:34px;display:grid;place-items:center;flex:none"><img src="img/fo-chevron-transparent.png" alt="" style="width:22px"></span><span><b>First Officer</b> · one desk behind every door.</span></div></div>
 <div class="stack">
 <div class="card" data-rv><span class="num s tn">01</span><h4 class="h3" style="margin-top:6px">The call</h4><p>20 minutes on where your card spend goes and what it earns today.</p></div>
 <div class="card" data-rv><span class="num s tn">02</span><h4 class="h3" style="margin-top:6px">The written answer</h4><p>A yes with the math behind it, or an honest no if it won't clear the fee.</p></div>
