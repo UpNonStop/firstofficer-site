@@ -491,3 +491,20 @@ p.body+p.body{margin-top:10px}
 .in .bpr .pl{offset-distance:90%}
 @media(prefers-reduced-motion:reduce){.bpr .pl{offset-distance:90%}}
 @media(max-width:760px){.bpr .pl{width:24px;height:24px;margin:-12px 0 0 -12px}.bpr .pl svg{width:24px;height:24px}}
+
+/* boarding-pass route v2 (Oct 24): flat ticket line, hollow origin, pink destination, fine-line aircraft in ink */
+.bpr{grid-template-columns:1fr 132px 1fr;align-items:center}
+.bpr .route{display:flex;align-items:center;gap:6px;width:132px;align-self:center}
+.bpr .route .rd{width:7px;height:7px;border-radius:50%;flex:none;box-sizing:border-box}
+.bpr .route .o{border:1.5px solid var(--ink3)}
+.bpr .route .d{background:var(--pink2)}
+.bpr .route .rl{flex:1;height:0;border-top:1.5px dashed rgba(42,34,48,.24);transform-origin:left center;transform:scaleX(0)}
+.bpr .route .rp{display:grid;place-items:center;width:20px;height:20px;flex:none;opacity:0;transform:translateX(-6px)}
+.bpr .route .rp svg{display:block;transform:rotate(45deg);fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.in .bpr .route .r1{transition:transform .7s var(--ease) .3s;transform:scaleX(1)}
+.in .bpr .route .rp{transition:opacity .4s ease .85s,transform .6s var(--ease) .85s;opacity:1;transform:none}
+.in .bpr .route .r2{transition:transform .7s var(--ease) 1s;transform:scaleX(1)}
+@media(prefers-reduced-motion:reduce){.bpr .route .rl{transform:none;transition:none}.bpr .route .rp{opacity:1;transform:none;transition:none}}
+/* Oct 24: comma no longer dimmed (read as a glitch); route narrower on phones so labels stay on one line */
+.dg{opacity:1}
+@media(max-width:760px){.bpr{grid-template-columns:1fr 96px 1fr}.bpr .route{width:96px;gap:4px}.bpr span{white-space:nowrap}}

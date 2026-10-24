@@ -12,7 +12,7 @@ hero=f'''<section class="sec" id="dtop" style="padding-top:28px">{ph(['i-dental2
 <div class="stack">
 <div class="card hero worth bp" data-rv><div style="display:flex;justify-content:space-between;align-items:center"><span class="lab earn">Worth it · a dental practice</span><span class="pill" style="--c:var(--earn)">Worth it</span></div>
 <div class="bpr" aria-label="From $71,000 a month of card-able spend to 151,000 points a month, caps applied"><div><small>From</small><b class="tn">$71,000</b><span>spend a month</span></div>
-<div class="arc" aria-hidden="true"><svg viewBox="0 0 120 44" width="120" height="44"><path class="trk" d="M6 38 Q60 -8 114 38"/><path class="drw" d="M6 38 Q60 -8 114 38"/></svg><i class="pl"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" fill="currentColor"/></svg></i></div>
+<div class="route" aria-hidden="true"><span class="rd o"></span><span class="rl r1"></span><span class="rp"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span><span class="rl r2"></span><span class="rd d"></span></div>
 <div class="to"><small>To</small><b class="tn">151,000</b><span>points a month</span></div></div>
 <div class="tear" aria-hidden="true"></div>
 <div class="k" style="margin-top:6px">Net, this year</div><span class="num xl tn" data-dg>$<span data-cu="26668">26,668</span></span>
