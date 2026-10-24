@@ -208,7 +208,8 @@ function buildCard(p){SC=code();NX=false;const[bg,fg]=PAL[p.s%5];const ini=p.ini
  <div class="rw"><span>Requests</span><b><div class="pend" id="pd">${p.pend.slice(0,2).map(x=>`<i>${x}</i>`).join('')}</div></b></div>
  <div class="ppf6">Example owner. Fictional details. Figures are estimates.</div>`}
 function trk(){const e=$('#trk');if(e)e.textContent=TRK}
-function cardIntro(p){const hd=$('.hd',card);hd&&hd.classList.add('on');const sc=$('#sc');let i=0;
+function cardStatic(p){const hd=$('.hd',card);hd&&hd.classList.add('on');const sc=$('#sc');if(sc)sc.textContent=SC;$$('.kn,.rw,.ppf6,.pill',card).forEach(r=>r.classList.add('on'));const c1=$('#cu1'),c3=$('#cu3');if(c1)c1.textContent=p.spend;if(c3)c3.textContent=p.after;TRK=p.cards.length;trk()}
+function cardIntro(p){if(RMH){cardStatic(p);return}const hd=$('.hd',card);hd&&hd.classList.add('on');const sc=$('#sc');let i=0;
  if(FF||STOP>=0){sc.textContent=SC;$$('.kn,.rw,.ppf6,.pill',card).forEach(r=>r.classList.add('on'));countUp($('#cu1'),p.spend);countUp($('#cu3'),p.after);TRK=p.cards.length;trk();return}
  setTimeout(()=>{const pill=$('.pill',card);pill&&pill.classList.add('on');(function ty(){sc.innerHTML=SC.slice(0,i)+'<span class="cur"></span>';if(i++<SC.length)setTimeout(ty,95);else setTimeout(()=>sc.textContent=SC,900)})()},350);
  TRK=p.cards.length;trk();
@@ -238,10 +239,11 @@ const tstr=()=>CLK[0]+':'+String(CLK[1]).padStart(2,'0')+' PM';
 function banner(t,b){$('#bt').textContent=t;$('#bb').textContent=b;$('#ban').classList.add('on');setTimeout(()=>$('#ban').classList.remove('on'),3600)}
 function speak(n,on){const e=AG[n];if(on){LOCK[n]=1;e&&e.classList.add('spk');const s=e&&e.querySelector('.st');if(s)s.textContent='Briefing now';burst($('#w'+n,web),C.acc[CUR.tab][0],true,3,240,1050);setTimeout(()=>FOel.classList.add('spk'),700);setTimeout(()=>FOel.classList.remove('spk'),1300)}
  else{e&&e.classList.remove('spk');const r=CUR.rel.find(x=>x[0]===n);const s=e&&e.querySelector('.st');if(s)s.textContent=relSt(CUR,n,r?r[1]:'')}}
-async function run(p,ff){const my=++RUN;let dsk=null,lastF='',bi=0,prevSpec=null,spoken=new Set(),planSet=false;
+const RMH=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);let GATE=null,GATEr=null,GATEAT=-1;
+async function run(p,ff){if(RMH)ff=p.beats.length;const my=++RUN;let dsk=null,lastF='',bi=0,prevSpec=null,spoken=new Set(),planSet=false;
  const T=x=>ff>bi?0:x;const[h,m]=p.t0.split(':').map(Number);CLK=[h,m];$('#clk').textContent=p.t0;
  flip(()=>{const t=document.createElement('div');t.className='ts';t.textContent='Tonight '+p.t0+' PM ET';ci.appendChild(t)});
- for(bi=0;bi<p.beats.length;bi++){const b=Object.assign({},p.beats[bi]);if(my!==RUN)return;const k=who(b.w);if(window.BLOG)BLOG.push([Math.round(performance.now()),bi,k,b.ban?1:0]);
+ for(bi=0;bi<p.beats.length;bi++){if(GATE&&bi===GATEAT){const g=GATE;GATE=null;await g;if(my!==RUN)return}const b=Object.assign({},p.beats[bi]);if(my!==RUN)return;const k=who(b.w);if(window.BLOG)BLOG.push([Math.round(performance.now()),bi,k,b.ban?1:0]);
   if(bi%4===3)tick();
   if(k!=='s'&&dsk){const d=dsk;dsk=null;flip(()=>d.remove())}
   if(STOP>=0&&bi===STOP){ // freeze for review stills
@@ -265,7 +267,7 @@ async function run(p,ff){const my=++RUN;let dsk=null,lastF='',bi=0,prevSpec=null
    if(bi===Math.round(p.beats.length*.55))pendAdd(p);
    await sleep(T(k==='s'?650:750));if(k==='s')speak(b.w,false);else FOel.classList.remove('spk')}
  }
- if(dsk)dsk.remove();await sleep(4500);if(my!==RUN||Q.has('once'))return;load(pickP(),0)}
+ if(dsk)dsk.remove();await sleep(4500);if(my!==RUN||Q.has('once')||RMH)return;load(pickP(),0)}
 function pickP(){let q=[];try{q=JSON.parse(localStorage.getItem('fo10_q')||'[]')}catch(e){}const last=+localStorage.getItem('fo9_p');if(!q.length){q=PS.map((_,i)=>i);for(let i=q.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[q[i],q[j]]=[q[j],q[i]]}if(q[0]===last)q.push(q.shift())}const i=q.shift();localStorage.setItem('fo10_q',JSON.stringify(q));return i}
 let HOMEV=false; // Home tab shows as selected when Home was tapped (approved Oct 21)
 function load(i,ff){CUR=PS[i];localStorage.setItem('fo9_p',i);RUN++;
@@ -274,12 +276,12 @@ function load(i,ff){CUR=PS[i];localStorage.setItem('fo9_p',i);RUN++;
  const[bg,fg]=PAL[CUR.s%5];$('#pav').innerHTML=`<div class="pav6" style="width:32px;height:32px;background:${bg};color:${fg};font-size:12.5px">${CUR.ini||(CUR.name[0]+CUR.biz[0])}</div>`;
  ci.innerHTML='';ci.style.transform='none';lastW=null;rc=null;A2AQ=[];$$('.a2a').forEach(e=>e.remove());for(const k in SL)SL[k]=0;
  if(MOB)placeDesk();buildFloor(CUR);buildCard(CUR);if(MOB)beats(CUR);
- if(MOB&&STOP<0&&!SEEN.card)PEND.c=CUR;else cardIntro(CUR);mobChips();
- if(MOB&&STOP<0&&!SEEN.desk)PEND.r=[CUR,ff||0];else run(CUR,ff||0)}
+ if(MOB&&STOP<0&&!SEEN.card)cardStatic(CUR);else cardIntro(CUR);mobChips();
+ if(MOB&&STOP<0&&!SEEN.desk&&!RMH){let n=0;while(n<3&&n<CUR.beats.length&&who(CUR.beats[n].w)!=='s')n++;GATEAT=n;GATE=new Promise(r=>GATEr=r);run(CUR,n)}else run(CUR,ff||0)}
 const SEEN={},PEND={};
 function watch(){if(!MOB||STOP>=0||!window.IntersectionObserver)return;const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;
   if(e.target===card&&!SEEN.card){SEEN.card=1;if(PEND.c===CUR)cardIntro(CUR);PEND.c=null}
-  if(e.target===FOel&&!SEEN.desk){SEEN.desk=1;if(PEND.r&&PEND.r[0]===CUR)run(PEND.r[0],PEND.r[1]);PEND.r=null}}),{threshold:.6});io.observe(card);io.observe(FOel)}
+  if(e.target===FOel&&!SEEN.desk){SEEN.desk=1;if(GATEr){GATEr();GATEr=null}if(PEND.r&&PEND.r[0]===CUR)run(PEND.r[0],PEND.r[1]);PEND.r=null}}),{threshold:.6});io.observe(card);io.observe(FOel)}
 const ALIN={'Amex':['Membership Rewards'],'Citi':['ThankYou'],'Chase':['Ultimate Rewards'],'Capital One':['Venture'],'Marriott':['Bonvoy'],'Qatar Airways':['Privilege Club','Qsuites'],'British Airways':['Executive Club'],'Air Canada':['Aeroplan'],'Hilton':['Hilton Honors'],'Hyatt':['World of Hyatt']};
 function tgt(b){if('to' in b)return b.to;const t=b.t||'';let best=null,bi=1e9;REL.filter(n=>n!==b.w).forEach(n=>{const nm=NAME[n],fw=nm.split(' ')[0];const keys=[nm].concat(fw.length>=4&&!['Virgin','United','Air'].includes(fw)?[fw]:[],ALIN[nm]||[]);keys.forEach(k=>{const i=t.indexOf(k);if(i>=0&&i<bi){bi=i;best=n}})});return best}
 const PRON={Ines:'Her',Lucia:'Her',Imani:'Her',Yuki:'Her',Teresa:'Her',Leila:'Her',Anjali:'Her',Marisol:'Her',Joanne:'Her'};
@@ -525,10 +527,11 @@ const tstr=()=>CLK[0]+':'+String(CLK[1]).padStart(2,'0')+' PM';
 function banner(t,b){$('#bt').textContent=t;$('#bb').textContent=b;$('#ban').classList.add('on');setTimeout(()=>$('#ban').classList.remove('on'),3600)}
 function speak(n,on){const e=AG[n];if(on){LOCK[n]=1;e&&e.classList.add('spk');const s=e&&e.querySelector('.st');if(s)s.textContent='Briefing now';burst($('#w'+n,web),C.acc[CUR.tab][0],true,3,240,1050);setTimeout(()=>FOel.classList.add('spk'),700);setTimeout(()=>FOel.classList.remove('spk'),1300)}
  else{e&&e.classList.remove('spk');const r=CUR.rel.find(x=>x[0]===n);const s=e&&e.querySelector('.st');if(s)s.textContent=relSt(CUR,n,r?r[1]:'')}}
-async function run(p,ff){const my=++RUN;let dsk=null,lastF='',bi=0,prevSpec=null,spoken=new Set(),planSet=false;
+const RMH=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);let GATE=null,GATEr=null,GATEAT=-1;
+async function run(p,ff){if(RMH)ff=p.beats.length;const my=++RUN;let dsk=null,lastF='',bi=0,prevSpec=null,spoken=new Set(),planSet=false;
  const T=x=>ff>bi?0:x;const[h,m]=p.t0.split(':').map(Number);CLK=[h,m];$('#clk').textContent=p.t0;
  flip(()=>{const t=document.createElement('div');t.className='ts';t.textContent='Tonight '+p.t0+' PM ET';ci.appendChild(t)});
- for(bi=0;bi<p.beats.length;bi++){const b=Object.assign({},p.beats[bi]);if(my!==RUN)return;const k=who(b.w);
+ for(bi=0;bi<p.beats.length;bi++){if(GATE&&bi===GATEAT){const g=GATE;GATE=null;await g;if(my!==RUN)return}const b=Object.assign({},p.beats[bi]);if(my!==RUN)return;const k=who(b.w);
   if(bi%4===3)tick();
   if(k!=='s'&&dsk){const d=dsk;dsk=null;flip(()=>d.remove())}
   if(STOP>=0&&bi===STOP){ // freeze for review stills

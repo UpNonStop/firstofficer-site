@@ -87,3 +87,10 @@ One signature moment per page, built from app components and real tokens only:
 
 No copy was changed.
 - Fixed the top ticker: dollar figures were pink (`#FA1896`) and are now gold2. Numbers are never pink.
+
+## Hero never looks empty at 390 (Oct 24)
+- Mobile persona card ("Meet <name>") now renders filled at load (header, Bespoke strategy code, dossier rows, final numbers) instead of waiting for scroll-into-view, so the part peeking above the sticky "Book Your Found Money Call" bar has content at the fold.
+- Mobile phone thread: the first client/First Officer messages (up to 3, stopping before any specialist beat) render immediately and statically; the rest of the thread continues with typing-then-reveal once the desk scrolls into view.
+- prefers-reduced-motion: full thread renders static (no typing), card renders static, no auto-cycling to the next persona. Applies on desktop too.
+- Fixed a broken image: img/hero/fo-avatar.png (First Officer notification/avatar icon) was missing; it is now the transparent pink chevron mark.
+- No copy changes.
