@@ -56,3 +56,34 @@ One signature moment per page, built from app components and real tokens only:
 - Every site mark now uses /workspace/brand/firstofficer-chevron-transparent.png (copied to img/fo-chevron-transparent.png), including the favicon link.
 - Removed every tile, fill, border, radius and shadow behind the mark: nav brand, home chat header, booking card header, "one desk behind every door" note, CTA card, footer. A global guard rule `.mk,.bkm{background:none;border:0;box-shadow:none;border-radius:0}` stops it returning.
 - The hero data's mark path swapped to the transparent file; hero styling not changed (see open item on the hero node rings).
+
+
+## Oct 24: chevron re-cut, app-exact bubbles, calm delight
+
+**Chevron**
+- `img/fo-chevron-transparent-v2.png` is a re-cut of Ohad's pink chevrons. The master is untouched.
+- The master had 14,309 semi-transparent edge pixels, all near-white: the white halo. The v2 file has 0 near-white pixels. Its 2,635 semi-transparent edge pixels are all pink, so the edge is decontaminated against white.
+- Stray specks were removed (59 components found, only the 2 chevrons kept) and the image was trimmed with 4% even padding.
+- Every reference now points to v2: nav, footer, chat header, booking card, CTA cards, note line, favicon and hero.
+- Global guard: `.mk,.bkm` never get a background, border, radius or shadow.
+- Hero First Officer node: the outline rings stay. There is no fill, and the pink glow is gone.
+
+**Bubbles, to the New Bot app spec**
+- Client bubble: white, 1px goldLine, 18px radius with a 6px tail corner, 10/14 padding, Inter 15 to 15.5px, 82% max width.
+- First Officer replies: unboxed ink text, as in the app. They are no longer pink bubbles with white text.
+- Specialist bubbles: white with a neutral hairline.
+- Inline figures: goldWash chips with ink text, so numbers are never pink or white-on-pink.
+- Typing dots: ink3.
+- Timestamps and read receipts: 12px ink3.
+- Hero phone screen: cream `#FAF6EE`.
+- Spacing: 4px between bubbles in the same turn, 14px between turns.
+- These overrides live in `hero/fo-hero-app.js` and are appended to the hero's shadow-DOM CSS. The hero JS is unchanged.
+- Home chat: same spec. Specialist names show as an ink3 label with a colored dot, not colored text.
+- Composer: 22px radius, and the send key is goldLine with an ink arrow (it was white on pale gold, which failed contrast).
+- Pills: ink2 text with a colored dot (the text was colored before).
+- TeamBadge: 6px dot, 12px semibold, matching the app.
+
+**Delight:** see INSPIRATION.md. It adds press feedback, pointer-only hover lift, the book check pop, the dental Worth-it settle and the home multiplier underline. Everything is off under reduced motion.
+
+No copy was changed.
+- Fixed the top ticker: dollar figures were pink (`#FA1896`) and are now gold2. Numbers are never pink.

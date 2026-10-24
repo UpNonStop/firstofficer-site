@@ -9,7 +9,7 @@ INDS=[('agencies','Agencies','📣'),('auto-repair','Auto Repair','🔧'),('clea
 # ticker + hero keep their own fonts (verbatim / faithful port); site sections use Inter from the app.
 TICK_FONT='<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">'
 HERO_FONTS='<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">'
-MK='<span class="mk"><img src="img/fo-chevron-transparent.png" alt=""></span>'
+MK='<span class="mk"><img src="img/fo-chevron-transparent-v2.png" alt=""></span>'
 
 def ph(names, iv=8000):
     return f'<div class="phx" data-iv="{iv}" data-ph="{",".join("img/ph/"+n+".webp" for n in names)}" aria-hidden="true"></div>'
@@ -65,12 +65,12 @@ def footer(src):
 def page(name, title, body, desc='', hero=False, src='site', tail=''):
     fonts=TICK_FONT+(HERO_FONTS if hero else '')
     hh=('<script>window.FO_SUBHEAD='+json.dumps(HERO_SUB)+';</script>') if hero else ''
-    scripts=('<script src="hero/fo-hero-data.js"></script><script src="hero/fo-hero.js"></script>' if hero else '')+tail+'<script src="assets/site.js"></script>'
+    scripts=('<script src="hero/fo-hero-data.js"></script><script src="hero/fo-hero-app.js"></script><script src="hero/fo-hero.js"></script>' if hero else '')+tail+'<script src="assets/site.js"></script>'
     html=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title><meta name="description" content="{H.escape(desc)}"><meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>{fonts}
 <link rel="preload" href="fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" href="img/fo-chevron-transparent.png"><link rel="stylesheet" href="assets/fo-site-tokens.css"><link rel="stylesheet" href="assets/fo-site.css"><link rel="stylesheet" href="assets/hero-frame.css">{hh}</head><body>
+<link rel="icon" href="img/fo-chevron-transparent-v2.png"><link rel="stylesheet" href="assets/fo-site-tokens.css"><link rel="stylesheet" href="assets/fo-site.css"><link rel="stylesheet" href="assets/hero-frame.css">{hh}</head><body>
 <!-- MOCKUP · First Officer rebuild v3 (app design language) · static HTML, not production -->
 {nav()}
 {TICK_HTML}
