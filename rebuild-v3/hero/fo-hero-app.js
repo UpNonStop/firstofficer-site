@@ -4,6 +4,11 @@
 window.CFG.css+=[
 ".scr{background:#FAF6EE;font-family:"+F+"}",
 ".ts{font:500 12px "+F+";color:#8E8796;letter-spacing:.01em;margin:6px 0 10px}",
+".greet{margin:0 0 12px;display:flex;flex-direction:column;gap:8px}",
+".greet em{font:italic 400 22px/1.1 'DM Serif Display',Georgia,serif;color:#2A2230;letter-spacing:-.005em}",
+".gch{display:flex;gap:6px;flex-wrap:nowrap;overflow:hidden}",
+".gch span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font:500 11.5px "+F+";color:#2A2230;background:#fff;border:1px solid rgba(42,34,48,.10);border-radius:999px;padding:5px 10px 5px 8px}",
+".gch i{width:6px;height:6px;border-radius:50%;display:block}",
 ".rcpt{font:500 12px "+F+";color:#8E8796}",
 ".nm5{font:500 12.5px "+F+";color:#8E8796}",
 ".nm5 b{font:600 12px "+F+";color:#2A2230;background:rgba(232,197,71,.16);border-radius:6px;padding:1px 6px}",

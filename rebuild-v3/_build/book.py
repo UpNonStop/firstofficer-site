@@ -77,5 +77,7 @@ ways=f'''<section class="sec" id="ways">{ph(['bg-02','d-lisbon','bg-07'])}<div c
 
 tail='''<script>(function(){var f=document.getElementById('bkf');if(!f)return;f.addEventListener('submit',function(e){e.preventDefault();var d=new FormData(f),cb=document.querySelector('#p-cb.on'),m=document.querySelector('.mode .door.on');
 var b='Name: '+d.get('n')+'\\nEmail: '+d.get('e')+'\\nIndustry: '+d.get('i')+'\\nCall by: '+(m?m.getAttribute('data-m'):'')+'\\nNumber: '+(d.get('p')||'')+'\\nBest time: '+d.get('t')+'\\n\\n'+(d.get('m')||'');
-location.href='mailto:desk@upnonstop.com?subject='+encodeURIComponent((cb?'Callback request':'Found Money Call request')+' · '+d.get('n'))+'&body='+encodeURIComponent(b)})})();</script>'''
+var url='mailto:desk@upnonstop.com?subject='+encodeURIComponent((cb?'Callback request':'Found Money Call request')+' · '+d.get('n'))+'&body='+encodeURIComponent(b);
+var s=f.querySelector('[type=submit]'),rm=matchMedia('(prefers-reduced-motion: reduce)').matches;if(s&&!s.classList.contains('ok')){s.classList.add('ok');s.setAttribute('aria-live','polite');s.innerHTML='<span class="okr" aria-hidden="true"><i></i><i></i><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="okt">Opening your email</span>'}
+setTimeout(function(){location.href=url},rm?0:1300)})})();</script>'''
 page('book.html','Book Your "Found Money" Call · First Officer', hero+nxt+ways, desc='The Found Money Call. Free, 20 minutes, your way.', src='book', tail=tail)

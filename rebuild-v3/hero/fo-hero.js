@@ -243,7 +243,7 @@ const RMH=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').m
 const QS=p=>{let n=0;while(n<3&&n<p.beats.length&&who(p.beats[n].w)!=='s')n++;return n};
 async function run(p,ff){if(RMH)ff=p.beats.length;const my=++RUN;let dsk=null,lastF='',bi=0,prevSpec=null,spoken=new Set(),planSet=false;
  const T=x=>ff>bi?0:x;const[h,m]=p.t0.split(':').map(Number);CLK=[h,m];$('#clk').textContent=p.t0;
- flip(()=>{const t=document.createElement('div');t.className='ts';t.textContent='Tonight '+p.t0+' PM ET';ci.appendChild(t)});
+ flip(()=>{const t=document.createElement('div');t.className='ts';t.textContent='Tonight '+p.t0+' PM ET';ci.appendChild(t);const g=document.createElement('div');g.className='greet';g.innerHTML='<em>Evening, '+p.name+'.</em><span class="gch"><span><i style="background:#E0662E"></i>Plan a trip</span><span><i style="background:#1F9D6B"></i>This week\u2019s earn</span><span><i style="background:#5B6CF0"></i>Ask the desk</span></span>';ci.appendChild(g)});
  for(bi=0;bi<p.beats.length;bi++){if(GATE&&bi===GATEAT){const g=GATE;GATE=null;await g;if(my!==RUN)return}const b=Object.assign({},p.beats[bi]);if(my!==RUN)return;const k=who(b.w);if(window.BLOG)BLOG.push([Math.round(performance.now()),bi,k,b.ban?1:0]);
   if(bi%4===3)tick();
   if(k!=='s'&&dsk){const d=dsk;dsk=null;flip(()=>d.remove())}
@@ -532,7 +532,7 @@ const RMH=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').m
 const QS=p=>{let n=0;while(n<3&&n<p.beats.length&&who(p.beats[n].w)!=='s')n++;return n};
 async function run(p,ff){if(RMH)ff=p.beats.length;const my=++RUN;let dsk=null,lastF='',bi=0,prevSpec=null,spoken=new Set(),planSet=false;
  const T=x=>ff>bi?0:x;const[h,m]=p.t0.split(':').map(Number);CLK=[h,m];$('#clk').textContent=p.t0;
- flip(()=>{const t=document.createElement('div');t.className='ts';t.textContent='Tonight '+p.t0+' PM ET';ci.appendChild(t)});
+ flip(()=>{const t=document.createElement('div');t.className='ts';t.textContent='Tonight '+p.t0+' PM ET';ci.appendChild(t);const g=document.createElement('div');g.className='greet';g.innerHTML='<em>Evening, '+p.name+'.</em><span class="gch"><span><i style="background:#E0662E"></i>Plan a trip</span><span><i style="background:#1F9D6B"></i>This week\u2019s earn</span><span><i style="background:#5B6CF0"></i>Ask the desk</span></span>';ci.appendChild(g)});
  for(bi=0;bi<p.beats.length;bi++){if(GATE&&bi===GATEAT){const g=GATE;GATE=null;await g;if(my!==RUN)return}const b=Object.assign({},p.beats[bi]);if(my!==RUN)return;const k=who(b.w);
   if(bi%4===3)tick();
   if(k!=='s'&&dsk){const d=dsk;dsk=null;flip(()=>d.remove())}

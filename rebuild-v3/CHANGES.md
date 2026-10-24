@@ -102,3 +102,37 @@ No copy was changed.
 - Book: dropped the shared footer CTA card. The page is the booking flow, so the flow and its submit are the only CTA. The newsletter card stays.
 - Desktop hero phone: the first client/First Officer messages (up to 3, before any specialist beat) render at load; the rest types in.
 - Nav WhatsApp button and "Get your desk" pill unchanged.
+
+## Three alternatives + delight (Oct 24)
+Comparisons now show three ways, labeled exactly **No strategy**, **Cash back** and **Mock-up strategy**, each with an illustrative note. Numbers stay dark; only the Mock-up strategy bar carries colour.
+
+**Label and copy changes (for your yes):**
+- Home destination cards (signature card plus all 15 deck cards):
+  - "The usual way" → "No strategy" (same 1¢ statement-credit value).
+  - New middle row, "Cash back": the spend that earns the card's points at the page's 2.1x blended rate, at 2% cash back. Example: Kyoto 150,000 pts → $1,429.
+  - "With your desk" → "Mock-up strategy".
+  - The method notes now explain all three ways.
+  - Note: at 2.1x, 2% cash back comes out slightly *below* the 1¢ statement credit. That is the honest math, and it is shown as is.
+- Home "The same $420,000, both ways" → "three ways":
+  - New row: "No strategy · A debit card, earns nothing · $0".
+  - "“2% back on everything”" became the row "Cash back", with the old line kept as its sub.
+  - "Routed on the earn, booked on the burn" became "Mock-up strategy", with the old line kept as its sub.
+  - New line: "Mock-up strategy is illustrative, not a projection of your results."
+- Dental calculator:
+  - New live rows, "Same spend, three ways · a year": No strategy $0 (debit), Cash back = card-able spend × 12 × 2% ($17,040 at defaults), Mock-up strategy = net after our fee ($26,668 at defaults).
+  - Appended to the cap: "Cash back at 2% cash back on the monthly card-able spend, times 12. Mock-up strategy is illustrative."
+- Dental "From sticker to net": the same three rows on $852,000, plus "Mock-up strategy is illustrative, not client data."
+- Dental header: a passport stamp, "Dental · cleared for takeoff".
+- Dental Worth-it card: a FROM $71,000 spend a month → TO 151,000 points a month stub (both figures were already on the page).
+- Dental #routing:
+  - Three status chips: "Vendor codes verified, not guessed", "Caps flagged before the pool fills", "The call printed before the booking".
+  - New "Two lines, routed · a year" card. It uses only page-stated math from the mistakes section: supply distributors flat-2x 816,000 vs no-fee 2x 458,000; software and imaging 216,000 vs invoice card at 2x 108,000; stacking to 1,032,000. A card-types-only note is included.
+- Home signature photo: a before/after slider. "What most people book · ≈ $X statement credit" vs "What the desk books · <trip>, est.", with a "<pts> pts · fixed" chip. Dragging it stops the auto-cycle.
+- Home hero chat: an "Evening, <name>." greeting plus chips "Plan a trip", "This week’s earn" and "Ask the desk".
+- Book submit: the button turns into rings → check, reading "Opening your email", then opens the email app (after 1.3s, or instantly under reduced motion).
+
+**Behaviour:**
+- Background photo layers now lead with photos that match the visitor's local time: dawn 5–8, day 8–17, dusk 17–20, night 20–5. Only existing photos are used, and the original order is kept as a fallback when fewer than 2 match.
+- Routing lanes slide in and the points bar stacks up, all static under reduced motion.
+- Existing press/settle micro-interactions are kept.
+- Not done: a routing flow on home. Home has no per-vendor spend lines to route, and we did not invent any.

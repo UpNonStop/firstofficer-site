@@ -18,3 +18,25 @@ Source: WebSearch over Dribbble and similar galleries. Dribbble's tag pages bloc
 - For-dental: the Worth-it settle.
 
 Everything else is small press and hover feedback.
+
+## Round 2: Dribbble patterns (Oct 24, 2026)
+
+We used the patterns only and copied no designs. Everything is rebuilt from our own tokens and is calm under `prefers-reduced-motion`.
+
+| # | Pattern | Where it lives now |
+|---|---------|--------------------|
+| 1 | Ticket / boarding-pass card: notched side cutouts and a dashed tear line | Dental hero "Worth it" card (`.card.bp`). The notches line up with the tear line via a CSS mask. A FROM → TO stub shows $71,000 spend a month → 151,000 points a month, both figures already on the page |
+| 2 | SVG route arc drawn with stroke-dashoffset, with a small plane following it on `offset-path` | Same card: a pink dashed arc on cream and an ink plane, with no glow. Under reduced motion it shows drawn and static |
+| 3 | Lighter comma groups on big numbers, plus a blur-to-sharp reveal | Dental hero net figure (`data-dg`): the comma is dimmed and the number sharpens from a 6px blur on reveal. No blur under reduced motion |
+| 4 | Photo card with floating white stat chips over the photo | Home signature destination card: white label chips on both halves and a white "150,000 pts · fixed" chip |
+| 5 | Rewards progress rows: big figure, thin fill, numbers dark, mini bar per row | Every three-way comparison (`.cmp.alt3`): No strategy / Cash back / Mock-up strategy |
+| 6 | Recommendation card: one highlighted best option, with a dimmed "Alternative" row | Dental #routing "Two lines, routed" lanes card. It shows card types only, never names |
+| 7 | Serif-italic greeting with pill suggestion chips that have coloured dots | Home hero chat: "Evening, Kofi." (the thread is set "Tonight") with three dotted pills |
+| 8 | Pulsing concentric rings that collapse into a check | Book page submit button, before the email app opens. Instant under reduced motion |
+
+**One hero moment per page**
+- Home: the hero thread, now opening with the greeting.
+- For-dental: the boarding-pass Worth-it card.
+- Book: the ring-to-check on submit.
+
+The before/after slider, the routing lanes and the three-way rows are quiet and in-flow.
