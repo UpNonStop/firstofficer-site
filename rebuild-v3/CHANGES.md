@@ -143,3 +143,7 @@ Comparisons now show three ways, labeled exactly **No strategy**, **Cash back** 
 - Deck intro "what it buys the usual way, and what it buys with your desk." → "what it buys three ways."
 - Dental and the home "$420,000, three ways" block keep the "No strategy" (debit, $0) label.
 - Dental boarding pass: plane icon about 1.5x bigger at 390 (16px → 24px).
+
+## Label: Bespoke strategy (Oct 24, 2026)
+- Per Ohad: the third comparison option is labeled "Bespoke strategy" (was "Mock-up strategy") on home and dental; illustrative notes kept.
+- Fixed duplicated amount in destination-card screen-reader labels.

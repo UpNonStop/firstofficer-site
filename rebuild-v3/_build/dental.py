@@ -41,9 +41,9 @@ calc=f'''<section class="sec" id="numbers">{ph(['i-desk','e-laptop','i-dental'])
 <div class="div"></div>
 {kv('Monthly card-able spend','<span id="dsp">$71,000</span>')}{kv('Points a month, caps applied','<span id="dpts">151,000</span>')}{kv('Blended earn rate','<span id="dbl">2.1x</span>')}{kv('Net, this year','<span id="dyr">$26,668</span>','tot')}
 <div class="alt3h"><span class="lab">Same spend, three ways · a year</span></div>
-<div class="cmp alt3 live">{bar('No strategy','<span id="a0">$0</span>',0,sub='A debit card, earns nothing',cls='usual a0')}{bar('Cash back','<span id="a1">$17,040</span>',17040/26668*100,sub='At 2% cash back on card-able spend',cls='usual a1',dl=.12)}{bar('Mock-up strategy','<span id="a2">$26,668</span>',100,'var(--earn)',sub='Routed, after our fee',cls='a2',dl=.25)}</div>
+<div class="cmp alt3 live">{bar('No strategy','<span id="a0">$0</span>',0,sub='A debit card, earns nothing',cls='usual a0')}{bar('Cash back','<span id="a1">$17,040</span>',17040/26668*100,sub='At 2% cash back on card-able spend',cls='usual a1',dl=.12)}{bar('Bespoke strategy','<span id="a2">$26,668</span>',100,'var(--earn)',sub='Routed, after our fee',cls='a2',dl=.25)}</div>
 <a class="btn" href="calculator.html" style="margin-top:16px">Run your numbers →</a>
-<p class="cap" style="margin-top:10px">Estimated, illustrative. Points × 3.0 cents × 85% redeemed × the honest discount, minus our $550 fee. Not a projection of your results. Cash back at 2% cash back on the monthly card-able spend, times 12. Mock-up strategy is illustrative.</p></div></div>
+<p class="cap" style="margin-top:10px">Estimated, illustrative. Points × 3.0 cents × 85% redeemed × the honest discount, minus our $550 fee. Not a projection of your results. Cash back at 2% cash back on the monthly card-able spend, times 12. Bespoke strategy is illustrative.</p></div></div>
 <div class="icta" data-rv><div><b class="lead">See this on your own numbers.</b><p class="cap">The Found Money Call: free, 20 minutes. We verify yours against real transactions.</p></div><a class="btn ghost" href="book.html?from=for-dental-numbers">Book Your "Found Money" Call →</a></div>
 </div></section>'''
 
@@ -97,8 +97,8 @@ yr=f'''<section class="sec" id="math">{ph(['d-santorini','d-maldives','d-kyoto',
 <div class="div"></div>
 <div class="cmp">{bar('Sticker value','$46,206',100,'#BDB7C3')}{bar('Valued honestly','$33,268',33268/46206*100,'var(--ink3)',dl=.15)}{bar('Our fee','−$6,600',6600/46206*100,'var(--ink2)',dl=.3)}{bar('Net, this year','$26,668',26668/46206*100,'var(--earn)',dl=.45)}</div>
 <div class="div"></div><span class="lab">The same $852,000, three ways</span>
-<div class="cmp alt3" style="margin-top:12px">{bar('No strategy','$0',0,sub='A debit card, earns nothing',cls='usual')}{bar('Cash back','$17,040',17040/26668*100,sub='At 2% cash back on $852,000',cls='usual',dl=.12)}{bar('Mock-up strategy','$26,668',100,'var(--earn)',sub='Routed, caps applied, after our fee',dl=.25)}</div>
-<p class="cap" style="margin-top:10px">Mock-up strategy is illustrative, not client data.</p></div>
+<div class="cmp alt3" style="margin-top:12px">{bar('No strategy','$0',0,sub='A debit card, earns nothing',cls='usual')}{bar('Cash back','$17,040',17040/26668*100,sub='At 2% cash back on $852,000',cls='usual',dl=.12)}{bar('Bespoke strategy','$26,668',100,'var(--earn)',sub='Routed, caps applied, after our fee',dl=.25)}</div>
+<p class="cap" style="margin-top:10px">Bespoke strategy is illustrative, not client data.</p></div>
 </div>
 <p class="method" style="margin-top:18px">Illustrative profile, not client data. Point valuations are estimates based on common redemption benchmarks; actual value depends on how and when you redeem. Bonus rates capped on published product terms, before card annual fees. Not a guarantee of any outcome and not financial or tax advice.</p>
 </div></section>'''
