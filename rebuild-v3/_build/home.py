@@ -21,11 +21,11 @@ FEAT=[dict(city=d[0],img='img/ph/'+d[1]+'.webp',tag=d[2],pts=d[3],usual=d[4],cas
 
 def story(city,img,tag,pts,us,dk,x,trip,tx, more=False, ids=False):
     I=(lambda n: f' id="{n}"') if ids else (lambda n:'')
-    return f'''<article class="ptile{' more' if more else ''}{' sig' if ids else ''}" aria-label="{city}: {pts:,} points, about ${us:,} the usual way or about ${dk:,} estimated with your desk">
+    return f'''<article class="ptile{' more' if more else ''}{' sig' if ids else ''}" aria-label="{city}: {pts:,} points, about ${us:,} about ${round(pts/2.1*0.02):,} at 2% cash back, about ${us:,} as points with no strategy, or about ${dk:,} with the mock-up strategy, estimated">
 <div class="im{' ba' if ids else ''}">{(f'<img id="fimg0" class="ba0" src="img/ph/{img}.webp" alt="" aria-hidden="true" decoding="async">') if ids else ''}<img{I('fimg')} src="img/ph/{img}.webp" alt="{city}" loading="lazy" decoding="async">{(f'<span class="bal l">What most people book<b>≈ $<span id="fbu">{us:,}</span> statement credit</b></span><span class="bal r">What the desk books<b id="fbk">{trip}, est.</b></span><span class="bapt"><b id="fbp">{pts:,}</b> pts · fixed</span><i class="bah" aria-hidden="true"></i><input class="bar-r" type="range" min="4" max="96" value="50" aria-label="Drag to compare what most people book with what the desk books, same points">') if ids else ''}</div>
 <div class="cp"><b{I('fcity')}>{city}</b><span{I('ftrip')}>{tag} · {trip}</span></div>
 <div class="bd"><span class="lab burn">Same points{', either way' if ids else ''}</span><span class="num m tn" style="margin:4px 0 14px"><span{I('fpts')} data-cu="{pts}">{pts:,}</span><small>pts</small></span>
-<div class="cmp alt3">{bar('No strategy',f'≈ $<span{I("fu")} data-cu="{us}">{us:,}</span>',us/dk*100,sub='Statement credit, at 1¢ a point',cls='usual nos')}{bar('Cash back',f'≈ $<span{I("fc")} data-cu="{round(pts/2.1*0.02)}">{round(pts/2.1*0.02):,}</span>',round(pts/2.1*0.02)/dk*100,sub='At 2% cash back on the same spend',cls='usual cbk',dl=.12)}{bar('Mock-up strategy',f'≈ $<span{I("fk")} data-cu="{dk}">{dk:,}</span>',100,'var(--burn)',sub=f'<span{I("fks")}>{trip}, est.</span>',dl=.25)}</div>
+<div class="cmp alt3">{bar('Cash back',f'≈ $<span{I("fc")} data-cu="{round(pts/2.1*0.02)}">{round(pts/2.1*0.02):,}</span>',round(pts/2.1*0.02)/dk*100,sub='At 2% cash back on the same spend',cls='usual cbk',dl=0)}{bar('Points, no strategy',f'≈ $<span{I("fu")} data-cu="{us}">{us:,}</span>',us/dk*100,sub='Statement credit, at 1¢ a point',cls='usual nos',dl=.12)}{bar('Mock-up strategy',f'≈ $<span{I("fk")} data-cu="{dk}">{dk:,}</span>',100,'var(--burn)',sub=f'<span{I("fks")}>{trip}, est.</span>',dl=.25)}</div>
 <div class="mult"><b><span{I('fm')} data-cu="{x}" data-d="1">{x}</span>x</b><span>{'more trip<br>for the same points' if ids else 'more trip'}</span></div>
 <div class="cap" style="margin-top:10px">Estimated, illustrative · <span{I('ftx')}>est. taxes {tx}</span></div></div></article>'''
 
@@ -96,20 +96,20 @@ portal=f'''<section class="sec" id="portal">{ph(['d-lisbon','bg-02','d-rome','bg
 
 f0=FEAT[0]
 fomo=f'''<section class="sec" id="fomo">{ph(['d-santorini','d-kyoto','d-maldives'])}<div class="wrap">
-{head('The difference is the search','Same points. <em>Two very different bookings.</em>','We do not set the prices and we do not control award space. We know where to look, and that is the whole gap.')}
+{head('The difference is the search','Same points. <em>Three very different outcomes.</em>','We do not set the prices and we do not control award space. We know where to look, and that is the whole gap.')}
 <div style="max-width:560px" id="feat" data-rv>
 <div class="chiprow ftabs" style="margin-bottom:12px">{''.join(f'<button type="button" class="chip{" on" if k==0 else ""}">{d["city"]}</button>' for k,d in enumerate(FEAT))}</div>
 {story(*DEST[4], ids=True)}</div>
 <div class="icta" style="max-width:560px" data-rv><div><b class="lead">See this on your own numbers.</b><p class="cap">The Found Money Call: 20 minutes, free.</p></div><a class="btn ghost" href="book.html?from=home-sig">Book Your "Found Money" Call →</a></div>
-<p class="method"><b>Method.</b> Three ways, same points. No strategy: the points cashed as a statement credit at 1.0¢ each. Cash back: the spend that earns these points at the 2.1x blended rate used on this page, at 2% cash back. Mock-up strategy: an illustrative version of what the desk does. With your desk: the estimated cash price of the trip the same points buy through a partner program, divided by the points (3.4 to 6.2¢ a point in these examples). Estimated, illustrative; taxes and fees extra. Award pricing and award space change constantly. We control neither.</p>
+<p class="method"><b>Method.</b> Three ways, lowest to highest. Cash back: the spend that earns these points at the 2.1x blended rate used on this page, at 2% cash back. Points, no strategy: the points cashed as a statement credit at 1.0¢ each. Mock-up strategy (illustrative): the estimated cash price of the trip the same points buy through a partner program, divided by the points (3.4 to 6.2¢ a point in these examples). Estimated, illustrative; taxes and fees extra. Award pricing and award space change constantly. We control neither.</p>
 </div></section>'''
 
 deck=f'''<section class="sec" id="deck">{ph(['bg-01','d-maldives','bg-07','d-cabo'])}<div class="wrap">
-{head('What it turns into','Same points. <em>A very different trip.</em>','15 trips in the style the desk finds. Each card starts from the same balance: what it buys the usual way, and what it buys with your desk.')}
+{head('What it turns into','Same points. <em>A very different trip.</em>','15 trips in the style the desk finds. Each card starts from the same balance: what it buys three ways.')}
 <div class="track" id="track">{''.join(story(*d, more=k>=5) for k,d in enumerate(DEST))}</div>
 <div class="trackbar"><button class="arrow" type="button" data-dir="-1" aria-label="Previous trips">←</button><div class="meter in"><i id="dprog" style="--w:7%;transform:none"></i></div><span class="cnt" id="dcnt">01 / 15</span><button class="arrow" type="button" data-dir="1" aria-label="Next trips">→</button></div>
 <button class="btn ghost" id="dmore" type="button" style="margin-top:14px">Show all 15 trips</button>
-<p class="method"><b>Estimated, illustrative.</b> No strategy at 1.0¢ a point as a statement credit. Cash back at 2% cash back on the spend that earns the points at a 2.1x blended rate. Mock-up strategy is illustrative. Desk value is the estimated cash price of the trip ÷ the points, 3.4 to 6.2¢ in these examples. Taxes extra, shown per card. Award space and pricing change.</p>
+<p class="method"><b>Estimated, illustrative.</b> Lowest to highest: Cash back at 2% cash back on the spend that earns the points at a 2.1x blended rate. Points, no strategy at 1.0¢ a point as a statement credit. Mock-up strategy is illustrative: its value is the estimated cash price of the trip ÷ the points, 3.4 to 6.2¢ in these examples. Taxes extra, shown per card. Award space and pricing change.</p>
 </div></section>'''
 
 LED=[('EC','E-commerce owner','$62K/MO SPEND','','Example +30% transfer bonus: September buying trip vetted and sent to the desk to book.',6940),

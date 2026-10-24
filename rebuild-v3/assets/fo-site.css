@@ -490,3 +490,4 @@ p.body+p.body{margin-top:10px}
 .bpr .pl path{fill:currentColor;stroke:none}
 .in .bpr .pl{offset-distance:90%}
 @media(prefers-reduced-motion:reduce){.bpr .pl{offset-distance:90%}}
+@media(max-width:760px){.bpr .pl{width:24px;height:24px;margin:-12px 0 0 -12px}.bpr .pl svg{width:24px;height:24px}}

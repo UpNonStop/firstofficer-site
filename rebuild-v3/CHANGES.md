@@ -136,3 +136,10 @@ Comparisons now show three ways, labeled exactly **No strategy**, **Cash back** 
 - Routing lanes slide in and the points bar stacks up, all static under reduced motion.
 - Existing press/settle micro-interactions are kept.
 - Not done: a routing flow on home. Home has no per-vendor spend lines to route, and we did not invent any.
+
+## Home three-way ladder reorder + headings (Oct 24)
+- Home destination cards (signature card + all 15 deck cards): rows now ascend honestly, 1) Cash back (2% on the same spend), 2) Points, no strategy (statement credit at 1¢; label was "No strategy"), 3) Mock-up strategy. The 1¢ figure and the 3.6x multiplier are unchanged. Method notes reworded to the new order and label; card aria-labels updated to match.
+- Home heading "Same points. Two very different bookings." → "Same points. Three very different outcomes."
+- Deck intro "what it buys the usual way, and what it buys with your desk." → "what it buys three ways."
+- Dental and the home "$420,000, three ways" block keep the "No strategy" (debit, $0) label.
+- Dental boarding pass: plane icon about 1.5x bigger at 390 (16px → 24px).
