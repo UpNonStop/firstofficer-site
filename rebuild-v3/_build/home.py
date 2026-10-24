@@ -100,6 +100,7 @@ fomo=f'''<section class="sec" id="fomo">{ph(['d-santorini','d-kyoto','d-maldives
 <div style="max-width:560px" id="feat" data-rv>
 <div class="chiprow ftabs" style="margin-bottom:12px">{''.join(f'<button type="button" class="chip{" on" if k==0 else ""}">{d["city"]}</button>' for k,d in enumerate(FEAT))}</div>
 {story(*DEST[4], ids=True)}</div>
+<div class="icta" style="max-width:560px" data-rv><div><b class="lead">See this on your own numbers.</b><p class="cap">The Found Money Call: 20 minutes, free.</p></div><a class="btn ghost" href="book.html?from=home-sig">Book Your "Found Money" Call →</a></div>
 <p class="method"><b>Method.</b> The usual way: the points cashed as a statement credit at 1.0¢ each. With your desk: the estimated cash price of the trip the same points buy through a partner program, divided by the points (3.4 to 6.2¢ a point in these examples). Estimated, illustrative; taxes and fees extra. Award pricing and award space change constantly. We control neither.</p>
 </div></section>'''
 

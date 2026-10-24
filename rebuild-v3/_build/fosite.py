@@ -42,10 +42,11 @@ def nav():
 <div class="sheet">{sh}<a class="btn wa" href="{WA}">💬 Text Your First Officer</a><a class="btn" href="book.html">Get your desk</a></div>'''
 
 def footer(src):
-    ind=''.join(f'<a href="for-{s}.html">{n}</a>' for s,n,_ in INDS)
-    return f'''<section class="sec" id="band">{ph(['d-bali','bg-05','d-maldives'])}<div class="wrap"><div class="card hero cta-card" data-rv>{MK}
+    endcta='' if src in ('book','for-dental') else f'''<div class="card hero cta-card" data-rv>{MK}
 <h2 class="h2">Your Competitors Route Their Spend. Do You?</h2><p class="lede">The Found Money Call: free, 20 minutes, 6 questions, on the channel you choose. Your capture number, computed. An honest no if the math says no.</p>
-<div class="btns"><a class="btn" href="book.html?from={src}">Book Your "Found Money" Call</a><a class="btn ghost" href="#focap">Get the weekday note</a></div></div>
+<div class="btns"><a class="btn" href="book.html?from={src}">Book Your "Found Money" Call</a><a class="btn ghost" href="#focap">Get the weekday note</a></div></div>'''
+    ind=''.join(f'<a href="for-{s}.html">{n}</a>' for s,n,_ in INDS)
+    return f'''<section class="sec" id="band">{ph(['d-bali','bg-05','d-maldives'])}<div class="wrap">{endcta}
 <div class="card news" id="focap" style="margin-top:12px" data-rv><span class="lab gold">The Daily Redemption</span><h3 class="h3" style="margin-top:8px">One real redemption, every weekday.</h3>
 <p style="margin-top:6px">The newsletter behind the desk: what the desk found on request, what it cost in points, and what it would have cost in cash. Free, and you can leave whenever you like.</p>
 <form onsubmit="return false"><input type="email" placeholder="you@yourbusiness.com" aria-label="Your email address"><button class="btn" type="submit">Get the newsletter</button></form></div></div></section>
@@ -59,8 +60,7 @@ def footer(src):
 <div><span class="lab">Company</span><a href="about.html">About</a><a href="connect.html">Connect</a><a href="privacy-policy.html">Privacy Policy</a><a href="privacy-policy.html#do-not-sell">Do Not Sell My Info</a><a href="terms-of-service.html">Terms of Service</a><a href="disclaimer.html">Disclaimer</a></div>
 </div>
 <div class="fbar"><div>UpNonStop | 235 Pavonia Avenue | Jersey City, NJ 07302 | Proudly Made in 🇺🇸</div><div>Independent: no affiliate relationships with any issuer. An educational tool, not a licensed financial advisor. US businesses only. © 2026 UpNonStop.</div></div>
-</div></footer>
-<a class="btn mcta" href="book.html?from={src}">Book Your "Found Money" Call</a>'''
+</div></footer>'''
 
 def page(name, title, body, desc='', hero=False, src='site', tail=''):
     fonts=TICK_FONT+(HERO_FONTS if hero else '')

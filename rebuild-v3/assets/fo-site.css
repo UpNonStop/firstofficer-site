@@ -266,7 +266,7 @@ p.body+p.body{margin-top:10px}
 .cta-card .mk{width:44px;height:56px;display:grid;place-items:center;margin:0 auto 14px}
 .cta-card .mk img{width:38px}
 .cta-card .btns{justify-content:center}
-.foot{padding:36px 0 110px;border-top:1px solid var(--goldLine);background:var(--bg)}
+.foot{padding:36px 0 40px;border-top:1px solid var(--goldLine);background:var(--bg)}
 .foot .dn{font:400 12px/1.5 var(--font);color:var(--ink3);margin:18px 0 26px}
 .fdir{display:grid;grid-template-columns:1fr 1fr;gap:24px 18px}
 .fdir .lab{margin-bottom:10px}
@@ -283,9 +283,6 @@ p.body+p.body{margin-top:10px}
 @media(min-width:900px){.fdir{grid-template-columns:1.3fr 1fr 2fr 1fr 1fr}.fdir .fb,.fdir .ind{grid-column:auto}.fdir .ind .lst{grid-template-columns:1fr 1fr}.news form{grid-template-columns:1fr auto}.news .btn{width:auto}}
 
 /* sticky mobile CTA */
-.mcta{position:fixed;left:12px;right:12px;bottom:12px;z-index:40;box-shadow:0 10px 24px -8px rgba(230,15,134,.45);transition:opacity .25s,transform .25s}
-.mcta.mhide{opacity:0;transform:translateY(16px);pointer-events:none}
-@media(min-width:761px){.mcta{display:none}}
 
 /* rows nested inside a card read as one list, separated by hairlines (app: ranked detail) */
 .card .rows{gap:0}
@@ -388,3 +385,11 @@ p.body+p.body{margin-top:10px}
  .card.worth::after{display:none}
  .ptile.sig .mult b::after{transition:none;transform:scaleX(1)}
 }
+
+/* inline Found Money CTA (replaces the sticky mobile bar): calm, app-like, secondary weight */
+.icta{display:grid;gap:12px;margin-top:16px;padding:16px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-row,16px)}
+.icta .lead{display:block;font:600 15.5px/1.35 var(--font);color:var(--ink)}
+.icta .cap{margin:2px 0 0}
+.icta .btn.ghost{color:var(--pink2);font-weight:600;min-height:48px}
+.icta .btn.ghost:hover{border-color:var(--pink2)}
+@media(min-width:761px){.icta{grid-template-columns:1fr auto;align-items:center;padding:16px 18px}.icta .btn.ghost{width:auto;padding:0 20px}}

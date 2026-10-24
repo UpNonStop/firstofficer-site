@@ -240,6 +240,7 @@ function banner(t,b){$('#bt').textContent=t;$('#bb').textContent=b;$('#ban').cla
 function speak(n,on){const e=AG[n];if(on){LOCK[n]=1;e&&e.classList.add('spk');const s=e&&e.querySelector('.st');if(s)s.textContent='Briefing now';burst($('#w'+n,web),C.acc[CUR.tab][0],true,3,240,1050);setTimeout(()=>FOel.classList.add('spk'),700);setTimeout(()=>FOel.classList.remove('spk'),1300)}
  else{e&&e.classList.remove('spk');const r=CUR.rel.find(x=>x[0]===n);const s=e&&e.querySelector('.st');if(s)s.textContent=relSt(CUR,n,r?r[1]:'')}}
 const RMH=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);let GATE=null,GATEr=null,GATEAT=-1;
+const QS=p=>{let n=0;while(n<3&&n<p.beats.length&&who(p.beats[n].w)!=='s')n++;return n};
 async function run(p,ff){if(RMH)ff=p.beats.length;const my=++RUN;let dsk=null,lastF='',bi=0,prevSpec=null,spoken=new Set(),planSet=false;
  const T=x=>ff>bi?0:x;const[h,m]=p.t0.split(':').map(Number);CLK=[h,m];$('#clk').textContent=p.t0;
  flip(()=>{const t=document.createElement('div');t.className='ts';t.textContent='Tonight '+p.t0+' PM ET';ci.appendChild(t)});
@@ -277,7 +278,7 @@ function load(i,ff){CUR=PS[i];localStorage.setItem('fo9_p',i);RUN++;
  ci.innerHTML='';ci.style.transform='none';lastW=null;rc=null;A2AQ=[];$$('.a2a').forEach(e=>e.remove());for(const k in SL)SL[k]=0;
  if(MOB)placeDesk();buildFloor(CUR);buildCard(CUR);if(MOB)beats(CUR);
  if(MOB&&STOP<0&&!SEEN.card)cardStatic(CUR);else cardIntro(CUR);mobChips();
- if(MOB&&STOP<0&&!SEEN.desk&&!RMH){let n=0;while(n<3&&n<CUR.beats.length&&who(CUR.beats[n].w)!=='s')n++;GATEAT=n;GATE=new Promise(r=>GATEr=r);run(CUR,n)}else run(CUR,ff||0)}
+ if(MOB&&STOP<0&&!SEEN.desk&&!RMH){let n=0;while(n<3&&n<CUR.beats.length&&who(CUR.beats[n].w)!=='s')n++;GATEAT=n;GATE=new Promise(r=>GATEr=r);run(CUR,n)}else run(CUR,ff||(MOB?0:QS(CUR)))}
 const SEEN={},PEND={};
 function watch(){if(!MOB||STOP>=0||!window.IntersectionObserver)return;const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;
   if(e.target===card&&!SEEN.card){SEEN.card=1;if(PEND.c===CUR)cardIntro(CUR);PEND.c=null}
@@ -528,6 +529,7 @@ function banner(t,b){$('#bt').textContent=t;$('#bb').textContent=b;$('#ban').cla
 function speak(n,on){const e=AG[n];if(on){LOCK[n]=1;e&&e.classList.add('spk');const s=e&&e.querySelector('.st');if(s)s.textContent='Briefing now';burst($('#w'+n,web),C.acc[CUR.tab][0],true,3,240,1050);setTimeout(()=>FOel.classList.add('spk'),700);setTimeout(()=>FOel.classList.remove('spk'),1300)}
  else{e&&e.classList.remove('spk');const r=CUR.rel.find(x=>x[0]===n);const s=e&&e.querySelector('.st');if(s)s.textContent=relSt(CUR,n,r?r[1]:'')}}
 const RMH=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);let GATE=null,GATEr=null,GATEAT=-1;
+const QS=p=>{let n=0;while(n<3&&n<p.beats.length&&who(p.beats[n].w)!=='s')n++;return n};
 async function run(p,ff){if(RMH)ff=p.beats.length;const my=++RUN;let dsk=null,lastF='',bi=0,prevSpec=null,spoken=new Set(),planSet=false;
  const T=x=>ff>bi?0:x;const[h,m]=p.t0.split(':').map(Number);CLK=[h,m];$('#clk').textContent=p.t0;
  flip(()=>{const t=document.createElement('div');t.className='ts';t.textContent='Tonight '+p.t0+' PM ET';ci.appendChild(t)});
@@ -564,7 +566,7 @@ function load(i,ff){CUR=PS[i];localStorage.setItem('fo9_p',i);RUN++;
  $$('#tabs > div').forEach(d=>d.classList.toggle('on',d.dataset.t===(HOMEV?'home':CUR.tab)));HOMEV=false;
  const[bg,fg]=PAL[CUR.s%5];$('#pav').innerHTML=`<div class="pav6" style="width:32px;height:32px;background:${bg};color:${fg};font-size:12.5px">${CUR.ini||(CUR.name[0]+CUR.biz[0])}</div>`;
  ci.innerHTML='';ci.style.transform='none';lastW=null;rc=null;A2AQ=[];$$('.a2a').forEach(e=>e.remove());for(const k in SL)SL[k]=0;
- if(MOB)placeDesk();buildFloor(CUR);buildCard(CUR);cardIntro(CUR);mobChips();run(CUR,ff||0)}
+ if(MOB)placeDesk();buildFloor(CUR);buildCard(CUR);cardIntro(CUR);mobChips();run(CUR,ff||(MOB?0:QS(CUR)))}
 function placeDesk(){if(MOB){if(!CUR)return;const mx=measureCards([CUR]);G.cardH=mx;G.FO[1]=G.CARD[1]+mx+44;G.PH[1]=G.FO[1]+G.FS/2+26;G.STRIP=G.PH[1]+G.PHH+18;
   CTAS.style.top=px(G.STRIP+110);MICRO.style.top=px(G.STRIP+110+62);TMK.style.top=px(G.STRIP+110+62+MICRO.offsetHeight+6);SH.H=G.STRIP+110+62+MICRO.offsetHeight+6+TMK.offsetHeight+22;fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));
   FOel.style.top=px(G.FO[1]-G.FS/2);FOL.style.top=px(G.FO[1]-19);ph.style.top=px(G.PH[1]);return}const cb=G.CARD[1]+measureCards();G.FO[1]=Math.max(cb+40+G.FS/2+14,680);G.Y0=G.FO[1]+G.FS/2+70;G.Y1=G.Y0+34+3*G.ROW+112;SH.H=G.Y1+112;fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));MICRO.style.top=px(G.Y1+18);TMK.style.top=px(G.Y1+18+MICRO.offsetHeight+4);

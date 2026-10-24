@@ -94,3 +94,11 @@ No copy was changed.
 - prefers-reduced-motion: full thread renders static (no typing), card renders static, no auto-cycling to the next persona. Applies on desktop too.
 - Fixed a broken image: img/hero/fo-avatar.png (First Officer notification/avatar icon) was missing; it is now the transparent pink chevron mark.
 - No copy changes.
+
+## Sticky CTA removed, inline Found Money CTAs (Oct 24)
+- Removed the fixed/sliding mobile "Book Your Found Money Call" bar on all v3 pages, at all widths, plus its JS (show/hide over empty space) and the 110px of footer bottom padding reserved for it (now 40px).
+- Home: one calm inline CTA row directly after the destination signature card in "Same points. Two very different bookings." (white card, lead "See this on your own numbers.", secondary-weight button). Hero buttons, the existing button in the spend dial card, and the end-of-page CTA card stay as they were.
+- Dental: one inline CTA row at the end of "See What You're Leaving Behind" (#numbers). Kept the page's own end card (#call); dropped the shared site footer CTA card on this page so the total is 3 (hero, numbers, end). No CTA added after mistakes (would have made 4).
+- Book: dropped the shared footer CTA card. The page is the booking flow, so the flow and its submit are the only CTA. The newsletter card stays.
+- Desktop hero phone: the first client/First Officer messages (up to 3, before any specialist beat) render at load; the rest types in.
+- Nav WhatsApp button and "Get your desk" pill unchanged.

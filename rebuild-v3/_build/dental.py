@@ -38,7 +38,8 @@ calc=f'''<section class="sec" id="numbers">{ph(['i-desk','e-laptop','i-dental'])
 {kv('Monthly card-able spend','<span id="dsp">$71,000</span>')}{kv('Points a month, caps applied','<span id="dpts">151,000</span>')}{kv('Blended earn rate','<span id="dbl">2.1x</span>')}{kv('Net, this year','<span id="dyr">$26,668</span>','tot')}
 <a class="btn" href="calculator.html" style="margin-top:16px">Run your numbers →</a>
 <p class="cap" style="margin-top:10px">Estimated, illustrative. Points × 3.0 cents × 85% redeemed × the honest discount, minus our $550 fee. Not a projection of your results.</p></div></div>
-</div></div></section>'''
+<div class="icta" data-rv><div><b class="lead">See this on your own numbers.</b><p class="cap">The Found Money Call: free, 20 minutes. We verify yours against real transactions.</p></div><a class="btn ghost" href="book.html?from=for-dental-numbers">Book Your "Found Money" Call →</a></div>
+</div></section>'''
 
 def bars(rows,mx):
     return '<div class="cmp">'+''.join(bar(lab,txt,max(val/mx*100,0),c,cls=('usual' if not c else ''),dl=k*.2) for k,(lab,val,txt,c) in enumerate(rows))+'</div>'
