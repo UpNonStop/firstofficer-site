@@ -31,13 +31,14 @@ def tl(steps):
 
 def nav():
     links=[('product.html','Product'),('pricing.html','Pricing'),('how.html','How'),('trust.html','Trust'),('calculator.html','Calculator'),('about.html','About'),('industries.html','Industries')]
-    nl=''.join(f'<a href="{h}">{t}</a>' for h,t in links)
-    sh=''.join(f'<a href="{h}">{t}</a>' for h,t in links)+'<a href="free-from-the-desk.html">Free From the Desk</a><a href="field-notes.html">Field Notes</a>'+'<span class="lab" style="display:block;margin:18px 0 4px">Your industry</span><div class="sind">'+''.join(f'<a href="for-{a}.html">{e} {n}</a>' for a,n,e in INDS)+'</div>'
+    FZ='<a class="fz" href="free-from-the-desk.html"><span>Freebies<i class="fzdot" aria-hidden="true"></i></span></a>'  # pink pulse dot to pull clicks
+    nl=''.join(f'<a href="{h}">{t}</a>'+(FZ if h=='pricing.html' else '') for h,t in links)
+    sh=''.join(f'<a href="{h}">{t}</a>' for h,t in links)+FZ+'<a href="field-notes.html">Field Notes</a>'+'<span class="lab" style="display:block;margin:18px 0 4px">Your industry</span><div class="sind">'+''.join(f'<a href="for-{a}.html">{e} {n}</a>' for a,n,e in INDS)+'</div>'
     return f'''<header class="nav"><div class="nav-in">
 <a class="brand" href="home.html" aria-label="First Officer home">{MK}<span><b>First Officer</b><small>by UpNonStop™</small></span></a>
 <nav class="nlinks" aria-label="Main">{nl}</nav>
 <div class="ncta"><a class="btn-sm wa" href="{WA}" title="Texting is coming soon. WhatsApp for now." aria-label="Text Your First Officer (WhatsApp for now)">💬<span class="t">Text Your First Officer</span></a><a class="btn-sm pk" href="book.html">Get your desk</a>
-<button class="burger" aria-label="Open menu" onclick="document.querySelector('.sheet').classList.toggle('open')"><i></i></button></div>
+<button class="burger" aria-label="Open menu" onclick="document.querySelector('.sheet').classList.toggle('open')"><i></i><b class="bdot" aria-hidden="true"></b></button></div>
 </div></header>
 <div class="sheet">{sh}<a class="btn wa" href="{WA}">💬 Text Your First Officer</a><a class="btn" href="book.html">Get your desk</a></div>'''
 

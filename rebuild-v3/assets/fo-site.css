@@ -546,3 +546,14 @@ p,.lede,.sub,.cap,.method,.tip p,li{text-wrap:pretty}
 
 /* pillars heading: exactly 2 lines (Ohad, Oct 26) */
 .head.duo .h2{white-space:nowrap}
+
+/* Freebies nav marker: pink dot with a slow, soft pulse ring (matches the Ghost nav pulse feel) */
+.nlinks a.fz{font-weight:600}.sheet a.fz{font-weight:700}
+.nlinks a.fz{color:var(--ink)}
+.fz>span{position:relative}
+.fzdot,.bdot{position:absolute;width:7px;height:7px;border-radius:50%;background:#FA1896;box-shadow:0 0 0 0 rgba(250,24,150,.42);animation:fzPulse 2.4s ease-out infinite}
+.fzdot{top:-5px;right:-9px}
+.burger{position:relative}
+.bdot{top:5px;right:5px}
+@keyframes fzPulse{0%{box-shadow:0 0 0 0 rgba(250,24,150,.42)}70%{box-shadow:0 0 0 7px rgba(250,24,150,0)}100%{box-shadow:0 0 0 0 rgba(250,24,150,0)}}
+@media(prefers-reduced-motion:reduce){.fzdot,.bdot{animation:none}}
