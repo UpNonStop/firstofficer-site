@@ -3,8 +3,8 @@ from common import *
 src=open(f'{SRC}/index.html').read()
 sub=re.search(r'<script>window\.FO_SUBHEAD=.*?</script>',src,re.S).group(0)
 E=H.escape
-def head(k,h,pk,sub,center=False):
-    return f'<div class="head{" center" if center else ""}"><div class="fok">{k}</div><h2 class="foh2">{h} <span class="pk">{pk}</span></h2>{f"<p class=fosub>{sub}</p>" if sub else ""}</div>'
+def head(k,h,pk,sub,center=False,h2s='',pks=''):
+    return f'<div class="head{" center" if center else ""}"><div class="fok">{k}</div><h2 class="foh2"{h2s}>{h} <span class="pk"{pks}>{pk}</span></h2>{f"<p class=fosub>{sub}</p>" if sub else ""}</div>'
 B=[]
 B.append('<section class="sec dhero secphoto" id="top" style="--ph:none"><div id="fohero"></div></section>')
 B.append('''<div class="statwrap"><div class="statband"><div><div class="v pk">$550</div><div class="l">Flat monthly · Cancel anytime</div></div><div><div class="v">20 min</div><div class="l">The Found Money Call, free · We size your capture first</div></div><div><div class="v">Friday</div><div class="l">Dollars saved reported every Friday</div></div><div><div class="v">Yours</div><div class="l">Every decision, always</div></div></div></div>''')
@@ -56,7 +56,9 @@ PL=[("earn","01","Earn.","You already do this","Every dollar your business spend
 ("ret","03","Return.","In dollars, every Friday","Not points, not vibes. A written report every Friday with the dollar value of what we captured that week. If it stops beating the fee, you cancel.","$550 a month, flat. Cancel anytime."),
 ("learn","04","Learn.","You get sharper, for free","Every recommendation arrives with its math in plain language. No course to buy, no jargon to memorize. Keep the desk or leave it, what you learn stays yours.","Every message answers why, not just what.")]
 pc=''.join(f'<article class="pillar t-{c}"><span class="kk">Pillar {n}</span><h3>{h}</h3><div class="sub">{s}</div><p>{E(b)}</p><p class="fx">{E(fx)}</p></article>' for c,n,h,s,b,fx in PL)
-B.append(f'<section class="sec cream" id="pillars"><div class="wrap">{head("The 4 pillars","Earn, burn, return, learn.<br>","That is the whole system.","4 words, in this order, until the money comes back to you. We will teach you the one piece of jargon that matters and skip the rest.")}<div class="grid g4">{pc}</div></div></section>')
+BAL=' style="text-wrap:balance"'  # pillars h2 only: no lone words at 390
+BLK=' style="display:block"'  # grey line on its own line
+B.append(f'<section class="sec cream" id="pillars"><div class="wrap">{head("The 4 pillars","Earn, burn, return, learn.","That is the whole&nbsp;system.",h2s=BAL,pks=BLK,sub="4 words, in this order, until the money comes back to you. We will teach you the one piece of jargon that matters and skip the rest.")}<div class="grid g4">{pc}</div></div></section>')
 # friday
 FR=[("Vendor routing corrected (3 vendors)","$310"),("Transfer bonus caught, 30 percent","$980"),("Hotel nights booked on points","$1,450"),("Statement credits claimed","$220"),("Expiring balance rescued","$940")]
 B.append(f'''<section class="sec white" id="friday"><div class="wrap"><div class="split2"><div>{head("The return, in writing","Every Friday,","a number you can bank.","This is what lands in your thread at the end of the week. No dashboard to check, no report to download.")}<div class="human"><div class="hi">👤</div><div><b>Reviewed by a person</b><p>{APPROVED}</p></div></div></div>
