@@ -1,7 +1,7 @@
 /* First Officer rebuild v2 · showstopper layer on top of fo.css
    Fonts: DM Serif Display / DM Sans / JetBrains Mono only. Light theme. */
 :root{--cr:#FAF6EE;--cr2:#FFFDF8;--ink:#141216;--body:#4a4550;--mute:#6e6878;
-  --earn:#16A06A;--burn:#F26419;--ret:#7348F0;--learn:#2E9BE8;--pink:#FA1896;--pinkd:#c30d74;
+  --earn:#12834E;--burn:#E8590C;--ret:#7149C9;--learn:#1E78B8;--pink:#FA1896;--pinkd:#c30d74;
   --gold1:#FFF9E3;--gold2:#D4A72C;--gold3:#8a6a10;--wa:#2ebd59;
   --ease:cubic-bezier(.2,.8,.2,1)}
 body{background:var(--cr)}

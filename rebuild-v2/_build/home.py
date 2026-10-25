@@ -23,7 +23,7 @@ stat=f'''<div class="sb2"><div class="in gl solid">
 
 C2=2*math.pi*92
 yn=f'''<section class="sx ps" id="number">{ph(['bg-04','d-costarica','bg-08','d-bali'],'')}{rail('01','Your number')}<div class="w2">
-{kk('Earn · Burn · Learn · Return')}
+{kk('Earn · Burn · Return · Learn')}
 <h2 class="h2x" data-rv>Your monthly spend on cards and vendors. <em>What that should be buying you every year.</em></h2>
 <div class="yn">
 <div><div class="gl dial" id="dial" data-rv>
@@ -172,21 +172,21 @@ cashback=f'''<section class="sx ps" id="cashback">{ph(['bg-06','d-santorini','e-
 <p class="method">Modelled on a $35,000 a month profile. Points column assumes a blended 2.9x earn redeemed at 1.8 cents. Both columns subtract the same four frictions. Neither column prices tax treatment. Caps, fees, coding and tax treatment vary by business. General information, not tax advice.</p>
 </div></section>'''
 
-PIL=[('Earn','--earn','#16A06A','Pillar 01','You already do this','Every dollar your business spends on cards and vendors quietly earns points. The only question is whether it lands on the card that pays 4 times instead of one.','Your fuel and insurance move to the right card. Nothing about your week changes.'),
-('Burn','--burn','#F26419','Pillar 02','Spending points is the skill','Burn is the industry word for spending points, and it is where all the value lives or dies. The same 120,000 points are a $600 gift card or business class for 2 to Lisbon, est.','Same points, 2 outcomes: $600 or $7,400. That gap is the entire job.'),
-('Learn','--learn','#2E9BE8','Pillar 03','You get sharper, for free','Every recommendation arrives with its math in plain language. No course to buy, no jargon to memorize. Keep the desk or leave it, what you learn stays yours.','Every message answers why, not just what.'),
-('Return','--ret','#7348F0','Pillar 04','In dollars, every Friday','Not points, not vibes. A written report every Friday with the dollar value of what we captured that week. If it stops beating the fee, you cancel.','$550 a month, flat. Cancel anytime.')]
+PIL=[('Earn','--earn','#12834E','Pillar 01','You already do this','Every dollar your business spends on cards and vendors quietly earns points. The only question is whether it lands on the card that pays 4 times instead of one.','Your fuel and insurance move to the right card. Nothing about your week changes.'),
+('Burn','--burn','#E8590C','Pillar 02','Spending points is the skill','Burn is the industry word for spending points, and it is where all the value lives or dies. The same 120,000 points are a $600 gift card or business class for 2 to Lisbon, est.','Same points, 2 outcomes: $600 or $7,400. That gap is the entire job.'),
+('Return','--ret','#7149C9','Pillar 03','In dollars, every Friday','Not points, not vibes. A written report every Friday with the dollar value of what we captured that week. If it stops beating the fee, you cancel.','$550 a month, flat. Cancel anytime.'),
+('Learn','--learn','#1E78B8','Pillar 04','You get sharper, for free','Every recommendation arrives with its math in plain language. No course to buy, no jargon to memorize. Keep the desk or leave it, what you learn stays yours.','Every message answers why, not just what.')]
 pos=[(240,70),(410,240),(240,410),(70,240)]
 nodes=''.join(f'<g class="node" data-c="{c}" role="button" aria-label="{n}"><circle cx="{x}" cy="{y}" r="44" fill="#fff" stroke="{c}" stroke-width="3"/><text x="{x}" y="{y+7}" text-anchor="middle" fill="{c}">{n}.</text></g>' for (n,v,c,*_),(x,y) in zip(PIL,pos))
 cards=''.join(f'<article class="gl solid pc2{" on" if k==0 else ""}" style="--c:{c}"><div class="pn">{pn}</div><h3>{n}.</h3><div class="sub">{sub}</div><p>{p}</p><div class="pull">{pull}</div></article>' for k,(n,v,c,pn,sub,p,pull) in enumerate(PIL))
 tabs=''.join(f'<button type="button" style="--c:{c}">{n}</button>' for (n,v,c,*_) in PIL)
 pillars=f'''<section class="sx ps" id="pillars">{ph(['d-iceland','bg-02','d-alps'],'')}{rail('07','The 4 pillars')}<div class="w2">
 {kk('The 4 pillars')}
-<h2 class="h2x" data-rv>Earn, burn, learn, return. <em>That is the whole system.</em></h2>
+<h2 class="h2x" data-rv>Earn, burn, return, learn. <em>That is the whole system.</em></h2>
 <p class="lede" data-rv>4 words, in this order, until the money comes back to you. We will teach you the one piece of jargon that matters and skip the rest.</p>
-<div class="orb" id="orb"><svg viewBox="0 0 480 480" role="img" aria-label="Earn, burn, learn, return: a loop around your desk">
+<div class="orb" id="orb"><svg viewBox="0 0 480 480" role="img" aria-label="Earn, burn, return, learn: a loop around your desk">
 <circle cx="240" cy="240" r="170" fill="none" stroke="#e6dfd2" stroke-width="2" stroke-dasharray="3 7"/>
-<circle id="oarc" cx="240" cy="240" r="170" fill="none" stroke="#16A06A" stroke-width="5" stroke-linecap="round" stroke-dasharray="0 1068" transform="rotate(-90 240 240)" style="transition:stroke-dasharray .9s cubic-bezier(.2,.8,.2,1),stroke .6s"/>
+<circle id="oarc" cx="240" cy="240" r="170" fill="none" stroke="#12834E" stroke-width="5" stroke-linecap="round" stroke-dasharray="0 1068" transform="rotate(-90 240 240)" style="transition:stroke-dasharray .9s cubic-bezier(.2,.8,.2,1),stroke .6s"/>
 <circle cx="240" cy="240" r="96" fill="#fff" stroke="#fde7f3" stroke-width="10"/>
 <image href="img/fo-chevron-alpha.png" x="206" y="190" width="68" height="68"/>
 <text x="240" y="284" text-anchor="middle" style="font:700 10px 'JetBrains Mono',monospace;letter-spacing:2px" fill="#141216">YOUR DESK</text>
