@@ -1,4 +1,4 @@
-import sys; sys.path.insert(0,'/workspace/fo-rebuild-v3/_build')
+import sys; import os; sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from fosite import *
 IND=['Agencies','Auto Repair','Cleaning','Consulting','Contractors','CPA Firms','Dental','E-Commerce','Fitness','HVAC','IT & MSP','Landscaping','Law Firms','Medical','Property Management','Real Estate','Restaurants','Salons','Trucking','Veterinary','Other']
 opts_ind=''.join(f'<option>{i}</option>' for i in IND)

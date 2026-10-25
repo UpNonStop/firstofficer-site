@@ -1,4 +1,4 @@
-import sys; sys.path.insert(0,'/workspace/fo-rebuild-v3/_build')
+import sys; import os; sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from fosite import *
 LINES=[('Dental supply distributors','',34000,2,80000),('Lab fees','',13000,2,40000),('Implants and orthodontic materials','',11000,2,40000),('Practice software and imaging','up to 4x',4500,4,12500),('Utilities and phones','',3500,2,15000),('Everything else','',5000,2,30000)]
 SH=['Supply distributors','Lab fees','Implants & ortho','Software & imaging','Utilities & phones','Everything else']

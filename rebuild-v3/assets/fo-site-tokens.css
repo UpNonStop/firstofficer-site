@@ -21,10 +21,15 @@
   /* ink (theme.ts @ shots 10-26) */
   --ink:#2A2230; --ink2:#5F5767; --ink3:#8E8796; --line:#E9E7EE;
   --green:#2E9E6A; --greenWash:rgba(46,158,106,.10);
-  /* pillar colors (owner.tsx SECT) */
-  --earn:#2E9E6A; --burn:#E07B39; --learn:#3A9BB8; --return:#E60F86; --home:#F5B700;
+  /* pillar colors: firstofficer-native/src/ui/theme.ts PILLAR (locked Oct 24, 2026), order always Earn, Burn, Return, Learn.
+     --x = label/c600 (text, borders), --x-i = c500 dot/icon accent, --x-w = c100 wash */
+  --earn:#12834E;   --earn-i:#2FA36C;   --earn-w:#E3F3EA;
+  --burn:#E8590C;   --burn-i:#F26419;   --burn-w:#FDEBDD;
+  --return:#7149C9; --return-i:#9471DB; --return-w:#EFE9FB;
+  --learn:#1E78B8;  --learn-i:#5AB0E6;  --learn-w:#E2F0FA;
+  --home:#F5B700;
   /* specialist colors (theme.ts SPEC) */
-  --s-fo:#F5B700; --s-analyst:#6C7BD9; --s-earn:#2E9E6A; --s-burn:#E07B39; --s-hotel:#B05FC8; --s-watch:#3A9BB8;
+  --s-fo:#F5B700; --s-analyst:#6C7BD9; --s-earn:#12834E; --s-burn:#E8590C; --s-hotel:#B05FC8; --s-watch:#1E78B8;
   /* type (theme.ts F: Inter 400/500/600/700, tabular numbers) */
   --font:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
   /* spacing (tokens.ts space + layout) */

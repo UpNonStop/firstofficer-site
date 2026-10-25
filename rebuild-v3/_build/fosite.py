@@ -1,5 +1,5 @@
 import json, html as H
-ROOT='/workspace/fo-rebuild-v3'
+import os; ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # builds into this checkout
 WA='https://wa.me/16199404040?text=First%20Officer'
 APPROVED="Your strategy is reviewed and fine-tuned by a person before it reaches you. Every redemption is booked by a person. Day-to-day answers are software-led, and a person steps in when needed."
 DATANOTE="Client stories are shared with permission. Names, figures and examples on this page may be illustrative or altered to protect privacy."

@@ -1,7 +1,7 @@
 import json, sys
-sys.path.insert(0,'/workspace/fo-rebuild-v3/_build')
+import os; sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from fosite import *
-CHAT=json.load(open('/workspace/fo-rebuild-v3/_build/chat.json'))
+CHAT=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'chat.json')))
 DEST=[('Lisbon','d-lisbon','Flights',120000,1200,7400,'6.2','Business class for 2','+$118'),
  ('Paris','d-paris','Combined',145000,1450,8900,'6.1','Flights and 4 nights','+$142'),
  ('Maldives','d-maldives','Hotels',120000,1200,6200,'5.2','5 nights, overwater villa','$0'),
@@ -24,7 +24,7 @@ def story(city,img,tag,pts,us,dk,x,trip,tx, more=False, ids=False):
     return f'''<article class="ptile{' more' if more else ''}{' sig' if ids else ''}" aria-label="{city}: {pts:,} points, about ${round(pts/2.1*0.02):,} at 2% cash back, about ${us:,} as points with no strategy, or about ${dk:,} with the Bespoke strategy, estimated">
 <div class="im{' ba' if ids else ''}">{(f'<img id="fimg0" class="ba0" src="img/ph/{img}.webp" alt="" aria-hidden="true" decoding="async">') if ids else ''}<img{I('fimg')} src="img/ph/{img}.webp" alt="{city}" loading="lazy" decoding="async">{(f'<span class="bal l">What most people book<b>≈ $<span id="fbu">{us:,}</span> statement credit</b></span><span class="bal r">What the desk books<b id="fbk">{trip}, est.</b></span><span class="bapt"><b id="fbp">{pts:,}</b> pts · fixed</span><i class="bah" aria-hidden="true"></i><input class="bar-r" type="range" min="4" max="96" value="50" aria-label="Drag to compare what most people book with what the desk books, same points">') if ids else ''}</div>
 <div class="cp"><b{I('fcity')}>{city}</b><span{I('ftrip')}>{tag} · {trip}</span></div>
-<div class="bd"><span class="lab burn">Same points{', either way' if ids else ''}</span><span class="num m tn" style="margin:4px 0 14px"><span{I('fpts')} data-cu="{pts}">{pts:,}</span><small>pts</small></span>
+<div class="bd"><span class="lab burn">Same points{', every way' if ids else ''}</span><span class="num m tn" style="margin:4px 0 14px"><span{I('fpts')} data-cu="{pts}">{pts:,}</span><small>pts</small></span>
 <div class="cmp alt3">{bar('Cash back',f'≈ $<span{I("fc")} data-cu="{round(pts/2.1*0.02)}">{round(pts/2.1*0.02):,}</span>',round(pts/2.1*0.02)/dk*100,sub='At 2% cash back on the same spend',cls='usual cbk',dl=0)}{bar('Points, no strategy',f'≈ $<span{I("fu")} data-cu="{us}">{us:,}</span>',us/dk*100,sub='Statement credit, at 1¢ a point',cls='usual nos',dl=.12)}{bar('Bespoke strategy',f'≈ $<span{I("fk")} data-cu="{dk}">{dk:,}</span>',100,'var(--burn)',sub=f'<span{I("fks")}>{trip}, est.</span>',dl=.25)}</div>
 <div class="mult"><b><span{I('fm')} data-cu="{x}" data-d="1">{x}</span>x</b><span>{'more trip<br>for the same points' if ids else 'more trip'}</span></div>
 <div class="cap" style="margin-top:10px">Estimated, illustrative · <span{I('ftx')}>est. taxes {tx}</span></div></div></article>'''
@@ -38,8 +38,10 @@ stat=f'''<section class="sec" id="terms" style="padding-top:28px;padding-bottom:
 <div><div class="k">Dollars saved reported every Friday</div><div class="v">Friday</div></div>
 <div><div class="k">Every decision, always</div><div class="v">Yours</div></div></div></div></div></section>'''
 
+PORD=[('Earn','earn'),('Burn','burn'),('Return','return'),('Learn','learn')]
+def prail(cls=''): return f'<span class="prail {cls}" role="list" aria-label="The 4 pillars, in order: Earn, Burn, Return, Learn">'+'<i aria-hidden="true"></i>'.join(f'<span role="listitem" style="--c:var(--{c});--ci:var(--{c}-i)">{n}</span>' for n,c in PORD)+'</span>'
 yn=f'''<section class="sec" id="number">{ph(['bg-04','d-costarica','bg-08','d-bali'])}<div class="wrap">
-{head('Earn · Burn · Learn · Return','Your monthly spend on cards and vendors. <em>What that should be buying you every year.</em>')}
+{head(prail('mini'),'Your monthly spend on cards and vendors. <em>What that should be buying you every year.</em>')}
 <div class="split wide"><div>
 <div class="card hero top" style="--c:var(--earn)" id="dial" data-rv>
 <span class="lab earn">Your monthly spend on cards and vendors</span>
@@ -156,12 +158,13 @@ cashback=f'''<section class="sec" id="cashback">{ph(['bg-06','d-santorini','e-re
 
 PIL=[('Earn','earn','Pillar 01','You already do this','Every dollar your business spends on cards and vendors quietly earns points. The only question is whether it lands on the card that pays 4 times instead of one.','Your fuel and insurance move to the right card. Nothing about your week changes.'),
 ('Burn','burn','Pillar 02','Spending points is the skill','Burn is the industry word for spending points, and it is where all the value lives or dies. The same 120,000 points are a $600 gift card or business class for 2 to Lisbon, est.','Same points, 2 outcomes: $600 or $7,400. That gap is the entire job.'),
-('Learn','learn','Pillar 03','You get sharper, for free','Every recommendation arrives with its math in plain language. No course to buy, no jargon to memorize. Keep the desk or leave it, what you learn stays yours.','Every message answers why, not just what.'),
-('Return','ret','Pillar 04','In dollars, every Friday','Not points, not vibes. A written report every Friday with the dollar value of what we captured that week. If it stops beating the fee, you cancel.','$550 a month, flat. Cancel anytime.')]
+('Return','ret','Pillar 03','In dollars, every Friday','Not points, not vibes. A written report every Friday with the dollar value of what we captured that week. If it stops beating the fee, you cancel.','$550 a month, flat. Cancel anytime.'),
+('Learn','learn','Pillar 04','You get sharper, for free','Every recommendation arrives with its math in plain language. No course to buy, no jargon to memorize. Keep the desk or leave it, what you learn stays yours.','Every message answers why, not just what.')]
 CV={'earn':'var(--earn)','burn':'var(--burn)','learn':'var(--learn)','ret':'var(--return)'}
+CI={'earn':'var(--earn-i)','burn':'var(--burn-i)','learn':'var(--learn-i)','ret':'var(--return-i)'}
 pillars=f'''<section class="sec" id="pillars">{ph(['d-iceland','bg-02','d-alps'])}<div class="wrap">
-{head('The 4 pillars','Earn, burn, learn, return. <em>That is the whole system.</em>','4 words, in this order, until the money comes back to you. We will teach you the one piece of jargon that matters and skip the rest.')}
-<div class="g4">{''.join(f'<article class="card hero top" style="--c:{CV[c]}" data-rv><span class="lab {c}">{pn} · {n}</span><h3 class="h3" style="margin-top:6px;font-size:22px">{n}.</h3><p style="font-weight:600;color:var(--ink);margin-top:2px">{sub}</p><p style="margin-top:8px">{p}</p><div class="tip" style="--c:{CV[c]};margin-top:14px"><p style="margin:0;color:var(--ink)">{pull}</p></div></article>' for n,c,pn,sub,p,pull in PIL)}</div>
+{head('The 4 pillars','Earn, burn, return, learn. <em>That is the whole system.</em>','4 words, in this order, until the money comes back to you. We will teach you the one piece of jargon that matters and skip the rest.')}
+{prail()}<div class="g4">{''.join(f'<article class="card hero top pil" style="--c:{CV[c]};--ci:{CI[c]}" data-rv><span class="lab {c}">{pn} · {n}</span><h3 class="h3" style="margin-top:6px;font-size:22px">{n}.</h3><p style="font-weight:600;color:var(--ink);margin-top:2px">{sub}</p><p style="margin-top:8px">{p}</p><div class="tip" style="--c:{CV[c]};margin-top:14px"><p style="margin:0;color:var(--ink)">{pull}</p></div></article>' for n,c,pn,sub,p,pull in PIL)}</div>
 </div></section>'''
 
 friday=f'''<section class="sec" id="friday">{ph(['e-relax','bg-04','e-coffee'])}<div class="wrap">

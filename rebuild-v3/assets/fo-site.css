@@ -508,3 +508,24 @@ p.body+p.body{margin-top:10px}
 /* Oct 24: comma no longer dimmed (read as a glitch); route narrower on phones so labels stay on one line */
 .dg{opacity:1}
 @media(max-width:760px){.bpr{grid-template-columns:1fr 96px 1fr}.bpr .route{width:96px;gap:4px}.bpr span{white-space:nowrap}}
+
+/* pillar order rail (Earn, Burn, Return, Learn) + pillar card accents. Colors: theme.ts PILLAR */
+.prail{display:flex;align-items:center;margin:0 0 16px}
+.prail>span{display:inline-flex;align-items:center;gap:8px;font:600 11.5px/1 var(--font);letter-spacing:.6px;text-transform:uppercase;color:var(--c);white-space:nowrap}
+.prail>span::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--ci,var(--c));box-shadow:0 0 0 4px color-mix(in srgb,var(--ci,var(--c)) 16%,transparent)}
+.prail>i{flex:1;min-width:10px;height:1px;margin:0 10px;background:color-mix(in srgb,var(--ink3) 40%,transparent)}
+.prail.mini{display:inline-flex;margin:0}
+.prail.mini>span{font-size:11px;gap:6px}
+.prail.mini>span::before{width:6px;height:6px;box-shadow:none}
+.prail.mini>i{flex:0 0 14px;margin:0 8px}
+@media(min-width:1000px){
+ .prail:not(.mini){display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+ .prail:not(.mini)>i{display:none}
+ .prail:not(.mini)>span{display:flex;padding-left:20px}
+ .prail:not(.mini)>span:not(:last-of-type)::after{content:"";flex:1;height:1px;margin-left:6px;margin-right:-24px;background:color-mix(in srgb,var(--ink3) 40%,transparent)}
+}
+.card.pil .lab{display:inline-flex;align-items:center;gap:8px}
+.card.pil .lab::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ci,var(--c))}
+.card.pil .h3{position:relative;padding-bottom:10px}
+.card.pil .h3::after{content:"";position:absolute;left:0;bottom:0;width:28px;height:2px;border-radius:2px;background:var(--ci,var(--c))}
+@media(max-width:420px){.prail>i{margin:0 7px}.prail>span{gap:6px;font-size:11px}}

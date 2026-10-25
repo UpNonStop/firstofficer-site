@@ -10,12 +10,13 @@ v3 is a ground-up restyle in the New Bot app's design language, built mobile fir
   - prototype: `fo-tokens.css` and `fonts/InterVariable.woff2`
 - Surfaces are cream #FAF6EE, cream2 and white paper, with --line #E9E7EE borders and the app's soft shadow. Radii: card 18, row 14, button 28.
 - Ink is #2A2230 / #5F5767 / #8E8796, from theme.ts @3848f6d (the build that rendered shots 10–26). The current tokens.ts says #4A4550; I matched the shots instead.
-- Pillar colors come from owner.tsx: Earn #2E9E6A (green, as the app renders it; the brief said "gold"), Burn #E07B39, Learn #3A9BB8, Return #E60F86. Gold #F5B700 is used for progress and "now" states.
+- Pillar order is always Earn, Burn, Return, Learn (Ohad, Oct 26): section order, pillar numbers 01 to 04, rails and copy.
+- Pillar colors come from the app's locked token file, firstofficer-native/src/ui/theme.ts PILLAR (Oct 24): Earn #12834E (dot #2FA36C), Burn #E8590C (dot #F26419), Return #7149C9 (dot #9471DB), Learn #1E78B8 (light-blue dot #5AB0E6). Gold #F5B700 is used for progress and "now" states.
 - Inter is used for every site section. The hero keeps DM Serif / DM Sans, and the ticker keeps JetBrains Mono, both unchanged.
 
 ## Rules applied
 - **Money and numbers are never pink, including the $.** All figures are dark ink.
-- Pink appears only on the chevron mark, primary buttons, links and the Return pillar's small accents. The ledger and Capture Report cards moved off pink to green and gold.
+- Pink appears only on the chevron mark, primary buttons, links and primary accents (Return is violet now). The ledger and Capture Report cards moved off pink to green and gold.
 - Low-opacity photos (.phx) sit behind the cards on every section, with white scrims.
 - No seats or availability claims were added, and no card or issuer names in new components. Estimates carry "Estimated, illustrative" pills or captions.
 - The hero is untouched (v9/v10 port plus the earlier fixes), and the ticker is verbatim.
