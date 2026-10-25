@@ -182,7 +182,7 @@ cards=''.join(f'<article class="gl solid pc2{" on" if k==0 else ""}" style="--c:
 tabs=''.join(f'<button type="button" style="--c:{c}">{n}</button>' for (n,v,c,*_) in PIL)
 pillars=f'''<section class="sx ps" id="pillars">{ph(['d-iceland','bg-02','d-alps'],'')}{rail('07','The 4 pillars')}<div class="w2">
 {kk('The 4 pillars')}
-<h2 class="h2x" data-rv>Earn, Burn, Return, Learn. <em>That is the whole system.</em></h2>
+<h2 class="h2x" data-rv>Earn, Burn, Return, Learn. <em style="color:#FA1896">That is the whole system.</em></h2>
 <p class="lede" data-rv>4 words, in this order, until the money comes back to you. We will teach you the one piece of jargon that matters and skip the rest.</p>
 <div class="orb" id="orb"><svg viewBox="0 0 480 480" role="img" aria-label="Earn, Burn, Return, Learn: a loop around your desk">
 <circle cx="240" cy="240" r="170" fill="none" stroke="#e6dfd2" stroke-width="2" stroke-dasharray="3 7"/>

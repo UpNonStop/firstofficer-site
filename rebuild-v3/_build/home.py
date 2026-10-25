@@ -163,7 +163,7 @@ PIL=[('Earn','earn','Pillar 01','You already do this','Every dollar your busines
 CV={'earn':'var(--earn)','burn':'var(--burn)','learn':'var(--learn)','ret':'var(--return)'}
 CI={'earn':'var(--earn-i)','burn':'var(--burn-i)','learn':'var(--learn-i)','ret':'var(--return-i)'}
 pillars=f'''<section class="sec" id="pillars">{ph(['d-iceland','bg-02','d-alps'])}<div class="wrap">
-{head('The 4 pillars','Earn, Burn, Return, Learn. <em>That is the whole system.</em>',cls='duo',lede='4 words, in this order, until the money comes back to you. We will teach you the one piece of jargon that matters and skip the rest.')}
+{head('The 4 pillars','Earn, Burn, Return, Learn. <em style="color:#FA1896">That is the whole system.</em>',cls='duo',lede='4 words, in this order, until the money comes back to you. We will teach you the one piece of jargon that matters and skip the rest.')}
 {prail()}<div class="g4 pilg">{''.join(f'<article class="card hero top pil" style="--c:{CV[c]};--ci:{CI[c]}" data-rv><span class="lab {c}">{pn} · {n}</span><h3 class="h3" style="margin-top:6px;font-size:22px">{n}.</h3><p style="font-weight:600;color:var(--ink);margin-top:2px">{sub}</p><p style="margin-top:8px">{p}</p><div class="tip" style="--c:{CV[c]}"><p style="margin:0;color:var(--ink)">{pull}</p></div></article>' for n,c,pn,sub,p,pull in PIL)}</div>
 </div></section>'''
 

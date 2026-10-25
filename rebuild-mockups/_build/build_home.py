@@ -57,7 +57,7 @@ PL=[("earn","01","Earn.","You already do this","Every dollar your business spend
 ("learn","04","Learn.","You get sharper, for free","Every recommendation arrives with its math in plain language. No course to buy, no jargon to memorize. Keep the desk or leave it, what you learn stays yours.","Every message answers why, not just what.")]
 pc=''.join(f'<article class="pillar t-{c}"><span class="kk">Pillar {n}</span><h3>{h}</h3><div class="sub">{s}</div><p>{E(b)}</p><p class="fx">{E(fx)}</p></article>' for c,n,h,s,b,fx in PL)
 BAL=' style="white-space:nowrap"'  # pillars h2 only: each line on one line
-BLK=' style="display:block"'  # grey line on its own line
+BLK=' style="display:block;color:#FA1896"'  # second line on its own line, Ohad pink
 B.append(f'<section class="sec cream" id="pillars"><div class="wrap">{head("The 4 pillars","Earn, Burn, Return, Learn.","That is the whole system.",h2s=BAL,pks=BLK,sub="4 words, in this order, until the money comes back to you. We will teach you the one piece of jargon that matters and skip the rest.")}<div class="grid g4">{pc}</div></div></section>')
 # friday
 FR=[("Vendor routing corrected (3 vendors)","$310"),("Transfer bonus caught, 30 percent","$980"),("Hotel nights booked on points","$1,450"),("Statement credits claimed","$220"),("Expiring balance rescued","$940")]
