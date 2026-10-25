@@ -468,3 +468,6 @@ ol.qlist{list-style:none;padding:0;margin:10px 0 0}ol.qlist li{display:grid;grid
 .human.card{display:block;max-width:none}
 @media(max-width:560px){.mcc th,.mcc td{padding:12px 12px}.mcc{font-size:14px}.mcc td{word-break:break-word}}
 .rows.report .r.cap{flex-wrap:wrap}.rows.report .r.cap>*{min-width:0;white-space:normal;overflow-wrap:anywhere}
+
+/* pillars heading: exactly 2 lines; mobile-only fit, same size both lines (Ohad, Oct 26) */
+@media (max-width:760px){#pillars .foh2{font-size:min(32px,calc((100vw - 40px) / 11.6))}}

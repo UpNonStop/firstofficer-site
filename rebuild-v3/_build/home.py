@@ -141,11 +141,11 @@ OURS=[('1,218,000 points on $420,000, blended 2.9x after routing','$21,924',''),
 cashback=f'''<section class="sec" id="cashback">{ph(['bg-06','d-santorini','e-relax','bg-03'])}<div class="wrap">
 {head('The 2 percent promise','2% back sounds like a win. <em>Then you read the tax code.</em>','Cash back is the easiest thing to advertise and the hardest thing to verify. Here is the same $420,000 of business spending, run both ways, with the same frictions subtracted from both columns and the tax question left to the panel below.')}
 <div class="card hero" style="margin-bottom:12px" data-rv><span class="lab">The same $420,000, three ways</span>
-<div class="cmp alt3" style="margin-top:14px">{bar('No strategy','$0',0,sub='A debit card, earns nothing',cls='usual')}{bar('Cash back','$5,455',5455/18684*100,sub='“2% back on everything”: what actually lands',cls='usual',dl=.12)}{bar('Bespoke strategy','$18,684',100,'var(--earn)',sub='Routed on the earn, booked on the burn',dl=.25)}</div>
+<div class="cmp alt3" style="margin-top:14px">{bar('No strategy','$0',0,sub='A debit card, earns nothing',cls='usual')}{bar('Cash back','$5,455',5455/18684*100,sub='“2% back on everything”: what actually lands',cls='usual',dl=.12)}{bar('Bespoke strategy','$18,684',100,'var(--earn)',sub='Routed on the Earn, booked on the Burn',dl=.25)}</div>
 <p class="cap" style="margin-top:12px">Bespoke strategy is illustrative, not a projection of your results.</p></div>
 <div class="g2">
 <div class="card" data-rv><span class="lab">What the billboard says</span><h3 class="h3" style="margin:6px 0 10px">“2% back on everything”</h3>{''.join(kv(a,b,c) for a,b,c in BILL)}{kv('What actually lands','$<span data-cu="5455">5,455</span>','tot')}</div>
-<div class="card top" style="--c:var(--earn)" data-rv><span class="lab earn">The same $420,000</span><h3 class="h3" style="margin:6px 0 10px">Routed on the earn, booked on the burn</h3>{''.join(kv(a,b,c) for a,b,c in OURS)}{kv('Return on the same spend','$<span data-cu="18684">18,684</span>','tot')}</div>
+<div class="card top" style="--c:var(--earn)" data-rv><span class="lab earn">The same $420,000</span><h3 class="h3" style="margin:6px 0 10px">Routed on the Earn, booked on the Burn</h3>{''.join(kv(a,b,c) for a,b,c in OURS)}{kv('Return on the same spend','$<span data-cu="18684">18,684</span>','tot')}</div>
 </div>
 <h3 class="h2" style="margin:34px 0 16px;font-size:24px" data-rv>Cash back is not income. <em>That is not a compliment.</em></h3>
 <div class="g2">
@@ -163,7 +163,7 @@ PIL=[('Earn','earn','Pillar 01','You already do this','Every dollar your busines
 CV={'earn':'var(--earn)','burn':'var(--burn)','learn':'var(--learn)','ret':'var(--return)'}
 CI={'earn':'var(--earn-i)','burn':'var(--burn-i)','learn':'var(--learn-i)','ret':'var(--return-i)'}
 pillars=f'''<section class="sec" id="pillars">{ph(['d-iceland','bg-02','d-alps'])}<div class="wrap">
-{head('The 4 pillars','Earn, burn, return, learn. <em>That is the whole system.</em>',cls='duo',lede='4 words, in this order, until the money comes back to you. We will teach you the one piece of jargon that matters and skip the rest.')}
+{head('The 4 pillars','Earn, Burn, Return, Learn. <em>That is the whole system.</em>',cls='duo',lede='4 words, in this order, until the money comes back to you. We will teach you the one piece of jargon that matters and skip the rest.')}
 {prail()}<div class="g4 pilg">{''.join(f'<article class="card hero top pil" style="--c:{CV[c]};--ci:{CI[c]}" data-rv><span class="lab {c}">{pn} · {n}</span><h3 class="h3" style="margin-top:6px;font-size:22px">{n}.</h3><p style="font-weight:600;color:var(--ink);margin-top:2px">{sub}</p><p style="margin-top:8px">{p}</p><div class="tip" style="--c:{CV[c]}"><p style="margin:0;color:var(--ink)">{pull}</p></div></article>' for n,c,pn,sub,p,pull in PIL)}</div>
 </div></section>'''
 

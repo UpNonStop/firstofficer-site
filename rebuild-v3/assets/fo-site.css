@@ -543,3 +543,6 @@ p,.lede,.sub,.cap,.method,.tip p,li{text-wrap:pretty}
  .g4.pilg>.card.pil{grid-row:span 5;display:grid;grid-template-rows:subgrid;row-gap:0;align-content:start}
  .card.pil .tip{align-self:stretch;display:flex;align-items:center}
 }
+
+/* pillars heading: exactly 2 lines (Ohad, Oct 26) */
+.head.duo .h2{white-space:nowrap}

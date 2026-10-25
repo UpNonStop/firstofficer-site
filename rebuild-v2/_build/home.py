@@ -160,7 +160,7 @@ cashback=f'''<section class="sx ps" id="cashback">{ph(['bg-06','d-santorini','e-
 <p class="lede c" data-rv>Cash back is the easiest thing to advertise and the hardest thing to verify. Here is the same $420,000 of business spending, run both ways, with the same frictions subtracted from both columns and the tax question left to the panel below.</p>
 <div class="cbw"><div class="cb" data-io>
 <div class="gl solid cbc"><div class="hd">What the billboard says</div><h3>“2% back on everything”</h3><div class="wf">{bill}</div></div>
-<div class="gl solid cbc us"><div class="hd">The same $420,000</div><h3>Routed on the earn, booked on the burn</h3><div class="wf">{ours}</div></div>
+<div class="gl solid cbc us"><div class="hd">The same $420,000</div><h3>Routed on the Earn, booked on the Burn</h3><div class="wf">{ours}</div></div>
 </div><div class="vs">VS</div></div>
 <div style="text-align:center;margin-top:72px" data-rv><h3 class="h2x c" style="font-size:clamp(32px,3.4vw,46px)">Cash back is not income. <em>That is not a compliment.</em></h3></div>
 <div class="tax">
@@ -182,9 +182,9 @@ cards=''.join(f'<article class="gl solid pc2{" on" if k==0 else ""}" style="--c:
 tabs=''.join(f'<button type="button" style="--c:{c}">{n}</button>' for (n,v,c,*_) in PIL)
 pillars=f'''<section class="sx ps" id="pillars">{ph(['d-iceland','bg-02','d-alps'],'')}{rail('07','The 4 pillars')}<div class="w2">
 {kk('The 4 pillars')}
-<h2 class="h2x" data-rv>Earn, burn, return, learn. <em>That is the whole system.</em></h2>
+<h2 class="h2x" data-rv>Earn, Burn, Return, Learn. <em>That is the whole system.</em></h2>
 <p class="lede" data-rv>4 words, in this order, until the money comes back to you. We will teach you the one piece of jargon that matters and skip the rest.</p>
-<div class="orb" id="orb"><svg viewBox="0 0 480 480" role="img" aria-label="Earn, burn, return, learn: a loop around your desk">
+<div class="orb" id="orb"><svg viewBox="0 0 480 480" role="img" aria-label="Earn, Burn, Return, Learn: a loop around your desk">
 <circle cx="240" cy="240" r="170" fill="none" stroke="#e6dfd2" stroke-width="2" stroke-dasharray="3 7"/>
 <circle id="oarc" cx="240" cy="240" r="170" fill="none" stroke="#12834E" stroke-width="5" stroke-linecap="round" stroke-dasharray="0 1068" transform="rotate(-90 240 240)" style="transition:stroke-dasharray .9s cubic-bezier(.2,.8,.2,1),stroke .6s"/>
 <circle cx="240" cy="240" r="96" fill="#fff" stroke="#fde7f3" stroke-width="10"/>
