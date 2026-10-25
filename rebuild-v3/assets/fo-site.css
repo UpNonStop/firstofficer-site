@@ -529,3 +529,21 @@ p.body+p.body{margin-top:10px}
 .card.pil .h3{position:relative;padding-bottom:10px}
 .card.pil .h3::after{content:"";position:absolute;left:0;bottom:0;width:28px;height:2px;border-radius:2px;background:var(--ci,var(--c))}
 @media(max-width:420px){.prail>i{margin:0 7px}.prail>span{gap:6px;font-size:11px}}
+
+/* ---------- type hygiene: no orphans, deliberate two-line headings ---------- */
+.h1,.h2,.h3,.h4,h1,h2,h3,h4,.lab,.tt{text-wrap:balance}
+p,.lede,.sub,.cap,.method,.tip p,li{text-wrap:pretty}
+.head .lede{max-width:640px}
+.nw{white-space:nowrap}
+.h1 em,.h2 em{display:block}
+.head.duo .h2 em{display:block;margin-top:6px;font-weight:600;font-size:.64em;line-height:1.25;letter-spacing:-.012em;color:var(--ink2);white-space:nowrap}
+.head.duo .h2{white-space:nowrap}
+.head.duo .lede{margin-top:14px}
+/* pillar cards: equal heights, tip boxes share one baseline */
+.card.pil>p:last-of-type{margin-bottom:16px}
+.card.pil .lab{justify-self:start}
+@media(min-width:1000px){
+ .g4.pilg{grid-template-rows:repeat(5,auto)}
+ .g4.pilg>.card.pil{grid-row:span 5;display:grid;grid-template-rows:subgrid;row-gap:0;align-content:start}
+ .card.pil .tip{align-self:stretch;display:flex;align-items:center}
+}

@@ -6,8 +6,8 @@ def xp(x): return f'<span class="pill" style="--c:{"var(--earn)" if x>2 else "va
 
 prof=''.join(row(SH[k],'',f'${v:,}',"var(--earn)",f'<span style="display:block;margin-top:6px">{xp(x)}</span>'+meter(v/34000*100,"var(--earn)",k*.08)) for k,(n,_,v,x,_m) in enumerate(LINES))
 hero=f'''<section class="sec" id="dtop" style="padding-top:28px">{ph(['i-dental2','i-dental3','i-medical','i-dental'],6500)}<div class="wrap"><div class="split">
-<div class="head" data-rv style="margin-bottom:0"><span class="hlab"><span class="lab earn">First Officer for Dental</span><span class="stamp" aria-label="Dental, cleared for takeoff"><i>Dental</i>cleared for takeoff</span></span><h1 class="h1">Henry Schein Bills. Lab Fees. <em>All Earning Minimum Points.</em></h1>
-<p class="lede">A practice profile at $71,000 a month of card-able spend earns about 151,000 points a month with every bonus rate capped on published terms, and nets about $2,222 a month after our fee at our current valuation. The routing is the work. The receipt is on the calculator.</p>
+<div class="head" data-rv style="margin-bottom:0"><span class="hlab"><span class="lab earn">First Officer for Dental</span><span class="stamp" aria-label="Dental, cleared for takeoff"><i>Dental</i>cleared for takeoff</span></span><h1 class="h1"><span class="nw">Henry Schein Bills.</span> Lab Fees. <em>All Earning Minimum Points.</em></h1>
+<p class="lede">A practice profile at $71,000 a month of <span class="nw">card-able</span> spend earns about 151,000 points a month with every bonus rate capped on published terms, and nets about $2,222 a month after our fee at our current valuation. The routing is the work. The receipt is on the calculator.</p>
 <div class="btns"><a class="btn" href="book.html">The Found Money Call</a><a class="btn ghost" href="#numbers">Try the Calculator</a></div></div>
 <div class="stack">
 <div class="card hero worth bp" data-rv><div style="display:flex;justify-content:space-between;align-items:center"><span class="lab earn">Worth it · a dental practice</span><span class="pill" style="--c:var(--earn)">Worth it</span></div>
@@ -39,11 +39,11 @@ calc=f'''<section class="sec" id="numbers">{ph(['i-desk','e-laptop','i-dental'])
 <div class="card" data-rv><div style="display:flex;justify-content:space-between"><span class="lab">The starting profile</span><span class="lab">Monthly</span></div><div style="margin-top:10px">{cls}</div></div>
 <div class="sticky"><div class="card hero top" style="--c:var(--earn)" data-rv><span class="lab earn">Net, this month, after our fee</span><span class="num tn" id="dnet" style="margin-top:8px">$2,222</span>
 <div class="div"></div>
-{kv('Monthly card-able spend','<span id="dsp">$71,000</span>')}{kv('Points a month, caps applied','<span id="dpts">151,000</span>')}{kv('Blended earn rate','<span id="dbl">2.1x</span>')}{kv('Net, this year','<span id="dyr">$26,668</span>','tot')}
+{kv('Monthly <span class="nw">card-able</span> spend','<span id="dsp">$71,000</span>')}{kv('Points a month, caps applied','<span id="dpts">151,000</span>')}{kv('Blended earn rate','<span id="dbl">2.1x</span>')}{kv('Net, this year','<span id="dyr">$26,668</span>','tot')}
 <div class="alt3h"><span class="lab">Same spend, three ways · a year</span></div>
-<div class="cmp alt3 live">{bar('No strategy','<span id="a0">$0</span>',0,sub='A debit card, earns nothing',cls='usual a0')}{bar('Cash back','<span id="a1">$17,040</span>',17040/26668*100,sub='At 2% cash back on card-able spend',cls='usual a1',dl=.12)}{bar('Bespoke strategy','<span id="a2">$26,668</span>',100,'var(--earn)',sub='Routed, after our fee',cls='a2',dl=.25)}</div>
+<div class="cmp alt3 live">{bar('No strategy','<span id="a0">$0</span>',0,sub='A debit card, earns nothing',cls='usual a0')}{bar('Cash back','<span id="a1">$17,040</span>',17040/26668*100,sub='At 2% cash back on <span class="nw">card-able</span> spend',cls='usual a1',dl=.12)}{bar('Bespoke strategy','<span id="a2">$26,668</span>',100,'var(--earn)',sub='Routed, after our fee',cls='a2',dl=.25)}</div>
 <a class="btn" href="calculator.html" style="margin-top:16px">Run your numbers →</a>
-<p class="cap" style="margin-top:10px">Estimated, illustrative. Points × 3.0 cents × 85% redeemed × the honest discount, minus our $550 fee. Not a projection of your results. Cash back at 2% cash back on the monthly card-able spend, times 12. Bespoke strategy is illustrative.</p></div></div>
+<p class="cap" style="margin-top:10px">Estimated, illustrative. Points × 3.0 cents × 85% redeemed × the honest discount, minus our $550 fee. Not a projection of your results. Cash back at 2% cash back on the monthly <span class="nw">card-able</span> spend, times 12. Bespoke strategy is illustrative.</p></div></div>
 <div class="icta" data-rv><div><b class="lead">See this on your own numbers.</b><p class="cap">The Found Money Call: free, 20 minutes. We verify yours against real transactions.</p></div><a class="btn ghost" href="book.html?from=for-dental-numbers">Book Your "Found Money" Call →</a></div>
 </div></section>'''
 
@@ -87,7 +87,7 @@ route=f'''<section class="sec" id="routing">{ph(['i-medical','e-phone'])}<div cl
 <p class="cap" style="margin-top:10px">Card types, not card names, on the published terms used in the mistakes above. Lab fees and implants are routed once the desk checks how your lab codes against real transactions. Estimated, illustrative.</p></div>
 </div></section>'''
 
-YR=[('Monthly card-able spend','$71,000'),('Annual spend','$852,000'),('Points on one card at 1x','852,000'),('Points routed, caps applied','1,812,000'),('Blended earn rate','2.1x'),('Travel value at sticker, 85% redeemed, 3.0 cents','$46,206'),('Valued honestly, 60% you would have bought anyway','$33,268'),('Our fee, twelve months','$6,600')]
+YR=[('Monthly <span class="nw">card-able</span> spend','$71,000'),('Annual spend','$852,000'),('Points on one card at 1x','852,000'),('Points routed, caps applied','1,812,000'),('Blended earn rate','2.1x'),('Travel value at sticker, 85% redeemed, 3.0 cents','$46,206'),('Valued honestly, 60% you would have bought anyway','$33,268'),('Our fee, twelve months','$6,600')]
 yr=f'''<section class="sec" id="math">{ph(['d-santorini','d-maldives','d-kyoto','d-lisbon'])}<div class="wrap">
 {head('Real math','What This Looks Like for a <em>$71,000 a Month Dental Profile</em>','Same spend. Different strategy. Different outcome.',labc='earn')}
 <div class="split">
@@ -113,7 +113,7 @@ lines=f'''<section class="sec" id="lines">{ph(['i-dental2','i-dental3'])}<div cl
 <div class="g3" style="margin-top:14px">
 <div class="card" data-rv><span class="lab">The cash cycle</span><p style="margin-top:6px">Insurance reimbursement lags treatment by weeks, so supplies are bought ahead of payment.</p><div style="margin-top:14px">{tl([('done','Treatment','','Supplies bought'),('now','Reimbursed','','Weeks later')])}</div></div>
 <div class="card" data-rv><span class="lab">The calendar</span><p style="margin-top:6px">Insurance benefit resets pull volume into Q4 and the start of the year.</p><div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px 6px;margin-top:14px">{cal}</div></div>
-<div class="card" data-rv><span class="lab">A profile at $71,000 a month</span><p style="margin-top:6px">Roughly $852,000 a year of card-able spend, and the routing decision on the lines above is worth more than every other optimization combined.</p></div></div>
+<div class="card" data-rv><span class="lab">A profile at $71,000 a month</span><p style="margin-top:6px">Roughly $852,000 a year of <span class="nw">card-able</span> spend, and the routing decision on the lines above is worth more than every other optimization combined.</p></div></div>
 <p class="method" style="margin-top:18px">Coding varies by processor, location and how each vendor is registered, so we verify yours against real transactions during The Found Money Call rather than assuming. Point valuations are estimates based on common redemption benchmarks. Actual value depends on how and when you redeem. The calendar strip is illustrative.</p>
 </div></section>'''
 
