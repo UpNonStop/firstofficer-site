@@ -673,3 +673,30 @@ p,li span,.why span,.cs .p,.cs .sub,figcaption,.est,.sub,small{text-wrap:pretty}
   .cels{padding-top:20px;padding-bottom:44px;margin-top:16px}
   .cels .phone{filter:drop-shadow(0 14px 16px rgba(20,18,22,.16))}
 }
+
+/* ---------- Oct 27 insights round: pink as accent only, footer row, pillar colours ---------- */
+.kick,#cheer.onink .kick{color:var(--body)}
+.beat .bn{color:var(--body)}
+.cs .nmk{color:var(--mute)}
+.cs .nmv{color:var(--ink)}
+.wc.sc .v,.wc .v,.wc .v span{color:var(--ink)}
+.why div:nth-child(even) b{color:var(--ink)}
+.after small{color:var(--mute)}
+.beat strong[data-count]{color:var(--ink)}
+:root{--b:#FF7A2F}
+.pillchips span:nth-child(1) b{color:#1E9E63}.pillchips span:nth-child(2) b{color:#E8661E}.pillchips span:nth-child(3) b{color:#C98512}.pillchips span:nth-child(4) b{color:#1C9DB6}
+.pillchips span:nth-child(1){box-shadow:0 0 0 1.5px rgba(46,194,126,.35)}.pillchips span:nth-child(2){box-shadow:0 0 0 1.5px rgba(255,122,47,.35)}.pillchips span:nth-child(3){box-shadow:0 0 0 1.5px rgba(240,160,44,.4)}.pillchips span:nth-child(4){box-shadow:0 0 0 1.5px rgba(55,195,220,.4)}
+.foot .cols a.brand{display:inline-flex;flex-direction:row;align-items:center;gap:10px;padding:0}
+.foot .cols a.brand img{width:30px;flex:none}
+.foot .bar{align-items:center}
+.foot .bar .addr{display:flex;align-items:center;gap:10px;min-width:0}
+.foot .bar .addr img{width:22px;height:auto;flex:none}
+@media(max-width:760px){
+  .foot .bar{align-items:flex-start}
+  .foot .bar .addr{align-items:center;gap:9px;font-size:12.5px}
+  .foot .bar .addr img{width:20px}
+  .foot .bar .fine{padding-left:29px}
+}
+.wc.mv .v{color:var(--ink)}
+.float:not(.f2) small{color:var(--mute)}
+.ctab::before{display:none}

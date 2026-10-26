@@ -50,7 +50,7 @@ def footer():
 <div><h6>Site</h6><a href="product-recovered.html">Product</a><a href="pricing.html">Pricing</a><a href="freebies.html">Freebies</a><a href="calculator.html">Calculator</a><a href="about.html">About</a></div>
 <div><h6>More</h6><a href="trust.html">Trust</a><a href="industries.html">Industries</a><a href="{WA}">Text Your First Officer</a></div>
 </div>
-<div class="bar"><span>UpNonStop | 235 Pavonia Avenue | Jersey City, NJ 07302 | Proudly Made in 🇺🇸</span><span class="fine">Leo and Linden Row Insurance are fictional. All figures are examples and estimates.</span></div>
+<div class="bar"><span class="addr"><img src="img/fo-chevron-alpha.png" alt=""><span>UpNonStop | 235 Pavonia Avenue | Jersey City, NJ 07302 | Proudly Made in 🇺🇸</span></span><span class="fine">Leo and Linden Row Insurance are fictional. All figures are examples and estimates.</span></div>
 </div></footer>
 <div class="mcta"><div><small>Flat monthly · Cancel anytime</small><b>$550 a month</b></div><a class="btn pk" href="book.html">Get your desk</a></div>
 '''
@@ -177,9 +177,9 @@ def home():
 <div class="reveal"><div class="bn"><i>03</i>The solution</div><h3 class="h3">He texts First Officer. The desk takes it from there.</h3>
 <p class="short">One conversation. Specialists across 50+ programs behind it.</p><p>Trained on new data nightly. Every move vetted. Nothing moves without his yes.</p></div>
 <div class="sol reveal d2">
-'''+shot('home-am','First Officer app: the desk home screen with Leo\'s four pillars','p1').replace('src="img/rec/app/home-am.webp"','src="img/rec/app/home-am.webp" data-greet="img/rec/app/home-{p}.webp"')+shot('earn','Linden Row\'s Earn screen','p2')+'''
-<div class="float f1"><small>Earn · live</small><b>Software 1x → 4x</b>$2,880 a year, est.</div>
-<div class="float f2"><small>Waiting for your OK</small><b>Ads 1x → 4x</b>$7,200 a year, est.</div>
+'''+shot('earn','Linden Row\'s Earn screen','p1')+shot('burn','Linden Row\'s Burn screen','p2')+'''
+<div class="float f1"><small>Earn · waiting for your OK</small><b>Ads 1x → 4x</b>$7,200 a year, est.</div>
+<div class="float f2"><small>Burn · on pace</small><b>Tokyo, 32% there</b>Business for 2, est.</div>
 </div>
 </article>
 
@@ -217,7 +217,7 @@ def product():
 <p class="lede">First Officer is one conversation. Behind it, specialists across 50+ programs, trained on new data nightly. Here is how the desk works, and what you see in the app.</p>
 <div class="pillchips"><span><b>01</b>Earn</span><span><b>02</b>Burn</span><span><b>03</b>Return</span><span><b>04</b>Learn</span></div>
 <div class="ctas"><a class="btn pk" href="book.html">Book the Found Money Call <span class="ar">→</span></a><a class="btn ghost" href="#tour">See the app</a></div></div>
-<div class="fan reveal d2">'''+shot('plan','Linden Row\'s plan screen','a')+shot('home-am','The desk home screen, greeting by time of day','b').replace('src="img/rec/app/home-am.webp"','src="img/rec/app/home-am.webp" data-greet="img/rec/app/home-{p}.webp"')+shot('earn','Linden Row\'s Earn screen','c')+'''</div>
+<div class="fan reveal d2">'''+shot('earn','Linden Row\'s Earn screen','a')+shot('burn','Linden Row\'s Burn screen','b')+shot('return','Linden Row\'s Return screen','c')+'''</div>
 </div></section>
 
 <section class="sec" style="padding-top:60px" id="how"><div class="how onink"><div class="wrap">

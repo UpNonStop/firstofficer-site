@@ -93,3 +93,58 @@ window.CFG.css+=`
 .a2a{display:none!important}
 .kick .ld,.lv,.feed .fd,.feed10 .who .lv,.pend i:before{border-radius:2px!important}
 `;
+/* Oct 27 insights round: the specialists' dots resolve into example insights that rise to First Officer */
+window.CFG.css+=`
+.mm.f .b6{background:#FFF0F7!important;color:#141216!important;box-shadow:inset 0 0 0 1px rgba(250,24,150,.22)!important}
+.mm.f .b6 .e{background:rgba(250,24,150,.12)!important;color:#b30d6a!important}
+.mm.f .typ i{background:#FA1896!important}
+.fol .l1{color:#141216!important}
+.kick{color:#4A4550!important}
+.mm .av.avfo{display:none!important}
+.wk i{border-radius:1.5px!important}
+.find .wk i{animation-duration:.6s!important;background:#FA1896!important}
+.ins .wk{opacity:0!important;transition:opacity .3s}
+.ins6{position:absolute;z-index:40;width:180px;transform:translate(-50%,-100%) scale(.86);transform-origin:50% 100%;opacity:0;background:#fff;border-radius:12px;padding:8px 11px 9px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 12px 26px -14px rgba(20,18,22,.35);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.8,.2,1),translate 1s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease;pointer-events:none;text-align:left}
+.ins6 small{display:flex;align-items:center;gap:5px;font:600 9px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#8e8a95}
+.ins6 small:before{content:'';width:6px;height:6px;border-radius:2px;background:#FA1896;flex:none}
+.ins6 b{display:block;font:600 12.5px/1.3 'DM Sans',sans-serif;color:#141216;margin-top:4px;text-wrap:balance}
+.ins6.on{opacity:1;transform:translate(-50%,-100%) scale(1)}
+.ins6.up{box-shadow:0 0 0 1.5px #FA1896,0 16px 30px -12px rgba(250,24,150,.45)}
+.ins6.settle{opacity:.2;box-shadow:0 0 0 1px rgba(20,18,22,.08);transition:opacity .9s ease,box-shadow .6s ease}
+.ins6.gone{opacity:0;transition:opacity .6s ease}
+.ins6.m{width:166px;padding:7px 10px 8px}.ins6.m b{font-size:12px}
+.fo{transition:scale .5s cubic-bezier(.2,.8,.2,1)}
+.fo.glow{scale:1.08}
+.fo.glow img{filter:drop-shadow(0 0 16px rgba(250,24,150,.8))!important}
+`;
+(function(){
+var IN=['Ad spend could earn more on another card, est.','Two cards overlap on the same spend.','An unused travel credit is worth claiming.','Points may go further through a partner, est.','Cash may beat points on a short trip, est.','Software spend fits a bonus category, est.','Fees may be covered by credits, est.','Off-peak dates may price lower, est.','Points pooling could speed up the goal, est.','Carrier visits could earn travel points, est.','This bonus is worth a second look.'];
+var qi=Math.floor(Math.random()*IN.length),live=[],started=0;
+function W(ms){return new Promise(function(r){setTimeout(r,ms)})}
+function ready(){var R=window.HROOT;if(!R)return null;var f=R.querySelector('.floor');var fo=R.querySelector('.fo');if(!f||!fo||!f.querySelector('[data-n] .wk'))return null;return {R:R,f:f,st:f.parentElement,fo:fo}}
+function pick(E,mob){var vh=innerHeight,c=[].slice.call(E.f.querySelectorAll('[data-n]')).filter(function(t){
+ if(/\b(rel|say|spk|ping|ins|find|lit)\b/.test(t.className)||!t.querySelector('.wk'))return false;
+ var r=t.getBoundingClientRect();if(r.width<1||r.top<(mob?90:150)||r.bottom>vh-30)return false;
+ var x=parseFloat(t.style.left)+r.width/2,y=parseFloat(t.style.top);
+ for(var i=0;i<live.length;i++){if(Math.abs(live[i].x-x)<210&&Math.abs(live[i].y-y)<120)return false}
+ var fx=parseFloat(E.fo.style.left),fy=parseFloat(E.fo.style.top);if(Math.abs(fx-x)<(mob?150:60)&&Math.abs(fy-y)<(mob?110:70))return false;
+ return true});
+ return c.length?c[Math.floor(Math.random()*c.length)]:null}
+async function one(E,mob){var t=pick(E,mob);if(!t)return;var r=t.getBoundingClientRect();
+ var x=parseFloat(t.style.left)+r.width/2,y=parseFloat(t.style.top)-6,SW=E.st.clientWidth||innerWidth,hw=(mob?166:180)/2+6;
+ var cx=Math.max(hw,Math.min(SW-hw,x));var rec={x:x,y:y};live.push(rec);
+ t.classList.add('find');await W(900);
+ var c=document.createElement('div');c.className='ins6'+(mob?' m':'');c.innerHTML='<small>Example insight</small><b></b>';c.querySelector('b').textContent=IN[qi++%IN.length];
+ c.style.left=cx+'px';c.style.top=y+'px';E.st.appendChild(c);t.classList.add('ins');
+ await W(30);c.classList.add('on');await W(mob?1900:1700);
+ var fs=E.fo.offsetWidth||60,fx=parseFloat(E.fo.style.left)+fs/2,fy=parseFloat(E.fo.style.top)+fs/2,dx=fx-cx,dy=fy-(y-30),L=Math.hypot(dx,dy)||1,m=Math.min(L*(mob?.45:.55),mob?70:150);
+ c.style.translate=(dx/L*m).toFixed(1)+'px '+(dy/L*m).toFixed(1)+'px';c.classList.add('up');
+ await W(650);E.fo.classList.add('glow');await W(700);E.fo.classList.remove('glow');
+ c.classList.add('settle');t.classList.remove('find','ins');await W(mob?1400:1800);
+ c.classList.add('gone');await W(650);c.remove();live.splice(live.indexOf(rec),1)}
+async function loop(){var E;while(!(E=ready()))await W(300);await W(1200);
+ while(true){var mob=innerWidth<760;E=ready()||E;
+  if(!document.hidden&&live.length<(mob?2:3))one(E,mob);
+  await W(mob?3600:1900)}}
+loop();
+})();
