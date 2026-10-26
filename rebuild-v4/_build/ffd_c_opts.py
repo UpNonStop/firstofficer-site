@@ -801,6 +801,10 @@ BP, BPS, BPK = '#E60F86', '#B30A68', '#FA1896'          # --pink2 block, --pinkd
 BCR, BCR2, BTR, BPL = '#FAF6EE', '#FBF4E6', '#F1EADB', '#F1D6E5'   # --bg, --cream2, --track, --pinkLine
 BG, BG2, BINK, BINK2 = '#E8C547', '#F5B700', '#141216', '#3A343D'  # --gold, --gold2, --ink, --ink2
 GP = 'rgba(255,255,255,.7)'      # perforation on gold
+# the site's existing hand-painted highlighter brush (the 'No affiliate links' trust line), reused verbatim
+import re as _re3h
+HLB = _re3h.search(r'\.desk \.hl\{background:(url\("[^"]+"\))', D.F.SRC).group(1)
+assert '%23FA1896' in HLB
 CPF = 'rgba(230,15,134,.42)'     # perforation on cream
 def _tk(perf, stub, pos, body): return f'{perf},linear-gradient({stub},{stub}) {pos} no-repeat,{body}'
 O3H = f'''
@@ -813,7 +817,7 @@ html.dir-c.o3h .desk .pop-hero::before{{background:linear-gradient(rgba(20,18,22
 /* brand rule: serif headlines, two lines, pink second line, NO italics anywhere (h1, caption, big counts, quotes) */
 § *,§ *::before,§ *::after,html.dir-c.o3h .rdr-p,html.dir-c.o3h .rdr-p *{{font-style:normal!important}}
 § .lede{{color:{BINK2}}}
-§ .lede .hl{{background:{BP};color:#fff}}
+§ .lede .hl{{background:{HLB} center/100% 92% no-repeat!important;color:{BINK}!important;border-radius:0;padding:0 .3em;margin:0 -.08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}}
 /* the mark only ever sits on ticket-stock cream: eyebrow stub, signature stub, Checked cell, code tape */
 § .eyebrow{{background:{_tk(lperf("38px", CPF), BCR2, "left 0 top 0/39px 100%", BP)};color:#fff;box-shadow:inset 0 0 0 1px {BPL},0 10px 22px -16px rgba(179,10,104,.55)}}
 § .sig{{background:linear-gradient({BCR2},{BCR2}) left 0 top 0/66px 100% no-repeat,{BP};box-shadow:inset 0 0 0 1px {BPL};border-top:0}}
