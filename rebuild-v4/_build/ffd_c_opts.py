@@ -662,8 +662,69 @@ page('ffd-c-opt-3c.html', T, B, desc=DESC, src='freebies', tail=D.TAIL_C + D.SHA
      headx=D.head('dir-c', 'family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1',
                   D.C_CSS + full3c, 'window.FO_LIMIT=6;document.documentElement.classList.add("o3c");'))
 
+# ---------------------------------------------------------------- 3d/3e/3f: palette discipline variants of 3c
+PILLAR = {'credit': '#1E78B8', 'myths': '#1E78B8', 'playbook': '#7149C9', 'deadlines': '#7149C9', 'gutcheck': '#E8590C',
+          'travel': '#E8590C', 'script': '#12834E', 'decoder': '#12834E', 'checklist': '#A0105F', 'redflags': '#A0105F', 'sheet': '#FA1896'}
+SCP = ['#12834E', '#E8590C', '#7149C9', '#1E78B8']
+def pal_css(hb, hs, steps, ckb, cks, tape, chip, enb, ens, grid=None, pv3=None, pt=WP):
+    """hero body/stub, stats body steps, check cell, codes tape, endnote, optional mono grid (body, stub)"""
+    c = []
+    a = c.append
+    def tk(perf, stub, pos, body): return f'{perf},linear-gradient({stub},{stub}) {pos} no-repeat,{body}'
+    a(f'§ .eyebrow{{background:{tk(lperf("38px", pt), hs, "left 0 top 0/39px 100%", hb)}}}')
+    a(f'§ .sig{{background:linear-gradient({hs},{hs}) left 0 top 0/66px 100% no-repeat,{hb}}}')
+    a(f'§ .lede .hl{{background:{hb}}}')
+    a(f'§ .readfirst{{border-left-color:{hb}}}')
+    a('§ .grp:not([data-grp=nuggets]) .grp-n,§ .grp:not([data-grp=nuggets]) .grp-n *{background:rgba(255,255,255,.1);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.38)}')
+    a('§ .grp:not([data-grp=nuggets]) .grp-n *{background:none;box-shadow:none}')
+    a(f'§ .feat{{background:{tk(hperf(f"{FH-2}px", pt), hs, f"left 0 bottom 0/100% {FH}px", hb)}}}')
+    p3b, p3s = pv3 or (hb, hs)
+    a(f'§ .pv2{{background:{tk(vperf(f"{PW-2}px", pt), hs, f"right 0 top 0/{PW}px 100%", hb)}}}')
+    a(f'§ .pv3{{background:{tk(vperf(f"{PW-2}px", pt), p3s, f"right 0 top 0/{PW}px 100%", p3b)}}}')
+    for i, (s, pc) in enumerate(zip(steps, SCP), 1):
+        a(f'§ .deskline span:nth-child({i}){{--sc:{s};--pc:{pc}}}')
+    a(f'§ .deskline span{{background:{tk(lperf(f"{DS-2}px", pt), DK("var(--sc)", 70), f"left 0 top 0/{DS}px 100%", "var(--sc)")}}}')
+    a('§ .deskline span:not(.ck)::before{text-decoration:underline 2px var(--pc);text-underline-offset:4px}')
+    a(f'§ .deskline .ck{{background:{tk(lperf(f"{DS-2}px", pt), cks, f"left 0 top 0/{DS}px 100%", ckb)}}}')
+    a(f'§ .codes{{--bb:{tape};background-image:linear-gradient(rgba(255,255,255,.14),rgba(255,255,255,.14));background-size:100% 1px}}')
+    a(f'§ .codes b{{background:{chip}}}')
+    a(f'§ .endnote{{background:{tk(vperf(f"{EW-2}px", pt), ens, f"right 0 top 0/{EW}px 100%", enb)}}}')
+    a('§ .dk.lead::before,§ .grp::before{text-decoration:underline 2px var(--pc,transparent);text-underline-offset:6px}')
+    m1100, m860, m640 = [], [], []
+    if grid:
+        gb, gs = grid
+        for k, v in PILLAR.items():
+            a(f'§ [data-cat={k}],§ .grp[data-grp={k}]{{--c:{gb};--cs:{gs};--pc:{v};--cd:{gb}}}')
+        a('§ .dk-meta .kind{color:color-mix(in srgb,var(--pc,var(--c)) 86%,#1a0f1a)}')
+        a('§ .dk.lead .dk-meta .kind{color:#fff}')
+    else:
+        for k, v in PILLAR.items():
+            a(f'§ [data-cat={k}],§ .grp[data-grp={k}]{{--pc:transparent}}')
+    m640 += [f'§ .pv2{{background:{tk(vperf(f"{PWm-2}px", pt), hs, f"right 0 top 0/{PWm}px 100%", hb)}}}',
+             f'§ .pv3{{background:{tk(vperf(f"{PWm-2}px", pt), p3s, f"right 0 top 0/{PWm}px 100%", p3b)}}}',
+             f'§ .sig{{background:linear-gradient({hs},{hs}) left 0 top 0/54px 100% no-repeat,{hb}}}',
+             f'§ .deskline span{{background:{tk(lperf("28px", pt), DK("var(--sc)", 70), "left 0 top 0/30px 100%", "var(--sc)")}}}',
+             f'§ .deskline .ck{{background:{tk(lperf("28px", pt), cks, "left 0 top 0/30px 100%", ckb)}}}',
+             f'§ .endnote{{background:{tk(hperf("74px", pt), ens, "left 0 bottom 0/100% 76px", enb)}}}']
+    return '\n'.join(c) + '\n@media(max-width:640px){\n' + '\n'.join(m640) + '\n}\n'
+
+PALS = [
+ ('3d', 'Palette A', 'One deep partner', 'Pink hero plus one deep aubergine for every solid block, tonal stubs, gold as the single accent; pillar colours shrink to the kind labels and the FO-number underline.',
+  pal_css('#4A1A47', '#33102F', ['#3E1440', '#4A1A47', '#57214F', '#642A5C'], '#3E1440', '#2C0D2A', '#4A1A47', '#33102F', '#4A1A47', '#33102F', grid=('#4A1A47', '#33102F'))),
+ ('3e', 'Palette B', 'Section-coded', 'Each section owns one pillar colour in tonal shades only: the hero and stats in deep violet, each desk lane in its own pillar from rail to lead, never two pillars side by side.',
+  pal_css('#5B36B0', '#43248C', ['#3F2286', '#4A2A99', '#5531AA', '#6139BB'], '#371D78', '#2B165F', '#4A2A99', '#371D78', '#5B36B0', '#43248C')),
+ ('3f', 'Palette C', 'Pink tonal + one pillar', 'Blocks in deep raspberry and wine drawn from the hero pink, stubs a shade deeper, with Learn blue as the one sparing secondary on the code tape and cheat sheet, plus gold.',
+  pal_css('#7C0B45', '#5A0732', ['#640939', '#740A42', '#850C4B', '#960E55'], '#5A0732', '#430526', '#1E78B8', '#155A8C', '#8E0D50', '#650838', grid=('#A3105C', '#7C0B45'), pv3=('#1E78B8', '#155A8C'))),
+]
+for n, k, name, pitch, extra in PALS:
+    css = (O3B + O3C + extra).replace('.dk.lead', '.dk.lead:not(.gold)')
+    full = (BASE + css).replace('§', f'html.dir-c.o{n} .desk').replace('html.dir-c.ox', f'html.dir-c.o{n}').replace('CP', CP)
+    page(f'ffd-c-opt-{n}.html', T, B, desc=DESC, src='freebies', tail=D.TAIL_C + D.SHARED_JS,
+         headx=D.head('dir-c', 'family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1',
+                      D.C_CSS + full, f'window.FO_LIMIT=6;document.documentElement.classList.add("o{n}");'))
+
 # ---------------------------------------------------------------- gallery
-GAL = [('3c', 'Option 3, matured v2', 'Pillar blocks, matured v2', 'Solid pillar-colour blocks again, each cut as a tear-off ticket: notched perforation, a deeper stub with the flight-number tag and Grab it, white type on green, orange, violet and blue.'),
+GAL = [(n, k, name, pitch) for n, k, name, pitch, _ in PALS] + [('3c', 'Option 3, matured v2', 'Pillar blocks, matured v2', 'Solid pillar-colour blocks again, each cut as a tear-off ticket: notched perforation, a deeper stub with the flight-number tag and Grab it, white type on green, orange, violet and blue.'),
        ('3b', 'Option 3, matured', 'Pillar blocks, matured', 'The pillar colours move into tear-off stubs: notched boarding-pass cards with a dashed perforation, a flight-number tag and the Grab it action on a green, orange, violet or blue stub.')] + \
       [(n, f'Option {n}', name, pitch) for n, name, pitch, _ in OPTS]
 cards = ''.join(f'''<article class="o"><a class="sh" href="ffd-c-opt-{n}.html"><img class="dt" src="img/ffd-opts/opt-{n}-1440.jpg" alt="{k} on desktop" loading="lazy"><img class="ph" src="img/ffd-opts/opt-{n}-390.jpg" alt="{k} on a phone" loading="lazy"></a>
