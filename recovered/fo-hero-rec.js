@@ -191,7 +191,8 @@ function chatter(once,tries=0){const c=C.chatter[Math.floor(Math.random()*C.chat
 const PAL=[['#ffe2cf','#9a3b0e'],['#dff1e6','#1d6b3c'],['#e4e6ff','#3a3f9e'],['#fde7f3','#b0126c'],['#fff1c9','#7a5a00']];
 const est='<span class="etag">est</span>';
 function code(){const L='ABCDEFGHJKLMNPQRSTUVWXYZ',d=()=>Math.floor(rnd()*10);return pick(L)+d()+d()+d()+pick(L)+d()+d()}
-function countUp(el,to,ms=1400){if(!el)return;if(FF||STOP>=0){el.textContent=to.toLocaleString('en-US');return}const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/ms),e=1-Math.pow(1-k,3);el.textContent=Math.round(to*e).toLocaleString('en-US');if(k<1)requestAnimationFrame(f)})(t0)}
+function PTS(v){const r=Math.round(v);return r>=1000?(+(r/1000).toFixed(2))+'M':r.toLocaleString('en-US')+'k'}
+function countUp(el,to,ms=1400,fm){if(!el)return;const F=fm||(v=>Math.round(v).toLocaleString('en-US'));if(FF||STOP>=0){el.textContent=F(to);return}const t0=performance.now();(function f(t){const k=Math.min(1,Math.max(0,(t-t0)/ms)),e=1-Math.pow(1-k,3);el.textContent=F(to*e);if(k<1)requestAnimationFrame(f)})(t0)}
 let SC='',TRK=0,NX=false;
 function buildCard(p){SC=code();NX=false;const[bg,fg]=PAL[p.s%5];const ini=p.ini||(p.name[0]+p.biz[0]);
  if(false){card.innerHTML=`<svg class="ring"><rect class="r1" rx="18"/><rect class="r2" rx="18" pathLength="100"/></svg><div class="hd on"><div class="pav6" style="width:36px;height:36px;background:${bg};color:${fg};font-size:13px">${ini}</div><div style="min-width:0;flex:1"><div class="l1"><span class="nm6">${p.name}</span></div><div class="bz l2">${p.biz} · ${p.city}</div></div><div class="sc">Bespoke strategy<span class="code" id="sc"></span></div></div>
@@ -204,16 +205,16 @@ function buildCard(p){SC=code();NX=false;const[bg,fg]=PAL[p.s%5];const ini=p.ini
  <div class="kn"><span>Desk dossier</span><span><span id="trk">0</span> of 50+ tracked</span></div>
  <div class="rw"><span>Cards on file</span><b><div class="cds">${cds}</div></b></div>
  <div class="rw"><span>Card spend</span><b>$<span id="cu1">0</span>k a year${est}<small class="g">${p.top}</small></b></div>
- <div class="rw"><span>Points a year</span><b>${p.before}k today <span class="ar">→</span> <span style="color:var(--ac)"><span id="cu3">0</span>k${est}</span></b></div>
+ <div class="rw"><span>Points a year</span><b>${PTS(p.before)} today <span class="ar">→</span> <span style="color:var(--ac)"><span id="cu3">0k</span>${est}</span></b></div>
  <div class="rw"><span>Next trip</span><b id="nx"><span class="plan">Planning with the desk<span class="typ2"><i></i><i></i><i></i></span></span></b></div>
  <div class="rw"><span>Requests</span><b><div class="pend" id="pd">${p.pend.slice(0,2).map(x=>`<i>${x}</i>`).join('')}</div></b></div>
  <div class="ppf6">Example owner. Fictional details. Figures are estimates.</div>`}
 function trk(){const e=$('#trk');if(e)e.textContent=TRK}
 function cardIntro(p){const hd=$('.hd',card);hd&&hd.classList.add('on');const sc=$('#sc');let i=0;
- if(1){sc.textContent=SC;$$('.kn,.rw,.ppf6,.pill',card).forEach(r=>r.classList.add('on'));countUp($('#cu1'),p.spend);countUp($('#cu3'),p.after);TRK=p.cards.length;trk();return}
+ if(1){sc.textContent=SC;$$('.kn,.rw,.ppf6,.pill',card).forEach(r=>r.classList.add('on'));countUp($('#cu1'),p.spend);countUp($('#cu3'),p.after,1400,PTS);TRK=p.cards.length;trk();return}
  setTimeout(()=>{const pill=$('.pill',card);pill&&pill.classList.add('on');(function ty(){sc.innerHTML=SC.slice(0,i)+'<span class="cur"></span>';if(i++<SC.length)setTimeout(ty,95);else setTimeout(()=>sc.textContent=SC,900)})()},350);
  TRK=p.cards.length;trk();
- $$('.kn,.rw,.ppf6',card).forEach((r,j)=>setTimeout(()=>{r.classList.add('on');if(r.querySelector('#cu1'))countUp($('#cu1'),p.spend);if(r.querySelector('#cu3'))countUp($('#cu3'),p.after,1700)},1100+j*320))}
+ $$('.kn,.rw,.ppf6',card).forEach((r,j)=>setTimeout(()=>{r.classList.add('on');if(r.querySelector('#cu1'))countUp($('#cu1'),p.spend);if(r.querySelector('#cu3'))countUp($('#cu3'),p.after,1700,PTS)},1100+j*320))}
 function setNext(p){const nx=$('#nx');if(!nx||NX)return;NX=true;nx.innerHTML=`${p.nxt}<small>${p.nxte}${est}</small>`;const row=nx.closest('.rw')||nx.closest('.ml');if(row){row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),1500)}}
 function pendProgress(){const pd=$('#pd');if(!pd)return;const f=pd.children[0];if(f&&!f.classList.contains('ip')){f.classList.add('ip');f.insertAdjacentHTML('beforeend','<em>on it</em>')}}
 function pendAdd(p){const pd=$('#pd');if(!pd||pd.children.length>2)return;const t=p.pend[2];if(!t)return;const i=document.createElement('i');i.className='new';i.innerHTML=t+'<em>new</em>';pd.appendChild(i);requestAnimationFrame(()=>requestAnimationFrame(()=>i.classList.remove('new')))}
@@ -482,7 +483,8 @@ function chatter(once,tries=0){const c=C.chatter[Math.floor(Math.random()*C.chat
 const PAL=[['#ffe2cf','#9a3b0e'],['#dff1e6','#1d6b3c'],['#e4e6ff','#3a3f9e'],['#fde7f3','#b0126c'],['#fff1c9','#7a5a00']];
 const est='<span class="etag">est</span>';
 function code(){const L='ABCDEFGHJKLMNPQRSTUVWXYZ',d=()=>Math.floor(rnd()*10);return pick(L)+d()+d()+d()+pick(L)+d()+d()}
-function countUp(el,to,ms=1400){if(!el)return;if(FF||STOP>=0){el.textContent=to.toLocaleString('en-US');return}const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/ms),e=1-Math.pow(1-k,3);el.textContent=Math.round(to*e).toLocaleString('en-US');if(k<1)requestAnimationFrame(f)})(t0)}
+function PTS(v){const r=Math.round(v);return r>=1000?(+(r/1000).toFixed(2))+'M':r.toLocaleString('en-US')+'k'}
+function countUp(el,to,ms=1400,fm){if(!el)return;const F=fm||(v=>Math.round(v).toLocaleString('en-US'));if(FF||STOP>=0){el.textContent=F(to);return}const t0=performance.now();(function f(t){const k=Math.min(1,Math.max(0,(t-t0)/ms)),e=1-Math.pow(1-k,3);el.textContent=F(to*e);if(k<1)requestAnimationFrame(f)})(t0)}
 let SC='',TRK=0,NX=false;
 function buildCard(p){SC=code();NX=false;const[bg,fg]=PAL[p.s%5];const ini=p.ini||(p.name[0]+p.biz[0]);
  if(MOB){card.innerHTML=`<svg class="ring"><rect class="r1" rx="18"/><rect class="r2" rx="18" pathLength="100"/></svg><div class="hd on"><div class="pav6" style="width:36px;height:36px;background:${bg};color:${fg};font-size:13px">${ini}</div><div style="min-width:0;flex:1"><div class="l1"><span class="nm6">${p.name}</span></div><div class="bz l2">${p.biz} · ${p.city}</div></div><div class="sc">Bespoke strategy<span class="code" id="sc"></span></div></div>
@@ -495,16 +497,16 @@ function buildCard(p){SC=code();NX=false;const[bg,fg]=PAL[p.s%5];const ini=p.ini
  <div class="kn"><span>Desk dossier</span><span><span id="trk">0</span> of 50+ tracked</span></div>
  <div class="rw"><span>Cards on file</span><b><div class="cds">${cds}</div></b></div>
  <div class="rw"><span>Card spend</span><b>$<span id="cu1">0</span>k a year${est}<small class="g">${p.top}</small></b></div>
- <div class="rw"><span>Points a year</span><b>${p.before}k today <span class="ar">→</span> <span style="color:var(--ac)"><span id="cu3">0</span>k${est}</span></b></div>
+ <div class="rw"><span>Points a year</span><b>${PTS(p.before)} today <span class="ar">→</span> <span style="color:var(--ac)"><span id="cu3">0k</span>${est}</span></b></div>
  <div class="rw"><span>Next trip</span><b id="nx"><span class="plan">Planning with the desk<span class="typ2"><i></i><i></i><i></i></span></span></b></div>
  <div class="rw"><span>Requests</span><b><div class="pend" id="pd">${p.pend.slice(0,2).map(x=>`<i>${x}</i>`).join('')}</div></b></div>
  <div class="ppf6">Example owner. Fictional details. Figures are estimates.</div>`}
 function trk(){const e=$('#trk');if(e)e.textContent=TRK}
 function cardIntro(p){const hd=$('.hd',card);hd&&hd.classList.add('on');const sc=$('#sc');let i=0;
- if(1){sc.textContent=SC;$$('.kn,.rw,.ppf6,.pill',card).forEach(r=>r.classList.add('on'));countUp($('#cu1'),p.spend);countUp($('#cu3'),p.after);TRK=p.cards.length;trk();return}
+ if(1){sc.textContent=SC;$$('.kn,.rw,.ppf6,.pill',card).forEach(r=>r.classList.add('on'));countUp($('#cu1'),p.spend);countUp($('#cu3'),p.after,1400,PTS);TRK=p.cards.length;trk();return}
  setTimeout(()=>{const pill=$('.pill',card);pill&&pill.classList.add('on');(function ty(){sc.innerHTML=SC.slice(0,i)+'<span class="cur"></span>';if(i++<SC.length)setTimeout(ty,95);else setTimeout(()=>sc.textContent=SC,900)})()},350);
  TRK=p.cards.length;trk();
- $$('.kn,.rw,.ppf6',card).forEach((r,j)=>setTimeout(()=>{r.classList.add('on');if(r.querySelector('#cu1'))countUp($('#cu1'),p.spend);if(r.querySelector('#cu3'))countUp($('#cu3'),p.after,1700)},1100+j*320))}
+ $$('.kn,.rw,.ppf6',card).forEach((r,j)=>setTimeout(()=>{r.classList.add('on');if(r.querySelector('#cu1'))countUp($('#cu1'),p.spend);if(r.querySelector('#cu3'))countUp($('#cu3'),p.after,1700,PTS)},1100+j*320))}
 function setNext(p){const nx=$('#nx');if(!nx||NX)return;NX=true;nx.innerHTML=MOB?`${p.nxt}${est}`:`${p.nxt}<small>${p.nxte}${est}</small>`;const row=nx.closest('.rw')||nx.closest('.ml');if(row){row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),1500)}}
 function pendProgress(){const pd=$('#pd');if(!pd)return;const f=pd.children[0];if(f&&!f.classList.contains('ip')){f.classList.add('ip');f.insertAdjacentHTML('beforeend','<em>on it</em>')}}
 function pendAdd(p){const pd=$('#pd');if(!pd||pd.children.length>2)return;const t=p.pend[2];if(!t)return;const i=document.createElement('i');i.className='new';i.innerHTML=t+'<em>new</em>';pd.appendChild(i);requestAnimationFrame(()=>requestAnimationFrame(()=>i.classList.remove('new')))}
