@@ -184,7 +184,7 @@ html[class*=dir-] main{overflow-x:clip}
 
 html.dir-c{--pk:#FA1896;--pkd:#C80E70;--ink:#141216;--ink2:#1D1A21;--cr:#FBF6EF;--ln:rgba(20,18,22,.12);--mono:'JetBrains Mono',ui-monospace,monospace}
 html.dir-c body{background:var(--cr)}
-html.dir-c .desk{font-family:'Bricolage Grotesque',system-ui,sans-serif;max-width:1320px;padding-top:0;--isr:'DM Serif Display',Georgia,serif}
+html.dir-c .desk{font-family:'DM Sans',system-ui,sans-serif;max-width:1320px;padding-top:0;--isr:'DM Serif Display',Georgia,serif}
 /* ---------- hero */
 html.dir-c .desk .pop-hero{--bb:#FA1896;color:#fff;padding:46px 0 0;position:relative}
 html.dir-c .desk .pop-hero::before{content:"";position:absolute;inset:0 -100vmax;background:
@@ -341,7 +341,7 @@ html.dir-c .desk .endnote{--bb:#141216;padding:64px 0;margin-top:56px;border:0;b
 html.dir-c .desk .endnote p{font:800 40px/1.12 'DM Sans',system-ui,sans-serif;letter-spacing:-.04em;color:#fff;max-width:980px}
 html.dir-c .desk .endnote a{color:#fff;text-decoration:underline;text-decoration-color:#FA1896;text-decoration-thickness:4px;text-underline-offset:6px}
 html.dir-c .desk .endnote .sign{color:#FA1896}
-html.dir-c .rdr-p{font-family:'Bricolage Grotesque',system-ui,sans-serif;border:1px solid #141216;border-radius:20px;box-shadow:0 50px 100px -40px rgba(20,18,22,.7)}
+html.dir-c .rdr-p{font-family:'DM Sans',system-ui,sans-serif;border:1px solid #141216;border-radius:20px;box-shadow:0 50px 100px -40px rgba(20,18,22,.7)}
 html.dir-c .rdr-p h2{font-family:'DM Sans',system-ui,sans-serif!important;font-weight:800!important;letter-spacing:-.04em}
 html.dir-c .rdr-p.gold{background:linear-gradient(170deg,#FFF3C9,#fff 300px);border-color:#C99A00}
 html.dir-c .mpick{background:var(--cr);border-bottom:1px solid #141216}
@@ -754,7 +754,9 @@ html.dir-c.o3h{--isr:'DM Serif Display',Georgia,serif}
 html.dir-c.o3h .desk .pop-hero{--bb:#FAF6EE;color:#141216}
 html.dir-c.o3h .desk .pop-hero::before{background:linear-gradient(rgba(20,18,22,.045) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(90deg,rgba(20,18,22,.045) 1px,transparent 1px) 0 0/44px 44px,#FAF6EE}
 html.dir-c.o3h .desk h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;color:#141216;text-shadow:none;letter-spacing:-.025em;line-height:.92}
-html.dir-c.o3h .desk h1 em{font-family:'DM Serif Display',Georgia,serif;font-style:italic;color:#FA1896}
+html.dir-c.o3h .desk h1 em{font-family:'DM Serif Display',Georgia,serif;font-style:normal;color:#FA1896}
+/* brand rule: serif headlines, two lines, pink second line, NO italics anywhere (h1, caption, big counts, quotes) */
+html.dir-c.o3h .desk *,html.dir-c.o3h .desk *::before,html.dir-c.o3h .desk *::after,html.dir-c.o3h .rdr-p,html.dir-c.o3h .rdr-p *{font-style:normal!important}
 html.dir-c.o3h .desk .lede{color:#3A343D}
 html.dir-c.o3h .desk .lede .hl{background:#E60F86;color:#fff}
 /* the mark only ever sits on ticket-stock cream: eyebrow stub, signature stub, Checked cell, code tape */
@@ -828,7 +830,7 @@ html.dir-c.o3h .desk .endnote a{text-decoration-color:#fff}
 <div class="eyebrow">Free From the Desk</div>
 <h1>Everything I'd tell you <em>over coffee.</em></h1>
 <p class="lede">Most owners put serious money on cards every month, and nobody ever sits them down and explains how it actually works. So here it is: the codes, the questions, the notes we keep for each trade. Free. <span class="hl">No email. No catch.</span></p>
-<div class="sig"><img class="av mkv" src="img/fo-chevron-transparent.png" alt="" aria-hidden="true"><div><span class="sign">Ohad</span><span class="role">Founder, First Officer</span></div></div>
+<div class="sig"><img class="av mkv" src="img/fo-chevron-transparent.png" alt="" aria-hidden="true"><div><span class="sign">Ohad</span><span class="role">Founder, UpNonStop</span></div></div>
 </div>
 <div class="vault"><a class="feat" href="calculator.html">
 <div class="ft-k">Start here</div>

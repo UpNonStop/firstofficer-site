@@ -9,6 +9,9 @@ sys.path.insert(0, os.path.dirname(__file__))
 from fosite import page, ROOT
 
 SRC = open(os.path.join(ROOT, '_source', 'ffd-prior.html'), encoding='utf-8').read()
+# Ohad founded UpNonStop; First Officer is the product. The prior page said otherwise, so correct it at the source.
+SRC = SRC.replace('Founder, First Officer', 'Founder, UpNonStop')
+assert 'Founder, First Officer' not in SRC
 
 # ---- 1. pieces of the prior page -------------------------------------------------------------
 m = re.search(r'<main class="desk" id="top"><style>(.*?)</style>', SRC, re.S)

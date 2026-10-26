@@ -809,7 +809,9 @@ html.dir-c.o3h{{--isr:'DM Serif Display',Georgia,serif}}
 html.dir-c.o3h .desk .pop-hero{{--bb:{BCR};color:{BINK}}}
 html.dir-c.o3h .desk .pop-hero::before{{background:linear-gradient(rgba(20,18,22,.045) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(90deg,rgba(20,18,22,.045) 1px,transparent 1px) 0 0/44px 44px,{BCR}}}
 § h1{{font-family:'DM Serif Display',Georgia,serif;font-weight:400;color:{BINK};text-shadow:none;letter-spacing:-.025em;line-height:.92}}
-§ h1 em{{font-family:'DM Serif Display',Georgia,serif;font-style:italic;color:{BPK}}}
+§ h1 em{{font-family:'DM Serif Display',Georgia,serif;font-style:normal;color:{BPK}}}
+/* brand rule: serif headlines, two lines, pink second line, NO italics anywhere (h1, caption, big counts, quotes) */
+§ *,§ *::before,§ *::after,html.dir-c.o3h .rdr-p,html.dir-c.o3h .rdr-p *{{font-style:normal!important}}
 § .lede{{color:{BINK2}}}
 § .lede .hl{{background:{BP};color:#fff}}
 /* the mark only ever sits on ticket-stock cream: eyebrow stub, signature stub, Checked cell, code tape */
@@ -872,14 +874,16 @@ html.dir-c.o3h .desk .pop-hero::before{{background:linear-gradient(rgba(20,18,22
 pal3h = pal_css(BP, BPS, [BP] * 4, BCR2, BTR, BTR, 'transparent', BP, BPS, grid=(BP, BPS))
 css3h = (O3B + O3C + pal3h + O3G + O3H).replace('.dk.lead', '.dk.lead:not(.gold)')
 full3h = (BASE + css3h).replace('§', 'html.dir-c.o3h .desk').replace('html.dir-c.ox', 'html.dir-c.o3h').replace('CP', CP)
-# brand type: DM Sans for display, DM Serif Display for the italic; sizes unchanged
+# brand type: DM Sans for display and body, DM Serif Display upright for headlines; sizes unchanged
 full3h = full3h.replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui,sans-serif")
 C3H = D.C_CSS.replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui,sans-serif").replace("--isr:'Instrument Serif',Georgia,serif", "--isr:'DM Serif Display',Georgia,serif")
 B3H = B3G
 page('ffd-c-opt-3h.html', T, B3H, desc=DESC, src='freebies', tail=D.TAIL_C + D.SHARED_JS + FILL_JS,
      headx=D.head('dir-c', 'family=DM+Serif+Display:ital@0;1', C3H + full3h, 'window.FO_LIMIT=6;document.documentElement.classList.add("o3h");'))
 _p = f'{ROOT}/ffd-c-opt-3h.html'; _s = open(_p, encoding='utf-8').read()
-open(_p, 'w', encoding='utf-8').write(_s.replace(CHEV, MARK).replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui,sans-serif"))
+_s = _s.replace(CHEV, MARK).replace("'Bricolage Grotesque',system-ui,sans-serif", "'DM Sans',system-ui,sans-serif").replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui,sans-serif")
+assert 'Bricolage' not in _s and 'Founder, First Officer' not in _s
+open(_p, 'w', encoding='utf-8').write(_s)
 
 # ---------------------------------------------------------------- gallery
 GAL = [('3h', 'Brand palette', 'Cream desk, First Officer pink tickets', 'Matured to the brand: the cream canvas, ink type and pink second line of the approved pages, every solid block in First Officer pink with a deeper pink tear-off stub, a flat brand-gold Golden Nugget Pack, and the full mark on cream ticket stock only. No purple.'), ('3g', 'Palette A, refined', 'One deep partner, refined', 'Palette A taken further: a lifted aubergine that never reads as black, the full First Officer mark wherever a chevron appears, a cheat sheet that leads with why an owner cares, and shelves that close up with no holes.')] + [(n, k, name, pitch) for n, k, name, pitch, _ in PALS] + [('3c', 'Option 3, matured v2', 'Pillar blocks, matured v2', 'Solid pillar-colour blocks again, each cut as a tear-off ticket: notched perforation, a deeper stub with the flight-number tag and Grab it, white type on green, orange, violet and blue.'),
