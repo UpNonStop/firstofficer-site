@@ -1,0 +1,55 @@
+<script id="setjs">(function(){
+var snap=/[?&]snap/.test(location.search),rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,still=snap||rm;
+/* photos: every .hbg in the page rotates through the trip pool */
+var pool=["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1433838552652-f9a46b332c40?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1540202404-a2f29016b523?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1455587734955-081b22074882?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1606046604972-77cc76aee944?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1562778612-e1e0cda9915c?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=75&auto=format", "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=1600&q=75&auto=format"];
+var seed=0;for(var i=pool.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=pool[i];pool[i]=pool[j];pool[j]=t}
+document.querySelectorAll('.hbg').forEach(function(bg,bi){var ls=bg.querySelectorAll('.hp');if(ls.length<2)return;var k=bi*7,cur=0;
+ function show(){var el=ls[cur],u=pool[k%pool.length],c=cur;k++;cur=1-cur;var im=new Image();im.onload=im.onerror=function(){el.style.backgroundImage='url("'+u+'")';el.classList.add('on');ls[1-c].classList.remove('on')};im.src=u;new Image().src=pool[k%pool.length]}
+ show();if(!still)setInterval(show,5500)});
+/* the app: four pillar states, time-aware greeting, messages arrive one by one */
+var hr=new Date().getHours(),gw=hr<12?'Good morning, ':hr<18?'Good afternoon, ':'Good evening, ';
+document.querySelectorAll('[data-app]').forEach(function(ph){
+ var scs=[].slice.call(ph.querySelectorAll('.sc')),tabs=ph.querySelectorAll('.tabs span'),segs=ph.querySelectorAll('.sg i'),
+  hi=ph.querySelector('.hi'),pb=ph.querySelector('.pb'),me=ph.querySelector('.me'),idx=scs.findIndex(function(s){return s.classList.contains('on')});if(idx<0)idx=0;
+ var icons={};tabs.forEach(function(t){icons[t.dataset.t]=t.querySelector('svg').innerHTML});
+ function head(s){ph.style.setProperty('--ac',s.dataset.ac);ph.style.setProperty('--at',s.dataset.at);
+  hi.innerHTML=gw+'<b>'+s.dataset.first+'</b>';me.textContent=s.dataset.me;
+  pb.innerHTML='<svg viewBox="0 0 20 20" aria-hidden="true">'+(icons[s.dataset.p]||'')+'</svg><b>'+s.dataset.lab.replace(/&/g,'&amp;')+'</b>';
+  tabs.forEach(function(t){t.classList.toggle('on',t.dataset.t===s.dataset.p)});segs.forEach(function(g,i){g.classList.toggle('on',i===scs.indexOf(s))})}
+ var gen=0;function T(f,ms,g){setTimeout(function(){if(g===gen)f()},ms)}
+ function play(i){var g=++gen,s=scs[i];scs.forEach(function(x){x.classList.toggle('on',x===s)});head(s);
+  var ms=[].slice.call(s.querySelectorAll('.m')),ty=s.querySelector('.ty');
+  if(still){ms.forEach(function(m){m.classList.remove('hid')});return}
+  ms.forEach(function(m){m.classList.add('hid');m.classList.remove('pop')});var n=0;
+  function next(){if(n>=ms.length){T(function(){play((i+1)%scs.length)},2600,g);return}
+   var m=ms[n++],bot=!m.classList.contains('o');
+   if(bot){ty.classList.add('on');s.querySelector('.in').appendChild(ty);T(function(){ty.classList.remove('on');m.classList.remove('hid');m.classList.add('pop');T(next,950,g)},650,g)}
+   else{m.classList.remove('hid');m.classList.add('pop');T(next,800,g)}}
+  ty.classList.remove('on');T(next,350,g)}
+ tabs.forEach(function(t){t.style.cursor='pointer';t.setAttribute('role','button');t.tabIndex=0;function go(){var j=scs.findIndex(function(x){return x.dataset.p===t.dataset.t});if(j>=0){if(still){scs.forEach(function(x){x.classList.toggle('on',x===scs[j])});head(scs[j])}else play(j)}}t.addEventListener('click',go);t.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}})});
+ ph.__go=play;play(idx)});
+/* the desk: an owner question arrives, a specialist thinks, rises toward First Officer, answers, settles */
+var QA={"01-amex": ["Are my ads earning 4x?", "On the top 2 categories each cycle, up to the yearly cap. Moving ads now.", "Amex specialist"], "04-citi": ["Can my points reach Qatar?", "Yes, they transfer 1:1. Checking timing before anything moves.", "Citi specialist"], "30-qatar-airways": ["Is there a cheaper route to Rome?", "Comparing partner prices for your dates. est.", "Qatar specialist"], "27-british-airways": ["Rome via London, two of us?", "Vetting the award rules now. Then the desk books it.", "British Airways specialist"], "10-hilton": ["Five nights in Rome on points?", "Points vs cash, checked night by night.", "Hilton specialist"], "12-hyatt": ["Are my old Hyatt points still good?", "24 months without activity and they expire. Checking yours.", "Hyatt specialist"], "02-chase": ["What about internet and phone?", "Often a 3x category on another card. Lining it up.", "Chase specialist"], "_": ["Anything I am missing this week?", "Checking your balances against this week&#39;s rules.", "Specialist"]};
+document.querySelectorAll('.dqw').forEach(function(w){var q=w.querySelector('.dq-q'),a=w.querySelector('.dq-a');
+ function vis(){return [].slice.call(w.querySelectorAll('svg.cl-desk')).filter(function(s){return s.getBoundingClientRect().width>0})[0]}
+ function mv(svg,g){var fr=+svg.querySelector('.fo').getAttribute('data-r'),lh=+svg.getAttribute('data-lh')||0;var x=+g.dataset.x,y=+g.dataset.y,r=+g.dataset.r,d=Math.sqrt(x*x+y*y),m=Math.max(0,Math.min(d*.3,d-r-fr-10-(y>0?lh:0)));return 'translate('+(-x/d*m).toFixed(1)+'px,'+(-y/d*m).toFixed(1)+'px)'}
+ function place(el,svg,node,side){var wr=w.getBoundingClientRect(),r=node.getBoundingClientRect(),ew=el.offsetWidth,eh=el.offsetHeight;
+  var cx=r.left-wr.left+r.width/2,cy=r.top-wr.top;var x=cx-ew/2,y=side==='above'?cy-eh-8:side==='under'?r.bottom-wr.top+(wr.width>600?76:58):r.bottom-wr.top+8;
+  x=Math.max(4,Math.min(wr.width-ew-4,x));y=Math.max(4,Math.min(wr.height-eh-4,y));el.style.left=x+'px';el.style.top=y+'px'}
+ var order=['01-amex','30-qatar-airways','04-citi','27-british-airways','10-hilton','12-hyatt','02-chase'],oi=0;
+ function pick(svg){for(var t=0;t<order.length;t++){var k=order[(oi+t)%order.length],g=svg.querySelector('.sp[data-k="'+k+'"]');if(g){oi=(oi+t+1)%order.length;return g}}
+  var all=svg.querySelectorAll('.sp');return all[Math.floor(Math.random()*all.length)]}
+ function cycle(){var svg=vis();if(!svg)return;var g=pick(svg),k=g.dataset.k,d=QA[k]||QA._;var fo=svg.querySelector('.foc')||svg.querySelector('.fo');
+  q.innerHTML='<span class="w"><u>DW</u>Darnell asks</span>'+d[0];a.innerHTML='<span class="w">'+d[2]+'</span><span class="dots"><i></i><i></i><i></i></span>';
+  var up=(+g.dataset.y)<0,qs=up?'under':'above',as=up?'above':'below';
+  q.classList.add('show');place(q,svg,fo,qs);svg.classList.add('think');
+  if(still){g.classList.add('on');g.style.transform=mv(svg,g);svg.classList.add('hot');a.innerHTML='<span class="w">'+d[2]+'</span>'+d[1];a.classList.add('show');setTimeout(function(){place(a,svg,g,as)},0);return}
+  setTimeout(function(){g.classList.add('on');g.style.transform=mv(svg,g);svg.classList.add('hot');a.classList.add('show');place(a,svg,g,as)},700);
+  setTimeout(function(){a.innerHTML='<span class="w">'+d[2]+'</span>'+d[1];place(a,svg,g,as);svg.classList.remove('think')},1900);
+  setTimeout(function(){place(a,svg,g,as)},2700);
+  setTimeout(function(){a.classList.remove('show');q.classList.remove('show');g.classList.remove('on');g.style.transform='';svg.classList.remove('hot')},4300)}
+ cycle();if(still)return;setInterval(cycle,4800);
+ setInterval(function(){var svg=vis();if(!svg)return;var rs=[].slice.call(svg.querySelectorAll('.sp:not(.on)'));var g=rs[Math.floor(Math.random()*rs.length)];if(!g)return;
+  var x=+g.dataset.x,y=+g.dataset.y,d=Math.sqrt(x*x+y*y)||1;g.classList.add('nod');g.style.transform='translate('+(-x/d*7).toFixed(1)+'px,'+(-y/d*7).toFixed(1)+'px)';
+  setTimeout(function(){if(!g.classList.contains('on')){g.classList.remove('nod');g.style.transform=''}},800)},700)});
+})();</script>
