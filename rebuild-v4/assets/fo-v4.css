@@ -1,0 +1,64 @@
+/* First Officer rebuild v4 skin: the prior mockup design language (Free From the Desk, Oct 12) applied to the v3 structure.
+   Warm paper, solid ink serif headlines, pink italic accents, clear white cards, solid pink buttons.
+   Font SIZES are untouched: only families, weights, colours, borders and surfaces change. */
+:root{
+  --font:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"DM Serif Display",Georgia,serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --bg:#FAF6EE; --paper:#FFFFFF;
+  --ink:#141216; --ink2:#3A343D; --ink3:#6B6470; --line:#ECE4E9;
+  --pink:#FA1896; --pink2:#E60F86; --pinkdeep:#B30A68; --pinkWash:#FFF5FA; --pinkLine:#F1D6E5;
+  --shadow:0 14px 34px -26px rgba(20,18,22,.35);
+  --r-card:22px; --r-hero:26px;
+}
+body{background:var(--bg);color:var(--ink)}
+/* no washed-out photo layer behind content: paper and white bands, like the prior pages */
+.sec>.phx{display:none}
+.sec{background:var(--bg)}
+.sec:nth-of-type(even){background:#fff}
+.sec+.sec{border-top:1px solid var(--line)}
+/* headlines: solid ink serif, pink italic accent */
+.h1,.h2{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;color:var(--ink)}
+.h1 em,.h2 em{font-style:italic;color:var(--pink)}
+.h3{font-family:var(--serif);font-weight:400;letter-spacing:0;color:var(--ink)}
+.lede{color:var(--ink2)}
+.card p,.sub,p.body,.row .s,.kv span{color:var(--ink2)}
+.lab{font-family:var(--mono);font-weight:600;letter-spacing:.16em;color:var(--pinkdeep)}
+.lab.gold{color:#9A7400}
+/* clear cards */
+.card{background:#fff;border:1.5px solid var(--line);box-shadow:var(--shadow);-webkit-backdrop-filter:none;backdrop-filter:none}
+.card.hero{border-color:var(--pinkLine);box-shadow:0 1px 0 #EADFE6,0 24px 60px -28px rgba(230,15,134,.32)}
+.card.gold,.card.worth{border-color:#EFD98A}
+.card.worth{background:linear-gradient(160deg,#FFF9E3,#fff 60%)}
+.row{border:1.5px solid var(--line);background:#fff}
+.ptile{border:1.5px solid var(--line);box-shadow:var(--shadow)}
+.ptile.sig{border-color:var(--pinkLine)}
+.note{background:var(--pinkWash);border-color:var(--pinkLine)}
+.chat{border-color:var(--line)}
+.chip{border-color:#E5DBE1}
+.chip.on{background:#FFE3F1;border-color:var(--pink);box-shadow:inset 0 0 0 1px var(--pink)}
+/* solid buttons */
+.btn{background:var(--pink);color:#fff;font-weight:700;border-radius:999px;box-shadow:0 8px 24px -10px rgba(250,24,150,.55)}
+.btn:not(.ghost){box-shadow:0 8px 24px -10px rgba(250,24,150,.55)}
+.btn.ghost{background:#fff;color:var(--ink);border:1.5px solid #E5DBE1;border-radius:999px;box-shadow:none}
+.btn.ghost:hover{border-color:var(--pink);color:var(--pinkdeep)}
+.btn.wa,.btn-sm.wa{background:#138A43}
+.btn-sm.pk{background:var(--pink);font-weight:700}
+.icta{border:1.5px solid var(--pinkLine);background:#fff}
+.icta .btn.ghost{color:var(--pinkdeep)}
+.cap a,.body a,.src a,.method a{color:var(--pinkdeep)}
+/* nav: solid paper, crisp hairline */
+.nav{background:rgba(250,246,238,.97);border-bottom:1px solid var(--line)}
+.nlinks a{color:var(--ink);font-weight:500}
+.sheet{border-bottom-color:var(--line)}
+/* footer band: no photo, clear card */
+#band{background:#fff}
+.foot{border-top-color:var(--line)}
+.news input{border:1.5px solid #E5DBE1;border-radius:999px}
+.news input:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 3px rgba(250,24,150,.14)}
+/* numbers and money stay ink, never pink */
+.num,.kv b,.row .v,.pair .v,.mult b,.cmp .ln b{color:var(--ink)}
+/* tasteful entrance (same data-rv hook as v3, a touch more travel) */
+[data-rv]{transform:translateY(14px)}
+@media(prefers-reduced-motion:reduce){[data-rv]{transform:none}}
+.lab.ink,.row .lab{color:var(--ink3)}

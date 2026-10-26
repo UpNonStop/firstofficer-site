@@ -1,3 +1,4 @@
+import re
 import json, html as H
 import os; ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # builds into this checkout
 WA='https://wa.me/16199404040?text=First%20Officer'
@@ -65,19 +66,26 @@ def footer(src):
 <div class="fbar"><div>UpNonStop | 235 Pavonia Avenue | Jersey City, NJ 07302 | Proudly Made in 🇺🇸</div><div>Independent: no affiliate relationships with any issuer. An educational tool, not a licensed financial advisor. US businesses only. © 2026 UpNonStop.</div></div>
 </div></footer>'''
 
-def page(name, title, body, desc='', hero=False, src='site', tail=''):
-    fonts=TICK_FONT+(HERO_FONTS if hero else '')
+V4_FONTS='<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">'
+def page(name, title, body, desc='', hero=False, src='site', tail='', headx=''):
+    fonts=V4_FONTS  # v4: prior design language (DM Serif Display / DM Sans / Caveat signature / JetBrains Mono ticker)
     hh=('<script>window.FO_SUBHEAD='+json.dumps(HERO_SUB)+';</script>') if hero else ''
     scripts=('<script src="hero/fo-hero-data.js"></script><script src="hero/fo-hero-app.js"></script><script src="hero/fo-hero.js"></script>' if hero else '')+tail+'<script src="assets/site.js"></script>'
     html=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title><meta name="description" content="{H.escape(desc)}"><meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>{fonts}
-<link rel="preload" href="fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="icon" href="img/fo-chevron-transparent-v2.png"><link rel="stylesheet" href="assets/fo-site-tokens.css"><link rel="stylesheet" href="assets/fo-site.css"><link rel="stylesheet" href="assets/hero-frame.css">{hh}</head><body>
-<!-- MOCKUP · First Officer rebuild v3 (app design language) · static HTML, not production -->
+<link rel="icon" href="img/fo-chevron-transparent-v2.png"><link rel="stylesheet" href="assets/fo-site-tokens.css"><link rel="stylesheet" href="assets/fo-site.css"><link rel="stylesheet" href="assets/hero-frame.css"><link rel="stylesheet" href="assets/fo-v4.css">{headx}{hh}</head><body>
+<!-- MOCKUP · First Officer rebuild v4 (prior mockup design language) · static HTML, not production -->
 {nav()}
 {TICK_HTML}
 <main id="main">{body}</main>
 {footer(src)}
 {scripts}</body></html>'''
+    # v4: eyebrow labels are pink, but a label that carries a figure ($ or digits) stays ink grey: no pink numbers
+    def _lab(m):
+        cls, rest, txt = m.group(1), m.group(2), m.group(3)
+        if re.search(r'[0-9$]', txt) and not re.search(r'\b(earn|burn|ret|learn|gold)\b', cls):
+            cls = cls + ' ink'
+        return '<span class="' + cls + '"' + rest + '>' + txt
+    html = re.sub(r'<span class="(lab(?: [^"]*)?)"([^>]*)>([^<]*)', _lab, html)
     open(f'{ROOT}/{name}','w').write(html); print(name, len(html))
