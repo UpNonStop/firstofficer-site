@@ -66,6 +66,10 @@ SB='<div class="sb"><span>9:41</span><i><svg width="17" height="11" viewBox="0 0
 def hd():
     return SB+'<div class="hd"><div class="lk"><img src="img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></div><span class="ex">Example</span></div>'
 
+SHR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>'
+def nm(k,t,sub,v,btn):
+    return f'<div class="nm"><div class="nmk">Next mission</div><div class="nmr"><div><b>{t}</b><small>{sub}</small></div><span class="nmv">{v}</span></div><div class="nmb"><span class="ok">{btn}</span><span class="sh">{SHR}Share</span></div></div>'
+
 def cs_found(on=''):
     return f'''<div class="cs{on}" data-confetti="1">{hd()}
 <div class="bd">✓ It's confirmed</div><div class="lb">Found money</div>
@@ -73,7 +77,8 @@ def cs_found(on=''):
 <p class="p">Software and carrier travel moved to 4x and 5x. Your statements confirm it, so it moved from waiting to found.</p>
 <div class="mini"><div><small>Travel this month</small><b>$5,000</b></div><div><small>Points earned</small><b>25,000</b></div><div><small>All moves, est.</small><b>$15,120</b></div></div>
 <div class="by"><i>✓</i>Checked by the desk against your statement</div>
-<div class="cta">See it on my ledger</div><div class="lnk">Back to chat</div><div class="home"></div></div>'''
+{nm('a','Ads to the 4x card','Waiting for your OK','+$7,200 <em>est.</em>','Approve')}
+<div class="cta">See it on my ledger</div><div class="home"></div></div>'''
 
 def cs_ahead(on=''):
     return f'''<div class="cs{on}">{hd()}
@@ -82,14 +87,16 @@ def cs_ahead(on=''):
 <div class="cmp"><div><div class="r"><span>Flat 2% cash back</span><b>$700</b></div><div class="t"><i style="--w:52%"></i></div></div><div><div class="r"><span>First Officer, after fee</span><b>$1,354</b></div><div class="t"><i class="g" style="--w:100%"></i></div></div></div>
 <p class="p">Same $35,000 of spend. The same frictions come out of both columns.</p>
 <div class="by"><i>✓</i>Checked by the desk</div>
-<div class="cta">See the full month</div><div class="lnk">Share it with my accountant</div><div class="home"></div></div>'''
+{nm('s','November scorecard','Lands December 1, same $35,000 spend','+$654 <em>est.</em>','Remind me')}
+<div class="cta">See the full month</div><div class="home"></div></div>'''
 
 def cs_goal(on=''):
     return f'''<div class="cs{on}" data-confetti="1">{hd()}
 <div class="bd pkb">Milestone · Tokyo</div><div class="lb">Points toward Tokyo</div>
 <div class="bg pk" data-to="102400">102,400</div><div class="sub">of about 320,000 points <em>est.</em></div>
 <div class="goal"><div class="im" style="background-image:url(img/tokyo.jpg)"></div><div class="gb"><b>Tokyo, spring 2027</b><small>Business for 2, round trip, est.</small><div class="tr"><i></i></div><div class="ax"><span>Aug 2026</span><span>32% today</span><span>Mar 2027</span></div></div></div>
-<p class="p">Next: pick your dates. The desk vets the requirements and books after you approve.</p>
+<p class="p">The desk vets the requirements and books after you approve.</p>
+{nm('g','Pick your Tokyo dates','Spring 2027 window, business for 2','68% to go','Pick dates')}
 <div class="cta gd">See my plan</div><div class="home"></div></div>'''
 
 def celphone(slides,cls='',attrs=''):
@@ -117,10 +124,9 @@ def share():
 def scripts(hero=False):
     s='<script src="recovered/rec.js"></script>\n'
     if hero:
-        pool=','.join(f'"img/rec/bg/{k:02d}.webp"' for k in range(31))
         s=('<script src="hero/fo-hero-data.js"></script>\n'
-           f'<script>window.CFG&&(window.CFG.pool=[{pool}]);(function f(o){{for(var k in o){{var v=o[k];if(typeof v==="string"&&v.indexOf("fo-avatar.png")>-1)o[k]=v.split("img/hero/fo-avatar.png").join("img/fo-chevron-alpha.png");else if(v&&typeof v==="object")f(v)}}}})(window.CFG||{{}});</script>\n'
-           '<script src="hero/fo-hero.js"></script>\n')+s
+           '<script src="recovered/fo-hero-rec-data.js"></script>\n'
+           '<script src="recovered/fo-hero-rec.js"></script>\n')+s
     return s
 
 # ---------------- HOME ----------------

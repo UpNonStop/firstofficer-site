@@ -530,3 +530,111 @@ em,i{font-style:normal}
 .wc.sc{color:var(--ink)}
 .wc .v small{display:inline-block;white-space:nowrap}
 .cs{color:var(--ink)}.onink .cs p,.onink .cs .p{color:var(--body)}
+
+/* ==========================================================================
+   Oct 27: brand blocks, not black. Large story blocks are pink, cream or gold.
+   Only the ticker stays ink.
+   ========================================================================== */
+:root{--pgrad:radial-gradient(120% 110% at 88% 0%,#FF5CB6 0%,#FA1896 46%,#E60F86 100%);--ggrad:linear-gradient(150deg,#FFF6DC 0%,#FFE9A8 100%);--goldd:#8A6410}
+.onink{background:var(--pgrad);color:#fff}
+.onink .lede,.onink p{color:rgba(255,255,255,.9)}
+.onink .kick{color:#FFE7A3}
+.onink .brush::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 40' preserveAspectRatio='none'%3E%3Cpath d='M6 22C40 12 120 7 210 7s160 3 184 7c6 1 6 9 1 11-40 9-120 12-206 12-80 0-150-2-182-6-8-1-9-7-3-9z' fill='%23E8C547'/%3E%3C/svg%3E");opacity:.95}
+.onink .h2,.onink .h3{color:#fff}
+/* cheer band: cream and gold */
+#cheer.onink{background:var(--ggrad);color:var(--ink)}
+#cheer.onink .lede,#cheer.onink p{color:var(--body)}
+#cheer.onink .kick{color:var(--pinkd)}
+#cheer.onink .h2,#cheer.onink .h3{color:var(--ink)}
+#cheer.onink .brush::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 40' preserveAspectRatio='none'%3E%3Cpath d='M6 22C40 12 120 7 210 7s160 3 184 7c6 1 6 9 1 11-40 9-120 12-206 12-80 0-150-2-182-6-8-1-9-7-3-9z' fill='%23FA1896'/%3E%3C/svg%3E");opacity:.9}
+#cheer .cels figcaption span{color:var(--body)}
+/* how band (pink) and its desk (light) */
+.how{background:var(--pgrad);color:#fff}
+.steps li b::before{color:rgba(255,255,255,.72)}
+.steps li span{color:rgba(255,255,255,.86)}
+.steps li.on{background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1px rgba(255,255,255,.28)}
+.steps li.on b::before{color:#FFE7A3}
+.desk{background:radial-gradient(60% 60% at 50% 50%,#FFFFFF 0%,#FFF4F9 62%,#FFEAF4 100%);box-shadow:0 40px 80px -40px rgba(120,10,70,.55),inset 0 0 0 1px rgba(255,255,255,.6)}
+.desk .q{box-shadow:0 14px 30px -14px rgba(120,10,70,.35),0 0 0 1px rgba(20,18,22,.06)}
+.desk .core .tile{background:linear-gradient(160deg,#FFFFFF,#FFF0F7);box-shadow:0 0 0 1px rgba(250,24,150,.18),0 18px 36px -18px rgba(230,15,134,.5)}
+.desk .core.lit .tile{box-shadow:0 0 0 2px rgba(250,24,150,.55),0 0 60px 6px rgba(250,24,150,.28)}
+.desk .core .lbl{color:var(--ink)}
+.desk .core .lbl small{color:var(--goldd)}
+.sp .t{background:#fff;color:var(--ink);box-shadow:0 0 0 1px rgba(20,18,22,.07),0 10px 22px -14px rgba(120,10,70,.45)}
+.sp .t i{background:#F6C6DF}
+.sp .dots u{background:#E3B21D}
+.sp.think .t{color:var(--ink);box-shadow:0 0 0 1.5px #E8C547,0 10px 22px -14px rgba(120,10,70,.45)}
+.sp.lit .t{background:var(--pink);color:#fff}
+/* spend panel (pink) */
+.panel.ink{background:var(--pgrad);color:#fff}
+.panel.ink .ph h4{color:rgba(255,255,255,.85)}
+.panel.ink .tag.d{background:rgba(255,255,255,.2);color:#fff}
+.panel.ink .spend .row .l small{color:rgba(255,255,255,.8)}
+.panel.ink .spend .bar{background:rgba(255,255,255,.22)}
+.panel.ink .spend .bar i{background:linear-gradient(90deg,#FFE7A3,#fff)}
+.panel.ink .chipx{background:rgba(255,255,255,.2);color:#fff}
+.panel.ink .spend .tot{border-top-color:rgba(255,255,255,.4)}
+.panel.ink .est{color:rgba(255,255,255,.85)}
+/* pain number (gold) */
+.pain .big{background:var(--ggrad);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(138,100,16,.12)}
+.pain .rate{color:#C9A23A}
+.pain .vs b{color:var(--goldd)}
+.pain .vs strong{color:var(--pinkd)}
+.pain .vs span{color:#6B5A2A}
+/* floating chips */
+.float{background:#fff;color:var(--ink);box-shadow:0 18px 36px -14px rgba(120,10,70,.35),0 0 0 1px rgba(20,18,22,.05)}
+.float small{color:var(--pinkd)}
+.float.f2{color:#fff}
+.float.f2 small{color:#ffe2f1}
+/* month vs cash back card (gold) */
+.wc.mv{background:var(--ggrad);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(138,100,16,.12)}
+.wc.mv .top h5{color:var(--goldd)}
+.wc.mv .v{color:var(--pinkd)}
+.wc.mv .v small{color:#6B5A2A}
+.wc.mv .bars u{background:rgba(138,100,16,.14)}
+.wc.mv li,.wc.mv span{color:inherit}
+/* why-you tiles: pink and gold */
+.why div{background:var(--pgrad);color:#fff}
+.why div:nth-child(even){background:var(--ggrad);color:var(--ink)}
+.why div:hover{background:var(--pgrad)}
+.why div:nth-child(even):hover{background:var(--ggrad)}
+.why b{color:#FFE7A3}
+.why div:nth-child(even) b{color:var(--pinkd)}
+.why span{color:rgba(255,255,255,.92)}
+.why div:nth-child(even) span{color:#5B4A1E}
+/* persona chip and small controls */
+.arc-head .who{background:#fff;color:var(--ink);box-shadow:0 0 0 1.5px var(--pinkl),0 16px 30px -18px rgba(230,15,134,.45)}
+.who small{color:var(--mute)}
+.rail a.on,.mrail a.on,.celnav button.on,.ttabs button.on,.tgl.on{background:var(--pink);color:#fff}
+.beat .bn i{background:var(--pinkl);color:var(--pinkd)}
+.ttabs button.on::after{background:#E8C547}
+.pillchips span{background:#fff;color:var(--ink);box-shadow:0 0 0 1.5px var(--pinkl)}
+.pillchips span b{color:var(--pinkd)}
+.after div:hover{background:var(--pink);color:#fff}
+.after div:hover span,.after div:hover small{color:rgba(255,255,255,.9)}
+.btn.ink{background:var(--pink);color:#fff}
+.burger,.sheet .x{background:var(--pink)}
+.wc.mv .bars div{color:var(--body)}
+.wc.mv .bars b{color:var(--ink)}
+.wc.mv .bars u i{background:#C9B27A}
+.wc.mv .bars u i.g{background:linear-gradient(90deg,#FA1896,#E60F86)}
+/* Oct 27: celebration phones carry real content to the bottom: next mission + share */
+.cs .nm{margin:1.8em 0 1.6em;background:#fff;border-radius:1.4em;padding:1.2em 1.3em 1.3em;box-shadow:0 0 0 .1em rgba(250,24,150,.16),0 1.2em 2.4em -1.6em rgba(120,10,70,.45);text-align:left}
+.cs .nmk{font-family:var(--mono);font-size:.95em;letter-spacing:.16em;text-transform:uppercase;color:var(--pinkd);font-weight:500}
+.cs .nmr{display:flex;justify-content:space-between;align-items:flex-start;gap:.8em;margin-top:.6em}
+.cs .nmr b{display:block;font-size:1.55em;font-weight:700;line-height:1.2;color:var(--ink)}
+.cs .nmr small{display:block;font-size:1.15em;color:var(--mute);margin-top:.25em;line-height:1.3}
+.cs .nmv{font-weight:800;font-size:1.45em;color:var(--pinkd);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cs .nmv em{font-family:var(--mono);font-size:.55em;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-style:normal;font-weight:500}
+.cs .nmb{display:flex;gap:.6em;margin-top:1em}
+.cs .nmb span{flex:1;height:3.2em;border-radius:99em;display:flex;align-items:center;justify-content:center;gap:.45em;font-weight:700;font-size:1.2em}
+.cs .nmb .ok{background:var(--pinkl);color:var(--pinkd)}
+.cs .nmb .sh{background:var(--cream2);color:var(--ink);box-shadow:inset 0 0 0 .1em rgba(20,18,22,.08)}
+.cs .nmb svg{width:1.15em;height:1.15em}
+.cs .cta{margin-top:auto}
+.ctab .btn.ink{background:#fff;color:var(--pinkd);box-shadow:0 14px 30px -14px rgba(90,0,50,.55)}
+.ctab .btn.cr{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.75)}
+#cheer .wc.mv{background:#fff;box-shadow:0 0 0 1px rgba(138,100,16,.14),0 20px 40px -26px rgba(138,100,16,.5)}
+/* Oct 27: no orphans */
+h1,h2,h3,h4,h5,.beat h3,.wc h5,.why b,.steps li b,.cs .lb,.arc-head h2{text-wrap:balance}
+p,li span,.why span,.cs .p,.cs .sub,figcaption,.est,.sub,small{text-wrap:pretty}
