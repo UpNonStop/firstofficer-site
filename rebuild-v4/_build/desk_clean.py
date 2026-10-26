@@ -8,37 +8,31 @@ import re
 from urllib.parse import quote
 
 
-def brush(color='#FA1896', seed=4):
-    """One dry-brush stroke as an SVG data URL.
-
-    Tapered, frayed ends; ragged top and bottom (feTurbulence -> feDisplacementMap);
-    bristle streaks (a second, stretched turbulence used as an alpha mask); a slight
-    tilt (left end lower) and a lighter start and finish. preserveAspectRatio=none,
-    so it stretches to any phrase; pair with box-decoration-break:clone for wraps.
-    """
-    body = ("M1 38 C4 28 8 19 18 15 C44 10 76 12 116 9 C176 6 244 8 304 5 C342 4 372 4 393 3 "
-            "C398 7 400 13 396 18 C399 25 395 31 398 38 C392 45 362 44 330 46 C270 48 200 47 140 50 "
-            "C90 52 50 52 22 54 C13 55 7 53 4 49 C7 47 2 44 1 38Z")
-    pass2 = ("M8 30 C40 22 90 21 150 18 C220 15 300 13 388 11 C390 17 388 24 390 30 "
-             "C320 33 240 34 170 37 C110 40 60 42 10 46Z")
-    fray = ("M0 44 L22 41 M3 33 L30 31 M6 49 L26 46 "
-            "M372 9 L399 7 M370 34 L398 34 M378 21 L400 19")
-    c = color
-    svg = (f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 56' preserveAspectRatio='none'>"
-           f"<defs><linearGradient id='g' x1='0' x2='1'>"
-           f"<stop offset='0' stop-color='{c}' stop-opacity='.6'/><stop offset='.16' stop-color='{c}' stop-opacity='.88'/>"
-           f"<stop offset='.55' stop-color='{c}' stop-opacity='.78'/><stop offset='.86' stop-color='{c}' stop-opacity='.86'/>"
-           f"<stop offset='1' stop-color='{c}' stop-opacity='.58'/></linearGradient>"
-           f"<filter id='b' x='-2%' y='-30%' width='104%' height='160%' color-interpolation-filters='sRGB'>"
-           f"<feTurbulence type='fractalNoise' baseFrequency='0.02 0.22' numOctaves='3' seed='{seed}' result='edge'/>"
-           f"<feDisplacementMap in='SourceGraphic' in2='edge' scale='7' xChannelSelector='R' yChannelSelector='G' result='rag'/>"
-           f"<feTurbulence type='fractalNoise' baseFrequency='0.0035 0.55' numOctaves='2' seed='{seed + 5}' result='bristle'/>"
-           f"<feColorMatrix in='bristle' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.6 2.15' result='streaks'/>"
-           f"<feComposite in='rag' in2='streaks' operator='in'/></filter></defs>"
-           f"<g filter='url(#b)'><path d='{body}' fill='url(#g)'/>"
-           f"<path d='{pass2}' fill='{c}' fill-opacity='.42'/>"
-           f"<path d='{fray}' fill='none' stroke='{c}' stroke-opacity='.55' stroke-width='2.2' stroke-linecap='round'/></g></svg>")
+def _svg(vb, d, c):
+    svg = (f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='{vb}' preserveAspectRatio='none'>"
+           f"<path d='{d}' fill='{c}' transform='translate(0 11) scale(1 .8)'/></svg>")
     return 'url("data:image/svg+xml,' + quote(svg, safe=" =:/',.-()") + '")'
+
+
+# one bold, solid brush swipe (Ohad, Oct 26: "just needs a bigger one brush stroke").
+# Three pieces so the ends never distort: a slanted touch-down cap on the left, a body
+# that stretches to the phrase (gently uneven top and bottom, about -1deg of lift to
+# the right), and a tapered tail on the right with two small dry-brush notches.
+# The stroke sits low: it covers the x-height to just under the cap height.
+BRUSH_L = ("M40 6 L24 6.6 C18 7 15 8.6 13 11.5 C11 15 10 19 8.5 23 C6.5 29 4.5 35 2.5 41 "
+           "C1.2 45.5 2.5 49.5 7 51 C15 52.3 28 52 40 52Z")
+BRUSH_M = ("M0 6 C25 4.8 50 5.4 75 3.9 C86 3.3 94 3.1 100 3 L100 49 C82 49.8 64 49.2 45 50.6 "
+           "C28 51.6 14 51.8 0 52Z")
+BRUSH_R = ("M0 3 L22 2.6 C29 2.5 34 3.4 36.5 5.8 C38.5 8.2 36 10.5 38.8 12.8 L33.5 15.6 "
+           "C37 18.3 39 21.5 36.8 24.6 L31 26.6 C34.5 29.6 35.2 33.6 32.2 37.6 C28.4 42.4 22 46 14 48 "
+           "C8 48.9 4 49 0 49Z")
+
+
+def brush(color='#FA1896', cap='.8em'):
+    """Full CSS background value (three layers) for one solid brush swipe."""
+    return (f"{_svg('0 0 40 56', BRUSH_L, color)} left center/{cap} 100% no-repeat,"
+            f"{_svg('0 0 40 56', BRUSH_R, color)} right center/{cap} 100% no-repeat,"
+            f"{_svg('0 0 100 56', BRUSH_M, color)} center/calc(100% - 2*{cap} + 2px) 100% no-repeat")
 
 
 # ---------------------------------------------------------------- sources out
