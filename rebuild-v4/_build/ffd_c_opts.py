@@ -337,9 +337,216 @@ for n, name, pitch, css in OPTS:
          headx=D.head('dir-c', 'family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1',
                       D.C_CSS + full, f'window.FO_LIMIT=6;document.documentElement.classList.add("o{n}");'))
 
+# ---------------------------------------------------------------- 3b: option 3 matured, colour blocks become tear-off stubs
+def vnotch(x, r=8):
+    """mask with two half-circle cut-outs on a vertical perforation at x (top and bottom edge)"""
+    m = (f'radial-gradient(circle at {x} 0,#0000 {r}px,#000 {r+.6}px) top/100% 51% no-repeat,'
+         f'radial-gradient(circle at {x} 100%,#0000 {r}px,#000 {r+.6}px) bottom/100% 51% no-repeat')
+    return f'-webkit-mask:{m};mask:{m}'
+def hnotch(y, r=8):
+    """two cut-outs on a horizontal perforation at y (left and right edge)"""
+    m = (f'radial-gradient(circle at 0 {y},#0000 {r}px,#000 {r+.6}px) left/51% 100% no-repeat,'
+         f'radial-gradient(circle at 100% {y},#0000 {r}px,#000 {r+.6}px) right/51% 100% no-repeat')
+    return f'-webkit-mask:{m};mask:{m}'
+def vperf(right, col='rgba(255,255,255,.85)'):
+    return f'linear-gradient({col} 0 6px,transparent 6px 12px) right {right} top 4px/2px 12px repeat-y'
+def hperf(bottom, col='rgba(255,255,255,.85)'):
+    return f'linear-gradient(90deg,{col} 0 6px,transparent 6px 12px) left 4px bottom {bottom}/12px 2px repeat-x'
+def lperf(left, col='rgba(255,255,255,.85)'):
+    return f'linear-gradient({col} 0 6px,transparent 6px 12px) left {left} top 4px/2px 12px repeat-y'
+def tperf(top, col='rgba(255,255,255,.85)'):
+    return f'linear-gradient(90deg,{col} 0 6px,transparent 6px 12px) left 4px top {top}/12px 2px repeat-x'
+
+GOLD = 'linear-gradient(115deg,#C99A3E 0%,#E7C676 18%,#F7E3A4 34%,#E3BD62 48%,#C8963A 66%,#DDB35A 84%,#B8862E 100%)'
+GOLDSTUB = 'linear-gradient(170deg,#B98526,#9C6A18)'
+GOLDLEAD = 'linear-gradient(160deg,#FFF0B8 0%,#F2CF6E 22%,#D9A83F 46%,#F3D27A 64%,#C48F2C 84%,#A87420 100%)'
+INK2 = '#221B27'   # dark text, never a block
+FOUR = 'linear-gradient(90deg,#12834E 0 25%,#E8590C 25% 50%,#7149C9 50% 75%,#1E78B8 75%)'
+SH = '0 1px 2px rgba(20,18,22,.05),0 14px 30px -24px rgba(20,18,22,.38)'
+LW, PW, PWm, DS, GH, EW = 136, 46, 34, 40, 52, 200   # lead stub, pv stub, pv stub phone, deskline stub, rail stub, endnote stub
+
+O3B = r'''
+html.dir-c.ox{--cd:color-mix(in srgb,var(--c) 84%,#1a1014)}
+html.dir-c.ox .desk [data-cat],html.dir-c.ox .desk .grp{--cd:color-mix(in srgb,var(--c) 84%,#1a1014)}
+/* hero: fine chart grid in place of the dot screen */
+§ .pop-hero::before{background:
+  radial-gradient(820px 520px at 80% 18%,rgba(255,255,255,.16),transparent 62%),
+  radial-gradient(900px 620px at 4% 104%,rgba(110,0,58,.28),transparent 64%),
+  linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px) 0 0/32px 32px,
+  linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px) 0 0/32px 32px}
+§ .eyebrow{background:#fff;color:#B30A68;border-radius:6px 6px 0 0;box-shadow:none;border-bottom:3px solid transparent;border-image:FOUR 1}
+§ .eyebrow::before{background:#FA1896}
+§ h1 em{color:#fff}
+§ .lede .hl{background:#FBF6EF;color:#0F6E41!important;border-radius:4px}
+/* signature: a small cream pass, the pink chevron on its stub */
+§ .sig{display:inline-flex;align-items:stretch;gap:0;margin-top:30px;padding:0;border:0;background:#FBF6EF;border-radius:10px;SIGMASK}
+§ .sig .av.mkv{filter:none;width:30px;flex:0 0 auto;box-sizing:content-box;padding:0 18px;align-self:center;border-right:1.5px dashed rgba(179,10,104,.35)!important;height:auto}
+§ .sig .av.mkv{border-right:0!important}
+§ .sig>div{padding:12px 24px 12px 20px;background:linear-gradient(rgba(179,10,104,.4) 0 5px,transparent 5px 10px) left 0 top 4px/1.5px 10px repeat-y}
+§ .sig .sign{color:#C80E70}
+§ .sig .role{color:#5B4A55;opacity:1}
+/* calculator card */
+§ .feat{border-radius:14px}
+§ .feat .btnp{background:#FA1896;border-radius:8px}
+§ .feat:hover .btnp{background:#C80E70}
+/* hero passes: white or gold body, coloured stub carries Grab it */
+§ .pvs{filter:drop-shadow(0 18px 18px rgba(90,0,45,.22))}
+§ .pv{border-radius:12px;padding-right:calc(PWpx + 16px);box-shadow:none;PVMASK}
+§ .pv b::before{background:#FA1896}
+§ .pv span{color:INK2}
+§ .pv i{position:absolute;right:0;top:0;bottom:0;width:PWpx;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;transform:rotate(180deg);font:600 10px/1 var(--mono);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:#fff;opacity:1}
+§ .pv2{background:PVPERF,linear-gradient(#7149C9,#7149C9) right 0 top 0/PWpx 100% no-repeat,#fff;color:INK2}
+§ .pv2 b{color:#5A35B0;opacity:1}
+§ .pv3{background:PVPERF,linear-gradient(#1E78B8,#1E78B8) right 0 top 0/PWpx 100% no-repeat,#fff;color:INK2}
+§ .pv3 b{color:#155E92;opacity:1}
+§ .pv1{background:PVPERFG,GOLDSTUB right 0 top 0/PWpx 100% no-repeat,GOLD;box-shadow:inset 0 1px 0 rgba(255,249,224,.75)}
+§ .pv1 span{color:#2E1D04}
+§ .pv1 i{color:#FFF3D0}
+/* stats: four boarding-pass stubs, then the checked tab */
+§ .deskline{background:none;box-shadow:none;border-radius:0;gap:10px;padding:0 0 22px;overflow:visible;counter-reset:dl;filter:drop-shadow(0 16px 16px rgba(90,0,45,.2))}
+§ .deskline span{border:0;border-radius:10px;background:DLPERF,linear-gradient(var(--sc),var(--sc)) left 0 top 0/DSpx 100% no-repeat,#fff;color:#6B5F68;padding:20px 20px 16px calc(DSpx + 20px);DLMASK}
+§ .deskline span:not(.ck){counter-increment:dl}
+§ .deskline span:not(.ck)::before{content:"FO 0" counter(dl);left:0;top:0;bottom:0;width:DSpx;height:auto;border-radius:0;background:none;clip-path:none;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;transform:rotate(180deg);font:600 10px/1 var(--mono);letter-spacing:.16em;color:#fff}
+§ .deskline b,§ .deskline span:first-child b{color:INK2!important}
+§ .deskline .ck{background:#FBF6EF;color:#B30A68;border-radius:10px;-webkit-mask:none;mask:none;padding:20px 22px 16px}
+§ .deskline .ck::before{content:"";left:22px;top:18px;width:14px;height:12px;background:#FA1896;border-radius:0;clip-path:CP}
+/* code tape: a white flight strip */
+§ .codes{--bb:#fff;color:#2A2230;border-top:1px solid rgba(20,18,22,.08);background-image:FOUR;background-size:100% 3px;background-repeat:no-repeat;background-position:0 100%}
+§ .codes b{background:#FBF6EF;border:1px solid rgba(20,18,22,.14);color:#155E92;border-radius:4px}
+§ .codes .mq-i::after{background:#FA1896}
+/* desk band */
+§ .deskphoto{border-radius:14px}
+§ .readfirst{border:1px solid rgba(20,18,22,.1);border-left:3px solid #7149C9;border-radius:10px}
+§ .filters{border:1px solid rgba(20,18,22,.12);border-radius:14px;box-shadow:SH}
+§ .filters::before{height:3px;background:linear-gradient(90deg,#FA1896 0 40%,#12834E 40% 55%,#E8590C 55% 70%,#7149C9 70% 85%,#1E78B8 85%)}
+§ .find input{border:1px solid rgba(20,18,22,.22);border-radius:10px}
+/* rail: a pass with a coloured stub on top */
+§ .grp{background:tperfG,linear-gradient(var(--c),var(--c)) left 0 top 0/100% GHpx no-repeat,#fff;color:INK2;border:0;border-radius:12px;box-shadow:none;padding-top:19px;GRPMASK}
+§ .grp::before{content:"FO " counter(grp,decimal-leading-zero);font:600 12px/14px var(--mono);letter-spacing:.16em;color:#fff;opacity:1;margin:0 0 41px}
+§ .grp h2{color:INK2}
+§ .grp .grp-n{background:color-mix(in srgb,var(--c) 11%,#fff);color:var(--cd)}
+§ .grp-disc{color:#5B5160;opacity:1}
+§ .grid .lane{border-top-color:rgba(20,18,22,.08)}
+§ .lane{filter:drop-shadow(0 12px 14px rgba(20,18,22,.07))}
+§ .grp[data-grp=nuggets]{background:tperfG,linear-gradient(160deg,#F2CF6E,#C48F2C) left 0 top 0/100% GHpx no-repeat,#FFF9E6;color:#3B2604;box-shadow:none}
+§ .grp[data-grp=nuggets]::before{color:#3B2604}
+§ .grp[data-grp=nuggets] h2{text-shadow:none}
+§ .grp[data-grp=checklist] .grp-n,§ .grp[data-grp=redflags] .grp-n{background:#FFE3F1;color:#A0105F}
+/* cards */
+§ .dk{border-radius:12px;border:1px solid rgba(20,18,22,.09);box-shadow:none}
+§ .dk::before{height:3px}
+§ .dk:hover{transform:translateY(-2px);box-shadow:none;border-color:color-mix(in srgb,var(--c) 45%,#fff)}
+§ .dk-meta .time{border-radius:4px}
+§ .grab{background:#fff!important;color:var(--cd);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 55%,#fff);border-radius:8px}
+§ .grab:hover{background:var(--c)!important;color:#fff}
+§ .dk details[open]>.grab{background:#fff!important;color:var(--cd)}
+/* lead: white pass, coloured stub with flight tag, count and Grab it */
+§ .dk.lead{background:LDPERF,linear-gradient(var(--c),var(--c)) right 0 top 0/LWpx 100% no-repeat,#fff;border:1px solid color-mix(in srgb,var(--c) 22%,#fff);color:INK2;padding-right:calc(LWpx + 30px);LDMASK}
+§ .dk.lead::before{content:"FO " counter(grp,decimal-leading-zero);left:auto;right:0;top:24px;width:LWpx;height:auto;background:none;text-align:center;font:600 11px/1 var(--mono);letter-spacing:.16em;color:#fff;opacity:.92;z-index:1}
+§ .dk.lead::after{right:0;left:auto;top:50%;bottom:auto;transform:translateY(-58%);width:LWpx;text-align:center;font:400 italic 104px/1 var(--isr);color:#fff;opacity:.95}
+§ .dk.lead>details{position:static}
+§ .dk.lead .grab{position:absolute;right:0;bottom:22px;width:calc(LWpx - 30px);margin-right:15px;justify-content:center;background:#fff!important;color:var(--cd);box-shadow:none}
+§ .dk.lead .grab:hover{background:#FBF6EF!important;color:var(--cd)}
+§ .dk.lead details[open]>.grab{background:#fff!important}
+§ .dk.lead h3{color:INK2}
+§ .dk.lead .love{color:#4A4350}
+§ .dk.lead .dk-meta,§ .dk.lead .dk-meta .kind,§ .dk.lead .dk-meta .src{color:#6B6470}
+§ .dk.lead .dk-meta .kind{color:var(--cd)}
+§ .dk.lead .dk-meta .ic svg *{stroke:#2A1A22}
+§ .dk.lead .dk-meta .time{background:#F3EEE8;color:INK2}
+§ .dk.lead .chip{color:inherit}§ .dk.lead .chip.ex{background:#F3EEE8;color:INK2}
+§ .dk.lead:hover{border-color:color-mix(in srgb,var(--c) 45%,#fff)}
+§ .dk.gold.lead{animation:none;border:0;background:LDPERFG,GOLDSTUB right 0 top 0/LWpx 100% no-repeat,GOLDLEAD;padding-right:calc(LWpx + 30px);box-shadow:inset 0 2px 0 rgba(255,250,225,.9);LDMASK}
+§ .dk.gold.lead::before{display:block;content:"FO " counter(grp,decimal-leading-zero);position:absolute;left:auto;right:0;top:24px;width:LWpx;height:auto;background:none;text-align:center;font:600 11px/1 var(--mono);letter-spacing:.16em;color:#FFF3D0;z-index:1}
+§ .dk.gold.lead::after{right:0;left:auto;top:50%;bottom:auto;transform:translateY(-58%);width:LWpx;text-align:center;font:400 italic 104px/1 var(--isr);color:#FFF3D0;opacity:.95;text-shadow:none}
+§ .dk.gold.lead>details{position:static}
+§ .dk.gold.lead .grab{position:absolute;right:0;bottom:22px;width:calc(LWpx - 30px);margin-right:15px;justify-content:center;background:#FFF8E6!important;color:#5A3B08;box-shadow:none}
+§ .dk.gold.lead .grab:hover{background:#fff!important;color:#5A3B08}
+§ .dk.gold .grab{color:#7A5210;box-shadow:inset 0 0 0 1px #D9B45A}
+§ .dk.gold .grab:hover{background:#C99A00!important;color:#fff}
+§ .more-tile{border:1px dashed color-mix(in srgb,var(--c) 60%,#fff);color:var(--cd);border-radius:12px;background:#fff}
+§ .more-tile:hover{background:var(--c);border-color:var(--c);color:#fff}
+/* endnote: one wide pass, violet stub carries the signature */
+§ .endnote{--bb:transparent;box-shadow:none;clip-path:none;border:0;border-image:none;max-width:1120px;margin:56px auto 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr) EWpx;align-items:stretch;border-radius:14px;background:ENPERF,linear-gradient(#7149C9,#7149C9) right 0 top 0/EWpx 100% no-repeat,#fff;ENMASK}
+§ .endnote p{color:INK2;text-align:left;margin:0;padding:44px 48px;max-width:none}
+§ .endnote a{color:INK2}
+§ .endnote .sign{color:#fff;align-self:center;justify-self:center;margin:0;padding:14px 12px 10px;line-height:1.15}
+html.dir-c.ox .rdr-p{border-color:rgba(20,18,22,.14);border-radius:16px}
+@media(max-width:1240px){§ .dk.lead h3{font-size:38px}}
+@media(max-width:1100px){
+ § .grp{background:lperfG,linear-gradient(var(--c),var(--c)) left 0 top 0/96px 100% no-repeat,#fff;padding:20px 22px 20px 0;GRPMASK2}
+ § .grp[data-grp=nuggets]{background:lperfG,linear-gradient(160deg,#F2CF6E,#C48F2C) left 0 top 0/96px 100% no-repeat,#FFF9E6}
+ § .grp::before{width:96px;text-align:center;margin:0;font-size:12px}
+}
+@media(max-width:860px){
+ § .deskline .ck{border-top:0}
+ § .dk.lead,§ .dk.gold.lead{padding-right:20px;padding-bottom:84px;LDMASKM}
+ § .dk.lead{background:LDPERFM,linear-gradient(var(--c),var(--c)) left 0 bottom 0/100% 64px no-repeat,#fff}
+ § .dk.gold.lead{background:LDPERFMG,GOLDSTUB left 0 bottom 0/100% 64px no-repeat,GOLDLEAD}
+ § .dk.lead::before,§ .dk.gold.lead::before{top:auto;bottom:25px;right:auto;left:20px;width:auto;text-align:left}
+ § .dk.lead::after,§ .dk.gold.lead::after{top:auto;bottom:12px;transform:none;right:auto;left:78px;width:auto;font-size:40px;text-align:left}
+ § .dk.lead .grab,§ .dk.gold.lead .grab{bottom:14px;right:14px;margin:0;width:auto}
+}
+@media(max-width:640px){
+ § .sig .av.mkv{width:26px;padding:0 14px}
+ § .sig{SIGMASKM}
+ § .sig>div{padding:10px 18px 10px 16px}
+ § .pv{padding-right:calc(PWmpx + 12px);PVMASKM}
+ § .pv2{background:PVPERFM,linear-gradient(#7149C9,#7149C9) right 0 top 0/PWmpx 100% no-repeat,#fff}
+ § .pv3{background:PVPERFM,linear-gradient(#1E78B8,#1E78B8) right 0 top 0/PWmpx 100% no-repeat,#fff}
+ § .pv1{background:PVPERFMG,GOLDSTUB right 0 top 0/PWmpx 100% no-repeat,GOLD}
+ § .pv i{width:PWmpx;font-size:9px;letter-spacing:.1em}
+ § .deskline{gap:8px}
+ § .deskline span{padding:16px 14px 12px calc(30px + 14px);background:DLPERFM,linear-gradient(var(--sc),var(--sc)) left 0 top 0/30px 100% no-repeat,#fff;DLMASKM}
+ § .deskline .ck{background:#FBF6EF;padding:30px 16px 12px}
+ § .deskline .ck::before{left:16px;top:12px}
+ § .deskline span:not(.ck)::before{width:30px;font-size:9px;letter-spacing:.12em}
+ § .grp{-webkit-mask:none;mask:none;background:var(--c);color:#fff;border-radius:0;padding:22px 0 22px;border-bottom:0;box-shadow:0 0 0 100vmax var(--c)}
+ § .grp::before{width:auto;text-align:left;margin:0 0 10px;color:#fff;opacity:.9}
+ § .grp h2{color:#fff}
+ § .grp .grp-n{background:rgba(255,255,255,.96);color:var(--cd)}
+ § .grp-disc{color:#fff;opacity:.92}
+ § .grp::after{display:block;content:"";position:absolute;left:0;right:0;bottom:0;top:auto;width:auto;height:2px;border:0;border-radius:0;box-shadow:none;background:linear-gradient(90deg,rgba(255,255,255,.7) 0 6px,transparent 6px 12px) 0 0/12px 2px repeat-x}
+ § .grp[data-grp=nuggets]{background:#EDCB74;box-shadow:0 0 0 100vmax #EDCB74;color:#3B2604}
+ § .grp[data-grp=nuggets]::before,§ .grp[data-grp=nuggets] h2,§ .grp[data-grp=nuggets] .grp-disc{color:#3B2604}
+ § .grp[data-grp=nuggets]::after{background:linear-gradient(90deg,rgba(90,60,10,.45) 0 6px,transparent 6px 12px) 0 0/12px 2px repeat-x}
+ § .lane{filter:none}
+ § .endnote{grid-template-columns:minmax(0,1fr);margin:40px 0 0;background:ENPERFM,linear-gradient(#7149C9,#7149C9) left 0 bottom 0/100% 76px no-repeat,#fff;ENMASKM}
+ § .endnote p{padding:30px 22px 26px;font-size:26px}
+ § .endnote .sign{height:76px;display:flex;align-items:center;font-size:40px}
+}
+'''
+SUB3B = {
+ 'SIGMASKM': vnotch('54px', 6), 'SIGMASK': vnotch('66px', 6),
+ 'PVMASKM': vnotch(f'calc(100% - {PWm}px)', 7), 'PVMASK': vnotch(f'calc(100% - {PW}px)', 8),
+ 'PVPERFMG': vperf(f'{PWm-2}px', 'rgba(255,243,208,.75)'), 'PVPERFM': vperf(f'{PWm-2}px'),
+ 'PVPERFG': vperf(f'{PW-2}px', 'rgba(255,243,208,.75)'), 'PVPERF': vperf(f'{PW-2}px'),
+ 'DLMASKM': vnotch('30px', 6), 'DLMASK': vnotch(f'{DS}px', 7),
+ 'DLPERFM': lperf('28px'), 'DLPERF': lperf(f'{DS-2}px'),
+ 'LDMASKM': hnotch('calc(100% - 64px)', 10), 'LDMASK': vnotch(f'calc(100% - {LW}px)', 11),
+ 'LDPERFMG': hperf('62px', 'rgba(255,243,208,.75)'), 'LDPERFM': hperf('62px'),
+ 'LDPERFG': vperf(f'{LW-2}px', 'rgba(255,243,208,.75)'), 'LDPERF': vperf(f'{LW-2}px'),
+ 'GRPMASK2': vnotch('96px', 8), 'GRPMASK': hnotch(f'{GH}px', 8),
+ 'tperfG': tperf(f'{GH-2}px'), 'lperfG': lperf('94px'),
+ 'ENMASKM': hnotch('calc(100% - 76px)', 11), 'ENMASK': vnotch(f'calc(100% - {EW}px)', 12),
+ 'ENPERFM': hperf('74px'), 'ENPERF': vperf(f'{EW-2}px'),
+ 'GOLDSTUB': GOLDSTUB, 'GOLDLEAD': GOLDLEAD, 'GOLD': GOLD, 'INK2': INK2, 'FOUR': FOUR,
+ 'PWmpx': f'{PWm}px', 'PWpx': f'{PW}px', 'DSpx': f'{DS}px', 'GHpx': f'{GH}px', 'LWpx': f'{LW}px', 'EWpx': f'{EW}px',
+ 'SH': SH,
+}
+for k in sorted(SUB3B, key=len, reverse=True):
+    O3B = O3B.replace(k, SUB3B[k])
+css3b = O3B.replace('.dk.lead', '.dk.lead:not(.gold)')
+full3b = (BASE + css3b).replace('§', 'html.dir-c.o3b .desk').replace('html.dir-c.ox', 'html.dir-c.o3b').replace('CP', CP)
+page('ffd-c-opt-3b.html', T, B, desc=DESC, src='freebies', tail=D.TAIL_C + D.SHARED_JS,
+     headx=D.head('dir-c', 'family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1',
+                  D.C_CSS + full3b, 'window.FO_LIMIT=6;document.documentElement.classList.add("o3b");'))
+
 # ---------------------------------------------------------------- gallery
-cards = ''.join(f'''<article class="o"><a class="sh" href="ffd-c-opt-{n}.html"><img class="dt" src="img/ffd-opts/opt-{n}-1440.jpg" alt="Option {n} on desktop" loading="lazy"><img class="ph" src="img/ffd-opts/opt-{n}-390.jpg" alt="Option {n} on a phone" loading="lazy"></a>
-<div class="tx"><span class="k">Option {n}</span><b>{name}</b><p>{pitch}</p><a class="go" href="ffd-c-opt-{n}.html">Open option {n} <span aria-hidden="true">&rarr;</span></a></div></article>''' for n, name, pitch, _ in OPTS)
+GAL = [('3b', 'Option 3, matured', 'Pillar blocks, matured', 'The pillar colours move into tear-off stubs: notched boarding-pass cards with a dashed perforation, a flight-number tag and the Grab it action on a green, orange, violet or blue stub.')] + \
+      [(n, f'Option {n}', name, pitch) for n, name, pitch, _ in OPTS]
+cards = ''.join(f'''<article class="o"><a class="sh" href="ffd-c-opt-{n}.html"><img class="dt" src="img/ffd-opts/opt-{n}-1440.jpg" alt="{k} on desktop" loading="lazy"><img class="ph" src="img/ffd-opts/opt-{n}-390.jpg" alt="{k} on a phone" loading="lazy"></a>
+<div class="tx"><span class="k">{k}</span><b>{name}</b><p>{pitch}</p><a class="go" href="ffd-c-opt-{n}.html">Open {k[0].lower()+k[1:]} <span aria-hidden="true">&rarr;</span></a></div></article>''' for n, k, name, pitch in GAL)
 g = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Free From the Desk · direction C, five options · First Officer by UpNonStop</title><meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>{V4_FONTS}
