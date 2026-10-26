@@ -11,12 +11,20 @@ var HR=new Date().getHours(),TB=HR>=5&&HR<8?'dawn':HR>=17&&HR<20?'dusk':(HR>=20|
 function todSort(list){if(TB==='day'){var nd=(TOD.night+' '+TOD.dusk).split(' ');var a=list.filter(function(s){return nd.indexOf(s.split('/').pop().replace('.webp',''))<0});return a.length>=2?a.concat(list.filter(function(s){return a.indexOf(s)<0})):list}
   var w=TOD[TB].split(' '),m=list.filter(function(s){return w.indexOf(s.split('/').pop().replace('.webp',''))>=0});return m.length>=2?m.concat(list.filter(function(s){return m.indexOf(s)<0})):list}
 $$('.phx').forEach(function(box){
-  var list=todSort((box.getAttribute('data-ph')||'').split(',').filter(Boolean));if(!list.length)return;
+  var RND=box.hasAttribute('data-rand'),raw=(box.getAttribute('data-ph')||'').split(',').filter(Boolean);
+  var list=RND?raw:todSort(raw);if(!list.length)return;
   var imgs=[],i=0,t=null,loaded=false,iv=+(box.getAttribute('data-iv')||8000);
+  /* data-rand: the landing page's pool, same pick as the landing hero (one random photo per load), then a slow
+     crossfade through the rest in pool order. Loads only the photo on screen and the next one (31 remote photos). */
+  if(RND){var f0=parseInt(Q.get('ph0'),10);i=isNaN(f0)?Math.floor(Math.random()*list.length):((f0%list.length)+list.length)%list.length;
+    var mk=function(k){if(imgs[k])return imgs[k];var im=new Image();im.decoding='async';im.alt='';im.src=list[k];box.appendChild(im);imgs[k]=im;return im};
+    var load0=function(){if(loaded)return;loaded=true;mk(i).className='on';if(!RM&&!SNAP&&list.length>1)mk((i+1)%list.length)};
+    var step0=function(){if(list.length<2)return;var a=mk(i);i=(i+1)%list.length;var b=mk(i);mk((i+1)%list.length);b.classList.remove('on');void b.offsetWidth;b.classList.add('on');setTimeout(function(){a.classList.remove('on')},2300)};
+  }
   function load(){if(loaded)return;loaded=true;
     list.forEach(function(src,k){var im=new Image();im.decoding='async';im.alt='';if(k>1)im.loading='lazy';im.src=src;if(k===0)im.className='on';box.appendChild(im);imgs.push(im)});}
   function step(){if(imgs.length<2)return;var a=imgs[i];i=(i+1)%imgs.length;var b=imgs[i];b.classList.remove('on');void b.offsetWidth;b.classList.add('on');setTimeout(function(){a.classList.remove('on')},2300);}
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){load();if(!RM&&!SNAP&&!t)t=setInterval(step,iv)}else if(t){clearInterval(t);t=null}})},{rootMargin:'300px 0px'});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){(RND?load0:load)();if(!RM&&!SNAP&&!t)t=setInterval(RND?step0:step,iv)}else if(t){clearInterval(t);t=null}})},{rootMargin:'300px 0px'});
   io.observe(box);
 });
 /* count-ups (app: 1200ms ease-out) */
