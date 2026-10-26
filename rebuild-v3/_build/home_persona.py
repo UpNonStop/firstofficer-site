@@ -1,7 +1,7 @@
 """Mobile-first persona homepage mockup (Darnell, fictional). Static: no hero engine.
 Layout follows the Claude mobile landing: hero, then 3 numbered steps (Meet / His desk / What he sees), then stat blocks.
 Run: python3 _build/home_persona.py  ->  rebuild-v3/home-persona.html"""
-import math, sys, os
+import math, sys, os, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fosite
 from fosite import *
@@ -63,39 +63,79 @@ dossier=f'''<article class="dos" aria-label="Example owner dossier, fictional">
 <li>The same ${SPEND:,} at 2% cash back = about ${cashback:,}, est.</li></ol>
 <p>Illustrative. Earning rates, caps and point values vary by card and program.</p></details>'''
 
-# ---------------- step 2: the desk network (one SVG, exact geometry) ----------------
-W,Hh=390,440; CX,CY=195,212; RN=42          # node circle (stroke centred on RN)
-REL=[('12-hyatt','Hyatt','Learn','learn',-90),('02-chase','Chase','Earn','earn',-28),('20-southwest','Southwest','Burn','burn',32),
-     ('11-ihg','IHG','Learn','learn',148),('17-united','United','Learn','learn',208)]
-RR,RL=124,25                                  # orbit radius, related logo radius
-rel_ids={r[0] for r in REL}
+# ---------------- step 2: the desk, live (one SVG, exact geometry) ----------------
+# Every specialist sits in its ring at low opacity. One at a time, a contributing specialist comes up
+# (forward toward First Officer, full opacity), a thin line draws edge-to-edge and a pulse runs out and back,
+# then it settles back to its place at low opacity. Static state (no JS / reduced motion): Darnell's five up.
+W,Hh=390,392; CX,CY=195,192
+RL=19                                   # logo circle radius (border stroke centre at RL+1.5)
+RC=24                                   # First Officer circle radius, ~25% larger than a logo circle
+RIN,NIN=108,12; ROUT,NOUT=163,20        # two calm rings, 32 of the 50+ shown
+UP=1.08                                 # scale when a specialist comes up
+DARN={'12-hyatt':'Hyatt','02-chase':'Chase','17-united':'United','11-ihg':'IHG','20-southwest':'Southwest'}
+# inner-ring slot (index 0 = top, clockwise) for Darnell's programs: upper and side sectors, clear of the label below FO
+SLOT={'12-hyatt':0,'02-chase':2,'20-southwest':3,'11-ihg':9,'17-united':10}
+NAMES={'01-amex':'Amex','05-bilt':'Bilt','09-marriott':'Marriott','10-hilton':'Hilton','25-aeroplan':'Aeroplan','26-flying-blue':'Flying Blue',
+       '18-delta':'Delta','19-american':'American','03-capital-one':'Capital One','04-citi':'Citi','27-british-airways':'British Airways','32-singapore':'Singapore'}
 allp=sorted(f[:-4] for f in os.listdir(os.path.join(ROOT,'img/hero/prog')) if f.endswith('.jpg'))
-outer=[p for p in allp if p not in rel_ids][:26]
-EX,EY,RO=172,200,14
-PC={'earn':'#12834E','burn':'#E8590C','return':'#7149C9','learn':'#1E78B8'}
-lines=[];nodes=[];defs=[]
+rest=[p for p in allp if p not in DARN]
+inner=[None]*NIN
+for p,s in SLOT.items(): inner[s]=p
+fill=iter(rest)
+for i in range(NIN):
+    if inner[i] is None: inner[i]=next(fill)
+outer=[next(fill) for _ in range(NOUT)]
+geo={}                                  # id -> (ring centre x,y, unit vector, forward distance)
+for i,p in enumerate(inner):
+    a=-math.pi/2+i*2*math.pi/NIN; geo[p]=(CX+RIN*math.cos(a),CY+RIN*math.sin(a),math.cos(a),math.sin(a),14)
 for i,p in enumerate(outer):
-    a=-math.pi/2+(i+.5)*2*math.pi/len(outer)
-    x,y=CX+EX*math.cos(a),CY+EY*math.sin(a)
-    defs.append(f'<clipPath id="o{i}"><circle cx="{x:.1f}" cy="{y:.1f}" r="{RO}"/></clipPath>')
-    nodes.append(f'<g class="ol"><circle cx="{x:.1f}" cy="{y:.1f}" r="{RO+1.5}" fill="#fff"/><image href="{LOGO(p)}" x="{x-RO:.1f}" y="{y-RO:.1f}" width="{2*RO}" height="{2*RO}" clip-path="url(#o{i})" preserveAspectRatio="xMidYMid slice"/><circle cx="{x:.1f}" cy="{y:.1f}" r="{RO+1.5}" fill="none" stroke="#e2dde6" stroke-width="1"/></g>')
-for i,(p,name,pil,c,deg) in enumerate(REL):
-    a=math.radians(deg); ux,uy=math.cos(a),math.sin(a)
-    x,y=CX+RR*ux,CY+RR*uy
-    # line runs from the node circle's edge to the logo ring's edge, exactly (endpoints on both stroke centres)
-    x1,y1=CX+RN*ux,CY+RN*uy; x2,y2=CX+(RR-RL-3)*ux,CY+(RR-RL-3)*uy
-    lines.append(f'<line x1="{x1:.2f}" y1="{y1:.2f}" x2="{x2:.2f}" y2="{y2:.2f}" stroke="{PC[c]}" stroke-width="1.5" stroke-linecap="butt" opacity=".75"/>')
-    defs.append(f'<clipPath id="r{i}"><circle cx="{x:.1f}" cy="{y:.1f}" r="{RL}"/></clipPath>')
-    ly=y+RL+16
-    nodes.append(f'<g class="rl"><circle cx="{x:.1f}" cy="{y:.1f}" r="{RL+3}" fill="#fff" stroke="{PC[c]}" stroke-width="1.5"/><image href="{LOGO(p)}" x="{x-RL:.1f}" y="{y-RL:.1f}" width="{2*RL}" height="{2*RL}" clip-path="url(#r{i})" preserveAspectRatio="xMidYMid slice"/>'
-                 f'<text x="{x:.1f}" y="{ly:.1f}" text-anchor="middle" class="tn">{name}</text><text x="{x:.1f}" y="{ly+13:.1f}" text-anchor="middle" class="tp" fill="{PC[c]}">{pil}</text></g>')
-CH=50
-fo=(f'<circle cx="{CX}" cy="{CY}" r="{RN}" fill="#fff" stroke="#FA1896" stroke-width="1.5"/>'
-    f'<image href="{CHEV}" x="{CX-CH/2}" y="{CY-CH/2+1}" width="{CH}" height="{CH}" preserveAspectRatio="xMidYMid meet"/>')
-desk_svg=(f'<svg class="net" viewBox="0 0 {W} {Hh}" role="img" aria-label="First Officer at the desk, connected to the specialists for Darnell\'s programs: Hyatt, Chase, United, IHG and Southwest, inside a desk that covers 50+ programs">'
-          f'<defs>{"".join(defs)}</defs>{"".join(nodes[:len(outer)])}{"".join(lines)}{fo}{"".join(nodes[len(outer):])}</svg>')
-desk=f'''<div class="deskwrap">{desk_svg}<div class="fol" style="top:{(CY+RN+12)/Hh*100:.2f}%"><b>First Officer</b><span>At the Desk</span></div></div>
+    a=-math.pi/2+(i+.5)*2*math.pi/NOUT; geo[p]=(CX+ROUT*math.cos(a),CY+ROUT*math.sin(a),math.cos(a),math.sin(a),22)
+# rotation: Darnell's five, with a few others from the 50+ between them; none sits in the bottom sector (label)
+ROT=['02-chase','01-amex','12-hyatt','17-united','25-aeroplan','11-ihg','20-southwest','09-marriott']
+for p in ROT: assert p in geo and geo[p][3] < .82, p
+names={**NAMES,**DARN}
+defs=[];logos=[];lines=[]
+for p,(x,y,ux,uy,fwd) in geo.items():
+    k=p.split('-',1)[0]
+    defs.append(f'<clipPath id="c{k}"><circle r="{RL}"/></clipPath>')
+    nm=names.get(p,'')
+    lab=(f'<text class="nm" y="{RL+15}" text-anchor="middle">{nm}</text>') if nm and p in ROT else ''
+    dark=' dk' if p in DARN else ''
+    logos.append(f'<g transform="translate({x:.2f} {y:.2f})"><g class="sp{dark}" data-p="{p}" style="--dx:{-ux*fwd:.2f}px;--dy:{-uy*fwd:.2f}px">'
+                 f'<circle r="{RL+1.5}" fill="#fff"/><image href="{LOGO(p)}" x="{-RL}" y="{-RL}" width="{2*RL}" height="{2*RL}" clip-path="url(#c{k})" preserveAspectRatio="xMidYMid slice"/>'
+                 f'<circle class="bd" r="{RL+1.5}" fill="none" stroke-width="1"/>{lab}</g></g>')
+    if p in ROT or p in DARN:
+        # line runs from the logo's border (at its raised position) to First Officer's border: both stroke centres, exactly
+        d=math.hypot(x-CX,y-CY)-fwd
+        x1,y1=CX+ux*(d-(RL+1.5)*UP),CY+uy*(d-(RL+1.5)*UP); x2,y2=CX+ux*RC,CY+uy*RC
+        L=math.hypot(x1-x2,y1-y2)
+        lines.append(f'<g class="ln" data-p="{p}" style="--L:{L:.2f}"><line class="b" x1="{x1:.2f}" y1="{y1:.2f}" x2="{x2:.2f}" y2="{y2:.2f}"/>'
+                     f'<line class="pu" x1="{x1:.2f}" y1="{y1:.2f}" x2="{x2:.2f}" y2="{y2:.2f}"/></g>')
+CH=30
+fo=(f'<g class="fo"><circle cx="{CX}" cy="{CY}" r="{RC}" fill="#fff" stroke="#FA1896" stroke-width="1.5"/><circle class="halo" cx="{CX}" cy="{CY}" r="{RC}" fill="none" stroke="#FA1896" stroke-width="1"/>'
+    f'<image href="{CHEV}" x="{CX-CH/2}" y="{CY-CH/2+1}" width="{CH}" height="{CH}" preserveAspectRatio="xMidYMid meet"/></g>')
+desk_svg=(f'<svg class="net still" id="deskNet" viewBox="0 0 {W} {Hh}" role="img" aria-label="First Officer at the desk, working with the specialists for Darnell\'s programs: Hyatt, Chase, United, IHG and Southwest, inside a desk that covers 50+ programs">'
+          f'<defs>{"".join(defs)}</defs>{"".join(lines)}{"".join(logos)}{fo}</svg>')
+desk=f'''<div class="deskwrap">{desk_svg}<div class="fol" style="top:{(CY+RC+6)/Hh*100:.2f}%"><b>First Officer</b><span>At the Desk</span></div></div>
 <p class="cap2">The specialists for his programs light up. The rest of the 50+ stay on watch.</p>'''
+DESK_JS='''<script>(function(){var s=document.getElementById('deskNet');if(!s)return;
+if(matchMedia('(prefers-reduced-motion: reduce)').matches||!s.animate)return;
+var ROT=%s,i=0,T=3200,run=false,tm=null;
+function q(sel){return s.querySelector(sel)}
+function beat(){var p=ROT[i%%ROT.length];i++;var g=q('.sp[data-p="'+p+'"]'),l=q('.ln[data-p="'+p+'"]');
+ if(!g||!l){return}var L=parseFloat(l.style.getPropertyValue('--L')),b=l.querySelector('.b'),u=l.querySelector('.pu');
+ var w=g.parentNode;s.insertBefore(w,q('.fo'));g.getBoundingClientRect();g.classList.add('on');l.classList.add('on');
+ b.animate([{strokeDashoffset:L},{strokeDashoffset:0}],{duration:620,delay:520,easing:'cubic-bezier(.4,0,.2,1)',fill:'backwards'});
+ u.animate([{strokeDashoffset:0,opacity:0},{opacity:1,offset:.15},{opacity:1,offset:.85},{strokeDashoffset:-(L-9),opacity:0}],{duration:760,delay:1150,easing:'cubic-bezier(.45,0,.25,1)',fill:'both'});
+ u.animate([{strokeDashoffset:-(L-9),opacity:0},{opacity:1,offset:.15},{opacity:1,offset:.85},{strokeDashoffset:0,opacity:0}],{duration:760,delay:1950,easing:'cubic-bezier(.45,0,.25,1)',fill:'forwards'});
+ q('.halo').animate([{opacity:0,transform:'scale(1)'},{opacity:.5,offset:.3},{opacity:0,transform:'scale(1.35)'}],{duration:900,delay:1850,easing:'ease-out'});
+ setTimeout(function(){l.classList.remove('on')},2700);
+ setTimeout(function(){g.classList.remove('on')},2850);}
+function loop(){if(!run)return;beat();tm=setTimeout(loop,T)}
+function start(){if(run)return;run=true;s.classList.remove('still');tm=setTimeout(loop,400)}
+function stop(){run=false;clearTimeout(tm)}
+if('IntersectionObserver'in window){new IntersectionObserver(function(e){e[0].isIntersecting?start():stop()},{threshold:.15}).observe(s)}else start();
+})();</script>'''%json.dumps(ROT)
 
 # ---------------- step 3: the app ----------------
 TH=[('o','I have Hyatt points from years ago. Are they still good?'),
@@ -207,9 +247,18 @@ CSS='''<style>
 /* desk */
 .deskwrap{position:relative;max-width:420px;margin:4px auto 0}
 .net{display:block;width:100%;height:auto;overflow:visible}
-.net .ol{opacity:.55}
-.net text.tn{font:700 11.5px 'DM Sans',sans-serif;fill:#141216}
-.net text.tp{font:600 10px 'DM Sans',sans-serif;letter-spacing:.04em}
+.net .sp{opacity:.24;transform:translate(0,0) scale(.94);transform-origin:0 0;transition:transform 1.1s cubic-bezier(.4,0,.2,1),opacity 1.1s cubic-bezier(.4,0,.2,1)}
+.net .sp .bd{stroke:#e2dde6}
+.net .sp.on,.net.still .sp.dk{opacity:1;transform:translate(var(--dx),var(--dy)) scale(1.08)}
+.net .sp.on .bd,.net.still .sp.dk .bd{stroke:#FA1896}
+.net text.nm{font:700 11px 'DM Sans',sans-serif;fill:#141216;opacity:0;transition:opacity .6s ease;paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round}
+.net .sp.on text.nm{opacity:1}
+.net .ln line{stroke:#FA1896;stroke-linecap:butt;fill:none}
+.net .ln .b{stroke-width:1.2;stroke-dasharray:var(--L) 999;opacity:0;transition:opacity .5s ease}
+.net .ln.on .b{opacity:.7}.net.still .ln .b{opacity:0}.net.still .ln:is([data-p="12-hyatt"],[data-p="02-chase"],[data-p="17-united"],[data-p="11-ihg"],[data-p="20-southwest"]) .b{opacity:.6}
+.net .ln .pu{stroke-width:2.2;stroke-dasharray:9 999;opacity:0}
+.net .halo{opacity:0;transform-box:fill-box;transform-origin:center}
+@media (prefers-reduced-motion:reduce){.net .sp,.net text.nm,.net .ln .b{transition:none}}
 .fol{position:absolute;left:50%;transform:translateX(-50%);background:#fff;border-radius:999px;padding:5px 12px 6px;box-shadow:0 0 0 1.5px #FA1896;text-align:center;line-height:1.15;white-space:nowrap}
 .fol b{display:block;font:700 12.5px 'DM Sans',sans-serif;color:#d40f7d}.fol span{display:block;font:500 10.5px 'DM Sans',sans-serif;color:#9a4f78}
 .cap2{font:500 12.5px/1.5 'DM Sans',sans-serif;color:var(--mute);text-align:center;margin:6px auto 0;max-width:30em}
@@ -274,4 +323,4 @@ CSS='''<style>
 
 body=CSS+hero+steps+stats
 page('home-persona.html','First Officer · Meet Darnell (mockup)',body,
-     desc='Mobile-first persona homepage mockup. Fictional owner, estimated figures.',src='home')
+     desc='Mobile-first persona homepage mockup. Fictional owner, estimated figures.',src='home',tail=DESK_JS)
