@@ -114,7 +114,7 @@ for x,y in [("Visa's name for it","Category"),("Visa\\'s name for it","Category"
     ffd=ffd.replace(x,y); calcic=calcic.replace(x,y)
 body=f"""<section class="phero split ffdhero"><img class="chev" src="img/fo-chevron-alpha.png" alt=""><div class="wrap"><div><div class="fok">Free From the Desk</div><h1>Everything I'd tell you <span class="pk">over coffee.</span></h1>
 <p class="fosub">Most owners put serious money on cards every month, and nobody ever sits them down and explains how it actually works. So here it is: the codes, the questions, the notes we keep for each trade. Free. <b>No email. No catch.</b></p>
-<div class="sig"><div class="av">O</div><div><span class="sign">Ohad</span><span class="role">Founder, First Officer</span></div></div></div>
+<div class="sig"><div class="av">O</div><div><span class="sign">Ohad</span><span class="role">Founder, UpNonStop</span></div></div></div>
 <a class="feat card" href="calculator.html"><span class="kk">Start here</span><div class="fic">{calcic}</div><h2>The Found Money Calculator</h2><p>Put in what you spend in a normal month. See what it could be worth, with every assumption shown so you can argue with it.</p><div><span class="tag est">Estimate</span> <span class="small">takes 60 seconds</span></div><span class="pill pink">Run my numbers →</span></a></div></section>
 <section class="sec white"><div class="wrap"><figure class="deskphoto"><img src="img/ind/desk.jpg" alt="A notebook, pen and cup of coffee on a white desk"><figcaption><span>Pull up a chair. Coffee's on me.</span><span>Photo: <a href="https://unsplash.com/photos/56J8143b7PU">Elena Leya</a> / Unsplash</span></figcaption></figure>
 <div class="filters">{pick}</div><div class="dkgrid">{ffd}</div>

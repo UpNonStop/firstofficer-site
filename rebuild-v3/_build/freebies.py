@@ -67,7 +67,7 @@ def pick(lbl,k,opts,more=''):
 hero=f'''<section class="sec ffd" id="fftop" style="padding-top:28px">{ph(['i-desk','e-coffee','e-laptop','e-tablet'],6500)}<div class="wrap"><div class="split">
 <div class="head" data-rv style="margin-bottom:0"><span class="lab gold">Free From the Desk</span><h1 class="h1">Everything I'd tell you <em>over coffee.</em></h1>
 <p class="lede">Most owners put serious money on cards every month, and nobody ever sits them down and explains how it actually works. So here it is: the codes, the questions, the notes we keep for each trade. Free. <span class="hlm">No email. No catch.</span></p>
-<div class="sig"><span class="av" aria-hidden="true">O</span><span><b>Ohad</b><small>Founder, First Officer</small></span></div></div>
+<div class="sig"><span class="av" aria-hidden="true">O</span><span><b>Ohad</b><small>Founder, UpNonStop</small></span></div></div>
 <a class="card hero feat" href="calculator.html" data-rv>
 <div class="dk-top"><span class="lab gold">Start here</span><span class="pill" style="--c:var(--ink3)">Estimate</span></div>
 <span class="ic big">{ICONS['calc']}</span>
@@ -94,7 +94,7 @@ desk=f'''<section class="sec ffd" id="industries">{ph(['e-tablet','i-desk','e-co
 end=f'''<section class="sec ffd" id="endnote">{ph(['e-coffee','e-window','e-relax'])}<div class="wrap">
 <div class="card hero endnote" data-rv><span class="lab gold">From Ohad</span>
 <p class="big">That's the desk. Take whatever helps. If you'd rather we just do it for you, that's what <a href="book.html">The Found Money Call</a> is: 20 minutes, and if the math says no, I'll tell&nbsp;you&nbsp;no.</p>
-<div class="sig"><span class="av" aria-hidden="true">O</span><span><b>Ohad</b><small>Founder, First Officer</small></span></div>
+<div class="sig"><span class="av" aria-hidden="true">O</span><span><b>Ohad</b><small>Founder, UpNonStop</small></span></div>
 <div class="btns"><a class="btn" href="book.html?from=freebies">Book Your "Found Money" Call</a></div></div>
 <p class="method" data-rv><b>Plainly:</b> First Officer is an educational tool, not a licensed financial advisor. Nothing here is financial, tax or legal advice. Every number is sourced or labeled Example, and your results will be different. Rules change, so check with your issuer or program before you act. No affiliate links, and no money from any bank or program. Nobody pays us to send you anywhere. <a href="terms-of-service.html"><i>Terms &amp; Conditions</i></a></p>
 <p class="method">Point valuations are estimates based on common redemption benchmarks. Actual value depends on how and when you redeem.</p>
