@@ -33,15 +33,34 @@ subs=[p.strip() for p in HERO_SUB.split('\n\n')]
 sub_html=''.join(f'<p>{p}</p>' for p in subs[:-1])+f'<p class="tag">{subs[-1]}</p>'
 CTAS=lambda c='': f'<div class="pctas {c}"><a class="c1" href="book.html?from=index">Get your desk</a><a class="c2" href="how.html">See how it works</a></div>'
 
+NOSTRAT_CPP=0.01     # no strategy: points spent on gift cards / statement credits, about 1c a point, est.
+nostrat=round(pts_today*UTIL*NOSTRAT_CPP)              # 2,210
+lines_=lambda *ss: ''.join(f'<span class="ln">{s}</span>' for s in ss)
+HERO_LOGOS=['12-hyatt','02-chase','17-united','01-amex','11-ihg','20-southwest','09-marriott','25-aeroplan','10-hilton','18-delta']
+strip=lambda ids,cls='': f'<div class="lstrip {cls}" aria-hidden="true">'+''.join(f'<img src="{LOGO(p)}" alt="">' for p in ids)+'<span>50+ programs</span></div>'
+hero_card=f'''<aside class="hcard" aria-label="The desk at a glance">
+<div class="hh"><img src="{CHEV}" alt=""><div><b>First Officer</b><span>by UpNonStop™</span></div><em><i class="lv"></i>On watch</em></div>
+<div class="hr"><b>50+</b><span>programs, one specialist for each</span></div>
+<div class="hr"><b>Weekly</b><span>Bespoke Strategy review</span></div>
+<div class="hr"><b>Friday</b><span>dollar report, in writing</span></div>
+<div class="hr"><b>Yours</b><span>every decision, always</span></div>
+{strip(HERO_LOGOS[:8],'in')}
+</aside>'''
 hero=f'''<section id="top" class="phero">{ph(HERO_PH,6000)}<div class="pw">
 <div class="kick"><span class="ld"></span>Earn · Burn · Return · Learn</div>
-<h1>You are not bad at Points &amp; Miles.<br>You are just <span>outnumbered.</span></h1>
-<div class="sub">{sub_html}</div>
-<div class="deskk"><span class="lv"></span><span><b>First Officer's specialists</b> · 50+ programs, trained on new data nightly</span></div>
-</div></section>'''
+<h1>You are not bad at Points &amp; Miles.<br>You are <span class="nw">just <span>outnumbered.</span></span></h1>
+<div class="hgrid"><div class="hcopy">
+<div class="sub"><p>{lines_("Every loyalty program keeps rewriting its rules.","While you run your business, your spend earns less than it should.","And your points buy less than they could.")}</p>
+<p>{lines_("First Officer runs a desk of specialists across 50+ programs.","They all work for you.")}</p>
+<p class="tag">Same spend. More points. Better trips, for fewer points.</p></div>
+<div class="deskk"><span class="lv"></span><span><b>First Officer's specialists</b> · 50+ programs, one desk</span></div>
+{strip(HERO_LOGOS,'m')}
+</div>{hero_card}</div></div></section>'''
 
-def beat(n, t, em=''):
-    return f'<h2 class="beat"><span class="n">{n}</span><span>{t}{f" <em>{em}</em>" if em else ""}</span></h2>'
+def beat(n, t, eb):
+    return f'<div class="eb">{eb}</div><h2 class="beat"><span class="n">{n}</span><span>{t}</span></h2>'
+lede=lambda *ss: '<p class="lede2">'+lines_(*ss)+'</p>'
+handoff=lambda t: f'<p class="ho"><span aria-hidden="true">↓</span>{t}</p>'
 
 CARD_SVG='<svg viewBox="0 0 20 14" aria-hidden="true"><rect x=".75" y=".75" width="18.5" height="12.5" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1 4.6h18" stroke="currentColor" stroke-width="1.3"/></svg>'
 dossier=f'''<article class="dos" aria-label="Example owner dossier, fictional">
@@ -51,22 +70,26 @@ dossier=f'''<article class="dos" aria-label="Example owner dossier, fictional">
 <div class="rw"><span>Cards on file</span><div class="cds"><i>{CARD_SVG}United business card</i><i>{CARD_SVG}Office-category card</i></div></div>
 <div class="rw"><span>Card spend</span><div><b>${K(SPEND)} a year</b> <em class="etag">est.</em><small>Equipment, ads, utilities</small></div></div>
 <div class="rw"><span>Points a year</span><div><b>{K(pts_today)}</b> today <span class="ar">→</span> <b class="e">{K(pts_desk)}</b> with the desk <em class="etag">est.</em><small>About {TODAY_X:g}x today, about {DESK_X:g}x with the desk, est.</small></div></div>
-<div class="rw"><span>Worth a year</span><div><b class="r">≈ ${net:,}</b> after the fee <em class="etag">est.</em><small>vs ≈ ${cashback:,} at 2% cash back, est.</small></div></div>
 <div class="rw"><span>Next trip</span><div><b>Chicago weekend with the kids on Hyatt points</b><small>2¢+ a point, est.</small></div></div>
 <div class="rw"><span>Requests</span><ul class="rq"><li><i class="dt on"></i>Save Hyatt points from expiring<em>On it</em></li><li><i class="dt"></i>Weekend away with the kids</li><li><i class="dt"></i>Internet to 5x</li></ul></div>
 <div class="fn">Example owner. Fictional details. Figures are estimates.</div>
-</article>
-<details class="math" open><summary>How we got to ${net:,}, est.</summary>
+</article>'''
+chips1='<div class="chips"><span><i class="cd g"></i>About 1x today, est.</span><span><i class="cd o"></i>38k Hyatt points idle</span><span><i class="cd"></i>2 cards, no strategy</span></div>'
+STM=[('Gym equipment lease',4820),('Online ads',2150),('Utilities',890),('Internet &amp; phone',310)]
+statement=('<div class="stm" aria-label="Example card statement, fictional"><div class="sh"><b>Recent card charges</b><span>Example · fictional</span></div>'
+           +''.join(f'<div class="sr"><span>{n}</span><b>${a:,}</b><em>1x</em></div>' for n,a in STM)
+           +'<div class="sf">Every charge earns about 1x today, est.</div></div>')
+math_=f'''<details class="math"><summary>How we got there, est.</summary>
 <ol><li>${SPEND:,} a year on cards × about {DESK_X:g}x = about {pts_desk:,} points, est. Today, at {TODAY_X:g}x: {pts_today:,}.</li>
 <li>{pts_desk:,} points × {UTIL:.0%} redeemed × {CPP*100:g}¢ a point = about ${gross:,} in travel value, est.</li>
 <li>Less the flat ${FEE_M} a month (${fee_y:,} a year) = about ${net:,}, est.</li>
-<li>The same ${SPEND:,} at 2% cash back = about ${cashback:,}, est.</li></ol>
+<li>The same ${SPEND:,} at 2% cash back = about ${cashback:,}, est.</li>
+<li>No strategy: {pts_today:,} points × {UTIL:.0%} redeemed × about {NOSTRAT_CPP*100:g}¢ a point, on gift cards or statement credits = about ${nostrat:,}, est.</li></ol>
 <p>Illustrative. Earning rates, caps and point values vary by card and program.</p></details>'''
 
 # ---------------- step 2: the desk, live (one SVG, exact geometry) ----------------
 # Every specialist sits in its ring at low opacity. One at a time, a contributing specialist comes up
-# (forward toward First Officer, full opacity), a thin line draws edge-to-edge and a pulse runs out and back,
-# then it settles back to its place at low opacity. Static state (no JS / reduced motion): Darnell's five up.
+# (forward toward First Officer, full opacity), First Officer's circle pings softly, then it settles back to its place at low opacity. Static state (no JS / reduced motion): Darnell's five up.
 W,Hh=390,392; CX,CY=195,192
 RL=19                                   # logo circle radius (border stroke centre at RL+1.5)
 RC=24                                   # First Officer circle radius, ~25% larger than a logo circle
@@ -116,7 +139,7 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches||!s.animate)return;
 var ROT=%s,i=0,T=3200,run=false,tm=null;
 function q(sel){return s.querySelector(sel)}
 function beat(){var p=ROT[i%%ROT.length];i++;var g=q('.sp[data-p="'+p+'"]');if(!g)return;
- var w=g.parentNode;s.insertBefore(w,q('.fo'));g.getBoundingClientRect();g.classList.add('on');
+ var w=g.parentNode;s.insertBefore(w,q('.fo'));g.getBoundingClientRect();g.classList.add('on');var r=document.querySelector('.dlog .lr[data-p="'+p+'"]');if(r){r.classList.add('on');setTimeout(function(){r.classList.remove('on')},2850)}
  q('.halo').animate([{opacity:0,transform:'scale(1)'},{opacity:.5,offset:.3},{opacity:0,transform:'scale(1.35)'}],{duration:900,delay:1100,easing:'ease-out'});
  setTimeout(function(){g.classList.remove('on')},2850);}
 function loop(){if(!run)return;beat();tm=setTimeout(loop,T)}
@@ -157,40 +180,63 @@ phone=f'''<div class="iph" role="img" aria-label="Example chat in the First Offi
 MICRO='Illustrative example. Owners and chats are fictional. Figures are estimates, not guarantees. Not affiliated with any bank, airline or hotel program.'
 TMK='Program names and logos are trademarks of their respective owners, shown for identification only. No endorsement is implied. Award availability, pricing and transfer terms are set by each program and can change without notice.'
 
-steps=f'''<section class="psteps"><div class="pw">
-<div class="st s1"><div class="tx">{beat(1,'Meet Darnell')}<p class="lede2">He runs a gym in Chicago. His cards earn about 1x on ${K(SPEND)} a year, est. His points sit where he left them.</p>{CTAS('d')}</div>
-<div class="vis">{dossier}{CTAS('m')}</div></div>
-<div class="st s2"><div class="tx">{beat(2,'His desk')}<p class="lede2">First Officer runs his account and briefs the specialist for each of his programs. Each one knows its program's rules, partners and fine print.</p></div>
-<div class="vis">{desk}</div></div>
-<div class="st s3"><div class="tx">{beat(3,'What Darnell sees','in the app')}<p class="lede2">One thread. First Officer brings back what the desk learned, in plain words. Every decision stays his.</p>{CTAS('d')}</div>
-<div class="vis">{phone}{CTAS('m')}</div></div>
-<div class="fine"><p>{MICRO} <a href="#imp">Important information</a></p><p>{TMK}</p></div>
-</div></section>'''
-
-stats='''<section class="pstats" id="terms"><div class="pw"><div class="sg">
+LOGT=[('12-hyatt','Hyatt','Balance and expiry rules checked','Done'),('02-chase','Chase','Spend categories matched to cards','Reviewing'),
+      ('17-united','United','Card benefits mapped','Done'),('11-ihg','IHG','Point balance reviewed','Done'),('20-southwest','Southwest','Fare rules reviewed','Reviewing')]
+dlog=('<div class="dlog" aria-label="Example desk log, fictional"><div class="sh"><b>Desk log · his file</b><span>Example · fictional</span></div>'
+      +''.join(f'<div class="lr" data-p="{p}"><img src="{LOGO(p)}" alt=""><div><b>{n}</b><span>{t}</span></div><em class="{"ok" if s=="Done" else "rv"}">{s}</em></div>' for p,n,t,s in LOGT)
+      +'</div>')
+FIND=[('Earn','earn','Internet and phone can move to a card that pays 5x, est.'),
+      ('Burn','burn','His 38k Hyatt points typically cover about 2 nights downtown, est.'),
+      ('Return','return','His Friday report shows the value captured, in dollars, est.'),
+      ('Learn','learn','Hyatt points expire after 24 months with no activity.')]
+finds=('<div class="finds"><div class="sh"><b>What the desk found</b><span>Example · fictional</span></div>'
+       +''.join(f'<div class="fr {c}"><em>{n}</em><span>{t}</span></div>' for n,c,t in FIND)+'</div>')
+mx=net
+CMP=[('Cash back','2% on everything',cashback,'c0'),('No strategy','1x points, spent without a plan',nostrat,'c1'),('Bespoke strategy','With the desk, after the fee',net,'c2')]
+compare=('<div class="cmp" aria-label="A year of Darnell\'s card spend, three ways, estimates"><div class="sh"><b>A year of the same ${:,}</b><span>est.</span></div>'.format(SPEND)
+         +''.join(f'<div class="cr {c}"><div class="ct"><b>{n}</b><span>{s}</span></div><div class="cv">≈ ${v:,} <em class="etag">est.</em></div><div class="cb"><i style="width:{max(6,v/mx*100):.1f}%"></i></div></div>' for n,s,v,c in CMP)
+         +f'<div class="ba"><span>Points a year <b>{K(pts_today)}</b> → <b>{K(pts_desk)}</b> <em class="etag">est.</em></span><span>Earn rate <b>about {TODAY_X:g}x</b> → <b>about {DESK_X:g}x</b> <em class="etag">est.</em></span></div>'
+         +'</div>')
+sg='''<div class="sg">
 <div><div class="v">$550</div><div class="k">Flat monthly · Cancel anytime</div></div>
 <div><div class="v">20 min</div><div class="k">The Found Money Call, free · We size your capture first</div></div>
 <div><div class="v">Friday</div><div class="k">Dollars saved reported every Friday</div></div>
 <div><div class="v">Yours</div><div class="k">Every decision, always</div></div>
-</div></div></section>'''
+</div>'''
+steps=f'''<section class="pst b1"><div class="pw"><div class="st s1"><div class="tx">{beat(1,"His spend works.<br>His points don't.","The problem")}
+{lede("Darnell runs a gym in Chicago.",f"He puts about ${K(SPEND)} a year on cards, est.","They earn about 1x.","His points sit where he left them.")}{chips1}<div class="dk-only">{statement}</div>{handoff("So he hands it to the desk.").replace('class="ho"','class="ho d"')}{CTAS('d')}</div>
+<div class="vis">{dossier}<div class="m-only">{statement}</div>{handoff("So he hands it to the desk.").replace('class="ho"','class="ho m"')}{CTAS('m')}</div></div></div></section>
+<section class="pst b2"><div class="pw"><div class="st s2"><div class="tx">{beat(2,"Five specialists.<br>One file.","The desk goes to work")}
+{lede("First Officer briefs the specialist for each of his programs.","Each one reads his statements against its program's rules, partners and fine print.")}{dlog}{handoff("Then it all comes back to one thread.")}</div>
+<div class="vis">{desk}</div></div></div></section>
+<section class="pst b1"><div class="pw"><div class="st s3"><div class="tx">{beat(3,"Plain words.<br>His call.","What comes back")}
+{lede("One thread in the app.","First Officer brings back what the desk found, in plain words.","Every decision stays his.")}{finds}{handoff("Here is what that adds up to.")}{CTAS('d')}</div>
+<div class="vis">{phone}{CTAS('m')}</div></div></div></section>
+<section class="pst b2 rs" id="terms"><div class="pw"><div class="st s4"><div class="tx">{beat(4,"Same spend.<br>A different year.","The result")}
+{lede(f"Same ${K(SPEND)} a year on cards.",f"Cash back pays about ${cashback:,}, est.",f"With the desk, about ${net:,} after the fee, est.")}{math_}</div>
+<div class="vis">{compare}</div></div>{sg}
+<div class="close"><div><h2 class="beat"><span>Your spend can work like this.</span></h2><p class="lede2">{lines_("Start with the free 20-minute Found Money Call.","We size your capture first.")}</p></div>{CTAS('x')}</div>
+<div class="fine"><p>{MICRO} <a href="#imp">Important information</a></p><p>{TMK}</p></div>
+</div></section>'''
+stats=''
 
 CSS='''<style>
 /* home-persona: mobile-first, page-scoped. Shared tokens untouched. */
-.phero,.psteps,.pstats{--ink:#141216;--body:#3d3843;--mute:#6f6977;font-family:'DM Sans',system-ui,sans-serif}
+.phero,.pst{--ink:#141216;--body:#3d3843;--mute:#6f6977;font-family:'DM Sans',system-ui,sans-serif}
 .pw{max-width:1120px;margin:0 auto;padding:0 18px}
 #top.phero{padding:0!important}
-.phero .pw{position:relative;z-index:2;padding-top:26px;padding-bottom:30px;text-align:left}
-.kick{display:flex;width:max-content;margin:0 auto 22px;align-items:center;gap:9px;font:700 12px 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#e60f86;background:rgba(250,24,150,.08);border:1px solid rgba(250,24,150,.22);border-radius:999px;padding:8px 15px}
+.phero .pw{position:relative;z-index:2;padding-top:18px;padding-bottom:22px;text-align:left}
+.kick{display:flex;width:max-content;margin:0 auto 14px;align-items:center;gap:9px;font:700 12px 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#e60f86;background:rgba(250,24,150,.08);border:1px solid rgba(250,24,150,.22);border-radius:999px;padding:8px 15px}
 .kick .ld{width:7px;height:7px;border-radius:50%;background:#FA1896}
-.phero h1{font:400 32px/1.06 'DM Serif Display',Georgia,serif;letter-spacing:-.022em;color:var(--ink);margin:0 0 16px}
+.phero h1{font:400 32px/1.06 'DM Serif Display',Georgia,serif;letter-spacing:-.022em;color:var(--ink);margin:0 0 12px}
 .phero h1 span{color:#e60f86}
-.phero .sub p{font:400 15.5px/1.6 'DM Sans',sans-serif;color:var(--body);margin:0 0 12px}
-.phero .sub p.tag{font-weight:700;font-size:17.5px;line-height:1.4;color:var(--ink);margin:16px 0 0;max-width:20em}
-.deskk{display:flex;gap:9px;align-items:center;margin:22px auto 0;width:max-content;max-width:100%;background:#fff;border-radius:999px;padding:7px 14px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 6px 16px -10px rgba(20,18,22,.3);font:500 12.5px/1.35 'DM Sans',sans-serif;color:var(--body)}
+.phero .sub p{font:400 15.5px/1.6 'DM Sans',sans-serif;color:var(--body);margin:0 0 10px}
+.phero .sub p.tag{font-weight:700;font-size:17.5px;line-height:1.4;color:var(--ink);margin:10px 0 0;max-width:20em}
+.deskk{display:flex;gap:9px;align-items:center;margin:14px auto 0;width:max-content;max-width:100%;background:#fff;border-radius:999px;padding:7px 14px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 6px 16px -10px rgba(20,18,22,.3);font:500 12.5px/1.35 'DM Sans',sans-serif;color:var(--body)}
 .deskk b{color:var(--ink)}
 .lv{width:8px;height:8px;border-radius:50%;background:#16A06A;flex:none;box-shadow:0 0 0 3px rgba(22,160,106,.16)}
-.psteps{background:#fff;padding:26px 0 8px}
-.st{margin:0 0 34px}
+.pst{position:relative;background:#fff;padding:22px 0}.pst.b2{background:#faf8fb;border-top:1px solid #f1edf3;border-bottom:1px solid #f1edf3}
+.st{margin:0}
 .beat{display:flex;gap:11px;align-items:center;font:700 20px/1.2 'DM Sans',sans-serif;color:var(--ink);margin:0 0 8px;letter-spacing:-.01em}
 .beat .n{width:28px;height:28px;border-radius:50%;background:#FA1896;color:#fff;font:700 14px/28px 'DM Sans',sans-serif;text-align:center;flex:none}
 .beat em{font:500 13px 'DM Sans',sans-serif;color:var(--mute);font-style:normal;white-space:nowrap}
@@ -284,27 +330,97 @@ CSS='''<style>
 .sg>div:nth-child(odd){border-right:1px solid #f0edf2}.sg>div:nth-child(-n+2){border-bottom:1px solid #f0edf2}
 .sg .v{font:400 34px/1 'DM Serif Display',Georgia,serif;color:#141216;letter-spacing:-.01em}
 .sg .k{font:500 12.5px/1.4 'DM Sans',sans-serif;color:#6f6977;margin-top:8px}
-@media(min-width:760px){.phero h1{font-size:46px}.phero .pw{padding-top:44px;padding-bottom:48px}.phero .sub{max-width:620px}.kick,.deskk{margin-left:0}}
+@media(min-width:760px){.phero h1{font-size:46px}.phero .pw{padding-top:32px;padding-bottom:32px}.phero .sub{max-width:620px}.kick,.deskk{margin-left:0}}
 @media(min-width:980px){
  .pw{padding:0 32px}
  .phero h1{font-size:58px}
- .phero .pw{padding-top:64px;padding-bottom:64px}
- .psteps{padding:56px 0 20px}
- .st{display:grid;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:72px;align-items:center;margin:0 0 72px}
+ .phero .pw{padding-top:40px;padding-bottom:40px}
+ .pst{padding:44px 0}
+ .st{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;margin:0}
  .st .tx{align-self:center}
  .pctas.d{display:flex}.pctas.m{display:none}
  .beat{font-size:26px}.beat .n{width:34px;height:34px;line-height:34px;font-size:16px}
  .lede2{font-size:17px}
- .pctas{max-width:400px}
+ .pctas{max-width:440px}
  .st .vis{max-width:540px;width:100%;justify-self:center}
  .deskwrap{max-width:540px}
  .iph{width:340px}.scr{height:680px}
  .sg{grid-template-columns:repeat(4,1fr)}.sg>div{border-bottom:0!important;border-right:1px solid #f0edf2;padding:26px 24px}.sg>div:last-child{border-right:0}
  .sg .v{font-size:44px}
- .pstats{padding:10px 0 64px}
+}
+/* v2 density: added detail, page-scoped, existing type sizes only */
+.ln{display:block}.nw{white-space:nowrap}
+.lstrip{display:flex;align-items:center;gap:0;margin:14px 0 0}
+.lstrip img{width:28px;height:28px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #fff,0 2px 6px -2px rgba(20,18,22,.25);margin-left:-6px;background:#fff}
+.lstrip img:first-child{margin-left:0}
+.lstrip span{margin-left:10px;font:600 12px 'DM Sans',sans-serif;color:var(--mute);white-space:nowrap}
+.lstrip.m{justify-content:center}.lstrip.m img:nth-child(n+9){display:none}
+.hcard{display:none}
+.eb{font:700 12px 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#e60f86;margin:0 0 8px}
+.lede2 .ln+.ln{margin-top:2px}
+.ho{display:flex;align-items:center;gap:8px;font:700 15px/1.4 'DM Sans',sans-serif;color:var(--ink);margin:14px 0 0}
+.ho span{width:24px;height:24px;border-radius:50%;background:rgba(250,24,150,.1);color:#e60f86;font-size:13px;line-height:24px;text-align:center;flex:none}
+.ho.m{margin:14px 0 0}.ho.d{display:none}
+.dk-only{display:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.chips span{display:inline-flex;align-items:center;gap:6px;background:#fff;border-radius:999px;padding:5px 11px;box-shadow:0 0 0 1px rgba(20,18,22,.09);font:600 12px 'DM Sans',sans-serif;color:var(--ink);white-space:nowrap}
+.cd{width:7px;height:7px;border-radius:50%;background:#b8b2be}.cd.g{background:#12834E}.cd.o{background:#E8590C}
+.stm,.dlog,.finds,.cmp{background:#fff;border-radius:18px;padding:12px 14px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 14px 30px -24px rgba(20,18,22,.35);margin:12px 0 0}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:0 0 8px;border-bottom:1px solid #f0edf2}
+.sh b{font:700 13px 'DM Sans',sans-serif;color:var(--ink)}.sh span{font:500 11px 'DM Sans',sans-serif;color:#8a8492;white-space:nowrap}
+.sr{display:grid;grid-template-columns:1fr auto 34px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #f6f3f7;font:400 13px 'DM Sans',sans-serif;color:var(--body)}
+.sr b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.sr em{font:600 11px 'JetBrains Mono',monospace;font-style:normal;color:#6f6977;background:#efedf1;border-radius:6px;padding:2px 0;text-align:center}
+.sf{font:500 12px 'DM Sans',sans-serif;color:var(--mute);padding-top:8px}
+.lr{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;padding:8px 6px;margin:0 -6px;border-radius:10px;transition:background .6s ease}
+.lr+.lr{border-top:1px solid #f6f3f7}
+.lr img{width:28px;height:28px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px #e2dde6}
+.lr b{display:block;font:700 13px/1.2 'DM Sans',sans-serif;color:var(--ink)}.lr div span{display:block;font:400 12px/1.35 'DM Sans',sans-serif;color:var(--mute)}
+.lr em{font:600 11px 'DM Sans',sans-serif;font-style:normal;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.lr em.ok{color:#12834E;background:#e6f5ee}.lr em.rv{color:#1E78B8;background:#e4f3fd}
+.lr.on{background:rgba(250,24,150,.06)}.lr.on img{box-shadow:0 0 0 1.5px #FA1896}
+.fr{display:grid;grid-template-columns:62px 1fr;gap:10px;align-items:baseline;padding:9px 0;border-top:1px solid #f6f3f7;font:400 13px/1.4 'DM Sans',sans-serif;color:var(--body)}
+.sh+.fr{border-top:0}
+.fr em{font:700 12px 'DM Sans',sans-serif;font-style:normal;display:flex;align-items:center;gap:6px}
+.fr em::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.fr.earn em{color:#12834E}.fr.burn em{color:#E8590C}.fr.return em{color:#7149C9}.fr.learn em{color:#1E78B8}
+.cr{padding:10px 0;border-top:1px solid #f6f3f7}.sh+.cr{border-top:0}
+.cr{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center}
+.ct b{display:block;font:700 13px 'DM Sans',sans-serif;color:var(--ink)}.ct span{display:block;font:400 12px 'DM Sans',sans-serif;color:var(--mute)}
+.cv{font:700 15px 'DM Sans',sans-serif;color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cb{grid-column:1/-1;height:6px;border-radius:6px;background:#f2eff4;margin-top:6px;overflow:hidden}.cb i{display:block;height:100%;border-radius:6px;background:#c9c3cf}
+.cr.c1 .cb i{background:#ddd8e2}.cr.c2 .cb i{background:linear-gradient(90deg,#7149C9,#12834E)}
+.cr.c2 .ct b{color:#7149C9}
+.ba{display:flex;flex-wrap:wrap;gap:6px;padding-top:10px;border-top:1px solid #f0edf2}
+.ba span{display:inline-flex;align-items:center;gap:4px;background:#f6f3fb;border-radius:999px;padding:5px 10px;font:500 12px 'DM Sans',sans-serif;color:var(--body);white-space:nowrap}
+.ba b{color:var(--ink)}
+.s4 .math{margin-top:12px}
+.rs .sg{margin-top:16px}
+.close{display:flex;flex-direction:column;gap:4px;margin:18px 0 0;padding:16px;border-radius:20px;background:#fff;box-shadow:0 0 0 1px rgba(20,18,22,.08)}
+.close .beat{margin:0 0 6px}.close .lede2{margin:0}
+.pctas.x{display:flex;margin-top:12px}
+.rs .fine{margin-top:18px}
+.s2 .vis{margin-top:6px}.s3 .vis{margin-top:14px}.s4 .vis{margin-top:2px}
+@media(min-width:980px){
+ .hgrid{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:56px;align-items:center}
+ .lstrip.m{display:none}
+ .hcard{display:block;background:rgba(255,255,255,.92);border-radius:22px;padding:16px 18px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 24px 50px -30px rgba(20,18,22,.45);backdrop-filter:blur(6px)}
+ .hh{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid #f0edf2}
+ .hh img{width:30px;height:30px;object-fit:contain}.hh b{display:block;font:700 15px/1.1 'DM Sans',sans-serif;color:var(--ink)}.hh div span{display:block;font:500 11px 'DM Sans',sans-serif;color:var(--mute)}
+ .hh em{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font:600 12px 'DM Sans',sans-serif;font-style:normal;color:#12834E;background:#e6f5ee;border-radius:999px;padding:4px 10px}
+ .hh .lv{width:7px;height:7px;box-shadow:none}
+ .hr{display:grid;grid-template-columns:76px 1fr;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #f6f3f7}
+ .hr b{font:400 20px/1 'DM Serif Display',Georgia,serif;color:var(--ink)}.hr span{font:500 13px 'DM Sans',sans-serif;color:var(--body)}
+ .lstrip.in{margin-top:12px}
+ .dk-only{display:block}.ho.d{display:flex}.m-only,.ho.m{display:none}
+ .st .vis{margin-top:0}
+ .s2 .vis{order:-1}
+ .close{flex-direction:row;align-items:center;justify-content:space-between;padding:22px 26px;margin-top:24px}
+ .close .pctas{margin:0;flex:none;width:400px}
+ .rs .sg{margin-top:28px}
 }
 </style>'''
 
-body=CSS+hero+steps+stats
+body=CSS+hero+steps
 page('home-persona.html','First Officer · Meet Darnell (mockup)',body,
      desc='Mobile-first persona homepage mockup. Fictional owner, estimated figures.',src='home',tail=DESK_JS)
