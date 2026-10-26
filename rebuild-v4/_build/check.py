@@ -51,8 +51,17 @@ async def main():
             mo=await page.evaluate("(()=>{const r=document.querySelector('.mpick').getBoundingClientRect();return [Math.round(r.top),Math.round(r.height)]})()")
             r['mpick_box']=mo
             await page.screenshot(path=f'/workspace/mockme/v4-ffd-sticky-{w}.png')
+            r['mp_sum']=await page.text_content('.mp-sum')
+            r['mp_clip']=await page.evaluate("[...document.querySelectorAll('.mpick .mp-row *')].filter(e=>{const b=e.getBoundingClientRect();return b.width&&(b.right>innerWidth+0.5||e.scrollWidth>e.clientWidth+1&&e.clientWidth)}).map(e=>e.className.baseVal??e.className)")
+            await page.click('.mp-f'); await page.wait_for_timeout(300)
+            await page.screenshot(path=f'/workspace/mockme/v4-ffd-sticky-open-{w}.png')
+            await page.select_option('.mp-sheet select >> nth=2','the-decoder' if False else await page.evaluate("document.querySelectorAll('#typesel option')[12].value"))
+            await page.wait_for_timeout(400)
+            r['mp_after']=[await page.text_content('.mp-sum'), await page.evaluate("document.querySelector('.mpick').className")]
+            await page.click('.mp-done'); await page.wait_for_timeout(700)
+            r['mp_done']=await page.evaluate("[document.querySelector('.mpick').className, document.querySelectorAll('#desk-grid .dk:not([hidden])').length]")
           # deep link
-          await page.goto(BASE+pg+'.html#nug-tax',wait_until='networkidle'); await page.wait_for_timeout(800)
+          page=await ctx.new_page(); await page.goto(BASE+pg+'.html#nug-tax',wait_until='networkidle'); await page.wait_for_timeout(800)
           r['deeplink']=await page.evaluate("document.querySelector('.rdr').classList.contains('on')?document.getElementById('rdr-h').textContent:'no'")
           res['ffd']=r
         print(json.dumps(res))
