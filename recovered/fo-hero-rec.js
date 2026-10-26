@@ -60,7 +60,7 @@ function layout(){
   Object.assign(G,{FS:72,PH:[1320-417*.62,hb+26,.62],CARD:[664,hb+26,326],X0:120,X1:1320,ROW:98});
   G.FO=[680,0];G.Y0=0;G.Y1=0;SH.H=G.Y1+112;fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));MICRO.style.top=px(G.Y1+60);TMK.style.top=px(G.Y1+60+MICRO.offsetHeight+4);
  }else{
-  KICK.style.top='12px';H1.style.top='42px';H1.style.fontSize='44px';H1.style.whiteSpace='normal';H1.style.width='354px';H1.innerHTML=H1.innerHTML.replace('not bad at','not bad<br>at');const hb=42+H1.offsetHeight;
+  const KT=22,KG=16;KICK.style.top=px(KT);const kb=KT+KICK.offsetHeight;H1.style.top=px(kb+KG);H1.style.fontSize='44px';H1.style.whiteSpace='normal';H1.style.width='354px';H1.innerHTML=H1.innerHTML.replace('not bad at','not bad<br>at');const hb=kb+KG+H1.offsetHeight;
   SUB.style.top=px(hb+12);const s0=hb+12+SUB.offsetHeight;CTAS.style.top=px(s0+14);const sb=s0+14+CTAS.offsetHeight;DESKH.style.display='none';
   Object.assign(G,{B1:sb+40,CARD:[16,0,358],FS:48,PH:[(390-417*.72)/2,0,.72],PHH:876*.72,FO:[195,0]});
  }
@@ -354,7 +354,7 @@ function layout(){
   Object.assign(G,{FS:72,PH:[1320-417*.62,hb+26,.62],CARD:[664,hb+26,326],X0:120,X1:1320,ROW:98});
   G.FO=[680,0];G.Y0=0;G.Y1=0;SH.H=G.Y1+112;fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));MICRO.style.top=px(G.Y1+60);TMK.style.top=px(G.Y1+60+MICRO.offsetHeight+4);
  }else{
-  KICK.style.top='12px';H1.style.top='42px';H1.style.fontSize='44px';H1.style.whiteSpace='normal';H1.style.width='354px';H1.innerHTML=H1.innerHTML.replace('not bad at','not bad<br>at');const hb=42+H1.offsetHeight;
+  const KT=22,KG=16;KICK.style.top=px(KT);const kb=KT+KICK.offsetHeight;H1.style.top=px(kb+KG);H1.style.fontSize='44px';H1.style.whiteSpace='normal';H1.style.width='354px';H1.innerHTML=H1.innerHTML.replace('not bad at','not bad<br>at');const hb=kb+KG+H1.offsetHeight;
   SUB.style.top=px(hb+14);const sb=hb+14+SUB.offsetHeight;
   DESKH.style.top=px(sb+22);const db=sb+22+DESKH.offsetHeight;
   const cardY=db+12;Object.assign(G,{CARD:[16,cardY,358],FS:40});

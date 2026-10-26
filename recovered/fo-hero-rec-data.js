@@ -91,7 +91,7 @@ window.CFG.css+=`
 .fo img{border-radius:0!important;padding:6%!important;filter:drop-shadow(0 8px 14px rgba(230,15,134,.3))}
 .mm .av{border-radius:8px!important}.mm .av.avfo{border-radius:0!important;box-shadow:none!important;background:transparent!important;object-fit:contain}
 .a2a{display:none!important}
-.kick .ld,.lv,.feed .fd,.feed10 .who .lv,.pend i:before{border-radius:2px!important}
+.lv,.feed .fd,.feed10 .who .lv,.pend i:before{border-radius:2px!important}
 `;
 /* Oct 27 insights round: the specialists' dots resolve into example insights that rise to First Officer */
 window.CFG.css+=`
@@ -100,6 +100,10 @@ window.CFG.css+=`
 .mm.f .typ i{background:#FA1896!important}
 .fol .l1{color:#141216!important}
 .kick{color:#4A4550!important}
+.kick .ld{flex:none;border-radius:50%!important;animation:ldp 1.4s ease-in-out infinite;will-change:transform}
+@keyframes ldp{0%,100%{transform:scale(.6);box-shadow:0 0 0 0 rgba(250,24,150,0)}50%{transform:scale(1.25);box-shadow:0 0 0 3px rgba(250,24,150,.16),0 0 9px 2px rgba(250,24,150,.5)}}
+@media(prefers-reduced-motion:reduce){.kick .ld{animation:none!important}}
+#hero.M .kick{padding:8px calc(15px - .14em) 8px 15px}
 .mm .av.avfo{display:none!important}
 .wk i{border-radius:1.5px!important}
 .find .wk i{animation-duration:.6s!important;background:#FA1896!important}
