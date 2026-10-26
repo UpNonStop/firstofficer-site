@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Free From the Desk · First Officer by UpNonStop</title><meta name="description" content="Everything I&#x27;d tell you over coffee: 490 smart items for business owners, free to read. Leave your email for the new ones."><meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="img/fo-chevron-transparent.png"><link rel="stylesheet" href="assets/fo-site-tokens.css"><link rel="stylesheet" href="assets/fo-site.css"><link rel="stylesheet" href="assets/hero-frame.css"><link rel="stylesheet" href="assets/fo-v4.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap"><script>document.documentElement.classList.add("dir-c");window.FO_LIMIT=6;document.documentElement.classList.add("o3h");if(/[?&]ph=r2(&|$)/.test(location.search))document.documentElement.classList.add("ph-r2");</script><style id="desk-css">
+<link rel="icon" href="img/fo-chevron-transparent.png"><link rel="stylesheet" href="assets/fo-site-tokens.css"><link rel="stylesheet" href="assets/fo-site.css"><link rel="stylesheet" href="assets/hero-frame.css"><link rel="stylesheet" href="assets/fo-v4.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap"><script>document.documentElement.classList.add("dir-c");window.FO_LIMIT=6;document.documentElement.classList.add("o3h");</script><style id="desk-css">
 .desk{line-height:1.65;-webkit-font-smoothing:antialiased}
 .desk .src{margin:0;padding:0;border:0;font:inherit;color:inherit}
 .desk .chip{display:inline;border:0;font-family:inherit;line-height:inherit;color:inherit;cursor:auto;white-space:normal}
@@ -865,16 +865,14 @@ html.dir-c.o3h #band .cap-msg{margin:8px 0 0;font-size:13px;font-weight:600;colo
 /* phone: the eyebrow is the page's header under the nav, sized for the phone, not shrunk; a painted stroke, never a button */
 @media(max-width:640px){html.dir-c.o3h .desk .eyebrow{font-size:15px;line-height:18px;letter-spacing:.08em;padding:16px 46px 17px 38px;margin:10px 0 22px -6px}}
 /* hero photos (Ohad pt193u): the landing page's 31 vacation photos (index.html #top pool), random start, slow crossfade.
-   Rec 1 (default) = the landing hero's own treatment: photo at full strength under the landing white wash
-   (98deg .93/.82/.44/.22), so the text side reads exactly like the landing page.
-   Rec 2 (html.ph-r2, or ?ph=r2) = slightly stronger photo, cream wash on the text side only, clear on the right. */
+   Treatment = Rec 2 (Ohad picked it, pt199u): cream wash on the text side only, photo clear on the right;
+   phone gets a slightly stronger 98deg cream wash. The Rec 1 white wash and the URL/class toggle are gone. */
 html.dir-c.o3h .desk .pop-hero>.phx{display:block;position:absolute;top:-28px;bottom:0;left:50%;width:100vw;transform:translateX(-50%);z-index:0;background:#FAF6EE}
 html.dir-c.o3h .desk .pop-hero>.phx img{filter:none;object-position:50% 50%;transform:scale(1);transition:opacity 1.4s ease-in-out,transform 8s linear;will-change:opacity,transform}
 html.dir-c.o3h .desk .pop-hero>.phx img.on{opacity:1;transform:scale(1.05)}
-html.dir-c.o3h .desk .pop-hero>.phx::after{background:linear-gradient(180deg,rgba(255,255,255,0) calc(100% - 140px),#FAF6EE 100%),linear-gradient(98deg,rgba(255,255,255,.93) 0%,rgba(255,255,255,.82) 40%,rgba(255,255,255,.44) 68%,rgba(255,255,255,.22) 100%)}
-html.dir-c.o3h.ph-r2 .desk .pop-hero>.phx::after{background:linear-gradient(180deg,rgba(250,246,238,0) calc(100% - 140px),#FAF6EE 100%),linear-gradient(90deg,rgba(250,246,238,.94) 0%,rgba(250,246,238,.86) 34%,rgba(250,246,238,.42) 50%,rgba(250,246,238,0) 62%)}
+html.dir-c.o3h .desk .pop-hero>.phx::after{background:linear-gradient(180deg,rgba(250,246,238,0) calc(100% - 140px),#FAF6EE 100%),linear-gradient(90deg,rgba(250,246,238,.94) 0%,rgba(250,246,238,.86) 34%,rgba(250,246,238,.42) 50%,rgba(250,246,238,0) 62%)}
 html.dir-c.o3h .desk .pop-hero>.dhero,html.dir-c.o3h .desk .pop-hero>.deskline{position:relative;z-index:1}
-@media(max-width:760px){html.dir-c.o3h .desk .pop-hero>.phx{bottom:auto;height:860px}html.dir-c.o3h.ph-r2 .desk .pop-hero>.phx::after{background:linear-gradient(180deg,rgba(250,246,238,0) calc(100% - 140px),#FAF6EE 100%),linear-gradient(98deg,rgba(250,246,238,.9) 0%,rgba(250,246,238,.74) 52%,rgba(250,246,238,.34) 82%,rgba(250,246,238,.1) 100%)}}
+@media(max-width:760px){html.dir-c.o3h .desk .pop-hero>.phx{bottom:auto;height:860px}html.dir-c.o3h .desk .pop-hero>.phx::after{background:linear-gradient(180deg,rgba(250,246,238,0) calc(100% - 140px),#FAF6EE 100%),linear-gradient(98deg,rgba(250,246,238,.9) 0%,rgba(250,246,238,.74) 52%,rgba(250,246,238,.34) 82%,rgba(250,246,238,.1) 100%)}}
 @media(prefers-reduced-motion:reduce){html.dir-c.o3h .desk .pop-hero>.phx img{transition:none;transform:none}html.dir-c.o3h .desk .pop-hero>.phx img.on{transform:none}}
 /* "Pull up a chair" card: the landing set rotates in the card's frame (the notebook-and-coffee photo is gone) */
 html.dir-c.o3h .desk .dprot .dpx{position:relative;display:block;overflow:hidden;line-height:0}html.dir-c.o3h .desk .dprot .dpx>img{visibility:hidden}

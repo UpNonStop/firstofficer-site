@@ -931,16 +931,14 @@ html.dir-c.o3h #band .cap-msg{{margin:8px 0 0;font-size:13px;font-weight:600;col
 /* phone: the eyebrow is the page's header under the nav, sized for the phone, not shrunk; a painted stroke, never a button */
 @media(max-width:640px){{§ .eyebrow{{font-size:15px;line-height:18px;letter-spacing:.08em;padding:16px 46px 17px 38px;margin:10px 0 22px -6px}}}}
 /* hero photos (Ohad pt193u): the landing page's 31 vacation photos (index.html #top pool), random start, slow crossfade.
-   Rec 1 (default) = the landing hero's own treatment: photo at full strength under the landing white wash
-   (98deg .93/.82/.44/.22), so the text side reads exactly like the landing page.
-   Rec 2 (html.ph-r2, or ?ph=r2) = slightly stronger photo, cream wash on the text side only, clear on the right. */
+   Treatment = Rec 2 (Ohad picked it, pt199u): cream wash on the text side only, photo clear on the right;
+   phone gets a slightly stronger 98deg cream wash. The Rec 1 white wash and the URL/class toggle are gone. */
 § .pop-hero>.phx{{display:block;position:absolute;top:-28px;bottom:0;left:50%;width:100vw;transform:translateX(-50%);z-index:0;background:{BCR}}}
 § .pop-hero>.phx img{{filter:none;object-position:50% 50%;transform:scale(1);transition:opacity 1.4s ease-in-out,transform 8s linear;will-change:opacity,transform}}
 § .pop-hero>.phx img.on{{opacity:1;transform:scale(1.05)}}
-§ .pop-hero>.phx::after{{background:linear-gradient(180deg,rgba(255,255,255,0) calc(100% - 140px),{BCR} 100%),linear-gradient(98deg,rgba(255,255,255,.93) 0%,rgba(255,255,255,.82) 40%,rgba(255,255,255,.44) 68%,rgba(255,255,255,.22) 100%)}}
-html.dir-c.ox.ph-r2 .desk .pop-hero>.phx::after{{background:linear-gradient(180deg,rgba(250,246,238,0) calc(100% - 140px),{BCR} 100%),linear-gradient(90deg,rgba(250,246,238,.94) 0%,rgba(250,246,238,.86) 34%,rgba(250,246,238,.42) 50%,rgba(250,246,238,0) 62%)}}
+§ .pop-hero>.phx::after{{background:linear-gradient(180deg,rgba(250,246,238,0) calc(100% - 140px),{BCR} 100%),linear-gradient(90deg,rgba(250,246,238,.94) 0%,rgba(250,246,238,.86) 34%,rgba(250,246,238,.42) 50%,rgba(250,246,238,0) 62%)}}
 § .pop-hero>.dhero,§ .pop-hero>.deskline{{position:relative;z-index:1}}
-@media(max-width:760px){{§ .pop-hero>.phx{{bottom:auto;height:860px}}html.dir-c.ox.ph-r2 .desk .pop-hero>.phx::after{{background:linear-gradient(180deg,rgba(250,246,238,0) calc(100% - 140px),{BCR} 100%),linear-gradient(98deg,rgba(250,246,238,.9) 0%,rgba(250,246,238,.74) 52%,rgba(250,246,238,.34) 82%,rgba(250,246,238,.1) 100%)}}}}
+@media(max-width:760px){{§ .pop-hero>.phx{{bottom:auto;height:860px}}§ .pop-hero>.phx::after{{background:linear-gradient(180deg,rgba(250,246,238,0) calc(100% - 140px),{BCR} 100%),linear-gradient(98deg,rgba(250,246,238,.9) 0%,rgba(250,246,238,.74) 52%,rgba(250,246,238,.34) 82%,rgba(250,246,238,.1) 100%)}}}}
 @media(prefers-reduced-motion:reduce){{§ .pop-hero>.phx img{{transition:none;transform:none}}§ .pop-hero>.phx img.on{{transform:none}}}}
 /* "Pull up a chair" card: the landing set rotates in the card's frame (the notebook-and-coffee photo is gone) */
 § .dprot .dpx{{position:relative;display:block;overflow:hidden;line-height:0}}§ .dprot .dpx>img{{visibility:hidden}}
@@ -960,12 +958,14 @@ pal3h = pal_css(BP, BPS, [BP] * 4, BCR2, BTR, BTR, 'transparent', BP, BPS, grid=
 css3h = (O3B + O3C + pal3h + O3G.replace(MK, 'none') + O3H + O3H2).replace('.dk.lead', '.dk.lead:not(.gold)')
 # 3h: no chevron outside the logo, so the cut-chevron clip-path becomes none
 full3h = (BASE + css3h).replace('§', 'html.dir-c.o3h .desk').replace('html.dir-c.ox', 'html.dir-c.o3h').replace('CP', 'none')
+# hero treatment is Rec 2 (pt199u): cream text-side wash is the default, no white wash, no toggle
+assert 'html.dir-c.o3h .desk .pop-hero>.phx::after{background:linear-gradient(180deg,rgba(250,246,238,0) calc(100% - 140px),' in full3h and 'ph-r2' not in full3h, 'hero must keep the Rec 2 cream wash'
 # brand type: DM Sans for display and body, DM Serif Display upright for headlines; sizes unchanged
 full3h = full3h.replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui,sans-serif")
 C3H = D.C_CSS.replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui,sans-serif").replace("--isr:'Instrument Serif',Georgia,serif", "--isr:'DM Serif Display',Georgia,serif")
 B3H = B3G
 page('ffd-c-opt-3h.html', T, B3H, desc=DESC, src='freebies', tail=D.TAIL_C + D.SHARED_JS + FILL_JS,
-     headx=D.head('dir-c', 'family=DM+Serif+Display:ital@0;1', C3H + full3h, 'window.FO_LIMIT=6;document.documentElement.classList.add("o3h");if(/[?&]ph=r2(&|$)/.test(location.search))document.documentElement.classList.add("ph-r2");'))
+     headx=D.head('dir-c', 'family=DM+Serif+Display:ital@0;1', C3H + full3h, 'window.FO_LIMIT=6;document.documentElement.classList.add("o3h");'))
 _p = f'{ROOT}/ffd-c-opt-3h.html'; _s = open(_p, encoding='utf-8').read()
 _s = _s.replace(CHEV, MARK).replace("'Bricolage Grotesque',system-ui,sans-serif", "'DM Sans',system-ui,sans-serif").replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui,sans-serif")
 assert 'Bricolage' not in _s and 'Founder, First Officer' not in _s
