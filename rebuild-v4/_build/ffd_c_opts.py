@@ -795,8 +795,94 @@ page('ffd-c-opt-3g.html', T, B3G, desc=DESC, src='freebies', tail=D.TAIL_C + D.S
 _p = f'{ROOT}/ffd-c-opt-3g.html'; _s = open(_p, encoding='utf-8').read()
 open(_p, 'w', encoding='utf-8').write(_s.replace(CHEV, MARK))
 
+# ---------------------------------------------------------------- 3h: brand palette (cream canvas, First Officer pink tickets, flat gold, ink type)
+# every colour below is a token from assets/fo-site-tokens.css or assets/fo-v4.css; no purple anywhere
+BP, BPS, BPK = '#E60F86', '#B30A68', '#FA1896'          # --pink2 block, --pinkdeep stub, --pink accent
+BCR, BCR2, BTR, BPL = '#FAF6EE', '#FBF4E6', '#F1EADB', '#F1D6E5'   # --bg, --cream2, --track, --pinkLine
+BG, BG2, BINK, BINK2 = '#E8C547', '#F5B700', '#141216', '#3A343D'  # --gold, --gold2, --ink, --ink2
+GP = 'rgba(255,255,255,.7)'      # perforation on gold
+CPF = 'rgba(230,15,134,.42)'     # perforation on cream
+def _tk(perf, stub, pos, body): return f'{perf},linear-gradient({stub},{stub}) {pos} no-repeat,{body}'
+O3H = f'''
+html.dir-c.o3h{{--isr:'DM Serif Display',Georgia,serif}}
+/* canvas: the approved pages' cream with a hairline grid, ink type, pink second line */
+html.dir-c.o3h .desk .pop-hero{{--bb:{BCR};color:{BINK}}}
+html.dir-c.o3h .desk .pop-hero::before{{background:linear-gradient(rgba(20,18,22,.045) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(90deg,rgba(20,18,22,.045) 1px,transparent 1px) 0 0/44px 44px,{BCR}}}
+§ h1{{font-family:'DM Serif Display',Georgia,serif;font-weight:400;color:{BINK};text-shadow:none;letter-spacing:-.025em;line-height:.92}}
+§ h1 em{{font-family:'DM Serif Display',Georgia,serif;font-style:italic;color:{BPK}}}
+§ .lede{{color:{BINK2}}}
+§ .lede .hl{{background:{BP};color:#fff}}
+/* the mark only ever sits on ticket-stock cream: eyebrow stub, signature stub, Checked cell, code tape */
+§ .eyebrow{{background:{_tk(lperf("38px", CPF), BCR2, "left 0 top 0/39px 100%", BP)};color:#fff;box-shadow:inset 0 0 0 1px {BPL},0 10px 22px -16px rgba(179,10,104,.55)}}
+§ .sig{{background:linear-gradient({BCR2},{BCR2}) left 0 top 0/66px 100% no-repeat,{BP};box-shadow:inset 0 0 0 1px {BPL};border-top:0}}
+§ .sig .av{{background:none;box-shadow:none}}
+§ .sig .sign,§ .sig .role{{color:#fff}}
+§ .deskline .ck{{background:{_tk(lperf(f"{DS-2}px", CPF), BTR, f"left 0 top 0/{DS}px 100%", BCR2)};box-shadow:inset 0 0 0 1px {BPL}}}
+§ .deskline .ck,§ .deskline .ck *{{color:{BINK}}}
+§ .deskline span:not(.ck){{background:{_tk(lperf(f"{DS-2}px", WP), BPS, f"left 0 top 0/{DS}px 100%", BP)}}}
+§ .deskline span:not(.ck)::before{{text-decoration-color:rgba(255,255,255,.75)}}
+§ .codes{{--bb:{BTR};color:{BINK};background-image:linear-gradient({BPL},{BPL});background-size:100% 1px}}
+§ .codes b{{background:transparent;border:1px solid rgba(20,18,22,.24);color:{BINK}}}
+/* calculator: pink ticket, white action like the pink band on the approved pages */
+§ .feat .btnp{{background:#fff;color:{BPS}}}
+§ .feat:hover .btnp{{background:{BCR2};color:{BPS}}}
+§ .feat .ft-k{{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}}
+/* the two side tickets are pink, so they carry no mark */
+§ .pv2 b::before,§ .pv3 b::before{{display:none}}
+/* Golden Nugget Pack: flat brand gold, no metal gradient, no sheen */
+§ .pv1{{background:{_tk(vperf(f"{PW-2}px", GP), BG2, f"right 0 top 0/{PW}px 100%", BG)};border:0;box-shadow:none}}
+§ .pv1::before{{display:none;animation:none}}
+§ .pv1 b,§ .pv1 span{{color:{BINK}}}
+§ .pv1 i{{color:{BINK};opacity:.85}}
+§ .dk.gold.lead{{background:{_tk(vperf(f"{LW-2}px", GP), BG2, f"right 0 top 0/{LW}px 100%", BG)};box-shadow:none}}
+§ .dk.gold.lead::before,§ .dk.gold.lead::after{{color:{BINK}}}
+§ .dk.gold.lead::after{{opacity:.8}}
+§ .dk.gold.lead h3,§ .dk.gold.lead .love,§ .dk.gold.lead .dk-meta,§ .dk.gold.lead .dk-meta .kind,§ .dk.gold.lead .dk-meta .src{{color:{BINK}}}
+§ .dk.gold.lead .dk-meta .time{{background:transparent;color:{BINK};box-shadow:inset 0 0 0 1px rgba(20,18,22,.3)}}
+§ .grp[data-grp=nuggets] .grp-n *{{color:{BINK}}}
+§ .dk.gold.lead .grab{{background:{BCR2}!important;color:{BINK}}}
+§ .dk.gold.lead .grab:hover{{background:#fff!important;color:{BINK}}}
+§ .dk.gold:not(.lead) .grab,§ .dk.gold:not(.lead) details[open]>.grab{{background:{BG2}!important;color:{BINK};box-shadow:none}}
+§ .dk.gold:not(.lead) .grab:hover{{background:{BG}!important;color:{BINK}}}
+§ .dk.gold:not(.lead)::before{{background:{BG}}}
+§ .grp[data-grp=nuggets]{{background:{_tk(tperf(f"{GH-2}px", GP), BG2, f"left 0 top 0/100% {GH}px", BG)};color:{BINK}}}
+§ .grp[data-grp=nuggets]::before,§ .grp[data-grp=nuggets] h2,§ .grp[data-grp=nuggets] .grp-disc{{color:{BINK}}}
+§ .grp[data-grp=nuggets] .grp-n{{background:transparent;color:{BINK};box-shadow:inset 0 0 0 1px rgba(20,18,22,.35)}}
+/* FO numbers and stat labels underline in white, not a pillar colour */
+§ .dk.lead::before,§ .grp::before{{text-decoration-color:rgba(255,255,255,.7)}}
+§ .grp[data-grp=nuggets]::before{{text-decoration-color:rgba(20,18,22,.5)}}
+§ .filters::before{{background:{BPK}}}
+§ .filters{{border-color:{BPL}}}
+§ .endnote p,§ .endnote a,§ .endnote .sign{{color:#fff}}
+§ .endnote a{{text-decoration-color:#fff}}
+@media(max-width:1100px){{
+ § .grp[data-grp=nuggets]{{background:{_tk(lperf("94px", GP), BG2, "left 0 top 0/96px 100%", BG)}}}
+}}
+@media(max-width:860px){{
+ § .dk.gold.lead{{background:{_tk(hperf("62px", GP), BG2, "left 0 bottom 0/100% 64px", BG)}}}
+}}
+@media(max-width:640px){{
+ § .sig{{background:linear-gradient({BCR2},{BCR2}) left 0 top 0/54px 100% no-repeat,{BP}}}
+ § .deskline span:not(.ck){{background:{_tk(lperf("28px", WP), BPS, "left 0 top 0/30px 100%", BP)}}}
+ § .deskline .ck{{background:{_tk(lperf("28px", CPF), BTR, "left 0 top 0/30px 100%", BCR2)}}}
+ § .pv1{{background:{_tk(vperf(f"{PWm-2}px", GP), BG2, f"right 0 top 0/{PWm}px 100%", BG)}}}
+ § .grp[data-grp=nuggets]{{background:{BG};box-shadow:0 0 0 100vmax {BG}}}
+}}
+'''
+pal3h = pal_css(BP, BPS, [BP] * 4, BCR2, BTR, BTR, 'transparent', BP, BPS, grid=(BP, BPS))
+css3h = (O3B + O3C + pal3h + O3G + O3H).replace('.dk.lead', '.dk.lead:not(.gold)')
+full3h = (BASE + css3h).replace('§', 'html.dir-c.o3h .desk').replace('html.dir-c.ox', 'html.dir-c.o3h').replace('CP', CP)
+# brand type: DM Sans for display, DM Serif Display for the italic; sizes unchanged
+full3h = full3h.replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui,sans-serif")
+C3H = D.C_CSS.replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui,sans-serif").replace("--isr:'Instrument Serif',Georgia,serif", "--isr:'DM Serif Display',Georgia,serif")
+B3H = B3G
+page('ffd-c-opt-3h.html', T, B3H, desc=DESC, src='freebies', tail=D.TAIL_C + D.SHARED_JS + FILL_JS,
+     headx=D.head('dir-c', 'family=DM+Serif+Display:ital@0;1', C3H + full3h, 'window.FO_LIMIT=6;document.documentElement.classList.add("o3h");'))
+_p = f'{ROOT}/ffd-c-opt-3h.html'; _s = open(_p, encoding='utf-8').read()
+open(_p, 'w', encoding='utf-8').write(_s.replace(CHEV, MARK).replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui,sans-serif"))
+
 # ---------------------------------------------------------------- gallery
-GAL = [('3g', 'Palette A, refined', 'One deep partner, refined', 'Palette A taken further: a lifted aubergine that never reads as black, the full First Officer mark wherever a chevron appears, a cheat sheet that leads with why an owner cares, and shelves that close up with no holes.')] + [(n, k, name, pitch) for n, k, name, pitch, _ in PALS] + [('3c', 'Option 3, matured v2', 'Pillar blocks, matured v2', 'Solid pillar-colour blocks again, each cut as a tear-off ticket: notched perforation, a deeper stub with the flight-number tag and Grab it, white type on green, orange, violet and blue.'),
+GAL = [('3h', 'Brand palette', 'Cream desk, First Officer pink tickets', 'Matured to the brand: the cream canvas, ink type and pink second line of the approved pages, every solid block in First Officer pink with a deeper pink tear-off stub, a flat brand-gold Golden Nugget Pack, and the full mark on cream ticket stock only. No purple.'), ('3g', 'Palette A, refined', 'One deep partner, refined', 'Palette A taken further: a lifted aubergine that never reads as black, the full First Officer mark wherever a chevron appears, a cheat sheet that leads with why an owner cares, and shelves that close up with no holes.')] + [(n, k, name, pitch) for n, k, name, pitch, _ in PALS] + [('3c', 'Option 3, matured v2', 'Pillar blocks, matured v2', 'Solid pillar-colour blocks again, each cut as a tear-off ticket: notched perforation, a deeper stub with the flight-number tag and Grab it, white type on green, orange, violet and blue.'),
        ('3b', 'Option 3, matured', 'Pillar blocks, matured', 'The pillar colours move into tear-off stubs: notched boarding-pass cards with a dashed perforation, a flight-number tag and the Grab it action on a green, orange, violet or blue stub.')] + \
       [(n, f'Option {n}', name, pitch) for n, name, pitch, _ in OPTS]
 cards = ''.join(f'''<article class="o"><a class="sh" href="ffd-c-opt-{n}.html"><img class="dt" src="img/ffd-opts/opt-{n}-1440.jpg" alt="{k} on desktop" loading="lazy"><img class="ph" src="img/ffd-opts/opt-{n}-390.jpg" alt="{k} on a phone" loading="lazy"></a>
