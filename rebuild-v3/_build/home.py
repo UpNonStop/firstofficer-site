@@ -183,7 +183,7 @@ explore=f'''<section class="sec" id="explore">{ph(['d-santorini','bg-05','d-pari
 {head('If you want to check us','Everything else is <em>optional reading.</em>')}
 <div class="g2 rows" style="gap:10px">
 {xrow('Calculator','What is my number?','Your industry, your categories, your range, with the math shown.','Run it →','var(--earn)','calculator.html')}
-{xrow('Product','Inside the machine','Coverage across 96 programs, what is shipped, and what we have not built yet.','Look inside →','var(--s-analyst)','product.html')}
+{xrow('Product','Inside the machine','Coverage across 50+ programs, what is shipped, and what we have not built yet.','Look inside →','var(--s-analyst)','product.html')}
 {xrow('Trust','What do you see?','Read-only, revocable, nothing sold, and how you switch it off.','Read the terms →','var(--learn)','trust.html')}
 {xrow('Field Notes','Why does this exist?','8 notes on how the rewards game actually works.','Start reading →','var(--burn)','field-notes.html')}
 
@@ -195,4 +195,4 @@ explore=f'''<section class="sec" id="explore">{ph(['d-santorini','bg-05','d-pari
 
 body=hero+stat+yn+portal+fomo+deck+receipts+cashback+pillars+friday+explore
 tail='<script>window.FO_CHAT='+json.dumps(CHAT)+';window.FO_FEAT='+json.dumps(FEAT)+';</script>'
-page('home.html','First Officer · You are not bad at Points & Miles', body, desc='A desk of specialists across 96 programs, working for your business spend.', hero=True, src='home', tail=tail)
+page('home.html','First Officer · You are not bad at Points & Miles', body, desc='A desk of specialists across 50+ programs, working for your business spend.', hero=True, src='home', tail=tail)
