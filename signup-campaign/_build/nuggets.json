@@ -1,0 +1,299 @@
+[
+{
+"id": "nug-cards",
+"kind": "Golden Nugget pack",
+"time": "2 min",
+"h": "Every business: 11 card nuggets",
+"love": "What suppliers can charge you, how they get coded, and the settlement that could change who takes your business card.",
+"first": "The code is the store's biggest line, not your purchase.",
+"n": 11
+},
+{
+"id": "nug-tax",
+"kind": "Golden Nugget pack",
+"time": "2 min",
+"h": "Every business: 11 tax nuggets",
+"love": "The 2026 numbers that moved, like 1099s, mileage and equipment. Plus the gift and meal rules that didn't.",
+"first": "The 1099 line moved from $600 to $2,000.",
+"n": 11
+},
+{
+"id": "nug-marketing",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Every business: 6 marketing codes",
+"love": "Ads, design, photos, video, print and stock media. One budget, six different codes.",
+"first": "Ad buys have their own code.",
+"n": 6
+},
+{
+"id": "nug-software",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Every business: 7 software and phone nuggets",
+"love": "The same license can code four ways depending on who sells it. Here's the map.",
+"first": "The same license, different codes.",
+"n": 7
+},
+{
+"id": "nug-shipping",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Shipping and mail: 4 nuggets",
+"love": "Labels, freight, storage and duties. Four ways a box gets coded.",
+"first": "Labels vs freight.",
+"n": 4
+},
+{
+"id": "nug-fleet",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Fleet, fuel and equipment: 8 nuggets",
+"love": "Pump or counter, bulk or propane, gas or volts. How a fleet's fuel really codes, and the credit most owners miss.",
+"first": "Pay at the pump or inside: two codes.",
+"n": 8
+},
+{
+"id": "nug-clinics",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Clinics: 7 nuggets",
+"love": "Supplies, drugs, labs and DEA paperwork. The same rules run through every exam room.",
+"first": "Supplies vs drugs.",
+"n": 7
+},
+{
+"id": "nug-tipped",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Tipped teams: 6 nuggets",
+"love": "Tips just became a tax story. Here's what changed for the floor and the chair.",
+"first": "The FICA tip credit now covers the chair, too.",
+"n": 6
+},
+{
+"id": "nug-chem",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Chemical shops: 4 nuggets",
+"love": "If it has a warning label, OSHA has a paperwork rule. Four you can act on this week.",
+"first": "Your supplier owes you the SDS.",
+"n": 4
+},
+{
+"id": "nug-refrigerant",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "The refrigerant counter: 4 nuggets",
+"love": "Who can buy it, what counts as reclaimed, and the cylinder rule coming in 2028.",
+"first": "Refrigerant is sold to certified buyers.",
+"n": 4
+},
+{
+"id": "nug-property",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Property money: 4 nuggets",
+"love": "Rent, deposits, dues, taxes and utilities. Where property money lands on a card.",
+"first": "Rent and HOA dues run on 6513.",
+"n": 4
+},
+{
+"id": "nug-pro",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Professional firms: 2 nuggets",
+"love": "Specified service businesses play by a different QBI rule. Two numbers to know.",
+"first": "The QBI deduction fades for professional firms.",
+"n": 2
+},
+{
+"id": "nug-b2b",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Selling to businesses: 2 nuggets",
+"love": "When your customers pay with business cards, the data you send changes what you pay.",
+"first": "Line-item data can cut your card cost.",
+"n": 2
+},
+{
+"id": "nug-agencies",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Agencies: 4 Golden Nuggets",
+"love": "Media, creative and client money. What only an agency's statement shows.",
+"first": "Your clients see you as 7311.",
+"n": 4
+},
+{
+"id": "nug-auto-repair",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Auto repair: 8 Golden Nuggets",
+"love": "The parts counter, the tire guy and the A/C machine all come with rules nobody explains. Until now.",
+"first": "The jobber and the parts store are different codes.",
+"n": 8
+},
+{
+"id": "nug-cleaning",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Cleaning: 6 Golden Nuggets",
+"love": "Same jug of chemical, three different codes. The supply closet, decoded.",
+"first": "Same jug, three codes.",
+"n": 6
+},
+{
+"id": "nug-consulting",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Consulting: 3 Golden Nuggets",
+"love": "The billable life, decoded: your own code, client expenses and the receipts that tie out.",
+"first": "Your own terminal is 7392.",
+"n": 3
+},
+{
+"id": "nug-contractors",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Contractors: 6 Golden Nuggets",
+"love": "The stuff I see on contractor statements that nobody mentions, like the 2x4 that codes three ways.",
+"first": "The same 2x4 can code three ways.",
+"n": 6
+},
+{
+"id": "nug-cpa-firms",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "CPA firms: 7 Golden Nuggets",
+"love": "What your clients will ask about cards and taxes in 2026, answered before they ask.",
+"first": "Tax deposits can't go on a card.",
+"n": 7
+},
+{
+"id": "nug-dental",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Dental: 7 Golden Nuggets",
+"love": "Your terminal code and an EPA deadline most offices haven't marked yet.",
+"first": "Your patients see you as 8021.",
+"n": 7
+},
+{
+"id": "nug-ecommerce",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "E-commerce: 4 Golden Nuggets",
+"love": "How you sell decides how you're coded. Four rules every online store should know.",
+"first": "Direct-marketing codes describe how you sell.",
+"n": 4
+},
+{
+"id": "nug-fitness",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Fitness: 9 Golden Nuggets",
+"love": "Your playlist needs a license, your memberships have a code, and Spotify isn't the answer.",
+"first": "Memberships code as 7997.",
+"n": 9
+},
+{
+"id": "nug-hvac",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "HVAC: 7 Golden Nuggets",
+"love": "Refrigerant rules, parts-house codes and the 2026 EPA changes. Written for the shop, not the textbook.",
+"first": "Your parts house and your electrical supplier code differently.",
+"n": 7
+},
+{
+"id": "nug-it-services",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "IT services: 4 Golden Nuggets",
+"love": "Your own code, your clients' view and the repair bench. The MSP's corner of the manual.",
+"first": "Your clients see you as 7379 or 7372.",
+"n": 4
+},
+{
+"id": "nug-landscaping",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Landscaping: 6 Golden Nuggets",
+"love": "The nursery, the license and the spring rush. One of them pays you back.",
+"first": "Nursery vs home center.",
+"n": 6
+},
+{
+"id": "nug-law-firms",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Law firms: 7 Golden Nuggets",
+"love": "Trust accounts, court fees and the 1099s your firm will get. The money side nobody teaches.",
+"first": "Card fees never come out of trust.",
+"n": 7
+},
+{
+"id": "nug-medical",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Medical: 3 Golden Nuggets",
+"love": "Specialty codes, the exposure plan and the extras you might sell at the front desk.",
+"first": "Specialists have their own codes.",
+"n": 3
+},
+{
+"id": "nug-property-management",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Property management: 5 Golden Nuggets",
+"love": "Turnovers, owners and the 1099s you owe them. The manager's side of the ledger.",
+"first": "Pest control is 7342.",
+"n": 5
+},
+{
+"id": "nug-real-estate",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Real estate: 5 Golden Nuggets",
+"love": "Staging, gifts and referral partners. RESPA has opinions, and so does Visa.",
+"first": "Staging furniture is a rental.",
+"n": 5
+},
+{
+"id": "nug-restaurants",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Restaurants: 6 Golden Nuggets",
+"love": "Suppliers, staff meals and the code your counter runs on. What moved in 2026.",
+"first": "Warehouse club vs grocery.",
+"n": 6
+},
+{
+"id": "nug-salons",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Salons: 4 Golden Nuggets",
+"love": "The spa code rule, and why hair and makeup can be spa.",
+"first": "Your spa can change your code.",
+"n": 4
+},
+{
+"id": "nug-trucking",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Trucking: 6 Golden Nuggets",
+"love": "Fuel receipts, the heavy-use tax and the 80% meal rule. The money side of the road.",
+"first": "IFTA wants the unit number on the receipt.",
+"n": 6
+},
+{
+"id": "nug-veterinary",
+"kind": "Golden Nugget pack",
+"time": "1 min",
+"h": "Veterinary: 2 Golden Nuggets",
+"love": "Your code covers more animals than you'd think. Here's the clinic view.",
+"first": "Your clients see you as 0742.",
+"n": 2
+}
+]
