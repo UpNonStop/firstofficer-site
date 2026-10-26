@@ -21,8 +21,8 @@ function countTo(el,to,ms,delay){if(!el)return;var d=+(el.dataset.dec||0),pre=el
 window.FOcount=countTo;
 $$('[data-count]').forEach(function(el){var host=el.closest('[data-io]')||el;if(host===el)io.observe(el);host.addEventListener('inview',function(){countTo(el,+el.dataset.count,1600,+(el.dataset.delay||0))})});
 
-/* confetti: gold, cream and pink, canvas, short */
-var PAL=[['#E8C547',5],['#F5B700',4],['#D9AE2B',3],['#F3DC8A',3],['#FBF4E6',3],['#FFF8E1',2],['#FA1896',2],['#FBD3EA',3]];
+/* confetti: pink and cream, canvas, short */
+var PAL=[['#FA1896',6],['#E60F86',4],['#FBD3EA',5],['#FBF4E6',3],['#FFF8E1',2]];
 var BAG=[];PAL.forEach(function(p){for(var i=0;i<p[1];i++)BAG.push(p[0])});var CREAM={'#FBF4E6':1,'#FFF8E1':1};
 function confetti(host,o){if(RM||!host)return;o=Object.assign({x:.5,y:.36,count:70,spread:70,speed:10,rain:28},o||{});
   var c=document.createElement('canvas');c.className='fx';host.appendChild(c);var W=host.clientWidth,H=host.clientHeight,d=Math.min(devicePixelRatio||1,2);

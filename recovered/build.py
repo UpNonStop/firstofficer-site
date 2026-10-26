@@ -23,8 +23,9 @@ def head(title,desc):
 
 def nav(on):
     L=[('Product','product-recovered.html'),('Pricing','pricing.html'),('Freebies','freebies.html'),('Calculator','calculator.html'),('About','about.html')]
-    links=''.join(f'<a href="{h}" class="{"brush " if n=="Freebies" else ""}{"on" if n==on else ""}">{n}</a>' for n,h in L)
-    sheet=''.join(f'<a href="{h}"><span class="t{" brush in" if n=="Freebies" else ""}">{n}</span><small>0{i+1}</small></a>' for i,(n,h) in enumerate(L))
+    FZ='<svg class="fzmk" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 15.5C18 13.2 31 14.6 46 12.9S77 12.2 96 10.6"/><path class="b" pathLength="1" d="M6 11.4C24 10.8 40 12.1 58 10.4S84 9.6 93 8.9"/></svg>'
+    links=''.join((f'<a class="fz" href="{h}"><span>{FZ}{n}</span></a>' if n=="Freebies" else f'<a href="{h}" class="{"on" if n==on else ""}">{n}</a>') for n,h in L)
+    sheet=''.join(f'<a href="{h}"{' class="fz"' if n=="Freebies" else ""}><span class="t">{FZ+n if n=="Freebies" else n}</span><small>0{i+1}</small></a>' for i,(n,h) in enumerate(L))
     return f'''<header class="nav"><div class="nin">
 <a class="brand" href="home-recovered.html" aria-label="First Officer home"><img src="img/fo-chevron-alpha.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a>
 <nav class="links" aria-label="Main">{links}</nav>
@@ -142,7 +143,7 @@ def home():
 
 <section class="sec arc" id="story"><div class="wrap">
 <div class="arc-head">
-<div class="reveal"><span class="kick">One owner. Five beats.</span><h2 class="h2">Meet Leo.<br>He runs <span class="brush">Linden Row</span>.</h2></div>
+<div class="reveal"><span class="kick">One owner. Five beats.</span><h2 class="h2">Meet Leo.<br>He runs <span class="brush">Linden Row.</span></h2></div>
 <div class="who reveal d2"><div class="av">LR</div><div><b>Leo, owner</b><small>Linden Row Insurance · fictional example</small></div></div>
 </div>
 <nav class="mrail" aria-label="Story beats"><a href="#b1" class="on"><b>01</b>Problem</a><a href="#b2"><b>02</b>Pain</a><a href="#b3"><b>03</b>Solution</a><a href="#b4"><b>04</b>Win</a><a href="#b5"><b>05</b>Why you</a></nav>
@@ -184,7 +185,7 @@ def home():
 </article>
 
 <article class="beat" id="b4" style="display:block">
-<div class="whead reveal"><div><div class="bn"><i>04</i>The win</div><h3 class="h3">The money shows up. <span class="brush gold">The app cheers.</span></h3></div>
+<div class="whead reveal"><div><div class="bn"><i>04</i>The win</div><h3 class="h3">The money shows up. <span class="brush">The app cheers.</span></h3></div>
 <div><p class="short">Earn goes from 1.2x to 3.4x.</p><p>$6,720 a year is confirmed against his statements. Tokyo in business for two is 32% there, on pace for March 2027. All est.</p></div></div>
 <div class="win3">
 <div class="wcards">'''+scorecard()+'''</div>
@@ -221,7 +222,7 @@ def product():
 </div></section>
 
 <section class="sec" style="padding-top:60px" id="how"><div class="how onink"><div class="wrap">
-<div class="reveal"><span class="kick">How it works</span><h2 class="h2">Ask once. <span class="brush">The whole desk</span> works it.</h2>
+<div class="reveal"><span class="kick">How it works</span><h2 class="h2">Ask once. The whole desk works it.</h2>
 <p class="lede">You talk to First Officer. The right specialists pick it up, check it against your spend and the latest rules, and hand back one clear answer.</p></div>
 <div class="howg">
 <ol class="steps reveal">
@@ -243,16 +244,13 @@ def product():
 <p class="lede">Earn, Burn and Return belong to the company. Learn belongs to the person. Here is Leo's desk at Linden Row Insurance. Example data.</p></div>
 <div class="tour">
 <div class="reveal"><div class="phone"><div class="scr stack">
-<img src="img/rec/app/home-am.webp" data-greet="img/rec/app/home-{p}.webp" alt="Desk home screen">
-<img src="img/rec/app/earn.webp" alt="Earn screen" style="opacity:0">
+<img src="img/rec/app/earn.webp" alt="Earn screen">
 <img src="img/rec/app/burn.webp" alt="Burn screen" style="opacity:0">
 <img src="img/rec/app/return.webp" alt="Return screen" style="opacity:0">
 <img src="img/rec/app/learn.webp" alt="Learn screen" style="opacity:0">
 </div></div></div>
 <div class="tside reveal d1">
-<div class="ttabs" role="tablist"><button>Desk</button><button>Earn</button><button>Burn</button><button>Return</button><button>Learn</button></div>
-<div class="tpane"><span class="kick">The desk</span><h3 class="h3">Good morning, Leo. Here is your day.</h3><p>All four pillars in one view. The greeting follows your time of day. Ask First Officer anything, in one conversation.</p>
-<div class="facts"><div><b>4</b><span>pillars, one view</span></div><div><b>1</b><span>conversation, every pillar</span></div><div><b>50+</b><span>programs watched nightly</span></div></div></div>
+<div class="ttabs" role="tablist"><button>Earn</button><button>Burn</button><button>Return</button><button>Learn</button></div>
 <div class="tpane"><span class="kick">Pillar 01 · Earn</span><h3 class="h3">Linden Row's Earn.</h3><p>Which card for which spend. Each move shows what it is worth a year, and waits for your OK.</p>
 <div class="facts"><div><b data-to="15120" data-pre="$">$15,120</b><span>found per year, est.</span></div><div><b>3.4x</b><span>per $1, was 1.2x</span></div><div><b>1</b><span>move waiting for your OK</span></div></div></div>
 <div class="tpane"><span class="kick">Pillar 02 · Burn</span><h3 class="h3">Linden Row's Burn.</h3><p>Turn points into trips. A goal, a pace, and a plan. The desk vets the requirements and books after you approve.</p>
