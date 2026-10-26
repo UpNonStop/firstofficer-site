@@ -32,7 +32,7 @@ em,i{font-style:normal}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
 .brand img{width:32px;height:43px;flex:none;display:block;object-fit:contain;margin:-2px -2px -3px -2px}
 .brand b{display:block;font:800 18px/1.1 "Inter",system-ui,sans-serif;letter-spacing:-.01em;color:#4A4550;white-space:nowrap}
-.brand small{display:block;margin-top:4px;font:500 10.5px/1.2 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;color:#6B6672;white-space:nowrap}
+.brand small{display:block;margin-top:4px;font:500 12.5px/1.2 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.04em;color:#6B6672;white-space:nowrap}
 .links{display:flex;gap:30px;margin:0 auto;align-items:center}
 .links a{text-decoration:none;font-weight:600;font-size:14.5px;color:var(--ink);position:relative;padding:6px 0;display:block;line-height:1.2;transition:color .2s}
 .links a:not(.fz)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--pink);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
@@ -216,7 +216,7 @@ em,i{font-style:normal}
 .cs .lk{display:flex;align-items:center;gap:1.03em}
 .cs .lk img{width:3.3em;height:4.43em;flex:none;object-fit:contain;margin:-.2em -.2em -.31em -.2em;position:static}
 .cs .lk b{display:block;font:800 1.855em/1.1 "Inter",system-ui,sans-serif;letter-spacing:-.01em;color:#4A4550;white-space:nowrap}
-.cs .lk small{display:block;margin-top:.41em;font:500 1.082em/1.2 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;color:#6B6672;white-space:nowrap}
+.cs .lk small{display:block;margin-top:.41em;font:500 1.288em/1.2 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.04em;color:#6B6672;white-space:nowrap}
 .cs .ex{font-family:var(--mono);font-size:.85em;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);background:rgba(20,18,22,.05);padding:.4em .8em;border-radius:99em}
 .cs .bd{margin:3em auto 0;display:inline-flex;align-self:center;align-items:center;gap:.5em;height:2.8em;padding:0 1.2em;border-radius:99em;background:var(--softbg);color:var(--body);font-weight:700;font-size:1.3em;transform:scale(.6);opacity:0;transition:transform .6s cubic-bezier(.34,1.56,.64,1) .2s,opacity .3s .2s}
 .cs.on .bd{transform:none;opacity:1}
