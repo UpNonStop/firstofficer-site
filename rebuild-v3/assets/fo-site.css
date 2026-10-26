@@ -558,6 +558,5 @@ p,.lede,.sub,.cap,.method,.tip p,li{text-wrap:pretty}
 .nsub{display:flex;max-width:1180px;margin:0 auto;padding:0 var(--gutter) 9px}
 .nsub a.fz{font-size:14px;line-height:1;text-decoration:none}
 @media(min-width:1000px){.nsub{display:none}}
-@media(max-width:999px){.sheet{top:var(--navh,84px);max-height:calc(100vh - var(--navh,84px))}}
 @media(max-width:380px){.ncta .btn-sm.wa{display:none}}
 @media(prefers-reduced-motion:reduce){.fzmk path{animation:none;stroke-dashoffset:0}}
