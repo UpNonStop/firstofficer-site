@@ -52,16 +52,16 @@ const G={};
 let OWN=[];
 function layout(){
  if(!MOB){
-  fitH1(H1,780);const hb=74+H1.offsetHeight;
+  KICK.style.top='30px';H1.style.top='62px';H1.style.fontSize='80px';fitH1(H1,1172);const hb=62+H1.offsetHeight;
   SUB.style.top=px(hb+18);const sb=hb+18+SUB.offsetHeight;
   CTAS.style.top=px(sb+24);const cb=sb+24+CTAS.offsetHeight;
   DESKH.style.top=px(cb+20);const db=cb+20+DESKH.offsetHeight;
   OWN=[[TX,db+14,466]];
-  Object.assign(G,{FS:72,PH:[972,22,.78],CARD:[632,hb+22,326],X0:120,X1:1320,ROW:98});
-  G.FO=[795,0];G.Y0=0;G.Y1=0;SH.H=G.Y1+112;fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));MICRO.style.top=px(G.Y1+18);TMK.style.top=px(G.Y1+18+MICRO.offsetHeight+4);
+  Object.assign(G,{FS:72,PH:[1320-417*.62,hb+26,.62],CARD:[664,hb+26,326],X0:120,X1:1320,ROW:98});
+  G.FO=[680,0];G.Y0=0;G.Y1=0;SH.H=G.Y1+112;fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));MICRO.style.top=px(G.Y1+60);TMK.style.top=px(G.Y1+60+MICRO.offsetHeight+4);
  }else{
-  fitH1(H1,354);const hb=64+H1.offsetHeight;
-  SUB.style.top=px(hb+14);const sb=hb+14+SUB.offsetHeight;DESKH.style.display='none';
+  KICK.style.top='12px';H1.style.top='42px';H1.style.fontSize='44px';H1.style.whiteSpace='normal';H1.style.width='354px';H1.innerHTML=H1.innerHTML.replace('not bad at','not bad<br>at');const hb=42+H1.offsetHeight;
+  SUB.style.top=px(hb+12);const s0=hb+12+SUB.offsetHeight;CTAS.style.top=px(s0+14);const sb=s0+14+CTAS.offsetHeight;DESKH.style.display='none';
   Object.assign(G,{B1:sb+40,CARD:[16,0,358],FS:48,PH:[(390-417*.72)/2,0,.72],PHH:876*.72,FO:[195,0]});
  }
 }
@@ -94,8 +94,8 @@ const WK='<span class="wk"><i></i><i></i><i></i></span>';
 function buildFloor(p){floor.innerHTML='';web.innerHTML='';pul.innerHTML='';AG={};POS={};LOCK={};SPOT=new Set();
  REL=p.rel.map(r=>r[0]);REL.forEach(n=>LOCK[n]=1);const acc=C.acc[p.tab][0];let W='';
  if(!MOB){
-  const {X0,X1,Y0,ROW}=G,NC=13,cw=(X1-X0)/NC,rows=[0,1,2,3].map(r=>Y0+34+r*ROW);G.cw=cw;
-  const groups=[['Banks',[1,2,3,4,5,6,7,8],0,2],['Hotels',[9,10,11,12,13,14,15,16],2,2],['US airlines',[17,18,19,20,21,22,23,24],4,2],['Partner airlines',Array.from({length:26},(_,i)=>i+25),6,7]];
+  const {X0,X1,Y0,ROW}=G,NC=15,cw=(X1-X0)/NC,rows=[0,1,2,3].map(r=>Y0+34+r*ROW);G.cw=cw;
+  const groups=[['Banks',[1,2,3,4,5,6,7,8],0,2],['Hotels',[9,10,11,12,13,14,15,16],2,2],['US airlines',[17,18,19,20,21,22,23,24],4,2],['Partner airlines',Array.from({length:26},(_,i)=>i+25),8,7]];
   groups.forEach(([name,ids,c0,nc])=>{const x0=X0+c0*cw+4,x1=X0+(c0+nc)*cw-4;
    floor.insertAdjacentHTML('beforeend',`<div class="pod" style="left:${x0}px;top:${Y0}px;width:${x1-x0}px;height:${G.Y1-Y0}px"><div class="podh"><span class="lv"></span>${name}<i>${ids.length} working</i></div>${nc>=4?'<div class="feed"></div>':''}</div>`);
    const slots=[];for(let r=0;r<4;r++)for(let c=0;c<nc;c++)slots.push([X0+(c0+c+.5)*cw,rows[r]]);
@@ -288,15 +288,16 @@ const ALIN={'Amex':['Membership Rewards'],'Citi':['ThankYou'],'Chase':['Ultimate
 function tgt(b){if('to' in b)return b.to;const t=b.t||'';let best=null,bi=1e9;REL.filter(n=>n!==b.w).forEach(n=>{const nm=NAME[n],fw=nm.split(' ')[0];const keys=[nm].concat(fw.length>=4&&!['Virgin','United','Air'].includes(fw)?[fw]:[],ALIN[nm]||[]);keys.forEach(k=>{const i=t.indexOf(k);if(i>=0&&i<bi){bi=i;best=n}})});return best}
 const PRON={Ines:'Her',Lucia:'Her',Imani:'Her',Yuki:'Her',Teresa:'Her',Leila:'Her',Anjali:'Her',Marisol:'Her',Joanne:'Her'};
 function beats(p){BT[0].innerHTML=`<i>1</i>Meet ${p.name}`;BT[1].innerHTML=`<i>2</i>${PRON[p.name]||'His'} desk`;BT[2].innerHTML=`<i>3</i>What ${p.name} sees<em>in the app</em>`}
+function bandSet(){let b=stage.querySelector('.dband');if(!b){b=document.createElement('div');b.className='dband';stage.insertBefore(b,stage.firstChild)}Object.assign(b.style,{left:px(G.X0-36),top:px(G.BT),width:px(G.X1-G.X0+72),height:px(G.Y1-G.BT+34)});Object.assign(DESKH.style,{top:px(G.BT+34),left:px(G.X0),width:px(G.X1-G.X0),justifyContent:'center'})}
 function placeDesk(){if(MOB){const keepY=ph&&G.PH[1]&&scrollY>200?ph.getBoundingClientRect().top:null;G.cardMax=measureCards(CUR?[CUR]:PS);if(CUR)beats(CUR);let y=G.B1;
   BT[0].style.top=px(y);y+=BT[0].offsetHeight+16;G.CARD[1]=y;card.style.top=px(y);y+=G.cardMax+44;
   BT[1].style.top=px(y);y+=BT[1].offsetHeight;G.CY=y+256;FOel.style.top=px(G.CY-G.FS/2);FOel.style.left=px(195-G.FS/2);FOel.style.width=FOel.style.height=px(G.FS);
   FOL.style.top=px(G.CY+42);y=G.CY+246+108;
   FEED.style.top=px(G.CY+285);y+=FEED.offsetHeight+44;
   BT[2].style.top=px(y);y+=BT[2].offsetHeight+18;G.PH[1]=y;ph.style.top=px(y);ph.style.left=px(G.PH[0]);y+=G.PHH+34;
-  CTAS.style.top=px(y);y+=CTAS.offsetHeight+20;MICRO.style.top=px(y);y+=MICRO.offsetHeight+8;TMK.style.top=px(y);y+=TMK.offsetHeight+30;
+  MICRO.style.top=px(y);y+=MICRO.offsetHeight+8;TMK.style.top=px(y);y+=TMK.offsetHeight+30;
   y+=84; // bottom clearance so the live sticky bar (67px) never sits on hero content (approved Oct 21)
-  SH.H=y;fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));if(keepY!=null){const d=ph.getBoundingClientRect().top-keepY;if(Math.abs(d)>1)scrollBy(0,d)}return}const cb=G.CARD[1]+measureCards();G.FO[1]=Math.max(cb+40+G.FS/2+14,680);G.Y0=G.FO[1]+G.FS/2+70;G.Y1=G.Y0+34+3*G.ROW+112;SH.H=G.Y1+112;fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));MICRO.style.top=px(G.Y1+18);TMK.style.top=px(G.Y1+18+MICRO.offsetHeight+4);
+  SH.H=y;fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));if(keepY!=null){const d=ph.getBoundingClientRect().top-keepY;if(Math.abs(d)>1)scrollBy(0,d)}return}const cb=G.CARD[1]+measureCards();const pb=G.PH[1]+876*G.PH[2],eb=CTAS.offsetTop+CTAS.offsetHeight;G.BT=Math.max(cb,pb,eb)+72;G.Y0=G.BT+104;G.Y1=G.Y0+34+3*G.ROW+112;G.FO[1]=G.Y0+34+1.5*G.ROW+6;SH.H=G.Y1+156;bandSet();fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));MICRO.style.top=px(G.Y1+60);TMK.style.top=px(G.Y1+60+MICRO.offsetHeight+4);
  FOel.style.top=px(G.FO[1]-G.FS/2);FOL.style.top=px(G.FO[1]-G.FS/2-50)}
 function measureCards(list){let mx=0;const keep=CUR;(list||PS).forEach(p=>{CUR=p;buildCard(p);$$('.kn,.rw,.ppf6,.pill',card).forEach(r=>r.classList.add('on'));NX=false;setNext(p);pendProgress();pendAdd(p);$$('#pd i',card).forEach(i=>i.classList.remove('new'));mx=Math.max(mx,card.offsetHeight)});CUR=keep;card.innerHTML='';return mx}
 window.GO=function(){layout();buildFixed();placeDesk();watch();const i=Q.has('p')?PS.findIndex(x=>x.s===+Q.get('p')):pickP();load(i,FF||(STOP>=0?STOP:0));
@@ -345,15 +346,15 @@ const G={};
 let OWN=[];
 function layout(){
  if(!MOB){
-  fitH1(H1,780);const hb=74+H1.offsetHeight;
+  KICK.style.top='30px';H1.style.top='62px';H1.style.fontSize='80px';fitH1(H1,1172);const hb=62+H1.offsetHeight;
   SUB.style.top=px(hb+18);const sb=hb+18+SUB.offsetHeight;
   CTAS.style.top=px(sb+24);const cb=sb+24+CTAS.offsetHeight;
   DESKH.style.top=px(cb+20);const db=cb+20+DESKH.offsetHeight;
   OWN=[[TX,db+14,466]];
-  Object.assign(G,{FS:72,PH:[972,22,.78],CARD:[632,hb+22,326],X0:120,X1:1320,ROW:98});
-  G.FO=[795,0];G.Y0=0;G.Y1=0;SH.H=G.Y1+112;fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));MICRO.style.top=px(G.Y1+18);TMK.style.top=px(G.Y1+18+MICRO.offsetHeight+4);
+  Object.assign(G,{FS:72,PH:[1320-417*.62,hb+26,.62],CARD:[664,hb+26,326],X0:120,X1:1320,ROW:98});
+  G.FO=[680,0];G.Y0=0;G.Y1=0;SH.H=G.Y1+112;fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));MICRO.style.top=px(G.Y1+60);TMK.style.top=px(G.Y1+60+MICRO.offsetHeight+4);
  }else{
-  fitH1(H1,354);const hb=64+H1.offsetHeight;
+  KICK.style.top='12px';H1.style.top='42px';H1.style.fontSize='44px';H1.style.whiteSpace='normal';H1.style.width='354px';H1.innerHTML=H1.innerHTML.replace('not bad at','not bad<br>at');const hb=42+H1.offsetHeight;
   SUB.style.top=px(hb+14);const sb=hb+14+SUB.offsetHeight;
   DESKH.style.top=px(sb+22);const db=sb+22+DESKH.offsetHeight;
   const cardY=db+12;Object.assign(G,{CARD:[16,cardY,358],FS:40});
@@ -389,8 +390,8 @@ const WK='<span class="wk"><i></i><i></i><i></i></span>';
 function buildFloor(p){floor.innerHTML='';web.innerHTML='';pul.innerHTML='';AG={};POS={};LOCK={};SPOT=new Set();
  REL=p.rel.map(r=>r[0]);REL.forEach(n=>LOCK[n]=1);const acc=C.acc[p.tab][0];let W='';
  if(!MOB){
-  const {X0,X1,Y0,ROW}=G,NC=13,cw=(X1-X0)/NC,rows=[0,1,2,3].map(r=>Y0+34+r*ROW);G.cw=cw;
-  const groups=[['Banks',[1,2,3,4,5,6,7,8],0,2],['Hotels',[9,10,11,12,13,14,15,16],2,2],['US airlines',[17,18,19,20,21,22,23,24],4,2],['Partner airlines',Array.from({length:26},(_,i)=>i+25),6,7]];
+  const {X0,X1,Y0,ROW}=G,NC=15,cw=(X1-X0)/NC,rows=[0,1,2,3].map(r=>Y0+34+r*ROW);G.cw=cw;
+  const groups=[['Banks',[1,2,3,4,5,6,7,8],0,2],['Hotels',[9,10,11,12,13,14,15,16],2,2],['US airlines',[17,18,19,20,21,22,23,24],4,2],['Partner airlines',Array.from({length:26},(_,i)=>i+25),8,7]];
   groups.forEach(([name,ids,c0,nc])=>{const x0=X0+c0*cw+4,x1=X0+(c0+nc)*cw-4;
    floor.insertAdjacentHTML('beforeend',`<div class="pod" style="left:${x0}px;top:${Y0}px;width:${x1-x0}px;height:${G.Y1-Y0}px"><div class="podh"><span class="lv"></span>${name}<i>${ids.length} working</i></div>${nc>=4?'<div class="feed"></div>':''}</div>`);
    const slots=[];for(let r=0;r<4;r++)for(let c=0;c<nc;c++)slots.push([X0+(c0+c+.5)*cw,rows[r]]);
@@ -569,9 +570,10 @@ function load(i,ff){CUR=PS[i];localStorage.setItem('fo9_p',i);RUN++;
  const[bg,fg]=PAL[CUR.s%5];$('#pav').innerHTML=`<div class="pav6" style="width:32px;height:32px;background:${bg};color:${fg};font-size:12.5px">${CUR.ini||(CUR.name[0]+CUR.biz[0])}</div>`;
  ci.innerHTML='';ci.style.transform='none';lastW=null;rc=null;A2AQ=[];$$('.a2a').forEach(e=>e.remove());for(const k in SL)SL[k]=0;
  if(MOB)placeDesk();buildFloor(CUR);buildCard(CUR);planFill(CUR);preFill(CUR);cardIntro(CUR);mobChips();run(CUR,ff||0)}
+function bandSet(){let b=stage.querySelector('.dband');if(!b){b=document.createElement('div');b.className='dband';stage.insertBefore(b,stage.firstChild)}Object.assign(b.style,{left:px(G.X0-36),top:px(G.BT),width:px(G.X1-G.X0+72),height:px(G.Y1-G.BT+34)});Object.assign(DESKH.style,{top:px(G.BT+34),left:px(G.X0),width:px(G.X1-G.X0),justifyContent:'center'})}
 function placeDesk(){if(MOB){if(!CUR)return;const mx=measureCards([CUR]);G.cardH=mx;G.FO[1]=G.CARD[1]+mx+44;G.PH[1]=G.FO[1]+G.FS/2+26;G.STRIP=G.PH[1]+G.PHH+18;
   CTAS.style.top=px(G.STRIP+110);MICRO.style.top=px(G.STRIP+110+62);TMK.style.top=px(G.STRIP+110+62+MICRO.offsetHeight+6);SH.H=G.STRIP+110+62+MICRO.offsetHeight+6+TMK.offsetHeight+22;fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));
-  FOel.style.top=px(G.FO[1]-G.FS/2);FOL.style.top=px(G.FO[1]-19);ph.style.top=px(G.PH[1]);return}const cb=G.CARD[1]+measureCards();G.FO[1]=Math.max(cb+40+G.FS/2+14,680);G.Y0=G.FO[1]+G.FS/2+70;G.Y1=G.Y0+34+3*G.ROW+112;SH.H=G.Y1+112;fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));MICRO.style.top=px(G.Y1+18);TMK.style.top=px(G.Y1+18+MICRO.offsetHeight+4);
+  FOel.style.top=px(G.FO[1]-G.FS/2);FOL.style.top=px(G.FO[1]-19);ph.style.top=px(G.PH[1]);return}const cb=G.CARD[1]+measureCards();const pb=G.PH[1]+876*G.PH[2],eb=CTAS.offsetTop+CTAS.offsetHeight;G.BT=Math.max(cb,pb,eb)+72;G.Y0=G.BT+104;G.Y1=G.Y0+34+3*G.ROW+112;G.FO[1]=G.Y0+34+1.5*G.ROW+6;SH.H=G.Y1+156;bandSet();fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));MICRO.style.top=px(G.Y1+60);TMK.style.top=px(G.Y1+60+MICRO.offsetHeight+4);
  FOel.style.top=px(G.FO[1]-G.FS/2);FOL.style.top=px(G.FO[1]-G.FS/2-50)}
 function measureCards(list){let mx=0;const keep=CUR;(list||PS).forEach(p=>{CUR=p;buildCard(p);$$('.kn,.rw,.ppf6,.pill',card).forEach(r=>r.classList.add('on'));NX=false;setNext(p);pendProgress();pendAdd(p);$$('#pd i',card).forEach(i=>i.classList.remove('new'));mx=Math.max(mx,card.offsetHeight)});CUR=keep;card.innerHTML='';return mx}
 window.GO=function(){layout();buildFixed();placeDesk();const i=Q.has('p')?PS.findIndex(x=>x.s===+Q.get('p')):pickP();load(i,FF||(STOP>=0?STOP:0));

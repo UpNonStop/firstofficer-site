@@ -154,6 +154,12 @@ window.CFG.css+=`
 .fo img{padding:20% 20% 18%!important;filter:none!important}
 .fo.glow{box-shadow:0 0 0 2px #FA1896,0 0 26px rgba(250,24,150,.45)!important}
 .fo.glow img{filter:none!important}
-@media (min-width:760px){.fo,.fol:not(.b):not(.m){translate:0 6px}}
 .seg img{display:none!important}
+`;
+
+/* Oct 27 round 4: the desk is its own band below the hero fold; the hub sits in the clearing at the centre of the program pods */
+window.CFG.css+=`
+.dband{position:absolute;z-index:0;border-radius:32px;background:rgba(255,253,249,.82);box-shadow:0 30px 60px -40px rgba(20,18,22,.35),0 0 0 1px rgba(250,24,150,.08);backdrop-filter:blur(6px)}
+#hero.D h1{line-height:1.02}
+#hero.M h1{line-height:1.04}
 `;

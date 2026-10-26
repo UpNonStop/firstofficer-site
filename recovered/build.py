@@ -213,7 +213,7 @@ def product():
     h=head('First Officer | Product','One desk, four pillars: Earn, Burn, Return, Learn. See how First Officer works and what you see in the app.')
     h+='<body>\n'+nav('Product')+ticker()+'<main>\n'
     h+='''<section class="phead"><div class="wrap g">
-<div class="reveal"><span class="kick">Product</span><h1>One desk. <span class="brush">Four pillars.</span> Every move your call.</h1>
+<div class="reveal"><span class="kick">Product</span><h1>One desk. <span class="brush">Four pillars.</span> <span class="l3">Every move your call.</span></h1>
 <p class="lede">First Officer is one conversation. Behind it, specialists across 50+ programs, trained on new data nightly. Here is how the desk works, and what you see in the app.</p>
 <div class="pillchips"><span><b>01</b>Earn</span><span><b>02</b>Burn</span><span><b>03</b>Return</span><span><b>04</b>Learn</span></div>
 <div class="ctas"><a class="btn pk" href="book.html">Book the Found Money Call <span class="ar">→</span></a><a class="btn ghost" href="#tour">See the app</a></div></div>
