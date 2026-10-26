@@ -18,7 +18,6 @@ print('points', PTS_TODAY, PTS_DESK)
 
 # ---------------- mandatory fixes on the shared chrome (shared fosite.py untouched) ----------------
 fosite.TICK_FONT=HERO_FONTS                  # Claude look: DM Serif Display + DM Sans + JetBrains Mono
-fosite.TICK_HTML=''                          # Claude landing has no ticker
 fosite.DATANOTE=''
 _nav=fosite.nav
 def nav():
@@ -42,13 +41,12 @@ def step(n,t,small=''):
 
 # ---------------- hero (Claude copy verbatim; deskk pill: "trained on new data nightly" dropped, no AI) ----------------
 subs=[p.strip() for p in HERO_SUB.split('\n\n')]
-hero=f'''<section class="cl-hero"><div class="cl-w">
-<div class="cl-kick"><i></i>Earn · Burn · Return · Learn</div>
+HERO_TXT=f'''<div class="cl-kick"><i></i>Earn · Burn · Return · Learn</div>
 <h1>You are not bad at Points &amp; Miles.<br>You are just <span>outnumbered.</span></h1>
 <div class="cl-sub"><p>{subs[0]}</p><p>{subs[1]}</p></div>
 <p class="cl-tag">Same spend. More points.<br>Better trips, for fewer points.</p>
 <div class="cl-deskk"><i></i><span>First Officer's specialists · 50+ programs, one desk</span></div>
-</div></section>'''
+<div class="cl-hcta">{CTAS}</div>'''
 
 # ---------------- step 1: meet Darnell (Claude's dossier card, persona swapped) ----------------
 CARD_I='<svg viewBox="0 0 20 14" aria-hidden="true"><rect x=".75" y=".75" width="18.5" height="12.5" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1 4.6h18" stroke="currentColor" stroke-width="1.3"/></svg>'
@@ -60,11 +58,11 @@ dossier=f'''<div class="cl-card"><div class="who"><span class="av">DW<b>{DUMB}</
 <div class="rw"><span class="k">Cards on file</span><div class="v"><span class="chip">{CARD_I}Business points card</span><span class="chip">{CARD_I}Travel points card</span></div></div>
 <div class="rw"><span class="k">Card spend</span><div class="v"><b>$260k a year</b> {EST}<small>Equipment, ads, utilities</small></div></div>
 <div class="rw"><span class="k">Points a year</span><div class="v"><b>{K(PTS_TODAY)} today</b> <span class="ar">→</span> <span class="pk">{K(PTS_DESK)}</span> {EST}</div></div>
-<div class="rw"><span class="k">Next trip</span><div class="v"><b class="blk">Qsuites to the Maldives</b><span class="pk sm">4c+ a point vs the cash fare</span> {EST}</div></div>
-<div class="rw"><span class="k">Requests</span><div class="v"><ul class="rq"><li class="on">Maldives honeymoon <em class="tg">on it</em></li><li>Split the resort stay</li><li>Ads on 4x <em class="tg">new</em></li></ul></div></div>
+<div class="rw"><span class="k">Next trip</span><div class="v"><b class="blk">Business to Rome for two</b><span class="pk sm">3c+ a point vs the cash fare</span> {EST}</div></div>
+<div class="rw"><span class="k">Requests</span><div class="v"><ul class="rq"><li class="on">Rome anniversary trip <em class="tg">on it</em></li><li>Hotel nights on points</li><li>Ads on 4x <em class="tg">new</em></li></ul></div></div>
 <p class="fn">Example owner. Fictional details. Figures are estimates.</p></div>'''
-s1=f'''<section class="cl-s cl-s1"><div class="cl-w">{step(1,'Meet Darnell')}<div class="cl-cardwrap">{dossier}<i class="thr"></i></div>
-<div class="cl-ctawrap"><i class="vline"></i>{CTAS}</div></div></section>'''
+s1=f'''<section class="cl-s cl-s1"><div class="cl-w">{step(1,'Meet Darnell')}<div class="cl-cardwrap">{dossier}</div>
+<div class="cl-ctawrap">{CTAS}</div></div></section>'''
 
 # ---------------- step 2: his desk (Claude's hex tree, exact grid; Callum's five highlighted spots kept) ----------------
 X0,DX,Y0,DY=511,58,88,97.4
@@ -84,51 +82,62 @@ pos={}
 for r,row in enumerate(GRID):
     for c,p in row: pos[p]=(X0+c*DX,Y0+r*DY)
 assert len(pos)==50
-CX,CY=511,575
 PK,PK2,GR,GR2='#FA1896','#F9B9DA','#2E9E62','#A6D8BB'
-# decorative neighbour links (from the Claude image): (a,b,dot colour or None)
-LINKS=[('24-atmos-rewards','41-virgin-australia',None),('43-sas','44-air-india','g'),('45-korean-air','29-aer-lingus','p'),('44-air-india','29-aer-lingus','g'),
- ('12-hyatt','37-ana',None),('14-wyndham','05-bilt','g'),('23-allegiant','36-lifemiles','p'),('37-ana','39-qantas',None),('39-qantas','08-u-s-bank','g'),
- ('19-american','11-ihg',None),('11-ihg','17-united','p'),('19-american','17-united',None),('50-jal','32-singapore','g'),('16-radisson','47-virgin-atlantic',None),
- ('47-virgin-atlantic','09-marriott','p'),('17-united','26-flying-blue',None),('26-flying-blue','38-eva-air',None),('42-finnair','40-air-new-zealand','p'),
- ('40-air-new-zealand','25-aeroplan','p'),('25-aeroplan','34-etihad','g'),('46-latam','03-capital-one',None),('48-tap-air-portugal','42-finnair','p'),('03-capital-one','35-turkish','p'),
- ('49-aeromexico','37-ana',None),('07-bank-of-america','41-virgin-australia',None)]
-import random; rnd=random.Random(7)
-o=[]
-for a,b,d in LINKS:
-    (x1,y1),(x2,y2)=pos[a],pos[b]
-    o.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" class="lk"/>')
-    if d: o.append(f'<circle cx="{(x1+x2)/2:.1f}" cy="{(y1+y2)/2:.1f}" r="7" fill="{PK if d=="p" else "#B9B3AE"}"/>')
-for p in BIG:
-    x,y=pos[p]; o.append(f'<line x1="{CX}" y1="{CY}" x2="{x}" y2="{y}" class="bl"/>')
-defs=[]
-for p,(x,y) in pos.items():
-    big=p in BIG; r=48 if big else 38; k=p.split('-')[0]
-    defs.append(f'<clipPath id="k{k}"><circle cx="{x}" cy="{y}" r="{r-(7 if big else 3)}"/></clipPath>')
-    iw=(r-(7 if big else 3))*2*.86
-    o.append(f'<circle cx="{x}" cy="{y}" r="{r}" class="{"cb" if big else "cs"}"/>'
-             f'<image href="{LOGO(p)}" x="{x-iw/2:.1f}" y="{y-iw/2:.1f}" width="{iw:.1f}" height="{iw:.1f}" clip-path="url(#k{k})" preserveAspectRatio="xMidYMid slice"/>')
-    if big: o.append(f'<circle cx="{x}" cy="{y}" r="{r}" fill="none" stroke="{PK}" stroke-width="6"/>')
-    dy=y+r+14
-    cols=[PK2,PK2,PK2] if big else [GR if rnd.random()<.45 else GR2 for _ in range(3)]
-    if big: cols[rnd.randrange(3)]=PK
-    o+= [f'<circle cx="{x-20+i*20}" cy="{dy}" r="6" fill="{cc}"/>' for i,cc in enumerate(cols)]
-H2=1340
-thread=(f'<path class="pth" d="M{CX},640 L{CX},690 M{CX},800 L{CX},1120 C{CX},1190 560,1205 700,1215 C820,1225 975,1250 975,1330 L975,{H2}"/>'
-        f'<circle cx="700" cy="1215" r="7" fill="{PK}"/>')
-fo=(f'<image href="{CHEV}" x="{CX-56}" y="{CY-72}" width="112" height="140" preserveAspectRatio="xMidYMid meet"/>'
-    f'<rect x="368" y="686" width="287" height="118" rx="38" fill="#fff" stroke="{PK}" stroke-width="5"/>'
-    f'<text x="{CX}" y="736" class="fo1" text-anchor="middle">First Officer</text><text x="{CX}" y="781" class="fo2" text-anchor="middle">At the Desk</text>')
-desk_svg=(f'<svg class="cl-desk" viewBox="0 0 1028 {H2}" role="img" aria-label="Darnell\'s desk: First Officer at the desk, linked to the specialists for five of his programs, inside a desk covering 50+ programs">'
-          f'<defs>{"".join(defs)}</defs><circle cx="{CX}" cy="12" r="11" fill="{PK}"/>{thread}{"".join(o)}{fo}</svg>')
-s2=f'''<section class="cl-s cl-s2"><div class="cl-w">{step(2,'His desk')}{desk_svg}</div></section>'''
+import random, math
+def mob_pos():
+    W,cx,cy,sx,sy=390,195,0,56,64
+    cells=[]
+    for row in range(-7,8):
+        off=0 if row%2==0 else sx/2
+        for k in range(-4,5):
+            x=k*sx+off
+            if abs(x)>168: continue
+            cells.append((x,row*sy))
+    hole=[c for c in cells if math.hypot(c[0],c[1])<75]
+    rest=[c for c in cells if c not in hole]
+    rest.sort(key=lambda c:(math.hypot(c[0],c[1]*.62),c[1],c[0]))
+    rest=rest[:50]
+    ring=sorted(rest[:12],key=lambda c:math.atan2(c[1],c[0]))
+    bigc=[ring[i] for i in (0,2,5,8,10)][:5]
+    names=[p for p in pos if p not in BIG]
+    rnd=random.Random(3); rnd.shuffle(names)
+    out={}; bi=iter(sorted(BIG))
+    for c in rest:
+        out[next(bi) if c in bigc else names.pop()]=c
+    ys=[c[1] for c in rest]; top=min(ys)-40
+    H=max(ys)-top+60
+    return {p:(x+cx,y-top) for p,(x,y) in out.items()},(cx,-top),H
+def desk(P,C,W,H,rs,rb,rc,cls,lab,dotr,dotg,fs):
+    rnd=random.Random(7); CX,CY=C; o=[]; defs=[]
+    for p,(x,y) in P.items():
+        big=p in BIG; r=rb if big else rs; k=p.split('-')[0]; ri=r-(r*.12 if big else r*.07)
+        defs.append(f'<clipPath id="{cls}{k}"><circle cx="{x:.1f}" cy="{y:.1f}" r="{ri:.1f}"/></clipPath>')
+        iw=ri*2*.86
+        cols=[PK2,PK2,PK2] if big else [GR if rnd.random()<.45 else GR2 for _ in range(3)]
+        if big: cols[rnd.randrange(3)]=PK
+        dots=''.join(f'<circle class="d" cx="{x-dotg+i*dotg:.1f}" cy="{y+r+dotr*2.4:.1f}" r="{dotr}" fill="{cc}"/>' for i,cc in enumerate(cols))
+        o.append(f'<g class="sp{" big" if big else ""}" data-x="{x-CX:.1f}" data-y="{y-CY:.1f}" data-r="{r}"><circle cx="{x:.1f}" cy="{y:.1f}" r="{r}" class="bub"/>'
+                 f'<image href="{LOGO(p)}" x="{x-iw/2:.1f}" y="{y-iw/2:.1f}" width="{iw:.1f}" height="{iw:.1f}" clip-path="url(#{cls}{k})" preserveAspectRatio="xMidYMid slice"/>{dots}</g>')
+    iw=rc*1.15
+    fo=(f'<g class="fo" data-r="{rc}"><circle cx="{CX}" cy="{CY}" r="{rc}" class="foc"/>'
+        f'<image href="{CHEV}" x="{CX-iw/2:.1f}" y="{CY-iw*.62:.1f}" width="{iw:.1f}" height="{iw*1.25:.1f}" preserveAspectRatio="xMidYMid meet"/></g>'
+        f'<text x="{CX}" y="{CY+rc+fs*1.5:.1f}" class="fo1" style="font-size:{fs}px" text-anchor="middle">First Officer</text>'
+        f'<text x="{CX}" y="{CY+rc+fs*2.75:.1f}" class="fo2" style="font-size:{fs*.82:.1f}px" text-anchor="middle">at the desk</text>' if lab else '')
+    return (f'<svg class="cl-desk {cls}" data-lh="{fs*3 if lab else 0:.0f}" viewBox="0 0 {W} {H:.0f}" role="img" aria-label="Darnell\'s desk: First Officer in the centre, surrounded by specialists across 50+ programs. Each one thinks, then takes its turn at the desk.">'
+            f'<defs>{"".join(defs)}</defs>{"".join(o)}{fo}</svg>')
+desk_d=desk(pos,(511,560),1028,1110,38,46,47,'dkd',1,6,20,36)
+MP,MC,MH=mob_pos()
+desk_m=desk(MP,MC,390,MH,22,25,28,'dkm',1,3.2,9.5,15).replace('data-lh="45"','data-lh="54"')
+desk_svg=desk_d+desk_m
+FIVE='<div class="cl-five"><span class="h">Working Darnell&#39;s five</span>'+''.join(f'<span class="c">{n}</span>' for n in ['Citi','Amex','Qatar Airways','British Airways','Hilton'])+'</div>'
+s2=f'''<section class="cl-s cl-s2"><div class="cl-w">{step(2,'His desk','50+ programs, one desk')}{desk_svg}<p class="cl-dcap">Every specialist keeps thinking. One at a time, each takes its turn at the desk, then steps back.</p>{FIVE}</div></section>'''
 
 # ---------------- step 3: what Darnell sees in the app (Claude's phone and thread, verbatim) ----------------
-TH=[('o','Split the stay?\nThat is fun.'),
-    ('f','Two resorts, two experiences.\nVery common for honeymoons there.'),
-    ('f','And if you like, a few nights in the Seychelles on the way.\nMany couples love it.'),
-    ('o','Okay.\nWhat do you need?'),
-    ('f','Rough dates, and confirm a one-stop through Doha is okay.')]
+TH=[('o','Rome in May, for our anniversary?\nBusiness if the points stretch.'),
+    ('f','They stretch.\nBusiness via London, for two.'),
+    ('f','Hotel on Hilton points too.\nFive nights.'),
+    ('o','Love it.\nWhat do you need?'),
+    ('f','Rough dates, please.\nWe vet it, then the desk books it.')]
 def bub(i,w,t):
     ps=''.join(f'<span>{x}</span>' for x in t.split('\n'))
     av=f'<img class="av" src="{CHEV}" alt="">' if w=='f' else ''
@@ -137,27 +146,41 @@ def bub(i,w,t):
     rd='<div class="rd">Read 9:41 PM</div>' if i==3 else ''
     return f'{lab}<div class="mm {w}{last}">{av}<div class="b">{ps}</div></div>{rd}'
 TABI={'Home':'<path d="M3 9.5 10 4l7 5.5V16a1 1 0 0 1-1 1h-3.5v-4.5h-5V17H4a1 1 0 0 1-1-1z"/>',
-      'Earn':'<circle cx="10" cy="10" r="7"/><path d="M10 13.5v-7M7 9.3 10 6.3l3 3"/>',
+      'Earn':'<rect x="3" y="3" width="14" height="14" rx="4"/><path d="M10 13.5v-7M7 9.3 10 6.3l3 3"/>',
       'Burn':'<path d="M10 2.5c.9 0 1.4.8 1.4 1.8v3.6l5.6 3.3v1.6l-5.6-1.6v3.3l1.6 1.2v1.3L10 16.2l-3 .8v-1.3l1.6-1.2v-3.3L3 12.8v-1.6l5.6-3.3V4.3c0-1 .5-1.8 1.4-1.8z"/>',
       'Return':'<path d="M3 13a7 7 0 0 1 14 0z"/><path d="M10 13l3-4"/>',
       'Learn':'<path d="M3 4.5c2.6-.6 5-.3 7 1.2 2-1.5 4.4-1.8 7-1.2v11c-2.6-.6-5-.3-7 1.2-2-1.5-4.4-1.8-7-1.2zM10 5.7v11"/>'}
 tabs=''.join(f'<span class="{("on" if n=="Return" else "")}"><svg viewBox="0 0 20 20" aria-hidden="true">{p}</svg>{n}</span>' for n,p in TABI.items())
-mapcard=f'''<div class="mc"><div class="ph" style="background-image:url(img/ph/d-maldives.webp)"><span class="pin"></span><em>Award space not guaranteed</em></div>
-<div class="tx"><b>Qsuites to the Maldives</b><span>Qsuites idea, value per point checked. Value about 4c+ a point vs the cash fare {EST}</span><small>Example · fictional</small></div></div>'''
-phone=f'''<div class="cl-phwrap"><div class="cl-ph" role="img" aria-label="Example chat in the First Officer app between Darnell and First Officer about a Maldives honeymoon, fictional">
+mapcard=f'''<div class="mc"><div class="ph" style="background-image:url(img/ph/d-rome.webp)"><span class="pin"></span><em>Award space not guaranteed</em></div>
+<div class="tx"><b>Business to Rome for two</b><span>Via London, value per point checked. About 3c+ a point vs the cash fare {EST}</span><small>Example · fictional</small></div></div>'''
+phone=f'''<div class="cl-phwrap"><div class="cl-ph" role="img" aria-label="Example chat in the First Officer app between Darnell and First Officer about a Rome anniversary trip, fictional">
 <div class="scr"><div class="isl"></div><div class="sb"><b>9:41</b><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx=".7"/><rect x="5" y="5.5" width="3" height="6.5" rx=".7"/><rect x="10" y="3" width="3" height="9" rx=".7"/><rect x="15" y="0" width="3" height="12" rx=".7"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 8.9a3.4 3.4 0 0 1 4.8 0zM3.4 6.6a6.6 6.6 0 0 1 9.2 0l-1.3 1.3a4.8 4.8 0 0 0-6.6 0zM1.2 4.4a9.7 9.7 0 0 1 13.6 0l-1.3 1.3a7.9 7.9 0 0 0-11 0z"/></svg><i class="bat"><i></i></i></span></div>
 <div class="tb"><span class="bg"><i></i><i></i><i></i></span><span class="ttl"><img src="{CHEV}" alt=""><b>First Officer</b></span><span class="me">DW</span></div>
-<div class="seg"><span class="on">First Officer</span><span>Behind the desk</span></div>
+<div class="seg"><span class="on">First Officer</span><span>Your plan</span></div>
 <div class="th"><div class="in">{mapcard}{''.join(bub(i,w,t) for i,(w,t) in enumerate(TH))}</div></div>
 <div class="tabs">{tabs}</div><div class="hb"></div></div></div></div>'''
 MICRO='Illustrative example. Owners and chats are fictional. Figures are estimates, not guarantees. Not affiliated with any bank, airline or hotel program. <a href="disclaimer.html">Important information</a>'
 TMK='Program names and logos are trademarks of their respective owners, shown for identification only. No endorsement is implied. Award availability, pricing and transfer terms are set by each program and can change without notice.'
-curve=f'<svg class="cl-curve" viewBox="0 0 1028 112" preserveAspectRatio="none" aria-hidden="true"><path class="pth" d="M975,0 L975,18 C975,58 905,62 855,66 C800,71 760,88 745,112"/><circle cx="855" cy="66" r="7" fill="{PK}"/></svg>'
-s3=f'''<section class="cl-s cl-s3"><div class="cl-w"><div class="cl-s3h">{curve}{step(3,'What Darnell sees','in the app')}</div>{phone}
+s3=f'''<section class="cl-s cl-s3"><div class="cl-w"><div class="cl-s3h">{step(3,'What Darnell sees','in the app')}</div>{phone}
 {CTAS}<p class="cl-micro">{MICRO}</p><p class="cl-tmk">{TMK}</p></div></section>'''
 STATS=[('$550','Flat monthly · Cancel anytime',' pk'),('20 min','The Found Money Call, free · We size your capture first',''),
        ('Friday','Dollars saved reported every Friday',''),('Yours','Every decision, always','')]
 s4='<section class="cl-stats"><div class="cl-w"><div class="g">'+''.join(f'<div><b class="{c.strip()}">{a}</b><span>{b}</span></div>' for a,b,c in STATS)+'</div></div></section>'
+
+# ---------------- desktop band: the same app, "Your plan" tab (customer-facing, no operator view) ----------------
+ADS=dict((n,(v,x)) for n,v,x in MIX)['Ads']
+PLAN=[('Earn','Ads on the 4x card',f'+{K(ADS[0]*(ADS[1]-1))} points a year {EST}'),
+      ('Burn','Rome for two, business','We vet the award rules, then the desk books it'),
+      ('Return','Your Friday report','Dollars saved, every Friday'),
+      ('Learn','Two-minute note','How transfer partners work')]
+plan_in=('<div class="pl"><div class="plh"><b>Darnell\'s plan</b><span>This week</span></div>'+
+  ''.join(f'<div class="pr"><span class="pt">{a}</span><div><b>{b}</b><small>{c}</small></div></div>' for a,b,c in PLAN)+
+  f'<div class="pp"><span>Points a year</span><b>{K(PTS_TODAY)} <i>→</i> {K(PTS_DESK)}</b> {EST}</div><small class="fx">Example · fictional</small></div>')
+i0=phone.index('<div class="th">'); i1=phone.index('<div class="tabs">')
+plan_phone=(phone[:i0]+f'<div class="th pl-th">{plan_in}</div>'+phone[i1:]).replace(
+  '<span class="on">First Officer</span><span>Your plan</span>','<span>First Officer</span><span class="on">Your plan</span>').replace(
+  'cl-phwrap','cl-phwrap plw').replace('Example chat in the First Officer app between Darnell and First Officer about a Rome anniversary trip, fictional',
+  "Example of Darnell's plan in the First Officer app, fictional")
 
 # ---------------- brush marker for Freebies (one bold brush, from desk_clean) ----------------
 from urllib.parse import quote
@@ -184,7 +207,7 @@ main#main{font-family:'DM Sans',system-ui,sans-serif;color:#141216;-webkit-font-
 .cl-hero{background:#fff;padding:24px 0 0}
 .cl-hero .cl-w{text-align:left}
 .cl-kick{display:flex;width:max-content;margin:0 auto;align-items:center;gap:10px;height:33px;padding:0 17px;border:1.5px solid #F7B5D8;background:#FDE8F3;border-radius:99px;color:#E60F86;font:700 11.5px/1 'DM Sans',sans-serif;letter-spacing:.17em;text-transform:uppercase}
-.cl-kick i{width:6px;height:6px;border-radius:50%%;background:#FA1896}
+.cl-kick i{width:6px;height:6px;border-radius:1.5px;background:#FA1896}
 .cl-hero h1{font:400 24.5px/26.6px 'DM Serif Display',serif;letter-spacing:-.022em;margin:15px 0 0;color:#141216}
 .cl-hero h1 span{color:#FA1896}
 .cl-sub p{font-size:15.9px;line-height:24.3px;color:#47414C;margin:15px 0 0;letter-spacing:-.003em}
@@ -192,19 +215,19 @@ main#main{font-family:'DM Sans',system-ui,sans-serif;color:#141216;-webkit-font-
 .cl-tag{font-size:17.5px;line-height:23.6px;font-weight:700;margin:16px 0 0;letter-spacing:-.01em}
 .cl-deskk{display:flex;align-items:center;gap:12px;margin:21px 0 0;padding:6px 18px 6px 14px;min-height:48px;border:1px solid #E7E2DD;border-radius:26px;background:#fff;box-shadow:0 1px 3px rgba(20,18,22,.05);font-size:12.35px;line-height:16px;color:#3A343D;text-align:center}
 .cl-deskk span{flex:1}
-.cl-deskk i{flex:none;width:8px;height:8px;border-radius:50%%;background:#2E9E62;box-shadow:0 0 0 3.5px rgba(46,158,98,.18)}
+.cl-deskk i{flex:none;width:8px;height:8px;border-radius:2px;background:#2E9E62;box-shadow:0 0 0 3.5px rgba(46,158,98,.18)}
 .cl-s1,.cl-s2,.cl-s3{background:linear-gradient(#fff,#FAF6EE 220px)}
 .cl-s2,.cl-s3{background:#FAF6EE}
 .cl-s1{padding:30px 0 0}
 .cl-step{display:flex;align-items:center;gap:12px;margin:0;font:700 19.8px/1.1 'DM Sans',sans-serif;letter-spacing:-.01em;color:#141216;position:relative;z-index:2}
-.cl-step .n{flex:none;width:28px;height:28px;border-radius:50%%;background:#FA1896;color:#fff;display:grid;place-items:center;font-size:13.5px;font-weight:600}
+.cl-step .n{flex:none;width:28px;height:28px;border-radius:8px;background:#FA1896;color:#fff;display:grid;place-items:center;font-size:13.5px;font-weight:600}
 .cl-step small{font-size:14px;font-weight:400;color:#7A737E;margin-left:2px}
 .cl-cardwrap{position:relative;margin:16px -2px 0}
 .cl-card{position:relative;z-index:1;background:#fff;border:1.5px solid #F4CDE2;border-radius:17px;padding:14px 15px 12px;box-shadow:0 6px 18px rgba(20,18,22,.06)}
 .cl-cardwrap .thr{position:absolute;z-index:2;right:0;bottom:0;width:59%%;height:36%%;border-right:2px solid #FA1896;border-bottom:2px solid #FA1896;border-bottom-right-radius:17px;pointer-events:none}
 .cl-card .who{display:flex;align-items:center;gap:13px}
-.cl-card .av{position:relative;flex:none;width:44px;height:44px;border-radius:50%%;background:#FCDCC8;color:#B4521A;display:grid;place-items:center;font-weight:700;font-size:14.2px;letter-spacing:.02em}
-.cl-card .av b{position:absolute;right:-6px;bottom:-4px;width:19px;height:19px;border-radius:50%%;background:#fff;border:1px solid #E7E2DD;color:#9A939E;display:grid;place-items:center}
+.cl-card .av{position:relative;flex:none;width:44px;height:44px;border-radius:12px;background:#FCDCC8;color:#B4521A;display:grid;place-items:center;font-weight:700;font-size:14.2px;letter-spacing:.02em}
+.cl-card .av b{position:absolute;right:-6px;bottom:-4px;width:19px;height:19px;border-radius:6px;background:#fff;border:1px solid #E7E2DD;color:#9A939E;display:grid;place-items:center}
 .cl-card .av b svg{width:12px;height:12px}
 .cl-card h3{margin:0;font-size:18.5px;font-weight:600;letter-spacing:-.01em}
 .cl-card .who p{margin:3px 0 0;font-size:12.5px;color:#6B6470}
@@ -227,7 +250,7 @@ main#main{font-family:'DM Sans',system-ui,sans-serif;color:#141216;-webkit-font-
 .cl-card .ar{color:#6B6470}
 .cl-card .rq{list-style:none;margin:0;padding:0}
 .cl-card .rq li{position:relative;padding-left:20px;font-weight:600;margin-bottom:3px}
-.cl-card .rq li:before{content:"";position:absolute;left:0;top:4px;width:8px;height:8px;border-radius:50%%;border:1.5px solid #FA1896}
+.cl-card .rq li:before{content:"";position:absolute;left:0;top:4px;width:8px;height:8px;border-radius:2px;border:1.5px solid #FA1896}
 .cl-card .rq li.on:before{background:#FA1896}
 .cl-card .tg{font-style:normal;font-weight:600;font-size:10.5px;padding:1px 7px;border-radius:99px;background:#FDE3F0;color:#E60F86;margin-left:4px}
 .cl-card .fn{margin:9px 0 0;font-size:10.9px;color:#8A8390}
@@ -238,18 +261,10 @@ main#main{font-family:'DM Sans',system-ui,sans-serif;color:#141216;-webkit-font-
 .cl-ctas .c1{width:143px;background:#FA1896;color:#fff;box-shadow:0 6px 14px rgba(250,24,150,.28)}
 .cl-ctas .c2{width:165px;background:#fff;color:#141216;border:1.5px solid #D9D4D0}
 .cl-s2{padding:40px 0 0}
-.cl-s2 .cl-w:before{content:"";position:absolute;left:50%%;top:-40px;height:84px;width:2px;margin-left:-1px;background:#FA1896}
-.cl-desk{display:block;width:calc(100%% + 36px);margin:6px -18px 0;height:auto;overflow:visible}
-.cl-desk .lk{stroke:#DDD7D2;stroke-width:3}
-.cl-desk .bl{stroke:#FA1896;stroke-width:6}
-.cl-desk .cs{fill:#fff;stroke:#E4DFDA;stroke-width:3;filter:drop-shadow(0 2px 3px rgba(20,18,22,.08))}
-.cl-desk .cb{fill:#fff}
-.cl-desk .pth,.cl-curve .pth{fill:none;stroke:#FA1896;stroke-width:6}
 .cl-desk .fo1{font:700 35px 'DM Sans',sans-serif;fill:#E60F86}
 .cl-desk .fo2{font:500 30px 'DM Sans',sans-serif;fill:#8E5A76}
 .cl-s3h{position:relative;height:42px;margin:0}
 .cl-s3h .cl-step{position:absolute;left:0;top:0;height:28px}
-.cl-curve{position:absolute;left:-18px;top:-2px;width:calc(100%% + 36px);height:44px}
 .cl-phwrap{position:relative;margin:0 -18px;padding:0 0 0;}
 .cl-phwrap:before{content:"";position:absolute;left:26px;right:26px;top:40px;bottom:-26px;background:#F3ECE0;border-radius:4px}
 .cl-ph{position:relative;width:304px;height:634px;margin:0 auto;border-radius:52px;padding:5px;background:linear-gradient(135deg,#C9C4BD,#7F7A74 40%%,#B5B0AA 70%%,#6E6964);box-shadow:0 18px 40px rgba(20,18,22,.18)}
@@ -265,7 +280,7 @@ main#main{font-family:'DM Sans',system-ui,sans-serif;color:#141216;-webkit-font-
 .cl-ph .bg{display:flex;flex-direction:column;gap:4px;width:18px}.cl-ph .bg i{height:1.6px;background:#141216;border-radius:2px}
 .cl-ph .bg i:nth-child(2){width:80%%}
 .cl-ph .ttl{display:flex;align-items:center;gap:5px;font-size:13px}.cl-ph .ttl img{width:11px;height:11px}.cl-ph .ttl b{font-weight:600}
-.cl-ph .me{width:22px;height:22px;border-radius:50%%;background:#FCDCC8;color:#B4521A;font-size:9px;font-weight:700;display:grid;place-items:center}
+.cl-ph .me{width:22px;height:22px;border-radius:7px;background:#FCDCC8;color:#B4521A;font-size:9px;font-weight:700;display:grid;place-items:center}
 .cl-ph .seg{display:flex;margin:6px 6px 0;padding:3px;height:23px;border-radius:8px;background:#EEEBE8;font-size:10.8px;color:#5A545E}
 .cl-ph .seg span{flex:1;display:grid;place-items:center;border-radius:7px}
 .cl-ph .seg .on{background:#fff;color:#141216;font-weight:500;box-shadow:0 1px 2px rgba(0,0,0,.1)}
@@ -307,28 +322,26 @@ main#main{font-family:'DM Sans',system-ui,sans-serif;color:#141216;-webkit-font-
 .cl-stats b{display:block;font:400 30px/1.1 'DM Serif Display',serif;letter-spacing:-.01em;color:#141216}
 .cl-stats b.pk{color:#FA1896}
 .cl-stats span{display:block;margin-top:9px;font-size:13.1px;line-height:18.5px;color:#5A545E}
-@media(min-width:900px){
- .cl-hero{padding-top:56px}
- .cl-hero .cl-w{max-width:1120px;padding:0 40px}
- .cl-kick{margin:0;font-size:13px;height:36px}
- .cl-hero h1{font-size:58px;line-height:60px;margin-top:26px}
- .cl-sub{max-width:700px}.cl-sub p{font-size:19px;line-height:30px}
- .cl-tag{font-size:22px;line-height:30px}
- .cl-deskk{display:inline-flex;margin-top:28px;font-size:14px;padding:6px 22px 6px 16px}
- .cl-s1{padding-top:64px}
- .cl-w{max-width:600px}
- .cl-step{font-size:26px}.cl-step .n{width:34px;height:34px;font-size:16px}
-}
 </style>'''%{'BRUSH':BRUSH}
 
-body=CSS+hero+s1+s2+s3+s4
+
+# ---------------- v2 assembly: hero (photos + cream wash, desktop two-column with Darnell's app), colour-block band, sticky bar ----------------
+CSS2='<style>'+open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'home_story_v2.css')).read()+'</style>'
+JS2=open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'home_story_v2.js.html')).read()
+hero=f'''<section class="cl-hero"><div class="hbg" aria-hidden="true"><i class="hp"></i><i class="hp"></i></div>
+<div class="hx"><div class="cl-w ht">{HERO_TXT}</div><div class="hph">{phone}</div></div></section>'''
+phone_m=phone.replace('class="cl-phwrap"','class="cl-phwrap mob"',1)
+s3=s3.replace(phone,phone_m+plan_phone)
+bandh='<div class="bandh"><h2>Meet Darnell.<br><span>Watch his desk work.</span></h2><p>One example owner, start to finish: his dossier, the desk of specialists working his programs, and the plan he sees in the app. Fictional details. Figures are estimates.</p></div>'
+MCTA='<a class="mcta" id="mcta" href="book.html?from=home">Book Your "Found Money" Call</a>'
+body=CSS+CSS2+hero+f'<section class="sbg">{bandh}<div class="band">{s1}{s2}{s3}</div></section>'+s4+MCTA
 page('home-story.html','First Officer by UpNonStop · You are not bad at Points & Miles',body,
-     desc='A desk of specialists across 50+ programs, working for your business card spend. Meet Darnell, an example owner.',src='home')
+     desc='A desk of specialists across 50+ programs, working for your business card spend. Meet Darnell, an example owner.',src='home',tail=JS2)
 
 # ---------------- story-map.html: how Darnell's story carries page to page (Claude style) ----------------
 SM=[('home-story.html','Home','You are not bad at Points & Miles.','You are just outnumbered.',
-     'Meet Darnell, an example gym owner. His desk, and the chat he sees in the app.',
-     'Dossier card, desk of 50+ programs, the app chat on a phone','Product','See how it works'),
+     'Meet Darnell, an example gym owner, planning business to Rome for two on points. His desk, and what he sees in the app.',
+     'Hero with his app chat, then dossier, desk of 50+ programs and Your plan side by side','Product','See how it works'),
     ('product.html','Product','Week one, Darnell\'s desk','found three leaks.',
      'How it works, folded in: Earn, Burn, Return, Learn, told through his first week. Burn vets requirements; the desk books as an ad hoc service.',
      'Earn leak card, Burn trip check, Return report, Learn note','Pricing','See what it costs'),
