@@ -35,7 +35,7 @@ def nav():
     MARK='<svg class="fzmk" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 15.5C18 13.2 31 14.6 46 12.9S77 12.2 96 10.6"/><path class="b" pathLength="1" d="M6 11.4C24 10.8 40 12.1 58 10.4S84 9.6 93 8.9"/></svg>'
     FZ=f'<a class="fz" href="free-from-the-desk.html"><span>{MARK}Freebies</span></a>'  # hand-drawn pink highlighter swipe
     nl=''.join(f'<a href="{h}">{t}</a>'+(FZ if h=='pricing.html' else '') for h,t in links)
-    sh=''.join(f'<a href="{h}">{t}</a>' for h,t in links)+FZ+'<a href="field-notes.html">Field Notes</a>'+''.join(f'<a href="{h}">{t}</a>' for h,t in tail)+'<span class="lab" style="display:block;margin:18px 0 4px">Your industry</span><div class="sind">'+''.join(f'<a href="for-{a}.html">{e} {n}</a>' for a,n,e in INDS)+'</div>'
+    sh=''.join(f'<a href="{h}">{t}</a>' for h,t in links)+'<a href="field-notes.html">Field Notes</a>'+''.join(f'<a href="{h}">{t}</a>' for h,t in tail)+'<span class="lab" style="display:block;margin:18px 0 4px">Your industry</span><div class="sind">'+''.join(f'<a href="for-{a}.html">{e} {n}</a>' for a,n,e in INDS)+'</div>'
     return f'''<header class="nav"><div class="nav-in">
 <a class="brand" href="home.html" aria-label="First Officer home">{MK}<span><b>First Officer</b><small>by UpNonStop™</small></span></a>
 <nav class="nlinks" aria-label="Main">{nl}</nav>
