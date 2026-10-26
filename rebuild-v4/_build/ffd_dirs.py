@@ -354,7 +354,7 @@ def dir_b():
 
 # ======================================================================= C · BOLD BRAND POP (matured)
 # Same pink energy, Bricolage Grotesque + Instrument Serif, but grown-up: no toy tilts, hairline borders,
-# layered shadows, a gold bullion bar as the hero object, and a real desktop layout (sticky category rail
+# layered shadows, a metallic gold Golden Nugget card in the hero, and a real desktop layout (sticky category rail
 # beside a three-column shelf). Phones keep their own layout: stacked hero, colour bands, swipeable shelves.
 C_CSS = r'''
 html.dir-c{--pk:#FA1896;--pkd:#C80E70;--ink:#141216;--ink2:#1D1A21;--cr:#FBF6EF;--ln:rgba(20,18,22,.12);--mono:'JetBrains Mono',ui-monospace,monospace}
@@ -379,16 +379,9 @@ html.dir-c .desk .sig{margin-top:30px;padding-top:22px;border-top:1px solid rgba
 html.dir-c .desk .sig .av{background:#141216;color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.9)}
 html.dir-c .desk .sign{color:#141216}
 html.dir-c .desk .sig .role{color:#fff;opacity:.92}
-/* ---------- vault: gold bar + two teasers + the calculator */
+/* ---------- vault: the calculator + a stack of three teasers, the first one gold */
 html.dir-c .desk .vault{position:relative;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;align-items:stretch}
-html.dir-c .desk .ingot{grid-column:1/-1;position:relative;display:block;text-decoration:none;color:inherit;margin:0 -6px 2px;-webkit-tap-highlight-color:transparent}
-html.dir-c .desk .ingot svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 28px 26px rgba(70,0,36,.42)) drop-shadow(0 6px 6px rgba(70,0,36,.22));transition:transform .45s cubic-bezier(.2,.7,.2,1)}
-html.dir-c .desk .ingot:hover svg,html.dir-c .desk .ingot:focus-visible svg{transform:translateY(-4px)}
-html.dir-c .desk .ingot:focus-visible{outline:2px solid #fff;outline-offset:6px;border-radius:12px}
-html.dir-c .desk .ingot .shine{animation:dxShine 6.5s cubic-bezier(.45,.05,.3,1) infinite}
-@keyframes dxShine{0%{transform:translateX(-360px) skewX(-18deg)}55%,100%{transform:translateX(900px) skewX(-18deg)}}
-html.dir-c .desk .ingot-go{position:absolute;right:7%;bottom:14%;font:600 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#141216;background:#fff;border-radius:6px;padding:7px 9px;box-shadow:0 8px 18px -10px rgba(60,0,30,.6)}
-html.dir-c .desk .seal{position:absolute;right:-22px;top:-30px;width:104px;height:104px;z-index:3;pointer-events:none;filter:drop-shadow(0 10px 14px rgba(60,0,30,.35))}
+html.dir-c .desk .seal{position:absolute;right:-32px;top:-40px;width:80px;height:80px;z-index:3;pointer-events:none;filter:drop-shadow(0 10px 14px rgba(60,0,30,.35))}
 html.dir-c .desk .seal svg{width:100%;height:100%;display:block}
 html.dir-c .desk .feat{position:relative;z-index:2;transform:none;border:0;border-radius:18px;background:#fff;padding:24px 24px 22px;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 30px 50px -30px rgba(60,0,30,.6);display:flex;flex-direction:column}
 html.dir-c .desk .feat:hover{transform:translateY(-3px)}
@@ -399,7 +392,16 @@ html.dir-c .desk .feat h2{font-family:'Bricolage Grotesque',sans-serif;font-weig
 html.dir-c .desk .feat p{font-size:15px;line-height:1.5}
 html.dir-c .desk .feat .btnp{margin-top:auto;align-self:flex-start;background:#141216;border-radius:10px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;transition:background .2s}
 html.dir-c .desk .feat:hover .btnp{background:#FA1896}
-html.dir-c .desk .pvs{display:grid;gap:16px;grid-template-rows:1fr 1fr}
+html.dir-c .desk .pvs{display:grid;gap:14px;grid-template-rows:1.25fr 1fr 1fr}
+/* the Golden Nugget pack: a flat card with a metallic gold finish */
+html.dir-c .desk .pv1{color:#3A2606;border:1px solid #A97A22;background:linear-gradient(115deg,#C99A3E 0%,#E7C676 18%,#F7E3A4 34%,#E3BD62 48%,#C8963A 66%,#DDB35A 84%,#B8862E 100%);box-shadow:inset 0 1px 0 rgba(255,249,224,.75),inset 0 -1px 0 rgba(120,80,14,.35),inset 0 0 0 1px rgba(255,240,200,.18),0 26px 40px -26px rgba(70,30,0,.75)}
+html.dir-c .desk .pv1>*{position:relative;z-index:1}
+html.dir-c .desk .pv1 b{opacity:1;color:#5A3B08}
+html.dir-c .desk .pv1 span{font-size:24px;color:#2E1D04}
+html.dir-c .desk .pv1 i{opacity:1;color:#4A3006}
+html.dir-c .desk .pv1::after{border-color:rgba(120,80,14,.22);box-shadow:0 0 0 18px rgba(255,245,210,.12)}
+html.dir-c .desk .pv1::before{content:"";position:absolute;inset:-20% auto -20% 0;width:38%;background:linear-gradient(100deg,rgba(255,250,230,0),rgba(255,250,230,.38) 50%,rgba(255,250,230,0));transform:translateX(-160%) skewX(-16deg);animation:dxSheen 9s ease-in-out infinite;pointer-events:none;z-index:0}
+@keyframes dxSheen{0%,62%{transform:translateX(-160%) skewX(-16deg)}100%{transform:translateX(360%) skewX(-16deg)}}
 html.dir-c .desk .pv{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:14px;text-decoration:none;border-radius:16px;padding:18px 18px 16px;color:#fff;overflow:hidden;box-shadow:0 26px 40px -28px rgba(60,0,30,.7);transition:transform .25s cubic-bezier(.2,.7,.2,1)}
 html.dir-c .desk .pv:hover{transform:translateY(-3px)}
 html.dir-c .desk .pv b{display:flex;align-items:center;gap:8px;font:600 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.85}
@@ -478,7 +480,7 @@ html.dir-c .desk .dk.lead .grab{background:#FA1896!important}
 html.dir-c .desk .dk.lead .grab:hover{background:#fff!important;color:#141216}
 html.dir-c .desk .dk.lead .chip{color:#fff}
 html.dir-c .desk .dk.lead .chip.ex{background:rgba(255,255,255,.14);color:#fff}
-/* gold: the nuggets lead is a bullion bar, the other nugget cards carry a gold-leaf edge */
+/* gold: the nuggets lead is a metallic gold card, the other nugget cards carry a gold-leaf edge */
 html.dir-c .desk .dk.gold{background:linear-gradient(180deg,#FFFCF2,#fff 120px)}
 html.dir-c .desk .dk.gold::before{height:4px;background:linear-gradient(90deg,#8C5E12,#E9C065 18%,#FFF1BE 32%,#C9922E 52%,#F4D680 74%,#9A6A18)}
 html.dir-c .desk .dk.gold.lead{border:0;color:#3B2604;background:
@@ -520,7 +522,7 @@ html.dir-c .rdr-p.gold{background:linear-gradient(170deg,#FFF3C9,#fff 300px);bor
 html.dir-c .mpick{background:var(--cr);border-bottom:1px solid #141216}
 html.dir-c .mp-f,html.dir-c .mp-q{border:1px solid #141216}
 html.dir-c .mp-f .mp-sum{font-family:'Bricolage Grotesque',sans-serif;font-weight:800}
-@media(prefers-reduced-motion:reduce){html.dir-c .desk .ingot .shine{animation:none;opacity:0}html.dir-c .desk .dk.gold.lead{animation:none}}
+@media(prefers-reduced-motion:reduce){html.dir-c .desk .pv1::before{animation:none;opacity:0}html.dir-c .desk .dk.gold.lead{animation:none}}
 @media(max-width:1240px){html.dir-c .desk h1{font-size:92px}html.dir-c .desk .grid .lane{grid-template-columns:250px minmax(0,1fr)}html.dir-c .desk .dk.lead h3{font-size:38px}html.dir-c .desk .feat .ic.big{width:44px;height:44px;padding:6px}html.dir-c .desk .feat .ic.big svg{width:32px;height:32px}html.dir-c .desk .feat h2{font-size:30px;padding-right:44px}html.dir-c .desk .feat .btnp{white-space:nowrap;font-size:15px;padding-left:18px;padding-right:18px}}
 @media(max-width:1100px){
  html.dir-c .desk h1{font-size:80px}
@@ -548,11 +550,14 @@ html.dir-c .mp-f .mp-sum{font-family:'Bricolage Grotesque',sans-serif;font-weigh
  html.dir-c .desk .lede{font-size:17px}
  html.dir-c .desk .sig{margin-top:22px;padding-top:18px}
  html.dir-c .desk .dhero{gap:30px;padding-bottom:30px}
- html.dir-c .desk .vault{grid-template-columns:minmax(0,1fr);gap:12px}
- html.dir-c .desk .ingot{margin:0 -4px 6px}
- html.dir-c .desk .ingot-go{right:8px;bottom:-8px;font-size:10px;padding:6px 8px}
+ html.dir-c .desk .vault{grid-template-columns:1fr 1fr;gap:12px}
+ html.dir-c .desk .vault>.feat{grid-column:1/-1;order:1}
+ html.dir-c .desk .vault>.pvs{display:contents}
+ html.dir-c .desk .vault .pv2,html.dir-c .desk .vault .pv3{order:2}
  html.dir-c .desk .seal{width:74px;height:74px;right:-8px;top:-30px}
  html.dir-c .desk .pvs{grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:12px;order:2}
+ html.dir-c .desk .vault .pv1{grid-column:1/-1;order:0;min-height:112px}
+ html.dir-c .desk .pv1 span{font-size:21px}
  html.dir-c .desk .pv{padding:14px 14px 13px;gap:10px;border-radius:14px}
  html.dir-c .desk .pv span{font-size:16.5px}
  html.dir-c .desk .pv b{font-size:9.5px;letter-spacing:.1em}
@@ -608,45 +613,6 @@ new MutationObserver(sync).observe(grid,{subtree:true,attributes:true,attributeF
  if(c&&window.foReader){e.preventDefault();if(c.hidden){var y=document.getElementById('typesel');if(y){y.value='all';y.dispatchEvent(new Event('change',{bubbles:true}));}}window.foReader(c);}});});
 })();</script>'''
 
-# the bullion bar: ingot silhouette with a bevelled top face, metallic faces, stamped wording, shine sweep
-INGOT = r'''<a class="ingot" href="#nug-cards" data-open="nug-cards" aria-label="Golden Nugget Pack. Every business: 11 card nuggets. Grab it"><svg viewBox="0 0 640 286" role="img" aria-hidden="true">
-<defs>
-<linearGradient id="gTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF6CF"/><stop offset=".16" stop-color="#FAE08C"/><stop offset=".42" stop-color="#E8BA4C"/><stop offset=".6" stop-color="#F7DA80"/><stop offset=".82" stop-color="#D4A03A"/><stop offset="1" stop-color="#B9852A"/></linearGradient>
-<linearGradient id="gFront" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1C762"/><stop offset=".45" stop-color="#C99230"/><stop offset="1" stop-color="#8C5D14"/></linearGradient>
-<linearGradient id="gFrontX" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset=".35" stop-color="#fff" stop-opacity="0"/><stop offset=".7" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#3a2000" stop-opacity=".22"/></linearGradient>
-<linearGradient id="gLeft" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9A540"/><stop offset="1" stop-color="#F6D57A"/></linearGradient>
-<linearGradient id="gRight" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#B07A1E"/><stop offset="1" stop-color="#76490A"/></linearGradient>
-<linearGradient id="gInk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9A6814"/><stop offset="1" stop-color="#6B4306"/></linearGradient>
-<linearGradient id="gShine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-<pattern id="gBrush" width="6" height="3" patternUnits="userSpaceOnUse"><rect width="6" height="1" fill="#fff" opacity=".10"/></pattern>
-<clipPath id="gClip"><path d="M104 24H536L574 152H66Z M66 152H574L626 238H14Z"/></clipPath>
-<filter id="gBlur" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="9"/></filter>
-</defs>
-<ellipse cx="320" cy="262" rx="300" ry="13" fill="#3a001c" opacity=".35" filter="url(#gBlur)"/>
-<path d="M14 238H626L622 250H18Z" fill="#6E4508"/>
-<path d="M104 24L40 98L14 238L66 152Z" fill="url(#gLeft)"/>
-<path d="M536 24L600 98L626 238L574 152Z" fill="url(#gRight)"/>
-<path d="M66 152H574L626 238H14Z" fill="url(#gFront)"/>
-<path d="M66 152H574L626 238H14Z" fill="url(#gFrontX)"/>
-<path d="M104 24H536L574 152H66Z" fill="url(#gTop)"/>
-<path d="M104 24H536L574 152H66Z" fill="url(#gBrush)"/>
-<path d="M66 152H574" stroke="#FFF4C8" stroke-width="2" opacity=".95"/>
-<path d="M104 24H536" stroke="#FFFBEA" stroke-width="1.6" opacity=".9"/>
-<path d="M104 24L66 152M536 24L574 152" stroke="#FFF1C0" stroke-width="1.2" opacity=".55"/>
-<path d="M14 238H626" stroke="#FFE7A0" stroke-width="1" opacity=".5"/>
-<path d="M136 42H504L534 136H106Z" fill="none" stroke="#8E5F14" stroke-width="1.6" opacity=".55"/>
-<path d="M136 43.5H504L534 137.5H106Z" fill="none" stroke="#FFF6D2" stroke-width="1" opacity=".55" transform="translate(0 1.4)"/>
-<g font-family="Bricolage Grotesque,system-ui,sans-serif" text-anchor="middle">
-<g font-size="17" font-weight="700" letter-spacing="5.5"><text x="320" y="76" fill="#FFF7D6" opacity=".85" dy="1.3">GOLDEN NUGGET PACK</text><text x="320" y="76" fill="#5E3A05" opacity=".55" dy="-1">GOLDEN NUGGET PACK</text><text x="320" y="76" fill="url(#gInk)">GOLDEN NUGGET PACK</text></g>
-<g transform="translate(320 90)"><path d="M-112 0H-22M22 0H112" stroke="#8E5F14" stroke-width="1.2" opacity=".6"/><path d="M-112 1.3H-22M22 1.3H112" stroke="#FFF6D2" stroke-width="1" opacity=".6"/>
-<path d="M-9 4L0 -4L9 4M-9 11L0 3L9 11" fill="none" stroke="#FFF6D2" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity=".8" transform="translate(0 -2.4) scale(.78)"/>
-<path d="M-9 4L0 -4L9 4M-9 11L0 3L9 11" fill="none" stroke="url(#gInk)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 -3.6) scale(.78)"/></g>
-<g font-size="25" font-weight="800" letter-spacing="-.2"><text x="320" y="129" fill="#FFF7D6" opacity=".85" dy="1.4">Every business: 11 card nuggets</text><text x="320" y="129" fill="#5E3A05" opacity=".5" dy="-1.1">Every business: 11 card nuggets</text><text x="320" y="129" fill="url(#gInk)">Every business: 11 card nuggets</text></g>
-<g font-size="11" font-weight="700" letter-spacing="6"><text x="320" y="204" fill="#FFE9A8" opacity=".55" dy="1.1">FREE FROM THE DESK</text><text x="320" y="204" fill="#5A3705" opacity=".75">FREE FROM THE DESK</text></g>
-</g>
-<g clip-path="url(#gClip)"><rect class="shine" x="0" y="0" width="120" height="260" fill="url(#gShine)" opacity=".7"/></g>
-</svg><span class="ingot-go">Grab it &rarr;</span></a>'''
-
 SEAL = ('<div class="seal" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="stc" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs>'
         '<circle cx="60" cy="60" r="58" fill="#141216"/><circle cx="60" cy="60" r="54" fill="none" stroke="#FA1896" stroke-width="1.2"/><circle cx="60" cy="60" r="31" fill="none" stroke="#ffffff" stroke-opacity=".25" stroke-width="1"/>'
         '<text font-family="JetBrains Mono,monospace" font-weight="600" font-size="9.5" letter-spacing="1" fill="#fff"><textPath href="#stc" textLength="280" lengthAdjust="spacing">FREE &#183; NO EMAIL &#183; NO CATCH &#183; FREE &#183; NO EMAIL &#183;</textPath></text>'
@@ -658,9 +624,10 @@ def dir_c():
     hero = b[a0:a1]
     f0 = hero.index('<a class="feat"'); f1 = hero.index('</a>', f0) + 4
     pvs = ('<div class="pvs">'
+           '<a class="pv pv1" href="#nug-cards" data-open="nug-cards"><b>Golden Nugget pack</b><span>Every business: 11 card nuggets</span><i>Grab it &rarr;</i></a>'
            '<a class="pv pv2" href="#credit-personal" data-open="credit-personal"><b>Credit insight</b><span>Your score and your business card</span><i>Grab it &rarr;</i></a>'
            '<a class="pv pv3" href="#codes-everyday" data-open="codes-everyday"><b>Cheat sheet</b><span>The everyday code sheet</span><i>Grab it &rarr;</i></a></div>')
-    hero = hero[:f0] + '<div class="vault">' + INGOT + SEAL + hero[f0:f1] + pvs + '</div>' + hero[f1:]
+    hero = hero[:f0] + '<div class="vault">' + SEAL + hero[f0:f1] + pvs + '</div>' + hero[f1:]
     # the stat line moves into the hero as a tab that sits on the code tape
     p0 = b.index('<figure class="deskphoto">'); p1 = b.index('</figure>', p0) + len('</figure>')
     photo = b[p0:p1]
@@ -697,7 +664,7 @@ DIRS = [
   'a', 'Fraunces &middot; Archivo &middot; JetBrains Mono'),
  ('ffd-dir-b.html', 'B', 'Trading desk', 'Terminal-luxe: a deep-ink desk with KPI tiles, a scrolling merchant-code tape, a dark command-bar filter and colour-coded cards in Earn, Burn, Return and Learn hues.',
   'b', 'Geist &middot; Geist Mono'),
- ('ffd-dir-c.html', 'C', 'Bold brand pop', 'Loud, grown up: a full pink hero with a gold bullion bar, an ink stats tab on a merchant-code tape, a sticky category rail beside a three-column shelf on desktop, and colour bands with swipeable shelves on phones.',
+ ('ffd-dir-c.html', 'C', 'Bold brand pop', 'Loud, grown up: a full pink hero with a metallic gold Golden Nugget card, an ink stats tab on a merchant-code tape, a sticky category rail beside a three-column shelf on desktop, and colour bands with swipeable shelves on phones.',
   'c', 'Bricolage Grotesque &middot; Instrument Serif'),
 ]
 dcards = ''.join(f'''<a class="d d-{c}" href="{h}"><div class="sw" aria-hidden="true"><span class="sw-k">Direction {L}</span><span class="sw-h">Everything I'd tell you <em>over coffee.</em></span><span class="sw-r"><i>490</i><i>20</i><i>121</i><i>0</i></span></div>
