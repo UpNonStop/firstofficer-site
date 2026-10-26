@@ -162,4 +162,5 @@ window.CFG.css+=`
 .dband{position:absolute;z-index:0;border-radius:32px;background:rgba(255,253,249,.82);box-shadow:0 30px 60px -40px rgba(20,18,22,.35),0 0 0 1px rgba(250,24,150,.08);backdrop-filter:blur(6px)}
 #hero.D h1{line-height:1.02}
 #hero.M h1{line-height:1.04}
+#hero.D .fo,#hero.D .fol{z-index:45!important}
 `;
