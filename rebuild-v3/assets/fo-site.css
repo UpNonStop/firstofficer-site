@@ -30,7 +30,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .sheet a{display:flex;justify-content:space-between;padding:14px 2px;border-bottom:1px solid var(--line);font:600 15px/1.2 var(--font);text-decoration:none}
 .sheet a::after{content:"›";color:var(--ink3)}
 .sheet .btn{margin-top:12px}
-@media(min-width:1000px){.nlinks{display:flex}.burger{display:none}.btn-sm.wa .t{display:inline}}
+@media(min-width:1000px){.nlinks{display:flex}.burger{display:none}}
+@media(min-width:1080px){.btn-sm.wa .t{display:inline}}
 @media(max-width:380px){.brand small{display:none}}
 
 /* ---------- sections + calm background photos ---------- */
