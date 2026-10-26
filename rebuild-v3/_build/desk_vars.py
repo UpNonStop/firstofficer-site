@@ -484,27 +484,31 @@ var others=Object.keys(T).filter(function(n){return D.darn.indexOf(+n)<0});
     shell(5, css, vis, js)
 
 # ================================================================ gallery
+GAL_CSS = '''
+.gl2{display:grid;gap:18px;margin-top:8px}
+.gc{display:block;text-decoration:none;color:inherit;background:#faf8fb;border-radius:20px;box-shadow:inset 0 0 0 1px #eee9f1;padding:12px;transition:box-shadow .3s}
+.gc:hover{box-shadow:inset 0 0 0 1.5px #FA1896}
+.gth{display:grid;grid-template-columns:1fr 34%;gap:10px;align-items:start;height:220px;overflow:hidden;border-radius:12px}
+.gth img{width:100%;display:block;border-radius:10px;box-shadow:0 0 0 1px #ebe6ee;background:#fff}
+.gt{display:flex;gap:11px;padding:12px 4px 4px}
+.gn{width:28px;height:28px;border-radius:50%;background:#FA1896;color:#fff;font:700 14px/28px 'DM Sans',sans-serif;text-align:center;flex:none}
+.gt b{font:700 17px 'DM Sans',sans-serif;color:var(--ink)}.gt p{font:400 14px/1.5 'DM Sans',sans-serif;color:var(--body);margin:4px 0 6px}
+.go{font:700 13px 'DM Sans',sans-serif;color:#d40f7d}
+@media(min-width:900px){.gl2{grid-template-columns:1fr 1fr;gap:22px}.gth{height:300px}}
+
+.gnew{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#fff0f8;border-radius:14px;padding:12px 14px;margin:0 0 16px;font:500 14px/1.4 'DM Sans',sans-serif;color:var(--body);text-decoration:none}.gnew b{color:#d40f7d}.gnew:hover{box-shadow:inset 0 0 0 1.5px #FA1896}
+'''
 def gallery():
     cards = ''
     for i, (name, desc) in enumerate(VARS, 1):
         cards += f'''<a class="gc" href="desk-var-{i}.html"><div class="gth"><img class="gd" src="_shots/deskvar-{i}-1440.jpg" alt="Variation {i} at desktop width" loading="lazy"><img class="gm" src="_shots/deskvar-{i}-390.jpg" alt="Variation {i} on a phone" loading="lazy"></div>
 <div class="gt"><span class="gn">{i}</span><div><b>{name}</b><p>{desc}</p><span class="go">Open variation {i} →</span></div></div></a>'''
-    body = f'''<style>{BASE_CSS}
-.gl2{{display:grid;gap:18px;margin-top:8px}}
-.gc{{display:block;text-decoration:none;color:inherit;background:#faf8fb;border-radius:20px;box-shadow:inset 0 0 0 1px #eee9f1;padding:12px;transition:box-shadow .3s}}
-.gc:hover{{box-shadow:inset 0 0 0 1.5px #FA1896}}
-.gth{{display:grid;grid-template-columns:1fr 34%;gap:10px;align-items:start;height:220px;overflow:hidden;border-radius:12px}}
-.gth img{{width:100%;display:block;border-radius:10px;box-shadow:0 0 0 1px #ebe6ee;background:#fff}}
-.gt{{display:flex;gap:11px;padding:12px 4px 4px}}
-.gn{{width:28px;height:28px;border-radius:50%;background:#FA1896;color:#fff;font:700 14px/28px 'DM Sans',sans-serif;text-align:center;flex:none}}
-.gt b{{font:700 17px 'DM Sans',sans-serif;color:var(--ink)}}.gt p{{font:400 14px/1.5 'DM Sans',sans-serif;color:var(--body);margin:4px 0 6px}}
-.go{{font:700 13px 'DM Sans',sans-serif;color:#d40f7d}}
-@media(min-width:900px){{.gl2{{grid-template-columns:1fr 1fr;gap:22px}}.gth{{height:300px}}}}
-</style>
+    body = f'''<style>{BASE_CSS}{GAL_CSS}</style>
 <section class="dv"><div class="dvw">
 <div class="dvk">Mockups · Step 2, His desk</div>
 <h2 class="beat"><span class="n">2</span><span>His desk: five variations</span></h2>
 <p class="lede2">No connector lines in any of them. In each one the specialists keep working, show the typing dots, then hand a short finding to First Officer. Each is built for desktop and designed separately for the phone.</p>
+<a class="gnew" href="desk-spheres.html"><b>New: variation 4 as a busy sphere</b><span>Three explorations with all 50 programs answering First Officer →</span></a>
 <div class="gl2">{cards}</div>
 <p class="cap2">{CAP}</p>
 </div></section>'''
