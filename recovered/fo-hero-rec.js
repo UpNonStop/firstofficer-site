@@ -155,7 +155,7 @@ function spotTick(){if(MOB||!CUR)return;const on=[...SPOT].filter(n=>!LOCK[n]);i
 let MCH=[];
 let FEEDL=0;
 function feedSet(a,b,t,own){if(!FEED)return;const now=performance.now();if(!own&&now<FEEDL)return;if(own)FEEDL=now+4800;
- const html=own?`<div class="who"><img src="${LOGO(a)}">${NAME[a]}<em>to</em><img src="${LOGO(b)}">${NAME[b]}<u>${CUR.name}</u></div><div class="tx2">${t}</div>`:`<div class="who"><span class="lv"></span>${NAME[a]}${b?`<em>to</em>${NAME[b]}`:''}</div><div class="tx2">${t}</div>`;
+ const html=own?`<div class="who"><img src="${LOGO(a)}">${NAME[a]}<u>${CUR.name}</u></div><div class="tx2">${t}</div>`:`<div class="who"><span class="lv"></span>${NAME[a]}</div><div class="tx2">${t}</div>`;
  FEED.classList.add('out');setTimeout(()=>{FEED.innerHTML=html;FEED.classList.toggle('own',!!own);FEED.classList.remove('out')},STOP>=0?0:220)}
 function mobChips(){if(!MOB||!CUR)return;const ids=Object.keys(POS).map(Number).filter(n=>!REL.includes(n));const n=ids[Math.floor(rnd()*ids.length)];ping(n,1500);
  const T=C.tasks[n];feedSet(n,0,T[Math.floor(rnd()*T.length)]+'.')}
@@ -176,9 +176,9 @@ const SL={};
 function showBubble(x,y,w,key,a,b,t,tag,oth,life){if(SL[key])return;SL[key]=1;const d=bubbleEl(a,b,t,tag,oth);Object.assign(d.style,{left:px(x),top:px(y),width:px(w)});stage.appendChild(d);requestAnimationFrame(()=>requestAnimationFrame(()=>d.classList.add('on')));
  if(life)setTimeout(()=>{d.classList.remove('on');setTimeout(()=>{d.remove();SL[key]=0},400)},life);return d}
 function sayOwner(a,b,t,life=3800){if(MOB){feedSet(a,b,t,1);return}
- $$('.a2a.hot').forEach(e=>e.remove());SL.o0=0;const s=OWN[0];return showBubble(s[0],s[1],s[2],'o0',a,b,t,CUR.name,false,life)}
+ return}
 // other owners' work: one bubble at a time, kept inside the floor, never over this owner's specialists
-function sayOther(a,b,t){if(MOB){feedSet(a,b,t);return}const f=$('.feed',floor);if(!f)return;const set=()=>{f.innerHTML=`<span class="fd"></span><img src="${LOGO(a)}">${NAME[a]}<em>to</em><img src="${LOGO(b)}">${NAME[b]}<span class="ft">${t}</span>`;f.classList.remove('out')};
+function sayOther(a,b,t){if(MOB){feedSet(a,b,t);return}const f=$('.feed',floor);if(!f)return;const set=()=>{f.innerHTML=`<span class="fd"></span><img src="${LOGO(a)}">${NAME[a]}<span class="ft">${t}</span>`;f.classList.remove('out')};
  if(STOP>=0&&!window.READY){set();return}f.classList.add('out');setTimeout(set,280)}
 function chatter(once,tries=0){const c=C.chatter[Math.floor(Math.random()*C.chatter.length)];
  const bad=REL.includes(c[0])||REL.includes(c[1])||!POS[c[0]]||!POS[c[1]]||(!MOB&&POS[c[0]]&&POS[c[1]]&&(Math.abs(POS[c[0]][0]-POS[c[1]][0])>G.cw*3.2||Math.abs(POS[c[0]][1]-POS[c[1]][1])>G.ROW*1.5))||(MOB&&Math.hypot(POS[c[0]][0]-POS[c[1]][0],POS[c[0]][1]-POS[c[1]][1])>110);
@@ -210,7 +210,7 @@ function buildCard(p){SC=code();NX=false;const[bg,fg]=PAL[p.s%5];const ini=p.ini
  <div class="ppf6">Example owner. Fictional details. Figures are estimates.</div>`}
 function trk(){const e=$('#trk');if(e)e.textContent=TRK}
 function cardIntro(p){const hd=$('.hd',card);hd&&hd.classList.add('on');const sc=$('#sc');let i=0;
- if(FF||STOP>=0){sc.textContent=SC;$$('.kn,.rw,.ppf6,.pill',card).forEach(r=>r.classList.add('on'));countUp($('#cu1'),p.spend);countUp($('#cu3'),p.after);TRK=p.cards.length;trk();return}
+ if(1){sc.textContent=SC;$$('.kn,.rw,.ppf6,.pill',card).forEach(r=>r.classList.add('on'));countUp($('#cu1'),p.spend);countUp($('#cu3'),p.after);TRK=p.cards.length;trk();return}
  setTimeout(()=>{const pill=$('.pill',card);pill&&pill.classList.add('on');(function ty(){sc.innerHTML=SC.slice(0,i)+'<span class="cur"></span>';if(i++<SC.length)setTimeout(ty,95);else setTimeout(()=>sc.textContent=SC,900)})()},350);
  TRK=p.cards.length;trk();
  $$('.kn,.rw,.ppf6',card).forEach((r,j)=>setTimeout(()=>{r.classList.add('on');if(r.querySelector('#cu1'))countUp($('#cu1'),p.spend);if(r.querySelector('#cu3'))countUp($('#cu3'),p.after,1700)},1100+j*320))}
@@ -239,6 +239,7 @@ const tstr=()=>CLK[0]+':'+String(CLK[1]).padStart(2,'0')+' PM';
 function banner(t,b){$('#bt').textContent=t;$('#bb').textContent=b;$('#ban').classList.add('on');setTimeout(()=>$('#ban').classList.remove('on'),3600)}
 function rise(e,n,on){if(!e||!POS[n])return;if(!on){e.style.translate='0px 0px';e.classList.add('lit');return}const F=(MOB&&G.CY)?[195,G.CY]:G.FO;const dx=F[0]-POS[n][0],dy=F[1]-POS[n][1],L=Math.hypot(dx,dy)||1,k=Math.min(MOB?16:38,L*.22)/L;e.style.translate=(dx*k).toFixed(1)+'px '+(dy*k).toFixed(1)+'px'}
 function planFill(p){const e=$('#plan');if(!e||!p.plan)return;const P=p.plan;e.innerHTML=`<div class="pk">Your plan<span>Reviewed weekly</span></div><div class="pt">${p.biz}</div>`+P.rows.map(r=>`<div class="pr ${r[3]}"><div class="pl"><b>${r[0]}</b><small>${r[1]}</small></div><span class="pv">${r[2]}</span></div>`).join('')+`<div class="pg"><div class="pgh"><b>${P.goal[0]}</b><span>${P.goal[1]}</span></div><div class="pgb"><i style="width:${P.goal[2]}%"></i></div><small>${P.goal[3]}</small></div>`+`<div class="pf"><span>${P.foot[0]}</span><b>${P.foot[1]}</b></div><div class="pn">${P.note}</div>`}
+function preFill(p){(p.pre||[]).forEach(x=>{if(typeof x==='string'){const t=document.createElement('div');t.className='ts';t.textContent=x;ci.appendChild(t);lastW=null}else{ci.appendChild(msgEl({w:x.w,t:x.t,h:x.t}));lastW=String(x.w)}})}
 function speak(n,on){const e=AG[n];rise(e,n,on);if(on){LOCK[n]=1;e&&e.classList.add('spk');const s=e&&e.querySelector('.st');if(s)s.innerHTML='Thinking'+WK;burst($('#w'+n,web),C.acc[CUR.tab][0],true,3,240,1050);setTimeout(()=>FOel.classList.add('spk'),700);setTimeout(()=>FOel.classList.remove('spk'),1300)}
  else{e&&e.classList.remove('spk');const r=CUR.rel.find(x=>x[0]===n);const s=e&&e.querySelector('.st');if(s)s.textContent=relSt(CUR,n,r?r[1]:'')}}
 async function run(p,ff){const my=++RUN;let dsk=null,lastF='',bi=0,prevSpec=null,spoken=new Set(),planSet=false;
@@ -276,8 +277,8 @@ function load(i,ff){CUR=PS[i];localStorage.setItem('fo9_p',i);RUN++;
  $$('#tabs > div').forEach(d=>d.classList.toggle('on',d.dataset.t===(HOMEV?'home':CUR.tab)));HOMEV=false;
  const[bg,fg]=PAL[CUR.s%5];$('#pav').innerHTML=`<div class="pav6" style="width:32px;height:32px;background:${bg};color:${fg};font-size:12.5px">${CUR.ini||(CUR.name[0]+CUR.biz[0])}</div>`;
  ci.innerHTML='';ci.style.transform='none';lastW=null;rc=null;A2AQ=[];$$('.a2a').forEach(e=>e.remove());for(const k in SL)SL[k]=0;
- if(MOB)placeDesk();buildFloor(CUR);buildCard(CUR);planFill(CUR);if(MOB)beats(CUR);
- if(MOB&&STOP<0&&!SEEN.card)PEND.c=CUR;else cardIntro(CUR);mobChips();
+ if(MOB)placeDesk();buildFloor(CUR);buildCard(CUR);planFill(CUR);preFill(CUR);if(MOB)beats(CUR);
+ cardIntro(CUR);mobChips();
  if(MOB&&STOP<0&&!SEEN.desk)PEND.r=[CUR,ff||0];else run(CUR,ff||0)}
 const SEEN={},PEND={};
 function watch(){if(!MOB||STOP>=0||!window.IntersectionObserver)return;const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;
@@ -464,10 +465,10 @@ function bubbleEl(a,b,t,tag,oth){const d=document.createElement('div');d.classNa
 const SL={};
 function showBubble(x,y,w,key,a,b,t,tag,oth,life){if(SL[key])return;SL[key]=1;const d=bubbleEl(a,b,t,tag,oth);Object.assign(d.style,{left:px(x),top:px(y),width:px(w)});stage.appendChild(d);requestAnimationFrame(()=>requestAnimationFrame(()=>d.classList.add('on')));
  if(life)setTimeout(()=>{d.classList.remove('on');setTimeout(()=>{d.remove();SL[key]=0},400)},life);return d}
-function sayOwner(a,b,t,life=3800){if(MOB){const s=$('.strip')||el('div','strip','',{left:'16px',top:px(G.STRIP),width:'358px'});s.innerHTML=`<div class="who"><img src="${LOGO(a)}">${NAME[a]}<em>to</em><img src="${LOGO(b)}">${NAME[b]}<u>${CUR.name}</u></div><div class="tx2">${t}</div>`;return}
- $$('.a2a.hot').forEach(e=>e.remove());SL.o0=0;const s=OWN[0];return showBubble(s[0],s[1],s[2],'o0',a,b,t,CUR.name,false,life)}
+function sayOwner(a,b,t,life=3800){if(MOB){const s=$('.strip')||el('div','strip','',{left:'16px',top:px(G.STRIP),width:'358px'});s.innerHTML=`<div class="who"><img src="${LOGO(a)}">${NAME[a]}<u>${CUR.name}</u></div><div class="tx2">${t}</div>`;return}
+ return}
 // other owners' work: one bubble at a time, kept inside the floor, never over this owner's specialists
-function sayOther(a,b,t){if(MOB)return;const f=$('.feed',floor);if(!f)return;const set=()=>{f.innerHTML=`<span class="fd"></span><img src="${LOGO(a)}">${NAME[a]}<em>to</em><img src="${LOGO(b)}">${NAME[b]}<span class="ft">${t}</span>`;f.classList.remove('out')};
+function sayOther(a,b,t){if(MOB)return;const f=$('.feed',floor);if(!f)return;const set=()=>{f.innerHTML=`<span class="fd"></span><img src="${LOGO(a)}">${NAME[a]}<span class="ft">${t}</span>`;f.classList.remove('out')};
  if(STOP>=0&&!window.READY){set();return}f.classList.add('out');setTimeout(set,280)}
 function chatter(once,tries=0){const c=C.chatter[Math.floor(Math.random()*C.chatter.length)];
  const bad=REL.includes(c[0])||REL.includes(c[1])||!POS[c[0]]||!POS[c[1]]||(!MOB&&POS[c[0]]&&POS[c[1]]&&(Math.abs(POS[c[0]][0]-POS[c[1]][0])>G.cw*3.2||Math.abs(POS[c[0]][1]-POS[c[1]][1])>G.ROW*1.5))||(MOB&&(POS[c[0]][1]<0||POS[c[1]][1]<0||(POS[c[0]][0]<195)!==(POS[c[1]][0]<195)));
@@ -499,7 +500,7 @@ function buildCard(p){SC=code();NX=false;const[bg,fg]=PAL[p.s%5];const ini=p.ini
  <div class="ppf6">Example owner. Fictional details. Figures are estimates.</div>`}
 function trk(){const e=$('#trk');if(e)e.textContent=TRK}
 function cardIntro(p){const hd=$('.hd',card);hd&&hd.classList.add('on');const sc=$('#sc');let i=0;
- if(FF||STOP>=0){sc.textContent=SC;$$('.kn,.rw,.ppf6,.pill',card).forEach(r=>r.classList.add('on'));countUp($('#cu1'),p.spend);countUp($('#cu3'),p.after);TRK=p.cards.length;trk();return}
+ if(1){sc.textContent=SC;$$('.kn,.rw,.ppf6,.pill',card).forEach(r=>r.classList.add('on'));countUp($('#cu1'),p.spend);countUp($('#cu3'),p.after);TRK=p.cards.length;trk();return}
  setTimeout(()=>{const pill=$('.pill',card);pill&&pill.classList.add('on');(function ty(){sc.innerHTML=SC.slice(0,i)+'<span class="cur"></span>';if(i++<SC.length)setTimeout(ty,95);else setTimeout(()=>sc.textContent=SC,900)})()},350);
  TRK=p.cards.length;trk();
  $$('.kn,.rw,.ppf6',card).forEach((r,j)=>setTimeout(()=>{r.classList.add('on');if(r.querySelector('#cu1'))countUp($('#cu1'),p.spend);if(r.querySelector('#cu3'))countUp($('#cu3'),p.after,1700)},1100+j*320))}
@@ -528,6 +529,7 @@ const tstr=()=>CLK[0]+':'+String(CLK[1]).padStart(2,'0')+' PM';
 function banner(t,b){$('#bt').textContent=t;$('#bb').textContent=b;$('#ban').classList.add('on');setTimeout(()=>$('#ban').classList.remove('on'),3600)}
 function rise(e,n,on){if(!e||!POS[n])return;if(!on){e.style.translate='0px 0px';e.classList.add('lit');return}const F=(MOB&&G.CY)?[195,G.CY]:G.FO;const dx=F[0]-POS[n][0],dy=F[1]-POS[n][1],L=Math.hypot(dx,dy)||1,k=Math.min(MOB?16:38,L*.22)/L;e.style.translate=(dx*k).toFixed(1)+'px '+(dy*k).toFixed(1)+'px'}
 function planFill(p){const e=$('#plan');if(!e||!p.plan)return;const P=p.plan;e.innerHTML=`<div class="pk">Your plan<span>Reviewed weekly</span></div><div class="pt">${p.biz}</div>`+P.rows.map(r=>`<div class="pr ${r[3]}"><div class="pl"><b>${r[0]}</b><small>${r[1]}</small></div><span class="pv">${r[2]}</span></div>`).join('')+`<div class="pg"><div class="pgh"><b>${P.goal[0]}</b><span>${P.goal[1]}</span></div><div class="pgb"><i style="width:${P.goal[2]}%"></i></div><small>${P.goal[3]}</small></div>`+`<div class="pf"><span>${P.foot[0]}</span><b>${P.foot[1]}</b></div><div class="pn">${P.note}</div>`}
+function preFill(p){(p.pre||[]).forEach(x=>{if(typeof x==='string'){const t=document.createElement('div');t.className='ts';t.textContent=x;ci.appendChild(t);lastW=null}else{ci.appendChild(msgEl({w:x.w,t:x.t,h:x.t}));lastW=String(x.w)}})}
 function speak(n,on){const e=AG[n];rise(e,n,on);if(on){LOCK[n]=1;e&&e.classList.add('spk');const s=e&&e.querySelector('.st');if(s)s.innerHTML='Thinking'+WK;burst($('#w'+n,web),C.acc[CUR.tab][0],true,3,240,1050);setTimeout(()=>FOel.classList.add('spk'),700);setTimeout(()=>FOel.classList.remove('spk'),1300)}
  else{e&&e.classList.remove('spk');const r=CUR.rel.find(x=>x[0]===n);const s=e&&e.querySelector('.st');if(s)s.textContent=relSt(CUR,n,r?r[1]:'')}}
 async function run(p,ff){const my=++RUN;let dsk=null,lastF='',bi=0,prevSpec=null,spoken=new Set(),planSet=false;
@@ -566,7 +568,7 @@ function load(i,ff){CUR=PS[i];localStorage.setItem('fo9_p',i);RUN++;
  $$('#tabs > div').forEach(d=>d.classList.toggle('on',d.dataset.t===(HOMEV?'home':CUR.tab)));HOMEV=false;
  const[bg,fg]=PAL[CUR.s%5];$('#pav').innerHTML=`<div class="pav6" style="width:32px;height:32px;background:${bg};color:${fg};font-size:12.5px">${CUR.ini||(CUR.name[0]+CUR.biz[0])}</div>`;
  ci.innerHTML='';ci.style.transform='none';lastW=null;rc=null;A2AQ=[];$$('.a2a').forEach(e=>e.remove());for(const k in SL)SL[k]=0;
- if(MOB)placeDesk();buildFloor(CUR);buildCard(CUR);planFill(CUR);cardIntro(CUR);mobChips();run(CUR,ff||0)}
+ if(MOB)placeDesk();buildFloor(CUR);buildCard(CUR);planFill(CUR);preFill(CUR);cardIntro(CUR);mobChips();run(CUR,ff||0)}
 function placeDesk(){if(MOB){if(!CUR)return;const mx=measureCards([CUR]);G.cardH=mx;G.FO[1]=G.CARD[1]+mx+44;G.PH[1]=G.FO[1]+G.FS/2+26;G.STRIP=G.PH[1]+G.PHH+18;
   CTAS.style.top=px(G.STRIP+110);MICRO.style.top=px(G.STRIP+110+62);TMK.style.top=px(G.STRIP+110+62+MICRO.offsetHeight+6);SH.H=G.STRIP+110+62+MICRO.offsetHeight+6+TMK.offsetHeight+22;fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));
   FOel.style.top=px(G.FO[1]-G.FS/2);FOL.style.top=px(G.FO[1]-19);ph.style.top=px(G.PH[1]);return}const cb=G.CARD[1]+measureCards();G.FO[1]=Math.max(cb+40+G.FS/2+14,680);G.Y0=G.FO[1]+G.FS/2+70;G.Y1=G.Y0+34+3*G.ROW+112;SH.H=G.Y1+112;fit();[web,pul].forEach(s=>s.setAttribute('height',SH.H));MICRO.style.top=px(G.Y1+18);TMK.style.top=px(G.Y1+18+MICRO.offsetHeight+4);

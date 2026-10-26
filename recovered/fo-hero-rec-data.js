@@ -11,7 +11,7 @@ var leo={s:3,name:'Leo',ini:'LR',biz:'Linden Row Insurance',ind:'Insurance agenc
  cards:['Everyday business card','Business travel card'],top:'Lead-gen ads, agency software, carrier visits',spend:420,before:504,after:1428,
  nxt:'Tokyo in business for 2',nxte:'32% there, on pace for Mar 2027',win:'Mar 2027',
  pend:['Software to the 4x card','Ads to the 4x card','Tokyo seat watch, spring 2027','Unused travel credit','Carrier visits through the portal'],
- rel:[[1,'Earn'],[2,'Earn'],[47,'Burn'],[37,'Burn'],[50,'Burn']],t0:'8:15',buckets:[1],bucket:1,bucketL:'Owner',
+ rel:[[1,'Earn'],[2,'Earn'],[47,'Burn'],[37,'Burn'],[50,'Burn']],t0:'8:15',pre:['Yesterday 4:02 PM ET',{w:'o',t:'Renewal season. Can you look at our cards before we renew?'},{w:'f',t:'Yes. Send me last month\'s statements and I will have the desk read every line.'},{w:'o',t:'Sent all three.'},{w:'f',t:'Got them. I will come back tonight with what we found.'}],buckets:[1],bucket:1,bucketL:'Owner',
  smart:'Ads and software moved to 4x, Tokyo in business for 2 on pace',
  dest:{i:1,title:'Tokyo, Japan',sub:'Trip idea for 2, business class'},
  mer:{k:'amazon',name:'Amazon',cat:'Office supplies',k_yr:6,card:'the everyday business card'},
@@ -20,15 +20,15 @@ var leo={s:3,name:'Leo',ini:'LR',biz:'Linden Row Insurance',ind:'Insurance agenc
  beats:[
   B('o','We put about $35k a month on cards. Ads, software, carrier visits. Are we doing this right?'),
   B('f','Most of it earns 1x today. That is the gap. Give me a minute with the desk.'),
-  B(1,'The everyday business card earns 4x in its top spend categories, which can include online ads and software, up to a yearly cap per current terms.',{f:'4x on online ads and software, up to a yearly cap per current terms.'}),
-  B(2,'Ultimate Rewards points transfer 1:1 to Virgin Atlantic Flying Club, per current terms.',{f:'Ultimate Rewards move 1:1 to Flying Club.',to:47}),
+  B(1,'Checking which card in your wallet fits ads and software best, est.',{f:'Checking which card fits ads and software, est.'}),
+  B(2,'Checking how your points could move toward a Tokyo trip, est.',{f:'Checking how points could move toward Tokyo, est.',to:47}),
   B('f','Ads are your biggest line, about $12,500 a month. Moving them to the 4x card is worth about $7,200 a year.',{h:E('Ads are your biggest line, about $12,500 a month. Moving them to the 4x card is worth about $7,200 a year.')}),
   B('o','And the software?'),
   B('f','Same move. About $2,880 a year. It renews monthly, so it can switch today.',{h:E('Same move. About $2,880 a year. It renews monthly, so it can switch today.')}),
   B('o','Could all this get us to Tokyo?',{re:1}),
-  B(47,'Flying Club can book ANA business class to Tokyo. Pricing is set by Flying Club and can change.',{f:'ANA business to Tokyo is bookable through Flying Club.',to:37}),
-  B(37,'Business seats to Tokyo open in small numbers. We watch spring dates every day.',{f:'Watching spring dates to Tokyo daily.'}),
-  B(50,'JAL business to Tokyo is bookable with partner miles too. We compare both.',{f:'JAL is the backup option for Tokyo.',to:37}),
+  B(47,'Comparing partner options for business class to Tokyo, est. Pricing can change.',{f:'Comparing options for Tokyo, est.',to:37}),
+  B(37,'Business seats to Tokyo open in small numbers. We watch spring dates.',{f:'Watching spring dates for Tokyo.'}),
+  B(50,'Comparing a second option for Tokyo, est.',{f:'Comparing a second option, est.',to:37}),
   B('f','Yes. Business for 2, round trip. You are 32% there today, on pace for March 2027.',{h:E('Yes. Business for 2, round trip. You are 32% there today, on pace for March 2027.'),card:'map'}),
   B('o','Seats are not guaranteed, right?'),
   B('f','Right. I watch spring dates and tell you the moment good seats open.'),
@@ -76,3 +76,20 @@ svg.web,svg.pul{display:none!important}
 .ban6 .ai img{object-fit:contain}
 `;
 })();
+
+/* Oct 27 sweep: generic, est.-labelled desk chatter and tile tasks (no specific program facts) */
+(function(){var C=window.CFG;var G=['Checking current terms','Logging new rules','Comparing points and cash','Watching for bonuses','Nightly data sync','Reviewing award pricing','Strategy review','Checking credits'];
+for(var k in C.tasks){var n=+k;C.tasks[k]=[0,1,2,3,4].map(function(j){return G[(n+j*3)%G.length]})}
+var T=['Checking current terms.','Comparing points and cash, est.','Reviewing award pricing, est.','Watching for a bonus.','Logging new rules.','Checking a trip quote, est.','Reviewing a spend split, est.','Nightly data sync.'];
+C.chatter=C.chatter.map(function(c,i){return [c[0],c[1],T[i%T.length]]});})();
+/* Oct 27 fold round: no circles (rounded squares), chevron on transparent, no chip */
+window.CFG.css+=`
+.pav6{border-radius:14px!important}.pav6 .em{border-radius:6px!important}
+#pav>div,#pav div{border-radius:9px!important}
+.beat i{border-radius:8px!important}
+.fo,#hero.M .fo{border-radius:0!important;box-shadow:none!important;background:transparent!important}
+.fo img{border-radius:0!important;padding:6%!important;filter:drop-shadow(0 8px 14px rgba(230,15,134,.3))}
+.mm .av{border-radius:8px!important}.mm .av.avfo{border-radius:0!important;box-shadow:none!important;background:transparent!important;object-fit:contain}
+.a2a{display:none!important}
+.kick .ld,.lv,.feed .fd,.feed10 .who .lv,.pend i:before{border-radius:2px!important}
+`;

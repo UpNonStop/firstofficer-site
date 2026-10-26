@@ -38,7 +38,7 @@ def nav(on):
 </div>
 '''
 
-TIPS=[('E','EARN','Ad spend','Match it to a bonus category'),('B','BURN','Award rules','Vet them before you book'),('E','EARN','Internet &amp; phone','Often a bonus category'),('B','BURN','Transfer bonuses','Check before you move points'),('R','RETURN','Hotel nights','Compare points against cash'),('L','LEARN','Expiring points','Every program keeps its own clock'),('R','RETURN','Statement credits','Use them before they lapse'),('B','BURN','Partner charts','Often beat the airline&#39;s own price'),('L','LEARN','Idle points','Lose ground while they sit'),('R','RETURN','Friday report','Every week, in plain words')]
+TIPS=[('E','EARN','Ad spend','Match it to a bonus category'),('B','BURN','Award rules','Vet them before you book'),('E','EARN','Internet &amp; phone','Check it against bonus categories'),('B','BURN','Transfer bonuses','Check before you move points'),('R','RETURN','Hotel nights','Compare points against cash'),('L','LEARN','Expiring points','Every program keeps its own clock'),('R','RETURN','Statement credits','Use them before they lapse'),('B','BURN','Partner charts','Compare them with the airline&#39;s price'),('L','LEARN','Idle points','Lose ground while they sit'),('R','RETURN','Friday report','Every week, in plain words')]
 def ticker():
     one='<span class="h"><b>Desk tips, illustrated</b></span>'+''.join(f'<span><em class="{c}">{p}</em> <b>{t}</b> {d}</span>' for c,p,t,d in TIPS)
     return f'<div class="tick" aria-label="Desk tips"><div class="tr">{one}{one}</div></div>\n'
@@ -52,7 +52,7 @@ def footer():
 </div>
 <div class="bar"><span>UpNonStop | 235 Pavonia Avenue | Jersey City, NJ 07302 | Proudly Made in 🇺🇸</span><span class="fine">Leo and Linden Row Insurance are fictional. All figures are examples and estimates.</span></div>
 </div></footer>
-<div class="mcta"><div><small>Flat monthly · Cancel anytime</small><b>$550 a month</b></div><a class="btn pk" href="book.html">Book the free call</a></div>
+<div class="mcta"><div><small>Flat monthly · Cancel anytime</small><b>$550 a month</b></div><a class="btn pk" href="book.html">Get your desk</a></div>
 '''
 
 def cta():
@@ -74,7 +74,7 @@ def cs_found(on=''):
     return f'''<div class="cs{on}" data-confetti="1">{hd()}
 <div class="bd">✓ It's confirmed</div><div class="lb">Found money</div>
 <div class="bg" data-to="6720" data-pre="+$">+$6,720</div><div class="sub">a year, now confirmed <em>est.</em></div>
-<p class="p">Software and carrier travel moved to 4x and 5x. Your statements confirm it, so it moved from waiting to found.</p>
+<p class="p">Software and carrier travel moved to better-earning cards. Your statements confirm it, so it moved from waiting to found.</p>
 <div class="mini"><div><small>Travel this month</small><b>$5,000</b></div><div><small>Points earned</small><b>25,000</b></div><div><small>All moves, est.</small><b>$15,120</b></div></div>
 <div class="by"><i>✓</i>Checked by the desk against your statement</div>
 {nm('a','Ads to the 4x card','Waiting for your OK','+$7,200 <em>est.</em>','Approve')}
@@ -106,7 +106,7 @@ def shot(name,alt,cls=''):
     return f'<div class="phone {cls}"><img class="shot" src="img/rec/app/{name}.webp" alt="{alt}" loading="lazy"></div>'
 
 def scorecard():
-    return '''<div class="wc sc reveal"><div class="top"><h5>Friday · Week 43 scorecard</h5><span class="tag p">Example</span></div>
+    return '''<div class="wc sc reveal"><div class="top"><h5>Week 43 scorecard</h5><span class="tag p">Example</span></div>
 <div class="v" data-io><span data-count="1860" data-pre="$">$1,860</span><small>this week, est.</small></div>
 <ul><li><span>Software on the 4x card</span><b>$640</b></li><li><span>Carrier visits through the card travel portal</span><b>$690</b></li><li><span>Unused travel credit, claimed</span><b>$530</b></li></ul></div>'''
 

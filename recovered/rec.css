@@ -638,3 +638,38 @@ em,i{font-style:normal}
 /* Oct 27: no orphans */
 h1,h2,h3,h4,h5,.beat h3,.wc h5,.why b,.steps li b,.cs .lb,.arc-head h2{text-wrap:balance}
 p,li span,.why span,.cs .p,.cs .sub,figcaption,.est,.sub,small{text-wrap:pretty}
+
+/* ===== Oct 27 fold round: always-visible content, clear hero photos, no circles ===== */
+.reveal,.reveal.in{opacity:1!important;transform:none!important}
+.spend .bar i,.wc .bars u i{width:var(--w)!important}
+/* desktop: photo clearly visible, cream wash on the text side only */
+#top .rbg i.on{opacity:.62}
+#top .rbg::after{background:linear-gradient(90deg,rgba(250,246,238,.95) 0,rgba(250,246,238,.9) 36%,rgba(250,246,238,.45) 56%,rgba(250,246,238,.12) 100%),linear-gradient(180deg,rgba(250,246,238,0) 70%,var(--cream) 100%)}
+/* product desk: chevron on transparent, no tile or ring */
+.desk .core .tile,.desk .core.lit .tile{background:transparent!important;box-shadow:none!important;border-radius:0!important}
+.desk .core .tile img{width:64px!important;filter:drop-shadow(0 8px 14px rgba(230,15,134,.28))}
+.desk .core.lit .tile img{filter:drop-shadow(0 0 14px rgba(250,24,150,.6))}
+.sp .dots u{border-radius:2px}
+/* sticky CTA: cream glass, pink button, on screen from load on phones */
+@media (max-width:760px){
+  html body #top.dhero.secphoto{padding-top:24px!important}
+  #top .rbg{bottom:auto!important;height:720px!important;overflow:hidden}
+  #top .rbg i{inset:0;background-position:center 40%}
+  #top .rbg i.on{opacity:1}
+  #top .rbg::after{background:linear-gradient(180deg,rgba(250,246,238,.3) 0,rgba(250,246,238,.66) 130px,rgba(250,246,238,.72) 560px,var(--cream) 100%)}
+}
+@media (max-width:900px){
+  .mcta{background:rgba(255,253,249,.94)!important;color:var(--ink)!important;box-shadow:0 0 0 1px rgba(250,24,150,.18),0 18px 40px -18px rgba(20,18,22,.45)!important}
+  .mcta small{color:var(--goldd)!important}
+  .mcta b{color:var(--ink)}
+}
+/* Oct 27 QA polish */
+.wc .bars div{grid-template-columns:156px 1fr 56px}
+.wc .bars div>span{text-wrap:balance}
+.wc.sc .top h5{white-space:nowrap}
+.wc .top h5{text-wrap:balance}
+@media(max-width:760px){
+  .wc .bars div{grid-template-columns:104px 1fr 50px;font-size:12.5px}
+  .cels{padding-top:20px;padding-bottom:44px;margin-top:16px}
+  .cels .phone{filter:drop-shadow(0 14px 16px rgba(20,18,22,.16))}
+}

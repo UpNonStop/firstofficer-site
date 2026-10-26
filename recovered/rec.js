@@ -45,7 +45,7 @@ window.FOconfetti=confetti;
 $$('.cel').forEach(function(cel){
   var scr=$('.scr',cel),slides=$$('.cs',cel),navb=cel.parentElement.querySelector('.celnav'),btns=navb?$$('button',navb):[],i=-1,tm=null,started=false,dur=+(cel.dataset.dur||6200);
   function show(n){i=(n+slides.length)%slides.length;slides.forEach(function(s,k){s.classList.toggle('on',k===i)});btns.forEach(function(b,k){b.classList.remove('on');void b.offsetWidth;if(k===i){b.style.setProperty('--dur',dur+'ms');b.classList.add('on')}});
-    var s=slides[i];$$('[data-to]',s).forEach(function(el){countTo(el,+el.dataset.to,1500,450)});if(s.dataset.confetti)setTimeout(function(){confetti(scr,{y:.3})},380);
+    var s=slides[i];$$('[data-to]',s).forEach(function(el){countTo(el,+el.dataset.to,700,120)});if(s.dataset.confetti)setTimeout(function(){confetti(scr,{y:.3})},380);
     clearTimeout(tm);if(cel.dataset.auto!=='0'&&slides.length>1)tm=setTimeout(function(){show(i+1)},dur)}
   btns.forEach(function(b,k){b.addEventListener('click',function(){show(k)})});
   scr.addEventListener('click',function(){show(slides.length>1?i+1:0)});
@@ -67,7 +67,7 @@ var beats=$$('.beat');if(beats.length){var rl=$$('.rail a'),ml=$$('.mrail a'),pr
   addEventListener('scroll',function(){if(!prog)return;var a=beats[0].getBoundingClientRect().top,z=beats[beats.length-1].getBoundingClientRect().bottom,h=innerHeight*.5;prog.style.width=Math.max(0,Math.min(100,(h-a)/(z-a)*100))+'%'},{passive:true});}
 
 /* mobile sticky CTA after the hero */
-var mc=$('.mcta'),top=$('#top')||$('.phead');if(mc&&top){addEventListener('scroll',function(){var b=top.getBoundingClientRect().bottom,f=$('.ctab');var nearEnd=f&&f.getBoundingClientRect().top<innerHeight;mc.classList.toggle('show',b<0&&!nearEnd)},{passive:true})}
+var mc=$('.mcta'),top=$('#top')||$('.phead');if(mc&&top){var up=function(){var b=top.getBoundingClientRect().bottom,f=$('.ctab');var nearEnd=f&&f.getBoundingClientRect().top<innerHeight;mc.classList.toggle('show',!nearEnd)};addEventListener('scroll',up,{passive:true});up()}
 
 /* product: pillar tour */
 var tt=$('.ttabs');if(tt){var tb=$$('button',tt),panes=$$('.tpane'),imgs=$$('.tour .scr img'),ti=0,tto=null,TD=7000,tstarted=false;
