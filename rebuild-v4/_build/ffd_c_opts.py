@@ -800,6 +800,7 @@ open(_p, 'w', encoding='utf-8').write(_s.replace(CHEV, MARK))
 BP, BPS, BPK = '#E60F86', '#B30A68', '#FA1896'          # --pink2 block, --pinkdeep stub, --pink accent
 BCR, BCR2, BTR, BPL = '#FAF6EE', '#FBF4E6', '#F1EADB', '#F1D6E5'   # --bg, --cream2, --track, --pinkLine
 BG, BG2, BINK, BINK2 = '#E8C547', '#F5B700', '#141216', '#3A343D'  # --gold, --gold2, --ink, --ink2
+EYEBROW = (BG, BINK)  # brand gold tag, ink text: ink sat too heavy under the ink ticker on phones
 GP = 'rgba(255,255,255,.7)'      # perforation on gold
 # the site's existing hand-painted highlighter brush (the 'No affiliate links' trust line), reused verbatim
 import re as _re3h
@@ -884,9 +885,44 @@ html.dir-c.o3h .fz>span{{background:{BRUSH};padding:.1em .28em .12em;margin:0 -.
  § .grp[data-grp=nuggets]{{background:{BG};box-shadow:0 0 0 100vmax {BG}}}
 }}
 '''
+# ---------------------------------------------------------------- 3h final pass (Ohad, Oct 26): eyebrow tag, no chevron reuse, email capture
+EB_BG, EB_FG = EYEBROW
+O3H2 = f'''
+/* eyebrow: its own colour, a plain tag, no stub and no mark */
+§ .eyebrow{{background:{EB_BG}!important;color:{EB_FG}!important;-webkit-mask:none;mask:none;border:0;border-radius:6px;padding:10px 16px;box-shadow:none}}
+§ .eyebrow::before{{display:none}}
+/* signature: Ohad and the role on a plain pink tag, no stub */
+§ .sig{{background:{BP}!important;-webkit-mask:none!important;mask:none!important;padding:12px 22px 12px 20px;border-radius:10px;box-shadow:none}}
+§ .sig>div{{padding:0!important;margin:0!important;background:none!important;border:0!important}}
+/* kicker bullet and code-tape separator: a small square, never a chevron */
+§ .pv b::before{{clip-path:none!important;background:{BPS}!important;width:6px!important;height:6px!important;border-radius:0!important;opacity:1}}
+§ .codes .mq-i::after{{clip-path:none!important;background:{BPK}!important;width:5px!important;height:5px!important;border-radius:0!important;opacity:.85}}
+/* email capture (mockup: the form posts nowhere) */
+§ .cap{{margin:18px 0 0;max-width:480px}}
+§ .cap-l{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+§ .cap-row{{display:flex;gap:8px}}
+§ .cap input{{flex:1 1 auto;min-width:0;font:500 16px/1.2 'DM Sans',system-ui,sans-serif;color:{BINK};background:#fff;border:1.5px solid #E5DBE1;border-radius:12px;padding:13px 14px}}
+§ .cap input:focus{{outline:2px solid {BPK};outline-offset:1px;border-color:{BPK}}}
+§ .cap button{{flex:0 0 auto;font:700 15px/1 'DM Sans',system-ui,sans-serif;color:#fff;background:{BPK};border:0;border-radius:12px;padding:0 18px;cursor:pointer;white-space:nowrap}}
+§ .cap button:hover{{background:{BPS}}}
+§ .cap-m{{margin:8px 0 0;font-size:13px;line-height:1.4;color:{BINK2}}}
+§ .cap-ok{{display:none;margin:8px 0 0;font-size:13px;font-weight:600;color:{BPS}}}
+§ .cap.sent .cap-ok{{display:block}}§ .cap.sent .cap-m{{display:none}}
+§ .endnote .en-main{{min-width:0}}
+§ .endnote .en-cap{{padding:0 48px 40px}}
+§ .endnote .en-cap p{{padding:0;font-size:17px;line-height:1.4}}
+§ .endnote .cap-ask{{font-weight:600}}
+§ .endnote .cap{{margin:12px 0 0}}§ .endnote .en-cap .cap-m{{margin-top:8px}}
+§ .endnote .cap input{{border-color:#fff}}
+§ .endnote .cap button{{background:{BINK}}}§ .endnote .cap button:hover{{background:{BINK2}}}
+§ .endnote .en-cap .cap-m,§ .endnote .en-cap .cap-ok{{color:#fff;font-size:13px}}
+@media(max-width:860px){{§ .endnote .en-cap{{padding:0 22px 28px}}}}
+@media(max-width:420px){{§ .cap-row{{flex-direction:column}}§ .cap button{{padding:14px 18px}}}}
+'''
 pal3h = pal_css(BP, BPS, [BP] * 4, BCR2, BTR, BTR, 'transparent', BP, BPS, grid=(BP, BPS))
-css3h = (O3B + O3C + pal3h + O3G + O3H).replace('.dk.lead', '.dk.lead:not(.gold)')
-full3h = (BASE + css3h).replace('§', 'html.dir-c.o3h .desk').replace('html.dir-c.ox', 'html.dir-c.o3h').replace('CP', CP)
+css3h = (O3B + O3C + pal3h + O3G.replace(MK, 'none') + O3H + O3H2).replace('.dk.lead', '.dk.lead:not(.gold)')
+# 3h: no chevron outside the logo, so the cut-chevron clip-path becomes none
+full3h = (BASE + css3h).replace('§', 'html.dir-c.o3h .desk').replace('html.dir-c.ox', 'html.dir-c.o3h').replace('CP', 'none')
 # brand type: DM Sans for display and body, DM Serif Display upright for headlines; sizes unchanged
 full3h = full3h.replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui,sans-serif")
 C3H = D.C_CSS.replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui,sans-serif").replace("--isr:'Instrument Serif',Georgia,serif", "--isr:'DM Serif Display',Georgia,serif")
@@ -898,10 +934,13 @@ _s = _s.replace(CHEV, MARK).replace("'Bricolage Grotesque',system-ui,sans-serif"
 assert 'Bricolage' not in _s and 'Founder, First Officer' not in _s
 # no source names and no checked dates on 3h (Ohad, Oct 26); check() fails the build if any return
 _s = _dc.check(_dc.desource(_s))
+# signature without the chevron stub; then the email capture; then the chevron check
+_s = _s.replace('<div class="sig"><img class="av mkv" src="img/fo-chevron-transparent.png" alt="" aria-hidden="true"><div>', '<div class="sig"><div>')
+_s = _dc.nochev(_dc.capture(_s))
 open(_p, 'w', encoding='utf-8').write(_s)
 
 # ---------------------------------------------------------------- gallery
-GAL = [('3h', 'Brand palette', 'Cream desk, First Officer pink tickets', 'Matured to the brand: the cream canvas, ink type and pink second line of the approved pages, every solid block in First Officer pink with a deeper pink tear-off stub, a flat brand-gold Golden Nugget Pack, and the full mark on cream ticket stock only. No purple.'), ('3g', 'Palette A, refined', 'One deep partner, refined', 'Palette A taken further: a lifted aubergine that never reads as black, the full First Officer mark wherever a chevron appears, a cheat sheet that leads with why an owner cares, and shelves that close up with no holes.')] + [(n, k, name, pitch) for n, k, name, pitch, _ in PALS] + [('3c', 'Option 3, matured v2', 'Pillar blocks, matured v2', 'Solid pillar-colour blocks again, each cut as a tear-off ticket: notched perforation, a deeper stub with the flight-number tag and Grab it, white type on green, orange, violet and blue.'),
+GAL = [('3h', 'Brand palette', 'Cream desk, First Officer pink tickets', 'Matured to the brand: the cream canvas, ink type and pink second line of the approved pages, every solid block in First Officer pink with a deeper pink tear-off stub, a flat brand-gold Golden Nugget Pack, a gold eyebrow tag, an email capture, and the mark only in the logo. No purple.'), ('3g', 'Palette A, refined', 'One deep partner, refined', 'Palette A taken further: a lifted aubergine that never reads as black, the full First Officer mark wherever a chevron appears, a cheat sheet that leads with why an owner cares, and shelves that close up with no holes.')] + [(n, k, name, pitch) for n, k, name, pitch, _ in PALS] + [('3c', 'Option 3, matured v2', 'Pillar blocks, matured v2', 'Solid pillar-colour blocks again, each cut as a tear-off ticket: notched perforation, a deeper stub with the flight-number tag and Grab it, white type on green, orange, violet and blue.'),
        ('3b', 'Option 3, matured', 'Pillar blocks, matured', 'The pillar colours move into tear-off stubs: notched boarding-pass cards with a dashed perforation, a flight-number tag and the Grab it action on a green, orange, violet or blue stub.')] + \
       [(n, f'Option {n}', name, pitch) for n, name, pitch, _ in OPTS]
 cards = ''.join(f'''<article class="o"><a class="sh" href="ffd-c-opt-{n}.html"><img class="dt" src="img/ffd-opts/opt-{n}-1440.jpg" alt="{k} on desktop" loading="lazy"><img class="ph" src="img/ffd-opts/opt-{n}-390.jpg" alt="{k} on a phone" loading="lazy"></a>

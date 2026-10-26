@@ -114,3 +114,70 @@ def check(s):
             bad.append(f'attribution: {txt[:120]}')
     assert not bad, '3h source/date check failed:\n' + '\n'.join(bad[:30])
     return s
+
+
+# ---------------------------------------------------------------- email capture (Ohad, Oct 26: "I want their emails")
+# The page used to promise "No email". It now asks for one, plainly, with a reason.
+# MOCKUP: the form posts nowhere. action="#capture-placeholder" must be swapped for the real
+# list endpoint before launch; onsubmit only shows a thank-you line in the page.
+CAPTURE_ACTION = '#capture-placeholder'
+TAGLINE = 'New ones go to your inbox.'
+TAGLINE_OPTIONS = [
+    'Free to read. New ones go to your inbox.',                       # picked
+    'Free. Want the new ones first? Leave your email.',
+    'Free to read. Leave your email and the next ones come to you.',
+    'Free. New notes land in your inbox, one email at a time.',
+    'Free to read. Your email gets you the new ones as they land.',
+]
+MICRO = 'One email when something new lands. Unsubscribe anytime.'
+
+
+def capture_form(cls, btn='Send me new ones', idp='cap'):
+    return (f'<form class="cap {cls}" action="{CAPTURE_ACTION}" method="post" data-placeholder="mockup: not connected to any list" '
+            f'onsubmit="this.classList.add(\'sent\');return false">'
+            f'<label class="cap-l" for="{idp}-e">Email for new notes</label>'
+            f'<div class="cap-row"><input id="{idp}-e" type="email" name="email" required autocomplete="email" placeholder="you@yourbusiness.com">'
+            f'<button type="submit">{btn}</button></div>'
+            f'<p class="cap-m">{MICRO}</p><p class="cap-ok" role="status">Thanks. Mockup only, nothing was sent.</p></form>')
+
+
+EMAIL_REWRITES = [
+    # lede tagline
+    ('Free. <span class="hl">No email. No catch.</span></p>',
+     f'Free to read. <span class="hl">{TAGLINE}</span></p>' + capture_form('cap-hero', idp='caph')),
+    # meta description
+    ('for business owners, free. No email. No catch.', 'for business owners, free to read. Leave your email for the new ones.'),
+    # stats row: the '0 emails asked for' cell becomes the real card count shown on the shelves
+    ('<span><b>0</b>emails asked for</span>', '<span><b>109</b>cards on the desk</span>'),
+]
+
+
+def capture(s):
+    for a, b in EMAIL_REWRITES:
+        assert s.count(a) == 1, f'capture rewrite target missing: {a[:60]}'
+        s = s.replace(a, b)
+    # end of the desk: the same capture inside the closing note, under its paragraph
+    m = re.search(r'<section class="endnote bleed">\n(<p>.*?</p>)\n<span class="sign">Ohad</span>\n</section>', s, re.S)
+    assert m, 'endnote not found'
+    s = s[:m.start()] + ('<section class="endnote bleed">\n<div class="en-main">' + m.group(1)
+                         + '<div class="en-cap"><p class="cap-ask">Want the new ones when they are added? Leave your email.</p>'
+                         + capture_form('cap-foot', idp='capf') + '</div></div>\n<span class="sign">Ohad</span>\n</section>') + s[m.end():]
+    bad = [m.group(0) for m in re.finditer(r'(?i)no e-?mails?\b|no sign-?ups?|no catch|emails asked for', s)]
+    assert not bad, f'email copy contradicts the capture: {bad}'
+    return s
+
+
+# ---------------------------------------------------------------- chevron only in the logo (Ohad, Oct 26)
+CHEV_OK = re.compile(r'<link rel="icon" href="img/fo-chevron-transparent(?:-v2)?\.png">|'
+                     r'<span class="mk"><img src="img/fo-chevron-transparent(?:-v2)?\.png" alt="">')
+CHEV_CP = 'polygon(50% 0,100% 50%,100% 100%,50% 50%,0 100%,0 50%)'
+
+
+def nochev(s):
+    """Fail the build if the chevron is used anywhere but the header/footer logo and the favicon."""
+    rest = CHEV_OK.sub('', s)
+    bad = [rest[max(0, m.start() - 80):m.end() + 20] for m in re.finditer(r'fo-chevron[^"\')\s]*', rest)]
+    if CHEV_CP in s:
+        bad.append('chevron clip-path ' + CHEV_CP)
+    assert not bad, 'chevron used outside the logo/favicon:\n' + '\n'.join(bad[:20])
+    return s
