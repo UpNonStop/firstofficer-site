@@ -800,7 +800,7 @@ open(_p, 'w', encoding='utf-8').write(_s.replace(CHEV, MARK))
 BP, BPS, BPK = '#E60F86', '#B30A68', '#FA1896'          # --pink2 block, --pinkdeep stub, --pink accent
 BCR, BCR2, BTR, BPL = '#FAF6EE', '#FBF4E6', '#F1EADB', '#F1D6E5'   # --bg, --cream2, --track, --pinkLine
 BG, BG2, BINK, BINK2 = '#E8C547', '#F5B700', '#141216', '#3A343D'  # --gold, --gold2, --ink, --ink2
-EYEBROW = ('#138A43', '#fff')  # site green of the header 'Text Your First Officer' button, white text (Ohad: not gold, black or pink)
+EYEBROW = (BPK, '#fff')  # wide pink brush (shape D), white text; see EB_BRUSH
 GP = 'rgba(255,255,255,.7)'      # perforation on gold
 # the site's existing hand-painted highlighter brush (the 'No affiliate links' trust line), reused verbatim
 import re as _re3h
@@ -887,9 +887,10 @@ html.dir-c.o3h .fz>span{{background:{BRUSH};padding:.1em .28em .12em;margin:0 -.
 '''
 # ---------------------------------------------------------------- 3h final pass (Ohad, Oct 26): eyebrow tag, no chevron reuse, email capture
 EB_BG, EB_FG = EYEBROW
+EB_BRUSH = _dc.brush(BPK, cap='26px', full=True)  # Ohad pt189u: wide pink brush swipe behind the eyebrow, white text, no tag box
 O3H2 = f'''
 /* eyebrow: its own colour, a plain tag, no stub and no mark */
-§ .eyebrow{{background:{EB_BG}!important;color:{EB_FG}!important;-webkit-mask:none;mask:none;border:0;border-radius:6px;padding:10px 16px;box-shadow:none}}
+§ .eyebrow{{background:{EB_BRUSH}!important;color:#fff!important;-webkit-mask:none;mask:none;border:0;border-image:none;clip-path:none;border-radius:0;padding:15px 44px 15px;line-height:14px;box-shadow:none}}§ .lede .tl{{color:{BINK};font-weight:700;padding:0;margin:0;background:none}}
 § .eyebrow::before{{display:none}}
 /* signature: Ohad and the role on a plain pink tag, no stub */
 § .sig{{background:{BP}!important;-webkit-mask:none!important;mask:none!important;padding:12px 22px 12px 20px;border-radius:10px;box-shadow:none}}
@@ -949,7 +950,7 @@ _s = _dc.nochev(_dc.capture(_s))
 open(_p, 'w', encoding='utf-8').write(_s)
 
 # ---------------------------------------------------------------- gallery
-GAL = [('3h', 'Brand palette', 'Cream desk, First Officer pink tickets', 'Matured to the brand: the cream canvas, ink type and pink second line of the approved pages, every solid block in First Officer pink with a deeper pink tear-off stub, a flat brand-gold Golden Nugget Pack, a green eyebrow tag, Daily Redemption sign-ups, and the mark only in the logo. No purple.'), ('3g', 'Palette A, refined', 'One deep partner, refined', 'Palette A taken further: a lifted aubergine that never reads as black, the full First Officer mark wherever a chevron appears, a cheat sheet that leads with why an owner cares, and shelves that close up with no holes.')] + [(n, k, name, pitch) for n, k, name, pitch, _ in PALS] + [('3c', 'Option 3, matured v2', 'Pillar blocks, matured v2', 'Solid pillar-colour blocks again, each cut as a tear-off ticket: notched perforation, a deeper stub with the flight-number tag and Grab it, white type on green, orange, violet and blue.'),
+GAL = [('3h', 'Brand palette', 'Cream desk, First Officer pink tickets', 'Matured to the brand: the cream canvas, ink type and pink second line of the approved pages, every solid block in First Officer pink with a deeper pink tear-off stub, a flat brand-gold Golden Nugget Pack, a wide pink brush eyebrow, Daily Redemption sign-ups, and the mark only in the logo. No purple.'), ('3g', 'Palette A, refined', 'One deep partner, refined', 'Palette A taken further: a lifted aubergine that never reads as black, the full First Officer mark wherever a chevron appears, a cheat sheet that leads with why an owner cares, and shelves that close up with no holes.')] + [(n, k, name, pitch) for n, k, name, pitch, _ in PALS] + [('3c', 'Option 3, matured v2', 'Pillar blocks, matured v2', 'Solid pillar-colour blocks again, each cut as a tear-off ticket: notched perforation, a deeper stub with the flight-number tag and Grab it, white type on green, orange, violet and blue.'),
        ('3b', 'Option 3, matured', 'Pillar blocks, matured', 'The pillar colours move into tear-off stubs: notched boarding-pass cards with a dashed perforation, a flight-number tag and the Grab it action on a green, orange, violet or blue stub.')] + \
       [(n, f'Option {n}', name, pitch) for n, name, pitch, _ in OPTS]
 cards = ''.join(f'''<article class="o"><a class="sh" href="ffd-c-opt-{n}.html"><img class="dt" src="img/ffd-opts/opt-{n}-1440.jpg" alt="{k} on desktop" loading="lazy"><img class="ph" src="img/ffd-opts/opt-{n}-390.jpg" alt="{k} on a phone" loading="lazy"></a>

@@ -8,9 +8,9 @@ import re
 from urllib.parse import quote
 
 
-def _svg(vb, d, c):
+def _svg(vb, d, c, tf='translate(0 11) scale(1 .8)'):
     svg = (f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='{vb}' preserveAspectRatio='none'>"
-           f"<path d='{d}' fill='{c}' transform='translate(0 11) scale(1 .8)'/></svg>")
+           f"<path d='{d}' fill='{c}' transform='{tf}'/></svg>")
     return 'url("data:image/svg+xml,' + quote(svg, safe=" =:/',.-()") + '")'
 
 
@@ -28,11 +28,13 @@ BRUSH_R = ("M0 3 L22 2.6 C29 2.5 34 3.4 36.5 5.8 C38.5 8.2 36 10.5 38.8 12.8 L33
            "C8 48.9 4 49 0 49Z")
 
 
-def brush(color='#FA1896', cap='.8em'):
-    """Full CSS background value (three layers) for one solid brush swipe."""
-    return (f"{_svg('0 0 40 56', BRUSH_L, color)} left center/{cap} 100% no-repeat,"
-            f"{_svg('0 0 40 56', BRUSH_R, color)} right center/{cap} 100% no-repeat,"
-            f"{_svg('0 0 100 56', BRUSH_M, color)} center/calc(100% - 2*{cap} + 2px) 100% no-repeat")
+def brush(color='#FA1896', cap='.8em', full=False):
+    """Full CSS background value (three layers) for one solid brush swipe.
+    full=True centres the stroke and fills the box height (eyebrow: text sits ON the brush)."""
+    tf = 'translate(0 2) scale(1 1)' if full else 'translate(0 11) scale(1 .8)'
+    return (f"{_svg('0 0 40 56', BRUSH_L, color, tf)} left center/{cap} 100% no-repeat,"
+            f"{_svg('0 0 40 56', BRUSH_R, color, tf)} right center/{cap} 100% no-repeat,"
+            f"{_svg('0 0 100 56', BRUSH_M, color, tf)} center/calc(100% - 2*{cap} + 2px) 100% no-repeat")
 
 
 # ---------------------------------------------------------------- sources out
@@ -165,7 +167,7 @@ SIGNUP_JS = ('<script id="fo-signup">(function(){var LIVE=' + ('true' if SIGNUP_
 EMAIL_REWRITES = [
     # lede tagline
     ('Free. <span class="hl">No email. No catch.</span></p>',
-     f'Free to read. <span class="hl">{TAGLINE}</span></p>' + signup_form('cap-hero', 'Send me new ones', 'caph')),
+     f'Free to read. <strong class="tl">{TAGLINE}</strong></p>' + signup_form('cap-hero', 'Send me new ones', 'caph')),
     # meta description
     ('for business owners, free. No email. No catch.', 'for business owners, free to read. Leave your email for the new ones.'),
     # stats row: the '0 emails asked for' cell becomes the real card count shown on the shelves
