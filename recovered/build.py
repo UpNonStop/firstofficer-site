@@ -4,7 +4,7 @@ import os
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSET='https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/'
 FONTS='https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=JetBrains+Mono:wght@400;500;700&display=swap'
-SUB="Every loyalty program has their team constantly rewriting the rules. While you're busy running your business, your spend earns less than it should, and your points and miles buy less than they could.\\n\\nFirstOfficer by UpNonStop runs a desk of specialists across 50+ programs, each an expert in its niche. They all work for you, so you skip those rookie mistakes. Your Bespoke Strategy is reviewed weekly and optimized continuously, so every dollar you spend works harder.\\n\\nSame spend. More points. Better trips, for fewer points."
+SUB="Every loyalty program has their team constantly rewriting the rules. While you're busy running your business, your spend earns less than it should, and your points and miles buy less than they could.\\n\\nFirstOfficer by UpNonStop runs a desk of specialists across 50+ programs, each an expert in its niche. They all work for you, so you skip those rookie mistakes. Your Bespoke Strategy is reviewed weekly and optimized continuously, so every dollar you spend works harder.\\n\\nYour spend, working harder. Your points, going further."
 WA='https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call'
 
 def head(title,desc):
@@ -200,7 +200,7 @@ def home():
 
 <article class="beat" id="b5" style="display:block">
 <div class="reveal"><div class="bn"><i>05</i>Why you</div><h3 class="h3">You run the business. <span class="brush">The desk runs the points.</span></h3>
-<p class="short" style="max-width:640px">Same spend. More points. Better trips, for fewer points.</p></div>
+<p class="short" style="max-width:640px">Your spend, working harder. Your points, going further.</p></div>
 <div class="why">
 <div class="reveal"><b>$550</b><span>Flat monthly, whatever the spend. Cancel anytime.</span></div>
 <div class="reveal d1"><b>20 min</b><span>The Found Money Call, free.</span></div>
