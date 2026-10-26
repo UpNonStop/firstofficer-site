@@ -9,6 +9,8 @@
   --w:1280px;--gut:28px;--navh:68px;
   --ease:cubic-bezier(.22,1,.36,1);
 }
+/* Inter: same InterVariable.woff2 the locked app lockup loads (firstofficer-app/prototype-pillars/fonts) */
+@font-face{font-family:"Inter";src:url(fonts/InterVariable.woff2) format("woff2");font-weight:100 900;font-display:swap}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -28,9 +30,9 @@ em,i{font-style:normal}
 .nav.solid{background:rgba(250,246,238,.94);box-shadow:0 1px 0 rgba(20,18,22,.07),0 10px 30px -18px rgba(20,18,22,.25)}
 .nav .nin{max-width:1320px;margin:0 auto;height:100%;padding:0 var(--gut);display:flex;align-items:center;gap:28px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-.brand img{width:26px;height:auto}
-.brand b{display:block;font-family:Inter,var(--sans);font-weight:700;font-size:17px;letter-spacing:-.01em;line-height:1}
-.brand small{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;color:var(--mute);margin-top:3px}
+.brand img{width:32px;height:43px;flex:none;display:block;object-fit:contain;margin:-2px -2px -3px -2px}
+.brand b{display:block;font:800 18px/1.1 "Inter",system-ui,sans-serif;letter-spacing:-.01em;color:#4A4550;white-space:nowrap}
+.brand small{display:block;margin-top:4px;font:500 10.5px/1.2 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;color:#6B6672;white-space:nowrap}
 .links{display:flex;gap:30px;margin:0 auto;align-items:center}
 .links a{text-decoration:none;font-weight:600;font-size:14.5px;color:var(--ink);position:relative;padding:6px 0;display:block;line-height:1.2;transition:color .2s}
 .links a:not(.fz)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--pink);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
@@ -65,6 +67,18 @@ em,i{font-style:normal}
 .sheet nav .sub{font-family:var(--sans);font-size:17px;font-weight:600;border-bottom:0;padding:9px 0;color:var(--body)}
 .sheet nav .sublabel{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-top:22px;margin-bottom:4px}
 .sheet .btn{margin-top:auto;width:100%;height:54px;font-size:16px}
+/* menu sheet: lockup sits exactly where the nav lockup sits, so opening the menu doesn't shift the logo */
+.sheet{padding-top:0}
+.sheet .top{height:var(--navh)}
+.sheet nav{margin-top:36px}
+/* Freebies swipe (same #FA1896 marker as the live Freebies branch), scaled for the 38px menu type:
+   sits behind the whole word, centred on the letters, overhangs both ends, redraws when the menu opens */
+.sheet .fz .t{display:inline-block}
+.sheet .fzmk{left:.02em;width:calc(100% - .04em);top:.1em;height:.9em;transform:rotate(-1deg)}
+.sheet .fzmk path{stroke-width:24;stroke-dasharray:3;stroke-dashoffset:3}
+.sheet .fzmk path.b{stroke-width:15}
+.sheet:not(.open) .fzmk path{animation:none;stroke-dashoffset:3}
+@media(prefers-reduced-motion:reduce){.sheet:not(.open) .fzmk path{stroke-dashoffset:0}}
 
 /* ---------- ticker (desk tips, never client results) ---------- */
 .tick{background:var(--ink);color:#cfcbd6;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;overflow:hidden;white-space:nowrap;height:36px;display:flex;align-items:center;position:relative;z-index:2}
@@ -199,10 +213,10 @@ em,i{font-style:normal}
 .cs .sb i{display:flex;gap:.3em;align-items:center}
 .cs .sb i u{display:block;width:1.1em;height:.62em;border-radius:.18em;background:var(--ink);text-decoration:none}
 .cs .hd{display:flex;align-items:center;justify-content:space-between;margin-top:.4em}
-.cs .lk{display:flex;align-items:center;gap:.7em}
-.cs .lk img{width:2.4em;height:auto;position:static}
-.cs .lk b{display:block;font-family:Inter,sans-serif;font-weight:700;font-size:1.65em;line-height:1}
-.cs .lk small{display:block;font-family:var(--mono);font-size:.85em;color:var(--mute);margin-top:.25em}
+.cs .lk{display:flex;align-items:center;gap:1.03em}
+.cs .lk img{width:3.3em;height:4.43em;flex:none;object-fit:contain;margin:-.2em -.2em -.31em -.2em;position:static}
+.cs .lk b{display:block;font:800 1.855em/1.1 "Inter",system-ui,sans-serif;letter-spacing:-.01em;color:#4A4550;white-space:nowrap}
+.cs .lk small{display:block;margin-top:.41em;font:500 1.082em/1.2 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.05em;color:#6B6672;white-space:nowrap}
 .cs .ex{font-family:var(--mono);font-size:.85em;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);background:rgba(20,18,22,.05);padding:.4em .8em;border-radius:99em}
 .cs .bd{margin:3em auto 0;display:inline-flex;align-self:center;align-items:center;gap:.5em;height:2.8em;padding:0 1.2em;border-radius:99em;background:var(--softbg);color:var(--body);font-weight:700;font-size:1.3em;transform:scale(.6);opacity:0;transition:transform .6s cubic-bezier(.34,1.56,.64,1) .2s,opacity .3s .2s}
 .cs.on .bd{transform:none;opacity:1}
@@ -678,7 +692,7 @@ p,li span,.why span,.cs .p,.cs .sub,figcaption,.est,.sub,small{text-wrap:pretty}
 .pillchips span:nth-child(1) b{color:#1E9E63}.pillchips span:nth-child(2) b{color:#E8661E}.pillchips span:nth-child(3) b{color:var(--ink)}.pillchips span:nth-child(4) b{color:#1C9DB6}
 .pillchips span:nth-child(1){box-shadow:0 0 0 1.5px rgba(46,194,126,.35)}.pillchips span:nth-child(2){box-shadow:0 0 0 1.5px rgba(255,122,47,.35)}.pillchips span:nth-child(3){box-shadow:0 0 0 1.5px rgba(20,18,22,.35)}.pillchips span:nth-child(4){box-shadow:0 0 0 1.5px rgba(55,195,220,.4)}
 .foot .cols a.brand{display:inline-flex;flex-direction:row;align-items:center;gap:10px;padding:0}
-.foot .cols a.brand img{width:30px;flex:none}
+.foot .cols a.brand img{width:32px;height:43px;flex:none}
 .foot .bar{align-items:center}
 .foot .bar .addr{display:flex;align-items:center;gap:10px;min-width:0}
 @media(max-width:760px){

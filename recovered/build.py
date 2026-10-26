@@ -1,7 +1,7 @@
 # Builds home-recovered.html and product-recovered.html at the repo root. Mockup only.
 import os
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FONTS='https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap'
+FONTS='https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=JetBrains+Mono:wght@400;500;700&display=swap'
 SUB="Every loyalty program has their team constantly rewriting the rules. While you're busy running your business, your spend earns less than it should, and your points and miles buy less than they could.\\n\\nFirstOfficer by UpNonStop runs a desk of specialists across 50+ programs, each an expert in its niche. They all work for you, so you skip those rookie mistakes. Your Bespoke Strategy is reviewed weekly and optimized continuously, so every dollar you spend works harder.\\n\\nSame spend. More points. Better trips, for fewer points."
 WA='https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call'
 
@@ -16,6 +16,7 @@ def head(title,desc):
 <meta name="description" content="{desc}">
 <link rel="icon" type="image/png" href="img/fo-chevron-alpha.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="recovered/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{FONTS}">
 <link rel="stylesheet" href="recovered/rec.css">
 </head>
