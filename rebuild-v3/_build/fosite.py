@@ -45,7 +45,7 @@ def nav():
 <div class="sheet">{sh}<a class="btn wa" href="{WA}">💬 Text Your First Officer</a><a class="btn" href="book.html">Get your desk</a></div>'''
 
 def footer(src):
-    endcta='' if src in ('book','for-dental') else f'''<div class="card hero cta-card" data-rv>{MK}
+    endcta='' if src in ('book','for-dental','freebies') else f'''<div class="card hero cta-card" data-rv>{MK}
 <h2 class="h2">Your Competitors Route Their Spend. Do You?</h2><p class="lede">The Found Money Call: free, 20 minutes, 6 questions, on the channel you choose. Your capture number, computed. An honest no if the math says no.</p>
 <div class="btns"><a class="btn" href="book.html?from={src}">Book Your "Found Money" Call</a><a class="btn ghost" href="#focap">Get the weekday note</a></div></div>'''
     ind=''.join(f'<a href="for-{s}.html">{n}</a>' for s,n,_ in INDS)
@@ -58,8 +58,8 @@ def footer(src):
 <div class="fdir">
 <div class="fb"><a class="brand" href="home.html">{MK}<span><b>First Officer</b><small>by UpNonStop™</small></span></a><p>A desk of specialists across 50+ programs, working for your business spend.</p></div>
 <div><span class="lab">Product</span><a href="pricing.html">Pricing</a><a href="how.html">How It Works</a><a href="product.html">The Product</a><a href="strategist.html">The Strategist</a><a href="trust.html">Trust &amp; Security</a><a href="calculator.html">Run The Numbers</a><a href="app.html">The App <span class="soon">Soon</span></a></div>
-<div class="ind"><span class="lab">Specialized Industries</span><div class="lst">{ind}</div><a href="industries.html" style="color:var(--pink2);font-weight:600">All industries →</a></div>
-<div><span class="lab">Free</span><a href="free-from-the-desk.html">Free From the Desk</a><a href="field-notes.html">Field Notes</a><a href="upns.html">The Intelligence Report</a><a href="https://upnonstop.com">The Daily Redemption</a><a href="hello.html">The Long Version</a></div>
+<div class="ind" id="ftind"><span class="lab">Specialized Industries</span><div class="lst">{ind}</div><a href="industries.html" style="color:var(--pink2);font-weight:600">All industries →</a></div>
+<div><span class="lab">Free</span><a href="free-from-the-desk.html">Freebies</a><a href="field-notes.html">Field Notes</a><a href="upns.html">The Intelligence Report</a><a href="https://upnonstop.com">The Daily Redemption</a><a href="hello.html">The Long Version</a></div>
 <div><span class="lab">Company</span><a href="about.html">About</a><a href="connect.html">Connect</a><a href="privacy-policy.html">Privacy Policy</a><a href="privacy-policy.html#do-not-sell">Do Not Sell My Info</a><a href="terms-of-service.html">Terms of Service</a><a href="disclaimer.html">Disclaimer</a></div>
 </div>
 <div class="fbar"><div>UpNonStop | 235 Pavonia Avenue | Jersey City, NJ 07302 | Proudly Made in 🇺🇸</div><div>Independent: no affiliate relationships with any issuer. An educational tool, not a licensed financial advisor. US businesses only. © 2026 UpNonStop.</div></div>

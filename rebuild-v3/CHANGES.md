@@ -148,3 +148,12 @@ Comparisons now show three ways, labeled exactly **No strategy**, **Cash back** 
 ## Label: Bespoke strategy (Oct 24, 2026)
 - Per Ohad: the third comparison option is labeled "Bespoke strategy" (was "Mock-up strategy") on home and dental; illustrative notes kept.
 - Fixed duplicated amount in destination-card screen-reader labels.
+
+## Freebies page: free-from-the-desk.html (Oct 26)
+- Ported from origin/home-v2-preview free-from-the-desk.html (30f25a1) by `_build/freebies.py`, with the shared nav and footer. Copy is verbatim.
+- Sections: hero ("Everything I'd tell you over coffee.", Ohad signature), the Found Money Calculator card (links to calculator.html, as on the source page), the desk photo (img/ind/desk.jpg/.webp, Unsplash credit kept), the trade/type filter with its JS, and six cards: trade-supplier code sheet (#mcc), Contractors nuggets, HVAC nuggets, 5 supplier questions, the 1099 line for your preparer, the year-end checklist. Then the endnote, the "Plainly" disclaimer and the points-valuation note. The Daily Redemption capsule comes from the shared footer.
+- `#industries` now sits on the trade section. "more trades coming" points to the footer industry list (#ftind).
+- Added structure only: section label "The desk, by trade", h2 "Pick your trade. / Take whatever helps." (from the endnote line), endnote label "From Ohad" and a Book button on the endnote card. The footer end-CTA is skipped on this page so the call isn't asked for twice.
+- Footer "Free" column link now reads "Freebies". The page title and eyebrow stay "Free From the Desk".
+- Contractors link: for-contractors-v2.html is now for-contractors.html, the v3 naming.
+- The desk photo is rewritten to jsDelivr on htmlpreview, same as the source branch.
