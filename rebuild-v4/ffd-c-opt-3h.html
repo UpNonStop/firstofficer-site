@@ -824,7 +824,7 @@ html.dir-c.o3h .desk .endnote a{text-decoration-color:#fff}
 }
 
 /* eyebrow: its own colour, a plain tag, no stub and no mark */
-html.dir-c.o3h .desk .eyebrow{background:#E8C547!important;color:#141216!important;-webkit-mask:none;mask:none;border:0;border-radius:6px;padding:10px 16px;box-shadow:none}
+html.dir-c.o3h .desk .eyebrow{background:#138A43!important;color:#fff!important;-webkit-mask:none;mask:none;border:0;border-radius:6px;padding:10px 16px;box-shadow:none}
 html.dir-c.o3h .desk .eyebrow::before{display:none}
 /* signature: Ohad and the role on a plain pink tag, no stub */
 html.dir-c.o3h .desk .sig{background:#E60F86!important;-webkit-mask:none!important;mask:none!important;padding:12px 22px 12px 20px;border-radius:10px;box-shadow:none}
@@ -841,17 +841,26 @@ html.dir-c.o3h .desk .cap input:focus{outline:2px solid #FA1896;outline-offset:1
 html.dir-c.o3h .desk .cap button{flex:0 0 auto;font:700 15px/1 'DM Sans',system-ui,sans-serif;color:#fff;background:#FA1896;border:0;border-radius:12px;padding:0 18px;cursor:pointer;white-space:nowrap}
 html.dir-c.o3h .desk .cap button:hover{background:#B30A68}
 html.dir-c.o3h .desk .cap-m{margin:8px 0 0;font-size:13px;line-height:1.4;color:#3A343D}
-html.dir-c.o3h .desk .cap-ok{display:none;margin:8px 0 0;font-size:13px;font-weight:600;color:#B30A68}
-html.dir-c.o3h .desk .cap.sent .cap-ok{display:block}html.dir-c.o3h .desk .cap.sent .cap-m{display:none}
-html.dir-c.o3h .desk .endnote .en-main{min-width:0}
-html.dir-c.o3h .desk .endnote .en-cap{padding:0 48px 40px}
-html.dir-c.o3h .desk .endnote .en-cap p{padding:0;font-size:17px;line-height:1.4}
-html.dir-c.o3h .desk .endnote .cap-ask{font-weight:600}
-html.dir-c.o3h .desk .endnote .cap{margin:12px 0 0}html.dir-c.o3h .desk .endnote .en-cap .cap-m{margin-top:8px}
-html.dir-c.o3h .desk .endnote .cap input{border-color:#fff}
-html.dir-c.o3h .desk .endnote .cap button{background:#141216}html.dir-c.o3h .desk .endnote .cap button:hover{background:#3A343D}
-html.dir-c.o3h .desk .endnote .en-cap .cap-m,html.dir-c.o3h .desk .endnote .en-cap .cap-ok{color:#fff;font-size:13px}
-@media(max-width:860px){html.dir-c.o3h .desk .endnote .en-cap{padding:0 22px 28px}}
+html.dir-c.o3h .desk .cap-msg{margin:8px 0 0;font-size:13px;font-weight:600;color:#B30A68}html.dir-c.o3h .desk .cap-msg:empty{display:none}
+html.dir-c.o3h .desk .cap.sent .cap-m{display:none}
+html.dir-c.o3h #band{background:var(--bg,#FAF6EE);padding-top:24px;padding-bottom:64px}
+html.dir-c.o3h #band .dr{display:grid;grid-template-columns:220px minmax(0,1fr);max-width:1120px;margin:0 auto;border-radius:14px;overflow:hidden;background:rgba(250,24,150,.07);box-shadow:inset 0 0 0 1.5px rgba(250,24,150,.22)}
+html.dir-c.o3h #band .dr-stub{background:#E60F86;color:#fff;padding:28px 22px;display:flex;flex-direction:column;justify-content:center;gap:10px;border-right:2px dashed rgba(255,255,255,.6)}
+html.dir-c.o3h #band .dr-k{font:700 22px/1.1 'DM Sans',system-ui,sans-serif;letter-spacing:-.01em}
+html.dir-c.o3h #band .dr-f{font:600 11px/1 'JetBrains Mono',monospace;letter-spacing:.18em;text-transform:uppercase;opacity:.9}
+html.dir-c.o3h #band .dr-main{padding:30px 36px 32px}
+html.dir-c.o3h #band .dr-h{font:800 26px/1.15 'DM Sans',system-ui,sans-serif;letter-spacing:-.02em;color:#141216;margin:0}
+html.dir-c.o3h #band .dr-s{margin:8px 0 0;font-size:15px;line-height:1.55;color:#3A343D;max-width:620px}
+html.dir-c.o3h #band .cap{margin:16px 0 0;max-width:520px}
+html.dir-c.o3h #band .cap-l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+html.dir-c.o3h #band .cap-row{display:flex;gap:8px}
+html.dir-c.o3h #band .cap input{flex:1 1 auto;min-width:0;font:500 16px/1.2 'DM Sans',system-ui,sans-serif;color:#141216;background:#fff;border:1.5px solid rgba(250,24,150,.35);border-radius:12px;padding:13px 14px}
+html.dir-c.o3h #band .cap input:focus{outline:2px solid #FA1896;outline-offset:1px}
+html.dir-c.o3h #band .cap button{flex:0 0 auto;font:700 15px/1 'DM Sans',system-ui,sans-serif;color:#fff;background:#FA1896;border:0;border-radius:12px;padding:0 20px;cursor:pointer;white-space:nowrap}
+html.dir-c.o3h #band .cap button:hover{background:#B30A68}
+html.dir-c.o3h #band .cap-msg{margin:8px 0 0;font-size:13px;font-weight:600;color:#B30A68}html.dir-c.o3h #band .cap-msg:empty{display:none}
+@media(max-width:760px){html.dir-c.o3h #band .dr{grid-template-columns:1fr}html.dir-c.o3h #band .dr-stub{border-right:0;border-bottom:2px dashed rgba(255,255,255,.6);padding:18px 20px;flex-direction:row;align-items:baseline;justify-content:space-between;flex-wrap:wrap}html.dir-c.o3h #band .dr-main{padding:22px 20px 24px}html.dir-c.o3h #band .dr-h{font-size:22px}}
+@media(max-width:420px){html.dir-c.o3h #band .cap-row{flex-direction:column}html.dir-c.o3h #band .cap button{padding:14px 18px}}
 @media(max-width:420px){html.dir-c.o3h .desk .cap-row{flex-direction:column}html.dir-c.o3h .desk .cap button{padding:14px 18px}}
 </style></head><body>
 <!-- MOCKUP · First Officer rebuild v4 (prior mockup design language) · static HTML, not production -->
@@ -867,7 +876,7 @@ html.dir-c.o3h .desk .endnote .en-cap .cap-m,html.dir-c.o3h .desk .endnote .en-c
 <div class="dh-l">
 <div class="eyebrow">Free From the Desk</div>
 <h1>Everything I'd tell you <em>over coffee.</em></h1>
-<p class="lede">Most owners put serious money on cards every month, and nobody ever sits them down and explains how it actually works. So here it is: the codes, the questions, the notes we keep for each trade. Free to read. <span class="hl">New ones go to your inbox.</span></p><form class="cap cap-hero" action="#capture-placeholder" method="post" data-placeholder="mockup: not connected to any list" onsubmit="this.classList.add('sent');return false"><label class="cap-l" for="caph-e">Email for new notes</label><div class="cap-row"><input id="caph-e" type="email" name="email" required autocomplete="email" placeholder="you@yourbusiness.com"><button type="submit">Send me new ones</button></div><p class="cap-m">One email when something new lands. Unsubscribe anytime.</p><p class="cap-ok" role="status">Thanks. Mockup only, nothing was sent.</p></form>
+<p class="lede">Most owners put serious money on cards every month, and nobody ever sits them down and explains how it actually works. So here it is: the codes, the questions, the notes we keep for each trade. Free to read. <span class="hl">New ones go to your inbox.</span></p><form class="cap cap-hero" data-fo-signup data-endpoint="https://www.upnonstop.com/members/api/send-magic-link/" data-labels="First Officer site" novalidate><label class="cap-l" for="caph-e">Your email address</label><div class="cap-row"><input id="caph-e" type="email" name="email" required autocomplete="email" placeholder="you@yourbusiness.com"><button type="submit">Send me new ones</button></div><p class="cap-m">You get The Daily Redemption, every weekday. Leave whenever you like.</p><p class="cap-msg" role="status" aria-live="polite"></p></form>
 <div class="sig"><div><span class="sign">Ohad</span><span class="role">Founder, UpNonStop</span></div></div>
 </div>
 <div class="vault"><a class="feat" href="calculator.html">
@@ -1781,14 +1790,12 @@ html.dir-c.o3h .desk .endnote .en-cap .cap-m,html.dir-c.o3h .desk .endnote .en-c
 </article>
 <button type="button" class="more-tile" data-ty="decoder" data-noun="decoder cards" hidden></button><p class="empty" hidden>Nothing here yet. Try another word, or <a href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call" rel="noopener">text the desk your question</a>.</p></section>
 <section class="endnote bleed">
-<div class="en-main"><p>That's the desk. Take whatever helps. If you'd rather we just do it for you, that's what <a href="book.html">The Found Money Call</a> is: 20 minutes, and if the math says no, I'll tell you no.</p><div class="en-cap"><p class="cap-ask">Want the new ones when they are added? Leave your email.</p><form class="cap cap-foot" action="#capture-placeholder" method="post" data-placeholder="mockup: not connected to any list" onsubmit="this.classList.add('sent');return false"><label class="cap-l" for="capf-e">Email for new notes</label><div class="cap-row"><input id="capf-e" type="email" name="email" required autocomplete="email" placeholder="you@yourbusiness.com"><button type="submit">Send me new ones</button></div><p class="cap-m">One email when something new lands. Unsubscribe anytime.</p><p class="cap-ok" role="status">Thanks. Mockup only, nothing was sent.</p></form></div></div>
+<p>That's the desk. Take whatever helps. If you'd rather we just do it for you, that's what <a href="book.html">The Found Money Call</a> is: 20 minutes, and if the math says no, I'll tell you no.</p>
 <span class="sign">Ohad</span>
 </section>
 <section class="disc"><p><b>Plainly:</b> First Officer is an educational tool, not a licensed financial advisor. Nothing here is financial, tax, legal, credit or HR advice. We're not a lender, a credit repair or counseling service, a tax preparer or a law firm, and nothing on this page is an offer of credit or a recommendation to apply for any card or loan. Every number is sourced or labeled Example, and your results will be different. Rules change, so check with your issuer, program, agency or professional before you act. Examples are illustrations, not predictions. Merchant codes are set by each merchant's processor. Card, bureau, program and company names are their owners' trademarks, and naming them isn't an endorsement. This page doesn't see your credit file, accounts or statements. <span class="hl">No affiliate links</span>, and <span class="hl">no money from any bank or program</span>. Nobody pays us to send you anywhere. <a href="terms-of-service.html"><em>Terms &amp; Conditions</em></a> &middot; <a href="privacy-policy.html">Privacy Policy</a></p></section></div></main>
 <section class="sec" id="band"><div class="phx" data-iv="8000" data-ph="img/ph/d-bali.webp,img/ph/bg-05.webp,img/ph/d-maldives.webp" aria-hidden="true"></div><div class="wrap">
-<div class="card news" id="focap" style="margin-top:12px" data-rv><span class="lab gold">The Daily Redemption</span><h3 class="h3" style="margin-top:8px">One real redemption, every weekday.</h3>
-<p style="margin-top:6px">The newsletter behind the desk: what the desk found on request, what it cost in points, and what it would have cost in cash. Free, and you can leave whenever you like.</p>
-<form onsubmit="return false"><input type="email" placeholder="you@yourbusiness.com" aria-label="Your email address"><button class="btn" type="submit">Get the newsletter</button></form></div></div></section>
+<div class="dr" id="focap" data-rv><div class="dr-stub"><span class="dr-k">The Daily Redemption</span><span class="dr-f">Every weekday</span></div><div class="dr-main"><h3 class="dr-h">New freebies and notes from the desk, in your inbox.</h3><p class="dr-s">The Daily Redemption is the newsletter behind the desk: one real redemption every weekday, and the new freebies as they land. Free, and you can leave whenever you like.</p><form class="cap cap-dr" data-fo-signup data-endpoint="https://www.upnonstop.com/members/api/send-magic-link/" data-labels="First Officer site" novalidate><label class="cap-l" for="capd-e">Your email address</label><div class="cap-row"><input id="capd-e" type="email" name="email" required autocomplete="email" placeholder="you@yourbusiness.com"><button type="submit">Get the newsletter</button></div><p class="cap-msg" role="status" aria-live="polite"></p></form></div></div></div></section>
 <footer class="foot"><div class="wrap">
 <p class="dn">Client stories are shared with permission. Names, figures and examples on this page may be illustrative or altered to protect privacy.</p>
 <div class="fdir">
@@ -2026,4 +2033,17 @@ function fill(){[].forEach.call(document.querySelectorAll('.desk .grid .shelf'),
  if(lead&&n<3)r3='';sh.setAttribute('data-r3',r3);sh.setAttribute('data-r2',r2);});}
 var g=document.getElementById('desk-grid');if(!g)return;fill();
 new MutationObserver(function(){clearTimeout(fill.t);fill.t=setTimeout(fill,30);}).observe(g,{subtree:true,attributes:true,attributeFilter:['hidden'],childList:true});
-})();</script><script src="assets/site.js"></script></body></html>
+})();</script><script src="assets/site.js"></script><script id="fo-signup">(function(){var LIVE=false;
+document.querySelectorAll('form[data-fo-signup]').forEach(function(f){
+ var i=f.querySelector('input[type=email]'),b=f.querySelector('button'),m=f.querySelector('.cap-msg');
+ f.addEventListener('submit',function(e){e.preventDefault();var v=(i.value||'').trim();
+  if(!v||v.indexOf('@')<1){m.textContent='Please enter a valid email address.';i.focus();return;}
+  if(!LIVE){f.classList.add('sent');m.textContent='Mockup only, nothing was sent. On the live site this adds you to The Daily Redemption.';return;}
+  b.disabled=true;m.textContent='Sending...';
+  fetch(f.dataset.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},
+   body:JSON.stringify({email:v,emailType:'signup',labels:f.dataset.labels.split(','),name:''})})
+  .then(function(r){if(r.ok){f.classList.add('sent');f.querySelector('.cap-row').style.display='none';m.textContent='Check your inbox for the confirmation link.';
+    if(typeof gtag==='function')gtag('event','newsletter_signup',{page_path:location.pathname});}
+   else{b.disabled=false;m.textContent='That did not go through. Try again in a moment.';}})
+  .catch(function(){b.disabled=false;m.textContent='That did not go through. Try again in a moment.';});});});})();</script>
+</body></html>

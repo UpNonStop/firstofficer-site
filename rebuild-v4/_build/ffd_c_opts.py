@@ -800,7 +800,7 @@ open(_p, 'w', encoding='utf-8').write(_s.replace(CHEV, MARK))
 BP, BPS, BPK = '#E60F86', '#B30A68', '#FA1896'          # --pink2 block, --pinkdeep stub, --pink accent
 BCR, BCR2, BTR, BPL = '#FAF6EE', '#FBF4E6', '#F1EADB', '#F1D6E5'   # --bg, --cream2, --track, --pinkLine
 BG, BG2, BINK, BINK2 = '#E8C547', '#F5B700', '#141216', '#3A343D'  # --gold, --gold2, --ink, --ink2
-EYEBROW = (BG, BINK)  # brand gold tag, ink text: ink sat too heavy under the ink ticker on phones
+EYEBROW = ('#138A43', '#fff')  # site green of the header 'Text Your First Officer' button, white text (Ohad: not gold, black or pink)
 GP = 'rgba(255,255,255,.7)'      # perforation on gold
 # the site's existing hand-painted highlighter brush (the 'No affiliate links' trust line), reused verbatim
 import re as _re3h
@@ -906,17 +906,26 @@ O3H2 = f'''
 § .cap button{{flex:0 0 auto;font:700 15px/1 'DM Sans',system-ui,sans-serif;color:#fff;background:{BPK};border:0;border-radius:12px;padding:0 18px;cursor:pointer;white-space:nowrap}}
 § .cap button:hover{{background:{BPS}}}
 § .cap-m{{margin:8px 0 0;font-size:13px;line-height:1.4;color:{BINK2}}}
-§ .cap-ok{{display:none;margin:8px 0 0;font-size:13px;font-weight:600;color:{BPS}}}
-§ .cap.sent .cap-ok{{display:block}}§ .cap.sent .cap-m{{display:none}}
-§ .endnote .en-main{{min-width:0}}
-§ .endnote .en-cap{{padding:0 48px 40px}}
-§ .endnote .en-cap p{{padding:0;font-size:17px;line-height:1.4}}
-§ .endnote .cap-ask{{font-weight:600}}
-§ .endnote .cap{{margin:12px 0 0}}§ .endnote .en-cap .cap-m{{margin-top:8px}}
-§ .endnote .cap input{{border-color:#fff}}
-§ .endnote .cap button{{background:{BINK}}}§ .endnote .cap button:hover{{background:{BINK2}}}
-§ .endnote .en-cap .cap-m,§ .endnote .en-cap .cap-ok{{color:#fff;font-size:13px}}
-@media(max-width:860px){{§ .endnote .en-cap{{padding:0 22px 28px}}}}
+§ .cap-msg{{margin:8px 0 0;font-size:13px;font-weight:600;color:{BPS}}}§ .cap-msg:empty{{display:none}}
+§ .cap.sent .cap-m{{display:none}}
+html.dir-c.o3h #band{{background:var(--bg,#FAF6EE);padding-top:24px;padding-bottom:64px}}
+html.dir-c.o3h #band .dr{{display:grid;grid-template-columns:220px minmax(0,1fr);max-width:1120px;margin:0 auto;border-radius:14px;overflow:hidden;background:rgba(250,24,150,.07);box-shadow:inset 0 0 0 1.5px rgba(250,24,150,.22)}}
+html.dir-c.o3h #band .dr-stub{{background:{BP};color:#fff;padding:28px 22px;display:flex;flex-direction:column;justify-content:center;gap:10px;border-right:2px dashed rgba(255,255,255,.6)}}
+html.dir-c.o3h #band .dr-k{{font:700 22px/1.1 'DM Sans',system-ui,sans-serif;letter-spacing:-.01em}}
+html.dir-c.o3h #band .dr-f{{font:600 11px/1 'JetBrains Mono',monospace;letter-spacing:.18em;text-transform:uppercase;opacity:.9}}
+html.dir-c.o3h #band .dr-main{{padding:30px 36px 32px}}
+html.dir-c.o3h #band .dr-h{{font:800 26px/1.15 'DM Sans',system-ui,sans-serif;letter-spacing:-.02em;color:{BINK};margin:0}}
+html.dir-c.o3h #band .dr-s{{margin:8px 0 0;font-size:15px;line-height:1.55;color:{BINK2};max-width:620px}}
+html.dir-c.o3h #band .cap{{margin:16px 0 0;max-width:520px}}
+html.dir-c.o3h #band .cap-l{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+html.dir-c.o3h #band .cap-row{{display:flex;gap:8px}}
+html.dir-c.o3h #band .cap input{{flex:1 1 auto;min-width:0;font:500 16px/1.2 'DM Sans',system-ui,sans-serif;color:{BINK};background:#fff;border:1.5px solid rgba(250,24,150,.35);border-radius:12px;padding:13px 14px}}
+html.dir-c.o3h #band .cap input:focus{{outline:2px solid {BPK};outline-offset:1px}}
+html.dir-c.o3h #band .cap button{{flex:0 0 auto;font:700 15px/1 'DM Sans',system-ui,sans-serif;color:#fff;background:{BPK};border:0;border-radius:12px;padding:0 20px;cursor:pointer;white-space:nowrap}}
+html.dir-c.o3h #band .cap button:hover{{background:{BPS}}}
+html.dir-c.o3h #band .cap-msg{{margin:8px 0 0;font-size:13px;font-weight:600;color:{BPS}}}html.dir-c.o3h #band .cap-msg:empty{{display:none}}
+@media(max-width:760px){{html.dir-c.o3h #band .dr{{grid-template-columns:1fr}}html.dir-c.o3h #band .dr-stub{{border-right:0;border-bottom:2px dashed rgba(255,255,255,.6);padding:18px 20px;flex-direction:row;align-items:baseline;justify-content:space-between;flex-wrap:wrap}}html.dir-c.o3h #band .dr-main{{padding:22px 20px 24px}}html.dir-c.o3h #band .dr-h{{font-size:22px}}}}
+@media(max-width:420px){{html.dir-c.o3h #band .cap-row{{flex-direction:column}}html.dir-c.o3h #band .cap button{{padding:14px 18px}}}}
 @media(max-width:420px){{§ .cap-row{{flex-direction:column}}§ .cap button{{padding:14px 18px}}}}
 '''
 pal3h = pal_css(BP, BPS, [BP] * 4, BCR2, BTR, BTR, 'transparent', BP, BPS, grid=(BP, BPS))
@@ -940,7 +949,7 @@ _s = _dc.nochev(_dc.capture(_s))
 open(_p, 'w', encoding='utf-8').write(_s)
 
 # ---------------------------------------------------------------- gallery
-GAL = [('3h', 'Brand palette', 'Cream desk, First Officer pink tickets', 'Matured to the brand: the cream canvas, ink type and pink second line of the approved pages, every solid block in First Officer pink with a deeper pink tear-off stub, a flat brand-gold Golden Nugget Pack, a gold eyebrow tag, an email capture, and the mark only in the logo. No purple.'), ('3g', 'Palette A, refined', 'One deep partner, refined', 'Palette A taken further: a lifted aubergine that never reads as black, the full First Officer mark wherever a chevron appears, a cheat sheet that leads with why an owner cares, and shelves that close up with no holes.')] + [(n, k, name, pitch) for n, k, name, pitch, _ in PALS] + [('3c', 'Option 3, matured v2', 'Pillar blocks, matured v2', 'Solid pillar-colour blocks again, each cut as a tear-off ticket: notched perforation, a deeper stub with the flight-number tag and Grab it, white type on green, orange, violet and blue.'),
+GAL = [('3h', 'Brand palette', 'Cream desk, First Officer pink tickets', 'Matured to the brand: the cream canvas, ink type and pink second line of the approved pages, every solid block in First Officer pink with a deeper pink tear-off stub, a flat brand-gold Golden Nugget Pack, a green eyebrow tag, Daily Redemption sign-ups, and the mark only in the logo. No purple.'), ('3g', 'Palette A, refined', 'One deep partner, refined', 'Palette A taken further: a lifted aubergine that never reads as black, the full First Officer mark wherever a chevron appears, a cheat sheet that leads with why an owner cares, and shelves that close up with no holes.')] + [(n, k, name, pitch) for n, k, name, pitch, _ in PALS] + [('3c', 'Option 3, matured v2', 'Pillar blocks, matured v2', 'Solid pillar-colour blocks again, each cut as a tear-off ticket: notched perforation, a deeper stub with the flight-number tag and Grab it, white type on green, orange, violet and blue.'),
        ('3b', 'Option 3, matured', 'Pillar blocks, matured', 'The pillar colours move into tear-off stubs: notched boarding-pass cards with a dashed perforation, a flight-number tag and the Grab it action on a green, orange, violet or blue stub.')] + \
       [(n, f'Option {n}', name, pitch) for n, name, pitch, _ in OPTS]
 cards = ''.join(f'''<article class="o"><a class="sh" href="ffd-c-opt-{n}.html"><img class="dt" src="img/ffd-opts/opt-{n}-1440.jpg" alt="{k} on desktop" loading="lazy"><img class="ph" src="img/ffd-opts/opt-{n}-390.jpg" alt="{k} on a phone" loading="lazy"></a>
