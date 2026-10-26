@@ -221,7 +221,7 @@ def nochev(s):
 # rotating hero photos: the same set and timing as the Freebies hero on rebuild-v3 (section#fftop .phx);
 # site.js crossfades them (2.4s), pauses off-screen and stays still under prefers-reduced-motion.
 HERO_PH = ['i-desk', 'e-coffee', 'e-laptop', 'e-tablet']
-HERO_IV = 6500
+HERO_IV = 6400  # ~5s hold + 1.4s fade
 
 
 def hero_photos(s):

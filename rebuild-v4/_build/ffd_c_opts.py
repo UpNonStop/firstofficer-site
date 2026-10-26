@@ -932,11 +932,15 @@ html.dir-c.o3h #band .cap-msg{{margin:8px 0 0;font-size:13px;font-weight:600;col
 @media(max-width:640px){{§ .eyebrow{{font-size:15px;line-height:18px;letter-spacing:.08em;padding:16px 46px 17px 38px;margin:10px 0 22px -6px}}}}
 /* hero photos: the Freebies hero's own rotating set (v3 #fftop), slow crossfade, low opacity, cream and pink tint */
 § .pop-hero>.phx{{display:block;position:absolute;top:-28px;bottom:0;left:50%;width:100vw;transform:translateX(-50%);z-index:0;background:transparent}}
-§ .pop-hero>.phx img.on{{opacity:.34}}
-§ .pop-hero>.phx::after{{background:linear-gradient(90deg,rgba(250,246,238,.80) 0%,rgba(250,246,238,.62) 38%,rgba(255,227,241,.40) 70%,rgba(255,227,241,.30) 100%),linear-gradient(180deg,rgba(250,246,238,.85) 0,rgba(250,246,238,0) 90px,rgba(250,246,238,0) calc(100% - 120px),{BCR} 100%)}}
+§ .pop-hero>.phx img{{transform:scale(1);transition:opacity 1.4s ease-in-out,transform 8s linear;will-change:opacity,transform}}
+§ .pop-hero>.phx img.on{{opacity:.52;transform:scale(1.07)}}
+§ .pop-hero>.phx img[src$='i-desk.webp']{{object-position:62% 50%}}§ .pop-hero>.phx img[src$='e-coffee.webp']{{object-position:50% 38%}}§ .pop-hero>.phx img[src$='e-laptop.webp']{{object-position:55% 32%}}§ .pop-hero>.phx img[src$='e-tablet.webp']{{object-position:70% 40%}}
+§ .pop-hero>.phx::after{{background:linear-gradient(90deg,rgba(250,246,238,.62) 0%,rgba(250,246,238,.46) 38%,rgba(255,227,241,.28) 70%,rgba(255,227,241,.20) 100%),linear-gradient(180deg,rgba(250,246,238,.7) 0,rgba(250,246,238,0) 80px,rgba(250,246,238,0) calc(100% - 120px),{BCR} 100%)}}
 § .pop-hero>.dhero,§ .pop-hero>.deskline{{position:relative;z-index:1}}
-@media(max-width:760px){{§ .pop-hero>.phx img.on{{opacity:.46}}§ .pop-hero>.phx::after{{background:linear-gradient(180deg,rgba(250,246,238,.56) 0%,rgba(250,246,238,.44) 45%,rgba(255,227,241,.38) 100%),linear-gradient(180deg,rgba(250,246,238,0) calc(100% - 100px),{BCR} 100%)}}}}
-@media(prefers-reduced-motion:reduce){{§ .pop-hero>.phx img{{transition:none}}}}
+@media(max-width:760px){{§ .pop-hero>.phx{{bottom:auto;height:860px}}§ .pop-hero>.phx img.on{{opacity:.56}}§ .pop-hero>.phx img[src$='i-desk.webp']{{object-position:30% 50%}}§ .pop-hero>.phx img[src$='e-coffee.webp']{{object-position:40% 30%}}§ .pop-hero>.phx img[src$='e-laptop.webp']{{object-position:54% 30%}}§ .pop-hero>.phx img[src$='e-tablet.webp']{{object-position:68% 40%}}§ .pop-hero>.phx::after{{background:linear-gradient(180deg,rgba(250,246,238,.55) 0%,rgba(250,246,238,.42) 40%,rgba(250,246,238,.5) 70%,{BCR} 100%)}}}}
+@media(prefers-reduced-motion:reduce){{§ .pop-hero>.phx img{{transition:none;transform:none}}§ .pop-hero>.phx img.on{{transform:none}}}}
+/* the sign-off sits on the page: script name in pink, role in ink. No tile, no mark */
+§ .sig{{display:block!important;background:none!important;box-shadow:none!important;-webkit-mask:none!important;mask:none!important;clip-path:none!important;border:0!important;border-radius:0!important;padding:0!important;margin-top:26px}}§ .sig::before,§ .sig::after{{display:none!important}}§ .sig>div{{background:none!important;padding:0!important;display:flex;flex-direction:column;gap:2px}}§ .sig .sign{{color:{BP}!important}}§ .sig .role{{color:{BINK}!important;opacity:1}}
 html.dir-c.o3h #band{{position:relative;isolation:isolate}}html.dir-c.o3h #band>.phx{{display:block}}
 /* Golden Nugget imagery: the desk's faceted nugget, flat */
 § .pv1 .nugart{{position:absolute!important;right:calc(var(--pw,46px) + 12px);bottom:14px;width:54px;height:54px;z-index:1;pointer-events:none}}
