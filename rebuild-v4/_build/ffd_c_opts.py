@@ -723,8 +723,80 @@ for n, k, name, pitch, extra in PALS:
          headx=D.head('dir-c', 'family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1',
                       D.C_CSS + full, f'window.FO_LIMIT=6;document.documentElement.classList.add("o{n}");'))
 
+# ---------------------------------------------------------------- 3g: Palette A refined (full mark only, benefit-led cheat sheet, balanced shelves)
+MARK = 'img/fo-chevron-transparent.png'
+MK = f'url({MARK}) center/contain no-repeat'
+O3G = f'''
+/* the full First Officer mark wherever a single cut chevron used to sit */
+§ .eyebrow::before{{clip-path:none;background:{MK};width:13px;height:18px}}
+§ .pv b::before{{clip-path:none;background:{MK};width:8px;height:11px}}
+§ .deskline .ck::before{{clip-path:none;background:{MK};width:14px;height:19px}}
+§ .codes .mq-i::after{{clip-path:none;background:{MK};width:8px;height:11px;opacity:1}}
+§ .dk.lead .dk-meta .ic svg circle{{fill:transparent}}
+/* between phone and wide desktop the side tickets wrap tall and stretched the calculator, leaving a hole above its button:
+   stack the calculator on top at its natural height, the nugget pack full width under it, the other two side by side */
+@media(min-width:641px) and (max-width:1240px){{
+ § .vault{{grid-template-columns:1fr 1fr;gap:14px;align-items:start}}
+ § .vault>.feat{{grid-column:1/-1;order:0}}
+ § .vault>.pvs{{display:contents}}
+ § .vault .pv1{{grid-column:1/-1;order:1}}
+ § .vault .pv2,§ .vault .pv3{{order:2;align-self:stretch}}
+}}
+/* shelves with one or two cards, or a short last row, close up instead of leaving a hole */
+@media(min-width:861px){{
+ § .grid .shelf[data-vis="1"]>.dk.lead{{grid-column:1/-1;grid-row:auto}}
+ § .grid .shelf[data-vis="2"]>.dk.lead{{grid-row:auto}}
+ § .grid .shelf[data-r3="1"]>.dk.lastvis{{grid-column:1/-1}}
+ § .grid .shelf[data-r3="2"]>.dk.lastvis{{grid-column:span 2}}
+}}
+@media(min-width:641px) and (max-width:860px){{
+ § .grid .shelf[data-r2="1"]>.dk.lastvis{{grid-column:1/-1}}
+}}
+'''
+FILL_JS = r'''<script id="fo-fill">(function(){
+function fill(){[].forEach.call(document.querySelectorAll('.desk .grid .shelf'),function(sh){
+ var v=[].filter.call(sh.children,function(e){return e.classList.contains('dk')&&!e.hidden;});
+ [].forEach.call(sh.querySelectorAll('.lastvis'),function(e){e.classList.remove('lastvis');});
+ var n=v.length,lead=v.length&&v[0].classList.contains('lead');sh.setAttribute('data-vis',String(n));
+ var r3='',r2='';if(n){if(lead){if(n>=4)r3=String((n-3)%3);r2=String((n-1)%2);}else{r3=String(n%3);r2=String(n%2);}v[n-1].classList.add('lastvis');}
+ if(lead&&n<3)r3='';sh.setAttribute('data-r3',r3);sh.setAttribute('data-r2',r2);});}
+var g=document.getElementById('desk-grid');if(!g)return;fill();
+new MutationObserver(function(){clearTimeout(fill.t);fill.t=setTimeout(fill,30);}).observe(g,{subtree:true,attributes:true,attributeFilter:['hidden'],childList:true});
+})();</script>'''
+# the everyday cheat sheet leads with why an owner cares
+CS_HERO_OLD = '<b>Cheat sheet</b><span>The everyday code sheet</span>'
+CS_HERO_NEW = '<b>Cheat sheet</b><span>Spot the buys that miss your card&#8217;s bonus</span>'
+CS_CARD_OLD = '<h3>The everyday code sheet</h3><p class="love">Twenty codes almost every business card meets in a year.</p>'
+CS_CARD_NEW = ('<h3>Spot the buys that miss your card&#8217;s bonus</h3><p class="love">Your card pays its bonus on the code a store runs under, '
+               'not on what you bought. The twenty codes almost every business card meets in a year, in plain words.</p>')
+assert B.count(CS_HERO_OLD) == 1 and B.count(CS_CARD_OLD) == 1
+B3G = B.replace(CS_HERO_OLD, CS_HERO_NEW).replace(CS_CARD_OLD, CS_CARD_NEW).replace(f'src="{CHEV}"', f'src="{MARK}"')
+# sheet cards hold a table, so their item count came out as 0; count the code rows instead
+import re as _re
+def _fixn(h):
+    out, i = [], 0
+    for m in _re.finditer(r'data-n="0"', h):
+        nxt = h.find('data-n="', m.end()); seg = h[m.end(): nxt if nxt > 0 else len(h)]
+        k = seg.count('<tr><td')
+        out.append(h[i:m.start()] + (f'data-n="{k}"' if k else m.group(0))); i = m.end()
+    return ''.join(out) + h[i:]
+B3G = _fixn(B3G)
+CS_GRP_OLD = "<p class=\"grp-disc\">Codes and names from Visa's April 2026 manual. Each store's code is set by its processor.</p>"
+CS_GRP_NEW = "<p class=\"grp-disc\">Your card's bonus follows the code a store runs under, not its name. Each store's code is set by its processor.</p>"
+assert B3G.count(CS_GRP_OLD) == 1
+B3G = B3G.replace(CS_GRP_OLD, CS_GRP_NEW)
+pal3g = pal_css('#5A2257', '#43173F', ['#4D1B4A', '#57214F', '#612855', '#6B2F5E'], '#4D1B4A', '#3A1236', '#5A2257', '#43173F',
+                '#5A2257', '#43173F', grid=('#5A2257', '#43173F'))
+css3g = (O3B + O3C + pal3g + O3G).replace('.dk.lead', '.dk.lead:not(.gold)')
+full3g = (BASE + css3g).replace('§', 'html.dir-c.o3g .desk').replace('html.dir-c.ox', 'html.dir-c.o3g').replace('CP', CP)
+page('ffd-c-opt-3g.html', T, B3G, desc=DESC, src='freebies', tail=D.TAIL_C + D.SHARED_JS + FILL_JS,
+     headx=D.head('dir-c', 'family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1',
+                  D.C_CSS + full3g, 'window.FO_LIMIT=6;document.documentElement.classList.add("o3g");'))
+_p = f'{ROOT}/ffd-c-opt-3g.html'; _s = open(_p, encoding='utf-8').read()
+open(_p, 'w', encoding='utf-8').write(_s.replace(CHEV, MARK))
+
 # ---------------------------------------------------------------- gallery
-GAL = [(n, k, name, pitch) for n, k, name, pitch, _ in PALS] + [('3c', 'Option 3, matured v2', 'Pillar blocks, matured v2', 'Solid pillar-colour blocks again, each cut as a tear-off ticket: notched perforation, a deeper stub with the flight-number tag and Grab it, white type on green, orange, violet and blue.'),
+GAL = [('3g', 'Palette A, refined', 'One deep partner, refined', 'Palette A taken further: a lifted aubergine that never reads as black, the full First Officer mark wherever a chevron appears, a cheat sheet that leads with why an owner cares, and shelves that close up with no holes.')] + [(n, k, name, pitch) for n, k, name, pitch, _ in PALS] + [('3c', 'Option 3, matured v2', 'Pillar blocks, matured v2', 'Solid pillar-colour blocks again, each cut as a tear-off ticket: notched perforation, a deeper stub with the flight-number tag and Grab it, white type on green, orange, violet and blue.'),
        ('3b', 'Option 3, matured', 'Pillar blocks, matured', 'The pillar colours move into tear-off stubs: notched boarding-pass cards with a dashed perforation, a flight-number tag and the Grab it action on a green, orange, violet or blue stub.')] + \
       [(n, f'Option {n}', name, pitch) for n, name, pitch, _ in OPTS]
 cards = ''.join(f'''<article class="o"><a class="sh" href="ffd-c-opt-{n}.html"><img class="dt" src="img/ffd-opts/opt-{n}-1440.jpg" alt="{k} on desktop" loading="lazy"><img class="ph" src="img/ffd-opts/opt-{n}-390.jpg" alt="{k} on a phone" loading="lazy"></a>
