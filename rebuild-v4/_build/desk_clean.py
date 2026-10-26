@@ -215,3 +215,42 @@ def nochev(s):
         bad.append('chevron clip-path ' + CHEV_CP)
     assert not bad, 'chevron used outside the logo/favicon:\n' + '\n'.join(bad[:20])
     return s
+
+
+# ---------------------------------------------------------------- Ohad pt190u: the things 3h had dropped
+# rotating hero photos: the same set and timing as the Freebies hero on rebuild-v3 (section#fftop .phx);
+# site.js crossfades them (2.4s), pauses off-screen and stays still under prefers-reduced-motion.
+HERO_PH = ['i-desk', 'e-coffee', 'e-laptop', 'e-tablet']
+HERO_IV = 6500
+
+
+def hero_photos(s):
+    tag = '<div class="pop-hero bleed">'
+    assert s.count(tag) == 1
+    phx = (f'<div class="phx" data-iv="{HERO_IV}" data-ph="' + ','.join(f'img/ph/{n}.webp' for n in HERO_PH)
+           + '" aria-hidden="true"></div>')
+    return s.replace(tag, tag + phx)
+
+
+# the desk's Golden Nugget, redrawn flat: one faceted nugget in brand golds, ink outline,
+# three pink glints (the prior page's nugget icon, refined). No bar, no 3D, no circles.
+NUGGET = ("<svg class=\"nugart\" viewBox=\"0 0 64 64\" aria-hidden=\"true\" focusable=\"false\">"
+          "<path d=\"M9 37 L15 23 L27 15 L41 16 L53 25 L56 39 L46 50 L28 53 L14 47 Z\" fill=\"#E8C547\"/>"
+          "<path d=\"M15 23 L27 15 L41 16 L35 28 L22 30 Z\" fill=\"#FBE9A6\"/>"
+          "<path d=\"M41 16 L53 25 L56 39 L44 36 L35 28 Z\" fill=\"#D7AA2E\"/>"
+          "<path d=\"M22 30 L35 28 L44 36 L34 44 L20 42 Z\" fill=\"#F2D266\"/>"
+          "<path d=\"M9 37 L15 23 L22 30 L20 42 L14 47 Z\" fill=\"#DDB73E\"/>"
+          "<path d=\"M20 42 L34 44 L44 36 L56 39 L46 50 L28 53 L14 47 Z\" fill=\"#B98A1E\"/>"
+          "<path d=\"M15 23 L22 30 L35 28 L41 16 M22 30 L20 42 L34 44 L44 36 L35 28 M44 36 L56 39 M20 42 L14 47 M34 44 L28 53\" fill=\"none\" stroke=\"#141216\" stroke-opacity=\".28\" stroke-width=\"1.3\" stroke-linejoin=\"round\"/>"
+          "<path d=\"M9 37 L15 23 L27 15 L41 16 L53 25 L56 39 L46 50 L28 53 L14 47 Z\" fill=\"none\" stroke=\"#141216\" stroke-width=\"2.4\" stroke-linejoin=\"round\"/>"
+          "<path d=\"M50 9 l1.6 -5 M55.5 14 l5 -1.2 M46 6.5 l-1 -4\" stroke=\"#FA1896\" stroke-width=\"2.4\" stroke-linecap=\"round\"/>"
+          "</svg>")
+
+
+def nug_art(s):
+    a = '<a class="pv pv1" href="#nug-cards" data-open="nug-cards">'
+    g = '<div class="grp" data-grp="nuggets"><h2>Golden Nuggets</h2>'
+    c = re.search(r'<article class="dk gold" id="nug-cards"[^>]*>', s)
+    assert s.count(a) == 1 and s.count(g) == 1 and c
+    s = s.replace(a, a + NUGGET).replace(g, g + NUGGET)
+    return s.replace(c.group(0), c.group(0) + NUGGET, 1)

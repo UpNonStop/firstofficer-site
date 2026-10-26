@@ -890,7 +890,7 @@ EB_BG, EB_FG = EYEBROW
 EB_BRUSH = _dc.brush(BPK, cap='26px', full=True)  # Ohad pt189u: wide pink brush swipe behind the eyebrow, white text, no tag box
 O3H2 = f'''
 /* eyebrow: its own colour, a plain tag, no stub and no mark */
-§ .eyebrow{{background:{EB_BRUSH}!important;color:#fff!important;-webkit-mask:none;mask:none;border:0;border-image:none;clip-path:none;border-radius:0;padding:15px 44px 15px;line-height:14px;box-shadow:none}}§ .lede .tl{{color:{BINK};font-weight:700;padding:0;margin:0;background:none}}
+§ .eyebrow{{background:{EB_BRUSH}!important;color:#fff!important;-webkit-mask:none;mask:none;border:0;border-image:none;clip-path:none;border-radius:0;box-shadow:none;font:800 17px/20px 'DM Sans',system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;padding:18px 58px 19px 50px;margin:0 0 26px -10px;transform:rotate(-1.2deg);transform-origin:left center;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}}§ .lede .tl{{color:{BINK};font-weight:700;padding:0;margin:0;background:none}}
 § .eyebrow::before{{display:none}}
 /* signature: Ohad and the role on a plain pink tag, no stub */
 § .sig{{background:{BP}!important;-webkit-mask:none!important;mask:none!important;padding:12px 22px 12px 20px;border-radius:10px;box-shadow:none}}
@@ -928,6 +928,22 @@ html.dir-c.o3h #band .cap-msg{{margin:8px 0 0;font-size:13px;font-weight:600;col
 @media(max-width:760px){{html.dir-c.o3h #band .dr{{grid-template-columns:1fr}}html.dir-c.o3h #band .dr-stub{{border-right:0;border-bottom:2px dashed rgba(255,255,255,.6);padding:18px 20px;flex-direction:row;align-items:baseline;justify-content:space-between;flex-wrap:wrap}}html.dir-c.o3h #band .dr-main{{padding:22px 20px 24px}}html.dir-c.o3h #band .dr-h{{font-size:22px}}}}
 @media(max-width:420px){{html.dir-c.o3h #band .cap-row{{flex-direction:column}}html.dir-c.o3h #band .cap button{{padding:14px 18px}}}}
 @media(max-width:420px){{§ .cap-row{{flex-direction:column}}§ .cap button{{padding:14px 18px}}}}
+/* phone: the eyebrow is the page's header under the nav, sized for the phone, not shrunk; a painted stroke, never a button */
+@media(max-width:640px){{§ .eyebrow{{font-size:15px;line-height:18px;letter-spacing:.08em;padding:16px 46px 17px 38px;margin:10px 0 22px -6px}}}}
+/* hero photos: the Freebies hero's own rotating set (v3 #fftop), slow crossfade, low opacity, cream and pink tint */
+§ .pop-hero>.phx{{display:block;position:absolute;top:-28px;bottom:0;left:50%;width:100vw;transform:translateX(-50%);z-index:0;background:transparent}}
+§ .pop-hero>.phx img.on{{opacity:.34}}
+§ .pop-hero>.phx::after{{background:linear-gradient(90deg,rgba(250,246,238,.80) 0%,rgba(250,246,238,.62) 38%,rgba(255,227,241,.40) 70%,rgba(255,227,241,.30) 100%),linear-gradient(180deg,rgba(250,246,238,.85) 0,rgba(250,246,238,0) 90px,rgba(250,246,238,0) calc(100% - 120px),{BCR} 100%)}}
+§ .pop-hero>.dhero,§ .pop-hero>.deskline{{position:relative;z-index:1}}
+@media(max-width:760px){{§ .pop-hero>.phx img.on{{opacity:.46}}§ .pop-hero>.phx::after{{background:linear-gradient(180deg,rgba(250,246,238,.56) 0%,rgba(250,246,238,.44) 45%,rgba(255,227,241,.38) 100%),linear-gradient(180deg,rgba(250,246,238,0) calc(100% - 100px),{BCR} 100%)}}}}
+@media(prefers-reduced-motion:reduce){{§ .pop-hero>.phx img{{transition:none}}}}
+html.dir-c.o3h #band{{position:relative;isolation:isolate}}html.dir-c.o3h #band>.phx{{display:block}}
+/* Golden Nugget imagery: the desk's faceted nugget, flat */
+§ .pv1 .nugart{{position:absolute!important;right:calc(var(--pw,46px) + 12px);bottom:14px;width:54px;height:54px;z-index:1;pointer-events:none}}
+§ .pv1 span{{padding-right:58px}}
+§ .grp[data-grp=nuggets]{{position:relative}}§ .grp[data-grp=nuggets] .nugart{{position:absolute;right:16px;top:44px;width:64px;height:64px;pointer-events:none}}§ .grp[data-grp=nuggets] h2{{padding-right:64px}}
+§ #nug-cards .nugart{{display:none}}§ #nug-cards.lead .nugart{{display:block;position:absolute;right:164px;top:62px;width:104px;height:104px;pointer-events:none;z-index:1}}
+@media(max-width:640px){{§ .pv1 .nugart{{width:52px;height:52px;top:14px;bottom:auto}}§ .pv1 span{{padding-right:0}}§ .grp[data-grp=nuggets] .nugart{{width:50px;height:50px;top:12px;right:12px}}§ #nug-cards.lead .nugart{{right:110px;top:auto;bottom:9px;width:48px;height:48px;z-index:2}}}}
 '''
 pal3h = pal_css(BP, BPS, [BP] * 4, BCR2, BTR, BTR, 'transparent', BP, BPS, grid=(BP, BPS))
 css3h = (O3B + O3C + pal3h + O3G.replace(MK, 'none') + O3H + O3H2).replace('.dk.lead', '.dk.lead:not(.gold)')
@@ -947,6 +963,7 @@ _s = _dc.check(_dc.desource(_s))
 # signature without the chevron stub; then the email capture; then the chevron check
 _s = _s.replace('<div class="sig"><img class="av mkv" src="img/fo-chevron-transparent.png" alt="" aria-hidden="true"><div>', '<div class="sig"><div>')
 _s = _dc.nochev(_dc.capture(_s))
+_s = _dc.hero_photos(_dc.nug_art(_s))
 open(_p, 'w', encoding='utf-8').write(_s)
 
 # ---------------------------------------------------------------- gallery
