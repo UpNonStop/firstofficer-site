@@ -560,3 +560,7 @@ p,.lede,.sub,.cap,.method,.tip p,li{text-wrap:pretty}
 @media(min-width:1000px){.nsub{display:none}}
 @media(max-width:380px){.ncta .btn-sm.wa{display:none}}
 @media(prefers-reduced-motion:reduce){.fzmk path{animation:none;stroke-dashoffset:0}}
+
+/* footer brand matches header lockup: chevron left, name + lighter byline stacked right */
+.fdir .fb a.brand{display:inline-flex;align-items:center;gap:10px;padding:0;margin:0}
+.fdir .fb a.brand b{color:var(--ink)}
