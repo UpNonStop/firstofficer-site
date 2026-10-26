@@ -117,7 +117,7 @@ var desk=$('.desk');if(desk){
 (function(){var top=document.getElementById('top');if(!top)return;var N=31,box=document.createElement('div');box.className='rbg';box.setAttribute('aria-hidden','true');
   var a=document.createElement('i'),b=document.createElement('i');box.appendChild(a);box.appendChild(b);top.insertBefore(box,top.firstChild);
   var order=[];for(var k=0;k<N;k++)order.push(k);order.sort(function(){return Math.random()-.5});var n=0,cur=a;
-  function src(k){return 'img/rec/bg/'+(k<10?'0':'')+k+'.webp'}
+  function src(k){return (window.FO_A||'')+'img/rec/bg/'+(k<10?'0':'')+k+'.webp'}
   function next(){var k=order[n%N];n++;var im=new Image();im.onload=function(){var nx=cur===a?b:a;nx.style.backgroundImage='url('+im.src+')';nx.classList.add('on');cur.classList.remove('on');cur=nx};im.src=src(k)}
   next();setInterval(next,5200);
 })();

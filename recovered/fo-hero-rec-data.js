@@ -164,3 +164,8 @@ window.CFG.css+=`
 #hero.M h1{line-height:1.04}
 #hero.D .fo,#hero.D .fol{z-index:45!important}
 `;
+
+/* htmlpreview / CDN: point every relative img/ path in the hero config at the pinned asset mirror (window.FO_A) */
+(function(){var C=window.CFG,A=window.FO_A||'';if(!C||!A)return;
+function fx(o){for(var k in o){var v=o[k];if(typeof v==='string')o[k]=v.replace(/(^|["'(=\s])img\//g,'$1'+A+'img/');else if(v&&typeof v==='object')fx(v)}}
+fx(C);})();

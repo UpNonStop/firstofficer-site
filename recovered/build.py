@@ -1,6 +1,8 @@
+import re
 # Builds home-recovered.html and product-recovered.html at the repo root. Mockup only.
 import os
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ASSET='https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/'
 FONTS='https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=JetBrains+Mono:wght@400;500;700&display=swap'
 SUB="Every loyalty program has their team constantly rewriting the rules. While you're busy running your business, your spend earns less than it should, and your points and miles buy less than they could.\\n\\nFirstOfficer by UpNonStop runs a desk of specialists across 50+ programs, each an expert in its niche. They all work for you, so you skip those rookie mistakes. Your Bespoke Strategy is reviewed weekly and optimized continuously, so every dollar you spend works harder.\\n\\nSame spend. More points. Better trips, for fewer points."
 WA='https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call'
@@ -28,13 +30,13 @@ def nav(on):
     links=''.join((f'<a class="fz" href="{h}"><span>{FZ}{n}</span></a>' if n=="Freebies" else f'<a href="{h}" class="{"on" if n==on else ""}">{n}</a>') for n,h in L)
     sheet=''.join(f'<a href="{h}"{' class="fz"' if n=="Freebies" else ""}><span class="t">{FZ+n if n=="Freebies" else n}</span><small>0{i+1}</small></a>' for i,(n,h) in enumerate(L))
     return f'''<header class="nav"><div class="nin">
-<a class="brand" href="home-recovered.html" aria-label="First Officer home"><img src="img/fo-chevron-alpha.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a>
+<a class="brand" href="home-recovered.html" aria-label="First Officer home"><img src="img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a>
 <nav class="links" aria-label="Main">{links}</nav>
 <a class="btn pk" href="{WA}">💬 Text Your First Officer</a>
 <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="foNav(true)"><span></span><span></span></button>
 </div></header>
 <div class="sheet" id="sheet" aria-hidden="true">
-<div class="top"><a class="brand" href="home-recovered.html"><img src="img/fo-chevron-alpha.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><button class="x" aria-label="Close menu" onclick="foNav(false)">×</button></div>
+<div class="top"><a class="brand" href="home-recovered.html"><img src="img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><button class="x" aria-label="Close menu" onclick="foNav(false)">×</button></div>
 <nav>{sheet}<div class="sublabel">More</div><a class="sub" href="trust.html">Trust</a><a class="sub" href="industries.html">Industries</a></nav>
 <a class="btn pk" href="{WA}">💬 Text Your First Officer</a>
 </div>
@@ -48,7 +50,7 @@ def ticker():
 def footer():
     return f'''<footer class="foot"><div class="wrap">
 <div class="cols">
-<div><a class="brand" href="home-recovered.html"><img src="img/fo-chevron-alpha.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><p class="tl">Your rewards desk. One conversation, 50+ programs, trained on new data nightly.</p></div>
+<div><a class="brand" href="home-recovered.html"><img src="img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><p class="tl">Your rewards desk. One conversation, 50+ programs, trained on new data nightly.</p></div>
 <div><h6>Site</h6><a href="product-recovered.html">Product</a><a href="pricing.html">Pricing</a><a href="freebies.html">Freebies</a><a href="calculator.html">Calculator</a><a href="about.html">About</a></div>
 <div><h6>More</h6><a href="trust.html">Trust</a><a href="industries.html">Industries</a><a href="{WA}">Text Your First Officer</a></div>
 </div>
@@ -125,11 +127,12 @@ def share():
 
 def scripts(hero=False):
     s='<script src="recovered/rec.js"></script>\n'
+    pre='<script>window.FO_A="'+ASSET+'";</script>\n'
     if hero:
         s=('<script src="hero/fo-hero-data.js"></script>\n'
            '<script src="recovered/fo-hero-rec-data.js"></script>\n'
            '<script src="recovered/fo-hero-rec.js"></script>\n')+s
-    return s
+    return pre+s
 
 # ---------------- HOME ----------------
 def home():
@@ -290,6 +293,10 @@ def product():
 '''+cta()+'</main>\n'+footer()+scripts(False)+'</body>\n</html>\n'
     return h
 
-open(os.path.join(ROOT,'home-recovered.html'),'w').write(home())
-open(os.path.join(ROOT,'product-recovered.html'),'w').write(product())
+def absol(h):
+    # htmlpreview.github.io serves assets from raw.githubusercontent.com, which Chrome blocks (ORB) and which breaks
+    # relative font url()s once it inlines the CSS. Pin every image/font to the jsDelivr mirror of the same repo.
+    return re.sub(r'((?:src|href)=["\']|url\()(img/|recovered/fonts/)',lambda m:m.group(1)+ASSET+m.group(2),h)
+open(os.path.join(ROOT,'home-recovered.html'),'w').write(absol(home()))
+open(os.path.join(ROOT,'product-recovered.html'),'w').write(absol(product()))
 print('built')
