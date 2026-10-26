@@ -805,6 +805,8 @@ GP = 'rgba(255,255,255,.7)'      # perforation on gold
 import re as _re3h
 HLB = _re3h.search(r'\.desk \.hl\{background:(url\("[^"]+"\))', D.F.SRC).group(1)
 assert '%23FA1896' in HLB
+import desk_clean as _dc
+BRUSH = _dc.brush(BPK)
 CPF = 'rgba(230,15,134,.42)'     # perforation on cream
 def _tk(perf, stub, pos, body): return f'{perf},linear-gradient({stub},{stub}) {pos} no-repeat,{body}'
 O3H = f'''
@@ -817,8 +819,15 @@ html.dir-c.o3h .desk .pop-hero::before{{background:linear-gradient(rgba(20,18,22
 /* brand rule: serif headlines, two lines, pink second line, NO italics anywhere (h1, caption, big counts, quotes) */
 § *,§ *::before,§ *::after,html.dir-c.o3h .rdr-p,html.dir-c.o3h .rdr-p *{{font-style:normal!important}}
 § .lede{{color:{BINK2}}}
-§ .lede .hl{{background:{HLB} center/100% 92% no-repeat!important;color:{BINK}!important;border-radius:0;padding:0 .3em;margin:0 -.08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}}
-/* the mark only ever sits on ticket-stock cream: eyebrow stub, signature stub, Checked cell, code tape */
+/* true brush (Ohad, Oct 26): one dry-brush #FA1896 stroke behind every pink highlight, ragged and tilted,
+   ink text on top; padding = -margin so the stroke overhangs the words instead of adding a gap */
+§ .hl,§ .lede .hl{{background:{BRUSH} center/100% 100% no-repeat!important;color:{BINK}!important;border-radius:0;padding:.1em .22em .14em;margin:0 -.22em;-webkit-box-decoration-break:clone;box-decoration-break:clone}}
+html.dir-c.o3h .fzmk{{display:none}}
+html.dir-c.o3h .fz>span{{background:{BRUSH} center/100% 100% no-repeat;padding:.1em .22em .14em;margin:0 -.22em}}
+/* no Checked cell any more: four even stats, two by two on phones */
+§ .deskline{{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:640px){{§ .deskline{{grid-template-columns:1fr 1fr}}}}
+/* the mark only ever sits on ticket-stock cream: eyebrow stub, signature stub, code tape */
 § .eyebrow{{background:{_tk(lperf("38px", CPF), BCR2, "left 0 top 0/39px 100%", BP)};color:#fff;box-shadow:inset 0 0 0 1px {BPL},0 10px 22px -16px rgba(179,10,104,.55)}}
 § .sig{{background:linear-gradient({BCR2},{BCR2}) left 0 top 0/66px 100% no-repeat,{BP};box-shadow:inset 0 0 0 1px {BPL};border-top:0}}
 § .sig .av{{background:none;box-shadow:none}}
@@ -887,6 +896,8 @@ page('ffd-c-opt-3h.html', T, B3H, desc=DESC, src='freebies', tail=D.TAIL_C + D.S
 _p = f'{ROOT}/ffd-c-opt-3h.html'; _s = open(_p, encoding='utf-8').read()
 _s = _s.replace(CHEV, MARK).replace("'Bricolage Grotesque',system-ui,sans-serif", "'DM Sans',system-ui,sans-serif").replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui,sans-serif")
 assert 'Bricolage' not in _s and 'Founder, First Officer' not in _s
+# no source names and no checked dates on 3h (Ohad, Oct 26); check() fails the build if any return
+_s = _dc.check(_dc.desource(_s))
 open(_p, 'w', encoding='utf-8').write(_s)
 
 # ---------------------------------------------------------------- gallery
