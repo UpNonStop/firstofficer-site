@@ -1,0 +1,23 @@
+/* Verbatim from rebuild v2 (live ticker copied from origin/main) and the v2 hero frame. Not restyled. */
+:root{--cr:#FAF6EE}
+.fotick{font-size:16px;line-height:normal;position:relative;width:100vw;margin-left:calc(50% - 50vw);background:#141216;overflow:hidden;padding:9px 0;z-index:5;}
+.fotick-in{display:flex;gap:0;width:max-content;animation:tickmove 46s linear infinite;}
+.fotick:hover .fotick-in{animation-play-state:paused;}
+@keyframes tickmove{to{transform:translateX(-50%);}}
+@media (prefers-reduced-motion:reduce){.fotick-in{animation:none;}}
+.fotick .tk{display:inline-flex;align-items:center;gap:9px;padding:0 22px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:rgba(255,255,255,.72);white-space:nowrap;text-transform:uppercase;font-weight:400;font-style:normal;line-height:normal;}
+.fotick .tk b{color:#fff;font-weight:700;}
+.fotick .tk i{color:#F5B700;font-style:normal;font-weight:700;}
+.fotick .tk .no{color:rgba(255,255,255,.45);}
+.fotick .tk-dot{width:6px;height:6px;border-radius:50%;background:#FA1896;animation:livepulse 1.6s ease-out infinite;flex:none;}
+@keyframes livepulse{0%{box-shadow:0 0 0 0 rgba(250,24,150,.5);opacity:1;}70%{box-shadow:0 0 0 7px rgba(250,24,150,0);opacity:.55;}100%{box-shadow:0 0 0 0 rgba(250,24,150,0);opacity:1;}}
+
+/* hero frame (v2 port, unchanged values) */
+#top{position:relative;isolation:isolate;overflow:hidden;background:transparent!important;padding:0!important;display:block}
+#top>.phx{z-index:0}
+#top>.phx img.on{opacity:1;animation:kb 16s linear both}
+#top>.phx img{transform:scale(1.04)}
+@keyframes kb{from{transform:scale(1.1)}to{transform:scale(1.03)}}
+#top>.phx::after{background:linear-gradient(98deg,rgba(255,255,255,.86) 0%,rgba(255,255,255,.70) 40%,rgba(255,255,255,.34) 68%,rgba(255,255,255,.14) 100%)}
+#top>#fohero{position:relative!important;z-index:2;max-width:none!important;width:100%!important;margin:0!important;padding:0!important;left:auto!important}
+@media (max-width:760px){#top>.phx::after{background:linear-gradient(180deg,rgba(255,255,255,.80) 0%,rgba(255,255,255,.54) 55%,rgba(255,255,255,.74) 100%)}}

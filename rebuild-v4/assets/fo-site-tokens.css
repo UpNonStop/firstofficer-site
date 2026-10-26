@@ -1,0 +1,52 @@
+/* First Officer site tokens (rebuild v3).
+   Every value here is copied from the New Bot app source; nothing is invented.
+   Sources:
+     firstofficer-native/src/ui/theme.ts  (C, F, shadow, SPEC)  - the palette that rendered shots/10-26
+       (ink #2A2230 / ink2 #5F5767 / ink3 #8E8796 / line #E9E7EE are theme.ts @ 3848f6d, the build those shots came from)
+     firstofficer-native/src/ui/kit.tsx    (Label, Card, Btn, Chip, Pill, ProgressBar, ProTip, Skeleton)
+     firstofficer-native/src/screens/owner.tsx (SECT pillar colors, hero card, Row, Note, Pair, Meter)
+     firstofficer-native/src/screens/plan.tsx  (Worth it card, Progress card, Timeline)
+     firstofficer-native/src/ui/tokens.ts + firstofficer-app/prototype/fo-tokens.css (space, radius, chart, photo grade, scrims, easing)
+     firstofficer-app/prototype/fonts/InterVariable.woff2 (self-hosted, OFL) */
+@font-face{font-family:"Inter";src:url(../fonts/InterVariable.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+:root{
+  /* surfaces (theme.ts C) */
+  --bg:#FAF6EE;            /* C.bg, tokens canvas */
+  --cream2:#FBF4E6;        /* C.cream2, Note background */
+  --paper:#FFFFFF;         /* C.white, cards */
+  --track:#F1EADB;         /* ProgressBar / Skeleton track */
+  /* brand */
+  --gold:#E8C547; --gold2:#F5B700; --goldLine:#EFE1BC; --goldWash:rgba(232,197,71,.14);
+  --pink:#FA1896; --pink2:#E60F86; --pinkWash:rgba(250,24,150,.08);
+  /* ink (theme.ts @ shots 10-26) */
+  --ink:#2A2230; --ink2:#5F5767; --ink3:#8E8796; --line:#E9E7EE;
+  --green:#2E9E6A; --greenWash:rgba(46,158,106,.10);
+  /* pillar colors: firstofficer-native/src/ui/theme.ts PILLAR (locked Oct 24, 2026), order always Earn, Burn, Return, Learn.
+     --x = label/c600 (text, borders), --x-i = c500 dot/icon accent, --x-w = c100 wash */
+  --earn:#12834E;   --earn-i:#2FA36C;   --earn-w:#E3F3EA;
+  --burn:#E8590C;   --burn-i:#F26419;   --burn-w:#FDEBDD;
+  --return:#7149C9; --return-i:#9471DB; --return-w:#EFE9FB;
+  --learn:#1E78B8;  --learn-i:#5AB0E6;  --learn-w:#E2F0FA;
+  --home:#F5B700;
+  /* specialist colors (theme.ts SPEC) */
+  --s-fo:#F5B700; --s-analyst:#6C7BD9; --s-earn:#12834E; --s-burn:#E8590C; --s-hotel:#B05FC8; --s-watch:#1E78B8;
+  /* type (theme.ts F: Inter 400/500/600/700, tabular numbers) */
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  /* spacing (tokens.ts space + layout) */
+  --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;--s8:32px;--s10:40px;--s14:56px;
+  --gutter:20px; --section:32px; --cardPad:20px;
+  /* radii (kit.tsx / owner.tsx / tokens.ts) */
+  --r-hero:22px;   /* owner.tsx hero card */
+  --r-card:18px;   /* kit Card, PhotoTile */
+  --r-row:14px;    /* owner Row, ghost Btn, Seg */
+  --r-note:12px;   /* Note, ProTip */
+  --r-btn:28px;    /* primary Btn (minHeight 56) */
+  --r-pill:999px;
+  /* elevation (theme.ts shadow: #B8962E, opacity .10, radius 16, y 6) */
+  --shadow:0 6px 16px rgba(184,150,46,.10);
+  /* charts (tokens.ts chart, kit ProgressBar) */
+  --bar-h:8px; --bar-r:4px; --meter-h:6px;
+  /* photo treatment (fo-tokens.css) */
+  --photo-grade:saturate(.92) sepia(.06) contrast(.98) brightness(1.03);
+  --ease:cubic-bezier(.2,.8,.2,1); --ease-emph:cubic-bezier(.16,1,.3,1); --dur-enter:420ms; --dur-count:1200ms; --dur-chart:1100ms;
+}
