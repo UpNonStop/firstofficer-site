@@ -542,8 +542,129 @@ page('ffd-c-opt-3b.html', T, B, desc=DESC, src='freebies', tail=D.TAIL_C + D.SHA
      headx=D.head('dir-c', 'family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1',
                   D.C_CSS + full3b, 'window.FO_LIMIT=6;document.documentElement.classList.add("o3b");'))
 
+# ---------------------------------------------------------------- 3c: option 3 matured v2, solid pillar-colour tickets
+DK = lambda c, p=74: f'color-mix(in srgb,{c} {p}%,#1a0f1a)'
+WP = 'rgba(255,255,255,.55)'
+FH = 100  # calculator stub height
+O3C = r'''
+html.dir-c.ox .desk [data-cat],html.dir-c.ox .desk .grp{--cs:DKC}
+/* eyebrow: a small blue ticket, pink chevron on the deep stub */
+§ .eyebrow{background:LPEB,linear-gradient(#155A8C,#155A8C) left 0 top 0/39px 100% no-repeat,#1E78B8;color:#fff;border:0;border-image:none;border-radius:6px;padding:10px 16px 10px 0;gap:0;box-shadow:0 10px 22px -16px rgba(60,0,30,.8);EBMASK}
+§ .eyebrow::before{width:14px;height:12px;margin:0 25px 0 12px;background:#FA1896;box-shadow:none;border-radius:0;clip-path:CP}
+/* signature: violet ticket, pink chevron on the deep stub */
+§ .sig{background:linear-gradient(#4A2896,#4A2896) left 0 top 0/66px 100% no-repeat,#7149C9;box-shadow:0 12px 24px -18px rgba(60,0,30,.8)}
+§ .sig>div{background:linear-gradient(WP 0 5px,transparent 5px 10px) left 0 top 4px/1.5px 10px repeat-y}
+§ .sig .sign{color:#fff}
+§ .sig .role{color:#E4DAFF}
+§ .lede .hl{background:#12834E;color:#fff!important}
+/* calculator: green ticket, the button rides the deep stub */
+§ .feat{background:FPERF,linear-gradient(#0D6A3E,#0D6A3E) left 0 bottom 0/100% FHpx no-repeat,#12834E;color:#fff;border-radius:14px;padding-bottom:23px;box-shadow:none;FMASK}
+§ .feat h2,§ .feat p{color:#fff}
+§ .feat p{color:rgba(255,255,255,.9)}
+§ .feat .ic.big svg *{stroke:#fff}
+§ .feat .ic.big{background:none!important}
+§ .feat .ic.big svg rect{fill:rgba(255,255,255,.1)}
+§ .feat .ic.big svg circle{fill:#fff}
+§ .feat .ic.big svg circle[fill="#FA1896"]{fill:#FA1896;stroke:#FA1896}
+§ .feat .chip,§ .feat .time{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.3)}
+§ .feat .chip.ex,§ .feat .est{background:#FFE9A8;color:#4A3300}
+§ .feat>*:has(+ .btnp){margin-bottom:48px}
+§ .feat .btnp{background:#FA1896}
+§ .feat:hover .btnp{background:#fff;color:#C80E70}
+§ .vault{filter:drop-shadow(0 18px 18px rgba(90,0,45,.22))}
+/* hero passes: solid colour bodies, deeper stubs */
+§ .pv2{background:PVPERF,linear-gradient(#4E2C9E,#4E2C9E) right 0 top 0/PWpx 100% no-repeat,#7149C9;color:#fff}
+§ .pv3{background:PVPERF,linear-gradient(#155A8C,#155A8C) right 0 top 0/PWpx 100% no-repeat,#1E78B8;color:#fff}
+§ .pv2 b,§ .pv3 b{color:rgba(255,255,255,.88)}
+§ .pv2 span,§ .pv3 span{color:#fff}
+/* stats: solid pillar tickets, deeper stub, white type */
+§ .deskline span{background:DLPERFW,linear-gradient(DKSC,DKSC) left 0 top 0/DSpx 100% no-repeat,var(--sc);color:rgba(255,255,255,.88)}
+§ .deskline b,§ .deskline span:first-child b{color:#fff!important}
+§ .deskline .ck{background:DLPERFW,linear-gradient(#4E0833,#4E0833) left 0 top 0/DSpx 100% no-repeat,#6E0F4A;color:#FFD3EA;padding-left:calc(DSpx + 20px);DLMASK}
+§ .deskline .ck::before{left:13px;top:50%;margin-top:-6px}
+/* code tape: blue, as in option 3 */
+§ .codes{--bb:#1E78B8;color:#fff;border-top:0;background-image:FOUR;background-size:100% 3px}
+§ .codes b{background:#155A8C;border:1px solid rgba(255,255,255,.28);color:#fff}
+§ .codes .mq-i::after{background:#FA1896}
+§ .filters{border:1px solid rgba(113,73,201,.4)}
+/* rail: whole card colour, deeper top stub */
+§ .grp{background:tperfW,linear-gradient(var(--cs),var(--cs)) left 0 top 0/100% GHpx no-repeat,var(--c);color:#fff}
+§ .grp h2{color:#fff}
+§ .grp .grp-n{background:#fff;color:var(--cd)}
+§ .grp-disc{color:rgba(255,255,255,.88)}
+§ .grp[data-grp=nuggets]{background:tperfG,linear-gradient(#A97A1E,#A97A1E) left 0 top 0/100% GHpx no-repeat,linear-gradient(160deg,#F2CF6E,#D9A83F 60%,#C9962E);color:#3B2604}
+§ .grp[data-grp=nuggets]::before{color:#FFF3D0}
+§ .grp[data-grp=nuggets] h2{color:#2E1D04}
+§ .grp[data-grp=nuggets] .grp-disc{color:#3B2604}
+§ .grp[data-grp=nuggets] .grp-n{background:#FFF8E6;color:#6B4808}
+§ .grp[data-grp=checklist] .grp-n,§ .grp[data-grp=redflags] .grp-n{background:#fff;color:#A0105F}
+/* cards: white content cards, filled pillar Grab it */
+§ .dk::before{height:4px}
+§ .grab{background:var(--c)!important;color:#fff;box-shadow:none}
+§ .grab:hover{background:var(--cs)!important;color:#fff}
+§ .dk details[open]>.grab{background:var(--cs)!important;color:#fff}
+§ .dk.gold .grab{background:#B8862E!important;color:#fff;box-shadow:none}
+§ .dk.gold .grab:hover{background:#946A1C!important}
+/* lead: whole card colour, deeper stub with tag, count and Grab it */
+§ .dk.lead{background:LDPERFW,linear-gradient(var(--cs),var(--cs)) right 0 top 0/LWpx 100% no-repeat,var(--c);border:0;color:#fff}
+§ .dk.lead h3{color:#fff}
+§ .dk.lead .love{color:rgba(255,255,255,.9)}
+§ .dk.lead .dk-meta,§ .dk.lead .dk-meta .kind,§ .dk.lead .dk-meta .src{color:rgba(255,255,255,.85)}
+§ .dk.lead .dk-meta .kind{color:#fff}
+§ .dk.lead .dk-meta .ic svg *{stroke:#fff}
+§ .dk.lead .dk-meta .ic svg rect,§ .dk.lead .dk-meta .ic svg path{fill:transparent}
+§ .dk.lead .dk-meta .time{background:rgba(255,255,255,.16);color:#fff}
+§ .dk.lead .chip,§ .dk.lead .chip.ex{background:rgba(255,255,255,.16);color:#fff}
+§ .dk.lead .grab{background:#fff!important;color:var(--cs)}
+§ .dk.lead .grab:hover{background:#FBF6EF!important;color:var(--cs)}
+§ .dk.lead details[open]>.grab{background:#fff!important;color:var(--cs)}
+§ .dk.lead:hover{border:0}
+§ .more-tile{border:1.5px solid var(--c);color:var(--cd)}
+/* endnote: violet ticket, deeper stub carries the signature */
+§ .endnote{background:ENPERFW,linear-gradient(#4E2C9E,#4E2C9E) right 0 top 0/EWpx 100% no-repeat,#7149C9;filter:drop-shadow(0 18px 20px rgba(60,20,90,.22))}
+§ .endnote p,§ .endnote a{color:#fff}
+§ .endnote a{text-decoration-color:#FFB3DA}
+@media(max-width:1100px){
+ § .grp{background:lperfW,linear-gradient(var(--cs),var(--cs)) left 0 top 0/96px 100% no-repeat,var(--c)}
+ § .grp[data-grp=nuggets]{background:lperfG,linear-gradient(#A97A1E,#A97A1E) left 0 top 0/96px 100% no-repeat,linear-gradient(160deg,#F2CF6E,#D9A83F 60%,#C9962E)}
+}
+@media(max-width:860px){
+ § .dk.lead{background:LDPERFMW,linear-gradient(var(--cs),var(--cs)) left 0 bottom 0/100% 64px no-repeat,var(--c)}
+}
+@media(max-width:640px){
+ § .pv2{background:PVPERFM,linear-gradient(#4E2C9E,#4E2C9E) right 0 top 0/PWmpx 100% no-repeat,#7149C9}
+ § .pv3{background:PVPERFM,linear-gradient(#155A8C,#155A8C) right 0 top 0/PWmpx 100% no-repeat,#1E78B8}
+ § .sig{background:linear-gradient(#4A2896,#4A2896) left 0 top 0/54px 100% no-repeat,#7149C9}
+ § .deskline span{background:DLPERFMW,linear-gradient(DKSC,DKSC) left 0 top 0/30px 100% no-repeat,var(--sc)}
+ § .deskline .ck{background:DLPERFMW,linear-gradient(#4E0833,#4E0833) left 0 top 0/30px 100% no-repeat,#6E0F4A;padding:16px 14px 14px 44px;DLMASKM}
+ § .deskline .ck::before{left:8px}
+ § .grp{background:var(--c)}
+ § .grp[data-grp=nuggets]{background:#EDCB74}
+ § .endnote{background:ENPERFMW,linear-gradient(#4E2C9E,#4E2C9E) left 0 bottom 0/100% 76px no-repeat,#7149C9}
+}
+'''
+SUB3C = dict(SUB3B)
+SUB3C.update({
+ 'DKSC': DK('var(--sc)'), 'DKC': DK('var(--c)'),
+ 'LPEB': lperf('38px', WP), 'EBMASK': vnotch('39px', 5),
+ 'FPERF': hperf(f'{FH-2}px', WP), 'FMASK': hnotch(f'calc(100% - {FH}px)', 10), 'FHpx': f'{FH}px',
+ 'PVPERF': vperf(f'{PW-2}px', WP), 'PVPERFM': vperf(f'{PWm-2}px', WP),
+ 'DLPERFW': lperf(f'{DS-2}px', WP), 'DLPERFMW': lperf('28px', WP),
+ 'tperfW': tperf(f'{GH-2}px', WP), 'lperfW': lperf('94px', WP),
+ 'LDPERFW': vperf(f'{LW-2}px', WP), 'LDPERFMW': hperf('62px', WP),
+ 'ENPERFW': vperf(f'{EW-2}px', WP), 'ENPERFMW': hperf('74px', WP),
+})
+for k in sorted(SUB3C, key=len, reverse=True):
+    O3C = O3C.replace(k, SUB3C[k])
+css3c = (O3B + O3C).replace('.dk.lead', '.dk.lead:not(.gold)')
+full3c = (BASE + css3c).replace('§', 'html.dir-c.o3c .desk').replace('html.dir-c.ox', 'html.dir-c.o3c').replace('CP', CP)
+page('ffd-c-opt-3c.html', T, B, desc=DESC, src='freebies', tail=D.TAIL_C + D.SHARED_JS,
+     headx=D.head('dir-c', 'family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1',
+                  D.C_CSS + full3c, 'window.FO_LIMIT=6;document.documentElement.classList.add("o3c");'))
+
 # ---------------------------------------------------------------- gallery
-GAL = [('3b', 'Option 3, matured', 'Pillar blocks, matured', 'The pillar colours move into tear-off stubs: notched boarding-pass cards with a dashed perforation, a flight-number tag and the Grab it action on a green, orange, violet or blue stub.')] + \
+GAL = [('3c', 'Option 3, matured v2', 'Pillar blocks, matured v2', 'Solid pillar-colour blocks again, each cut as a tear-off ticket: notched perforation, a deeper stub with the flight-number tag and Grab it, white type on green, orange, violet and blue.'),
+       ('3b', 'Option 3, matured', 'Pillar blocks, matured', 'The pillar colours move into tear-off stubs: notched boarding-pass cards with a dashed perforation, a flight-number tag and the Grab it action on a green, orange, violet or blue stub.')] + \
       [(n, f'Option {n}', name, pitch) for n, name, pitch, _ in OPTS]
 cards = ''.join(f'''<article class="o"><a class="sh" href="ffd-c-opt-{n}.html"><img class="dt" src="img/ffd-opts/opt-{n}-1440.jpg" alt="{k} on desktop" loading="lazy"><img class="ph" src="img/ffd-opts/opt-{n}-390.jpg" alt="{k} on a phone" loading="lazy"></a>
 <div class="tx"><span class="k">{k}</span><b>{name}</b><p>{pitch}</p><a class="go" href="ffd-c-opt-{n}.html">Open {k[0].lower()+k[1:]} <span aria-hidden="true">&rarr;</span></a></div></article>''' for n, k, name, pitch in GAL)
