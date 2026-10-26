@@ -930,15 +930,22 @@ html.dir-c.o3h #band .cap-msg{{margin:8px 0 0;font-size:13px;font-weight:600;col
 @media(max-width:420px){{§ .cap-row{{flex-direction:column}}§ .cap button{{padding:14px 18px}}}}
 /* phone: the eyebrow is the page's header under the nav, sized for the phone, not shrunk; a painted stroke, never a button */
 @media(max-width:640px){{§ .eyebrow{{font-size:15px;line-height:18px;letter-spacing:.08em;padding:16px 46px 17px 38px;margin:10px 0 22px -6px}}}}
-/* hero photos: the Freebies hero's own rotating set (v3 #fftop), slow crossfade, low opacity, cream and pink tint */
-§ .pop-hero>.phx{{display:block;position:absolute;top:-28px;bottom:0;left:50%;width:100vw;transform:translateX(-50%);z-index:0;background:transparent}}
-§ .pop-hero>.phx img{{transform:scale(1);transition:opacity 1.4s ease-in-out,transform 8s linear;will-change:opacity,transform}}
-§ .pop-hero>.phx img.on{{opacity:.52;transform:scale(1.07)}}
-§ .pop-hero>.phx img[src$='i-desk.webp']{{object-position:62% 50%}}§ .pop-hero>.phx img[src$='e-coffee.webp']{{object-position:50% 38%}}§ .pop-hero>.phx img[src$='e-laptop.webp']{{object-position:55% 32%}}§ .pop-hero>.phx img[src$='e-tablet.webp']{{object-position:70% 40%}}
-§ .pop-hero>.phx::after{{background:linear-gradient(90deg,rgba(250,246,238,.62) 0%,rgba(250,246,238,.46) 38%,rgba(255,227,241,.28) 70%,rgba(255,227,241,.20) 100%),linear-gradient(180deg,rgba(250,246,238,.7) 0,rgba(250,246,238,0) 80px,rgba(250,246,238,0) calc(100% - 120px),{BCR} 100%)}}
+/* hero photos (Ohad pt193u): the landing page's 31 vacation photos (index.html #top pool), random start, slow crossfade.
+   Rec 1 (default) = the landing hero's own treatment: photo at full strength under the landing white wash
+   (98deg .93/.82/.44/.22), so the text side reads exactly like the landing page.
+   Rec 2 (html.ph-r2, or ?ph=r2) = slightly stronger photo, cream wash on the text side only, clear on the right. */
+§ .pop-hero>.phx{{display:block;position:absolute;top:-28px;bottom:0;left:50%;width:100vw;transform:translateX(-50%);z-index:0;background:{BCR}}}
+§ .pop-hero>.phx img{{filter:none;object-position:50% 50%;transform:scale(1);transition:opacity 1.4s ease-in-out,transform 8s linear;will-change:opacity,transform}}
+§ .pop-hero>.phx img.on{{opacity:1;transform:scale(1.05)}}
+§ .pop-hero>.phx::after{{background:linear-gradient(180deg,rgba(255,255,255,0) calc(100% - 140px),{BCR} 100%),linear-gradient(98deg,rgba(255,255,255,.93) 0%,rgba(255,255,255,.82) 40%,rgba(255,255,255,.44) 68%,rgba(255,255,255,.22) 100%)}}
+html.dir-c.ox.ph-r2 .desk .pop-hero>.phx::after{{background:linear-gradient(180deg,rgba(250,246,238,0) calc(100% - 140px),{BCR} 100%),linear-gradient(90deg,rgba(250,246,238,.94) 0%,rgba(250,246,238,.86) 34%,rgba(250,246,238,.42) 50%,rgba(250,246,238,0) 62%)}}
 § .pop-hero>.dhero,§ .pop-hero>.deskline{{position:relative;z-index:1}}
-@media(max-width:760px){{§ .pop-hero>.phx{{bottom:auto;height:860px}}§ .pop-hero>.phx img.on{{opacity:.56}}§ .pop-hero>.phx img[src$='i-desk.webp']{{object-position:30% 50%}}§ .pop-hero>.phx img[src$='e-coffee.webp']{{object-position:40% 30%}}§ .pop-hero>.phx img[src$='e-laptop.webp']{{object-position:54% 30%}}§ .pop-hero>.phx img[src$='e-tablet.webp']{{object-position:68% 40%}}§ .pop-hero>.phx::after{{background:linear-gradient(180deg,rgba(250,246,238,.55) 0%,rgba(250,246,238,.42) 40%,rgba(250,246,238,.5) 70%,{BCR} 100%)}}}}
+@media(max-width:760px){{§ .pop-hero>.phx{{bottom:auto;height:860px}}html.dir-c.ox.ph-r2 .desk .pop-hero>.phx::after{{background:linear-gradient(180deg,rgba(250,246,238,0) calc(100% - 140px),{BCR} 100%),linear-gradient(98deg,rgba(250,246,238,.9) 0%,rgba(250,246,238,.74) 52%,rgba(250,246,238,.34) 82%,rgba(250,246,238,.1) 100%)}}}}
 @media(prefers-reduced-motion:reduce){{§ .pop-hero>.phx img{{transition:none;transform:none}}§ .pop-hero>.phx img.on{{transform:none}}}}
+/* "Pull up a chair" card: the landing set rotates in the card's frame (the notebook-and-coffee photo is gone) */
+§ .dprot .dpx{{position:relative;display:block;overflow:hidden;line-height:0}}§ .dprot .dpx>img{{visibility:hidden}}
+§ .dprot .dpx>.phx{{z-index:0;background:#E9DFD3}}§ .dprot .dpx>.phx::after{{display:none}}
+§ .dprot .dpx>.phx img{{height:100%!important;min-height:0!important;max-height:none!important;filter:none}}§ .dprot .dpx>.phx img.on{{opacity:1}}
 /* the sign-off sits on the page: script name in pink, role in ink. No tile, no mark */
 § .sig{{display:block!important;background:none!important;box-shadow:none!important;-webkit-mask:none!important;mask:none!important;clip-path:none!important;border:0!important;border-radius:0!important;padding:0!important;margin-top:26px}}§ .sig::before,§ .sig::after{{display:none!important}}§ .sig>div{{background:none!important;padding:0!important;display:flex;flex-direction:column;gap:2px}}§ .sig .sign{{color:{BP}!important}}§ .sig .role{{color:{BINK}!important;opacity:1}}
 html.dir-c.o3h #band{{position:relative;isolation:isolate}}html.dir-c.o3h #band>.phx{{display:block}}
@@ -958,7 +965,7 @@ full3h = full3h.replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui
 C3H = D.C_CSS.replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui,sans-serif").replace("--isr:'Instrument Serif',Georgia,serif", "--isr:'DM Serif Display',Georgia,serif")
 B3H = B3G
 page('ffd-c-opt-3h.html', T, B3H, desc=DESC, src='freebies', tail=D.TAIL_C + D.SHARED_JS + FILL_JS,
-     headx=D.head('dir-c', 'family=DM+Serif+Display:ital@0;1', C3H + full3h, 'window.FO_LIMIT=6;document.documentElement.classList.add("o3h");'))
+     headx=D.head('dir-c', 'family=DM+Serif+Display:ital@0;1', C3H + full3h, 'window.FO_LIMIT=6;document.documentElement.classList.add("o3h");if(/[?&]ph=r2(&|$)/.test(location.search))document.documentElement.classList.add("ph-r2");'))
 _p = f'{ROOT}/ffd-c-opt-3h.html'; _s = open(_p, encoding='utf-8').read()
 _s = _s.replace(CHEV, MARK).replace("'Bricolage Grotesque',system-ui,sans-serif", "'DM Sans',system-ui,sans-serif").replace("'Bricolage Grotesque',sans-serif", "'DM Sans',system-ui,sans-serif")
 assert 'Bricolage' not in _s and 'Founder, First Officer' not in _s

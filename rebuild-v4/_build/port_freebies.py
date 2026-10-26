@@ -16,8 +16,9 @@ What it does
     items = sum of each card's data-n, cards = number of cards, trades = trade
     filter options, codes = distinct merchant codes on the shelf.
   - scopes all desk CSS under #ffd so none of it can touch the live nav or footer.
-  - copies the photos it needs into img/ph and img/ind, and the desk script into
-    assets/ffd/site.js.
+  - photos: the hero, the 'Pull up a chair' card and the closing band rotate the landing page's own
+    vacation pool (index.html #herospin, 31 photos), referenced by URL, so no photo is copied.
+    Any local img/ph or img/ind photo still on the desk is copied; the desk script goes to assets/ffd/site.js.
   - sign-up forms stay guarded: SIGNUP_LIVE comes from the mockup build
     (False = nothing is posted). Run with --signup-live to post to the same
     Daily Redemption members endpoint the live footer form already uses.
@@ -217,6 +218,15 @@ if '@keyframes livepulse' not in tpl:
     tick_css += '\n' + m.group(0)
 th += '<style id="ffdtick">\n' + tick_css + '\n</style>\n'
 
+# rotating photos (Ohad pt193u): every .phx[data-rand] on the desk uses the landing hero's own pool, read from this
+# site's index.html (<script id="herospin">) so the Freebies page and the landing page can never drift apart.
+_hs = idx[idx.index('id="herospin"'):]
+_hs = _hs[:_hs.index('</script>')]
+POOL = list(dict.fromkeys(re.findall(r'https://images\.unsplash\.com/photo-[\w-]+\?w=1600&q=75&auto=format', _hs)))
+assert len(POOL) >= 20, f'landing pool not found ({len(POOL)})'
+main, _n = re.subn(r'(<div class="phx" data-rand data-iv="\d+" data-ph=")[^"]*',
+                   lambda m: m.group(1) + ','.join(u.replace('&', '&amp;') for u in POOL), main)
+assert _n == 3, f'expected 3 rotating photo layers (hero, chair card, band), got {_n}'
 page = (th + chrome_top + ft + '\n<div id="ffd">' + main + '</div>\n' + foot)
 page = page.replace('</body>', scripts + COUNT_JS + '\n</body>')
 # html classes the desk sets on <html>
@@ -239,5 +249,5 @@ if 'assets/ffd/fonts/' in desk_css:
     for f in os.listdir(os.path.join(SRCDIR, 'fonts')):
         shutil.copy2(os.path.join(SRCDIR, 'fonts', f), os.path.join(ROOT, 'assets', 'ffd', 'fonts', f))
 
-print(f'free-from-the-desk.html {len(page)} bytes | cards {N_CARDS} items {N_ITEMS} trades {N_TRADES} '
+print(f'pool {len(POOL)} | free-from-the-desk.html {len(page)} bytes | cards {N_CARDS} items {N_ITEMS} trades {N_TRADES} '
       f'signup-live {SIGNUP_LIVE} | codes-on-page {CODES_TXT.group(1) if CODES_TXT else "-"} codes-found {N_CODES} | assets {len(need)}')

@@ -218,18 +218,53 @@ def nochev(s):
 
 
 # ---------------------------------------------------------------- Ohad pt190u: the things 3h had dropped
-# rotating hero photos: the same set and timing as the Freebies hero on rebuild-v3 (section#fftop .phx);
-# site.js crossfades them (2.4s), pauses off-screen and stays still under prefers-reduced-motion.
-HERO_PH = ['i-desk', 'e-coffee', 'e-laptop', 'e-tablet']
+# rotating photos (Ohad pt193u): the landing page's own vacation set, the 31-photo pool in index.html
+# <script id="herospin"> (same URLs, so nothing is copied or duplicated; the browser cache is shared with the
+# landing page). The landing hero shows one random pick per load; here the same random pick starts a slow
+# crossfade through the rest in pool order. site.js [data-rand] loads only the photo on screen and the next,
+# pauses off-screen and stays on the first photo under prefers-reduced-motion. port_freebies.py re-reads the pool
+# from the live index.html so the two can never drift apart.
+LANDING_POOL = ['https://images.unsplash.com/photo-%s?w=1600&q=75&auto=format' % i for i in """
+1507525428034-b723cf961d3e 1506929562872-bb421503ef21 1476514525535-07fb3b4ae5f1 1530789253388-582c481c54b0
+1506905925346-21bda4d32df4 1501785888041-af3ef285b470 1469474968028-56623f02e42e 1433838552652-f9a46b332c40
+1520250497591-112f2f40a3f4 1540202404-a2f29016b523 1519046904884-53103b34b206 1482938289607-e9573fc25ebb
+1470770903676-69b98201ea1c 1512100356356-de1b84283e18 1537996194471-e657df975ab4 1582719478250-c89cae4dc85b
+1542314831-068cd1dbfeeb 1455587734955-081b22074882 1571003123894-1f0594d2b5d9 1564501049412-61c2a3083791
+1551882547-ff40c63fe5fa 1445019980597-93fa8acb246c 1596394516093-501ba68a0ba6 1578683010236-d716f9a3f461
+1606046604972-77cc76aee944 1618773928121-c32242e63f39 1590490360182-c33d57733427 1562778612-e1e0cda9915c
+1584132967334-10e028bd69f7 1566073771259-6a8506099945 1568084680786-a84f91d1153c
+""".split()]
+assert len(LANDING_POOL) == 31
 HERO_IV = 6400  # ~5s hold + 1.4s fade
+BAND_IV = 8000
+DESK_IV = 7200
+BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
+
+
+def phx(iv, cls='phx'):
+    return f'<div class="{cls}" data-rand data-iv="{iv}" data-ph="' + ','.join(u.replace('&', '&amp;') for u in LANDING_POOL) + '" aria-hidden="true"></div>'
 
 
 def hero_photos(s):
     tag = '<div class="pop-hero bleed">'
     assert s.count(tag) == 1
-    phx = (f'<div class="phx" data-iv="{HERO_IV}" data-ph="' + ','.join(f'img/ph/{n}.webp' for n in HERO_PH)
-           + '" aria-hidden="true"></div>')
-    return s.replace(tag, tag + phx)
+    s = s.replace(tag, tag + phx(HERO_IV))
+    # the closing band: same pool (it used three local vacation webps)
+    band = '<section class="sec" id="band">'
+    i = s.index(band); j = s.index('</div>', i)
+    seg = s[i:j]
+    assert seg.count('class="phx"') == 1, seg[:300]
+    k = seg.index('<div class="phx"')
+    s = s[:i] + seg[:k] + phx(BAND_IV) + s[j + len('</div>'):]
+    # "Pull up a chair" card: the notebook-and-coffee desk photo goes; the landing set rotates in its frame
+    pic = re.search(r'<figure class="deskphoto"><picture>.*?</picture><figcaption><span>(.*?)</span><span>Photo:.*?</span></figcaption>', s, re.S)
+    assert pic, 'deskphoto markup changed'
+    s = (s[:pic.start()] + '<figure class="deskphoto dprot"><span class="dpx"><img src="' + BLANK
+         + '" width="1200" height="744" alt="" aria-hidden="true">' + phx(DESK_IV) + '</span><figcaption><span>'
+         + pic.group(1) + '</span></figcaption>' + s[pic.end():])
+    s = re.sub(r'<!-- Photo: Elena Leya[^>]*?-->', '', s)  # credit for the removed notebook photo
+    assert 'img/ph/' not in s and 'img/ind/desk' not in s and 'Elena Leya' not in s, 'old desk photos still referenced'
+    return s
 
 
 # the desk's Golden Nugget, redrawn flat: one faceted nugget in brand golds, ink outline,

@@ -31,12 +31,12 @@ def tl(steps):
     return f'<div class="tl">{o}</div>'
 
 def nav():
-    links=[('product.html','Product'),('pricing.html','Pricing'),('how.html','How'),('calculator.html','Calculator'),('about.html','About')]
+    links=[('product.html','Product'),('pricing.html','Pricing'),('calculator.html','Calculator'),('about.html','About')]  # Ohad pt193u: How is not a top-nav item; it lives on the Product page and in the footer
     tail=[('trust.html','Trust'),('industries.html','Industries')]  # Trust + Industries live in the footer; mobile sheet only, at the end
     MARK='<svg class="fzmk" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 15.5C18 13.2 31 14.6 46 12.9S77 12.2 96 10.6"/><path class="b" pathLength="1" d="M6 11.4C24 10.8 40 12.1 58 10.4S84 9.6 93 8.9"/></svg>'
     FZ=f'<a class="fz" href="free-from-the-desk.html"><span>{MARK}Freebies</span></a>'  # hand-drawn pink highlighter swipe
     nl=''.join(f'<a href="{h}">{t}</a>'+(FZ if h=='pricing.html' else '') for h,t in links)
-    sh=''.join(f'<a href="{h}">{t}</a>' for h,t in links)+FZ+'<a href="field-notes.html">Field Notes</a>'+''.join(f'<a href="{h}">{t}</a>' for h,t in tail)
+    sh=''.join(f'<a href="{h}">{t}</a>'+(FZ if h=='pricing.html' else '') for h,t in links)+'<a href="field-notes.html">Field Notes</a>'+''.join(f'<a href="{h}">{t}</a>' for h,t in tail)
     return f'''<header class="nav"><div class="nav-in">
 <a class="brand" href="home.html" aria-label="First Officer home">{MK}<span><b>First Officer</b><small>by UpNonStop™</small></span></a>
 <nav class="nlinks" aria-label="Main">{nl}</nav>
