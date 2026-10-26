@@ -4,6 +4,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from fosite import ROOT, V4_FONTS
 PAGES = [
  ('free-from-the-desk.html','Free From the Desk','Freebies','The prior desk, all 490 items, 20 trades and 121 merchant codes, plus the reading view, live filter and search, and the sticky picker on phones.'),
+ ('ffd-directions.html','Free From the Desk: three directions','Design directions','Editorial magazine, trading desk and bold brand pop: three bolder, busier takes on the same desk, filter and reader.'),
  ('home.html','Home','Product','The full home page in the prior design language: serif headlines, clear cards, solid pink buttons.'),
  ('for-dental.html','Dental practices','Specialized Industries','The industry page template, shown with dental.'),
  ('book.html','The Found Money Call','Book','The 20 minute call request page.'),
