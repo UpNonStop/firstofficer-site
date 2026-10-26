@@ -729,7 +729,7 @@ setpage('about.html','First Officer · About · Why a desk',abt,'Why First Offic
 def ini(n): return ''.join(w[0] for w in n.replace('/',' ').split()[:2]).upper()
 tl=f'<a class="ft" href="calculator.html"><u>DW</u><b>Fitness · Darnell</b><span>Ironwood Strength Club. About $21.7k {EST} a month. The story you just read.</span><em>Run his numbers →</em></a>'
 for x in IND:
-    if x['id']=='other': continue
+    if x['id'] in ('other','fitness'): continue
     sp=sum(c['v'] for c in x['cats'])
     top=sorted(x['cats'],key=lambda c:-c['v'])[:2]
     tl+=f'<a href="calculator.html?ind={x["id"]}"><u>{ini(x["nm"])}</u><b>{x["nm"]}</b><span>Example mix: about {fmt(sp)} {EST} a month. Biggest lines: {H.escape(top[0]["n"])}, {H.escape(top[1]["n"])}.</span><em>Run this preset →</em></a>'

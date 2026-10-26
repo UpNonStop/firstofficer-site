@@ -571,6 +571,8 @@ i,em,cite,var,address{font-style:normal!important}
 @media(min-width:1000px){.bh{row-gap:0!important}}
 @media(min-width:1000px){.inds{grid-template-columns:repeat(4,1fr)!important}.inds a.ft{grid-column:span 2;grid-row:span 2;padding:26px}.inds a.ft u{width:52px;height:52px;font-size:16px;border-radius:12px}.inds a.ft b{font:400 34px/38px 'DM Serif Display',serif;margin-top:18px}.inds a.ft span{font-size:15px;line-height:22px;margin-top:10px}.inds a.ft em{font-size:15px}}
 @media(min-width:1000px){.split .pl-h{font-size:30px!important;line-height:35px!important}}
+@media(max-width:999px){.cl-hero>.hbg{bottom:auto!important;height:560px!important}
+.cl-hero>.hbg:after{background:linear-gradient(180deg,rgba(250,246,238,0) 0%,rgba(250,246,238,0) 70%,rgba(233,223,208,1) 100%)!important}}
 </style><section class="cl-hero pg "><div class="hbg" aria-hidden="true"><i class="hp"></i><i class="hp"></i></div>
 <div class="hx"><div class="cl-w ht"><div class="cl-kick"><i></i>Pricing · Chapter 3</div><h1>$550 a month.<br><span>Here is what it buys for Darnell.</span></h1><div class="cl-sub"><p>One flat plan. No tiers, no affiliate money, cancel anytime. Here is the month it buys for an example gym owner.</p></div></div><div class="hph"><div class="hbg hbm" aria-hidden="true"><i class="hp"></i><i class="hp"></i></div><div class="rcp" style="max-width:380px;margin:0 auto"><span class="k" style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#E60F86">One plan</span>
 <h3 style="font-size:40px;line-height:44px;margin-top:6px">$550<small style="font:600 15px 'DM Sans',sans-serif;color:#6B6470"> a month</small></h3>
@@ -620,7 +622,8 @@ document.querySelectorAll('[data-app]').forEach(function(ph){
   hi.innerHTML=gw+'<b>'+s.dataset.first+'</b>';me.textContent=s.dataset.me;
   pb.innerHTML='<svg viewBox="0 0 20 20" aria-hidden="true">'+(icons[s.dataset.p]||'')+'</svg><b>'+s.dataset.lab.replace(/&/g,'&amp;')+'</b>';
   tabs.forEach(function(t){t.classList.toggle('on',t.dataset.t===s.dataset.p)});segs.forEach(function(g,i){g.classList.toggle('on',i===scs.indexOf(s))})}
- var gen=0;function T(f,ms,g){setTimeout(function(){if(g===gen)f()},ms)}
+ var gen=0,inv=true;if('IntersectionObserver' in window){new IntersectionObserver(function(es){inv=es[0].isIntersecting},{threshold:.35}).observe(ph)}
+ function T(f,ms,g){setTimeout(function run(){if(g!==gen)return;if(!inv){setTimeout(run,300);return}f()},ms)}
  function play(i){var g=++gen,s=scs[i];scs.forEach(function(x){x.classList.toggle('on',x===s)});head(s);
   var ms=[].slice.call(s.querySelectorAll('.m')),ty=s.querySelector('.ty');
   if(still){ms.forEach(function(m){m.classList.remove('hid')});return}

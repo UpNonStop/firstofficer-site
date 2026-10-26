@@ -16,7 +16,8 @@ document.querySelectorAll('[data-app]').forEach(function(ph){
   hi.innerHTML=gw+'<b>'+s.dataset.first+'</b>';me.textContent=s.dataset.me;
   pb.innerHTML='<svg viewBox="0 0 20 20" aria-hidden="true">'+(icons[s.dataset.p]||'')+'</svg><b>'+s.dataset.lab.replace(/&/g,'&amp;')+'</b>';
   tabs.forEach(function(t){t.classList.toggle('on',t.dataset.t===s.dataset.p)});segs.forEach(function(g,i){g.classList.toggle('on',i===scs.indexOf(s))})}
- var gen=0;function T(f,ms,g){setTimeout(function(){if(g===gen)f()},ms)}
+ var gen=0,inv=true;if('IntersectionObserver' in window){new IntersectionObserver(function(es){inv=es[0].isIntersecting},{threshold:.35}).observe(ph)}
+ function T(f,ms,g){setTimeout(function run(){if(g!==gen)return;if(!inv){setTimeout(run,300);return}f()},ms)}
  function play(i){var g=++gen,s=scs[i];scs.forEach(function(x){x.classList.toggle('on',x===s)});head(s);
   var ms=[].slice.call(s.querySelectorAll('.m')),ty=s.querySelector('.ty');
   if(still){ms.forEach(function(m){m.classList.remove('hid')});return}
