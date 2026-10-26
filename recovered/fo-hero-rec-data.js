@@ -148,3 +148,12 @@ async function loop(){var E;while(!(E=ready()))await W(300);await W(1200);
   await W(mob?3600:1900)}}
 loop();
 })();
+/* Oct 27 round 3: the desk-centre chevron is the hub of the desk, a white rounded-square tile (not a loose mark) */
+window.CFG.css+=`
+.fo{background:#fff!important;border-radius:24%!important;box-shadow:0 0 0 1.5px #F6C6DF,0 16px 30px -16px rgba(230,15,134,.5)!important}
+.fo img{padding:20% 20% 18%!important;filter:none!important}
+.fo.glow{box-shadow:0 0 0 2px #FA1896,0 0 26px rgba(250,24,150,.45)!important}
+.fo.glow img{filter:none!important}
+@media (min-width:760px){.fo,.fol:not(.b):not(.m){translate:0 6px}}
+.seg img{display:none!important}
+`;

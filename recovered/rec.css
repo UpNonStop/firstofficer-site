@@ -690,13 +690,23 @@ p,li span,.why span,.cs .p,.cs .sub,figcaption,.est,.sub,small{text-wrap:pretty}
 .foot .cols a.brand img{width:30px;flex:none}
 .foot .bar{align-items:center}
 .foot .bar .addr{display:flex;align-items:center;gap:10px;min-width:0}
-.foot .bar .addr img{width:22px;height:auto;flex:none}
 @media(max-width:760px){
   .foot .bar{align-items:flex-start}
   .foot .bar .addr{align-items:center;gap:9px;font-size:12.5px}
-  .foot .bar .addr img{width:20px}
-  .foot .bar .fine{padding-left:29px}
 }
 .wc.mv .v{color:var(--ink)}
 .float:not(.f2) small{color:var(--mute)}
 .ctab::before{display:none}
+
+/* Oct 27 round 3: hero H1 (52px desktop / 25px phone, v9/v10) is the largest heading on the page.
+   Section headings return to the approved live-page scale (46px) and sit below it. */
+.h2{font-size:46px;line-height:1.08}
+.h3{font-size:34px;line-height:1.1}
+.ctab h2{font-size:46px;line-height:1.05}
+.phead h1{font-size:52px;line-height:1.06}
+@media (max-width:900px){
+  .h2{font-size:clamp(23px,6.2vw,24px);line-height:1.1}
+  .h3{font-size:21px;line-height:1.14}
+  .ctab h2{font-size:24px}
+  .phead h1{font-size:25px;line-height:1.06}
+}
