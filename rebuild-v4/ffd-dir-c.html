@@ -182,132 +182,239 @@ html[class*=dir-] main{overflow-x:clip}
  .desk *{transition-delay:0s!important}
 }
 
-html.dir-c{--pk:#FA1896;--ink:#141216}
-html.dir-c body{background:#FFF8F1}
-html.dir-c .desk{font-family:'Bricolage Grotesque',system-ui,sans-serif;max-width:1240px;padding-top:0;--isr:'Instrument Serif',Georgia,serif}
-html.dir-c .desk .pop-hero{--bb:#FA1896;color:#fff;padding:40px 0 46px;position:relative;overflow:visible}
-html.dir-c .desk .pop-hero::before{content:"";position:absolute;inset:0 -100vmax;background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.22) 1.2px,transparent 1.6px) 0 0/22px 22px;pointer-events:none}
+html.dir-c{--pk:#FA1896;--pkd:#C80E70;--ink:#141216;--ink2:#1D1A21;--cr:#FBF6EF;--ln:rgba(20,18,22,.12);--mono:'JetBrains Mono',ui-monospace,monospace}
+html.dir-c body{background:var(--cr)}
+html.dir-c .desk{font-family:'Bricolage Grotesque',system-ui,sans-serif;max-width:1320px;padding-top:0;--isr:'Instrument Serif',Georgia,serif}
+/* ---------- hero */
+html.dir-c .desk .pop-hero{--bb:#FA1896;color:#fff;padding:46px 0 0;position:relative}
+html.dir-c .desk .pop-hero::before{content:"";position:absolute;inset:0 -100vmax;background:
+ radial-gradient(820px 520px at 80% 18%,rgba(255,255,255,.17),transparent 62%),
+ radial-gradient(900px 620px at 4% 104%,rgba(110,0,58,.34),transparent 64%),
+ radial-gradient(circle at 1px 1px,rgba(255,255,255,.16) 1px,transparent 1.4px) 0 0/18px 18px;pointer-events:none}
 html.dir-c .desk .pop-hero>*{position:relative}
-html.dir-c .desk .dhero{grid-template-columns:1.3fr 1fr;gap:60px;padding:0;align-items:center}
-html.dir-c .desk .eyebrow{display:inline-block;background:#141216;color:#fff;font:800 13px/1 'Bricolage Grotesque',sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:9px 14px;border-radius:99px;transform:rotate(-2deg);margin-bottom:22px}
-html.dir-c .desk h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:112px;line-height:.86;letter-spacing:-.055em;color:#fff;margin:0 0 26px;font-variation-settings:"opsz" 96}
-html.dir-c .desk h1 em{font-family:var(--isr);font-weight:400;font-style:italic;letter-spacing:-.02em;color:#141216;background:none}
-html.dir-c .desk .lede{color:#fff;font-size:20px;line-height:1.5;font-weight:500;max-width:620px}
-html.dir-c .desk .lede .hl{background:#FFE14D;color:#141216;padding:2px 8px;border-radius:8px;font-weight:800;display:inline-block;transform:rotate(-1.5deg)}
-html.dir-c .desk .sig .av{background:#141216;color:#fff}
+html.dir-c .desk .dhero{grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);gap:60px;padding:0 0 44px;align-items:start}
+html.dir-c .desk .dh-l{padding-top:8px}
+html.dir-c .desk .eyebrow{display:inline-flex;align-items:center;gap:10px;background:#141216;color:#fff;font:600 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;padding:10px 14px 10px 12px;border-radius:8px;margin-bottom:26px;box-shadow:0 10px 24px -14px rgba(60,0,30,.7)}
+html.dir-c .desk .eyebrow::before{content:"";width:8px;height:8px;border-radius:2px;background:#FA1896;box-shadow:0 0 0 3px rgba(250,24,150,.28)}
+html.dir-c .desk h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:108px;line-height:.86;letter-spacing:-.055em;color:#fff;margin:0 0 28px;font-variation-settings:"opsz" 96;text-shadow:0 2px 0 rgba(120,0,60,.12)}
+html.dir-c .desk h1 em{font-family:var(--isr);font-weight:400;font-style:italic;letter-spacing:-.025em;color:#141216;background:none;text-shadow:none}
+html.dir-c .desk .lede{color:#fff;font-size:20px;line-height:1.5;font-weight:500;max-width:560px}
+html.dir-c .desk .lede .hl{background:#141216;color:#fff;padding:1px 8px 2px;border-radius:6px;font-weight:700;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+html.dir-c .desk .sig{margin-top:30px;padding-top:22px;border-top:1px solid rgba(255,255,255,.32)}
+html.dir-c .desk .sig .av{background:#141216;color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.9)}
 html.dir-c .desk .sign{color:#141216}
-html.dir-c .desk .sig .role{color:#fff}
-html.dir-c .desk .stack{position:relative;padding:118px 10px 10px}
-html.dir-c .desk .pv{position:absolute;left:8%;right:2%;background:#fff;border:2px solid #141216;border-radius:22px;padding:16px 18px;color:#141216;box-shadow:6px 6px 0 #141216}
-html.dir-c .desk .pv b{display:block;font:800 11px/1 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
-html.dir-c .desk .pv span{font:800 20px/1.1 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em}
-html.dir-c .desk .pv1{top:0;left:22%;right:-2%;transform:rotate(5deg);background:#FFE14D}
-html.dir-c .desk .pv1 b{color:#7a5a00}
-html.dir-c .desk .pv2{top:50px;left:0;right:20%;transform:rotate(-4deg);background:#EAE2FF}
-html.dir-c .desk .pv2 b{color:#7149C9}
-html.dir-c .desk .feat{position:relative;z-index:2;transform:rotate(1.5deg);border:2px solid #141216;border-radius:24px;box-shadow:10px 10px 0 #141216;background:#fff}
-html.dir-c .desk .feat:hover{transform:rotate(0) translate(-3px,-3px);box-shadow:14px 14px 0 #141216}
-html.dir-c .desk .feat .ft-k{display:inline-block;background:#FA1896;color:#fff;border-radius:99px;padding:6px 10px;font:800 11px/1 'Bricolage Grotesque',sans-serif;letter-spacing:.1em;text-transform:uppercase}
-html.dir-c .desk .feat h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:40px;line-height:.95;letter-spacing:-.04em}
-html.dir-c .desk .feat .btnp{background:#141216;border-radius:14px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800}
+html.dir-c .desk .sig .role{color:#fff;opacity:.92}
+/* ---------- vault: gold bar + two teasers + the calculator */
+html.dir-c .desk .vault{position:relative;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;align-items:stretch}
+html.dir-c .desk .ingot{grid-column:1/-1;position:relative;display:block;text-decoration:none;color:inherit;margin:0 -6px 2px;-webkit-tap-highlight-color:transparent}
+html.dir-c .desk .ingot svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 28px 26px rgba(70,0,36,.42)) drop-shadow(0 6px 6px rgba(70,0,36,.22));transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+html.dir-c .desk .ingot:hover svg,html.dir-c .desk .ingot:focus-visible svg{transform:translateY(-4px)}
+html.dir-c .desk .ingot:focus-visible{outline:2px solid #fff;outline-offset:6px;border-radius:12px}
+html.dir-c .desk .ingot .shine{animation:dxShine 6.5s cubic-bezier(.45,.05,.3,1) infinite}
+@keyframes dxShine{0%{transform:translateX(-360px) skewX(-18deg)}55%,100%{transform:translateX(900px) skewX(-18deg)}}
+html.dir-c .desk .ingot-go{position:absolute;right:7%;bottom:14%;font:600 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#141216;background:#fff;border-radius:6px;padding:7px 9px;box-shadow:0 8px 18px -10px rgba(60,0,30,.6)}
+html.dir-c .desk .seal{position:absolute;right:-22px;top:-30px;width:104px;height:104px;z-index:3;pointer-events:none;filter:drop-shadow(0 10px 14px rgba(60,0,30,.35))}
+html.dir-c .desk .seal svg{width:100%;height:100%;display:block}
+html.dir-c .desk .feat{position:relative;z-index:2;transform:none;border:0;border-radius:18px;background:#fff;padding:24px 24px 22px;box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 30px 50px -30px rgba(60,0,30,.6);display:flex;flex-direction:column}
+html.dir-c .desk .feat:hover{transform:translateY(-3px)}
+html.dir-c .desk .feat .ft-k{display:inline-block;align-self:flex-start;background:#FA1896;color:#fff;border-radius:6px;padding:6px 9px;font:600 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+html.dir-c .desk .feat .ic.big{position:absolute;right:20px;top:18px;width:58px;height:58px}
+html.dir-c .desk .feat .ic.big svg{width:46px;height:46px}
+html.dir-c .desk .feat h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:34px;line-height:.95;letter-spacing:-.045em;margin:16px 0 10px;padding-right:56px}
+html.dir-c .desk .feat p{font-size:15px;line-height:1.5}
+html.dir-c .desk .feat .btnp{margin-top:auto;align-self:flex-start;background:#141216;border-radius:10px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;transition:background .2s}
 html.dir-c .desk .feat:hover .btnp{background:#FA1896}
-html.dir-c .desk .dxstamp{position:absolute;right:-30px;top:60px;width:132px;height:132px;z-index:3;color:#141216;pointer-events:none}
-html.dir-c .desk .dxstamp svg{width:100%;height:100%;animation:dxSpin 22s linear infinite}
-html.dir-c .desk .dxstamp i{position:absolute;inset:0;display:grid;place-items:center;font:800 30px/1 'Bricolage Grotesque',sans-serif;font-style:normal;color:#FA1896}
-@keyframes dxSpin{to{transform:rotate(360deg)}}
-html.dir-c .desk .deskphoto{margin:40px 0 0;border:2px solid #141216;border-radius:26px;box-shadow:10px 10px 0 #141216;transform:rotate(-.6deg);background:#fff;padding:12px}
-html.dir-c .desk .deskphoto img{height:320px;width:100%;object-fit:cover;border-radius:16px}
-html.dir-c .desk .deskphoto figcaption span:first-child{font-family:var(--isr);font-style:italic;font-size:24px;color:#141216}
-html.dir-c .desk .deskline{display:grid;grid-template-columns:repeat(4,1fr) 1.1fr;gap:14px;margin:34px 0 0;padding:0}
-html.dir-c .desk .deskline span{display:flex;flex-direction:column;justify-content:space-between;gap:10px;border:2px solid #141216;border-radius:22px;padding:16px 18px;font:800 12px/1.2 'Bricolage Grotesque',sans-serif;letter-spacing:.06em;text-transform:uppercase;box-shadow:5px 5px 0 #141216;transition:transform .2s}
-html.dir-c .desk .deskline span:hover{transform:translate(-2px,-2px) rotate(-1deg)}
-html.dir-c .desk .deskline b{font:800 64px/.85 'Bricolage Grotesque',sans-serif;letter-spacing:-.05em}
-html.dir-c .desk .deskline span:nth-child(1){background:#141216;color:#fff}html.dir-c .desk .deskline span:nth-child(1) b{color:#fff!important}
-html.dir-c .desk .deskline span:nth-child(2){background:#FFE14D;color:#141216}
-html.dir-c .desk .deskline span:nth-child(3){background:#7149C9;color:#fff}html.dir-c .desk .deskline span:nth-child(3) b{color:#fff}
-html.dir-c .desk .deskline span:nth-child(4){background:#12834E;color:#fff}html.dir-c .desk .deskline span:nth-child(4) b{color:#fff}
-html.dir-c .desk .deskline .ck{align-self:stretch;background:#fff;color:#141216;justify-content:center;font-size:13px}
-html.dir-c .desk .codes{--bb:#141216;color:#fff;padding:14px 0;margin-top:34px;font:700 15px/1 'Bricolage Grotesque',sans-serif;transform:rotate(-1deg)}
-html.dir-c .desk .codes .mq-i{padding:0 14px}
-html.dir-c .desk .codes .mq-i::after{content:"\2726";color:#FA1896;margin-left:14px}
-html.dir-c .desk .codes b{font:700 13px/1 'JetBrains Mono',monospace;background:#FFE14D;color:#141216;padding:4px 7px;border-radius:6px}
-html.dir-c .desk .readfirst{margin-top:34px;border:2px solid #141216;border-radius:18px;background:#fff}
-html.dir-c .desk .filters{margin-top:30px;background:#fff;border:2px solid #141216;border-radius:28px;padding:26px 28px 22px;box-shadow:8px 8px 0 #FA1896}
-html.dir-c .desk .madlib{font:800 46px/1.25 'Bricolage Grotesque',sans-serif;letter-spacing:-.04em;color:#141216}
-html.dir-c .desk .madlib select{font:800 46px/1.15 'Bricolage Grotesque',sans-serif;letter-spacing:-.04em;color:#141216;background-color:#FFE3F1;border:0;border-bottom:4px solid #FA1896;border-radius:12px 12px 4px 4px;padding:0 34px 0 10px}
-html.dir-c .desk .find input{border:2px solid #141216;border-radius:16px;font-family:'Bricolage Grotesque',sans-serif;font-size:17px}
-html.dir-c .desk .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:10px}
-html.dir-c .desk .grid .shelf{display:contents}
-html.dir-c .desk .grp{--bb:var(--c);display:grid;grid-template-columns:1fr auto;align-items:end;column-gap:20px;color:#fff;padding:34px 0 26px;margin-top:40px;background:var(--c);box-shadow:0 0 0 100vmax var(--c);clip-path:inset(0 -100vmax)}
-html.dir-c .desk .grp h2{font:800 64px/.9 'Bricolage Grotesque',sans-serif;letter-spacing:-.05em;color:inherit}
-html.dir-c .desk .grp .grp-n{background:#fff;color:#141216;border:2px solid #141216;border-radius:99px;padding:8px 12px;font:800 13px/1 'Bricolage Grotesque',sans-serif;transform:rotate(3deg);white-space:nowrap;box-shadow:3px 3px 0 #141216}
-html.dir-c .desk .grp-disc{grid-column:1/-1;color:inherit;opacity:.9;font-size:14px;margin:12px 0 0;font-weight:500}
-html.dir-c .desk .dk{background:#fff;border:2px solid #141216;border-radius:22px;box-shadow:6px 6px 0 #141216;padding:20px;gap:9px}
-html.dir-c .desk .dk:hover{box-shadow:10px 10px 0 var(--c,#FA1896);transform:translate(-3px,-3px) rotate(-.4deg)}
-html.dir-c .desk .dk.gold{background:#FFFBEA}
-html.dir-c .desk .dk-meta .ic{background:color-mix(in srgb,var(--c) 18%,#fff);border:1.5px solid #141216}
+html.dir-c .desk .pvs{display:grid;gap:16px;grid-template-rows:1fr 1fr}
+html.dir-c .desk .pv{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:14px;text-decoration:none;border-radius:16px;padding:18px 18px 16px;color:#fff;overflow:hidden;box-shadow:0 26px 40px -28px rgba(60,0,30,.7);transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+html.dir-c .desk .pv:hover{transform:translateY(-3px)}
+html.dir-c .desk .pv b{display:flex;align-items:center;gap:8px;font:600 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+html.dir-c .desk .pv b::before{content:"";width:6px;height:6px;border-radius:2px;background:currentColor}
+html.dir-c .desk .pv span{font:800 21px/1.05 'Bricolage Grotesque',sans-serif;letter-spacing:-.03em}
+html.dir-c .desk .pv i{font:400 italic 15px/1 var(--isr);opacity:.85}
+html.dir-c .desk .pv::after{content:"";position:absolute;right:-30px;bottom:-30px;width:110px;height:110px;border-radius:50%;border:1px solid rgba(255,255,255,.18);box-shadow:0 0 0 18px rgba(255,255,255,.04)}
+html.dir-c .desk .pv2{background:#141216}
+html.dir-c .desk .pv3{background:#1E78B8}
+/* ---------- stats tab, attached to the code tape */
+html.dir-c .desk .deskline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.25fr);gap:0;margin:0;padding:0;background:#141216;border-radius:18px 18px 0 0;overflow:hidden;box-shadow:0 -1px 0 rgba(255,255,255,.12) inset}
+html.dir-c .desk .deskline span{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:22px 24px 18px;border-right:1px solid rgba(255,255,255,.09);font:600 11px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#BDB5C4}
+html.dir-c .desk .deskline span::before{content:"";position:absolute;left:24px;top:0;width:34px;height:3px;border-radius:0 0 3px 3px;background:var(--sc,#FA1896)}
+html.dir-c .desk .deskline span:nth-child(1){--sc:#12834E}html.dir-c .desk .deskline span:nth-child(2){--sc:#E8590C}html.dir-c .desk .deskline span:nth-child(3){--sc:#7149C9}html.dir-c .desk .deskline span:nth-child(4){--sc:#1E78B8}
+html.dir-c .desk .deskline b,html.dir-c .desk .deskline span:first-child b{font:800 60px/.85 'Bricolage Grotesque',sans-serif;letter-spacing:-.05em;color:#fff!important;margin:0}
+html.dir-c .desk .deskline .ck{align-self:stretch;margin:0;border-radius:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;padding:24px 26px 22px;border-right:0;color:#fff;font-size:11.5px;line-height:1.5;background:linear-gradient(135deg,rgba(250,24,150,.22),rgba(250,24,150,0) 70%)}
+html.dir-c .desk .deskline .ck::before{background:#FA1896}
+html.dir-c .desk .codes{--bb:#141216;color:#E9E4EE;padding:13px 0 14px;margin:0;font:600 14px/1 'Bricolage Grotesque',sans-serif;border-top:1px solid rgba(255,255,255,.08);--mqs:120s}
+html.dir-c .desk .codes .mq-i{padding:0 16px}
+html.dir-c .desk .codes .mq-i::after{content:"";width:4px;height:4px;border-radius:50%;background:#FA1896;margin-left:16px;align-self:center}
+html.dir-c .desk .codes b{font:600 12px/1 var(--mono);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#fff;padding:4px 6px;border-radius:5px}
+/* ---------- desk band: photo beside the picker */
+html.dir-c .desk .deskband{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:22px;margin-top:30px;align-items:stretch}
+html.dir-c .desk .deskphoto{position:relative;margin:0;border:0;border-radius:18px;overflow:hidden;background:#141216;box-shadow:0 30px 50px -36px rgba(20,18,22,.6);transform:none;padding:0;min-height:100%}
+html.dir-c .desk .deskphoto picture{display:block;height:100%}
+html.dir-c .desk .deskphoto img{display:block;width:100%;height:100%;min-height:380px;object-fit:cover;border-radius:0;filter:saturate(.92) contrast(1.04)}
+html.dir-c .desk .deskphoto figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding:60px 20px 16px;background:linear-gradient(180deg,transparent,rgba(20,18,22,.82));color:#E9E4EE;font-size:12px}
+html.dir-c .desk .deskphoto figcaption span:first-child{font-family:var(--isr);font-style:italic;font-size:30px;line-height:1;color:#fff}
+html.dir-c .desk .deskphoto figcaption a{color:#fff}
+html.dir-c .desk .db-r{display:flex;flex-direction:column;gap:14px;min-width:0}
+html.dir-c .desk .readfirst{margin:0;border:1px solid var(--ln);border-left:4px solid #141216;border-radius:12px;background:#fff;font-size:14px}
+html.dir-c .desk .filters{flex:1;margin:0;position:relative;background:#fff;border:1px solid #141216;border-radius:18px;padding:28px 30px 24px;box-shadow:0 30px 50px -36px rgba(20,18,22,.55);overflow:hidden}
+html.dir-c .desk .filters::before{content:"";position:absolute;left:0;top:0;right:0;height:5px;background:linear-gradient(90deg,#FA1896 0 40%,#12834E 40% 55%,#E8590C 55% 70%,#7149C9 70% 85%,#1E78B8 85%)}
+html.dir-c .desk .madlib{font:800 40px/1.32 'Bricolage Grotesque',sans-serif;letter-spacing:-.04em;color:#141216}
+html.dir-c .desk .madlib label{color:#141216}
+html.dir-c .desk .madlib select{font:800 40px/1.15 'Bricolage Grotesque',sans-serif;letter-spacing:-.04em;color:#141216;background-color:#FFE3F1;border:0;border-bottom:3px solid #FA1896;border-radius:8px 8px 2px 2px;padding:0 32px 0 10px}
+html.dir-c .desk .madlib select:hover,html.dir-c .desk .madlib select:focus{background-color:#FFD0E8}
+html.dir-c .desk .find{margin-top:18px}
+html.dir-c .desk .find input{border:1px solid #141216;border-radius:12px;font-family:'Bricolage Grotesque',sans-serif;font-size:17px;padding:12px 16px 12px 42px;min-width:min(420px,100%)}
+html.dir-c .desk #deskcount{font:600 12px/1.4 var(--mono);color:#7a1450}
+/* ---------- the grid: category rail + shelf */
+html.dir-c .desk .grid{display:grid;grid-template-columns:minmax(0,1fr);gap:0;margin-top:44px;counter-reset:grp}
+html.dir-c .desk .grid .lane{display:grid;grid-template-columns:290px minmax(0,1fr);gap:24px;align-items:start;padding:30px 0;border-top:1px solid var(--ln)}
+html.dir-c .desk .grid .lane:first-of-type{border-top:0;padding-top:0}
+html.dir-c .desk .grid .lane>.grp{grid-column:1;grid-row:1}html.dir-c .desk .grid .lane>.shelf{grid-column:2;grid-row:1}
+html.dir-c .desk .grid .lane[hidden],html.dir-c .desk .grid .shelf[hidden]{display:none}
+html.dir-c .desk .grp{counter-increment:grp;position:sticky;top:88px;display:flex;flex-direction:column;align-items:flex-start;gap:0;margin:0;padding:24px 22px 22px;border-radius:18px;background:var(--c);color:#fff;overflow:hidden;box-shadow:0 26px 40px -30px rgba(20,18,22,.6)}
+html.dir-c .desk .grp::before{content:counter(grp,decimal-leading-zero);font:400 italic 64px/.8 var(--isr);letter-spacing:-.02em;opacity:.5;margin-bottom:14px}
+html.dir-c .desk .grp::after{content:"";position:absolute;right:-40px;top:-40px;width:150px;height:150px;border-radius:50%;border:1px solid rgba(255,255,255,.2);box-shadow:0 0 0 22px rgba(255,255,255,.05),0 0 0 44px rgba(255,255,255,.035)}
+html.dir-c .desk .grp h2{font:800 40px/.92 'Bricolage Grotesque',sans-serif;letter-spacing:-.045em;color:inherit;text-align:left;margin:0}
+html.dir-c .desk .grp .grp-n{order:3;margin-top:16px;background:rgba(255,255,255,.96);color:#141216;border:0;border-radius:6px;padding:7px 9px;font:600 11px/1 var(--mono);letter-spacing:.06em;white-space:nowrap}
+html.dir-c .desk .grp-disc{order:4;color:inherit;opacity:.9;font-size:13px;line-height:1.45;margin:14px 0 0;font-weight:500}
+html.dir-c .desk .grid .shelf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch;grid-auto-flow:row dense}
+html.dir-c .desk .dk{position:relative;overflow:hidden;background:#fff;border:1px solid var(--ln);border-radius:16px;box-shadow:0 1px 0 rgba(20,18,22,.05),0 18px 34px -26px rgba(20,18,22,.42);padding:20px 20px 18px;gap:9px}
+html.dir-c .desk .dk::before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:var(--c,#FA1896)}
+html.dir-c .desk .dk:hover{border-color:color-mix(in srgb,var(--c) 60%,#fff);box-shadow:0 1px 0 rgba(20,18,22,.05),0 28px 44px -26px color-mix(in srgb,var(--c) 55%,transparent);transform:translateY(-4px)}
+html.dir-c .desk .dk-meta .ic{background:color-mix(in srgb,var(--c) 12%,#fff);border:0;border-radius:8px}
 html.dir-c .desk .dk-meta .kind,html.dir-c .desk .dk.gold .dk-meta .kind{color:#141216;font-weight:800}
-html.dir-c .desk .dk-meta .time{background:#141216;color:#fff;border-radius:99px}
-html.dir-c .desk .dk h3{font:800 25px/1.02 'Bricolage Grotesque',sans-serif;letter-spacing:-.035em}
-html.dir-c .desk .love{font-size:15px;line-height:1.5;color:#2b262e}
-html.dir-c .desk .grab{background:#FA1896!important;border:2px solid #141216;border-radius:14px;box-shadow:3px 3px 0 #141216;font-family:'Bricolage Grotesque',sans-serif;font-weight:800}
-html.dir-c .desk .grab:hover{box-shadow:5px 5px 0 #141216;transform:translate(-2px,-2px)}
-html.dir-c .desk .more-tile{border:2px dashed #141216;border-radius:22px;background:#fff;color:#141216;font:800 16px/1.1 'Bricolage Grotesque',sans-serif}
-html.dir-c .desk .more-tile:hover{background:#141216;color:#fff;border-style:solid}
+html.dir-c .desk .dk-meta .time{background:#F3EEE8;color:#141216;border-radius:6px}
+html.dir-c .desk .dk h3{font:800 23px/1.04 'Bricolage Grotesque',sans-serif;letter-spacing:-.035em}
+html.dir-c .desk .love{font-size:14.5px;line-height:1.5;color:#3a343d}
+html.dir-c .desk .grab{background:#141216!important;color:#fff;border:0;border-radius:10px;box-shadow:none;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;transition:background .2s,transform .2s}
+html.dir-c .desk .grab:hover{background:#FA1896!important;transform:translateX(2px)}
+/* lead card of each shelf: 2x2, ink block with a ghost count */
+html.dir-c .desk .dk.lead{grid-column:span 2;grid-row:span 2;background:#141216;border-color:#141216;color:#fff;padding:28px 28px 24px;justify-content:flex-end}
+html.dir-c .desk .dk.lead::before{height:5px}
+html.dir-c .desk .dk.lead::after{content:attr(data-n);position:absolute;right:22px;top:40px;font:400 italic 260px/1 var(--isr);letter-spacing:-.04em;color:var(--c);opacity:.55;pointer-events:none}
+html.dir-c .desk .dk.lead>*{position:relative;z-index:1}
+html.dir-c .desk .dk.lead h3{margin-top:auto;font-size:52px;line-height:.95;letter-spacing:-.045em;color:#fff;max-width:520px}
+html.dir-c .desk .dk.lead .love{font:400 24px/1.3 var(--isr);color:#E9E4EE;max-width:520px}
+html.dir-c .desk .dk.lead .dk-meta,html.dir-c .desk .dk.lead .dk-meta .kind,html.dir-c .desk .dk.lead .dk-meta .src{color:#CFC8D6}
+html.dir-c .desk .dk.lead .dk-meta .ic{background:rgba(255,255,255,.1)}
+html.dir-c .desk .dk.lead .dk-meta .ic svg *{stroke:#fff}
+html.dir-c .desk .dk.lead .dk-meta .time{background:rgba(255,255,255,.12);color:#fff}
+html.dir-c .desk .dk.lead .grab{background:#FA1896!important}
+html.dir-c .desk .dk.lead .grab:hover{background:#fff!important;color:#141216}
+html.dir-c .desk .dk.lead .chip{color:#fff}
+html.dir-c .desk .dk.lead .chip.ex{background:rgba(255,255,255,.14);color:#fff}
+/* gold: the nuggets lead is a bullion bar, the other nugget cards carry a gold-leaf edge */
+html.dir-c .desk .dk.gold{background:linear-gradient(180deg,#FFFCF2,#fff 120px)}
+html.dir-c .desk .dk.gold::before{height:4px;background:linear-gradient(90deg,#8C5E12,#E9C065 18%,#FFF1BE 32%,#C9922E 52%,#F4D680 74%,#9A6A18)}
+html.dir-c .desk .dk.gold.lead{border:0;color:#3B2604;background:
+ linear-gradient(115deg,transparent 30%,rgba(255,255,255,.38) 42%,transparent 52%) 0 0/250% 100% no-repeat,
+ repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 3px),
+ linear-gradient(160deg,#FFF0B8 0%,#F2CF6E 22%,#D9A83F 46%,#F3D27A 64%,#C48F2C 84%,#A87420 100%);
+ box-shadow:inset 0 2px 0 rgba(255,250,225,.9),inset 0 -3px 0 rgba(110,70,10,.45),inset 3px 0 0 rgba(255,240,190,.5),inset -3px 0 0 rgba(120,80,15,.35),0 30px 46px -26px rgba(110,70,10,.65);animation:dxFoil 7s ease-in-out infinite}
+@keyframes dxFoil{0%,40%{background-position:120% 0,0 0,0 0}80%,100%{background-position:-120% 0,0 0,0 0}}
+html.dir-c .desk .dk.gold.lead::before{display:none}
+html.dir-c .desk .dk.gold.lead::after{color:#7A5210;opacity:.22;text-shadow:0 2px 0 rgba(255,245,210,.6)}
+html.dir-c .desk .dk.gold.lead h3{color:#3B2604;text-shadow:0 1px 0 rgba(255,246,214,.75),0 -1px 0 rgba(110,70,10,.25)}
+html.dir-c .desk .dk.gold.lead .love{color:#4A3108}
+html.dir-c .desk .dk.gold.lead .dk-meta,html.dir-c .desk .dk.gold.lead .dk-meta .kind,html.dir-c .desk .dk.gold.lead .dk-meta .src{color:#5A3C0A}
+html.dir-c .desk .dk.gold.lead .dk-meta .ic{background:rgba(255,248,220,.5)}
+html.dir-c .desk .dk.gold.lead .dk-meta .ic svg *{stroke:#5A3C0A}
+html.dir-c .desk .dk.gold.lead .dk-meta .time{background:rgba(90,60,10,.14);color:#3B2604}
+html.dir-c .desk .dk.gold.lead .grab{background:#141216!important;color:#fff}
+html.dir-c .desk .dk.gold.lead .grab:hover{background:#FA1896!important;color:#fff}
+html.dir-c .desk .more-tile{grid-column:1/-1;border:1px solid #141216;border-radius:12px;background:#fff;color:#141216;font:800 15px/1.1 'Bricolage Grotesque',sans-serif;padding:14px 18px;transition:background .2s,color .2s}
+html.dir-c .desk .more-tile:hover{background:#141216;color:#fff;border-color:#141216}
 html.dir-c [data-cat=nuggets],html.dir-c .grp[data-grp=nuggets]{--c:#C99A00}
 html.dir-c [data-cat=credit],html.dir-c .grp[data-grp=credit],html.dir-c [data-cat=myths],html.dir-c .grp[data-grp=myths]{--c:#1E78B8}
 html.dir-c [data-cat=playbook],html.dir-c .grp[data-grp=playbook],html.dir-c [data-cat=deadlines],html.dir-c .grp[data-grp=deadlines]{--c:#7149C9}
 html.dir-c [data-cat=gutcheck],html.dir-c .grp[data-grp=gutcheck],html.dir-c [data-cat=travel],html.dir-c .grp[data-grp=travel]{--c:#E8590C}
 html.dir-c [data-cat=script],html.dir-c .grp[data-grp=script],html.dir-c [data-cat=decoder],html.dir-c .grp[data-grp=decoder]{--c:#12834E}
-html.dir-c [data-cat=checklist],html.dir-c .grp[data-grp=checklist],html.dir-c [data-cat=redflags],html.dir-c .grp[data-grp=redflags]{--c:#141216}
+html.dir-c [data-cat=checklist],html.dir-c .grp[data-grp=checklist],html.dir-c [data-cat=redflags],html.dir-c .grp[data-grp=redflags]{--c:#2A2530}
 html.dir-c [data-cat=sheet],html.dir-c .grp[data-grp=sheet]{--c:#FA1896}
-html.dir-c .desk .grp[data-grp=nuggets]{color:#141216}
-html.dir-c .desk .endnote{--bb:#141216;padding:60px 0;margin-top:60px;border:0;border-radius:0;background:#141216}
-html.dir-c .desk .endnote p{font:800 38px/1.12 'Bricolage Grotesque',sans-serif;letter-spacing:-.04em;color:#fff;max-width:960px}
-html.dir-c .desk .endnote a{color:#141216;background:#FFE14D;padding:0 6px;border-radius:8px;text-decoration:none}
+html.dir-c .desk .grp[data-grp=nuggets]{color:#3B2604;background:linear-gradient(160deg,#FFF0B8 0%,#F2CF6E 26%,#D9A83F 52%,#F3D27A 72%,#C48F2C 100%);box-shadow:inset 0 2px 0 rgba(255,250,225,.9),inset 0 -3px 0 rgba(110,70,10,.4),0 26px 40px -30px rgba(110,70,10,.7)}
+html.dir-c .desk .grp[data-grp=nuggets] h2{text-shadow:0 1px 0 rgba(255,246,214,.7)}
+html.dir-c .desk .grp[data-grp=nuggets]::after{border-color:rgba(110,70,10,.18)}
+html.dir-c .desk .grp[data-grp=checklist] .grp-n,html.dir-c .desk .grp[data-grp=redflags] .grp-n{background:#FA1896;color:#fff}
+html.dir-c .desk .endnote{--bb:#141216;padding:64px 0;margin-top:56px;border:0;border-radius:0;background:#141216}
+html.dir-c .desk .endnote p{font:800 40px/1.12 'Bricolage Grotesque',sans-serif;letter-spacing:-.04em;color:#fff;max-width:980px}
+html.dir-c .desk .endnote a{color:#fff;text-decoration:underline;text-decoration-color:#FA1896;text-decoration-thickness:4px;text-underline-offset:6px}
 html.dir-c .desk .endnote .sign{color:#FA1896}
-html.dir-c .rdr-p{font-family:'Bricolage Grotesque',system-ui,sans-serif;border:2px solid #141216;box-shadow:12px 12px 0 #141216}
+html.dir-c .rdr-p{font-family:'Bricolage Grotesque',system-ui,sans-serif;border:1px solid #141216;border-radius:20px;box-shadow:0 50px 100px -40px rgba(20,18,22,.7)}
 html.dir-c .rdr-p h2{font-family:'Bricolage Grotesque',sans-serif!important;font-weight:800!important;letter-spacing:-.04em}
-html.dir-c .mpick{background:#FFF8F1;border-bottom:2px solid #141216}
-html.dir-c .mp-f,html.dir-c .mp-q{border:2px solid #141216}
+html.dir-c .rdr-p.gold{background:linear-gradient(170deg,#FFF3C9,#fff 300px);border-color:#C99A00}
+html.dir-c .mpick{background:var(--cr);border-bottom:1px solid #141216}
+html.dir-c .mp-f,html.dir-c .mp-q{border:1px solid #141216}
 html.dir-c .mp-f .mp-sum{font-family:'Bricolage Grotesque',sans-serif;font-weight:800}
-@media(max-width:1100px){html.dir-c .desk h1{font-size:84px}}
+@media(prefers-reduced-motion:reduce){html.dir-c .desk .ingot .shine{animation:none;opacity:0}html.dir-c .desk .dk.gold.lead{animation:none}}
+@media(max-width:1240px){html.dir-c .desk h1{font-size:92px}html.dir-c .desk .grid .lane{grid-template-columns:250px minmax(0,1fr)}html.dir-c .desk .dk.lead h3{font-size:38px}html.dir-c .desk .feat .ic.big{width:44px;height:44px;padding:6px}html.dir-c .desk .feat .ic.big svg{width:32px;height:32px}html.dir-c .desk .feat h2{font-size:30px;padding-right:44px}html.dir-c .desk .feat .btnp{white-space:nowrap;font-size:15px;padding-left:18px;padding-right:18px}}
+@media(max-width:1100px){
+ html.dir-c .desk h1{font-size:80px}
+ html.dir-c .desk .dhero{gap:40px}
+ html.dir-c .desk .grid .lane{grid-template-columns:minmax(0,1fr);gap:18px}
+ html.dir-c .desk .grid .lane>.shelf{grid-column:1;grid-row:2}
+ html.dir-c .desk .grp{position:relative;top:auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:18px}
+ html.dir-c .desk .grp::before{grid-row:1/3;margin:0;font-size:56px}
+ html.dir-c .desk .grp .grp-n{margin-top:0;grid-column:3;grid-row:1}
+ html.dir-c .desk .grp-disc{grid-column:2/4;margin-top:6px}
+}
 @media(max-width:860px){
- html.dir-c .desk .dhero{grid-template-columns:1fr;gap:56px}
- html.dir-c .desk .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
- html.dir-c .desk .deskline{grid-template-columns:repeat(2,1fr)}
- html.dir-c .desk .deskline .ck{align-self:stretch;grid-column:1/-1}
+ html.dir-c .desk .dhero{grid-template-columns:minmax(0,1fr);gap:40px}
+ html.dir-c .desk .deskband{grid-template-columns:minmax(0,1fr)}
+ html.dir-c .desk .deskphoto img{min-height:0;height:300px}
+ html.dir-c .desk .grid .shelf{grid-template-columns:repeat(2,minmax(0,1fr))}
+ html.dir-c .desk .dk.lead{grid-row:auto}
+ html.dir-c .desk .deskline{grid-template-columns:repeat(4,minmax(0,1fr))}
+ html.dir-c .desk .deskline .ck{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.09);padding:14px 24px}
 }
 @media(max-width:640px){
- html.dir-c .desk .pop-hero{padding:26px 0 34px}
- html.dir-c .desk h1{font-size:60px;line-height:.88}
+ html.dir-c .desk .pop-hero{padding:24px 0 0}
+ html.dir-c .desk .eyebrow{font-size:11px;margin-bottom:20px}
+ html.dir-c .desk h1{font-size:60px;line-height:.88;margin-bottom:20px}
  html.dir-c .desk .lede{font-size:17px}
- html.dir-c .desk .stack{padding:150px 4px 6px}
- html.dir-c .desk .pv1{left:14%;right:-2%}
- html.dir-c .desk .pv2{top:70px;left:-2%;right:12%}
- html.dir-c .desk .pv span{font-size:17px}
- html.dir-c .desk .dxstamp{width:92px;height:92px;top:-62px;right:-6px}
- html.dir-c .desk .dxstamp i{font-size:22px}
- html.dir-c .desk .feat{box-shadow:7px 7px 0 #141216}
- html.dir-c .desk .feat h2{font-size:32px}
- html.dir-c .desk .deskphoto{box-shadow:6px 6px 0 #141216;padding:8px}
- html.dir-c .desk .deskphoto img{height:200px}
- html.dir-c .desk .deskline{gap:10px}
- html.dir-c .desk .deskline span{padding:14px;box-shadow:4px 4px 0 #141216}
- html.dir-c .desk .deskline b{font-size:48px}
- html.dir-c .desk .filters{padding:18px;border-radius:22px;box-shadow:6px 6px 0 #FA1896}
+ html.dir-c .desk .sig{margin-top:22px;padding-top:18px}
+ html.dir-c .desk .dhero{gap:30px;padding-bottom:30px}
+ html.dir-c .desk .vault{grid-template-columns:minmax(0,1fr);gap:12px}
+ html.dir-c .desk .ingot{margin:0 -4px 6px}
+ html.dir-c .desk .ingot-go{right:8px;bottom:-8px;font-size:10px;padding:6px 8px}
+ html.dir-c .desk .seal{width:74px;height:74px;right:-8px;top:-30px}
+ html.dir-c .desk .pvs{grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:12px;order:2}
+ html.dir-c .desk .pv{padding:14px 14px 13px;gap:10px;border-radius:14px}
+ html.dir-c .desk .pv span{font-size:16.5px}
+ html.dir-c .desk .pv b{font-size:9.5px;letter-spacing:.1em}
+ html.dir-c .desk .feat{padding:20px 20px 18px}
+ html.dir-c .desk .feat h2{font-size:30px}
+ html.dir-c .desk .deskline{grid-template-columns:1fr 1fr;border-radius:16px 16px 0 0}
+ html.dir-c .desk .deskline span{padding:18px 18px 14px;border-bottom:1px solid rgba(255,255,255,.09)}
+ html.dir-c .desk .deskline span::before{left:18px}
+ html.dir-c .desk .deskline span:nth-child(2n){border-right:0}
+ html.dir-c .desk .deskline b,html.dir-c .desk .deskline span:first-child b{font-size:46px}
+ html.dir-c .desk .deskline .ck{padding:14px 18px;border-bottom:0}
+ html.dir-c .desk .deskband{margin-top:22px;gap:14px}
+ html.dir-c .desk .deskphoto img{height:210px}
+ html.dir-c .desk .deskphoto figcaption{flex-direction:column;align-items:flex-start;gap:6px;padding:40px 14px 12px}
+ html.dir-c .desk .deskphoto figcaption span:first-child{font-size:24px}
+ html.dir-c .desk .filters{padding:22px 18px 18px;border-radius:16px}
  html.dir-c .desk .madlib,html.dir-c .desk .madlib select{font-size:28px}
- /* Netflix-style shelves */
- html.dir-c .desk .grid{grid-template-columns:minmax(0,1fr);gap:0}
- html.dir-c .desk .grp{padding:24px 0 20px;margin-top:30px;grid-template-columns:1fr}
- html.dir-c .desk .grp h2{font-size:42px}
- html.dir-c .desk .grp .grp-n{justify-self:start;margin-top:12px}
- html.dir-c .desk .grid .shelf{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(50% - 50vw);padding:20px max(18px,calc(50vw - 50% + 0px)) 22px;scroll-padding:0 18px;scrollbar-width:none;overscroll-behavior-x:contain}
+ html.dir-c .desk .find input{min-width:0;width:100%}
+ /* phones: colour bands + swipeable shelves */
+ html.dir-c .desk .grid{margin-top:30px}
+ html.dir-c .desk .grid .lane{display:block;padding:0;border:0}
+ html.dir-c .desk .grp{--bb:var(--c);display:flex;border-radius:0;padding:24px 0 20px;margin-top:26px;box-shadow:0 0 0 100vmax var(--c);clip-path:inset(0 -100vmax);overflow:visible}
+ html.dir-c .desk .grp[data-grp=nuggets]{box-shadow:0 0 0 100vmax #E2B754;background:linear-gradient(90deg,#E9C165,#F6DA86 50%,#D9A83F)}
+ html.dir-c .desk .grp::before{font-size:44px;margin-bottom:8px}
+ html.dir-c .desk .grp::after{display:none}
+ html.dir-c .desk .grp h2{font-size:40px}
+ html.dir-c .desk .grp .grp-n{margin-top:12px}
+ html.dir-c .desk .grid .shelf{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(50% - 50vw);padding:18px max(18px,calc(50vw - 50%)) 20px;scroll-padding:0 18px;scrollbar-width:none;overscroll-behavior-x:contain;align-items:stretch}
  html.dir-c .desk .grid .shelf::-webkit-scrollbar{display:none}
- html.dir-c .desk .shelf>.dk{flex:0 0 80%;scroll-snap-align:start}
+ html.dir-c .desk .shelf>.dk{flex:0 0 82%;scroll-snap-align:start}
+ html.dir-c .desk .dk.lead{grid-column:auto;padding:22px 20px 18px}
+ html.dir-c .desk .dk.lead::after{font-size:120px;right:14px}
+ html.dir-c .desk .dk.lead h3{font-size:30px}
+ html.dir-c .desk .dk.lead .love{font-size:19px}
  html.dir-c .desk .shelf>.more-tile{flex:0 0 46%;scroll-snap-align:start;align-self:stretch}
- html.dir-c .desk .grp[hidden]+.shelf{display:none}
- html.dir-c .desk .endnote p{font-size:27px}
+ html.dir-c .desk .endnote{padding:46px 0}
+ html.dir-c .desk .endnote p{font-size:28px}
 }
 </style></head><body>
 <!-- MOCKUP · First Officer rebuild v4 (prior mockup design language) · static HTML, not production -->
@@ -326,19 +433,53 @@ html.dir-c .mp-f .mp-sum{font-family:'Bricolage Grotesque',sans-serif;font-weigh
 <p class="lede">Most owners put serious money on cards every month, and nobody ever sits them down and explains how it actually works. So here it is: the codes, the questions, the notes we keep for each trade. Free. <span class="hl">No email. No catch.</span></p>
 <div class="sig"><div class="av" aria-hidden="true">O</div><div><span class="sign">Ohad</span><span class="role">Founder, First Officer</span></div></div>
 </div>
-<div class="stack"><div class="pv pv1" aria-hidden="true"><b>Golden Nugget pack</b><span>Every business: 11 card nuggets</span></div><div class="pv pv2" aria-hidden="true"><b>Credit insight</b><span>Your score and your business card</span></div><div class="dxstamp" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="stc" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><circle cx="60" cy="60" r="58" fill="#FFE14D" stroke="#141216" stroke-width="2.5"/><text font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="11" letter-spacing="1" fill="#141216"><textPath href="#stc" textLength="286" lengthAdjust="spacing">FREE &#183; NO EMAIL &#183; NO CATCH &#183; FREE &#183; NO EMAIL &#183;</textPath></text></svg><i>&#10022;</i></div><a class="feat" href="calculator.html">
+<div class="vault"><a class="ingot" href="#nug-cards" data-open="nug-cards" aria-label="Golden Nugget Pack. Every business: 11 card nuggets. Grab it"><svg viewBox="0 0 640 286" role="img" aria-hidden="true">
+<defs>
+<linearGradient id="gTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF6CF"/><stop offset=".16" stop-color="#FAE08C"/><stop offset=".42" stop-color="#E8BA4C"/><stop offset=".6" stop-color="#F7DA80"/><stop offset=".82" stop-color="#D4A03A"/><stop offset="1" stop-color="#B9852A"/></linearGradient>
+<linearGradient id="gFront" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F1C762"/><stop offset=".45" stop-color="#C99230"/><stop offset="1" stop-color="#8C5D14"/></linearGradient>
+<linearGradient id="gFrontX" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset=".35" stop-color="#fff" stop-opacity="0"/><stop offset=".7" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#3a2000" stop-opacity=".22"/></linearGradient>
+<linearGradient id="gLeft" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D9A540"/><stop offset="1" stop-color="#F6D57A"/></linearGradient>
+<linearGradient id="gRight" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#B07A1E"/><stop offset="1" stop-color="#76490A"/></linearGradient>
+<linearGradient id="gInk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9A6814"/><stop offset="1" stop-color="#6B4306"/></linearGradient>
+<linearGradient id="gShine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<pattern id="gBrush" width="6" height="3" patternUnits="userSpaceOnUse"><rect width="6" height="1" fill="#fff" opacity=".10"/></pattern>
+<clipPath id="gClip"><path d="M104 24H536L574 152H66Z M66 152H574L626 238H14Z"/></clipPath>
+<filter id="gBlur" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="9"/></filter>
+</defs>
+<ellipse cx="320" cy="262" rx="300" ry="13" fill="#3a001c" opacity=".35" filter="url(#gBlur)"/>
+<path d="M14 238H626L622 250H18Z" fill="#6E4508"/>
+<path d="M104 24L40 98L14 238L66 152Z" fill="url(#gLeft)"/>
+<path d="M536 24L600 98L626 238L574 152Z" fill="url(#gRight)"/>
+<path d="M66 152H574L626 238H14Z" fill="url(#gFront)"/>
+<path d="M66 152H574L626 238H14Z" fill="url(#gFrontX)"/>
+<path d="M104 24H536L574 152H66Z" fill="url(#gTop)"/>
+<path d="M104 24H536L574 152H66Z" fill="url(#gBrush)"/>
+<path d="M66 152H574" stroke="#FFF4C8" stroke-width="2" opacity=".95"/>
+<path d="M104 24H536" stroke="#FFFBEA" stroke-width="1.6" opacity=".9"/>
+<path d="M104 24L66 152M536 24L574 152" stroke="#FFF1C0" stroke-width="1.2" opacity=".55"/>
+<path d="M14 238H626" stroke="#FFE7A0" stroke-width="1" opacity=".5"/>
+<path d="M136 42H504L534 136H106Z" fill="none" stroke="#8E5F14" stroke-width="1.6" opacity=".55"/>
+<path d="M136 43.5H504L534 137.5H106Z" fill="none" stroke="#FFF6D2" stroke-width="1" opacity=".55" transform="translate(0 1.4)"/>
+<g font-family="Bricolage Grotesque,system-ui,sans-serif" text-anchor="middle">
+<g font-size="17" font-weight="700" letter-spacing="5.5"><text x="320" y="76" fill="#FFF7D6" opacity=".85" dy="1.3">GOLDEN NUGGET PACK</text><text x="320" y="76" fill="#5E3A05" opacity=".55" dy="-1">GOLDEN NUGGET PACK</text><text x="320" y="76" fill="url(#gInk)">GOLDEN NUGGET PACK</text></g>
+<g transform="translate(320 90)"><path d="M-112 0H-22M22 0H112" stroke="#8E5F14" stroke-width="1.2" opacity=".6"/><path d="M-112 1.3H-22M22 1.3H112" stroke="#FFF6D2" stroke-width="1" opacity=".6"/>
+<path d="M-9 4L0 -4L9 4M-9 11L0 3L9 11" fill="none" stroke="#FFF6D2" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity=".8" transform="translate(0 -2.4) scale(.78)"/>
+<path d="M-9 4L0 -4L9 4M-9 11L0 3L9 11" fill="none" stroke="url(#gInk)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 -3.6) scale(.78)"/></g>
+<g font-size="25" font-weight="800" letter-spacing="-.2"><text x="320" y="129" fill="#FFF7D6" opacity=".85" dy="1.4">Every business: 11 card nuggets</text><text x="320" y="129" fill="#5E3A05" opacity=".5" dy="-1.1">Every business: 11 card nuggets</text><text x="320" y="129" fill="url(#gInk)">Every business: 11 card nuggets</text></g>
+<g font-size="11" font-weight="700" letter-spacing="6"><text x="320" y="204" fill="#FFE9A8" opacity=".55" dy="1.1">FREE FROM THE DESK</text><text x="320" y="204" fill="#5A3705" opacity=".75">FREE FROM THE DESK</text></g>
+</g>
+<g clip-path="url(#gClip)"><rect class="shine" x="0" y="0" width="120" height="260" fill="url(#gShine)" opacity=".7"/></g>
+</svg><span class="ingot-go">Grab it &rarr;</span></a><div class="seal" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="stc" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs><circle cx="60" cy="60" r="58" fill="#141216"/><circle cx="60" cy="60" r="54" fill="none" stroke="#FA1896" stroke-width="1.2"/><circle cx="60" cy="60" r="31" fill="none" stroke="#ffffff" stroke-opacity=".25" stroke-width="1"/><text font-family="JetBrains Mono,monospace" font-weight="600" font-size="9.5" letter-spacing="1" fill="#fff"><textPath href="#stc" textLength="280" lengthAdjust="spacing">FREE &#183; NO EMAIL &#183; NO CATCH &#183; FREE &#183; NO EMAIL &#183;</textPath></text><text x="60" y="68" text-anchor="middle" font-family="Instrument Serif,Georgia,serif" font-style="italic" font-size="25" fill="#FA1896">Free</text></svg></div><a class="feat" href="calculator.html">
 <div class="ft-k">Start here</div>
 <div class="ic big"><svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true" fill="none" stroke="#141216" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="8" width="36" height="48" rx="7" fill="#FFE3F1"/><rect x="20" y="14" width="24" height="10" rx="2.5" fill="#fff"/><circle cx="24" cy="33" r="2.2" fill="#141216"/><circle cx="32" cy="33" r="2.2" fill="#141216"/><circle cx="40" cy="33" r="2.2" fill="#FA1896" stroke="#FA1896"/><circle cx="24" cy="42" r="2.2" fill="#141216"/><circle cx="32" cy="42" r="2.2" fill="#141216"/><rect x="38" y="39.5" width="4.5" height="10" rx="2.2" fill="#FA1896" stroke="#FA1896"/></svg></div>
 <h2>The Found Money Calculator</h2>
 <p>Put in what you spend in a normal month. See what it could be worth, with every assumption shown so you can argue with it.</p>
 <div class="chips"><span class="chip ex">Estimate</span><span class="time">takes 60 seconds</span></div>
 <span class="btnp">Run my numbers &rarr;</span>
-</a></div>
+</a><div class="pvs"><a class="pv pv2" href="#credit-personal" data-open="credit-personal"><b>Credit insight</b><span>Your score and your business card</span><i>Grab it &rarr;</i></a><a class="pv pv3" href="#codes-everyday" data-open="codes-everyday"><b>Cheat sheet</b><span>The everyday code sheet</span><i>Grab it &rarr;</i></a></div></div>
 </section>
-<!-- Photo: Elena Leya (@foodistika), https://unsplash.com/photos/56J8143b7PU (Unsplash License) --></div><figure class="deskphoto"><picture><source srcset="img/ind/desk.webp" type="image/webp"><img src="img/ind/desk.jpg" width="1200" height="744" alt="A notebook, pen and cup of coffee on a white desk" loading="lazy"></picture><figcaption><span>Pull up a chair. Coffee's on me.</span><span>Photo: <a href="https://unsplash.com/photos/56J8143b7PU" rel="noopener">Elena Leya</a> / Unsplash</span></figcaption></figure>
-<p class="deskline" aria-label="What is on the desk"><span><b>490</b>smart items</span><span><b>20</b>trades</span><span><b>121</b>merchant codes decoded</span><span><b>0</b>emails asked for</span><span class="ck">Checked October 12, 2026</span></p>
-<div class="mq codes bleed" aria-hidden="true"><div class="mq-t"><span class="mq-i"><b>5542</b>pay at the pump</span><span class="mq-i"><b>5541</b>pay inside at the station</span><span class="mq-i"><b>5552</b>EV charging</span><span class="mq-i"><b>4511</b>airlines without their own code</span><span class="mq-i"><b>7011</b>hotels and short stays</span><span class="mq-i"><b>4121</b>cabs and rideshare</span><span class="mq-i"><b>7512</b>car rental and car sharing</span><span class="mq-i"><b>4722</b>travel agencies</span><span class="mq-i"><b>5734</b>software stores</span><span class="mq-i"><b>5817</b>apps and software downloads</span><span class="mq-i"><b>4816</b>internet and hosting</span><span class="mq-i"><b>4814</b>phone service</span><span class="mq-i"><b>7311</b>advertising</span><span class="mq-i"><b>4215</b>couriers</span><span class="mq-i"><b>9402</b>USPS</span><span class="mq-i"><b>9311</b>tax payments</span><span class="mq-i"><b>5300</b>warehouse clubs</span><span class="mq-i"><b>5411</b>grocery stores</span><span class="mq-i"><b>5812</b>restaurants</span><span class="mq-i"><b>5814</b>fast food and coffee</span><span class="mq-i"><b>7333</b>design and commercial photography</span><span class="mq-i"><b>7221</b>portrait or event photographer</span><span class="mq-i"><b>7829</b>video and commercial production</span><span class="mq-i"><b>7338</b>quick copy and print</span><span class="mq-i"><b>2741</b>commercial printer</span><span class="mq-i"><b>5815</b>stock images, music, video</span><span class="mq-i"><b>5013</b>parts wholesaler or jobber</span><span class="mq-i"><b>5533</b>retail parts store</span><span class="mq-i"><b>5532</b>tire store</span><span class="mq-i"><b>7534</b>retread and tire repair</span><span class="mq-i"><b>5169</b>fluids and chemicals distributor</span><span class="mq-i"><b>5198</b>paint distributor</span><span class="mq-i"><b>7531</b>body shop you sub to</span><span class="mq-i"><b>7535</b>paint shop</span><span class="mq-i"><b>7549</b>towing</span><span class="mq-i"><b>7538</b>your own terminal</span><span class="mq-i"><b>5085</b>janitorial and industrial supply</span><span class="mq-i"><b>5137</b>uniforms</span><span class="mq-i"><b>5139</b>work shoes</span><span class="mq-i"><b>7394</b>floor machine rental</span><span class="mq-i"><b>7211</b>commercial laundry</span><span class="mq-i"><b>7217</b>carpet and upholstery sub</span><span class="mq-i"><b>7342</b>disinfecting and pest control</span><span class="mq-i"><b>7349</b>your own terminal</span><span class="mq-i"><b>5542</b>pay at the pump</span><span class="mq-i"><b>5541</b>pay inside at the station</span><span class="mq-i"><b>5552</b>EV charging</span><span class="mq-i"><b>4511</b>airlines without their own code</span><span class="mq-i"><b>7011</b>hotels and short stays</span><span class="mq-i"><b>4121</b>cabs and rideshare</span><span class="mq-i"><b>7512</b>car rental and car sharing</span><span class="mq-i"><b>4722</b>travel agencies</span><span class="mq-i"><b>5734</b>software stores</span><span class="mq-i"><b>5817</b>apps and software downloads</span><span class="mq-i"><b>4816</b>internet and hosting</span><span class="mq-i"><b>4814</b>phone service</span><span class="mq-i"><b>7311</b>advertising</span><span class="mq-i"><b>4215</b>couriers</span><span class="mq-i"><b>9402</b>USPS</span><span class="mq-i"><b>9311</b>tax payments</span><span class="mq-i"><b>5300</b>warehouse clubs</span><span class="mq-i"><b>5411</b>grocery stores</span><span class="mq-i"><b>5812</b>restaurants</span><span class="mq-i"><b>5814</b>fast food and coffee</span><span class="mq-i"><b>7333</b>design and commercial photography</span><span class="mq-i"><b>7221</b>portrait or event photographer</span><span class="mq-i"><b>7829</b>video and commercial production</span><span class="mq-i"><b>7338</b>quick copy and print</span><span class="mq-i"><b>2741</b>commercial printer</span><span class="mq-i"><b>5815</b>stock images, music, video</span><span class="mq-i"><b>5013</b>parts wholesaler or jobber</span><span class="mq-i"><b>5533</b>retail parts store</span><span class="mq-i"><b>5532</b>tire store</span><span class="mq-i"><b>7534</b>retread and tire repair</span><span class="mq-i"><b>5169</b>fluids and chemicals distributor</span><span class="mq-i"><b>5198</b>paint distributor</span><span class="mq-i"><b>7531</b>body shop you sub to</span><span class="mq-i"><b>7535</b>paint shop</span><span class="mq-i"><b>7549</b>towing</span><span class="mq-i"><b>7538</b>your own terminal</span><span class="mq-i"><b>5085</b>janitorial and industrial supply</span><span class="mq-i"><b>5137</b>uniforms</span><span class="mq-i"><b>5139</b>work shoes</span><span class="mq-i"><b>7394</b>floor machine rental</span><span class="mq-i"><b>7211</b>commercial laundry</span><span class="mq-i"><b>7217</b>carpet and upholstery sub</span><span class="mq-i"><b>7342</b>disinfecting and pest control</span><span class="mq-i"><b>7349</b>your own terminal</span></div></div><details class="readfirst"><summary><b>Read this first:</b> education, not advice. Every item is sourced or labeled Example. <span class="more">The full note</span></summary><p>First Officer isn't a lawyer, a CPA, a financial advisor, a lender or a credit repair company, and nothing here is an offer of credit. Every rule was checked on October 12, 2026. Rules change after that, so confirm before you act. Card, bureau and program names belong to their owners, and we're not affiliated with any of them. No affiliate links, and no money from any bank or program.</p></details>
-<section class="filters" aria-label="Filter" data-counts='{"agencies": 13, "auto-repair": 25, "cleaning": 20, "consulting": 10, "contractors": 20, "cpa-firms": 18, "dental": 26, "ecommerce": 11, "fitness": 15, "hvac": 34, "it-services": 13, "landscaping": 20, "law-firms": 19, "medical": 16, "property-management": 17, "real-estate": 16, "restaurants": 22, "salons": 20, "trucking": 19, "veterinary": 13}'><p class="madlib"><label for="tradesel">I run a</label> <select id="tradesel"><option value="all">any business</option><option value="agencies">marketing agency</option><option value="auto-repair">car repair shop</option><option value="cleaning">cleaning company</option><option value="consulting">consulting firm</option><option value="contractors">contracting business</option><option value="cpa-firms">CPA firm</option><option value="dental">dental practice</option><option value="ecommerce">online store</option><option value="fitness">gym or studio</option><option value="hvac">HVAC shop</option><option value="it-services">managed IT shop</option><option value="landscaping">landscaping business</option><option value="law-firms">law firm</option><option value="medical">medical practice</option><option value="property-management">property management company</option><option value="real-estate">real estate team</option><option value="restaurants">restaurant</option><option value="salons">salon or barbershop</option><option value="trucking">trucking company</option><option value="veterinary">vet clinic</option></select> <label for="stagesel">and I'm</label> <select id="stagesel"><option value="all">at any stage</option><option value="start">just getting set up</option><option value="grow">growing</option><option value="scale">scaling up</option><option value="exit">stepping back or selling</option></select> <label for="typesel">and I want</label> <select id="typesel"><option value="all">everything</option><option value="nuggets">the nuggets</option><option value="credit">credit insights</option><option value="playbook">a playbook</option><option value="gutcheck">gut checks</option><option value="script">what to say</option><option value="checklist">a checklist</option><option value="sheet">a cheat sheet</option><option value="deadlines">the deadlines</option><option value="myths">myths busted</option><option value="redflags">red flags</option><option value="travel">travel smarts</option><option value="decoder">the decoder</option></select></p><div class="find"><input id="deskq" type="search" autocomplete="off" placeholder="Search 490 items: fuel, DUNS, 1099, tips" data-short="Search 490 items" aria-label="Search the desk"><span id="deskcount" aria-live="polite"></span></div></section>
+<!-- Photo: Elena Leya (@foodistika), https://unsplash.com/photos/56J8143b7PU (Unsplash License) --><p class="deskline" aria-label="What is on the desk"><span><b>490</b>smart items</span><span><b>20</b>trades</span><span><b>121</b>merchant codes decoded</span><span><b>0</b>emails asked for</span><span class="ck">Checked October 12, 2026</span></p></div><div class="mq codes bleed" aria-hidden="true"><div class="mq-t"><span class="mq-i"><b>5542</b>pay at the pump</span><span class="mq-i"><b>5541</b>pay inside at the station</span><span class="mq-i"><b>5552</b>EV charging</span><span class="mq-i"><b>4511</b>airlines without their own code</span><span class="mq-i"><b>7011</b>hotels and short stays</span><span class="mq-i"><b>4121</b>cabs and rideshare</span><span class="mq-i"><b>7512</b>car rental and car sharing</span><span class="mq-i"><b>4722</b>travel agencies</span><span class="mq-i"><b>5734</b>software stores</span><span class="mq-i"><b>5817</b>apps and software downloads</span><span class="mq-i"><b>4816</b>internet and hosting</span><span class="mq-i"><b>4814</b>phone service</span><span class="mq-i"><b>7311</b>advertising</span><span class="mq-i"><b>4215</b>couriers</span><span class="mq-i"><b>9402</b>USPS</span><span class="mq-i"><b>9311</b>tax payments</span><span class="mq-i"><b>5300</b>warehouse clubs</span><span class="mq-i"><b>5411</b>grocery stores</span><span class="mq-i"><b>5812</b>restaurants</span><span class="mq-i"><b>5814</b>fast food and coffee</span><span class="mq-i"><b>7333</b>design and commercial photography</span><span class="mq-i"><b>7221</b>portrait or event photographer</span><span class="mq-i"><b>7829</b>video and commercial production</span><span class="mq-i"><b>7338</b>quick copy and print</span><span class="mq-i"><b>2741</b>commercial printer</span><span class="mq-i"><b>5815</b>stock images, music, video</span><span class="mq-i"><b>5013</b>parts wholesaler or jobber</span><span class="mq-i"><b>5533</b>retail parts store</span><span class="mq-i"><b>5532</b>tire store</span><span class="mq-i"><b>7534</b>retread and tire repair</span><span class="mq-i"><b>5169</b>fluids and chemicals distributor</span><span class="mq-i"><b>5198</b>paint distributor</span><span class="mq-i"><b>7531</b>body shop you sub to</span><span class="mq-i"><b>7535</b>paint shop</span><span class="mq-i"><b>7549</b>towing</span><span class="mq-i"><b>7538</b>your own terminal</span><span class="mq-i"><b>5085</b>janitorial and industrial supply</span><span class="mq-i"><b>5137</b>uniforms</span><span class="mq-i"><b>5139</b>work shoes</span><span class="mq-i"><b>7394</b>floor machine rental</span><span class="mq-i"><b>7211</b>commercial laundry</span><span class="mq-i"><b>7217</b>carpet and upholstery sub</span><span class="mq-i"><b>7342</b>disinfecting and pest control</span><span class="mq-i"><b>7349</b>your own terminal</span><span class="mq-i"><b>5542</b>pay at the pump</span><span class="mq-i"><b>5541</b>pay inside at the station</span><span class="mq-i"><b>5552</b>EV charging</span><span class="mq-i"><b>4511</b>airlines without their own code</span><span class="mq-i"><b>7011</b>hotels and short stays</span><span class="mq-i"><b>4121</b>cabs and rideshare</span><span class="mq-i"><b>7512</b>car rental and car sharing</span><span class="mq-i"><b>4722</b>travel agencies</span><span class="mq-i"><b>5734</b>software stores</span><span class="mq-i"><b>5817</b>apps and software downloads</span><span class="mq-i"><b>4816</b>internet and hosting</span><span class="mq-i"><b>4814</b>phone service</span><span class="mq-i"><b>7311</b>advertising</span><span class="mq-i"><b>4215</b>couriers</span><span class="mq-i"><b>9402</b>USPS</span><span class="mq-i"><b>9311</b>tax payments</span><span class="mq-i"><b>5300</b>warehouse clubs</span><span class="mq-i"><b>5411</b>grocery stores</span><span class="mq-i"><b>5812</b>restaurants</span><span class="mq-i"><b>5814</b>fast food and coffee</span><span class="mq-i"><b>7333</b>design and commercial photography</span><span class="mq-i"><b>7221</b>portrait or event photographer</span><span class="mq-i"><b>7829</b>video and commercial production</span><span class="mq-i"><b>7338</b>quick copy and print</span><span class="mq-i"><b>2741</b>commercial printer</span><span class="mq-i"><b>5815</b>stock images, music, video</span><span class="mq-i"><b>5013</b>parts wholesaler or jobber</span><span class="mq-i"><b>5533</b>retail parts store</span><span class="mq-i"><b>5532</b>tire store</span><span class="mq-i"><b>7534</b>retread and tire repair</span><span class="mq-i"><b>5169</b>fluids and chemicals distributor</span><span class="mq-i"><b>5198</b>paint distributor</span><span class="mq-i"><b>7531</b>body shop you sub to</span><span class="mq-i"><b>7535</b>paint shop</span><span class="mq-i"><b>7549</b>towing</span><span class="mq-i"><b>7538</b>your own terminal</span><span class="mq-i"><b>5085</b>janitorial and industrial supply</span><span class="mq-i"><b>5137</b>uniforms</span><span class="mq-i"><b>5139</b>work shoes</span><span class="mq-i"><b>7394</b>floor machine rental</span><span class="mq-i"><b>7211</b>commercial laundry</span><span class="mq-i"><b>7217</b>carpet and upholstery sub</span><span class="mq-i"><b>7342</b>disinfecting and pest control</span><span class="mq-i"><b>7349</b>your own terminal</span></div></div><div class="deskband"><figure class="deskphoto"><picture><source srcset="img/ind/desk.webp" type="image/webp"><img src="img/ind/desk.jpg" width="1200" height="744" alt="A notebook, pen and cup of coffee on a white desk" loading="lazy"></picture><figcaption><span>Pull up a chair. Coffee's on me.</span><span>Photo: <a href="https://unsplash.com/photos/56J8143b7PU" rel="noopener">Elena Leya</a> / Unsplash</span></figcaption></figure><div class="db-r"><details class="readfirst"><summary><b>Read this first:</b> education, not advice. Every item is sourced or labeled Example. <span class="more">The full note</span></summary><p>First Officer isn't a lawyer, a CPA, a financial advisor, a lender or a credit repair company, and nothing here is an offer of credit. Every rule was checked on October 12, 2026. Rules change after that, so confirm before you act. Card, bureau and program names belong to their owners, and we're not affiliated with any of them. No affiliate links, and no money from any bank or program.</p></details>
+<section class="filters" aria-label="Filter" data-counts='{"agencies": 13, "auto-repair": 25, "cleaning": 20, "consulting": 10, "contractors": 20, "cpa-firms": 18, "dental": 26, "ecommerce": 11, "fitness": 15, "hvac": 34, "it-services": 13, "landscaping": 20, "law-firms": 19, "medical": 16, "property-management": 17, "real-estate": 16, "restaurants": 22, "salons": 20, "trucking": 19, "veterinary": 13}'><p class="madlib"><label for="tradesel">I run a</label> <select id="tradesel"><option value="all">any business</option><option value="agencies">marketing agency</option><option value="auto-repair">car repair shop</option><option value="cleaning">cleaning company</option><option value="consulting">consulting firm</option><option value="contractors">contracting business</option><option value="cpa-firms">CPA firm</option><option value="dental">dental practice</option><option value="ecommerce">online store</option><option value="fitness">gym or studio</option><option value="hvac">HVAC shop</option><option value="it-services">managed IT shop</option><option value="landscaping">landscaping business</option><option value="law-firms">law firm</option><option value="medical">medical practice</option><option value="property-management">property management company</option><option value="real-estate">real estate team</option><option value="restaurants">restaurant</option><option value="salons">salon or barbershop</option><option value="trucking">trucking company</option><option value="veterinary">vet clinic</option></select> <label for="stagesel">and I'm</label> <select id="stagesel"><option value="all">at any stage</option><option value="start">just getting set up</option><option value="grow">growing</option><option value="scale">scaling up</option><option value="exit">stepping back or selling</option></select> <label for="typesel">and I want</label> <select id="typesel"><option value="all">everything</option><option value="nuggets">the nuggets</option><option value="credit">credit insights</option><option value="playbook">a playbook</option><option value="gutcheck">gut checks</option><option value="script">what to say</option><option value="checklist">a checklist</option><option value="sheet">a cheat sheet</option><option value="deadlines">the deadlines</option><option value="myths">myths busted</option><option value="redflags">red flags</option><option value="travel">travel smarts</option><option value="decoder">the decoder</option></select></p><div class="find"><input id="deskq" type="search" autocomplete="off" placeholder="Search 490 items: fuel, DUNS, 1099, tips" data-short="Search 490 items" aria-label="Search the desk"><span id="deskcount" aria-live="polite"></span></div></section></div></div>
 <section class="grid" id="desk-grid"><div class="grp" data-grp="nuggets"><h2>Golden Nuggets</h2><span class="grp-n"></span><p class="grp-disc">General information, not tax, legal or financial advice. Merchant codes are set by each merchant's processor, so your statement is the final word.</p></div>
 <article class="dk gold" id="nug-cards" data-ty="nuggets" data-ind="all" data-st="all" data-n="11" data-spec="999">
 <div class="dk-meta"><span class="ic"><svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true" fill="none" stroke="#141216" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 22 L32 10 L46 22 L40 50 L24 50 Z" fill="#F7D774"/><path d="M18 22 H46 M32 10 L28 22 L32 50 L36 22 Z"/><path d="M51 13 l2 -5 M54 18 l5 -1 M49 9 l-1 -4" stroke="#FA1896"/></svg></span><span class="kind">Golden Nugget pack</span><span class="sep" aria-hidden="true">&middot;</span><span class="src">Visa, Federal court, CFPB and more</span><span class="time">2 min</span></div>
@@ -1329,14 +1470,18 @@ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitAll);
 addEventListener('resize',fitAll);
 })();</script><script id="dir-c-js">(function(){
 var grid=document.getElementById('desk-grid');if(!grid)return;
-/* wrap each group's cards in a shelf (horizontal row on phones, invisible on desktop) */
-var heads=[].slice.call(grid.querySelectorAll('.grp'));
-heads.forEach(function(h,gi){var sh=document.createElement('div');sh.className='shelf';sh.setAttribute('data-grp',h.getAttribute('data-grp'));sh.style.order=String(gi*10000+1);
+/* wrap each group into a row: category rail + shelf (desktop), band + swipeable shelf (phones) */
+var heads=[].slice.call(grid.querySelectorAll('.grp')),rows=[];
+heads.forEach(function(h,gi){var g=h.getAttribute('data-grp');
+ var row=document.createElement('div');row.className='lane';row.setAttribute('data-grp',g);row.style.order=String(gi*10000);
+ var sh=document.createElement('div');sh.className='shelf';sh.setAttribute('data-grp',g);
  var n=h.nextElementSibling,move=[];while(n&&!n.classList.contains('grp')&&!n.classList.contains('empty')){move.push(n);n=n.nextElementSibling;}
- h.parentNode.insertBefore(sh,h.nextSibling);move.forEach(function(m){sh.appendChild(m);});});
-/* keep the head and its shelf together when the head hides */
-function sync(){heads.forEach(function(h){var s=h.nextElementSibling;if(s&&s.classList.contains('shelf')&&s.hidden!==h.hidden)s.hidden=h.hidden;});}
+ grid.insertBefore(row,h);row.appendChild(h);row.appendChild(sh);move.forEach(function(m){sh.appendChild(m);});rows.push(row);});
+function sync(){rows.forEach(function(r){var h=r.querySelector('.grp');if(r.hidden!==h.hidden)r.hidden=h.hidden;});}
 new MutationObserver(sync).observe(grid,{subtree:true,attributes:true,attributeFilter:['hidden']});sync();
+/* hero teasers open their card in the reading view */
+[].forEach.call(document.querySelectorAll('.desk [data-open]'),function(a){a.addEventListener('click',function(e){var c=document.getElementById(a.getAttribute('data-open'));
+ if(c&&window.foReader){e.preventDefault();if(c.hidden){var y=document.getElementById('typesel');if(y){y.value='all';y.dispatchEvent(new Event('change',{bubbles:true}));}}window.foReader(c);}});});
 })();</script><script id="desk-v4">(function(){
 var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 var desk=document.querySelector('.desk'),grid=document.getElementById('desk-grid');if(!desk||!grid)return;
