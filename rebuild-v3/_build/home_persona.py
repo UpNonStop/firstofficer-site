@@ -94,7 +94,7 @@ for i,p in enumerate(outer):
 ROT=['02-chase','01-amex','12-hyatt','17-united','25-aeroplan','11-ihg','20-southwest','09-marriott']
 for p in ROT: assert p in geo and geo[p][3] < .82, p
 names={**NAMES,**DARN}
-defs=[];logos=[];lines=[]
+defs=[];logos=[]
 for p,(x,y,ux,uy,fwd) in geo.items():
     k=p.split('-',1)[0]
     defs.append(f'<clipPath id="c{k}"><circle r="{RL}"/></clipPath>')
@@ -104,32 +104,20 @@ for p,(x,y,ux,uy,fwd) in geo.items():
     logos.append(f'<g transform="translate({x:.2f} {y:.2f})"><g class="sp{dark}" data-p="{p}" style="--dx:{-ux*fwd:.2f}px;--dy:{-uy*fwd:.2f}px">'
                  f'<circle r="{RL+1.5}" fill="#fff"/><image href="{LOGO(p)}" x="{-RL}" y="{-RL}" width="{2*RL}" height="{2*RL}" clip-path="url(#c{k})" preserveAspectRatio="xMidYMid slice"/>'
                  f'<circle class="bd" r="{RL+1.5}" fill="none" stroke-width="1"/>{lab}</g></g>')
-    if p in ROT or p in DARN:
-        # line runs from the logo's border (at its raised position) to First Officer's border: both stroke centres, exactly
-        d=math.hypot(x-CX,y-CY)-fwd
-        x1,y1=CX+ux*(d-(RL+1.5)*UP),CY+uy*(d-(RL+1.5)*UP); x2,y2=CX+ux*RC,CY+uy*RC
-        L=math.hypot(x1-x2,y1-y2)
-        lines.append(f'<g class="ln" data-p="{p}" style="--L:{L:.2f}"><line class="b" x1="{x1:.2f}" y1="{y1:.2f}" x2="{x2:.2f}" y2="{y2:.2f}"/>'
-                     f'<line class="pu" x1="{x1:.2f}" y1="{y1:.2f}" x2="{x2:.2f}" y2="{y2:.2f}"/></g>')
 CH=30
 fo=(f'<g class="fo"><circle cx="{CX}" cy="{CY}" r="{RC}" fill="#fff" stroke="#FA1896" stroke-width="1.5"/><circle class="halo" cx="{CX}" cy="{CY}" r="{RC}" fill="none" stroke="#FA1896" stroke-width="1"/>'
     f'<image href="{CHEV}" x="{CX-CH/2}" y="{CY-CH/2+1}" width="{CH}" height="{CH}" preserveAspectRatio="xMidYMid meet"/></g>')
 desk_svg=(f'<svg class="net still" id="deskNet" viewBox="0 0 {W} {Hh}" role="img" aria-label="First Officer at the desk, working with the specialists for Darnell\'s programs: Hyatt, Chase, United, IHG and Southwest, inside a desk that covers 50+ programs">'
-          f'<defs>{"".join(defs)}</defs>{"".join(lines)}{"".join(logos)}{fo}</svg>')
+          f'<defs>{"".join(defs)}</defs>{"".join(logos)}{fo}</svg>')
 desk=f'''<div class="deskwrap">{desk_svg}<div class="fol" style="top:{(CY+RC+6)/Hh*100:.2f}%"><b>First Officer</b><span>At the Desk</span></div></div>
 <p class="cap2">The specialists for his programs light up. The rest of the 50+ stay on watch.</p>'''
 DESK_JS='''<script>(function(){var s=document.getElementById('deskNet');if(!s)return;
 if(matchMedia('(prefers-reduced-motion: reduce)').matches||!s.animate)return;
 var ROT=%s,i=0,T=3200,run=false,tm=null;
 function q(sel){return s.querySelector(sel)}
-function beat(){var p=ROT[i%%ROT.length];i++;var g=q('.sp[data-p="'+p+'"]'),l=q('.ln[data-p="'+p+'"]');
- if(!g||!l){return}var L=parseFloat(l.style.getPropertyValue('--L')),b=l.querySelector('.b'),u=l.querySelector('.pu');
- var w=g.parentNode;s.insertBefore(w,q('.fo'));g.getBoundingClientRect();g.classList.add('on');l.classList.add('on');
- b.animate([{strokeDashoffset:L},{strokeDashoffset:0}],{duration:620,delay:520,easing:'cubic-bezier(.4,0,.2,1)',fill:'backwards'});
- u.animate([{strokeDashoffset:0,opacity:0},{opacity:1,offset:.15},{opacity:1,offset:.85},{strokeDashoffset:-(L-9),opacity:0}],{duration:760,delay:1150,easing:'cubic-bezier(.45,0,.25,1)',fill:'both'});
- u.animate([{strokeDashoffset:-(L-9),opacity:0},{opacity:1,offset:.15},{opacity:1,offset:.85},{strokeDashoffset:0,opacity:0}],{duration:760,delay:1950,easing:'cubic-bezier(.45,0,.25,1)',fill:'forwards'});
- q('.halo').animate([{opacity:0,transform:'scale(1)'},{opacity:.5,offset:.3},{opacity:0,transform:'scale(1.35)'}],{duration:900,delay:1850,easing:'ease-out'});
- setTimeout(function(){l.classList.remove('on')},2700);
+function beat(){var p=ROT[i%%ROT.length];i++;var g=q('.sp[data-p="'+p+'"]');if(!g)return;
+ var w=g.parentNode;s.insertBefore(w,q('.fo'));g.getBoundingClientRect();g.classList.add('on');
+ q('.halo').animate([{opacity:0,transform:'scale(1)'},{opacity:.5,offset:.3},{opacity:0,transform:'scale(1.35)'}],{duration:900,delay:1100,easing:'ease-out'});
  setTimeout(function(){g.classList.remove('on')},2850);}
 function loop(){if(!run)return;beat();tm=setTimeout(loop,T)}
 function start(){if(run)return;run=true;s.classList.remove('still');tm=setTimeout(loop,400)}
@@ -253,12 +241,8 @@ CSS='''<style>
 .net .sp.on .bd,.net.still .sp.dk .bd{stroke:#FA1896}
 .net text.nm{font:700 11px 'DM Sans',sans-serif;fill:#141216;opacity:0;transition:opacity .6s ease;paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round}
 .net .sp.on text.nm{opacity:1}
-.net .ln line{stroke:#FA1896;stroke-linecap:butt;fill:none}
-.net .ln .b{stroke-width:1.2;stroke-dasharray:var(--L) 999;opacity:0;transition:opacity .5s ease}
-.net .ln.on .b{opacity:.7}.net.still .ln .b{opacity:0}.net.still .ln:is([data-p="12-hyatt"],[data-p="02-chase"],[data-p="17-united"],[data-p="11-ihg"],[data-p="20-southwest"]) .b{opacity:.6}
-.net .ln .pu{stroke-width:2.2;stroke-dasharray:9 999;opacity:0}
 .net .halo{opacity:0;transform-box:fill-box;transform-origin:center}
-@media (prefers-reduced-motion:reduce){.net .sp,.net text.nm,.net .ln .b{transition:none}}
+@media (prefers-reduced-motion:reduce){.net .sp,.net text.nm{transition:none}}
 .fol{position:absolute;left:50%;transform:translateX(-50%);background:#fff;border-radius:999px;padding:5px 12px 6px;box-shadow:0 0 0 1.5px #FA1896;text-align:center;line-height:1.15;white-space:nowrap}
 .fol b{display:block;font:700 12.5px 'DM Sans',sans-serif;color:#d40f7d}.fol span{display:block;font:500 10.5px 'DM Sans',sans-serif;color:#9a4f78}
 .cap2{font:500 12.5px/1.5 'DM Sans',sans-serif;color:var(--mute);text-align:center;margin:6px auto 0;max-width:30em}
