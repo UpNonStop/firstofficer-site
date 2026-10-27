@@ -720,3 +720,16 @@ p,li span,.why span,.cs .p,.cs .sub,figcaption,.est,.sub,small{text-wrap:pretty}
 /* the hero H1 stays the largest type on the home page: the 1.2x stat numeral sits just under it */
 .pain .rate{font-size:76px}
 @media (max-width:900px){.pain .rate{font-size:42px}}
+
+/* Oct 27 round 12: approved v9/v10 ticker (32px), one clean photo field per fold, no strip above the hero */
+.tick{height:32px;font-size:10px}
+#top .rbg{bottom:auto!important;height:900px!important;overflow:hidden}
+#top .rbg i{inset:0;background-position:center 45%;animation:kb 22s ease-in-out infinite alternate}
+#top .rbg i.on{opacity:1}
+#top .rbg::after{background:linear-gradient(98deg,rgba(250,246,238,.92) 0,rgba(250,246,238,.8) 40%,rgba(250,246,238,.42) 66%,rgba(250,246,238,.2) 100%),linear-gradient(180deg,rgba(250,246,238,0) 60%,var(--cream) 100%)}
+@media (max-width:760px){
+  html body #top.dhero.secphoto{padding-top:0!important}
+  #top .rbg{height:760px!important}
+  #top .rbg i{background-position:center 40%}
+  #top .rbg::after{background:linear-gradient(180deg,rgba(250,246,238,.34) 0,rgba(250,246,238,.5) 300px,rgba(250,246,238,.66) 560px,var(--cream) 100%)}
+}
