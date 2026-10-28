@@ -14,81 +14,64 @@ def hero():
 <h1>Every loyalty program is built to confuse you. Here's what your spend is <span class="pk">really worth.</span></h1>
 </div>
 <div class="chp">
-<p class="clede">Put in what you spend on cards each month. Watch it turn into points, then trips, then a return on your desk fee. Every step is shown, and if $550 a month doesn't pay for itself, we'll say so.</p>
+<p class="clede">Your desk is $550 a month, so we show you the month. Put in what you spend on cards and see, as you type, what your desk finds each month against its fee. If it doesn't pay for itself, we'll say so.</p>
 <dl class="cfacts"><div><dt>Flat fee</dt><dd>$550<small>a month</small></dd></div><div><dt>Fit gate</dt><dd>~$25K<small>a month on cards</small></dd></div><div><dt>Found Money Call</dt><dd>20 min<small>free</small></dd></div></dl>
 </div>
 </div></section>
 """
 
-def rail():
-    st=[('s0','01','Spend','spend','a month on cards'),('s1','02','Earn','vel','points a month with your desk'),
-        ('s2','03','Timeline','first','to your first trip'),('s3','04','Burn','cpp','a point, est.'),('s4','05','Return','ret','on the $6,600 fee, est.')]
-    return '<ol class="crail" aria-label="How your spend translates">'+''.join(
-        '<li class="%s"><span class="crn">%s · %s</span><b data-k="r-%s">–</b><small data-k="r-%s-s">%s</small></li>'%(c,n,t,k,k,sub) for c,n,t,k,sub in st)+'</ol>'
+def mini():
+    return """<div class="cmini" aria-hidden="true"><div><small>Desk finds, a month</small><b data-k="m-find">~$850</b></div><div><small>Fee</small><b>$550</b></div><div><small>Return</small><b class="rx" data-k="m-rx">1.5×</b></div></div>"""
 
 def tool():
     return """<section class="ct" id="calc"><div class="cw"><div class="cbox">
-"""+rail()+"""
-<div class="cgrid">
 <div class="cin">
-<div class="clab"><span>01 · Spend</span><small id="cwho">Fictional owners</small></div>
+"""+mini()+"""
+<div class="clab"><span>Start from an example</span><small id="cwho">Fictional owners</small></div>
 <div class="cex" id="cex" role="tablist" aria-label="Start from an example owner"></div>
 <div class="clab c2"><span>Your spend by line, a month</span><small>Type or drag</small></div>
 <div class="crows" id="crows"></div>
-<div class="csum"><div><small>On cards</small><b data-k="mo">$35,000</b><span>a month</span></div><div><small>A year</small><b data-k="yr">$420k</b><span>on cards</span></div><div><small>Earns today</small><b data-k="bl">1.2x</b><span>per $1, est.</span></div></div>
+<div class="csum"><div><small>On cards</small><b data-k="mo">$35,000</b><span>a month</span></div><div><small>Earns today</small><b data-k="bl">1.2x</b><span>per $1, est.</span></div><div><small>Points today</small><b data-k="vt">42k</b><span>a month</span></div></div>
+<div class="cpick">
 <div class="cmix"><span>Your cards today</span><div class="cseg" id="cmix" role="radiogroup" aria-label="Your cards today">
 <button type="button" data-m="ex" class="on" role="radio" aria-checked="true">As entered</button><button type="button" data-m="1" role="radio" aria-checked="false">One 1x card</button><button type="button" data-m="1.5" role="radio" aria-checked="false">One 1.5x card</button><button type="button" data-m="2" role="radio" aria-checked="false">2% cash back</button></div></div>
-<div class="cuse"><span>How you'll use the points</span><div class="cul" id="cuse" role="radiogroup" aria-label="How you will use the points"></div></div>
-</div>
-<div class="cearn">
-<div class="clab cle"><span>02 · Earn</span><small>Points per $1, line by line</small></div>
-<div class="cvel">
-<div><small>Today</small><b data-k="vt">42k</b><span>points a month</span></div>
-<div class="d"><small>With your desk</small><b data-k="vd">119k</b><span>points a month</span></div>
-<div><small>Velocity</small><b data-k="vx">2.8×</b><span>faster, est.</span></div>
-</div>
-<div class="cet" id="cet" role="table" aria-label="Earn by line"></div>
-<div class="clab cle c3"><span>03 · Timeline</span><div class="cseg sm" id="cunit" role="radiogroup" aria-label="Show the timeline as"><button type="button" data-u="pts" class="on" role="radio" aria-checked="true">Points</button><button type="button" data-u="usd" role="radio" aria-checked="false">Dollars</button><button type="button" data-u="trip" role="radio" aria-checked="false">Trips</button></div></div>
-<div class="cchart" id="cchart"><svg id="csvg" role="img" aria-label="Points earned over 12 months, today and with your desk"></svg>
-<div class="ckey"><span class="kt">Today</span><span class="kd">With your desk</span><span class="kg">The gap your desk finds</span></div></div>
-<ol class="cms" id="cms"></ol>
+<div class="cuse"><span>How you'll use the points</span><div class="cul" id="cuse" role="radiogroup" aria-label="How you will use the points"></div><p class="cfine">Cents a point, est. Floor is a plain cash out. The top is a level a well-planned booking can reach again and again, not a one-off.</p></div>
 </div>
 </div>
-<div class="cgrid2">
-<div class="cburn">
-<div class="clab clb"><span>04 · Burn</span><small>Based on how these points redeem, est.</small></div>
-<div class="cbt" id="cbasis" role="table" aria-label="Cents per point by redemption type"></div>
-<p class="cfine">Cents a point, est. Floor is a plain cash out. The bar runs to a level a well-planned booking can reach again and again, not a one-off. We count 85% of the extra points.</p>
-<div class="clab clb c4"><span>What your extra points could be, a year</span><small>Points prices, est. 85% counted</small></div>
-<div class="ctr" id="ctr"></div>
+<aside class="cres" aria-live="polite"><div class="cstk">
+<div class="clab"><span class="rr">Your month, est.</span><small data-k="who">Leo · at 1.0¢–1.6¢ a point</small></div>
+<div class="chead">
+<div class="cfind"><small>Your desk finds</small><b data-k="find">~$850</b><span>a month, est. <em data-k="findr">$650–$1,050</em></span></div>
+<div class="cvs">vs</div>
+<div class="cfee"><small>Your desk costs</small><b>$550</b><span>a month, flat</span></div>
 </div>
-<aside class="cret" aria-live="polite">
-<div class="clab"><span class="rr">05 · Return</span><small>On the extra points only</small></div>
-<div class="cbigr"><small>Return of</small><b data-k="rx">1.5×</b><span data-k="rxr">1.2× to 1.9× est.</span></div>
-<dl class="cdl">
-<div><dt>Extra points a year</dt><dd data-k="plus">+924k</dd></div>
-<div><dt data-k="rangel">Worth, est. at 1.0¢ to 1.6¢</dt><dd data-k="range">$7.9k–$12.6k</dd></div>
-<div><dt>Your desk, $550 a month</dt><dd>$6,600</dd></div>
-<div class="cnet"><dt>Left after the fee, est.</dt><dd data-k="net">+$1.3k to +$6k</dd></div>
+<div class="cbal" id="cbal" role="img" aria-label="Monthly value found against the $550 fee">
+<div class="cbt"><i class="base"></i><i class="over"></i><i class="short"></i><i class="rng"></i><i class="mark"><span>$550 fee</span></i></div>
+<div class="cbx"><span>$0</span><span data-k="bmax">$1,650</span></div>
+</div>
+<dl class="ckpi">
+<div class="net"><dt>Left each month</dt><dd data-k="net">+$300</dd><small data-k="netr">+$100 to +$500, est.</small></div>
+<div class="ret"><dt>Return of</dt><dd data-k="rx">1.5×</dd><small data-k="rxr">1.2× to 1.9×, est.</small></div>
+<div><dt>Extra points</dt><dd data-k="plus">+77k</dd><small>a month; we count 85%</small></div>
 </dl>
-<div class="cscale"><div class="csh"><span>Fit gate · ~$25K a month on cards</span><b data-k="gatev">You: $35K</b></div><div class="csc gate" id="cgt"><i class="fill"></i><i class="fee"></i></div></div>
-<div class="cv" id="cv"><h3 id="cvt">Clears the fee.</h3><p id="cvp"></p><ol id="cvo"></ol></div>
+<div class="cv" id="cv"><h3 id="cvt">Clears the fee.</h3><p id="cvp"></p></div>
+<div class="cet" id="cet" role="table" aria-label="Points a month by line"></div>
+<div class="cgate"><div class="csh"><span>Fit gate · ~$25K a month on cards</span><b data-k="gatev">You: $35K</b></div><div class="csc" id="cgt"><i class="fill"></i><i class="fee"></i></div></div>
 <div class="cbtn"><a class="btn pk" id="cc1" href="book.html">Book your Found Money Call <span class="ar">→</span></a><a class="btn wa" href='"""+WA+"""'>💬 Text Your First Officer</a></div>
 <a class="chowl" href="#how">How we got this number ↓</a>
-</aside>
-</div>
+</div></aside>
 </div></div></section>
 """
 
 def how():
     rows=[('Spend','Your monthly card spend, by line, as typed. Examples are fictional owners.'),
-          ('Earn rates','Each line earns the rate shown, today and with your desk, per $1. "Your cards today" swaps your current rate for one flat card.'),
-          ('Velocity','Points a month: a year of earning divided by 12, posted monthly like a statement.'),
-          ('Timeline','The month your points with your desk first cover a trip, set against when today\'s cards would. Example points prices; no seats are held.'),
+          ('Earn rates','Each line earns the rate shown per $1, today and with your desk. "Your cards today" swaps your current rate for one flat card.'),
+          ('Extra points','Points a month with your desk, minus points a month today.'),
           ('Points counted','85% of the extra points. The rest stays out of every estimate.'),
-          ('Cents a point','From the table above, by how you use them. Floor is a plain cash out. Estimates, not results from past bookings.'),
-          ('Return','Value of the extra points at the middle of the range, divided by the $6,600 a year fee. The range uses the floor and the top.'),
-          ('Verdict','Clears the fee when even the floor beats $6,600. Close call when only the top does. Under ~$25K a month on cards, not a fit yet.')]
+          ('Cents a point','By how you\'ll use the points: mixed 1.0¢–1.6¢, cash out 1.0¢, economy 1.0¢–1.4¢, top hotels 1.2¢–2.0¢, business class 1.5¢–2.0¢. Floor is a plain cash out. Estimates, not results from past bookings.'),
+          ('Found a month','Extra points counted × cents a point, at the middle of the range. The range uses the floor and the top.'),
+          ('Return','What your desk finds a month divided by the $550 a month fee.'),
+          ('Verdict','Clears the fee when even the floor beats $550 a month. Close call when only the top does. Under ~$25K a month on cards, not a fit yet.')]
     return """<section class="cx chow" id="how"><div class="cw"><details open>
 <summary><span class="clab cll"><span>Learn · how we got this number</span></span><h2>Every step, <span class="pk">in plain sight.</span></h2></summary>
 <dl class="casl">"""+''.join('<div><dt>%s</dt><dd>%s</dd></div>'%r for r in rows)+"""</dl>
@@ -101,7 +84,7 @@ def how():
 """
 
 def page():
-    h=B.head('Calculator | What is your spend really worth? | First Officer','Put in your monthly card spend and watch it turn into points, trips and a return on the $550 a month desk fee. Estimates only.')
+    h=B.head('Calculator | What is your spend really worth? | First Officer','Put in your monthly card spend and see what your desk finds each month against its $550 a month fee. Estimates only.')
     h=h.replace('<link rel="stylesheet" href="recovered/rec.css">','<link rel="stylesheet" href="recovered/rec.css">\n<link rel="stylesheet" href="recovered/modes.css">\n<link rel="stylesheet" href="recovered/calc.css">')
     h+='<body class="modes calc">\n'+B.nav('Calculator').replace('home-recovered.html','home-modes.html')+B.ticker()+'<main>\n'+hero()+tool()+how()+'</main>\n'
     h+=B.footer().replace('home-recovered.html','home-modes.html').replace('Leo and Linden Row Insurance are fictional. All figures are examples and estimates.','Every owner shown is a fictional example. All figures are examples and estimates.')
