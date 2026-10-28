@@ -61,18 +61,18 @@ def hero():
 """
 
 def mini():
-    return """<div class="cmini" aria-hidden="true"><div><small>Desk finds, a month</small><b data-k="m-find">~$850</b></div><div><small>Fee</small><b>$550</b></div><div><small>Return</small><b class="rx" data-k="m-rx">1.5×</b></div></div>"""
+    return """<div class="cmini" aria-hidden="true"><div><small>Desk finds</small><b data-k="m-find">~$850</b></div><div><small>Fee</small><b>$550</b></div><div><small>Return</small><b class="rx" data-k="m-rx">1.5×</b></div></div>"""
 
 def advanced():
     return """<section class="sec cadv" id="advs"><div class="wrap">
 <div class="reveal"><span class="kick">Go advanced · 2 minutes</span><h2 class="h2">Every line of your spend. <span class="brush">Every card, every point.</span></h2>
-<p class="lede">Start from a fictional owner like you, then type your own numbers. Each line goes to its best card, and the answer moves as you do.</p></div>
+<p class="lede">Pick your industry for a typical spend mix, then type your own numbers. Each line goes to its best card, and the answer moves as you do.</p></div>
 <div class="cbox" id="adv">
 <div class="cin">
 """+mini()+"""
-<div class="clab"><span>Start from an example</span><small id="cwho">Ten fictional owners</small></div>
-<div class="cex" id="cex" role="tablist" aria-label="Start from an example owner"></div>
-<p class="cwhoa" id="cwa"><b id="cinb">Leo</b> <span id="cins">Linden Row Insurance · Insurance agency · fictional</span></p>
+<div class="clab"><span><label for="cind">Your industry</label></span><small id="cwho">Typical mix: $35K a month, est.</small></div>
+<div class="csel"><select id="cind" aria-describedby="cwho"><option>Insurance agency</option></select></div>
+<div class="ccon" aria-live="polite"><b id="ccth">Things to consider for insurance agency</b><ul id="ccul"></ul><small>General prompts, not advice. Your Found Money Call goes through your real lines.</small></div>
 <div class="clab c2"><span>Your spend by line, a month</span><small>Type or drag</small></div>
 <div class="crows" id="crows"></div>
 <div class="csum"><div><small>On cards</small><b data-k="mo">$35,000</b><span>a month</span></div><div><small>Earns today</small><b data-k="bl">1.2x</b><span>per $1, est.</span></div><div><small>Points today</small><b data-k="vt">42k</b><span>a month</span></div></div>
@@ -83,7 +83,7 @@ def advanced():
 </div>
 </div>
 <aside class="cres" aria-live="polite"><div class="cstk">
-<div class="clab"><span class="rr">Your month, est.</span><small data-k="who">Leo · at 1.0¢–1.6¢ a point</small></div>
+<div class="clab"><span class="rr">Your month, est.</span><small data-k="who">Insurance agency · at 1.0¢–1.6¢ a point</small></div>
 <div class="chead">
 <div class="cfind"><small>Your desk finds</small><b data-k="find">~$850</b><span>a month found, est. <em data-k="findr">$650–$1,050</em></span></div>
 <div class="cvs">vs</div>
@@ -111,7 +111,7 @@ def how():
        ('learn','03','Value','Valued at how you will use them','A cash out is the floor, about 1¢ a point. Planned trips run higher. The answer is the middle of that range, and the range is shown.'),
        ('fee','04','Fee','Then the $550 comes off','What your desk finds, against $550 a month, flat. Return is the one divided by the other. Under ~$25K a month on cards, it says not a fit yet.')]
     cards=''.join('<div class="pc4 k-%s reveal d%d"><div class="pn"><b>%s</b>%s</div><h3>%s</h3><p>%s</p></div>'%(k,i,n,t,h,p) for i,(k,n,t,h,p) in enumerate(S))
-    rows=[('Basic','One spend figure at a blended rate: about 1.2 points per $1 today and about 3.4 with your desk. That is a service business like the example Leo, so Basic at $35K matches him.'),
+    rows=[('Basic','One spend figure at a blended rate: about 1.2 points per $1 today and about 3.4 with your desk. That is a service business like the insurance agency mix, so Basic at $35K matches it.'),
           ('Advanced','Your spend by line, at the rate shown for each line, today and with your desk. "Your cards today" can swap your rates for one flat card.'),
           ('Cents a point','Mixed 1.0¢–1.6¢, cash out 1.0¢, economy 1.0¢–1.4¢, top hotels 1.2¢–2.0¢, business class 1.5¢–2.0¢. Estimates, not results from past bookings.'),
           ('Verdict','Clears the fee when even the floor beats $550 a month. Close call when only the top does. Under ~$25K a month on cards, not a fit yet.')]
@@ -140,7 +140,7 @@ def page():
     h=B.head('Calculator | What is your spend really worth? | First Officer','Put in your business card spend each month and see what your desk finds against its $550 a month fee. Estimates only.')
     h=h.replace('<link rel="stylesheet" href="recovered/rec.css">','<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap">\n<link rel="stylesheet" href="recovered/rec.css">\n<link rel="stylesheet" href="recovered/modes.css">\n<link rel="stylesheet" href="recovered/calc.css">')
     h+='<body class="modes calc">\n'+B.nav('Calculator').replace('home-recovered.html','home-modes.html')+B.ticker()+'<main>\n'+hero()+advanced()+how()+'</main>\n'
-    h+=B.footer().replace('home-recovered.html','home-modes.html').replace('Leo and Linden Row Insurance are fictional. All figures are examples and estimates.','Every owner shown is a fictional example. All figures are examples and estimates.')
+    h+=B.footer().replace('home-recovered.html','home-modes.html').replace('Leo and Linden Row Insurance are fictional. All figures are examples and estimates.','Every industry mix shown is a typical example. All figures are examples and estimates.')
     h+='<script>window.FO_A="'+B.ASSET+'";</script>\n<script src="recovered/rec.js"></script>\n<script src="recovered/fo-modes-data.js"></script>\n<script src="recovered/fo-calc-basis.js"></script>\n<script src="recovered/calc.js"></script>\n</body>\n</html>\n'
     h=h.replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')
     h=re.sub(r'<div class="mcta">.*?</a></div>\n?','',h,flags=re.S)

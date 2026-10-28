@@ -26,7 +26,6 @@
 .chb{grid-column:1;grid-row:2}
 .chr{grid-column:2;grid-row:1/3}
 .ch h1{font-size:60px;max-width:640px;text-wrap:balance}
-.cok li b{background:#fff;color:#12834E;box-shadow:inset 0 0 0 1.5px #12834E;font-size:13px}
 .ch .msub{max-width:540px}
 /* the card: same surface as the landing's .wp / .ww */
 .cq{background:#fff;border-radius:22px;padding:22px 26px 20px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 18px 36px -24px rgba(20,18,22,.35)}
@@ -98,20 +97,11 @@
 /* ---------- Go advanced ---------- */
 .cadv{padding:96px 0 40px}
 .cadv .cbox{margin-top:40px}
-.cwhoa{margin:-14px 0 20px;font-size:13px;color:var(--body)}.cwhoa b{color:var(--ink)}
 .cbox{display:grid;grid-template-columns:minmax(0,1fr) 520px;align-items:start;background:#fff;border-radius:22px;box-shadow:0 0 0 1px var(--hair),0 30px 60px -40px rgba(20,18,22,.35);overflow:clip}
 .cin{padding:30px 34px 32px}
 .cres{align-self:stretch;border-left:1px solid var(--hair);background:#fff}
 .cstk{position:sticky;top:calc(var(--navh,72px) + 20px);padding:30px 34px 30px}
 .cmini{display:none}
-/* example selector */
-.cex{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--hair);border-left:1px solid var(--hair);margin-bottom:26px}
-.cex button{appearance:none;background:#fff;border:0;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:9px 10px 8px;text-align:left;cursor:pointer;position:relative;min-width:0;transition:background .15s}
-.cex button:hover{background:#fff;color:var(--pink)}
-.cex button b{display:block;font:600 13px/1.2 var(--sans);color:var(--ink)}
-.cex button small{display:block;font:500 10.5px/1.3 var(--mono);color:var(--mute);margin-top:2px}
-.cex button.on::after{content:"";position:absolute;left:-1px;right:-1px;bottom:-1px;height:3px;background:var(--pink)}
-.cex button.on b{color:var(--pink)}
 /* spend rows */
 .crows{border-top:1px solid var(--ink)}
 .crow{display:grid;grid-template-columns:minmax(0,1fr) 190px;grid-template-areas:"l i" "s s";column-gap:16px;align-items:center;padding:14px 0 12px;border-bottom:1px solid var(--hair)}
@@ -242,8 +232,6 @@
  .cadv .cbox{margin-top:26px}
  .cbox{border-radius:18px}
  .cin,.cstk{padding:20px 16px}
- .cex{display:flex;overflow-x:auto;scrollbar-width:none}
- .cex button{flex:0 0 84px}
  .crow{grid-template-columns:minmax(0,1fr) 150px}
  .cri input{font-size:26px}
  .cmix .cseg{grid-template-columns:1fr 1fr}
@@ -265,3 +253,120 @@
 }
 @media (prefers-reduced-motion:reduce){.cbt i,.csc .fill{transition:none}}
 .pc4.k-fee{--c:var(--pink)}
+
+/* ---------- calc10: industry select ---------- */
+.clab label{cursor:pointer}
+.csel{position:relative;margin:0 0 14px}
+.csel select{-webkit-appearance:none;appearance:none;display:block;width:100%;height:52px;margin:0;padding:0 48px 0 16px;border:0;border-radius:12px;background:#fff;box-shadow:inset 0 0 0 1px rgba(20,18,22,.16);font:600 16px/1 var(--sans);color:var(--ink);cursor:pointer;transition:box-shadow .15s}
+.csel select:hover{box-shadow:inset 0 0 0 1px rgba(20,18,22,.32)}
+.csel select:focus-visible{outline:0;box-shadow:inset 0 0 0 2px var(--pink),0 0 0 4px rgba(250,24,150,.14)}
+.csel::after{content:"";position:absolute;right:20px;top:50%;width:8px;height:8px;margin-top:-6px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);pointer-events:none}
+.ccon{margin:0 0 26px;padding:14px 16px 12px;border-radius:12px;background:#fff;box-shadow:inset 0 0 0 1px rgba(20,18,22,.08)}
+.ccon b{display:block;font:700 13.5px/1.3 var(--sans);color:var(--ink);margin:0 0 8px}
+.ccon ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px}
+.ccon li{position:relative;padding-left:18px;font-size:13.5px;line-height:1.45;color:var(--body)}
+.ccon li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:2px;border-radius:1px;background:var(--pl)}
+.ccon small{display:block;margin-top:10px;font-size:11.5px;line-height:1.4;color:var(--mute)}
+/* ---------- calc10: check marks, one size, top-aligned to the first line everywhere ---------- */
+.cok{gap:10px}
+.cok li{align-items:flex-start;line-height:1.45}
+.cok li b,.bvk{flex:none;width:20px;height:20px;border-radius:6px;display:inline-grid;place-items:center;font:700 12px/1 var(--sans);background:#fff;color:#12834E;box-shadow:inset 0 0 0 1.5px #12834E}
+.cok li b{margin-top:1.6px}
+.bverd{line-height:1.45}.bverd .bvk{margin-top:0}
+.cv h3{align-items:flex-start}.cv h3 .bvk{margin-top:4px}
+.meh .bvk{color:#E8590C;box-shadow:inset 0 0 0 1.5px #E8590C}
+.no .bvk{color:var(--pink);box-shadow:inset 0 0 0 1.5px var(--pink)}
+
+/* ---------- calc10: phones (375 to 430). One spacing scale: 4 / 8 / 12 / 16 / 20 / 24 / 32. Page gutter = the landing's --gut (20px).
+   Cards radius 20, inner controls radius 12, every tap target 44px or more. Desktop untouched. ---------- */
+.calc .h2,.ch h1{text-wrap:balance}
+.calc .lede,.ch .msub,.cv p,.bverd,.ccon li,.pc4 p{text-wrap:pretty}
+.mlogos span{text-wrap:balance}
+@media (max-width:980px){
+ .chb .mprob{display:grid;justify-items:start;width:max-content;max-width:100%;margin-left:auto;margin-right:auto;text-align:left}
+}
+@media (max-width:760px){
+ .chw{padding:0 var(--gut)}
+ .ch h1{font-size:32px;line-height:1.06;margin:12px auto 16px}
+ .cq{padding:18px 18px 18px;border-radius:20px}
+ .cqh{min-height:44px;padding-bottom:12px}
+ .cqa{height:36px;padding:0 14px;position:relative}
+ .cqa::before{content:"";position:absolute;left:0;right:0;top:-4px;bottom:-4px}
+ .bql{margin-top:16px}
+ .bsw{margin-top:12px}
+ .ba{gap:12px;margin-top:16px;padding-top:16px}
+ .bk{gap:0}.bk>div+div{margin-left:0;padding-left:16px}
+ .bk dd{font-size:30px;margin:4px 0 4px}
+ .cq .cbal{padding-top:28px}.cbx{margin-top:12px}
+ .bverd{margin-top:16px;font-size:14px}
+ .bact{margin-top:16px;gap:8px 12px}
+ .brun{height:44px;padding:0 18px}
+ .cq .mctas{margin-top:16px;gap:12px}.cq .mctas .btn,.cbtn .btn,.pbtn .btn{height:52px}
+ .cq .wfine{margin-top:16px;padding:12px;border-radius:12px}
+ /* below the card: a tidy left-aligned check list, then the text */
+ .chb{margin-top:32px}
+ .chb .mprob{gap:12px;margin-bottom:16px}
+ .cok li{font-size:14px;gap:10px}
+ .cok li b{margin-top:0}
+ .chb .msub{font-size:15.5px;line-height:1.55;max-width:34ch}
+ .chb .mlogos{margin-top:20px;row-gap:12px}.chb .mlogos span{margin:0;flex-basis:100%;text-align:center;line-height:1.5}
+ /* advanced */
+ .cadv,.chow{padding:64px 0 24px}
+ .calc .h2 .brush{display:block}
+ .cadv .cbox{margin-top:32px}
+ .cbox,.pc4,.cdet,.calc .why div,.pcta{border-radius:20px}
+ .cin,.cstk{padding:20px 18px 24px}
+ .cmini{border-radius:12px;margin-bottom:24px;grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr) minmax(0,.9fr)}
+ .cmini>div{padding:12px}
+ .cmini b{font-size:26px}
+ .clab{flex-wrap:wrap;row-gap:4px;align-items:baseline;min-height:0}
+ .clab small{flex-basis:100%;white-space:normal;text-align:left;padding-left:28px;font-size:12.5px}
+ .ccon{padding:16px;margin-bottom:24px}
+ .ccon ul{grid-template-columns:minmax(0,1fr);gap:8px}
+ .ccon li{font-size:14px}
+ .crow{grid-template-columns:minmax(0,1fr) 140px;padding:16px 0 12px}
+ .cri{min-height:44px;align-items:center}.cri input{font-size:26px;height:44px}
+ .crs{height:32px}.crs::-webkit-slider-thumb{height:24px;width:10px}
+ .csum{margin-top:16px}.csum>div{padding:12px 8px 0 0}.csum>div+div{padding-left:12px}
+ .csum b{font-size:22px}
+ .cpick{gap:24px;margin-top:24px;padding-top:20px}
+ .cseg{border-radius:12px}.cmix .cseg button{height:44px;font-size:13px}
+ .cul button{min-height:44px;align-items:center;padding:0 4px 0 14px}
+ .cul button b{font-size:14px}
+ .cul button::before{top:12px;bottom:12px}
+ .cres .clab small{padding-left:28px}
+ .chead{gap:12px;padding:8px 0 16px}
+ .cfind b{font-size:56px}
+ .cres .cbal{padding-top:28px}
+ .ckpi{grid-template-columns:1fr 1fr}
+ .ckpi>div{padding:12px 8px 12px 0}
+ .ckpi>div+div{padding-left:12px}
+ .ckpi>div:nth-child(3){grid-column:1/-1;padding-left:0;border-left:0;border-top:1px solid var(--hair);display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:baseline}
+ .ckpi>div:nth-child(3) dt{grid-column:1/-1}
+ .ckpi dd{font-size:30px}
+ .cv{padding:16px 0}
+ .cv h3{font-size:24px}.cv h3 .bvk{margin-top:3px}
+ .cv p{font-size:14px}
+ .cer{padding:8px 0}
+ .cgate{margin-top:16px}
+ .cbtn{gap:12px;margin-top:24px}
+ .chowl{display:inline-flex;align-items:center;min-height:44px;margin-top:8px;padding:0;border:0}
+ /* how we got this number */
+ .chow .p4{gap:12px}
+ .pc4{padding:20px 18px}
+ .pc4 h3{text-wrap:pretty;max-width:none}
+ .cdet{padding:0 18px;margin-top:16px}
+ .cdet summary{min-height:56px;align-items:center;padding:0}
+ .cpro{margin-top:48px}
+ .calc .why{gap:12px}
+ .pcta{padding:24px 18px;gap:16px}
+ .pbtn{gap:12px}
+}
+@media (max-width:760px){
+ .csum small,.ckpi dt,.cmini small,.chead small,.bk dt{letter-spacing:.08em}
+ .csum small{white-space:nowrap}
+}
+@media (max-width:400px){
+ .cqh .wk{white-space:nowrap;letter-spacing:.08em;font-size:10px}
+ .cqa{padding:0 12px}
+}

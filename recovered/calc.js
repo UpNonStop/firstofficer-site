@@ -18,8 +18,25 @@ function c2(n){return (+n).toFixed(2).replace(/0$/,'').replace(/0$/,'').replace(
 function sg(n){n=r10(n);return (n<0?'−':'+')+usd(Math.abs(n))}
 function nx(v){return v.toFixed(1)+'×'}
 function rng(t){return t.floor===t.ceil?c2(t.floor):c2(t.floor).replace('¢','')+'–'+c2(t.ceil)}
-var q=location.href,want=((q.match(/[?&#]ex=([a-z]+)/i)||[])[1]||'').toLowerCase(),idx=0;
-P.forEach(function(p,i){if(p.first.toLowerCase()===want)idx=i});
+/* Advanced starts from an industry, not a person: each industry reuses one example's line data, so the numbers stay identical.
+   Things to consider are general, plain prompts, not advice. ?ex=<first name> still maps to that example's industry; ?ind=<slug> works too. */
+var TH={'Insurance agency':['Lead-gen and ad spend is often the biggest line','Agency software and subscriptions billed every month','Travel to carriers and conferences','Which vendors take cards without a surcharge'],
+'HVAC':['Fuel and fleet costs','Supplier and equipment purchases','Seasonal swings in what you spend','Vendors who take cards without fees'],
+'Dental practice':['Supply orders, often from a few large vendors','Practice and imaging software','Lab fees, and whether your labs take cards','Patient marketing and ads'],
+'Marketing agency':['Client ad spend that runs through your cards','Software seats that grow with the team','Contractors, and which ones take cards','Shoot and client travel'],
+'Law firm':['Client costs you pay up front','Travel to depositions and court','Filing fees and research software','Which fees can be paid by card at all'],
+'Restaurant':['Food suppliers, and whether they take cards','Delivery apps and ads','Phone, internet and utilities','Card surcharges, where margins are thin'],
+'Trucking':['Fleet fuel, usually most of the spend','Tires, repairs and parts','Tolls and permits','Where fuel is bought, and how it is paid for'],
+'Real estate':['Listing ads and portals','Signage and print','Travel to showings','Closing gifts and client events'],
+'E-commerce':['Ad spend on Meta and Google','Shipping and packaging','Inventory from your suppliers','Seasonal peaks around the holidays'],
+'Contractor':['Materials, often the biggest line','Job-site hotels and travel','Fuel and equipment rental','Supplier terms versus paying by card'],
+'Other':['Your biggest monthly lines first','Software, phone and internet billed each month','Travel for the business','Vendors who take cards without fees']};
+var BLANK={first:'',ind:'Other',cats:[['Ads and marketing',0,'1x','4x'],['Software and phone',0,'1.5x','4x'],['Travel',0,'1x','3x'],['Everything else',0,'1x','2x']]};
+var IN=P.concat([BLANK]);
+function slug(t){return t.toLowerCase().replace(/[^a-z]+/g,'-').replace(/^-|-$/g,'')}
+var q=location.href,want=((q.match(/[?&#]ex=([a-z]+)/i)||[])[1]||'').toLowerCase(),wi=((q.match(/[?&#]ind=([a-z-]+)/i)||[])[1]||'').toLowerCase(),idx=0;
+IN.forEach(function(p,i){if((want&&p.first.toLowerCase()===want)||(wi&&slug(p.ind)===wi))idx=i});
+function moK(p){return p.cats.reduce(function(a,c){return a+c[1]},0)}
 var D,S=[],mix='ex',use='mix',first=true,inst=false;
 /* ---- short tween: from what is on screen to the new value, 200ms; instant while the sweep runs ---- */
 function tw(el,to,fmt){if(!el)return;var from=el._c==null?to:el._c;el._v=to;cancelAnimationFrame(el._r);
@@ -84,9 +101,9 @@ run.addEventListener('click',go);
 ['pointerdown','keydown','wheel','touchstart'].forEach(function(ev){window.addEventListener(ev,function(e){if(running&&!run.contains(e.target))stop()},{capture:true,passive:true})});
 /* ================= ADVANCED ================= */
 var ADV=$('#adv');
-$('#cex').innerHTML=P.map(function(p,i){var m=p.cats.reduce(function(a,c){return a+c[1]},0);
-  return '<button type="button" role="tab" data-i="'+i+'"><b>'+p.first+'</b><small>$'+(Math.round(m*10)/10)+'K/mo</small></button>'}).join('');
-$$('#cex button').forEach(function(b){b.addEventListener('click',function(){idx=+b.dataset.i;load()})});
+var SEL=$('#cind');
+SEL.innerHTML=IN.map(function(p,i){return '<option value="'+i+'">'+(p.ind==='Other'?'Other / start blank':p.ind)+'</option>'}).join('');
+SEL.addEventListener('change',function(){idx=+SEL.value;load()});
 $('#cuse').innerHTML=BS.types.map(function(t){return '<button type="button" role="radio" data-u="'+t.id+'" aria-checked="'+(t.id===use)+'"'+(t.id===use?' class="on"':'')+'><b>'+t.name+'</b><small>'+rng(t)+'</small></button>'}).join('');
 $$('#cuse button').forEach(function(b){b.addEventListener('click',function(){use=b.dataset.u;$$('#cuse button').forEach(function(o){var on=o===b;o.classList.toggle('on',on);o.setAttribute('aria-checked',on)});calc()})});
 $$('#cmix button').forEach(function(b){b.addEventListener('click',function(){mix=b.dataset.m;$$('#cmix button').forEach(function(o){var on=o===b;o.classList.toggle('on',on);o.setAttribute('aria-checked',on)});calc()})});
@@ -103,17 +120,18 @@ function rows(){var p=D;
   $('#cet').innerHTML='<div class="ceh" role="row"><span>Points a month</span><span>Today</span><span>With desk</span></div>'+
     p.cats.map(function(c,i){return '<div class="cer" role="row"><span>'+c[0]+'</span><span data-et="'+i+'">–</span><span class="d" data-ed="'+i+'">–</span></div>'}).join('')+
     '<div class="cer tot" role="row"><span>Total</span><span data-k="vt">–</span><span class="d" data-k="vd">–</span></div>'}
-function load(){D=P[idx];S=D.cats.map(function(c){return c[1]*1000});
-  $$('#cex button').forEach(function(b,i){var on=i===idx;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)});
-  $('#cinb').textContent=D.first;$('#cins').textContent=D.biz+' · '+D.ind+' · fictional';
-  $('#cwho').textContent='Ten fictional owners';
+function load(){D=IN[idx];S=D.cats.map(function(c){return c[1]*1000});SEL.value=idx;
+  var o=D.ind==='Other',m=moK(D);
+  $('#cwho').textContent=o?'Start blank, type your own':'Typical mix: $'+(Math.round(m*10)/10)+'K a month, est.';
+  $('#ccth').textContent=o?'Things to consider for your business':'Things to consider for '+(D.ind==='HVAC'?'HVAC':D.ind.toLowerCase());
+  $('#ccul').innerHTML=(TH[D.ind]||TH.Other).map(function(t){return '<li>'+t+'</li>'}).join('');
   rows();calc()}
 function rateT(c){return mix==='ex'?parseFloat(c[2]):+mix}
 function calc(){var L=D.cats.map(function(c,i){return [S[i],rateT(c),parseFloat(c[3])]}),r=month(L,use),v=verdict(r);
   L.forEach(function(l,i){tw($('[data-et="'+i+'"]'),l[0]*l[1],pts);tw($('[data-ed="'+i+'"]'),l[0]*l[2],pts);
     var s=$$('#crows .crs')[i];fill(s);$('[data-r="'+i+'"]').textContent=x(l[1])});
   K(ADV,'mo',r.mo,usd);K(ADV,'bl',r.mo?r.t/r.mo:0,x);K(ADV,'vt',r.t,pts);K(ADV,'vd',r.d,pts);
-  T(ADV,'who',D.first+' · at '+rng(r.u)+' a point');
+  T(ADV,'who',(D.ind==='Other'?'Your mix':D.ind)+' · at '+rng(r.u)+' a point');
   paint(ADV,r);bar($('#cbal'),r);
   T(ADV,'gatev','You: $'+Math.round(r.mo/1e3)+'K');
   var gt=$('#cgt');$('.fill',gt).style.width=pc(r.mo,GMAX);$('.fee',gt).style.left=pc(GATE,GMAX);gt.classList.toggle('under',r.mo<GATE);
