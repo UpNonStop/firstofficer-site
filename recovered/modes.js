@@ -1,6 +1,6 @@
 /* home-modes.html: persona pick, phone tabs, modes box, hero photos, sticky bar. Mockup only. */
 (function(){
-var A=window.FO_A||'',P=window.FO_MODES||[],Q=new URLSearchParams(location.search),$=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+var A=window.FO_A||'',P=window.FO_MODES||[],Q=new URLSearchParams(location.search.replace(/^\?/,'').replace(/\?/g,'&')),$=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
 var RM=matchMedia('(prefers-reduced-motion: reduce)').matches||Q.get('still')==='1';
 var LOGO={1:'01-amex',2:'02-chase',3:'03-capital-one',4:'04-citi',9:'09-marriott',10:'10-hilton',11:'11-ihg',12:'12-hyatt',17:'17-united',18:'18-delta',19:'19-american',20:'20-southwest',25:'25-aeroplan',26:'26-flying-blue',32:'32-singapore',35:'35-turkish',37:'37-ana',47:'47-virgin-atlantic',48:'48-tap-air-portugal',50:'50-jal'};
 var NM=(window.CFG&&CFG.names)||{1:'Amex',2:'Chase',3:'Capital One',4:'Citi',9:'Marriott',10:'Hilton',11:'IHG',12:'Hyatt',17:'United',18:'Delta',19:'American',20:'Southwest',25:'Aeroplan',26:'Flying Blue',32:'Singapore',35:'Turkish',37:'ANA',47:'Virgin Atlantic',48:'TAP',50:'JAL'};
