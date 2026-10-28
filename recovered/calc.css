@@ -4,8 +4,14 @@
 .calc{--pe:#12834E;--pe7:#0F5E3B;--pb:#E8590C;--pr:#7149C9;--pl:#1E78B8;--card:0 0 0 1px rgba(20,18,22,.08),0 18px 36px -24px rgba(20,18,22,.35);--line:#ECEAEE}
 /* ---------- hero grid: inputs | phone | result ---------- */
 .qh{padding:30px 0 56px}
-.qw{max-width:1360px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0,1fr) 330px 372px;grid-template-areas:"top stage res" "pick stage res" "in stage res";grid-template-rows:auto auto 1fr;column-gap:36px;align-items:start}
-.qtop{grid-area:top;min-width:0}.qpick{grid-area:pick;min-width:0;margin-top:18px}.qstage{grid-area:stage;position:relative;padding-top:6px}.qin{grid-area:in;min-width:0;margin-top:20px}.qres{grid-area:res;min-width:0}.qquick{display:none}
+.qw{max-width:1360px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0,1fr) 330px 372px;grid-template-areas:"top stage res" "pick stage res" "in stage res" "more more res";grid-template-rows:auto auto 1fr auto;column-gap:36px;align-items:start}
+.qtop{grid-area:top;min-width:0}.qpick{grid-area:pick;min-width:0;margin-top:18px}.qstage{grid-area:stage;position:relative;padding-top:6px}.qin{grid-area:in;min-width:0;margin-top:20px}.qres{grid-area:res;min-width:0;align-self:stretch;display:flex}.qmore{grid-area:more;min-width:0;margin-top:14px}
+.qr{flex:1;display:flex;flex-direction:column}.qsp{flex:1}
+.qblocks .qb:nth-child(3):last-child{grid-column:1/-1}
+@media (min-width:1241px){.qin{display:flex;flex-direction:column;align-self:stretch}.qin .qblocks{flex:1;grid-auto-rows:1fr}.qb{display:flex;flex-direction:column}.qb .qbf{margin-top:auto}.qb input{margin-top:auto}
+ .qmore{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:end;margin-top:16px}.qmore .qtot b{font-size:23px}}
+.qmore .qtot{margin-top:0;gap:6px}.qmore .qtot>div{padding:8px 10px}.qmore .qtot b{font-size:21px}.qmore .qtot span{display:none}.qmore .qtot small{font-size:9px;letter-spacing:.08em}
+.qmore .qmix{display:block}.qmore .qmix>span{display:block;margin-bottom:6px}.qmore .qseg button{height:30px;padding:0 10px;font-size:12px}.qquick{display:none}
 .qh h1{font-size:60px;line-height:.98;margin:14px 0 12px;max-width:560px}
 .qh h1 .pk{display:block}
 .qsub{font-size:15.5px;line-height:1.5;color:var(--body);max-width:540px;margin:0}
@@ -82,12 +88,14 @@
 .qv{margin-top:16px;border-radius:16px;padding:16px 18px;background:var(--pe);color:#fff}
 .qv b{display:block;font-family:var(--serif);font-weight:400;font-size:36px;line-height:1;letter-spacing:-.01em}
 .qv p{font-size:14px;line-height:1.45;margin:8px 0 0}
-.qv ul{display:none}
+.qv ul{display:grid;list-style:none;margin:10px 0 0;padding:0;gap:6px}
+.qv li{display:flex;gap:8px;font-size:13.5px;line-height:1.35}
+.qv li b{flex:none;width:20px;height:20px;border-radius:6px;background:#fff;color:var(--pe);font:700 11px/20px var(--mono);text-align:center;letter-spacing:0}
+.qv.meh li b{color:var(--pb)}
+.qv li a{color:inherit;font-weight:700}
 .qv.meh{background:var(--pb)}
 .qv.no{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 2px var(--pink)}
 .qv.no b{color:var(--ink)}
-.qv.no ul{display:grid;list-style:none;margin:10px 0 0;padding:0;gap:6px}
-.qv.no li{display:flex;gap:8px;font-size:13.5px;line-height:1.35}
 .qv.no li b{flex:none;width:20px;height:20px;border-radius:6px;background:var(--pink);color:#fff;font:700 11px/20px var(--mono);text-align:center;letter-spacing:0}
 .qv.no li a{color:var(--pinkd);font-weight:700}
 .qctas{display:grid;grid-template-columns:1fr;gap:8px;margin-top:14px}
@@ -129,14 +137,14 @@
 .qtr .qx span{max-width:130px}
 /* ---------- mid widths ---------- */
 @media (max-width:1240px) and (min-width:761px){
- .qw{grid-template-columns:minmax(0,1fr) 330px;grid-template-areas:"top stage" "pick stage" "in stage" "res res";padding:0 28px}
+ .qw{grid-template-columns:minmax(0,1fr) 330px;grid-template-areas:"top stage" "pick stage" "in stage" "in more" "res res";grid-template-rows:auto auto 1fr auto auto;padding:0 28px}
  .qres{margin-top:24px}
  .qb4{grid-template-columns:1fr 1fr}
 }
 /* ---------- 390 first: phone + quick numbers side by side, then the blocks, then the full result ---------- */
 @media (max-width:760px){
  .qh{padding:14px 0 30px}
- .qw{grid-template-columns:205px minmax(0,1fr);grid-template-areas:"top top" "pick pick" "stage quick" "in in" "res res";grid-template-rows:none;column-gap:10px;padding:0 16px}
+ .qw{grid-template-columns:205px minmax(0,1fr);grid-template-areas:"top top" "pick pick" "stage quick" "in in" "more more" "res res";grid-template-rows:none;column-gap:10px;padding:0 16px}
  .qtop{text-align:center}
  .qh .mpill{height:26px;font-size:10px;letter-spacing:.12em;padding:0 12px}
  .qh h1{font-size:40px;line-height:1;margin:12px auto 10px;max-width:340px}
@@ -167,6 +175,7 @@
  .qbn b{font-size:30px}.qbn small{font-size:10.5px}
  .qbf{font-size:9.5px}
  .qtot{grid-template-columns:1fr 1fr 1fr;gap:6px}.qtot>div{padding:8px 10px}.qtot b{font-size:20px}.qtot span{display:none}.qtot small{font-size:8.5px;letter-spacing:.08em}
+ .qmore{margin-top:10px}.qmore .qtot b{font-size:20px}.qmore .qmix{display:flex}.qmore .qmix>span{margin:0}
  .qmix{gap:6px}.qseg button{height:32px;padding:0 11px;font-size:12px}
  .qres{margin-top:16px}
  .qr{padding:18px 16px 16px;border-radius:20px}

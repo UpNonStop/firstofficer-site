@@ -25,7 +25,7 @@ $$('#qtiles button').forEach(function(b){b.addEventListener('click',function(){i
 /* ---- spend blocks ---- */
 function blocks(){var p=D;
   $('#qblocks').innerHTML=p.cats.map(function(c,i){var mx=Math.max(20,Math.ceil(c[1]*3/5)*5);
-    return '<div class="qb"><div class="qbh"><label for="qs'+i+'">'+c[0]+'</label><span data-r="'+i+'">'+c[2]+' → '+c[3]+'</span></div><div class="qbn"><b data-v="'+i+'">$0</b><small>a month</small></div><input id="qs'+i+'" type="range" min="0" max="'+mx*1000+'" step="500" value="'+c[1]*1000+'" aria-label="'+c[0]+', dollars a month"><div class="qbf"><span>Today <b data-t="'+i+'"></b></span><span>Desk <b data-d="'+i+'"></b></span></div></div>'}).join('');
+    return '<div class="qb"><div class="qbh"><label for="qs'+i+'">'+c[0]+'</label><span data-r="'+i+'">'+c[2]+' → '+c[3]+'</span></div><div class="qbn"><b data-v="'+i+'">$0</b><small>a month</small></div><input id="qs'+i+'" type="range" min="0" max="'+mx*1000+'" step="100" value="'+c[1]*1000+'" aria-label="'+c[0]+', dollars a month"><div class="qbf"><span>Today <b data-t="'+i+'"></b></span><span>Desk <b data-d="'+i+'"></b></span></div></div>'}).join('');
   $$('#qblocks input').forEach(function(r,i){r.addEventListener('input',function(){S[i]=+r.value;calc()})});
 }
 function load(){D=P[idx];S=D.cats.map(function(c){return c[1]*1000});
@@ -52,7 +52,8 @@ function calc(){var p=D,mo=0,t=0,d=0,mxs=Math.max.apply(null,S.concat([1]));
   else if(hi>=FEE){cls='meh';t1='Close call.';sh='Close call';t2='It clears at the top of the range, not the bottom. Your Found Money Call settles it on your real statements, free.'}
   else{cls='no';t1='Not a fit yet.';sh='Not a fit yet';t2='The extra points are worth about '+kusd(lo)+' to '+kusd(hi)+' a year, under the $6,600. Here is what to do instead.'}
   v.className='qv '+cls;$('#qvt').textContent=t1;$('#qvp').textContent=t2;q.className='qqf '+cls;q.textContent=sh;
-  $('#qvl').innerHTML=cls==='no'?'<li><b>1</b><span>Keep the card you have. It is doing an honest job at this spend.</span></li><li><b>2</b><span>Use the <a href="freebies.html">Freebies</a>. Free guides, no desk needed.</span></li><li><b>3</b><span>Come back when you pass ~$25K a month on cards.</span></li>':'';
+  var L3=cls==='no'?['Keep the card you have. It is doing an honest job at this spend.','Use the <a href="freebies.html">Freebies</a>. Free guides, no desk needed.','Come back when you pass ~$25K a month on cards.']:cls==='meh'?['Book your Found Money Call. 20 minutes, free.','Your desk checks the range on your real statements.','If it does not clear, you will hear that on the call.']:['Book your Found Money Call. 20 minutes, free.','Your desk checks the numbers on your real statements.','Every move waits for your OK before it happens.'];
+  $('#qvl').innerHTML=L3.map(function(t,i){return '<li><b>'+(i+1)+'</b><span>'+t+'</span></li>'}).join('');
   if(cls==='no'){c1.href='freebies.html';c1.innerHTML='Get the Freebies <span class="ar">→</span>'}else{c1.href='book.html';c1.innerHTML='Get your desk <span class="ar">→</span>'}
   earn();burn();
 }

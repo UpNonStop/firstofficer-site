@@ -40,7 +40,8 @@ def hero():
 <div class="qin" id="calc">
 <div class="qlab"><span>Your spend by line, a month</span><small id="qwho"></small></div>
 <div class="qblocks" id="qblocks"></div>
-<div class="qtot"><div><small>On cards</small><b id="qtot">$35,000</b><span>a month</span></div><div><small>A year</small><b id="qtoty">$420k</b></div><div><small>Earns today</small><b id="qbl">1.2x</b><span>per $1, est.</span></div></div>
+</div>
+<div class="qmore"><div class="qtot"><div><small>On cards</small><b id="qtot">$35,000</b><span>a month</span></div><div><small>A year</small><b id="qtoty">$420k</b></div><div><small>Earns today</small><b id="qbl">1.2x</b><span>per $1, est.</span></div></div>
 <div class="qmix"><span>Your cards today</span><div class="qseg" id="qmix" role="radiogroup" aria-label="Your cards today">
 <button type="button" data-m="ex" class="on" role="radio" aria-checked="true">As shown</button><button type="button" data-m="1" role="radio" aria-checked="false">One 1x card</button><button type="button" data-m="1.5" role="radio" aria-checked="false">One 1.5x card</button><button type="button" data-m="2" role="radio" aria-checked="false">2% cash back</button></div></div>
 </div>
@@ -54,7 +55,7 @@ def hero():
 <div class="qgate"><div class="qgt"><span>Fit gate · ~$25K a month on cards</span><b data-k="gatev">$35K</b></div><div class="qgm"><u><i id="qgf"></i></u><em class="qgk"></em></div></div>
 <div class="qv" id="qv"><b id="qvt">Clears the fee.</b><p id="qvp"></p><ul id="qvl"></ul></div>
 <div class="qctas" id="qctas"><a class="btn pk" id="qc1" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href="'''+WA+'''">💬 Text Your First Officer</a></div>
-<p class="qfine">Your Found Money Call is 20 minutes and free. Estimates only: 85% of points used, 1.0¢ to 1.6¢ a point. The call checks it against your real statements.</p>
+<div class="qsp"></div><p class="qfine">Your Found Money Call is 20 minutes and free. Estimates only: 85% of points used, 1.0¢ to 1.6¢ a point. The call checks it against your real statements.</p>
 </div>
 </aside>
 </div></section>
