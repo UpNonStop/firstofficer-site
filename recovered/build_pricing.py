@@ -87,7 +87,7 @@ def page():
     assert 'class="on">Pricing' in h
     h=h.replace('<body class="modes calc">','<body class="modes calc pricing">')
     h=h.replace('Every industry mix shown is a typical example. All figures are examples and estimates.','All figures are estimates.')
-    return h
+    return B.absol(h)
 
 if __name__=='__main__':
     open(os.path.join(B.ROOT,'pricing-modes.html'),'w').write(page())
