@@ -62,6 +62,6 @@ function calc(){var p=P[cur],spend=0,t=0,d=0,rows='';
     return '<div class="cbk"><div style="background-image:url('+A+e[2]+')"></div><div class="cbb"><small>Burn · est.</small><h3>'+e[0].replace(/&/g,'&amp;')+'</h3><p>'+e[3]+'. About '+k(e[1])+' points, est.</p>'+
       '<div class="cbx">'+(x>=1?'<b>'+x.toFixed(1)+'×</b><span>times over, from a year of points with your desk</span>':'<b>'+Math.round(x*100)+'%</b><span>of it from one year with your desk</span>')+'</div></div></div>'}).join('');
 }
-var q=new URLSearchParams(location.search).get('ex'),st=0;P.forEach(function(p,i){if(q&&p.first.toLowerCase()===q.toLowerCase())st=i});
+var q=(location.href.match(/[?&#]ex=([a-z]+)/i)||[])[1],st=0;P.forEach(function(p,i){if(q&&p.first.toLowerCase()===q.toLowerCase())st=i});
 load(st);
 })();
