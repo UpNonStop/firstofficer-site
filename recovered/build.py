@@ -297,6 +297,7 @@ def absol(h):
     # htmlpreview.github.io serves assets from raw.githubusercontent.com, which Chrome blocks (ORB) and which breaks
     # relative font url()s once it inlines the CSS. Pin every image/font to the jsDelivr mirror of the same repo.
     return re.sub(r'((?:src|href)=["\']|url\()(img/|recovered/fonts/)',lambda m:m.group(1)+ASSET+m.group(2),h)
-open(os.path.join(ROOT,'home-recovered.html'),'w').write(absol(home()))
-open(os.path.join(ROOT,'product-recovered.html'),'w').write(absol(product()))
-print('built')
+if __name__=='__main__':
+    open(os.path.join(ROOT,'home-recovered.html'),'w').write(absol(home()))
+    open(os.path.join(ROOT,'product-recovered.html'),'w').write(absol(product()))
+    print('built')
