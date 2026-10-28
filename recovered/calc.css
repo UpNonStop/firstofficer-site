@@ -12,17 +12,21 @@
 .cseg button.on{color:var(--ink);font-weight:600}
 .cseg button.on::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--pink)}
 .cseg.sm button{padding:7px 10px;font-size:11.5px}
-/* ---------- hero ---------- */
-.ch{padding:46px 0 30px}
-.chg{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:56px;align-items:end}
-.ch h1{font-family:var(--serif);font-weight:400;font-size:58px;line-height:1.02;letter-spacing:-.02em;margin:18px 0 0;text-wrap:balance}
-.clede{font-size:16.5px;line-height:1.55;color:var(--body);margin:0 0 20px;max-width:470px}
-.cfacts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;border-top:1px solid var(--ink)}
-.cfacts>div{padding:12px 14px 0 0}
-.cfacts>div+div{padding-left:14px;border-left:1px solid var(--hair)}
-.cfacts dt{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--body)}
-.cfacts dd{margin:4px 0 0;font-family:var(--serif);font-size:28px;line-height:1.05;color:var(--ink)}
-.cfacts dd small{display:block;font-family:var(--sans);font-size:12.5px;color:var(--body);margin-top:2px}
+/* ---------- white page: no cream, no pastel. Photography carries the colour ---------- */
+.calc [hidden]{display:none!important}
+body.calc{--cream:#fff;--cream2:#fff;--cream3:#fff;--blush:#fff;background:#fff}
+.calc main,.calc .nav,.calc footer,.calc .foot,.calc section{background-color:#fff}
+/* ---------- hero: headline + real photography ---------- */
+.ch{padding:22px 0 18px}
+.chg{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:40px;align-items:center}
+.ch h1{font-family:var(--serif);font-weight:400;font-size:48px;line-height:1.02;letter-spacing:-.02em;margin:12px 0 0;text-wrap:balance}
+.clede{font-size:16px;line-height:1.45;color:var(--body);margin:10px 0 0;max-width:640px}
+.cfl{display:flex;flex-wrap:wrap;gap:6px 18px;margin:10px 0 0;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.cfl span{display:inline-flex;align-items:center;gap:8px}.cfl span+span::before{content:"";width:1px;height:12px;background:var(--hair)}
+.chph{position:relative;margin:0 0 14px;height:250px}
+.chph img{position:absolute;object-fit:cover;display:block;border-radius:14px;box-shadow:0 24px 50px -30px rgba(20,18,22,.55)}
+.chph .a{right:0;top:0;width:86%;height:100%;object-position:60% 40%}
+.chph .b{left:0;bottom:-18px;width:40%;height:52%;border:5px solid #fff;object-position:50% 45%}
 /* ---------- labels ---------- */
 .clab{display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:0 0 12px;min-height:20px}
 .clab>span{display:inline-flex;align-items:center;gap:10px}
@@ -46,8 +50,84 @@
 .cctab h2{font-size:34px;margin:10px 0 8px}
 .cctab p{font-size:14px;color:var(--body);margin:0;max-width:520px}
 .cctb{display:flex;gap:10px;flex:none}
-/* ---------- the tool ---------- */
+/* ---------- level switch: Basic / Advanced ---------- */
+.cmode{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-bottom:1px solid var(--ink);margin:0 0 0}
+.cmode button{appearance:none;background:none;border:0;text-align:left;padding:12px 18px 12px 0;cursor:pointer;position:relative;display:grid;grid-template-columns:auto 1fr;grid-template-areas:"s s" "b t";column-gap:12px;align-items:baseline}
+.cmode button+button{padding-left:22px;border-left:1px solid var(--hair)}
+.cmode small{grid-area:s;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.cmode b{grid-area:b;font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.1;color:var(--mute);transition:color .15s}
+.cmode span{grid-area:t;font-size:13.5px;color:var(--mute)}
+.cmode button.on b{color:var(--ink)}.cmode button.on span{color:var(--body)}.cmode button.on small{color:var(--pink)}
+.cmode button::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:4px;background:transparent;transition:background .15s}
+.cmode button+button::after{left:22px}
+.cmode button.on::after{background:var(--pink)}
+.cmode button:hover b{color:var(--ink)}
+/* ---------- BASIC ---------- */
+.cbas{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) 300px;grid-template-areas:"q a p" "bar bar p" "go go go";column-gap:44px;padding:20px 0 8px}
+.bq{grid-area:q}.ba{grid-area:a}.cbas .ctier{grid-area:p}.bbar{grid-area:bar}.bgo{grid-area:go}
+.bql{display:block;font-family:var(--serif);font-size:27px;line-height:1.15;color:var(--ink)}
+.bin{display:flex;align-items:baseline;gap:6px;margin:8px 0 4px;border-bottom:2px solid var(--ink);padding-bottom:4px;transition:border-color .15s}
+.bin:focus-within{border-color:var(--pink)}
+.bin span{font-family:var(--serif);font-size:38px;color:var(--mute)}
+.bin input{flex:1;min-width:0;border:0;outline:0;background:none;font-family:var(--serif);font-size:64px;line-height:1;letter-spacing:-.02em;color:var(--ink);padding:0;font-variant-numeric:tabular-nums}
+.bin small{font-size:14px;color:var(--body);white-space:nowrap}
+/* the first calculator's running bar: thick track, pink fill that follows the thumb */
+.bsw{position:relative;margin:14px 0 0}
+.bsl{-webkit-appearance:none;appearance:none;display:block;width:100%;height:34px;margin:0;cursor:pointer;touch-action:pan-y;background:linear-gradient(var(--pink),var(--pink)) 0 50%/var(--p,0%) 10px no-repeat,linear-gradient(rgba(20,18,22,.09),rgba(20,18,22,.09)) 0 50%/100% 10px no-repeat}
+.bsl::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:34px;border-radius:4px;background:var(--pink);border:0;box-shadow:0 0 0 3px #fff,0 6px 14px -4px rgba(250,24,150,.55)}
+.bsl::-moz-range-thumb{width:14px;height:34px;border-radius:4px;background:var(--pink);border:0}
+.bsl:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
+.bgt{position:absolute;top:2px;bottom:2px;width:2px;margin-left:-1px;background:var(--ink);pointer-events:none}
+.bgt span{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:6px;font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.bsx{display:flex;justify-content:space-between;font:500 10px var(--mono);color:var(--mute);margin-top:8px}
+.bmin{display:none}
+.bact{display:flex;align-items:center;gap:12px;margin-top:22px;flex-wrap:wrap}
+.brun{appearance:none;display:inline-flex;align-items:center;gap:10px;border:1px solid var(--ink);background:#fff;color:var(--ink);font:600 13.5px/1 var(--sans);padding:10px 16px;border-radius:8px;cursor:pointer;transition:background .15s,color .15s}
+.brun i{width:0;height:0;border-left:9px solid currentColor;border-top:5.5px solid transparent;border-bottom:5.5px solid transparent}
+.brun.on i{width:9px;height:9px;border:0;background:currentColor}
+.brun:hover{border-color:var(--pink);color:var(--pink)}
+.brun.on{border-color:var(--pink);color:var(--pink)}
+.bact small{font-size:12px;color:var(--mute)}
+.bbl{font-size:12.5px;line-height:1.45;color:var(--body);margin:14px 0 0}
+.ba{border-left:1px solid var(--hair);padding-left:36px}
+.bal{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--body)}
+.bfind{display:block;font-family:var(--serif);font-weight:400;font-size:104px;line-height:.92;letter-spacing:-.035em;color:var(--pink);margin:8px 0 6px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cbas.no .bfind,.cbas.meh .bfind{color:var(--ink)}
+.bsub{display:block;font-size:14px;color:var(--body)}.bsub em{font-family:var(--mono);font-size:12px;color:var(--mute);margin-left:4px}
+.bvs{display:flex;align-items:baseline;gap:10px;margin:14px 0 0;padding:10px 0 0;border-top:1px solid var(--hair)}
+.bvs span{font-size:13px;color:var(--body)}.bvs span:first-child{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.bvs b{font-family:var(--serif);font-weight:400;font-size:34px;line-height:1;color:var(--ink)}
+.bk{display:grid;grid-template-columns:1fr 1fr;margin:14px 0 0;border-top:1px solid var(--ink)}
+.bk>div{padding:10px 10px 0 0}.bk>div+div{padding-left:16px;border-left:1px solid var(--hair)}
+.bk dt{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--body)}
+.bk dd{margin:6px 0 0;font-family:var(--serif);font-size:44px;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bk .ret dd{color:var(--pink)}.cbas.no .bk .ret dd{color:var(--ink)}
+.bverd{font-size:13.5px;line-height:1.5;color:var(--body);margin:14px 0 0}
+.bverd b{font-family:var(--serif);font-weight:400;font-size:21px;color:var(--ink);margin-right:4px}
+.bbar{padding:6px 0 0}
+.bbar .cbal{padding-top:30px}
+.bgo{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:22px;padding:18px 0 4px;border-top:1px solid var(--hair)}
+.bgob{appearance:none;background:none;border:0;cursor:pointer;padding:6px 0;font:600 17px/1.3 var(--sans);color:var(--ink);text-align:left}
+.bgob span{font-weight:400;color:var(--body);font-size:14.5px}
+.bgob i{display:inline-block;color:var(--pink);margin-left:6px;transition:transform .2s}
+.bgob:hover i{transform:translateX(4px)}
+.bgob:hover{color:var(--pink)}
+/* ---------- the photo that answers the result ---------- */
+.ctier{position:relative;margin:0;overflow:hidden;border-radius:14px;min-height:280px;background:#fff}
+.ctp,.cip{position:absolute;inset:0}
+.ctp img,.cip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .25s ease-out;display:block}
+.ctp img.on,.cip img.on{opacity:1}
+.ctier figcaption,.cind figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 14px;background:linear-gradient(to top,rgba(10,9,12,.62),rgba(10,9,12,0));color:#fff}
+.ctier figcaption b{display:block;font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.1}
+.ctier figcaption span{display:block;font-size:12.5px;margin-top:4px;opacity:.92}
+.cres .ctier{min-height:0;height:150px;margin:0 0 20px}
+/* ---------- the tool (advanced) ---------- */
 .ct{padding:0 0 64px}
+#adv{margin-top:26px}
+.cind{position:relative;margin:0 0 22px;height:170px;overflow:hidden;border-radius:14px}
+.cind figcaption b{display:block;font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.05}
+.cind figcaption span{display:block;font-size:12.5px;opacity:.92;margin-top:3px}
+
 .cbox{display:grid;grid-template-columns:minmax(0,1fr) 520px;align-items:start;background:#fff;border-radius:22px;box-shadow:0 0 0 1px var(--hair),0 30px 60px -40px rgba(20,18,22,.35);overflow:clip}
 .cin{padding:30px 34px 32px}
 .cres{align-self:stretch;border-left:1px solid var(--hair);background:#fff}
@@ -56,7 +136,7 @@
 /* example selector */
 .cex{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--hair);border-left:1px solid var(--hair);margin-bottom:26px}
 .cex button{appearance:none;background:#fff;border:0;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:9px 10px 8px;text-align:left;cursor:pointer;position:relative;min-width:0;transition:background .15s}
-.cex button:hover{background:#FBF8F2}
+.cex button:hover{background:#fff;color:var(--pink)}
 .cex button b{display:block;font:600 13px/1.2 var(--sans);color:var(--ink)}
 .cex button small{display:block;font:500 10.5px/1.3 var(--mono);color:var(--mute);margin-top:2px}
 .cex button.on::after{content:"";position:absolute;left:-1px;right:-1px;bottom:-1px;height:3px;background:var(--pink)}
@@ -148,7 +228,7 @@
 .chowl{display:inline-block;margin-top:12px;font-size:12.5px;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--hair);padding-bottom:2px}
 .chowl:hover{border-color:var(--pink)}
 /* ---------- responsive ---------- */
-@media (max-width:1180px){.cbox{grid-template-columns:minmax(0,1fr) 460px}.cfind b{font-size:64px}.cbtn{grid-template-columns:1fr}}
+@media (max-width:1180px){.cbas{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"q a" "bar bar" "p p" "go go"}.cbas .ctier{min-height:200px;margin-top:22px}.bfind{font-size:92px}.cbox{grid-template-columns:minmax(0,1fr) 460px}.cfind b{font-size:64px}.cbtn{grid-template-columns:1fr}}
 @media (max-width:980px){
  .cbox{grid-template-columns:minmax(0,1fr)}
  .cres{border-left:0;border-top:1px solid var(--ink)}
@@ -160,6 +240,28 @@
 }
 @media (max-width:760px){
  .cw{padding:0 16px}
+
+ .chph{height:112px;margin:0}
+ .bmin{display:block;margin:12px 0 0;padding:8px 10px;border:1px solid var(--pink);border-radius:8px;font-size:13px;line-height:1.3;color:var(--ink)}.bmin b{font-family:var(--serif);font-weight:400;font-size:19px;color:var(--pink)}
+ .cbas.no .bmin b{color:var(--ink)}.cbas.no .bmin{border-color:var(--hair)}.chph .a{width:64%;border-radius:10px}.chph .b{width:34%;height:100%;bottom:auto;top:0;left:0;border:0;border-radius:10px}
+ .ch .clede{display:none}
+ .ch{padding:16px 0 16px!important}
+ .ch h1{font-size:32px!important;margin-top:10px}
+ .chg{gap:14px!important}
+ .cfl{margin-top:8px}
+ .cfl{font-size:9.5px;letter-spacing:.08em}.cfl span+span::before{display:none}
+ .cmode button{padding:10px 8px 10px 0;column-gap:8px;grid-template-areas:"s" "b" "t";grid-template-columns:1fr}
+ .cmode button+button{padding-left:12px}.cmode button+button::after{left:12px}
+ .cmode b{font-size:26px}.cmode span{font-size:12px}
+ .cbas{grid-template-columns:minmax(0,1fr);grid-template-areas:"q" "a" "bar" "p" "go";padding-top:18px}
+ .bql{font-size:22px}
+ .bin input{font-size:50px}.bin span{font-size:30px}
+ .ba{border-left:0;padding-left:0;margin-top:22px;padding-top:16px;border-top:1px solid var(--ink)}
+ .bfind{font-size:80px}
+ .bk dd{font-size:34px}
+ .cbas .ctier{min-height:180px}
+ .bgo{flex-direction:column;align-items:stretch}.bgo .btn{justify-content:center}
+ .bact small{flex-basis:100%}
  .ch{padding:30px 0 22px}
  .chg{grid-template-columns:minmax(0,1fr);gap:20px}
  .ch h1{font-size:38px}
