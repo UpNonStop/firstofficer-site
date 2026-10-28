@@ -146,7 +146,7 @@ def note():
        'Everything I\'ve learned, tested and dug up about points and miles is on this site, free. Read it, use it, keep it. I put it all in the <a href="freebies.html">"Freebies"</a> section which I update daily.',
        "But if you'd rather have my team and me in your corner, doing the work and getting you there faster, we've priced it for owners like you: $550 a month, flat.",
        '<mark class="nhl">Our promise is simple: make programs that look complicated feel easy.</mark>',
-       '<a href="calculator.html">Run your numbers in the calculator</a> today. If we\'re not a fit, it shows you that too.']
+       '<a href="calculator.html">Run your numbers in the calculator</a> today. If we\'re not a fit, it\'ll tell you, and so will I.']
     body=''.join('<p%s>%s</p>\n'%(' class="nlead"' if i==0 else '',_jit(t,i*97+11)) for i,t in enumerate(P))
     return ('<section class="mnote" id="note" aria-label="Note from Ohad"><div class="wrap">\n<div class="ncard reveal">\n'
       '<span class="nlab">Note from Ohad</span>\n<div class="nbody">\n'+body+
