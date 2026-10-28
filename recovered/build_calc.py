@@ -21,9 +21,9 @@ def bal(id_):
 <div class="cbx"><span>$0</span><span data-k="bmax">$1,650</span></div>
 </div>"""
 
-def card():
+def card(adv='#advs',fine=None):
     return """<div class="cq fit" id="bas">
-<div class="cqh"><span class="wk">Does it clear the fee?</span><a class="cqa" href="#advs" id="bgo">Go advanced <span class="ar">↓</span></a></div>
+<div class="cqh"><span class="wk">Does it clear the fee?</span><a class="cqa" href=\""""+adv+"""\" id="bgo">Go advanced <span class="ar">↓</span></a></div>
 <label class="bql" for="bv">Your business card spend each month</label>
 <div class="bin"><span>$</span><input id="bv" type="text" inputmode="numeric" autocomplete="off" value="35,000" aria-label="Your business card spend each month, in dollars"><small>a month</small></div>
 <div class="bsw"><input id="bs" class="bsl" type="range" min="0" max="100000" step="500" value="35000" aria-label="Your business card spend each month, slider"><i class="bgt" style="left:25%"><span>~$25K fit</span></i></div>
@@ -36,7 +36,7 @@ def card():
 <p class="bverd"><b class="bvk" aria-hidden="true">✓</b><span><strong id="bvt">Clears the fee.</strong> <span id="bvp"></span></span></p>
 <div class="bact"><button type="button" class="brun" id="brun" aria-pressed="false"><i></i><span>Watch it run</span></button><small>$10K to $80K. Touch anything to stop.</small></div>
 <div class="mctas"><a class="btn pk" id="bc1" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='"""+WA+"""'>💬 Text Your First Officer</a></div>
-<p class="wfine">Blended rate, est.: about 1.2 points per $1 on your cards today, about 3.4 with your desk. Your lines can earn more or less. <a href="#advs">Go advanced</a> for every line.</p>
+<p class="wfine">"""+(fine or 'Blended rate, est.: about 1.2 points per $1 on your cards today, about 3.4 with your desk. Your lines can earn more or less. <a href="#advs">Go advanced</a> for every line.')+"""</p>
 </div>"""
 
 def hero():
@@ -148,7 +148,8 @@ def page():
     h=h.replace('<a class="btn pk" href="'+WA+'">💬 Text Your First Officer</a>\n<button class="burger"','<span class="nbtns"><a class="btn pk" href="book.html">Get your desk</a><a class="btn wa" href="'+WA+'">💬 Text Your First Officer</a></span>\n<button class="burger"',1)
     h=h.replace('<a class="btn pk" href="'+WA+'">💬 Text Your First Officer</a>\n</div>','<a class="btn wa" href="'+WA+'">💬 Text Your First Officer</a>\n</div>',1)
     assert 'class="nbtns"' in h and 'class="btn pk" href="'+WA not in h
-    h=h.replace('href="calculator.html"','href="calculator-modes.html"')
+    h=h.replace('href="calculator.html"','href="calculator-modes.html"').replace('href="pricing.html"','href="pricing-modes.html"')
     return B.absol(h)
-open(os.path.join(B.ROOT,'calculator-modes.html'),'w').write(page())
-print('built calculator-modes.html')
+if __name__=='__main__':
+    open(os.path.join(B.ROOT,'calculator-modes.html'),'w').write(page())
+    print('built calculator-modes.html')

@@ -82,7 +82,8 @@ function bcalc(){var r=month([[B,BT,BD]],'mix'),v=verdict(r);
   bv.value=B.toLocaleString('en-US');if(document.activeElement!==bv){}
   if(+bs.value!==B&&B<=+bs.max)bs.value=B;if(B>+bs.max)bs.value=bs.max;fill(bs);
   paint(BAS,r);bar($('#bbal'),r);
-  BAS.className='cq '+v.c;say(BAS,$('#bvt'),$('#bvp'),v)}
+  BAS.className='cq '+v.c;say(BAS,$('#bvt'),$('#bvp'),v);
+  $$('a[data-full]',BAS).forEach(function(a){a.href=a.getAttribute('data-full')+'?m=adv&spend='+B})}
 bs.addEventListener('input',function(){B=+bs.value;bcalc()});
 bv.addEventListener('input',function(){var c=bv.selectionStart,l=bv.value.length;B=Math.min(2e6,+(bv.value.replace(/[^0-9]/g,''))||0);bcalc();
   var n=bv.value.length;try{bv.setSelectionRange(Math.max(0,c+n-l),Math.max(0,c+n-l))}catch(e){}});
@@ -101,6 +102,7 @@ run.addEventListener('click',go);
 ['pointerdown','keydown','wheel','touchstart'].forEach(function(ev){window.addEventListener(ev,function(e){if(running&&!run.contains(e.target))stop()},{capture:true,passive:true})});
 /* ================= ADVANCED ================= */
 var ADV=$('#adv');
+if(ADV){
 var SEL=$('#cind');
 SEL.innerHTML=IN.map(function(p,i){return '<option value="'+i+'">'+(p.ind==='Other'?'Other / start blank':p.ind)+'</option>'}).join('');
 SEL.addEventListener('change',function(){idx=+SEL.value;load()});
@@ -137,18 +139,20 @@ function calc(){var L=D.cats.map(function(c,i){return [S[i],rateT(c),parseFloat(
   var gt=$('#cgt');$('.fill',gt).style.width=pc(r.mo,GMAX);$('.fee',gt).style.left=pc(GATE,GMAX);gt.classList.toggle('under',r.mo<GATE);
   $('#cv').className='cv '+v.c;$('.cres').className='cres '+v.c;$('.cmini').className='cmini '+v.c;
   say(ADV,$('#cvt'),$('#cvp'),v)}
+}
 /* ================= GO ADVANCED: scroll down, no tabs ================= */
 function toAdv(sm){stop();var el=$('#advs');if(!el)return;var y=el.getBoundingClientRect().top+scrollY-70;scrollTo({top:y,behavior:sm&&!RM?'smooth':'auto'})}
 $$('a[href="#advs"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();toAdv(true)})});
 (function(){var g=$('#bgo'),A=$('#advs');if(!g)return;function seen(){g.classList.add('seen')}
 g.addEventListener('click',seen);$$('a[href="#advs"]').forEach(function(a){a.addEventListener('click',seen)});
+if(!A)setTimeout(seen,8000);
 if(A&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){seen();io.disconnect()}})},{threshold:.15});io.observe(A)}})();
 /* ================= HERO BACKGROUND: the landing's rotating photos ================= */
 (function(){var bg=$('.mbg');if(!bg)return;var N=[];for(var i=0;i<=30;i++)N.push(A+'img/rec/bg/'+(i<10?'0':'')+i+'.webp');
   var off=Math.floor(Math.random()*N.length),cur=0,els=[0,1].map(function(){var e=document.createElement('i');bg.insertBefore(e,bg.firstChild);return e});
   els[0].style.backgroundImage='url('+N[off]+')';els[0].classList.add('on');
   if(!RM)setInterval(function(){var nx=els[1-cur];off=(off+1)%N.length;nx.style.backgroundImage='url('+N[off]+')';var im=new Image();im.onload=function(){nx.classList.add('on');els[cur].classList.remove('on');cur=1-cur};im.src=N[off]},5200)})();
-bcalc();load();
+bcalc();if(ADV)load();
 if(want||/[?&#]m=adv/.test(q))setTimeout(function(){toAdv(false)},60);
 first=false;
 })();

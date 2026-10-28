@@ -370,3 +370,25 @@
  .cqh .wk{white-space:nowrap;letter-spacing:.08em;font-size:10px}
  .cqa{padding:0 12px}
 }
+
+/* ---------- pricing-modes.html: same hero, card and type system as the calculator; only what pricing adds ---------- */
+.pricing .chow{padding-bottom:40px}
+.pricing .pnum{padding-top:96px}
+.chow .p4.p3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pc4.pp .ppv{display:flex;align-items:baseline;gap:10px;margin:16px 0 10px;padding-bottom:14px;border-bottom:1px solid rgba(20,18,22,.1)}
+.pc4.pp .ppv span{font-family:var(--serif);font-size:54px;line-height:1;color:var(--ink);letter-spacing:-.01em}
+.pc4.pp.k-earn .ppv span{color:var(--pink)}
+.pc4.pp .ppv small{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--body)}
+.pc4 .pn b:only-child{padding:3px 8px;letter-spacing:.12em}
+.pfit .pc4 .pn b{font-size:11px}
+.casl.pq>div{grid-template-columns:minmax(0,1fr);gap:6px;padding:16px 0}
+.casl.pq dt{font:700 15px/1.35 var(--sans);letter-spacing:0;text-transform:none;padding:0}
+.casl.pq dd a{color:var(--ink);font-weight:600}
+.pricing .cpro{margin-top:48px}
+@media (max-width:980px){.chow .p4.p3{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:760px){
+ .pricing .pnum{padding-top:64px}
+ .pc4.pp .ppv span{font-size:46px}
+ .chow .p4.p3{gap:12px;margin-top:24px}
+ .casl.pq>div{padding:14px 0}
+}
