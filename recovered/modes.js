@@ -88,9 +88,4 @@ var bg=$('.mbg'),N=[];for(var i=0;i<=30;i++)N.push(A+'img/rec/bg/'+(i<10?'0':'')
 var off=Math.floor(Math.random()*N.length),cur=0,els=[0,1].map(function(){var e=document.createElement('i');bg.insertBefore(e,bg.firstChild);return e});
 els[0].style.backgroundImage='url('+N[off]+')';els[0].classList.add('on');
 if(!RM)setInterval(function(){var nx=els[1-cur];off=(off+1)%N.length;nx.style.backgroundImage='url('+N[off]+')';var im=new Image();im.onload=function(){nx.classList.add('on');els[cur].classList.remove('on');cur=1-cur};im.src=N[off]},5200);
-/* ---- mobile sticky bar: hidden until the hero CTAs leave, hidden again near the closing CTA ---- */
-var m=$('.mcta'),ctas=$('#mctas'),end=$('.ctab');
-if(m&&ctas&&'IntersectionObserver' in window){var past=false,near=false;function up(){m.classList.toggle('show',past&&!near)}
-  new IntersectionObserver(function(es){es.forEach(function(e){past=!e.isIntersecting&&e.boundingClientRect.top<0;up()})}).observe(ctas);
-  if(end)new IntersectionObserver(function(es){es.forEach(function(e){near=e.isIntersecting;up()})}).observe(end);}
 })();
