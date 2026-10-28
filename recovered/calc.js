@@ -83,7 +83,7 @@ function bcalc(){var r=month([[B,BT,BD]],'mix'),v=verdict(r);
   if(+bs.value!==B&&B<=+bs.max)bs.value=B;if(B>+bs.max)bs.value=bs.max;fill(bs);
   paint(BAS,r);bar($('#bbal'),r);
   BAS.className='cq '+v.c;say(BAS,$('#bvt'),$('#bvp'),v);
-  $$('a[data-full]',BAS).forEach(function(a){a.href=a.getAttribute('data-full')+'?m=adv&spend='+B})}
+  $$('a[data-full]',BAS).forEach(function(a){if(!a._b)a._b=a.getAttribute('href').split('#')[0];a.setAttribute('href',a._b.replace(/([?&])m=adv.*$/,'$1m=adv&spend='+B))})}
 bs.addEventListener('input',function(){B=+bs.value;bcalc()});
 bv.addEventListener('input',function(){var c=bv.selectionStart,l=bv.value.length;B=Math.min(2e6,+(bv.value.replace(/[^0-9]/g,''))||0);bcalc();
   var n=bv.value.length;try{bv.setSelectionRange(Math.max(0,c+n-l),Math.max(0,c+n-l))}catch(e){}});
