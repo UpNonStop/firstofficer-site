@@ -46,10 +46,10 @@ def hero():
 </div>
 <div class="mrest">
 <p class="mlab"><span data-k="label">Example: Leo, Linden Row Insurance, Columbus, OH. Fictional. Figures are estimates.</span> <button class="wnext" type="button">Next example →</button></p>
-<p class="msub">Every loyalty program has a team constantly rewriting the rules. While you run your business, your spend earns less than it should, and your points buy less than they could. Your desk of specialists across 50+ programs fixes that.</p>
+<p class="msub">Every loyalty program has a team constantly rewriting the rules. While you run your business, your spend earns less than it should, and your points buy less than they could. Your desk of specialists fixes that.</p>
 <p class="mtag">Your spend, working harder.<br>Your points, going further.</p>
 <div class="mctas" id="mctas"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn ghost" href="#how">See how it works</a></div>
-<div class="mlogos">{logos}<span>50+ programs. One desk.</span></div>
+<div class="mlogos">{logos}<span>Every program. One desk.</span></div>
 </div>
 </div></section>
 '''
@@ -106,11 +106,12 @@ def note():
 '''
 
 def page():
-    h=B.head('First Officer | You are not bad at Points & Miles','First Officer by UpNonStop: your rewards desk across 50+ programs. Earn, Burn, Return, Learn.')
+    h=B.head('First Officer | You are not bad at Points & Miles','First Officer by UpNonStop: your rewards desk. Earn, Burn, Return, Learn.')
     h=h.replace('<link rel="stylesheet" href="recovered/rec.css">','<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap">\n<link rel="stylesheet" href="recovered/rec.css">\n<link rel="stylesheet" href="recovered/modes.css">')
-    h+='<body class="modes">\n'+B.nav('').replace('home-recovered.html','home-modes.html')+B.ticker()+'<main>\n'+hero()+note()+how()+win()+B.cta()+'</main>\n'
+    h+='<body class="modes">\n'+B.nav('').replace('home-recovered.html','home-modes.html').replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')+B.ticker()+'<main>\n'+hero()+note()+how()+win()+B.cta()+'</main>\n'
     h+=B.footer().replace('home-recovered.html','home-modes.html').replace('Leo and Linden Row Insurance are fictional. All figures are examples and estimates.','Every owner shown is a fictional example. All figures are examples and estimates.')
     h+='<script>window.FO_A="'+B.ASSET+'";</script>\n<script src="recovered/rec.js"></script>\n<script src="recovered/fo-modes-data.js"></script>\n<script src="recovered/modes.js"></script>\n</body>\n</html>\n'
+    h=h.replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')
     return B.absol(h)
 open(os.path.join(ROOT,'home-modes.html'),'w').write(page())
 print('built home-modes.html')
