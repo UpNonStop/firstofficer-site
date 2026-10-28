@@ -1,4 +1,4 @@
-/* home-modes.html: persona pick, phone tabs, modes box, hero photos, sticky bar. Mockup only. */
+/* home-modes.html: persona pick, phone tabs, local clock, hero photos, proof marquee. Mockup only. */
 (function(){
 var A=window.FO_A||'',P=window.FO_MODES||[],Q=new URLSearchParams(location.search.replace(/^\?/,'').replace(/\?/g,'&')),$=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
 var RM=matchMedia('(prefers-reduced-motion: reduce)').matches||Q.get('still')==='1';
@@ -13,10 +13,12 @@ function x(n){if(typeof n==='string')return n;return (+n).toFixed(1).replace(/\.
 var idx=parseInt(Q.get('p'),10);
 if(!(idx>=1&&idx<=P.length)){var last=-1;try{last=+localStorage.getItem('fo_modes_last')}catch(e){}
   do{idx=1+Math.floor(Math.random()*P.length)}while(P.length>1&&idx===last)}
-var hr=Q.has('h')?+Q.get('h'):new Date().getHours();
-var greet=hr<5?'Good evening':hr<12?'Good morning':hr<17?'Good afternoon':'Good evening';
+/* ---- the phone shows the visitor's local time (H:MM); 9:41 stays as the no-JS fallback. ?h= pins the hour for tests ---- */
+var greet='Good evening';
+function clock(){var d=new Date(),h=Q.has('h')?+Q.get('h'):d.getHours(),m=Q.has('h')?41:d.getMinutes();
+  greet=h<5?'Good evening':h<12?'Good morning':h<17?'Good afternoon':'Good evening';
+  var t=(h%12||12)+':'+(m<10?'0':'')+m;k('clock',t);[].forEach.call(document.querySelectorAll('.cel .sb>span'),function(e){e.textContent=t});if(D)k('greet',greet+', '+D.first)}
 var D,tab=['earn','burn','return','learn'].indexOf(Q.get('tab'))>=0?Q.get('tab'):'earn';
-var LINES={earn:'More points from the same spend',burn:'Better trips for your points',return:'Money found, every Friday',learn:'Know what your points are worth'};
 function k(n,v,html){$$('[data-k="'+n+'"]').forEach(function(e){if(html)e.innerHTML=v;else e.textContent=v})}
 function chips(ids){return '<div class="zlgs">'+ids.map(function(i){return '<span><img src="'+lg(i)+'" alt="">'+NM[i]+'</span>'}).join('')+'</div>'}
 function render(){
@@ -69,20 +71,18 @@ function show(t,quiet){
   ph.className='mphone p-'+t;
   k('greet',greet+', '+p.first);
   k('title',t==='learn'?poss(p.first)+' Learn':poss(p.short)+' '+t.charAt(0).toUpperCase()+t.slice(1));
-  k('mline',LINES[t]);
   $$('.mpane').forEach(function(e){e.classList.toggle('on',e.dataset.t===t)});
-  $$('.mtb button,.mchips button').forEach(function(b){var on=b.dataset.t===t;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});
-  /* restart the progress fill on the active chip */
-  var c=$('.mchips button.on');if(c){c.classList.remove('on');void c.offsetWidth;c.classList.add('on')}
+  $$('.mtb button').forEach(function(b){var on=b.dataset.t===t;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});
 }
-/* ---- auto-cycle until the user touches the modes or the tabs ---- */
+/* ---- the phone's own tabs pulse one at a time and the modes auto-cycle, until the visitor taps a tab ---- */
 var T=['earn','burn','return','learn'],DUR=5200,timer=null,held=RM||Q.has('tab');
-function hold(){held=true;clearInterval(timer);$('.mmodes').classList.add('held')}
+if(RM)document.documentElement.classList.add('fo-still');
+function hold(){held=true;clearInterval(timer);$('.mtb').classList.add('held');$('.mstage').classList.add('tried')}
 function cycle(){if(held)return;timer=setInterval(function(){show(T[(T.indexOf(tab)+1)%4])},DUR)}
-$$('.mtb button,.mchips button').forEach(function(b){b.addEventListener('click',function(){hold();show(b.dataset.t)})});
-$('.mmodes').style.setProperty('--dur',DUR+'ms');
+$$('.mtb button').forEach(function(b){b.addEventListener('click',function(){hold();show(b.dataset.t)})});
 $$('.wnext').forEach(function(nb){nb.addEventListener('click',function(){idx=idx%P.length+1;render();if(!held){clearInterval(timer);cycle()}})});
-render();if(held)$('.mmodes').classList.add('held');cycle();
+render();clock();setTimeout(function(){clock();setInterval(clock,60000)},(60-new Date().getSeconds())*1000);
+if(held)$('.mtb').classList.add('held');cycle();
 /* ---- hero photos: low opacity, rotating ---- */
 var bg=$('.mbg'),N=[];for(var i=0;i<=30;i++)N.push(A+'img/rec/bg/'+(i<10?'0':'')+i+'.webp');
 var off=Math.floor(Math.random()*N.length),cur=0,els=[0,1].map(function(){var e=document.createElement('i');bg.insertBefore(e,bg.firstChild);return e});

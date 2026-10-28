@@ -11,7 +11,8 @@ def hero():
 <div class="mwrap">
 <div class="mtop">
 <span class="mpill"><i></i>Earn · Burn · Return · Learn</span>
-<h1>You are not bad at Points &amp; Miles. You are just <span class="pk">outnumbered.</span></h1>
+<h1>You run the business. <span class="pk">The desk runs the points.</span></h1>
+<p class="mout">You're not bad at points &amp; miles. You're just outnumbered.</p>
 <ul class="mprob" aria-label="The problem">
 <li><b>×</b><span>Your biggest spend earns <strong data-k="fromx">1.2x</strong>.</span></li>
 <li><b>×</b><span>Your points sit while the rules change.</span></li>
@@ -20,7 +21,7 @@ def hero():
 </div>
 <div class="mstage">
 <div class="mphone p-earn" id="mphone"><div class="mscr">
-<div class="msb"><span>9:41</span><span class="isl"></span><span class="sig"><svg width="16" height="10" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><u></u></span></div>
+<div class="msb"><span class="mclk" data-k="clock">9:41</span><span class="isl"></span><span class="sig"><svg width="16" height="10" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><u></u></span></div>
 <div class="mah"><img src="img/rec/chev.png" alt=""><b>First Officer</b><span>Example</span></div>
 <div class="mgr"><small data-k="greet">Good evening, Leo</small><h4 data-k="title">Linden Row's Earn</h4></div>
 <div class="mpanes"><div class="mpane" data-t="earn"></div><div class="mpane" data-t="burn"></div><div class="mpane" data-t="return"></div><div class="mpane" data-t="learn"></div></div>
@@ -31,10 +32,8 @@ def hero():
 <button data-t="learn"><svg viewBox="0 0 24 24"><path d="M3 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H3z"/><path d="M21 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg>Learn</button>
 </nav><div class="mhome"></div>
 </div></div>
-<div class="mmodes" role="group" aria-label="Try the different modes">
-<div class="mmh"><b>Try the different modes</b><span data-k="mline">More points from the same spend</span></div>
-<div class="mchips"><button data-t="earn">Earn</button><button data-t="burn">Burn</button><button data-t="return">Return</button><button data-t="learn">Learn</button></div>
-</div>
+<div class="mstk" aria-hidden="true"><svg class="mstka" viewBox="0 0 44 30"><path d="M42 6 C30 4 16 8 6 22"/><path d="M5 12 L5 23 L16 22"/></svg><span>Tap the tabs. Try each mode.</span></div>
+<p class="mcap">Tap a tab to try each mode.</p>
 </div>
 <div class="mwin">
 <div class="wp"><span class="wk">Your spend today</span><b class="wbig" data-k="spend">$420k</b><small data-k="spendsub">a year on cards, earning 1.2x</small>
@@ -47,10 +46,10 @@ def hero():
 </div>
 <div class="mrest">
 <p class="mlab"><span data-k="label">Example: Leo, Linden Row Insurance, Columbus, OH. Fictional. Figures are estimates.</span> <button class="wnext" type="button">Next example →</button></p>
-<p class="msub">Every loyalty program has a team constantly rewriting the rules. While you run your business, your spend earns less than it should, and your points buy less than they could. Your desk of specialists fixes that.</p>
+<p class="msub">Every loyalty program has a team rewriting the rules. Yours is a desk of specialists working your side: your spend earns more, your points go further, and the desk books only after you approve.</p>
 <p class="mtag">Your spend, working harder.<br>Your points, going further.</p>
-<div class="mctas" id="mctas"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn ghost" href="#how">See how it works</a></div>
-<div class="mlogos">{logos}<span>Every program. One desk.</span></div>
+<div class="mctas" id="mctas"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn ghost" href="calculator.html">Run the calculator</a></div>
+<div class="mlogos">{logos}<span>Every loyalty program. One desk to rule them all.</span></div>
 </div>
 </div></section>
 '''
@@ -58,17 +57,19 @@ NAMES={1:'Amex',2:'Chase',17:'United',12:'Hyatt',47:'Virgin Atlantic',25:'Aeropl
 SL={1:'amex',2:'chase',17:'united',12:'hyatt',47:'virgin-atlantic',25:'aeroplan',9:'marriott',18:'delta'}
 def B_slug(n): return SL[n]
 
+PC={'earn':'#12834E','burn':'#E8590C','return':'#7149C9','learn':'#1E78B8'}
 def how():
-    P=[('01','Earn','More points from the spend you already have.','Your desk matches every line of spend to the card that earns most on it.','earn'),
+    P=[('01','Earn','More points from the spend you already have.','Your desk matches every line of your spend to the card that earns most on it.','earn'),
        ('02','Burn','Better trips for the points you earn.','Your desk vets every requirement with you, then books after you approve.','burn'),
        ('03','Return','Money found, every Friday.','Counted in dollars and checked against your statements.','return'),
        ('04','Learn','Know what your points are worth.','One short lesson a week, built from your own data.','learn')]
-    cards=''.join(f'<div class="pc4 reveal d{i}"><div class="pn"><b>{n}</b>{t}</div><h3>{h}</h3><p>{p}</p><div class="pm" data-k="h-{k}"></div></div>' for i,(n,t,h,p,k) in enumerate(P))
+    cards=''.join(f'<div class="pc4 k-{k} reveal d{i}"><div class="pn"><b>{n}</b>{t}</div><h3>{h}</h3><p>{p}</p><div class="pm" data-k="h-{k}"></div></div>' for i,(n,t,h,p,k) in enumerate(P))
     return f'''<section class="sec mhow" id="how"><div class="wrap">
-<div class="reveal"><span class="kick">How your desk works</span><h2 class="h2">Fix your Earn. <span class="brush">Everything else follows.</span></h2>
-<p class="lede">Your desk starts where the money is: what your spend earns. That feeds better trips, money found every Friday, and a little learning along the way. Every move is your call.</p></div>
+<div class="reveal"><p class="mlead">Now let me explain what we do.</p><span class="kick">How your desk works</span><h2 class="h2">Let First Officer guide you. <span class="brush">The desk takes it from there.</span></h2>
+<p class="lede">It starts with Earn: what your spend earns. That feeds Burn, better trips for your points. Then Return, money found every Friday, and Learn, a little knowing along the way. Every move is your call.</p></div>
 <div class="p4">{cards}</div>
 <p class="p4f" data-k="h-label"></p>
+<div class="mcv"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn ghost" href="calculator.html">Run the calculator</a></div>
 </div></section>
 '''
 
@@ -79,7 +80,7 @@ def win():
 <div class="win3">
 <div class="wcards">'''+B.scorecard()+'''</div>
 <div class="reveal d1 celcol">'''+B.celphone(B.cs_found(' on')+B.cs_ahead()+B.cs_goal())+'''<div class="celnav"><button>Found money</button><button>Ahead</button><button>Milestone</button></div></div>
-<div class="wcards">'''+B.versus()+B.share()+'''</div>
+<div class="wcards">'''+B.versus()+B.share().replace(' style="background:rgba(255,255,255,.2);color:#fff"','')+'''</div>
 </div>
 <p class="p4f">Example: Leo, Linden Row Insurance. Fictional. Figures are estimates.</p>
 </div></section>
@@ -89,6 +90,34 @@ def win():
 <div class="reveal d2"><b>Friday</b><span>Your scorecard. One number, in dollars.</span></div>
 <div class="reveal d3"><b>Yours</b><span>Every move is your call. The desk books after you approve.</span></div>
 </div></div></section>
+'''
+
+import json,subprocess
+def personas():
+    return json.loads(subprocess.check_output(['node','-e',"global.window={};require(process.argv[1]);process.stdout.write(JSON.stringify(window.FO_MODES))",os.path.join(os.path.dirname(os.path.abspath(__file__)),'fo-modes-data.js')]))
+def _x(n): return ('%.1f'%n).rstrip('0').rstrip('.')+'x'
+def _usd(n): return '${:,}'.format(int(round(n)))
+def _pts(n):
+    return (('%.2f'%(n/1e6)).rstrip('0').rstrip('.')+'M') if n>=1e6 else ('%dk'%round(n/1e3))
+def pcard(p,k):
+    who=f"{p['first']}, {p['biz']}".replace('&','&amp;')
+    if k=='earn': v,sub=_x(p['to']),f"per $1 on your spend, up from {_x(p['from'])}"
+    elif k=='burn': v,sub=f"{p['pct']}%",f"of the way to {p['trip'][0].lower()+p['trip'][1:] if p['trip'].split()[0] in ('Team','A') else p['trip']}"
+    elif k=='return': v,sub=_usd(sum(r[1] for r in p['ret'])),f"found in one Friday, from {p['ret'][0][0][0].lower()+p['ret'][0][0][1:]} and more"
+    else: v,sub=p['learn'][1],re.sub(r',? est\.$','',p['learn'][2])
+    v=v.replace('<','&lt;');lab=k.capitalize()
+    return f'<div class="pf k-{k}"><div class="pft"><b>{lab}</b><span>Example, est.</span></div><div class="pfv">{v}</div><p>{sub}</p><small>{who}</small></div>'
+def proof():
+    P=personas();K=['earn','burn','return','learn']
+    r1=''.join(pcard(P[i],K[i%4]) for i in range(10))
+    r2=''.join(pcard(P[(i+5)%10],K[(i+2)%4]) for i in range(10))
+    row=lambda c,cls:f'<div class="prow {cls}"><div class="ptrack">{c}<div class="pdup" aria-hidden="true">{c}</div></div></div>'
+    return f'''<section class="sec mproof" id="proof"><div class="wrap">
+<div class="reveal"><span class="kick">The proof</span><h2 class="h2">Proof in every pillar. <span class="brush">Earn, Burn, Return, Learn.</span></h2>
+<p class="lede">What a desk finds for owners like you. Every owner here is a fictional example, and every figure is an estimate.</p></div></div>
+<div class="prows" aria-label="Example proofs">{row(r1,'r1')}{row(r2,'r2')}</div>
+<div class="wrap"><div class="pcta"><div class="pctx"><b>Get your desk.</b><span>$550 a month, flat. Cancel anytime. The desk books only after you approve.</span></div><div class="pbtn"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn ghost" href="calculator.html">Run the calculator</a></div></div></div>
+</section>
 '''
 
 SIG='<svg class="nsvg" viewBox="0 0 200 84" role="img" aria-label="Ohad"><title>Ohad</title><g transform="skewX(-12) translate(14 0)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path stroke-width="2.7" d="M40 22 C24 22 12 40 14 54 C16 68 32 70 44 58 C56 46 58 26 48 20 C42 16 34 20 32 26"/><path stroke-width="2.3" d="M46 52 C56 46 66 34 72 20 C76 10 76 4 72 5 C68 6 66 18 64 32 C62 46 61 58 61 66 C63 56 68 48 74 46 C80 44 82 50 81 58 C81 63 83 66 87 64"/><path stroke-width="2.2" d="M101 50 C95 44 86 48 86 57 C86 65 94 66 99 58 C101 54 102 50 102 48 C101 56 101 63 105 65 C108 66 112 62 115 58"/><path stroke-width="2.1" d="M131 50 C125 44 116 48 116 57 C116 65 124 66 129 58 C134 48 138 28 142 10 C144 4 141 4 139 12 C135 30 133 50 135 62 C136 67 141 66 146 60"/><path stroke-width="1.5" d="M16 78 C58 72 108 70 148 72 C164 73 176 70 186 64"/></g></svg>'
@@ -108,24 +137,23 @@ def _jit(html,seed):
         if x.startswith('<a'): inl=True;out.append(x);continue
         if x.startswith('</a'): inl=False;out.append(x);continue
         out.append(x if (x.startswith('<') or inl) else wrap(x))
-    s=''.join(out)
-    # this pen's capital I reads like a slash; borrow a plainer hand for that one letter
-    return re.sub(r'(>|\s)I(?=[\s\'.,f<])',lambda m:m.group(1)+'<b class="nI">I</b>',s)
+    return ''.join(out)
 def note():
-    P=["Honestly? You might not need us.",
-       "Everything I've learned, tested and dug up about points and miles is on this site, free. Read it, use it, keep it.",
+    P=["Honestly? You might not need a First Officer to optimize your points &amp; miles.",
+       'Everything I\'ve learned, tested and dug up about points and miles is on this site, free. Read it, use it, keep it. I put it all in the <a href="freebies.html">"Freebies"</a> section which I update daily.',
        "But if you'd rather have my team and me in your corner, doing the work and getting you there faster, we've priced it for owners like you: $550 a month, flat.",
-       "Our promise is simple: make programs that look complicated feel easy.",
+       '<mark class="nhl">Our promise is simple: make programs that look complicated feel easy.</mark>',
        '<a href="calculator.html">Run your numbers in the calculator</a> today. If we\'re not a fit, it\'ll tell you, and so will I.']
     body=''.join('<p%s>%s</p>\n'%(' class="nlead"' if i==0 else '',_jit(t,i*97+11)) for i,t in enumerate(P))
     return ('<section class="mnote" id="note" aria-label="Note from Ohad"><div class="wrap">\n<div class="ncard reveal">\n'
       '<span class="nlab">Note from Ohad</span>\n<div class="nbody">\n'+body+
-      '<p class="nsig"><span class="ndash">—</span> '+SIG+'</p>\n</div></div>\n</div></section>\n')
+      '<div class="nsig">'+SIG+'<p class="nname">'+_jit('— Ohad Sternberg',7)+'</p><p class="nrole">'+_jit('Founder, UpNonStop',23)+'</p></div>\n</div></div>\n'
+      '<div class="ncv"><a class="btn ghost" href="calculator.html">Run the calculator <span class="ar">→</span></a></div>\n</div></section>\n')
 
 def page():
-    h=B.head('First Officer | You are not bad at Points & Miles','First Officer by UpNonStop: your rewards desk. Earn, Burn, Return, Learn.')
-    h=h.replace('<link rel="stylesheet" href="recovered/rec.css">','<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Over+the+Rainbow&display=swap">\n<link rel="stylesheet" href="recovered/rec.css">\n<link rel="stylesheet" href="recovered/modes.css">')
-    h+='<body class="modes">\n'+B.nav('').replace('home-recovered.html','home-modes.html').replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')+B.ticker()+'<main>\n'+hero()+note()+how()+win()+B.cta()+'</main>\n'
+    h=B.head('First Officer | You run the business. The desk runs the points.','First Officer by UpNonStop: your rewards desk. Earn, Burn, Return, Learn.')
+    h=h.replace('<link rel="stylesheet" href="recovered/rec.css">','<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap">\n<link rel="stylesheet" href="recovered/rec.css">\n<link rel="stylesheet" href="recovered/modes.css">')
+    h+='<body class="modes">\n'+B.nav('').replace('home-recovered.html','home-modes.html').replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')+B.ticker()+'<main>\n'+hero()+note()+how()+win()+proof()+'</main>\n'
     h+=B.footer().replace('home-recovered.html','home-modes.html').replace('Leo and Linden Row Insurance are fictional. All figures are examples and estimates.','Every owner shown is a fictional example. All figures are examples and estimates.')
     h+='<script>window.FO_A="'+B.ASSET+'";</script>\n<script src="recovered/rec.js"></script>\n<script src="recovered/fo-modes-data.js"></script>\n<script src="recovered/modes.js"></script>\n</body>\n</html>\n'
     h=h.replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')
