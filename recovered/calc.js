@@ -81,7 +81,7 @@ function calc(){var p=D,mo=0,t=0,d=0,L=[];
   BS.types.forEach(function(ty){var w=$('[data-w="'+ty.id+'"]');var a=gain*ty.floor/100,b=gain*ty.ceil/100;w.textContent=ty.floor===ty.ceil?kusd(a):kusd(a)+'–'+kusd(b)});
   $$('#cbasis .cbr').forEach(function(r){r.classList.toggle('on',r.dataset.u===use)});
   var tr=trips(),ct=$('#ctr'),tk=tr.map(function(g){return g[0]}).join('|');
-  if(ct.dataset.k!==tk){ct.dataset.k=tk;ct.innerHTML=tr.map(function(g,i){return '<div class="ctx'+(g[4]?' goal':'')+'"><i style="background-image:url('+g[3]+')"></i><span><b>'+g[0]+'</b><small>'+pts(g[2])+' points, est.</small></span><strong data-tr="'+i+'">0×</strong></div>'}).join('')}
+  if(ct.dataset.k!==tk){ct.dataset.k=tk;ct.innerHTML=tr.map(function(g,i){return '<div class="ctx'+(g[4]?' goal':'')+'"><i style="background-image:url('+A+g[3]+')"></i><span><b>'+g[0]+'</b><small>'+pts(g[2])+' points, est.</small></span><strong data-tr="'+i+'">0×</strong></div>'}).join('')}
   tr.forEach(function(g,i){tw($('[data-tr="'+i+'"]'),gain/g[2],function(v){return v.toFixed(1)+'×'},ST[3])});
   T('r-cpp',u.floor===u.ceil?c2(u.floor):c2(u.floor)+'–'+c2(u.ceil));T('r-cpp-s','a point, '+u.short.toLowerCase()+', est.');pulse(3,ST[3]);
   /* 05 return */
