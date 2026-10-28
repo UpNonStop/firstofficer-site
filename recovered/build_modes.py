@@ -4,7 +4,7 @@ import os,sys
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 import build as B
 ROOT=B.ROOT
-LOGOS=[1,2,17,12,47,25,9,18]
+LOGOS=[1,12,2,17,47,18,25,9]  # by colour: blues, reds, then dark
 def hero():
     logos=''.join(f'<img src="img/hero/prog/{n:02d}-{B_slug(n)}.jpg" alt="{NAMES[n]}">' for n in LOGOS)
     return f'''<section class="mh" id="mh"><div class="mbg" aria-hidden="true"></div>
@@ -31,7 +31,7 @@ def hero():
 <button data-t="learn"><svg viewBox="0 0 24 24"><path d="M3 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H3z"/><path d="M21 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg>Learn</button>
 </nav><div class="mhome"></div>
 </div></div>
-<div class="mstk" aria-hidden="true"><svg class="mstka" viewBox="0 0 44 30"><path d="M42 6 C30 4 16 8 6 22"/><path d="M5 12 L5 23 L16 22"/></svg><span>Tap the tabs. Try each mode.</span></div>
+<div class="mstk" aria-hidden="true"><svg class="mstka" viewBox="0 0 70 34"><path d="M67 4 C46 3 22 10 6 27"/><path d="M9.2 15.4 L6 27 L17.4 23.1"/></svg><span>Tap the tabs.<br>Try each mode.</span></div>
 <p class="mcap">Tap a tab to try each mode.</p>
 </div>
 <div class="mwin">
@@ -47,7 +47,8 @@ def hero():
 <p class="mlab"><span data-k="label">Example: Leo, Linden Row Insurance, Columbus, OH. Fictional. Figures are estimates.</span> <button class="wnext" type="button">Next example →</button></p>
 <p class="msub">Every loyalty program has a team constantly rewriting the rules. While you run your business, your spend earns less than it should, and your points buy less than they could. Your desk of specialists fixes that.</p>
 <p class="mtag">Your spend, working harder.<br>Your points, going further.</p>
-<div class="mctas" id="mctas"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn ghost" href="calculator.html">Run the calculator</a></div>
+<div class="mctas" id="mctas"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a></div>
+<a class="mcalc" href="calculator.html">or run the calculator <span class="ar">→</span></a>
 <div class="mlogos">{logos}<span>Every loyalty program. One desk to rule them all.</span></div>
 </div>
 </div></section>
@@ -158,6 +159,9 @@ def page():
     h+='<script>window.FO_A="'+B.ASSET+'";</script>\n<script src="recovered/rec.js"></script>\n<script src="recovered/fo-modes-data.js"></script>\n<script src="recovered/modes.js"></script>\n</body>\n</html>\n'
     h=h.replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')
     h=re.sub(r'<div class="mcta">.*?</a></div>\n?','',h,flags=re.S)
+    h=h.replace('<a class="btn pk" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a>\n<button class="burger"','<span class="nbtns"><a class="btn pk" href="book.html">Get your desk</a><a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a></span>\n<button class="burger"',1)
+    h=h.replace('<a class="btn pk" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a>\n</div>','<a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a>\n</div>',1)
+    assert h.count('class="btn wa"')==3
     h=h.replace('href="calculator.html"','href="calculator-modes.html"')
     return B.absol(h)
 open(os.path.join(ROOT,'home-modes.html'),'w').write(page())

@@ -187,9 +187,9 @@
 .mtb.held button,.fo-still .mtb button{animation:none}
 @keyframes tabhint{0%,18%,100%{opacity:.6;transform:none}7%{opacity:1;transform:translateY(-2px) scale(1.12)}}
 /* the sticker sits in the open space right of the phone, pointing at the tab bar; it never touches the frame */
-.mstk{position:absolute;left:calc(100% + 46px);bottom:36px;display:flex;align-items:center;pointer-events:none;transition:opacity .5s ease}
-.mstk span{display:block;background:var(--pink);color:#fff;font:600 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:8px 11px 7px;border-radius:4px;white-space:nowrap;transform:rotate(-2deg);box-shadow:0 6px 14px -8px rgba(160,10,90,.55)}
-.mstka{position:absolute;right:100%;top:50%;width:34px;height:24px;margin:-4px 3px 0 0;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mstk{position:absolute;left:calc(100% + 85px);bottom:6px;display:flex;align-items:center;pointer-events:none;transition:opacity .5s ease}
+.mstk span{display:block;background:var(--pink);color:#fff;font:700 15.5px/1.15 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:11px 16px 9px;border-radius:6px;white-space:nowrap;transform:rotate(-2deg);box-shadow:0 6px 14px -8px rgba(160,10,90,.55)}
+.mstka{position:absolute;right:100%;top:2px;width:70px;height:34px;margin:0 4px 0 0;fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 .tried .mstk{opacity:0}
 .mcap{display:none;margin:8px 0 0;text-align:center;font-size:11px;line-height:1.3;font-weight:600;color:var(--body)}
 @media (max-width:1240px){.mstk{display:none}.mcap{display:block}}
@@ -220,12 +220,12 @@
 .ncv{display:flex;justify-content:center;margin-top:26px}.ncv .btn{height:48px;padding:0 22px;font-size:14.5px}
 
 /* ---------- explanation: the payoff headline right after the note ---------- */
-.mpay{max-width:none}
+.mpay{max-width:none;margin:0 auto;text-align:center}
 .mpayh{font-family:var(--serif);font-weight:400;font-size:clamp(52px,6.4vw,92px);line-height:.98;letter-spacing:-.022em;color:var(--ink);margin:0;text-wrap:balance}
 .mpayh .pk{color:var(--pink);display:block}
 .mhow .mpay2{font-size:clamp(30px,3.4vw,46px);margin-top:14px}
 .mhow .mpay+.reveal{margin-top:52px;padding-top:30px;border-top:1px solid rgba(20,18,22,.1)}
-.mlead{font-family:Kalam,'Bradley Hand',cursive;font-weight:400;font-size:30px;line-height:1.2;color:#1F2D4E;margin:0 0 18px;transform:rotate(-1deg);transform-origin:left}
+.mlead{font-family:Kalam,'Bradley Hand',cursive;font-weight:400;font-size:30px;line-height:1.2;color:#1F2D4E;margin:0 0 18px;transform:rotate(-1deg);transform-origin:center}
 .pc4.k-earn{--c:#12834E}.pc4.k-burn{--c:#E8590C}.pc4.k-return{--c:#7149C9}.pc4.k-learn{--c:#1E78B8}
 .pc4 .pn b{background:var(--c)}
 .mcv{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}.mcv .btn{height:50px;padding:0 24px}
@@ -297,3 +297,12 @@
  .pctx b{font-size:26px}
  .pbtn{flex-direction:column}.pbtn .btn{width:100%}
 }
+
+/* green Text Your First Officer bubble, paired with pink Get your desk (hero + nav); the calculator is a quiet text link */
+.btn.wa{background:#138a43;color:#fff;box-shadow:0 10px 24px -10px rgba(19,138,67,.6),inset 0 -2px 0 rgba(0,0,0,.12)}
+.btn.wa:hover{background:#0f7537;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(19,138,67,.65)}
+.nbtns{display:flex;gap:10px;align-items:center}
+.mcalc{display:inline-block;margin-top:12px;font-weight:600;font-size:14.5px;color:var(--ink);text-decoration:underline;text-decoration-color:rgba(250,24,150,.55);text-decoration-thickness:2px;text-underline-offset:4px}
+.mcalc:hover{color:var(--pinkd)}
+@media (max-width:1100px){.nbtns .btn.pk{display:none}}
+@media (max-width:760px){.mctas .btn{flex:1 1 100%}.mcalc{display:block;text-align:center}}
