@@ -3,7 +3,7 @@
    from/to = average points per $1 today and with the desk, est. Earn, Burn and Return belong to the company, Learn to the person. */
 window.FO_MODES=[
 {first:'Leo',ini:'LR',biz:'Linden Row Insurance',short:'Linden Row',ind:'Insurance agency',city:'Columbus, OH',spend:420,from:1.2,to:3.4,
- cats:[['Lead-gen ads',12.5,'1x','4x'],['Office and vendors',12.5,'1.5x','2x'],['Agency software',5,'1x','4x'],['Carrier travel',5,'1x','3x']],
+ cats:[['Lead-gen ads',14,'1x','4x'],['Office and vendors',7,'1.5x','2x'],['Agency software',7,'1x','4x'],['Carrier travel',7,'1.5x','3x']],
  qE:'We put about $35k a month on cards. Are we doing this right?',move:['Ads to the 4x card',7200],earnL:[1,2],
  trip:'Tokyo in business for 2',when:'Spring 2027',img:'img/tokyo.jpg',pct:32,have:102400,need:320000,burnL:[47,37,50],qB:'Can we get to Tokyo in business next spring?',
  reqs:['Transfer partners mapped, 1:1','Taxes and fees checked, est.','Dates: a week either way','Passports valid 6+ months'],
