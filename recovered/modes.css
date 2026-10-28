@@ -133,7 +133,7 @@
 .wtrip{display:flex;gap:10px;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #2A262E}
 .wtrip>span{flex:none;width:54px;height:54px;border-radius:12px;background:#333 center/cover}
 .wtrip small{display:block;font-size:10.5px;color:#a49cad}.wtrip b{display:block;font-size:14px;line-height:1.25}.wtrip em{font-size:12px;color:#cfcbd6}
-.wfine{font-size:11.5px;line-height:1.45;color:var(--body);margin:2px 4px 0}
+.wfine{font-size:11.5px;line-height:1.45;color:var(--body);margin:2px 0 0;background:rgba(250,246,238,.9);padding:7px 10px;border-radius:10px}
 .mlab{display:none}
 .wnext{border:0;background:none;padding:0;font:700 11.5px var(--sans);color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer;white-space:nowrap}
 
