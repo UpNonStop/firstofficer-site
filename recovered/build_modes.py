@@ -90,10 +90,25 @@ def win():
 </div></div></section>
 '''
 
+def note():
+    return '''<section class="mnote" id="note" aria-label="Note from Ohad"><div class="wrap">
+<div class="ncard reveal"><span class="ntape" aria-hidden="true"></span>
+<span class="nlab">Note from Ohad</span>
+<div class="nbody">
+<p class="nlead">Honestly? You might not need us.</p>
+<p>Everything I've learned, tested and dug up about points and miles is on this site, free. Read it, use it, keep it.</p>
+<p>But if you'd rather have my team and me in your corner, doing the work and getting you there faster, we've priced it for owners like you: $550 a month, flat.</p>
+<p>Our promise is simple: make programs that look complicated feel easy.</p>
+<p><a href="calculator.html">Run your numbers in the calculator</a> today. If we're not a fit, it'll tell you, and so will I.</p>
+<p class="nsig">— Ohad</p>
+</div></div>
+</div></section>
+'''
+
 def page():
     h=B.head('First Officer | You are not bad at Points & Miles','First Officer by UpNonStop: your rewards desk across 50+ programs. Earn, Burn, Return, Learn.')
-    h=h.replace('<link rel="stylesheet" href="recovered/rec.css">','<link rel="stylesheet" href="recovered/rec.css">\n<link rel="stylesheet" href="recovered/modes.css">')
-    h+='<body class="modes">\n'+B.nav('').replace('home-recovered.html','home-modes.html')+B.ticker()+'<main>\n'+hero()+how()+win()+B.cta()+'</main>\n'
+    h=h.replace('<link rel="stylesheet" href="recovered/rec.css">','<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap">\n<link rel="stylesheet" href="recovered/rec.css">\n<link rel="stylesheet" href="recovered/modes.css">')
+    h+='<body class="modes">\n'+B.nav('').replace('home-recovered.html','home-modes.html')+B.ticker()+'<main>\n'+hero()+note()+how()+win()+B.cta()+'</main>\n'
     h+=B.footer().replace('home-recovered.html','home-modes.html').replace('Leo and Linden Row Insurance are fictional. All figures are examples and estimates.','Every owner shown is a fictional example. All figures are examples and estimates.')
     h+='<script>window.FO_A="'+B.ASSET+'";</script>\n<script src="recovered/rec.js"></script>\n<script src="recovered/fo-modes-data.js"></script>\n<script src="recovered/modes.js"></script>\n</body>\n</html>\n'
     return B.absol(h)
