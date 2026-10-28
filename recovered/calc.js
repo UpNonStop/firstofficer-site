@@ -122,6 +122,9 @@ function calc(){var L=D.cats.map(function(c,i){return [S[i],rateT(c),parseFloat(
 /* ================= GO ADVANCED: scroll down, no tabs ================= */
 function toAdv(sm){stop();var el=$('#advs');if(!el)return;var y=el.getBoundingClientRect().top+scrollY-70;scrollTo({top:y,behavior:sm&&!RM?'smooth':'auto'})}
 $$('a[href="#advs"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();toAdv(true)})});
+(function(){var g=$('#bgo'),A=$('#advs');if(!g)return;function seen(){g.classList.add('seen')}
+g.addEventListener('click',seen);$$('a[href="#advs"]').forEach(function(a){a.addEventListener('click',seen)});
+if(A&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){seen();io.disconnect()}})},{threshold:.15});io.observe(A)}})();
 /* ================= HERO BACKGROUND: the landing's rotating photos ================= */
 (function(){var bg=$('.mbg');if(!bg)return;var N=[];for(var i=0;i<=30;i++)N.push(A+'img/rec/bg/'+(i<10?'0':'')+i+'.webp');
   var off=Math.floor(Math.random()*N.length),cur=0,els=[0,1].map(function(){var e=document.createElement('i');bg.insertBefore(e,bg.firstChild);return e});
