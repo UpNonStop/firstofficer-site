@@ -219,7 +219,12 @@
 .nsig p{margin:0}.nsig .nname{font-weight:400}
 .ncv{display:flex;justify-content:center;margin-top:26px}.ncv .btn{height:48px;padding:0 22px;font-size:14.5px}
 
-/* ---------- explanation ---------- */
+/* ---------- explanation: the payoff headline right after the note ---------- */
+.mpay{max-width:none}
+.mpayh{font-family:var(--serif);font-weight:400;font-size:clamp(52px,6.4vw,92px);line-height:.98;letter-spacing:-.022em;color:var(--ink);margin:0;text-wrap:balance}
+.mpayh .pk{color:var(--pink);display:block}
+.mhow .mpay2{font-size:clamp(30px,3.4vw,46px);margin-top:14px}
+.mhow .mpay+.reveal{margin-top:52px;padding-top:30px;border-top:1px solid rgba(20,18,22,.1)}
 .mlead{font-family:Kalam,'Bradley Hand',cursive;font-weight:400;font-size:30px;line-height:1.2;color:#1F2D4E;margin:0 0 18px;transform:rotate(-1deg);transform-origin:left}
 .pc4.k-earn{--c:#12834E}.pc4.k-burn{--c:#E8590C}.pc4.k-return{--c:#7149C9}.pc4.k-learn{--c:#1E78B8}
 .pc4 .pn b{background:var(--c)}
@@ -282,6 +287,9 @@
  .nbody .nlead{font-size:22px}
  .ncv .btn{width:100%;max-width:358px}
  .mlead{font-size:25px}
+ .mpayh{font-size:44px;line-height:1}
+ .mhow .mpay+.reveal{margin-top:34px;padding-top:24px}
+ .mhow .mpay2{font-size:28px}
  .mcv .btn{flex:1 1 150px;padding:0 14px}
  .pf{width:222px;padding:14px 15px 13px}.pfv{font-size:36px}.pf p{font-size:13px}
  .prows{-webkit-mask-image:none;mask-image:none}

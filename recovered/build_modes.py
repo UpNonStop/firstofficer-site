@@ -11,8 +11,7 @@ def hero():
 <div class="mwrap">
 <div class="mtop">
 <span class="mpill"><i></i>Earn · Burn · Return · Learn</span>
-<h1>You run the business. <span class="pk">The desk runs the points.</span></h1>
-<p class="mout">You're not bad at points &amp; miles. You're just outnumbered.</p>
+<h1>You are not bad at Points &amp; Miles. You are just <span class="pk">outnumbered.</span></h1>
 <ul class="mprob" aria-label="The problem">
 <li><b>×</b><span>Your biggest spend earns <strong data-k="fromx">1.2x</strong>.</span></li>
 <li><b>×</b><span>Your points sit while the rules change.</span></li>
@@ -46,7 +45,7 @@ def hero():
 </div>
 <div class="mrest">
 <p class="mlab"><span data-k="label">Example: Leo, Linden Row Insurance, Columbus, OH. Fictional. Figures are estimates.</span> <button class="wnext" type="button">Next example →</button></p>
-<p class="msub">Every loyalty program has a team rewriting the rules. Yours is a desk of specialists working your side: your spend earns more, your points go further, and the desk books only after you approve.</p>
+<p class="msub">Every loyalty program has a team constantly rewriting the rules. While you run your business, your spend earns less than it should, and your points buy less than they could. Your desk of specialists fixes that.</p>
 <p class="mtag">Your spend, working harder.<br>Your points, going further.</p>
 <div class="mctas" id="mctas"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn ghost" href="calculator.html">Run the calculator</a></div>
 <div class="mlogos">{logos}<span>Every loyalty program. One desk to rule them all.</span></div>
@@ -65,7 +64,8 @@ def how():
        ('04','Learn','Know what your points are worth.','One short lesson a week, built from your own data.','learn')]
     cards=''.join(f'<div class="pc4 k-{k} reveal d{i}"><div class="pn"><b>{n}</b>{t}</div><h3>{h}</h3><p>{p}</p><div class="pm" data-k="h-{k}"></div></div>' for i,(n,t,h,p,k) in enumerate(P))
     return f'''<section class="sec mhow" id="how"><div class="wrap">
-<div class="reveal"><p class="mlead">Now let me explain what we do.</p><span class="kick">How your desk works</span><h2 class="h2">Let First Officer guide you. <span class="brush">The desk takes it from there.</span></h2>
+<div class="mpay reveal"><p class="mlead">Now let me explain what we do.</p><h2 class="mpayh">You run the business. <span class="pk">The desk runs the points.</span></h2></div>
+<div class="reveal"><span class="kick">How your desk works</span><h3 class="h2 mpay2">Let First Officer guide you. <span class="brush">The desk takes it from there.</span></h3>
 <p class="lede">It starts with Earn: what your spend earns. That feeds Burn, better trips for your points. Then Return, money found every Friday, and Learn, a little knowing along the way. Every move is your call.</p></div>
 <div class="p4">{cards}</div>
 <p class="p4f" data-k="h-label"></p>
@@ -151,7 +151,7 @@ def note():
       '<div class="ncv"><a class="btn ghost" href="calculator.html">Run the calculator <span class="ar">→</span></a></div>\n</div></section>\n')
 
 def page():
-    h=B.head('First Officer | You run the business. The desk runs the points.','First Officer by UpNonStop: your rewards desk. Earn, Burn, Return, Learn.')
+    h=B.head('First Officer | You are not bad at Points & Miles','First Officer by UpNonStop: your rewards desk. Earn, Burn, Return, Learn.')
     h=h.replace('<link rel="stylesheet" href="recovered/rec.css">','<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap">\n<link rel="stylesheet" href="recovered/rec.css">\n<link rel="stylesheet" href="recovered/modes.css">')
     h+='<body class="modes">\n'+B.nav('').replace('home-recovered.html','home-modes.html').replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')+B.ticker()+'<main>\n'+hero()+note()+how()+win()+proof()+'</main>\n'
     h+=B.footer().replace('home-recovered.html','home-modes.html').replace('Leo and Linden Row Insurance are fictional. All figures are examples and estimates.','Every owner shown is a fictional example. All figures are examples and estimates.')
