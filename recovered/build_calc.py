@@ -6,6 +6,7 @@ import os,sys,re
 HERE=os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0,HERE)
 import build as B
+import links as LK
 
 WA='https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call'
 # the landing's program logos and Ohad's signature, read from build_modes.py (not imported: importing it rebuilds the landing)
@@ -52,7 +53,7 @@ def hero():
 <ul class="mprob cok" aria-label="What you get here">
 <li><b>✓</b><span>One slider. One answer, in dollars a month.</span></li>
 <li><b>✓</b><span>Set against the $550 a month fee, side by side.</span></li>
-<li><b>✓</b><span>Not a fit? It says so, plainly.</span></li>
+<li><b>✓</b><span>Fits, close call or not a fit, shown plainly.</span></li>
 </ul>
 <p class="msub">Move the slider to what your business puts on cards each month. You see what your desk finds, est., next to its flat fee. Want every line of your spend? Go advanced below.</p>
 <div class="mlogos">"""+logos+"""<span>Every loyalty program. One desk to rule them all.</span></div>
@@ -122,24 +123,23 @@ def how():
 <details class="cdet"><summary>Every assumption, line by line</summary><dl class="casl">"""+''.join('<div><dt>%s</dt><dd>%s</dd></div>'%r for r in rows)+"""</dl>
 <p class="cnote">Points prices move by date and program. Your desk checks live prices with you and books only after you approve.</p></details>
 <div class="cpro reveal">
-<p class="mlead">If your numbers don't clear $550 a month, I'll tell you on the call, in writing. You won't pay a cent.</p>
-<div class="cpsig">"""+SIG+"""<span><b>Ohad Sternberg</b>Founder, UpNonStop</span></div>
+<p class="mlead">Fits, close call or not a fit: the calculator shows each case. The Found Money Call walks through your real statements.</p>
 </div>
 </div></section>
 <section class="sec tight"><div class="wrap"><div class="why">
-<div class="reveal"><b>$550</b><span>Flat monthly, whatever your spend. Cancel anytime.</span></div>
+<div class="reveal"><b>$550</b><span>Flat monthly, whatever your spend.</span></div>
 <div class="reveal d1"><b>20 min</b><span>Your Found Money Call, free.</span></div>
 <div class="reveal d2"><b>Friday</b><span>Your scorecard. One number, in dollars.</span></div>
 <div class="reveal d3"><b>Yours</b><span>Every move is your call. The desk books after you approve.</span></div>
 </div>
-<div class="pcta"><div class="pctx"><b>Get your desk.</b><span>$550 a month, flat. Cancel anytime. The desk books only after you approve.</span></div><div class="pbtn"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='"""+WA+"""'>💬 Text Your First Officer</a></div></div>
+<div class="pcta"><div class="pctx"><b>Get your desk.</b><span>$550 a month, flat. The desk books only after you approve.</span></div><div class="pbtn"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='"""+WA+"""'>💬 Text Your First Officer</a></div></div>
 </div></section>
 """
 
 def page():
     h=B.head('Calculator | What is your spend really worth? | First Officer','Put in your business card spend each month and see what your desk finds against its $550 a month fee. Estimates only.')
     h=h.replace('<link rel="stylesheet" href="recovered/rec.css">','<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap">\n<link rel="stylesheet" href="recovered/rec.css">\n<link rel="stylesheet" href="recovered/modes.css">\n<link rel="stylesheet" href="recovered/calc.css">')
-    h+='<body class="modes calc">\n'+B.nav('Calculator').replace('home-recovered.html','home-modes.html')+B.ticker()+'<main>\n'+hero()+advanced()+how()+'</main>\n'
+    h+='<body class="modes calc">\n'+B.nav('Calculator').replace('home-recovered.html','home-modes.html')+B.ticker()+'<main>\n'+hero()+advanced()+how()+LK.nxt('04','pricing-modes.html','Your number cleared, or came close? <span class="pk">Here\'s what the desk costs.</span>','One flat $550 a month, the same for every business. Fits, close call or not a fit, you see which before you sign up.','See the pricing')+'</main>\n'
     h+=B.footer().replace('home-recovered.html','home-modes.html').replace('Leo and Linden Row Insurance are fictional. All figures are examples and estimates.','Every industry mix shown is a typical example. All figures are examples and estimates.')
     h+='<script>window.FO_A="'+B.ASSET+'";</script>\n<script src="recovered/rec.js"></script>\n<script src="recovered/fo-modes-data.js"></script>\n<script src="recovered/fo-calc-basis.js"></script>\n<script src="recovered/calc.js"></script>\n</body>\n</html>\n'
     h=h.replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')
@@ -149,6 +149,7 @@ def page():
     h=h.replace('<a class="btn pk" href="'+WA+'">💬 Text Your First Officer</a>\n</div>','<a class="btn wa" href="'+WA+'">💬 Text Your First Officer</a>\n</div>',1)
     assert 'class="nbtns"' in h and 'class="btn pk" href="'+WA not in h
     h=h.replace('href="calculator.html"','href="calculator-modes.html"').replace('href="pricing.html"','href="pricing-modes.html"')
+    h=LK.relink(h)
     return B.absol(h)
 if __name__=='__main__':
     open(os.path.join(B.ROOT,'calculator-modes.html'),'w').write(page())

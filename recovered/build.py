@@ -56,12 +56,12 @@ def footer():
 </div>
 <div class="bar"><span class="addr"><span>UpNonStop | 235 Pavonia Avenue | Jersey City, NJ 07302 | Proudly Made in 🇺🇸</span></span><span class="fine">Leo and Linden Row Insurance are fictional. All figures are examples and estimates.</span></div>
 </div></footer>
-<div class="mcta"><div><small>Flat monthly · Cancel anytime</small><b>$550 a month</b></div><a class="btn pk" href="book.html">Get your desk</a></div>
+<div class="mcta"><div><small>Flat monthly</small><b>$550 a month</b></div><a class="btn pk" href="book.html">Get your desk</a></div>
 '''
 
 def cta():
     return f'''<section class="sec tight"><div class="wrap"><div class="ctab reveal">
-<div><h2>Get your desk.</h2><p>$550 a month, flat, for every business whatever the spend. Cancel anytime. Start with the free 20 minute Found Money Call.</p></div>
+<div><h2>Get your desk.</h2><p>$550 a month, flat, for every business whatever the spend. Start with the free 20 minute Found Money Call.</p></div>
 <div class="bt"><a class="btn ink" href="book.html">Book the Found Money Call <span class="ar">→</span></a><a class="btn cr" href="{WA}">💬 Text Your First Officer</a></div>
 </div></div></section>
 '''
@@ -202,7 +202,7 @@ def home():
 <div class="reveal"><div class="bn"><i>05</i>Why you</div><h3 class="h3">You run the business. <span class="brush">The desk runs the points.</span></h3>
 <p class="short" style="max-width:640px">Your spend, working harder. Your points, going further.</p></div>
 <div class="why">
-<div class="reveal"><b>$550</b><span>Flat monthly, whatever the spend. Cancel anytime.</span></div>
+<div class="reveal"><b>$550</b><span>Flat monthly, whatever the spend.</span></div>
 <div class="reveal d1"><b>20 min</b><span>The Found Money Call, free.</span></div>
 <div class="reveal d2"><b>Friday</b><span>Your scorecard. One number, in dollars.</span></div>
 <div class="reveal d3"><b>Yours</b><span>Every move is your call. The desk books after vetting.</span></div>

@@ -53,11 +53,11 @@ function month(L,uid){var mo=0,t=0,d=0;L.forEach(function(l){mo+=l[0];t+=l[0]*l[
   var u=U(uid),gain=Math.max(0,d-t)*UTIL;
   return {mo:mo,t:t,d:d,u:u,lo:gain*u.floor/100,mid:gain*u.mid/100,hi:gain*u.ceil/100,flat:u.floor===u.ceil}}
 function verdict(r){var f=r.flat;
-  if(r.mo<GATE)return {c:'no',t:'Not a fit yet.',p:'At '+usd(r.mo)+' a month on cards, $550 a month would cost you more than it finds. Keep the card you have for now and come back past ~$25K a month.'};
+  if(r.mo<GATE)return {c:'no',t:'Not a fit yet.',p:'At '+usd(r.mo)+' a month on cards, $550 a month would cost you more than it finds. The fee starts to make sense past ~$25K a month, est.'};
   if(r.lo>=FEE)return {c:'fit',t:'Clears the fee.',p:'Even at the floor, the extra points beat $550 a month, est. Your Found Money Call checks it on your real statements.'};
   if(r.hi>=FEE)return {c:'meh',t:'Close call.',p:'It clears at the top of the range, not the floor. Your Found Money Call settles it on your real statements, free.'};
-  return {c:'no',t:'Not a fit yet.',p:'The extra points find about '+(f?u10(r.lo):u10(r.lo)+' to '+u10(r.hi))+' a month, est., under the $550. Keep the card you have for now.'}}
-function say(R,tEl,pEl,v){tEl.textContent=v.t;pEl.innerHTML=v.p+(v.c==='no'?' <a href="freebies.html">Get the Freebies →</a>':'');
+  return {c:'no',t:'Not a fit yet.',p:'The extra points find about '+(f?u10(r.lo):u10(r.lo)+' to '+u10(r.hi))+' a month, est., under the $550.'}}
+function say(R,tEl,pEl,v){tEl.textContent=v.t;pEl.innerHTML=v.p+(v.c==='no'?' <a href="freebies-modes.html">Get the Freebies →</a>':'');
   $$('.bvk',R).forEach(function(b){b.textContent=v.c==='fit'?'✓':v.c==='meh'?'≈':'×'})}
 /* balance bar: value found fills against the $550 marker; past it is pink, short of it reads as a gap */
 function bar(bal,r){var bm=FEE*Math.max(3,Math.ceil(r.hi*1.1/FEE)),mid=r.mid;T(bal,'bmax',usd(bm));

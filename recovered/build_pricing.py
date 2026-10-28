@@ -7,6 +7,7 @@ HERE=os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0,HERE)
 import build as B
 import build_calc as C
+import links as LK
 WA=C.WA
 FULL='calculator-modes.html'
 
@@ -18,14 +19,14 @@ def hero():
 <div class="chw">
 <div class="chl">
 <span class="mpill"><i></i>Pricing · one plan</span>
-<h1>$550 a month, flat. <span class="pk">And an honest no if it won't clear.</span></h1>
+<h1>$550 a month, flat. <span class="pk">See first if your spend clears it.</span></h1>
 </div>
 <div class="chr">"""+card+"""</div>
 <div class="chb">
 <ul class="mprob cok" aria-label="What you pay">
 <li><b>✓</b><span>One price for every business, whatever your spend.</span></li>
-<li><b>✓</b><span>Rate locked at signup. Cancel anytime.</span></li>
-<li><b>✓</b><span>Won't clear? You get a no, in writing, and never pay.</span></li>
+<li><b>✓</b><span>The free Found Money Call comes first.</span></li>
+<li><b>✓</b><span>Fits, close call or not a fit, shown before you sign up.</span></li>
 </ul>
 <p class="msub">Price is the second question. The first is whether your spend clears $550 a month. Move the slider to what your business puts on cards each month and see it, est., side by side.</p>
 <div class="mlogos">"""+logos+"""<span>Every loyalty program. One desk to rule them all.</span></div>
@@ -34,7 +35,7 @@ def hero():
 """
 
 def prices():
-    P=[('earn','$550','a month, flat','Your desk','Every line of your spend routed to its best card, every point used well, and a Friday scorecard in dollars. Rate locked at signup. Cancel anytime, no notice period and no exit fee.'),
+    P=[('earn','$550','a month, flat','Your desk','Every line of your spend routed to its best card, every point used well, and a Friday scorecard in dollars.'),
        ('learn','$500','per itinerary, flat','Award trips','Never a percentage of the trip, any party size, for clients only. A family of five costs the same as a solo trip.'),
        ('fee','$0','20 minutes, free','Your Found Money Call','Six questions on the channel you choose, and your number from your real statements. No card needed, no obligation.')]
     cards=''.join('<div class="pc4 pp k-%s reveal d%d"><div class="pn"><b>%02d</b>%s</div><p class="ppv"><span>%s</span><small>%s</small></p><p>%s</p></div>'%(k,i,i+1,h,v,u,p) for i,(k,v,u,h,p) in enumerate(P))
@@ -47,8 +48,8 @@ def prices():
 
 def fit():
     F=[('earn','For you if','The math already favors you','You run a business with about $25K a month or more on cards. You would rather forward a statement than build the spreadsheet, and you are happy to judge your desk by one dollar number, every Friday.'),
-       ('burn','Not for you if','The fee would eat the win','Under the bar, $550 a month costs more than it finds. The calculator says so above, and your Found Money Call says so too, before you pay anything.'),
-       ('fee','The gate','A no, in writing','Your call works out your number from your real statements. If it does not clear the fee, you get a free and honest no. A fee that eats the win helps nobody.')]
+       ('burn','Not for you if','The fee would eat the win','Under the bar, $550 a month can cost more than it finds. The calculator shows that case above, and the Found Money Call checks it on your statements.'),
+       ('fee','The gate','Not a fit is an answer too','The Found Money Call walks through your real statements and works out your number. If the estimate does not clear the fee, the call says so. A fee that eats the win helps nobody.')]
     cards=''.join('<div class="pc4 k-%s reveal d%d"><div class="pn"><b>%s</b></div><h3>%s</h3><p>%s</p></div>'%(k,i,t,h,p) for i,(k,t,h,p) in enumerate(F))
     return """<section class="sec chow pfit" id="fit"><div class="wrap">
 <div class="reveal"><span class="kick">Who it is for</span><h2 class="h2">Built for a specific owner. <span class="brush">Maybe you.</span></h2></div>
@@ -57,7 +58,7 @@ def fit():
 """
 
 def faq():
-    Q=[('Is there a contract?','No. $550 a month, rate locked at signup. Cancel anytime, no notice period and no exit fee.'),
+    Q=[('How is the fee charged?','$550 a month, flat, the same for every business. The terms are in the <a href="terms-of-service.html">Terms of Service</a>.'),
        ('Is the number above a promise?','No. Every figure is an estimate, labelled est. Your Found Money Call works it out from your real statements, and your Friday scorecard shows what actually happened.'),
        ('Do you take money from card issuers?','No. No affiliate money from any bank, airline or hotel program.'),
        ('Who makes the decisions?','You do. Every move waits for your yes, and your desk books only after you approve.'),
@@ -68,25 +69,25 @@ def faq():
 <div class="reveal"><span class="kick">Questions</span><h2 class="h2">Asked on every call. <span class="brush">Answered here.</span></h2></div>
 <details class="cdet" open><summary>Pricing questions</summary><dl class="casl pq">"""+rows+"""</dl></details>
 <div class="cpro reveal">
-<p class="mlead">If your numbers don't clear $550 a month, I'll tell you on the call, in writing. You won't pay a cent.</p>
-<div class="cpsig">"""+C.SIG+"""<span><b>Ohad Sternberg</b>Founder, UpNonStop</span></div>
+<p class="mlead">Fits, close call or not a fit: the card above shows each case. The Found Money Call walks through your real statements.</p>
 </div>
 </div></section>
 <section class="sec tight"><div class="wrap">
-<div class="pcta"><div class="pctx"><b>Get your desk.</b><span>$550 a month, flat. Cancel anytime. The desk books only after you approve.</span></div><div class="pbtn"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='"""+WA+"""'>💬 Text Your First Officer</a></div></div>
+<div class="pcta"><div class="pctx"><b>Get your desk.</b><span>$550 a month, flat. The desk books only after you approve.</span></div><div class="pbtn"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='"""+WA+"""'>💬 Text Your First Officer</a></div></div>
 </div></section>
 """
 
 def page():
     h=C.page()
     a=h.index('<main>')+len('<main>\n');b=h.index('</main>')
-    h=h[:a]+hero()+prices()+fit()+faq()+h[b:]
+    h=h[:a]+hero()+prices()+fit()+faq()+LK.nxt('05','book-modes.html','The estimate is the trailer. <span class="pk">The Found Money Call is the film.</span>','Free. The call walks through your real statements, every card, every program, and works out your number. Text, email or ask for a call.','Book the Found Money Call')+h[b:]
     h=re.sub(r'<title>.*?</title>','<title>Pricing | $550 a month, flat | First Officer</title>',h,count=1,flags=re.S)
-    h=re.sub(r'(<meta name="description" content=")[^"]*','\\1$550 a month, flat, for every business. Cancel anytime. See if your spend clears the fee, est., and get an honest no in writing if it will not.',h,count=1)
+    h=re.sub(r'(<meta name="description" content=")[^"]*','\\1$550 a month, flat, for every business. See if your spend clears the fee, est.: fits, close call or not a fit.',h,count=1)
     h=h.replace('<a href="pricing-modes.html" class="">Pricing</a>','<a href="pricing-modes.html" class="on">Pricing</a>').replace('<a href="calculator-modes.html" class="on">Calculator</a>','<a href="calculator-modes.html" class="">Calculator</a>')
     assert 'class="on">Pricing' in h
     h=h.replace('<body class="modes calc">','<body class="modes calc pricing">')
-    h=h.replace('Every industry mix shown is a typical example. All figures are examples and estimates.','All figures are estimates.')
+    h=h.replace('Every industry mix shown is a typical example. All figures are examples and estimates.','Every owner shown is a fictional example. All figures are illustrative estimates.')
+    h=LK.relink(h)
     return B.absol(h)
 
 if __name__=='__main__':

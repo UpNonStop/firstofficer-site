@@ -45,11 +45,12 @@ def hero():
 </div>
 <div class="mrest">
 <p class="mlab"><span data-k="label">Example: Leo, Linden Row Insurance, Columbus, OH. Fictional. Figures are estimates.</span> <button class="wnext" type="button">Next example →</button></p>
-<p class="msub">Every loyalty program has a team constantly rewriting the rules. While you run your business, your spend earns less than it should, and your points buy less than they could. Your desk of specialists fixes that.</p>
+<p class="msub">Every loyalty program has a team constantly rewriting the rules. While you run your business, your spend earns less than it should, and your points buy less than they could. Your desk of specialists works on that with you.</p>
 <p class="mtag">Your spend, working harder.<br>Your points, going further.</p>
 <div class="mctas" id="mctas"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a></div>
 <a class="mcalc" href="calculator.html">or run the calculator <span class="ar">→</span></a>
 <div class="mlogos">{logos}<span>Every loyalty program. One desk to rule them all.</span></div>
+<p class="mtm">Program names and logos belong to their owners. No affiliation implied.</p>
 </div>
 </div></section>
 '''
@@ -65,7 +66,7 @@ def how():
        ('04','Learn','Know what your points are worth.','One short lesson a week, built from your own data.','learn')]
     cards=''.join(f'<div class="pc4 k-{k} reveal d{i}"><div class="pn"><b>{n}</b>{t}</div><h3>{h}</h3><p>{p}</p><div class="pm" data-k="h-{k}"></div></div>' for i,(n,t,h,p,k) in enumerate(P))
     return f'''<section class="sec mhow" id="how"><div class="wrap">
-<div class="mpay reveal"><p class="mlead">Now let me explain what we do.</p><h2 class="mpayh">You run the business. <span class="pk">The desk runs the points.</span></h2></div>
+<div class="mpay reveal"><p class="mlead">Now, let me explain what we do.</p><h2 class="mpayh">You run the business. <span class="pk">The desk runs the points.</span></h2></div>
 <div class="reveal"><span class="kick">How your desk works</span><h3 class="h2 mpay2">Let First Officer guide you. <span class="brush">The desk takes it from there.</span></h3>
 <p class="lede">It starts with Earn: what your spend earns. That feeds Burn, better trips for your points. Then Return, money found every Friday, and Learn, a little knowing along the way. Every move is your call.</p></div>
 <div class="p4">{cards}</div>
@@ -86,7 +87,7 @@ def win():
 <p class="p4f">Example: Leo, Linden Row Insurance. Fictional. Figures are estimates.</p>
 </div></section>
 <section class="sec tight"><div class="wrap"><div class="why">
-<div class="reveal"><b>$550</b><span>Flat monthly, whatever your spend. Cancel anytime.</span></div>
+<div class="reveal"><b>$550</b><span>Flat monthly, whatever your spend.</span></div>
 <div class="reveal d1"><b>20 min</b><span>Your Found Money Call, free.</span></div>
 <div class="reveal d2"><b>Friday</b><span>Your scorecard. One number, in dollars.</span></div>
 <div class="reveal d3"><b>Yours</b><span>Every move is your call. The desk books after you approve.</span></div>
@@ -117,7 +118,8 @@ def proof():
 <div class="reveal"><span class="kick">The proof</span><h2 class="h2">Proof in every pillar. <span class="brush">Earn, Burn, Return, Learn.</span></h2>
 <p class="lede">What a desk finds for owners like you. Every owner here is a fictional example, and every figure is an estimate.</p></div></div>
 <div class="prows" aria-label="Example proofs">{row(r1,'r1')}{row(r2,'r2')}</div>
-<div class="wrap"><div class="pcta"><div class="pctx"><b>Get your desk.</b><span>$550 a month, flat. Cancel anytime. The desk books only after you approve.</span></div><div class="pbtn"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn ghost" href="calculator.html">Run the calculator</a></div></div></div>
+<div class="wrap"><p class="p4f">Fictional owners. Illustrative mockup figures, est.</p></div>
+<div class="wrap"><div class="pcta"><div class="pctx"><b>Get your desk.</b><span>$550 a month, flat. The desk books only after you approve.</span></div><div class="pbtn"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn ghost" href="calculator.html">Run the calculator</a></div></div></div>
 </section>
 '''
 
@@ -144,17 +146,21 @@ def note():
        'Everything I\'ve learned, tested and dug up about points and miles is on this site, free. Read it, use it, keep it. I put it all in the <a href="freebies.html">"Freebies"</a> section which I update daily.',
        "But if you'd rather have my team and me in your corner, doing the work and getting you there faster, we've priced it for owners like you: $550 a month, flat.",
        '<mark class="nhl">Our promise is simple: make programs that look complicated feel easy.</mark>',
-       '<a href="calculator.html">Run your numbers in the calculator</a> today. If we\'re not a fit, it\'ll tell you, and so will I.']
+       '<a href="calculator.html">Run your numbers in the calculator</a> today. If we\'re not a fit, it shows you that too.']
     body=''.join('<p%s>%s</p>\n'%(' class="nlead"' if i==0 else '',_jit(t,i*97+11)) for i,t in enumerate(P))
     return ('<section class="mnote" id="note" aria-label="Note from Ohad"><div class="wrap">\n<div class="ncard reveal">\n'
       '<span class="nlab">Note from Ohad</span>\n<div class="nbody">\n'+body+
       '<div class="nsig">'+SIG+'<p class="nname">'+_jit('— Ohad Sternberg',7)+'</p><p class="nrole">'+_jit('Founder, UpNonStop',23)+'</p></div>\n</div></div>\n'
-      '<div class="ncv"><a class="btn ghost" href="calculator.html">Run the calculator <span class="ar">→</span></a></div>\n</div></section>\n')
+      '<div class="ncv"><a class="btn ghost" href="calculator.html">Run the calculator <span class="ar">→</span></a><a class="btn ghost" href="freebies.html">Everything, free from the desk <span class="ar">→</span></a></div>\n</div></section>\n')
 
+NXT='''<section class="sec tight pnx"><div class="wrap"><a class="nxt reveal" href="product-modes.html">
+<span class="nxk"><span class="thr" aria-hidden="true"><i class="te"></i><i class="tb"></i><i class="tr"></i><i class="tl"></i></span>Next chapter · 02</span><b class="nxh">Meet Leo. <span class="pk">Watch the desk catch what he missed.</span></b><span class="nxp">One fictional insurance agency, four chapters: the ads on the wrong card, the Tokyo plan, the Friday count, the lesson.</span><span class="nxb">Follow Leo's year <span class="ar">→</span></span></a>
+</div></section>
+'''
 def page():
     h=B.head('First Officer | You are not bad at Points & Miles','First Officer by UpNonStop: your rewards desk. Earn, Burn, Return, Learn.')
     h=h.replace('<link rel="stylesheet" href="recovered/rec.css">','<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap">\n<link rel="stylesheet" href="recovered/rec.css">\n<link rel="stylesheet" href="recovered/modes.css">')
-    h+='<body class="modes">\n'+B.nav('').replace('home-recovered.html','home-modes.html').replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')+B.ticker()+'<main>\n'+hero()+note()+how()+win()+proof()+'</main>\n'
+    h+='<body class="modes">\n'+B.nav('').replace('home-recovered.html','home-modes.html').replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')+B.ticker()+'<main>\n'+hero()+note()+how()+win()+proof()+NXT+'</main>\n'
     h+=B.footer().replace('home-recovered.html','home-modes.html').replace('Leo and Linden Row Insurance are fictional. All figures are examples and estimates.','Every owner shown is a fictional example. All figures are examples and estimates.')
     h+='<script>window.FO_A="'+B.ASSET+'";</script>\n<script src="recovered/rec.js"></script>\n<script src="recovered/fo-modes-data.js"></script>\n<script src="recovered/modes.js"></script>\n</body>\n</html>\n'
     h=h.replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')
@@ -163,6 +169,8 @@ def page():
     h=h.replace('<a class="btn pk" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a>\n</div>','<a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a>\n</div>',1)
     assert h.count('class="btn wa"')==3
     h=h.replace('href="calculator.html"','href="calculator-modes.html"')
+    for a,b in [('product-recovered.html','product-modes.html'),('pricing.html','pricing-modes.html'),('freebies.html','freebies-modes.html'),('about.html','about-modes.html'),('trust.html','trust-modes.html'),('industries.html','industries-modes.html'),('book.html','book-modes.html')]: h=h.replace('href="'+a,'href="'+b)
     return B.absol(h)
-open(os.path.join(ROOT,'home-modes.html'),'w').write(page())
-print('built home-modes.html')
+if __name__=='__main__':
+    open(os.path.join(ROOT,'home-modes.html'),'w').write(page())
+    print('built home-modes.html')
