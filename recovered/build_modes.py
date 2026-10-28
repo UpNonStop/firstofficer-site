@@ -158,6 +158,7 @@ def page():
     h+='<script>window.FO_A="'+B.ASSET+'";</script>\n<script src="recovered/rec.js"></script>\n<script src="recovered/fo-modes-data.js"></script>\n<script src="recovered/modes.js"></script>\n</body>\n</html>\n'
     h=h.replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')
     h=re.sub(r'<div class="mcta">.*?</a></div>\n?','',h,flags=re.S)
+    h=h.replace('href="calculator.html"','href="calculator-modes.html"')
     return B.absol(h)
 open(os.path.join(ROOT,'home-modes.html'),'w').write(page())
 print('built home-modes.html')

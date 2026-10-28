@@ -8,7 +8,7 @@ var FEE=550*12,GATE=25000,UTIL=.85,LO=.01,HI=.016,GMAX=60000;
 var r=function(s){return parseFloat(String(s))||0};
 function usd(v){return '$'+Math.round(v).toLocaleString('en-US')}
 function k(v){return v>=1e6?(v/1e6).toFixed(2).replace(/\.?0+$/,'')+'M':Math.round(v/1e3)+'k'}
-function kd(v){return v>=1e6?'$'+(v/1e6).toFixed(1)+'M':'$'+(v/1e3).toFixed(1).replace(/\.0$/,'')+'k'}
+function kd(v){if(Math.abs(v)<1000)return '$'+Math.round(v/50)*50;return v>=1e6?'$'+(v/1e6).toFixed(1)+'M':'$'+(v/1e3).toFixed(1).replace(/\.0$/,'')+'k'}
 function rate(x){return (Math.round(x*10)/10)+'x'}
 var cur=0,mix='ex',S=[];
 var EX=[['Paris in business for 2',280000,'img/fo-paris.jpg','Round trip, saver level'],['A week at a top hotel',175000,'img/hotel.jpg','7 nights, standard room'],['Maui for a family of 4',140000,'img/hero/dest/02.jpg','Economy round trip'],['Maldives, 5 nights',300000,'img/fo-maldives.jpg','Overwater villa, saver level']];
@@ -47,7 +47,7 @@ function calc(){var p=P[cur],spend=0,t=0,d=0,rows='';
   $('rBlend').textContent=spend?('About '+rate(t/spend/12)+' per $1 today, '+rate(d/spend/12)+' with your desk, est.'):'';
   var gain=Math.max(0,d-t)*UTIL,lo=gain*LO,hi=gain*HI;
   $('rVal').textContent=kd(lo)+'–'+kd(hi);
-  $('cmini').textContent=k(d)+' points a year with your desk, est.';
+  $('cmini').textContent=k(d)+' a year with your desk, est.';
   var g=$('gFill');g.style.width=Math.min(100,spend/GMAX*100)+'%';g.parentNode.parentNode.classList.toggle('under',spend<GATE);
   var V=$('rV'),T,B;V.classList.remove('meh','no');
   if(spend<GATE){V.classList.add('no');T='Not a fit yet';B='At '+usd(spend)+' a month, you\'re under the ~$25K gate. $550 a month would take most of what a desk could find, so keep your card, use the free tools, and come back when your spend grows. You\'d hear the same from us on the call.'}
@@ -60,7 +60,7 @@ function calc(){var p=P[cur],spend=0,t=0,d=0,rows='';
   EX.forEach(function(e){if(L.length<4&&e[2]!==p.img&&e[0]!==p.trip)L.push(e)});
   $('cb4').innerHTML=L.map(function(e){var x=d/e[1];
     return '<div class="cbk"><div style="background-image:url('+A+e[2]+')"></div><div class="cbb"><small>Burn · est.</small><h3>'+e[0].replace(/&/g,'&amp;')+'</h3><p>'+e[3]+'. About '+k(e[1])+' points, est.</p>'+
-      '<div class="cbx">'+(x>=1?'<b>'+x.toFixed(1)+'×</b><span>covered by a year of points with your desk</span>':'<b>'+Math.round(x*100)+'%</b><span>of it from one year with your desk</span>')+'</div></div></div>'}).join('');
+      '<div class="cbx">'+(x>=1?'<b>'+x.toFixed(1)+'×</b><span>times over, from a year of points with your desk</span>':'<b>'+Math.round(x*100)+'%</b><span>of it from one year with your desk</span>')+'</div></div></div>'}).join('');
 }
 var q=new URLSearchParams(location.search).get('ex'),st=0;P.forEach(function(p,i){if(q&&p.first.toLowerCase()===q.toLowerCase())st=i});
 load(st);

@@ -53,7 +53,7 @@ def main():
 </aside>
 </div></section>
 
-<section class="sec cburn" id="burn"><div class="wrap">
+<section class="sec tight cburn" id="burn"><div class="wrap">
 <div class="cbh"><div><span class="kick">What you could do with it</span><h2 class="h2">Your points, <span class="brush">going further.</span></h2></div>
 <p class="lede">A year of points with your desk, set against a few example trips. Points prices change by date and program, so every figure is an estimate.</p></div>
 <div class="cb4" id="cb4"></div>
