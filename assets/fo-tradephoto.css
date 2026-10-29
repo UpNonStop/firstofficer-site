@@ -2,6 +2,7 @@
    Two more photos from the same world sit behind the worked example and the code ledger, faded the same way,
    so the setting carries down the page. Cards stay white on top; nothing floats. */
 .mbg.tbg.tq img{opacity:.3}
+.tsbg.tq img{opacity:.3}
 .tsec{position:relative;isolation:isolate}
 .tsbg{position:absolute;left:0;right:0;top:0;bottom:0;z-index:-1;overflow:hidden;pointer-events:none}
 .tsbg picture,.tsbg img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
