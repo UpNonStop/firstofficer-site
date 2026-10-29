@@ -13,15 +13,20 @@
 
 var API  = 'https://cuzuzzbezswvejnoskum.supabase.co/functions/v1/fo-app-state';
 var WA   = 'https://wa.me/16199404040?text=';
+/* The tab row sits in the flow at the top of the app area. The desk first,
+   then the pillars in their fixed order, Learn last: Earn, Burn and Return
+   are the company's, Learn is the owner's own. */
 var TABS = [
-  { id:'home',   label:'Earn',   icon:'i-earn'  },
-  { id:'burn',   label:'Burn',   icon:'i-burn'  },
-  { id:'mid',    label:'',       icon:null      },
-  { id:'learn',  label:'Learn',  icon:'i-learn' },
-  { id:'return', label:'Return', icon:'i-ret'   }
+  { id:'mid',    label:'Desk',   who:'Today',   icon:'chev'    },
+  { id:'earn',   label:'Earn',   who:'Company', icon:'i-earn'  },
+  { id:'burn',   label:'Burn',   who:'Company', icon:'i-burn'  },
+  { id:'return', label:'Return', who:'Company', icon:'i-ret'   },
+  { id:'learn',  label:'Learn',  who:'You',     icon:'i-learn' }
 ];
-var SECT = { home:'var(--pink)', earn:'var(--green-lift)', burn:'var(--red-lift)',
-             'return':'var(--pink)', learn:'var(--blue-lift)' };
+var SECT = { home:'var(--pink)', earn:'var(--green)', burn:'var(--red)',
+             'return':'var(--violet)', learn:'var(--blue)' };
+var SECT_INK = { home:'var(--pink-ink)', earn:'var(--green-ink)', burn:'var(--amber-ink)',
+             'return':'var(--violet)', learn:'var(--blue-ink)' };
 
 var screenEl = document.getElementById('screen');
 var tabsEl   = document.getElementById('tabs');
@@ -429,31 +434,47 @@ var SCREENS = { home:screenHome, earn:screenEarn, burn:screenBurn,
 function show(id){
   var kind = (id === 'mid') ? 'home' : id;
   document.documentElement.style.setProperty('--sect', SECT[kind] || SECT.home);
+  document.documentElement.style.setProperty('--sect-ink', SECT_INK[kind] || SECT_INK.home);
   ruleEl.style.background = 'var(--sect)';
   screenEl.textContent = '';
   screenEl.appendChild(SCREENS[kind]());
+  // Back to the top of the app area, so the tab row and the new hero both show.
   window.scrollTo(0, 0);
   Array.prototype.forEach.call(tabsEl.children, function(b){
-    b.setAttribute('aria-current', String(b.dataset.id === id));
+    b.setAttribute('aria-current', String(b.dataset.id === id || (kind === 'home' && b.dataset.id === 'mid')));
   });
   try { history.replaceState(null, '', '#' + kind); } catch (e) {}
 }
 function buildTabs(){
   tabsEl.textContent = '';
   TABS.forEach(function(t){
-    var b = el('button', 'tab' + (t.id === 'mid' ? ' mid' : ''));
+    var b = el('button', 'tab' + (t.id === 'mid' ? ' mid' : '') + (t.who === 'You' ? ' you' : ''));
     b.type = 'button';
-    b.dataset.id = (t.id === 'home') ? 'earn' : t.id;
-    if (t.id === 'mid'){
-      var hb = el('span','hb'); hb.appendChild(icon('chevw')); b.appendChild(hb);
-    } else {
-      b.appendChild(icon(t.icon));
-    }
-    if (t.label) b.appendChild(document.createTextNode(t.label));
+    b.dataset.id = t.id;
+    b.appendChild(icon(t.icon));
+    b.appendChild(el('span','tl', t.label));
+    b.appendChild(el('span','tw', t.who));
     b.addEventListener('click', function(){ show(b.dataset.id); });
     tabsEl.appendChild(b);
   });
   tabsEl.hidden = false;
+  greet();
+}
+/* Good morning, afternoon or evening, by the owner's own clock, with the first
+   name the payload carries. No name, no comma: the line still reads. */
+function greet(){
+  var h = new Date().getHours();
+  var part = h < 12 ? 'Good morning' : (h < 18 ? 'Good afternoon' : 'Good evening');
+  var gh = document.getElementById('greet-h'), gs = document.getElementById('greet-s');
+  if (!gh) return;
+  gh.textContent = '';
+  gh.appendChild(document.createTextNode(part + (NAME ? ', ' : '.')));
+  if (NAME) gh.appendChild(el('span', null, NAME + '.'));
+  if (gs) {
+    try { gs.textContent = new Date().toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' }) + ' · your desk'; }
+    catch (e) { gs.textContent = 'Your desk'; }
+  }
+  ['top','greet'].forEach(function(id){ var n = document.getElementById(id); if (n) n.hidden = false; });
 }
 var SPLASH_AT = 0, SPLASH_MIN = 1500;
 
