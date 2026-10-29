@@ -1,0 +1,1958 @@
+[
+ {
+  "id": "nug-cards",
+  "ty": "nuggets",
+  "ind": "all",
+  "kind": "Golden Nugget pack",
+  "time": "2 min",
+  "title": "Every business: 8 card nuggets",
+  "love": "What suppliers can charge you, how they get coded, and the settlement that could change who takes your business card.",
+  "items": [
+   "<b>The code is the store's biggest line, not your purchase.</b> A merchant's code reflects its main business by sales volume, and its processor sets it. Printer ink bought at a hardware store earns like hardware.",
+   "<b>Same roof, different code.</b> When a business inside another one has its own name, its own space and its own register, Visa requires it to carry its own code. The coffee bar inside the supermarket isn't grocery.",
+   "<b>A card-reader app still gets you coded.</b> Payment facilitators have to look at every business they sign up and give it the code that fits. A shop on a phone reader is coded by what it sells, not by the app.",
+   "<b>A surcharge is credit only, and capped.</b> Visa caps credit surcharges at 3% or what the merchant pays to accept the card, whichever is lower, and bans them on debit and prepaid cards. It has to sit on its own line on your receipt.",
+   "<b>Mastercard still allows 4%, for now.</b> Mastercard's US cap is 4% or the merchant's cost, whichever is lower. The pending settlement would cut it to 3%.",
+   "<b>A real convenience fee is flat.</b> Visa's rules say a convenience fee is one fixed amount, whatever you pay, for using an extra channel like phone or online. It can't be stacked on a surcharge or added to recurring payments.",
+   "<b>A dollar price can still carry a foreign transaction fee.</b> If your card charges one, it can apply to a purchase from a merchant based abroad, even when you pay in US dollars. Check software and ad bills.",
+   "<b>Your supplier may soon be allowed to turn down business cards.</b> A pending Visa and Mastercard settlement would let merchants decline whole card categories, business cards included. The final approval hearing is set for November 16, 2026. Nothing has changed yet."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-marketing",
+  "ty": "nuggets",
+  "ind": "all",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Every business: 6 marketing codes",
+  "love": "Ads, design, photos, video, print and stock media. One budget, six different codes.",
+  "items": [
+   "<b>Ad buys have their own code.</b> Visa defines Advertising Services as 7311: shops that create ads and place them online, in print or on air.",
+   "<b>Design shops are 7333, not 7311.</b> Visa puts commercial art and graphic design services in 7333, separate from ad placement.",
+   "<b>Your photographer could be either of two codes.</b> A portrait or wedding studio is 7221. Commercial photography for businesses is 7333.",
+   "<b>A video shoot can land in 7829.</b> Visa lists TV commercial production under 7829, Motion Picture and Video Tape Production.",
+   "<b>Print splits two ways.</b> A quick-copy shop is 7338. A commercial printer is 2741. Same flyer, different code.",
+   "<b>Stock photos and music are digital goods.</b> Visa codes downloadable images, music and movies as 5815."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-software",
+  "ty": "nuggets",
+  "ind": "all",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Every business: 7 software and phone nuggets",
+  "love": "The same license can code four ways depending on who sells it. Here's the map.",
+  "items": [
+   "<b>The same license, different codes.</b> A software store is 5734, an app seller is 5817 and a hardware distributor is 5045. It depends on who sells it to you.",
+   "<b>Mobile apps belong in 5817.</b> Visa says sellers of mobile apps should use 5817, not the software store code.",
+   "<b>The giants have their own code.</b> Digital goods sellers with at least 25 million transactions a year can use 5818.",
+   "<b>Hosting isn't software.</b> Internet providers and website management sit in 4816. Software stores are 5734.",
+   "<b>Phones are 4812. The plan is 4814.</b> Telecom equipment sales code apart from the monthly phone service.",
+   "<b>The laptop store and the distributor differ.</b> An electronics store is 5732. A computer distributor is 5045.",
+   "<b>Off-the-shelf software qualifies for Section 179.</b> If it's sold to the public, licensed non-exclusively and not substantially modified."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-shipping",
+  "ty": "nuggets",
+  "ind": "ecommerce law-firms cpa-firms agencies real-estate it-services",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Shipping and mail: 3 nuggets",
+  "love": "Labels, freight, storage and duties. Four ways a box gets coded.",
+  "items": [
+   "<b>Labels vs freight.</b> Couriers are 4215. Motor freight is 4214.",
+   "<b>USPS is its own code.</b> Postage straight from the Postal Service is 9402. Visa's courier code excludes it.",
+   "<b>Storage you pay for is 4225.</b> Public warehousing and storage has its own code."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-fleet",
+  "ty": "nuggets",
+  "ind": "contractors hvac landscaping trucking cleaning property-management auto-repair",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Fleet, fuel and equipment: 6 nuggets",
+  "love": "Pump or counter, bulk or propane, gas or volts. How a fleet's fuel really codes, and the credit most owners miss.",
+  "items": [
+   "<b>Pay at the pump or inside: two codes.</b> Visa requires automated pumps to run as 5542. The register inside the same station is 5541.",
+   "<b>Bulk fuel at the yard isn't \"gas.\"</b> Delivered bulk fuel is 5172, Petroleum and Petroleum Products.",
+   "<b>Propane for the heaters is 5983.</b> Propane dealers code with fuel dealers, not with gas stations.",
+   "<b>EV charging is its own code.</b> Visa defines electric vehicle charging as 5552, separate from both fuel codes. A gas category may not count it.",
+   "<b>Rentals are their own category.</b> Equipment, tool and furniture rental is 7394. Trucks and trailers are 7513.",
+   "<b>Tolls, parking and washes each have a code.</b> Tolls 4784, parking 7523, truck and car washes 7542."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-clinics",
+  "ty": "nuggets",
+  "ind": "dental medical veterinary",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Clinics: 7 nuggets",
+  "love": "Supplies, drugs, labs and DEA paperwork. The same rules run through every exam room.",
+  "items": [
+   "<b>Supplies vs drugs.</b> Equipment and supply distributors are 5047, orthodontia, surgical and X-ray equipment included. Drug distributors are 5122.",
+   "<b>The pharmacy run is 5912.</b> Retail pharmacies, pet pharmacies included, code apart from drug distributors.",
+   "<b>Outside labs can be either of two codes.</b> Medical and dental labs are 8071. Visa lists veterinary testing under non-medical testing labs, 8734.",
+   "<b>Scrubs are 5137.</b> Uniform distributors code as Uniforms and Commercial Clothing.",
+   "<b>Schedule II orders need a DEA 222.</b> Paper Form 222 or electronic CSOS, whoever pays. Keep executed forms two years.",
+   "<b>DEA registration: $888 for three years.</b> Each principal place of practice needs its own registration.",
+   "<b>Hepatitis B shots are on the practice.</b> OSHA requires offering the series free to staff exposed to human blood, within 10 working days of assignment. Animal blood is generally outside the rule."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-chem",
+  "ty": "nuggets",
+  "ind": "cleaning salons auto-repair hvac landscaping contractors dental medical veterinary restaurants",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Chemical shops: 4 nuggets",
+  "love": "If it has a warning label, OSHA has a paperwork rule. Four you can act on this week.",
+  "items": [
+   "<b>Your supplier owes you the SDS.</b> Distributors must send a Safety Data Sheet with the first shipment and again after it changes. Retail stores only owe one on request.",
+   "<b>SDSs have to be reachable every shift.</b> Paper or digital is fine, as long as nothing gets in the way of reading it right away.",
+   "<b>Crews on the move can keep SDSs at the office.</b> If workers can get them immediately in an emergency.",
+   "<b>Consumer products used like a consumer are exempt.</b> Same size, same use, same exposure as at home, and HazCom doesn't apply to it."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-refrigerant",
+  "ty": "nuggets",
+  "ind": "hvac auto-repair",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "The refrigerant counter: 4 nuggets",
+  "love": "Who can buy it, what counts as reclaimed, and the cylinder rule coming in 2028.",
+  "items": [
+   "<b>Refrigerant is sold to certified buyers.</b> Section 608 or 609 certified techs, or shops that employ one and show proof. Who holds the card at the counter matters.",
+   "<b>Small cans are the exception.</b> Vehicle A/C refrigerant in cans of 2 lb or less with a self-sealing valve can be sold to anyone.",
+   "<b>\"Reclaimed\" now has a number.</b> Since January 1, 2026, refrigerant sold as reclaimed can contain no more than 15% virgin HFC.",
+   "<b>Empty means empty from 2028.</b> Starting January 1, 2028, leftover refrigerant has to be removed before a disposable cylinder is thrown away."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-property",
+  "ty": "nuggets",
+  "ind": "property-management real-estate",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Property money: 3 nuggets",
+  "love": "Rent, deposits, dues and utilities. Where property money lands on a card.",
+  "items": [
+   "<b>Rent and HOA dues run on 6513.</b> Visa says management fees, rent and association dues use Real Estate Agents and Managers.",
+   "<b>Earnest money by card runs on 6513, too.</b> Visa says deposits for real estate purchases use the same code.",
+   "<b>Utilities are 4900, trash included.</b> Electric, gas, water and refuse collection all sit under one code."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-b2b",
+  "ty": "nuggets",
+  "ind": "agencies consulting it-services cpa-firms law-firms contractors hvac cleaning landscaping trucking",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Selling to businesses: 2 nuggets",
+  "love": "When your customers pay with business cards, the data you send changes what you pay.",
+  "items": [
+   "<b>Line-item data can cut your card cost.</b> Visa's April 2026 rates show commercial cards with full line-item data at 1.75% plus 10 cents, against 2.70% plus 10 cents for a commercial card not present.",
+   "<b>Your processor has to send it.</b> Enhanced data only reaches Visa if you supply it and your processor passes it on."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-agencies",
+  "ty": "nuggets",
+  "ind": "agencies",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Agencies: 3 Golden Nuggets",
+  "love": "Media, creative and client money. What only an agency's statement shows.",
+  "items": [
+   "<b>Your clients see you as 7311.</b> Visa lists ad agencies under Advertising Services, so client payments to you carry the advertising code.",
+   "<b>Fronted media is your spend on the statement.</b> Ad spend you pay for a client and bill back still lands on your card as yours. Agree on who carries it before the month closes.",
+   "<b>Run the big media buy right after close.</b> A buy charged the day after your statement closes isn't due until the next statement's due date. Your dates will differ."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-auto-repair",
+  "ty": "nuggets",
+  "ind": "auto-repair",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Auto repair: 8 Golden Nuggets",
+  "love": "The parts counter, the tire guy and the A/C machine all come with rules nobody explains. Until now.",
+  "items": [
+   "<b>The jobber and the parts store are different codes.</b> A parts wholesaler is 5013. A retail parts store is 5533. The same alternator lands in a different category.",
+   "<b>Tires have two codes of their own.</b> Tire stores are 5532. Retread and tire repair shops are 7534.",
+   "<b>Shop chemicals can code apart from parts.</b> A chemical distributor selling fluids, additives and sealants is 5169.",
+   "<b>Paint has its own supplier code.</b> Paint distributors are 5198. A body shop you sub to is 7531, a paint shop 7535.",
+   "<b>Towing you pay for is 7549.</b> Towing Services has its own code, separate from repair.",
+   "<b>A/C work needs a 609 card. Even a top-off.</b> Anyone servicing vehicle A/C for pay must be Section 609 certified and use EPA-approved equipment. Topping off counts as service.",
+   "<b>Keep used oil clean and it stays \"used oil.\"</b> Mix in chlorinated brake or parts cleaner and the drum can be presumed hazardous waste. Label containers \"Used Oil.\" Some states, like California, are stricter.",
+   "<b>Your customers see you as 7538.</b> Your terminal runs as Automotive Service Shops (Non-Dealer). That decides what your customers earn, not what you earn."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-cleaning",
+  "ty": "nuggets",
+  "ind": "cleaning",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Cleaning: 6 Golden Nuggets",
+  "love": "Same jug of chemical, three different codes. The supply closet, decoded.",
+  "items": [
+   "<b>Same jug, three codes.</b> A chemical distributor is 5169, an industrial supply house is 5085 and a warehouse club is 5300. Where you buy decides the category.",
+   "<b>Uniforms are 5137. Work shoes aren't.</b> Uniform distributors code as 5137. Commercial footwear is its own code, 5139.",
+   "<b>Your carpet sub is 7217.</b> Carpet and upholstery cleaners code apart from janitorial.",
+   "<b>Disinfecting can be its own code.</b> Visa lists disinfection with pest control under 7342, Exterminating and Disinfecting Services.",
+   "<b>Mops and rags out for laundry: 7211.</b> Commercial laundries have their own code.",
+   "<b>Your customers see you as 7349.</b> Cleaning, Maintenance, and Janitorial Services, house cleaning included."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-consulting",
+  "ty": "nuggets",
+  "ind": "consulting",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Consulting: 3 Golden Nuggets",
+  "love": "The billable life, decoded: your own code, client expenses and the receipts that tie out.",
+  "items": [
+   "<b>Your own terminal is 7392.</b> Management, Consulting, and Public Relations Services. Your PR partners share it.",
+   "<b>Client-billable travel stays on your statement.</b> Travel you pay and bill back still shows on your card as yours.",
+   "<b>Bill expenses on their own lines.</b> Itemize reimbursable travel on invoices so each line matches a card charge at month end."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-contractors",
+  "ty": "nuggets",
+  "ind": "contractors",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Contractors: 6 Golden Nuggets",
+  "love": "What shows up on contractor statements that nobody mentions, like the 2x4 that codes three ways.",
+  "items": [
+   "<b>The same 2x4 can code three ways.</b> Lumber yard 5211, home supply warehouse 5200, materials distributor 5039. Rewards follow the code, not the item.",
+   "<b>The hardware store and the hardware distributor differ.</b> A hardware store is 5251. A hardware distributor is 5072.",
+   "<b>Paint and glass have their own codes.</b> Glass, paint and wallpaper stores are 5231. Paint distributors are 5198.",
+   "<b>Safety gear can code as medical supply.</b> Visa includes industrial safety equipment distributors in 5047, the same code as medical supplies.",
+   "<b>Your subs have codes too.</b> General contractors 1520, electrical 1731, masonry and tile 1740, carpentry 1750, roofing 1761, concrete 1771.",
+   "<b>Time the big materials buy to the draw.</b> Bought the day after your statement closes, it isn't due until the next statement's due date. Your dates will differ."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-dental",
+  "ty": "nuggets",
+  "ind": "dental",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Dental: 7 Golden Nuggets",
+  "love": "Your terminal code and an EPA deadline most offices haven't marked yet.",
+  "items": [
+   "<b>Your patients see you as 8021.</b> Dentists and Orthodontists is your own terminal's code.",
+   "<b>The separator is federal, not optional.</b> Offices that place or remove amalgam and send wastewater to a sewer must run a separator meeting ISO 11143 or ANSI/ADA 108.",
+   "<b>Old amalgam separators expire June 14, 2027.</b> Units installed before June 14, 2017 only count as compliant until they're replaced or that date, whichever comes first.",
+   "<b>No bleach down the line.</b> The rule bars line cleaners that are oxidizing or acidic, with a pH below 6 or above 8.",
+   "<b>Keep separator records three years.</b> Inspections, cartridge changes, amalgam shipments and repairs, plus the manual for the unit you run.",
+   "<b>Bought a practice? You owe a report.</b> A new owner files the one-time compliance report within 90 days of the transfer.",
+   "<b>Some specialties are exempt.</b> Practices doing only orthodontics, periodontics, oral surgery, prosthodontics, oral pathology or oral radiology are outside the separator rule."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-ecommerce",
+  "ty": "nuggets",
+  "ind": "ecommerce",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "E-commerce: 4 Golden Nuggets",
+  "love": "How you sell decides how you're coded. Four rules every online store should know.",
+  "items": [
+   "<b>Direct-marketing codes describe how you sell.</b> Visa says they're about the selling method, not the product: 5964 catalog, 5965 catalog plus retail, 5969 other direct marketers.",
+   "<b>Each storefront gets its own code.</b> Run separate sites with separate checkouts and Visa requires the right code for each one.",
+   "<b>Subscriptions have a code, and a risk flag.</b> 5968 is for continuity and subscription merchants. Visa treats card-absent \"negative option\" subscriptions as high integrity risk.",
+   "<b>Marketplaces have their own code: 5262.</b> A multi-seller marketplace can use 5262. One that sells a single line must use that line's code."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-fitness",
+  "ty": "nuggets",
+  "ind": "fitness",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Fitness: 9 Golden Nuggets",
+  "love": "Your playlist needs a license, your memberships have a code, and Spotify isn't the answer.",
+  "items": [
+   "<b>Memberships code as 7997.</b> Your members' payments run under Membership Clubs.",
+   "<b>Spotify isn't licensed for your class.</b> Its terms limit the service to personal, non-commercial use.",
+   "<b>Class music needs a public performance license.</b> ASCAP, BMI, SESAC and GMR each license their own catalogs to fitness venues.",
+   "<b>Contract instructors don't change it.</b> BMI says the club needs the license even when instructors are independent contractors.",
+   "<b>Streaming classes need their own license.</b> BMI says online classes need a separate digital license.",
+   "<b>ASCAP's 2026 rates start at $545 for group classes.</b> Background music only starts at $383. Virtual classes start at $321.",
+   "<b>No convenience fee on memberships.</b> Visa bans convenience fees on recurring payments.",
+   "<b>Exercise equipment can code two ways.</b> Buy it at a sporting goods store and it's 5941. A wholesale distributor may code as 5046, Commercial Equipment.",
+   "<b>Add a spa, maybe add a code.</b> A spa with its own name and register needs its own code, usually 7298 Health and Beauty Spas."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-hvac",
+  "ty": "nuggets",
+  "ind": "hvac",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "HVAC: 7 Golden Nuggets",
+  "love": "Refrigerant rules, parts-house codes and the 2026 EPA changes. Written for the shop, not the textbook.",
+  "items": [
+   "<b>Your parts house and your electrical supplier code differently.</b> Plumbing and heating is 5074. Electrical parts is 5065.",
+   "<b>Old R-410A stock can still go in.</b> New split systems at 700 GWP or more have been banned since January 1, 2025, unless every major component was made or imported before then. A May 2026 EPA rule dropped the old cutoff for installing those. Parts of that rule are being challenged in court.",
+   "<b>The line is 700.</b> R-410A rates about 2,088. R-454B is about 465. R-32 is 675.",
+   "<b>Leak repair is back for big HFC systems.</b> Since January 1, 2026, appliances holding 15 lb or more of HFC must be fixed when leaks pass set rates, 10% a year for comfort cooling. Residential and light-commercial AC are excluded.",
+   "<b>Repair parts are exempt.</b> Replacement components for existing systems aren't covered by the new-system ban. Over-limit parts must be labeled for servicing existing equipment only.",
+   "<b>You might be 1711 or 7623.</b> Heating, plumbing and AC contractors are 1711. AC and refrigeration repair shops are 7623.",
+   "<b>Equipment buys bunch up before peak season.</b> That's when timing your statement cycle matters most."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-it-services",
+  "ty": "nuggets",
+  "ind": "it-services",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "IT services: 4 Golden Nuggets",
+  "love": "Your own code, your clients' view and the repair bench. The MSP's corner of the manual.",
+  "items": [
+   "<b>Your clients see you as 7379 or 7372.</b> Computer consulting, maintenance and repair is 7379. Programming and systems design is 7372.",
+   "<b>Website design is 7372, not advertising.</b> Visa lists website design and data processing under programming services.",
+   "<b>Electronics repair has its own code: 7622.</b> Sending gear out for repair codes apart from buying it.",
+   "<b>A software store can lease you hardware.</b> Visa says 5734 merchants may also sell or lease computer hardware."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-landscaping",
+  "ty": "nuggets",
+  "ind": "landscaping",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Landscaping: 6 Golden Nuggets",
+  "love": "The nursery, the license and the spring rush. One of them pays you back.",
+  "items": [
+   "<b>Nursery vs home center.</b> A nursery or garden center is 5261, and that covers seed, mulch, fertilizer and pesticides. A home center is 5200.",
+   "<b>Wholesale nurseries are 5193.</b> Wholesale distributors of nursery stock code apart from garden centers.",
+   "<b>Restricted-use pesticides are sold to certified applicators.</b> Dealers record your certification number on every sale and keep it two years.",
+   "<b>Applicators have to be 18.</b> That goes for certified applicators and the workers they supervise. Turf and ornamental work is its own commercial category.",
+   "<b>Your own code is 0780.</b> Mowing, planting, spraying and sod laying all sit under Landscaping and Horticultural Services.",
+   "<b>Spring stacks the big buys.</b> Plants, mulch and rentals often land in the same few weeks, so statement-close timing matters most then."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-medical",
+  "ty": "nuggets",
+  "ind": "medical",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Medical: 3 Golden Nuggets",
+  "love": "Specialty codes, the exposure plan and the extras you might sell at the front desk.",
+  "items": [
+   "<b>Specialty practices have their own codes.</b> Osteopaths 8031, chiropractors 8041, optometrists 8042, podiatrists 8049. Most physicians are 8011.",
+   "<b>Selling hearing aids or braces? Different codes.</b> Visa has 5975 for hearing aids and 5976 for orthopedic and prosthetic goods.",
+   "<b>Your exposure control plan has a birthday.</b> OSHA requires a written bloodborne pathogens plan, reviewed and updated at least once a year."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-real-estate",
+  "ty": "nuggets",
+  "ind": "real-estate",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Real estate: 4 Golden Nuggets",
+  "love": "Staging, gifts and referral partners. RESPA has opinions, and so does Visa.",
+  "items": [
+   "<b>Staging furniture is a rental.</b> Rented furniture codes as 7394, the same code as tool rental.",
+   "<b>Gifts to lenders and title reps can break RESPA.</b> A gift tied to referrals is a \"thing of value,\" and there's no small-dollar exception.",
+   "<b>Closing gifts to your own client are fine under RESPA.</b> The CFPB says a gift for doing business with you is allowed. Paying clients to refer others is not.",
+   "<b>All-cash deals are outside RESPA.</b> Section 8 covers federally related mortgage loans. State license rules can still apply."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-restaurants",
+  "ty": "nuggets",
+  "ind": "restaurants",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Restaurants: 5 Golden Nuggets",
+  "love": "Suppliers, staff meals and the code your counter runs on. What moved in 2026.",
+  "items": [
+   "<b>Warehouse club vs grocery.</b> A warehouse club is 5300 and a grocery store is 5411. The same case of product codes differently.",
+   "<b>Kitchen equipment is 5046.</b> Visa lists restaurant and food service equipment under Commercial Equipment.",
+   "<b>Bread, dairy and meat have their own codes.</b> Bakeries 5462, dairy stores 5451, meat provisioners 5422, specialty markets 5499.",
+   "<b>Two concepts under one roof means two codes.</b> Visa's example: a restaurant upstairs and a nightclub downstairs, with separate names and registers, must use 5812 and 5813.",
+   "<b>Counter service is 5814.</b> Visa codes quick service and coffee shops as Fast Food, apart from table service (5812)."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-salons",
+  "ty": "nuggets",
+  "ind": "salons",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Salons: 4 Golden Nuggets",
+  "love": "The spa code rule, and why hair and makeup can be spa.",
+  "items": [
+   "<b>Your spa can change your code.</b> Visa's own example: when a salon's spa outsells the salon, it either switches to 7298 or runs the spa on its own register as 7298.",
+   "<b>Hair and makeup can be spa, to Visa.</b> 7298 lists hair and makeup styling, tanning and facials alongside massages.",
+   "<b>Retail product runs are 5977.</b> Cosmetic stores have their own code.",
+   "<b>Your own terminal is 7230.</b> Beauty and Barber Shops, which also covers nail salons and makeup studios."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "nug-veterinary",
+  "ty": "nuggets",
+  "ind": "veterinary",
+  "kind": "Golden Nugget pack",
+  "time": "1 min",
+  "title": "Veterinary: 2 Golden Nuggets",
+  "love": "Your code covers more animals than you'd think. Here's the clinic view.",
+  "items": [
+   "<b>Your clients see you as 0742.</b> Veterinary Services covers pets, livestock and large or exotic animals alike.",
+   "<b>Pet food stores are 5995.</b> Pet Shops, Pet Foods and Supplies Stores, apart from your clinic code."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "gut-cards",
+  "ty": "gutcheck",
+  "ind": "all",
+  "kind": "Gut check",
+  "time": "1 min",
+  "title": "Card strategy gut checks",
+  "love": "Six questions worth asking yourself. Answer them honestly.",
+  "items": [
+   "<b>If your biggest supplier stopped taking your card tomorrow, what would it cost you?</b> <span class=\"why\">A pending settlement could let merchants turn down business cards.</span>",
+   "<b>Do you know the code your top five suppliers run under, or are you guessing?</b> <span class=\"why\">Rewards follow the code, not the item.</span>",
+   "<b>Are you paying a 3% surcharge to earn 2%?</b> <span class=\"why\">Example: at 2 points a dollar worth a cent each, a 3% surcharge loses you 1% on every swipe.</span>",
+   "<b>When did you last read your card's rewards terms?</b> <span class=\"why\">Categories and caps change. Your plan should too.</span>",
+   "<b>If an issuer closed your card today, how many points would you lose?</b> <span class=\"why\">Points that sit unredeemed are a balance someone else controls.</span>"
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "supplier",
+  "ty": "script",
+  "ind": "all",
+  "kind": "Script",
+  "time": "60-second",
+  "title": "5 questions for your supplier",
+  "love": "Read them at the counter. Most reps have never been asked, and the answers are worth knowing.",
+  "items": [
+   "\"What category does your card terminal run under? Can you check the merchant code on your processor statement?\"",
+   "\"Do you add a surcharge for cards? Is it the same at every location and for every card type?\"",
+   "\"Is there a different price for paying by bank transfer, or for net terms?\"",
+   "\"Does your online ordering run through the same terminal as the counter?\"",
+   "\"Can my receipts show the item lines, not just a total?\""
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "processor",
+  "ty": "script",
+  "ind": "all",
+  "kind": "Script",
+  "time": "1 min",
+  "title": "3 questions for your own processor",
+  "love": "If you take cards, this is the call that tells you what your customers see.",
+  "items": [
+   "\"What merchant code is my account set up under? Is it the same for every location and website?\"",
+   "\"If I surcharge, is it credit only, under the cap, and on its own receipt line?\"",
+   "\"If the Visa and Mastercard settlement is approved, will you let me choose which card categories I accept?\""
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "fee-line",
+  "ty": "script",
+  "ind": "all",
+  "kind": "Script",
+  "time": "30-second",
+  "title": "When a supplier adds a card fee",
+  "love": "Four polite questions that tell you whether the fee follows the rules.",
+  "items": [
+   "\"Is that a surcharge or a convenience fee?\"",
+   "\"Is it on credit only? It can't apply to debit.\"",
+   "\"Will it show as its own line on my receipt?\"",
+   "\"What's the price if I pay by ACH instead?\""
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "net-terms",
+  "ty": "script",
+  "ind": "all",
+  "kind": "Script",
+  "time": "30-second",
+  "title": "For a vendor offering net terms",
+  "love": "Three questions that turn a supplier into a credit reference.",
+  "items": [
+   "\"Do you report my payments to Dun &amp; Bradstreet, Experian or Equifax?\"",
+   "\"What are the terms, and is there an early-pay discount?\"",
+   "\"Can I pay by card on the due date without a fee?\""
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "ap-line",
+  "ty": "script",
+  "ind": "consulting agencies it-services cpa-firms law-firms",
+  "kind": "Script",
+  "time": "30-second",
+  "title": "For a client's accounts payable team",
+  "love": "Three questions that get you paid faster and cheaper.",
+  "items": [
+   "\"Do you pay vendors by card, ACH or check, and which is fastest for you?\"",
+   "\"If it's a commercial card, do you need line-item detail on my invoices?\"",
+   "\"What are your payment terms, and who approves invoices?\""
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "counter-line",
+  "ty": "script",
+  "ind": "hvac auto-repair",
+  "kind": "Script",
+  "time": "30-second",
+  "title": "The refrigerant line at the counter",
+  "love": "Get the paperwork on file once, so anyone on your account can buy.",
+  "lead": "At the supply house:",
+  "quote": "\"Here's our certification. Can you keep proof on file for everyone who buys refrigerant on our account?\""
+ },
+ {
+  "id": "statement-check",
+  "ty": "checklist",
+  "ind": "all",
+  "kind": "Checklist",
+  "time": "10 minutes",
+  "title": "The 10-minute statement check",
+  "love": "Once a month, with coffee. A simple monthly habit.",
+  "items": [
+   "Sort last month's statement by merchant.",
+   "For your top ten suppliers, write down the category your card shows.",
+   "Circle any surcharge line. Debit and prepaid should never carry one.",
+   "Look for foreign transaction fees on bills priced in dollars.",
+   "Check that convenience fees are flat amounts.",
+   "Note your close date and your due date.",
+   "List the suppliers you pay by check who take cards."
+  ],
+  "list": "ticks"
+ },
+ {
+  "id": "empcard-check",
+  "ty": "checklist",
+  "ind": "all",
+  "kind": "Checklist",
+  "time": "5 minutes",
+  "title": "New employee card",
+  "love": "Six steps before you hand anyone the company's credit.",
+  "items": [
+   "Set a monthly limit for the person, not just the card.",
+   "Block categories you never buy, if your issuer allows it.",
+   "Make receipts due within 60 days, so reimbursements stay accountable.",
+   "Turn on alerts for every transaction over your comfort line.",
+   "Write down who approves new vendors.",
+   "On their last day, close the card before they leave the building."
+  ],
+  "list": "ticks"
+ },
+ {
+  "id": "annual-check",
+  "ty": "checklist",
+  "ind": "all",
+  "kind": "Checklist",
+  "time": "30 minutes",
+  "title": "The annual owner review",
+  "love": "One afternoon a year. Eight things that keep the machine honest.",
+  "items": [
+   "Compare each card's annual fee with what it actually earned you.",
+   "Re-map your top suppliers' merchant codes.",
+   "Review who holds a company card and why.",
+   "Put next year's deadlines in the calendar."
+  ],
+  "list": "ticks"
+ },
+ {
+  "id": "separator-check",
+  "ty": "checklist",
+  "ind": "dental",
+  "kind": "Checklist",
+  "time": "5 minutes",
+  "title": "The separator check",
+  "love": "Six things to confirm before June 14, 2027 sneaks up on the office.",
+  "items": [
+   "Find the separator's install date. Before June 14, 2017? Plan the replacement now.",
+   "Confirm it meets ISO 11143 or ANSI/ADA 108.",
+   "Check inspections follow the manufacturer's schedule.",
+   "Keep three years of inspection, cartridge and shipment records.",
+   "Retire any line cleaner below pH 6 or above 8.",
+   "Find your one-time compliance report."
+  ],
+  "list": "ticks"
+ },
+ {
+  "id": "refrigerant-check",
+  "ty": "checklist",
+  "ind": "hvac",
+  "kind": "Checklist",
+  "time": "5 minutes",
+  "title": "The 2026 refrigerant check",
+  "love": "Five things to look at while the EPA rules settle.",
+  "items": [
+   "Count the pre-2025 R-410A split-system stock you still plan to install.",
+   "List customer systems holding 15 lb or more of HFC. Leak repair rules apply from 2026.",
+   "Buy \"reclaimed\" refrigerant only with the reclaimer's label.",
+   "Plan how empty disposable cylinders get handled before 2028.",
+   "Make sure everyone buying refrigerant on your account is certified, with proof on file."
+  ],
+  "list": "ticks"
+ },
+ {
+  "id": "codes-everyday",
+  "ty": "sheet",
+  "ind": "all",
+  "kind": "Cheat sheet",
+  "time": "2 min",
+  "title": "Spot the buys that miss your card’s bonus",
+  "love": "Your card pays its bonus on the code a store runs under, not on what you bought. The twenty codes almost every business card meets in a year, in plain words.",
+  "rows": [
+   [
+    "5542",
+    "pay at the pump",
+    "Automated Fuel Dispensers"
+   ],
+   [
+    "5541",
+    "pay inside at the station",
+    "Service Stations"
+   ],
+   [
+    "5552",
+    "EV charging",
+    "Electric Vehicle Charging"
+   ],
+   [
+    "4511",
+    "airlines without their own code",
+    "Airlines and Air Carriers (NEC)"
+   ],
+   [
+    "7011",
+    "hotels and short stays",
+    "Lodging: Hotels, Motels, Resorts"
+   ],
+   [
+    "4121",
+    "cabs and rideshare",
+    "Taxicabs and Limousines"
+   ],
+   [
+    "7512",
+    "car rental and car sharing",
+    "Automobile Rental Agency"
+   ],
+   [
+    "4722",
+    "travel agencies",
+    "Travel Agencies and Tour Operators"
+   ],
+   [
+    "5734",
+    "software stores",
+    "Computer Software Stores"
+   ],
+   [
+    "5817",
+    "apps and software downloads",
+    "Digital Goods: Applications (Excludes Games)"
+   ],
+   [
+    "4816",
+    "internet and hosting",
+    "Computer Network/Information Services"
+   ],
+   [
+    "4814",
+    "phone service",
+    "Telecommunication Services"
+   ],
+   [
+    "7311",
+    "advertising",
+    "Advertising Services"
+   ],
+   [
+    "4215",
+    "couriers",
+    "Courier Services: Air and Ground, and Freight Forwarders"
+   ],
+   [
+    "9402",
+    "USPS",
+    "Postal Services: Government Only"
+   ],
+   [
+    "5300",
+    "warehouse clubs",
+    "Wholesale Clubs"
+   ],
+   [
+    "5411",
+    "grocery stores",
+    "Grocery Stores and Supermarkets"
+   ],
+   [
+    "5812",
+    "restaurants",
+    "Eating Places and Restaurants"
+   ],
+   [
+    "5814",
+    "fast food and coffee",
+    "Fast Food Restaurants"
+   ]
+  ]
+ },
+ {
+  "id": "codes-agencies",
+  "ty": "sheet",
+  "ind": "agencies",
+  "kind": "Cheat sheet",
+  "time": "2 min",
+  "title": "The agency code sheet",
+  "love": "Ten codes behind your media, creative and software spend.",
+  "rows": [
+   [
+    "7311",
+    "ad buys, and your own terminal",
+    "Advertising Services"
+   ],
+   [
+    "7333",
+    "design and commercial photography",
+    "Commercial Photography, Art, and Graphics"
+   ],
+   [
+    "7221",
+    "portrait or event photographer",
+    "Photographic Studios"
+   ],
+   [
+    "7829",
+    "video and commercial production",
+    "Motion Picture and Video Tape Production and Distribution"
+   ],
+   [
+    "7338",
+    "quick copy and print",
+    "Quick Copy, Reproduction, and Blueprinting Services"
+   ],
+   [
+    "2741",
+    "commercial printer",
+    "Miscellaneous Publishing and Printing"
+   ],
+   [
+    "5815",
+    "stock images, music, video",
+    "Digital Goods Media: Books, Movies, Digital artwork/images, Music"
+   ],
+   [
+    "5817",
+    "apps and downloads",
+    "Digital Goods: Applications (Excludes Games)"
+   ],
+   [
+    "5734",
+    "software store",
+    "Computer Software Stores"
+   ],
+   [
+    "4816",
+    "hosting and web services",
+    "Computer Network/Information Services"
+   ]
+  ]
+ },
+ {
+  "id": "codes-auto-repair",
+  "ty": "sheet",
+  "ind": "auto-repair",
+  "kind": "Cheat sheet",
+  "time": "2 min",
+  "title": "The parts-counter code sheet",
+  "love": "Ten codes between the jobber, the tire shop and your own terminal.",
+  "rows": [
+   [
+    "5013",
+    "parts wholesaler or jobber",
+    "Motor Vehicle Supplies and New Parts"
+   ],
+   [
+    "5533",
+    "retail parts store",
+    "Automotive Parts and Accessories Stores"
+   ],
+   [
+    "5532",
+    "tire store",
+    "Automotive Tire Stores"
+   ],
+   [
+    "7534",
+    "retread and tire repair",
+    "Tire Retreading and Repair Shops"
+   ],
+   [
+    "5169",
+    "fluids and chemicals distributor",
+    "Chemicals and Allied Products (NEC)"
+   ],
+   [
+    "5198",
+    "paint distributor",
+    "Paints, Varnishes and Supplies"
+   ],
+   [
+    "7531",
+    "body shop you sub to",
+    "Automotive Body Repair Shops"
+   ],
+   [
+    "7535",
+    "paint shop",
+    "Automotive Paint Shops"
+   ],
+   [
+    "7549",
+    "towing",
+    "Towing Services"
+   ],
+   [
+    "7538",
+    "your own terminal",
+    "Automotive Service Shops (Non-Dealer)"
+   ]
+  ]
+ },
+ {
+  "id": "codes-cleaning",
+  "ty": "sheet",
+  "ind": "cleaning",
+  "kind": "Cheat sheet",
+  "time": "2 min",
+  "title": "The supply-closet code sheet",
+  "love": "Ten codes that decide what chemicals, uniforms and rentals earn.",
+  "rows": [
+   [
+    "5169",
+    "chemical distributor",
+    "Chemicals and Allied Products (NEC)"
+   ],
+   [
+    "5085",
+    "janitorial and industrial supply",
+    "Industrial Supplies (NEC)"
+   ],
+   [
+    "5300",
+    "warehouse club",
+    "Wholesale Clubs"
+   ],
+   [
+    "5137",
+    "uniforms",
+    "Uniforms and Commercial Clothing"
+   ],
+   [
+    "5139",
+    "work shoes",
+    "Commercial Footwear"
+   ],
+   [
+    "7394",
+    "floor machine rental",
+    "Equipment, Tool, Furniture, and Appliance Rental and Leasing"
+   ],
+   [
+    "7211",
+    "commercial laundry",
+    "Laundries: Family and Commercial"
+   ],
+   [
+    "7217",
+    "carpet and upholstery sub",
+    "Carpet and Upholstery Cleaning"
+   ],
+   [
+    "7342",
+    "disinfecting and pest control",
+    "Exterminating and Disinfecting Services"
+   ],
+   [
+    "7349",
+    "your own terminal",
+    "Cleaning, Maintenance, and Janitorial Services"
+   ]
+  ]
+ },
+ {
+  "id": "codes-consulting",
+  "ty": "sheet",
+  "ind": "consulting",
+  "kind": "Cheat sheet",
+  "time": "2 min",
+  "title": "The road-warrior code sheet",
+  "love": "Ten codes your travel spend can land in, and the one your clients see.",
+  "rows": [
+   [
+    "3000 to 3350",
+    "major airlines, one code each",
+    "Individual airline codes"
+   ],
+   [
+    "4511",
+    "airlines without their own code",
+    "Airlines and Air Carriers (NEC)"
+   ],
+   [
+    "7011",
+    "hotels and stays under 30 days",
+    "Lodging: Hotels, Motels, Resorts"
+   ],
+   [
+    "4722",
+    "travel agencies",
+    "Travel Agencies and Tour Operators"
+   ],
+   [
+    "4121",
+    "cabs and rideshare",
+    "Taxicabs and Limousines"
+   ],
+   [
+    "4112",
+    "rail",
+    "Passenger Railways"
+   ],
+   [
+    "7512",
+    "rental cars",
+    "Automobile Rental Agency"
+   ],
+   [
+    "7523",
+    "parking",
+    "Parking Lots, Parking Meters and Garages"
+   ],
+   [
+    "4784",
+    "tolls",
+    "Tolls and Bridge Fees"
+   ],
+   [
+    "7392",
+    "your own terminal",
+    "Management, Consulting, and Public Relations Services"
+   ]
+  ]
+ },
+ {
+  "id": "mcc",
+  "ty": "sheet",
+  "ind": "contractors",
+  "kind": "Cheat sheet",
+  "time": "2 min",
+  "title": "The trade-supplier code sheet",
+  "love": "Ten codes that decide what your lumber, parts and fuel spend actually earns. Tape it above the desk.",
+  "rows": [
+   [
+    "5211",
+    "",
+    "Lumber and Building Materials"
+   ],
+   [
+    "5200",
+    "",
+    "Home Supply Warehouse"
+   ],
+   [
+    "5039",
+    "",
+    "Construction Materials (NEC)"
+   ],
+   [
+    "5072",
+    "",
+    "Hardware, Equipment and Supplies"
+   ],
+   [
+    "5074",
+    "",
+    "Plumbing and Heating Equipment"
+   ],
+   [
+    "5065",
+    "",
+    "Electrical Parts and Equipment"
+   ],
+   [
+    "7394",
+    "",
+    "Equipment, Tool, Furniture Rental"
+   ],
+   [
+    "7513",
+    "",
+    "Truck and Utility Trailer Rental"
+   ],
+   [
+    "5172",
+    "",
+    "Petroleum and Petroleum Products"
+   ],
+   [
+    "5542",
+    "",
+    "Automated Fuel Dispensers"
+   ]
+  ]
+ },
+ {
+  "id": "codes-contractors",
+  "ty": "sheet",
+  "ind": "contractors",
+  "kind": "Cheat sheet",
+  "time": "2 min",
+  "title": "The subs-and-stores code sheet",
+  "love": "Eleven more: the stores between the lumber yard and the job, and the subs you pay.",
+  "rows": [
+   [
+    "5251",
+    "hardware store",
+    "Hardware Stores"
+   ],
+   [
+    "5231",
+    "glass, paint and wallpaper store",
+    "Glass, Paint, and Wallpaper Stores"
+   ],
+   [
+    "5198",
+    "paint distributor",
+    "Paints, Varnishes and Supplies"
+   ],
+   [
+    "5047",
+    "safety equipment distributor",
+    "Medical, Dental, Ophthalmic and Hospital Equipment"
+   ],
+   [
+    "5983",
+    "propane dealer",
+    "Fuel Dealers: Fuel Oil, Wood, Coal, and Liquefied Petroleum"
+   ],
+   [
+    "1520",
+    "general contractor",
+    "General Contractors: Residential and Commercial"
+   ],
+   [
+    "1731",
+    "electrical sub",
+    "Electrical Contractors"
+   ],
+   [
+    "1740",
+    "masonry and tile sub",
+    "Masonry, Stonework, Tile Setting, Plastering and Insulation Contractors"
+   ],
+   [
+    "1750",
+    "carpentry sub",
+    "Carpentry Contractors"
+   ],
+   [
+    "1761",
+    "roofing sub",
+    "Roofing, Siding, and Sheet Metal Work Contractors"
+   ],
+   [
+    "1771",
+    "concrete sub",
+    "Concrete Work Contractors"
+   ]
+  ]
+ },
+ {
+  "id": "codes-dental",
+  "ty": "sheet",
+  "ind": "dental",
+  "kind": "Cheat sheet",
+  "time": "1 min",
+  "title": "The operatory code sheet",
+  "love": "Six codes between your supplier, your lab and your front desk.",
+  "rows": [
+   [
+    "8071",
+    "dental lab",
+    "Medical and Dental Laboratories"
+   ],
+   [
+    "5047",
+    "supplies, orthodontia, X-ray equipment",
+    "Medical, Dental, Ophthalmic and Hospital Equipment"
+   ],
+   [
+    "5122",
+    "drug distributor",
+    "Drugs, Drug Proprietaries, and Druggist Sundries"
+   ],
+   [
+    "5912",
+    "pharmacy",
+    "Drug Stores and Pharmacies"
+   ],
+   [
+    "5137",
+    "scrubs and uniforms",
+    "Uniforms and Commercial Clothing"
+   ],
+   [
+    "8021",
+    "your own terminal",
+    "Dentists and Orthodontists"
+   ]
+  ]
+ },
+ {
+  "id": "codes-ecommerce",
+  "ty": "sheet",
+  "ind": "ecommerce",
+  "kind": "Cheat sheet",
+  "time": "2 min",
+  "title": "The shipping-room code sheet",
+  "love": "Eleven codes from the label printer to the customs office.",
+  "rows": [
+   [
+    "4215",
+    "couriers",
+    "Courier Services: Air and Ground, and Freight Forwarders"
+   ],
+   [
+    "9402",
+    "USPS",
+    "Postal Services: Government Only"
+   ],
+   [
+    "4214",
+    "motor freight",
+    "Motor Freight Carriers and Trucking"
+   ],
+   [
+    "4225",
+    "warehousing and storage",
+    "Public Warehousing and Storage"
+   ],
+   [
+    "7311",
+    "ads",
+    "Advertising Services"
+   ],
+   [
+    "5262",
+    "marketplaces",
+    "Marketplaces"
+   ],
+   [
+    "5964",
+    "catalog sellers",
+    "Direct Marketing: Catalog Merchant"
+   ],
+   [
+    "5965",
+    "catalog plus retail",
+    "Direct Marketing: Combination Catalog and Retail Merchant"
+   ],
+   [
+    "5969",
+    "other direct marketers",
+    "Direct Marketing: Other Direct Marketers (NEC)"
+   ],
+   [
+    "5968",
+    "subscriptions",
+    "Direct Marketing: Continuity/Subscription Merchant"
+   ]
+  ]
+ },
+ {
+  "id": "codes-fitness",
+  "ty": "sheet",
+  "ind": "fitness",
+  "kind": "Cheat sheet",
+  "time": "1 min",
+  "title": "The front-desk code sheet",
+  "love": "Six codes from the gear you buy to the dues your members pay.",
+  "rows": [
+   [
+    "7997",
+    "your own terminal",
+    "Membership Clubs (Sports, Recreation, Athletic)"
+   ],
+   [
+    "5941",
+    "sporting goods and exercise equipment",
+    "Sporting Goods Stores"
+   ],
+   [
+    "5046",
+    "commercial equipment",
+    "Commercial Equipment (NEC)"
+   ],
+   [
+    "5655",
+    "sports apparel stores",
+    "Sports and Riding Apparel Stores"
+   ],
+   [
+    "7298",
+    "spa services",
+    "Health and Beauty Spas"
+   ],
+   [
+    "7311",
+    "ads",
+    "Advertising Services"
+   ]
+  ]
+ },
+ {
+  "id": "codes-hvac",
+  "ty": "sheet",
+  "ind": "hvac",
+  "kind": "Cheat sheet",
+  "time": "2 min",
+  "title": "The supply-house code sheet",
+  "love": "Ten codes from the parts counter to the propane truck.",
+  "rows": [
+   [
+    "5074",
+    "plumbing and heating supply house",
+    "Plumbing and Heating Equipment and Supplies"
+   ],
+   [
+    "5065",
+    "electrical supplier",
+    "Electrical Parts and Equipment"
+   ],
+   [
+    "5046",
+    "commercial equipment",
+    "Commercial Equipment (NEC)"
+   ],
+   [
+    "7394",
+    "equipment rental",
+    "Equipment, Tool, Furniture, and Appliance Rental and Leasing"
+   ],
+   [
+    "7513",
+    "truck rental",
+    "Truck and Utility Trailer Rentals"
+   ],
+   [
+    "5172",
+    "bulk fuel delivery",
+    "Petroleum and Petroleum Products"
+   ],
+   [
+    "5542",
+    "pump fuel",
+    "Automated Fuel Dispensers"
+   ],
+   [
+    "5983",
+    "propane dealer",
+    "Fuel Dealers: Fuel Oil, Wood, Coal, and Liquefied Petroleum"
+   ],
+   [
+    "1711",
+    "your own terminal, as a contractor",
+    "Heating, Plumbing, and AC Contractors"
+   ],
+   [
+    "7623",
+    "your own terminal, as a repair shop",
+    "Air Conditioning and Refrigeration Repair Shops"
+   ]
+  ]
+ },
+ {
+  "id": "codes-it-services",
+  "ty": "sheet",
+  "ind": "it-services",
+  "kind": "Cheat sheet",
+  "time": "2 min",
+  "title": "The stack code sheet",
+  "love": "Ten codes for hardware, software, network and the people you sub to.",
+  "rows": [
+   [
+    "5045",
+    "computer distributor",
+    "Computers and Computer Peripheral Equipment and Software"
+   ],
+   [
+    "5732",
+    "electronics store",
+    "Electronics Stores"
+   ],
+   [
+    "5734",
+    "software store",
+    "Computer Software Stores"
+   ],
+   [
+    "5817",
+    "apps and software downloads",
+    "Digital Goods: Applications (Excludes Games)"
+   ],
+   [
+    "5818",
+    "very large digital goods sellers",
+    "Digital Goods: Large Digital Goods Merchant"
+   ],
+   [
+    "4816",
+    "internet, hosting, web management",
+    "Computer Network/Information Services"
+   ],
+   [
+    "4814",
+    "phone service",
+    "Telecommunication Services"
+   ],
+   [
+    "4812",
+    "phones and telecom equipment",
+    "Telecommunication Equipment and Telephone Sales"
+   ],
+   [
+    "7372",
+    "programming and website design",
+    "Computer Programming and Data Processing"
+   ],
+   [
+    "7379",
+    "computer repair and consulting",
+    "Computer Maintenance, Repair and Services"
+   ]
+  ]
+ },
+ {
+  "id": "codes-landscaping",
+  "ty": "sheet",
+  "ind": "landscaping",
+  "kind": "Cheat sheet",
+  "time": "2 min",
+  "title": "The yard code sheet",
+  "love": "Eight codes between the nursery, the rental yard and the fuel truck.",
+  "rows": [
+   [
+    "5261",
+    "nursery or garden center",
+    "Nurseries and Lawn and Garden Supply Stores"
+   ],
+   [
+    "5193",
+    "wholesale nursery stock",
+    "Florists Supplies, Nursery Stock and Flowers"
+   ],
+   [
+    "5200",
+    "home center",
+    "Home Supply Warehouse Stores"
+   ],
+   [
+    "7394",
+    "equipment rental",
+    "Equipment, Tool, Furniture, and Appliance Rental and Leasing"
+   ],
+   [
+    "7513",
+    "truck and trailer rental",
+    "Truck and Utility Trailer Rentals"
+   ],
+   [
+    "5172",
+    "bulk fuel delivery",
+    "Petroleum and Petroleum Products"
+   ],
+   [
+    "5542",
+    "pump fuel",
+    "Automated Fuel Dispensers"
+   ],
+   [
+    "0780",
+    "your own terminal",
+    "Landscaping and Horticultural Services"
+   ]
+  ]
+ },
+ {
+  "id": "codes-law-firms",
+  "ty": "sheet",
+  "ind": "law-firms",
+  "kind": "Cheat sheet",
+  "time": "1 min",
+  "title": "The courthouse code sheet",
+  "love": "Seven codes from the filing window to the copy shop.",
+  "rows": [
+   [
+    "9211",
+    "court costs and filing fees",
+    "Court Costs, Including Alimony and Child Support"
+   ],
+   [
+    "9222",
+    "fines",
+    "Fines"
+   ],
+   [
+    "4215",
+    "courier",
+    "Courier Services: Air and Ground, and Freight Forwarders"
+   ],
+   [
+    "9402",
+    "USPS",
+    "Postal Services: Government Only"
+   ],
+   [
+    "7338",
+    "copies and exhibits",
+    "Quick Copy, Reproduction, and Blueprinting Services"
+   ],
+   [
+    "7393",
+    "investigators",
+    "Detective, Protective and Security Services"
+   ],
+   [
+    "8111",
+    "your own terminal",
+    "Legal Services and Attorneys"
+   ]
+  ]
+ },
+ {
+  "id": "codes-medical",
+  "ty": "sheet",
+  "ind": "medical",
+  "kind": "Cheat sheet",
+  "time": "2 min",
+  "title": "The exam-room code sheet",
+  "love": "Ten codes for your suppliers, your labs and the specialties next door.",
+  "rows": [
+   [
+    "5047",
+    "supplies and equipment",
+    "Medical, Dental, Ophthalmic and Hospital Equipment"
+   ],
+   [
+    "5122",
+    "drug distributor",
+    "Drugs, Drug Proprietaries, and Druggist Sundries"
+   ],
+   [
+    "5912",
+    "pharmacy",
+    "Drug Stores and Pharmacies"
+   ],
+   [
+    "8071",
+    "outside lab",
+    "Medical and Dental Laboratories"
+   ],
+   [
+    "5137",
+    "scrubs and uniforms",
+    "Uniforms and Commercial Clothing"
+   ],
+   [
+    "8011",
+    "physicians",
+    "Doctors and Physicians (NEC)"
+   ],
+   [
+    "8031",
+    "osteopaths",
+    "Osteopaths"
+   ],
+   [
+    "8041",
+    "chiropractors",
+    "Chiropractors"
+   ],
+   [
+    "8042",
+    "optometrists",
+    "Optometrists and Ophthalmologists"
+   ],
+   [
+    "8049",
+    "podiatrists",
+    "Podiatrists and Chiropodists"
+   ]
+  ]
+ },
+ {
+  "id": "codes-property-management",
+  "ty": "sheet",
+  "ind": "property-management",
+  "kind": "Cheat sheet",
+  "time": "2 min",
+  "title": "The turnover code sheet",
+  "love": "Eleven codes from the utility bill to the new blinds.",
+  "rows": [
+   [
+    "4900",
+    "utilities and trash",
+    "Utilities: Electric, Gas, Water, and Sanitary"
+   ],
+   [
+    "9399",
+    "other county charges",
+    "Government Services (NEC)"
+   ],
+   [
+    "7342",
+    "pest control",
+    "Exterminating and Disinfecting Services"
+   ],
+   [
+    "7349",
+    "turnover cleaning",
+    "Cleaning, Maintenance, and Janitorial Services"
+   ],
+   [
+    "7217",
+    "carpet cleaning",
+    "Carpet and Upholstery Cleaning"
+   ],
+   [
+    "5713",
+    "flooring",
+    "Floor Covering Stores"
+   ],
+   [
+    "5714",
+    "blinds and window coverings",
+    "Drapery, Window Covering, and Upholstery Stores"
+   ],
+   [
+    "5722",
+    "appliances",
+    "Household Appliance Stores"
+   ],
+   [
+    "6513",
+    "rent, fees and HOA dues",
+    "Real Estate Agents and Managers"
+   ],
+   [
+    "7011",
+    "stays under 30 days",
+    "Lodging: Hotels, Motels, Resorts"
+   ]
+  ]
+ },
+ {
+  "id": "codes-real-estate",
+  "ty": "sheet",
+  "ind": "real-estate",
+  "kind": "Cheat sheet",
+  "time": "1 min",
+  "title": "The listing code sheet",
+  "love": "Seven codes between the photo shoot and the closing table.",
+  "rows": [
+   [
+    "7311",
+    "listing ads",
+    "Advertising Services"
+   ],
+   [
+    "7333",
+    "commercial photography",
+    "Commercial Photography, Art, and Graphics"
+   ],
+   [
+    "7221",
+    "portrait or event photographer",
+    "Photographic Studios"
+   ],
+   [
+    "7338",
+    "flyers and signs",
+    "Quick Copy, Reproduction, and Blueprinting Services"
+   ],
+   [
+    "2741",
+    "commercial printer",
+    "Miscellaneous Publishing and Printing"
+   ],
+   [
+    "7394",
+    "staging furniture rental",
+    "Equipment, Tool, Furniture, and Appliance Rental and Leasing"
+   ],
+   [
+    "6513",
+    "deposits and property management",
+    "Real Estate Agents and Managers"
+   ]
+  ]
+ },
+ {
+  "id": "codes-restaurants",
+  "ty": "sheet",
+  "ind": "restaurants",
+  "kind": "Cheat sheet",
+  "time": "2 min",
+  "title": "The back-of-house code sheet",
+  "love": "Eleven codes from the walk-in to the dumpster.",
+  "rows": [
+   [
+    "5300",
+    "warehouse club",
+    "Wholesale Clubs"
+   ],
+   [
+    "5411",
+    "grocery store",
+    "Grocery Stores and Supermarkets"
+   ],
+   [
+    "5046",
+    "kitchen equipment",
+    "Commercial Equipment (NEC)"
+   ],
+   [
+    "5462",
+    "bakery",
+    "Bakeries"
+   ],
+   [
+    "5451",
+    "dairy",
+    "Dairy Products Stores"
+   ],
+   [
+    "5422",
+    "meat provisioner",
+    "Freezer and Locker Meat Provisioners"
+   ],
+   [
+    "5499",
+    "specialty market",
+    "Misc. Food Stores: Convenience and Specialty Markets"
+   ],
+   [
+    "4900",
+    "utilities and trash",
+    "Utilities: Electric, Gas, Water, and Sanitary"
+   ],
+   [
+    "5812",
+    "table service, your terminal",
+    "Eating Places and Restaurants"
+   ],
+   [
+    "5814",
+    "counter service, your terminal",
+    "Fast Food Restaurants"
+   ],
+   [
+    "5813",
+    "bar, your terminal",
+    "Drinking Places (Alcoholic Beverages)"
+   ]
+  ]
+ },
+ {
+  "id": "codes-salons",
+  "ty": "sheet",
+  "ind": "salons",
+  "kind": "Cheat sheet",
+  "time": "1 min",
+  "title": "The chair-side code sheet",
+  "love": "Five codes for the chair, the spa room and the retail shelf.",
+  "rows": [
+   [
+    "7230",
+    "your own terminal",
+    "Beauty and Barber Shops"
+   ],
+   [
+    "7298",
+    "spa, hair and makeup styling",
+    "Health and Beauty Spas"
+   ],
+   [
+    "5977",
+    "cosmetic stores",
+    "Cosmetic Stores"
+   ],
+   [
+    "5137",
+    "smocks and uniforms",
+    "Uniforms and Commercial Clothing"
+   ],
+   [
+    "7311",
+    "ads",
+    "Advertising Services"
+   ]
+  ]
+ },
+ {
+  "id": "codes-trucking",
+  "ty": "sheet",
+  "ind": "trucking",
+  "kind": "Cheat sheet",
+  "time": "2 min",
+  "title": "The truck-stop code sheet",
+  "love": "Ten codes from the fuel island to the tow truck.",
+  "rows": [
+   [
+    "5542",
+    "pay at the pump",
+    "Automated Fuel Dispensers"
+   ],
+   [
+    "5541",
+    "pay inside",
+    "Service Stations"
+   ],
+   [
+    "4784",
+    "tolls",
+    "Tolls and Bridge Fees"
+   ],
+   [
+    "7523",
+    "parking",
+    "Parking Lots, Parking Meters and Garages"
+   ],
+   [
+    "7542",
+    "truck wash",
+    "Car Washes"
+   ],
+   [
+    "5532",
+    "tires",
+    "Automotive Tire Stores"
+   ],
+   [
+    "7534",
+    "retreads and tire repair",
+    "Tire Retreading and Repair Shops"
+   ],
+   [
+    "5013",
+    "parts",
+    "Motor Vehicle Supplies and New Parts"
+   ],
+   [
+    "7549",
+    "towing",
+    "Towing Services"
+   ],
+   [
+    "4214",
+    "your own terminal, or a carrier you pay",
+    "Motor Freight Carriers and Trucking"
+   ]
+  ]
+ },
+ {
+  "id": "codes-veterinary",
+  "ty": "sheet",
+  "ind": "veterinary",
+  "kind": "Cheat sheet",
+  "time": "1 min",
+  "title": "The clinic code sheet",
+  "love": "Seven codes between the distributor, the lab and your front desk.",
+  "rows": [
+   [
+    "5122",
+    "drug distributor",
+    "Drugs, Drug Proprietaries, and Druggist Sundries"
+   ],
+   [
+    "5912",
+    "pharmacies, pet pharmacies included",
+    "Drug Stores and Pharmacies"
+   ],
+   [
+    "5047",
+    "equipment and supplies",
+    "Medical, Dental, Ophthalmic and Hospital Equipment"
+   ],
+   [
+    "8734",
+    "non-medical testing labs",
+    "Testing Laboratories (Non-Medical Testing)"
+   ],
+   [
+    "8071",
+    "medical labs",
+    "Medical and Dental Laboratories"
+   ],
+   [
+    "5995",
+    "pet food and supplies",
+    "Pet Shops, Pet Foods and Supplies Stores"
+   ],
+   [
+    "0742",
+    "your own terminal",
+    "Veterinary Services"
+   ]
+  ]
+ },
+ {
+  "id": "travel-codes",
+  "ty": "travel",
+  "ind": "all",
+  "kind": "Travel smarts",
+  "time": "1 min",
+  "title": "Travel codes, decoded",
+  "love": "One trip can touch five codes. Here's how the airline, the hotel and the car show up.",
+  "items": [
+   "<b>One trip, five codes.</b> Flights 4511, hotels 7011, cabs and rideshare 4121, rail 4112, rental cars 7512.",
+   "<b>Big airlines carry their own code.</b> Visa gives major airlines their own codes, from 3000 to 3350, and requires them on tickets, bag fees, upgrades and onboard buys.",
+   "<b>If the travel agency charges you, it's 4722.</b> Travel agencies and tour operators code as 4722, not as the airline or hotel.",
+   "<b>A short-term rental can be a hotel, to Visa.</b> Visa's lodging code, 7011, includes short-term rentals of under 30 days.",
+   "<b>Car sharing counts as car rental.</b> Visa includes car-sharing schemes in 7512, Automobile Rental Agency."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "travel-rules",
+  "ty": "travel",
+  "ind": "all",
+  "kind": "Travel smarts",
+  "time": "2 min",
+  "title": "Trip rules for 2026",
+  "love": "Fees, IDs, borders and refunds. What changed for business travelers.",
+  "items": [
+   "<b>Global Entry: $120 for five years.</b> Kids under 18 apply free alongside a parent or guardian.",
+   "<b>TSA PreCheck: $77.95 to $85 to enroll.</b> It depends on the provider. Renewals run $68.95 to $78, and membership lasts five years.",
+   "<b>REAL ID has been required since May 7, 2025.</b> No REAL ID or other accepted ID? TSA Confirm.ID costs $45 and covers 10 days.",
+   "<b>Passport renewal: $130 for the book.</b> A card alone is $30, both are $160, and expediting adds $60.",
+   "<b>The UK wants an ETA: £20.</b> US citizens need one, and it's been strictly enforced since February 25, 2026. It lasts two years or until the passport expires.",
+   "<b>Europe scans you now.</b> The EU's Entry/Exit System replaced passport stamps and has been fully running since April 10, 2026.",
+   "<b>ETIAS isn't running yet.</b> No launch date is set. It will cost €20 when it starts.",
+   "<b>Cancelled flight? The refund is automatic.</b> If an airline cancels or significantly changes your flight and you don't accept the alternative, you're owed cash back.",
+   "<b>Refund clock: 7 business days on a card.</b> 20 calendar days for other payment types.",
+   "<b>\"Significant\" has a definition.</b> Three hours earlier or later domestic, six international, a different airport, more connections or a downgrade."
+  ],
+  "list": "ol"
+ },
+ {
+  "id": "decode-cards",
+  "ty": "decoder",
+  "ind": "all",
+  "kind": "Decoder",
+  "time": "1 min",
+  "title": "Decoder: card words",
+  "love": "Ten words from the back of a processor statement, in plain English.",
+  "items": [
+   "<b>Merchant category code (MCC)</b> The four-digit code a merchant's processor assigns, describing its main business. Rewards categories key off it.",
+   "<b>Issuer</b> The bank behind your card. It sets your rewards, rate and limit.",
+   "<b>Acquirer</b> The merchant's bank or processor. It assigns the merchant code.",
+   "<b>Card network</b> Visa, Mastercard and the like. They write the rules issuers and acquirers follow.",
+   "<b>Interchange</b> The fee a merchant's bank pays your card's bank on each purchase, at rates the card network sets.",
+   "<b>Merchant discount rate</b> What a merchant pays in total to accept a card, interchange included.",
+   "<b>Surcharge</b> An extra charge for paying by credit card. Capped and credit-only under Visa's rules.",
+   "<b>Convenience fee</b> A flat fee for paying through an extra channel like phone or online.",
+   "<b>Chargeback</b> A disputed charge pulled back from the merchant through the card network.",
+   "<b>Payment facilitator</b> A company that signs up small merchants under its own processing account and must code each one."
+  ],
+  "list": "terms"
+ },
+ {
+  "id": "decode-pay",
+  "ty": "decoder",
+  "ind": "all",
+  "kind": "Decoder",
+  "time": "1 min",
+  "title": "Decoder: payment rails",
+  "love": "Nine ways money moves, and what each one means for you.",
+  "items": [
+   "<b>ACH</b> The batch network behind direct deposit and most bill pay, governed by Nacha.",
+   "<b>Same Day ACH</b> ACH that settles the same business day, up to $1 million per payment.",
+   "<b>Wire transfer</b> A bank-to-bank transfer that's fast and hard to reverse.",
+   "<b>RTP</b> The Clearing House's instant payment network, up to $10 million per payment.",
+   "<b>FedNow</b> The Federal Reserve's instant payment service, up to $10 million per payment if your bank allows.",
+   "<b>Positive pay</b> A bank service that only clears checks or debits you've pre-approved.",
+   "<b>Originator</b> The business that starts an ACH payment, like running payroll.",
+   "<b>Level 3 data</b> Line-item detail sent with a commercial card payment, which can lower the merchant's cost."
+  ],
+  "list": "terms"
+ },
+ {
+  "id": "decode-travel",
+  "ty": "decoder",
+  "ind": "all",
+  "kind": "Decoder",
+  "time": "1 min",
+  "title": "Decoder: points and travel words",
+  "love": "Ten words that come up the moment you try to spend points.",
+  "items": [
+   "<b>Award chart</b> A fixed table of how many points or miles an award costs.",
+   "<b>Dynamic pricing</b> Award prices that float with cash fares instead of a fixed chart.",
+   "<b>Transfer partner</b> An airline or hotel program that takes points from a bank program.",
+   "<b>Transfer bonus</b> A limited-time boost to the points you get when you transfer.",
+   "<b>Carrier-imposed surcharge</b> A fee some airlines add to award tickets on top of taxes.",
+   "<b>Saver space</b> The cheapest awards on a flight, released in limited numbers.",
+   "<b>Stopover</b> A break of more than 24 hours at a connecting city on an international trip.",
+   "<b>Open jaw</b> Flying into one city and home from another.",
+   "<b>Positioning flight</b> A separate flight to get to the city where a better award starts.",
+   "<b>Status match</b> A program granting you elite status to match status you hold elsewhere."
+  ],
+  "list": "terms"
+ }
+]

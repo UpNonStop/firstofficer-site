@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Calculator | What is your spend really worth? | First Officer</title>
+<meta name="description" content="Put in your business card spend each month and see what your desk finds against its $550 a month fee. Estimates only.">
+<link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/fo-chevron-alpha.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/recovered/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap">
+<link rel="stylesheet" href="recovered/rec.css">
+<link rel="stylesheet" href="recovered/modes.css">
+<link rel="stylesheet" href="recovered/calc.css">
+</head>
+<body class="modes calc">
+<header class="nav"><div class="nin">
+<a class="brand" href="home-modes.html" aria-label="First Officer home"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a>
+<nav class="links" aria-label="Main"><a href="product-modes.html" class="">Product</a><a href="pricing-modes.html" class="">Pricing</a><a class="fz" href="freebies-modes.html"><span><svg class="fzmk" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 15.5C18 13.2 31 14.6 46 12.9S77 12.2 96 10.6"/><path class="b" pathLength="1" d="M6 11.4C24 10.8 40 12.1 58 10.4S84 9.6 93 8.9"/></svg>Freebies</span></a><a href="calculator-modes.html" class="on">Calculator</a><a href="about-modes.html" class="">About</a></nav>
+<span class="nbtns"><a class="btn pk" href="book-modes.html">Get your desk</a><a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a></span>
+<button class="burger" aria-label="Open menu" aria-expanded="false" onclick="foNav(true)"><span></span><span></span></button>
+</div></header>
+<div class="sheet" id="sheet" aria-hidden="true">
+<div class="top"><a class="brand" href="home-modes.html"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><button class="x" aria-label="Close menu" onclick="foNav(false)">×</button></div>
+<nav><a href="product-modes.html"><span class="t">Product</span><small>01</small></a><a href="pricing-modes.html"><span class="t">Pricing</span><small>02</small></a><a href="freebies-modes.html" class="fz"><span class="t"><svg class="fzmk" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 15.5C18 13.2 31 14.6 46 12.9S77 12.2 96 10.6"/><path class="b" pathLength="1" d="M6 11.4C24 10.8 40 12.1 58 10.4S84 9.6 93 8.9"/></svg>Freebies</span><small>03</small></a><a href="calculator-modes.html"><span class="t">Calculator</span><small>04</small></a><a href="about-modes.html"><span class="t">About</span><small>05</small></a><div class="sublabel">More</div><a class="sub" href="trust-modes.html">Trust</a><a class="sub" href="industries-modes.html">Industries</a></nav>
+<a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a>
+</div>
+<div class="tick" aria-label="Desk tips"><div class="tr"><span class="h"><b>Desk tips, illustrated</b></span><span><em class="E">EARN</em> <b>Ad spend</b> Match it to a bonus category</span><span><em class="B">BURN</em> <b>Award rules</b> Vet them before you book</span><span><em class="E">EARN</em> <b>Internet &amp; phone</b> Check it against bonus categories</span><span><em class="B">BURN</em> <b>Transfer bonuses</b> Check before you move points</span><span><em class="R">RETURN</em> <b>Hotel nights</b> Compare points against cash</span><span><em class="L">LEARN</em> <b>Expiring points</b> Every program keeps its own clock</span><span><em class="R">RETURN</em> <b>Statement credits</b> Use them before they lapse</span><span><em class="B">BURN</em> <b>Partner charts</b> Compare them with the airline&#39;s price</span><span><em class="L">LEARN</em> <b>Idle points</b> Lose ground while they sit</span><span><em class="R">RETURN</em> <b>Friday report</b> Every week, in plain words</span><span class="h"><b>Desk tips, illustrated</b></span><span><em class="E">EARN</em> <b>Ad spend</b> Match it to a bonus category</span><span><em class="B">BURN</em> <b>Award rules</b> Vet them before you book</span><span><em class="E">EARN</em> <b>Internet &amp; phone</b> Check it against bonus categories</span><span><em class="B">BURN</em> <b>Transfer bonuses</b> Check before you move points</span><span><em class="R">RETURN</em> <b>Hotel nights</b> Compare points against cash</span><span><em class="L">LEARN</em> <b>Expiring points</b> Every program keeps its own clock</span><span><em class="R">RETURN</em> <b>Statement credits</b> Use them before they lapse</span><span><em class="B">BURN</em> <b>Partner charts</b> Compare them with the airline&#39;s price</span><span><em class="L">LEARN</em> <b>Idle points</b> Lose ground while they sit</span><span><em class="R">RETURN</em> <b>Friday report</b> Every week, in plain words</span></div></div>
+<main>
+<section class="mh ch" id="mh"><div class="mbg" aria-hidden="true"></div>
+<div class="chw">
+<div class="chl">
+<span class="mpill"><i></i>The calculator · est.</span>
+<h1>Every loyalty program is built to confuse you. <span class="pk">Here's what your spend is really worth.</span></h1>
+</div>
+<div class="chr"><div class="cq fit" id="bas">
+<div class="cqh"><span class="wk">Does it clear the fee?</span><a class="cqa" href="#advs" id="bgo">Go advanced <span class="ar">↓</span></a></div>
+<label class="bql" for="bv">Your business card spend each month</label>
+<div class="bin"><span>$</span><input id="bv" type="text" inputmode="numeric" autocomplete="off" value="35,000" aria-label="Your business card spend each month, in dollars"><small>a month</small></div>
+<div class="bsw"><input id="bs" class="bsl" type="range" min="0" max="1000" step="1" value="356" aria-valuetext="$35,000 a month" aria-label="Your business card spend each month, slider, $0 to $1M+"><i class="bgt" style="left:31.875%"><span>~$25K fit</span></i></div>
+<div class="bsx"><span style="left:0">$0</span><span style="left:60%">$100K</span><span style="left:80%">$250K</span><span style="left:100%">$1M+</span></div>
+<div class="ba" aria-live="polite">
+<div class="baf"><span class="wk">Your desk finds</span><b class="bfind" data-k="find">~$850</b><span class="bsub">a month found, est. <em data-k="findr">$650–$1,050</em></span></div>
+<dl class="bk"><div><dt>vs the fee</dt><dd>$550</dd><small>a month, flat</small></div><div class="ret"><dt>Return</dt><dd data-k="rx">1.5×</dd><small><span data-k="net">+$300</span> a month left</small></div></dl>
+</div>
+<div class="cbal" id="bbal" role="img" aria-label="Monthly value found against the $550 fee">
+<div class="cbt"><i class="base"></i><i class="over"></i><i class="short"></i><i class="rng"></i><i class="mark"><span>$550 fee</span></i></div>
+<div class="cbx"><span>$0</span><span data-k="bmax">$1,650</span></div>
+</div>
+<p class="bverd"><b class="bvk" aria-hidden="true">✓</b><span><strong id="bvt">Clears the fee.</strong> <span id="bvp"></span></span></p>
+<div class="bact"><button type="button" class="brun" id="brun" aria-pressed="false"><i></i><span>Watch it run</span></button><small>$10K to $80K. Touch anything to stop.</small></div>
+<div class="mctas"><a class="btn pk" id="bc1" href="book-modes.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call'>💬 Text Your First Officer</a></div>
+<p class="wfine">Blended rate, est.: about 1.2 points per $1 on your cards today, about 3.4 with your desk. Your lines can earn more or less. <a href="#advs">Go advanced</a> for every line.</p>
+</div></div>
+<div class="chb">
+<ul class="mprob cok" aria-label="What you get here">
+<li><b>✓</b><span>One slider. One answer, in dollars a month.</span></li>
+<li><b>✓</b><span>Set against the $550 a month fee, side by side.</span></li>
+<li><b>✓</b><span>Fits, close call or not a fit, shown plainly.</span></li>
+</ul>
+<p class="msub">Move the slider to what your business puts on cards each month. You see what your desk finds, est., next to its flat fee. Want every line of your spend? Go advanced below.</p>
+<div class="mlogos"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/hero/prog/01-amex.jpg" alt="Amex"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/hero/prog/12-hyatt.jpg" alt="Hyatt"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/hero/prog/02-chase.jpg" alt="Chase"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/hero/prog/17-united.jpg" alt="United"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/hero/prog/47-virgin-atlantic.jpg" alt="Virgin Atlantic"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/hero/prog/18-delta.jpg" alt="Delta"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/hero/prog/25-aeroplan.jpg" alt="Aeroplan"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/hero/prog/09-marriott.jpg" alt="Marriott"><span>Every loyalty program. One desk to rule them all.</span></div>
+</div>
+</div></section>
+<section class="sec cadv" id="advs"><div class="wrap">
+<div class="reveal"><span class="kick">Go advanced · 2 minutes</span><h2 class="h2">Every line of your spend. <span class="brush">Every card, every point.</span></h2>
+<p class="lede">Pick your industry for a typical spend mix, then type your own numbers. Each line goes to its best card, and the answer moves as you do.</p></div>
+<div class="cbox" id="adv">
+<div class="cin">
+<div class="cmini" aria-hidden="true"><div><small>Desk finds</small><b data-k="m-find">~$850</b></div><div><small>Fee</small><b>$550</b></div><div><small>Return</small><b class="rx" data-k="m-rx">1.5×</b></div></div>
+<div class="clab"><span><label for="cind">Your industry</label></span><small id="cwho">Typical mix: $35K a month, est.</small></div>
+<div class="csel"><select id="cind" aria-describedby="cwho"><option>Insurance agency</option></select></div>
+<div class="ccon" aria-live="polite"><b id="ccth">Things to consider for insurance agency</b><ul id="ccul"></ul><small>General prompts, not advice. Your Found Money Call goes through your real lines.</small></div>
+<div class="clab c2"><span>Your spend by line, a month</span><small>Type or drag</small></div>
+<div class="crows" id="crows"></div>
+<div class="csum"><div><small>On cards</small><b data-k="mo">$35,000</b><span>a month</span></div><div><small>Earns today</small><b data-k="bl">1.2x</b><span>per $1, est.</span></div><div><small>Points today</small><b data-k="vt">42k</b><span>a month</span></div></div>
+<div class="cpick">
+<div class="cmix"><span>Your cards today</span><div class="cseg" id="cmix" role="radiogroup" aria-label="Your cards today">
+<button type="button" data-m="ex" class="on" role="radio" aria-checked="true">As entered</button><button type="button" data-m="1" role="radio" aria-checked="false">One 1x card</button><button type="button" data-m="1.5" role="radio" aria-checked="false">One 1.5x card</button><button type="button" data-m="2" role="radio" aria-checked="false">2% cash back</button></div></div>
+<div class="cuse"><span>How you'll use the points</span><div class="cul" id="cuse" role="radiogroup" aria-label="How you will use the points"></div><p class="cfine">Cents a point, est. The floor is a plain cash out. The top is a level a well-planned booking can reach again and again, not a one-off.</p></div>
+</div>
+</div>
+<aside class="cres" aria-live="polite"><div class="cstk">
+<div class="clab"><span class="rr">Your month, est.</span><small data-k="who">Insurance agency · at 1.0¢–1.6¢ a point</small></div>
+<div class="chead">
+<div class="cfind"><small>Your desk finds</small><b data-k="find">~$850</b><span>a month found, est. <em data-k="findr">$650–$1,050</em></span></div>
+<div class="cvs">vs</div>
+<div class="cfee"><small>Your desk costs</small><b>$550</b><span>a month, flat</span></div>
+</div>
+<div class="cbal" id="cbal" role="img" aria-label="Monthly value found against the $550 fee">
+<div class="cbt"><i class="base"></i><i class="over"></i><i class="short"></i><i class="rng"></i><i class="mark"><span>$550 fee</span></i></div>
+<div class="cbx"><span>$0</span><span data-k="bmax">$1,650</span></div>
+</div>
+<dl class="ckpi">
+<div class="net"><dt>Left each month</dt><dd data-k="net">+$300</dd><small data-k="netr">+$100 to +$500, est.</small></div>
+<div class="ret"><dt>Return</dt><dd data-k="rx">1.5×</dd><small data-k="rxr">1.2× to 1.9×, est.</small></div>
+<div><dt>Extra points</dt><dd data-k="plus">+77k</dd><small>a month; we count 85%</small></div>
+</dl>
+<div class="cv" id="cv"><h3><b class="bvk" aria-hidden="true">✓</b><span id="cvt">Clears the fee.</span></h3><p id="cvp"></p></div>
+<div class="cet" id="cet" role="table" aria-label="Points a month by line"></div>
+<div class="cgate"><div class="csh"><span>Fit gate · ~$25K a month on cards</span><b data-k="gatev">You: $35K</b></div><div class="csc" id="cgt"><i class="fill"></i><i class="fee"></i></div></div>
+<div class="cbtn"><a class="btn pk" id="cc1" href="book-modes.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call'>💬 Text Your First Officer</a></div>
+<a class="chowl" href="#how">How we got this number ↓</a>
+</div></aside>
+</div>
+</div></section>
+<section class="sec chow" id="how"><div class="wrap">
+<div class="reveal"><span class="kick">How we got this number</span><h2 class="h2">The math, in plain words. <span class="brush">Four steps, no magic.</span></h2>
+<p class="lede">The same four steps run on your Found Money Call, from your real statements. Every figure here is an estimate.</p></div>
+<div class="p4"><div class="pc4 k-earn reveal d0"><div class="pn"><b>01</b>Earn</div><h3>Each line goes to its best card</h3><p>Ads and software to the 4x card, internet and phone to 3x, the rest to 2x. That is your desk's points a month, next to what your cards earn today.</p></div><div class="pc4 k-burn reveal d1"><div class="pn"><b>02</b>Count</div><h3>Only 85% of the new points count</h3><p>Some points always go unused, so 15% stays out of every estimate. Your points today are not counted at all, only the extra.</p></div><div class="pc4 k-learn reveal d2"><div class="pn"><b>03</b>Value</div><h3>Valued at how you will use them</h3><p>A cash out is the floor, about 1¢ a point. Planned trips run higher. The answer is the middle of that range, and the range is shown.</p></div><div class="pc4 k-fee reveal d3"><div class="pn"><b>04</b>Fee</div><h3>Then the $550 comes off</h3><p>What your desk finds, against $550 a month, flat. Return is the one divided by the other. Under ~$25K a month on cards, it says not a fit yet.</p></div></div>
+<details class="cdet"><summary>Every assumption, line by line</summary><dl class="casl"><div><dt>Basic</dt><dd>One spend figure at a blended rate: about 1.2 points per $1 today and about 3.4 with your desk. That is a service business like the insurance agency mix, so Basic at $35K matches it.</dd></div><div><dt>Advanced</dt><dd>Your spend by line, at the rate shown for each line, today and with your desk. "Your cards today" can swap your rates for one flat card.</dd></div><div><dt>Cents a point</dt><dd>Mixed 1.0¢–1.6¢, cash out 1.0¢, economy 1.0¢–1.4¢, top hotels 1.2¢–2.0¢, business class 1.5¢–2.0¢. Estimates, not results from past bookings.</dd></div><div><dt>Verdict</dt><dd>Clears the fee when even the floor beats $550 a month. Close call when only the top does. Under ~$25K a month on cards, not a fit yet.</dd></div></dl>
+<p class="cnote">Points prices move by date and program. Your desk checks live prices with you and books only after you approve.</p></details>
+<div class="cpro reveal">
+<p class="mlead">Fits, close call or not a fit: the calculator shows each case. The Found Money Call walks through your real statements.</p>
+</div>
+</div></section>
+<section class="sec tight"><div class="wrap"><div class="why">
+<div class="reveal"><b>$550</b><span>Flat monthly, whatever your spend.</span></div>
+<div class="reveal d1"><b>20 min</b><span>Your Found Money Call, free.</span></div>
+<div class="reveal d2"><b>Friday</b><span>Your scorecard. One number, in dollars.</span></div>
+<div class="reveal d3"><b>Yours</b><span>Every move is your call. The desk books after you approve.</span></div>
+</div>
+<div class="pcta"><div class="pctx"><b>Get your desk.</b><span>$550 a month, flat. The desk books only after you approve.</span></div><div class="pbtn"><a class="btn pk" href="book-modes.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call'>💬 Text Your First Officer</a></div></div>
+</div></section>
+<section class="sec tight pnx"><div class="wrap"><a class="nxt reveal" href="pricing-modes.html"><span class="nxk"><span class="thr" aria-hidden="true"><i class="te"></i><i class="tb"></i><i class="tr"></i><i class="tl"></i></span>Next chapter · 04</span><b class="nxh">Your number cleared, or came close? <span class="pk">Here's what the desk costs.</span></b><span class="nxp">One flat $550 a month, the same for every business. Fits, close call or not a fit, you see which before you sign up.</span><span class="nxb">See the pricing <span class="ar">→</span></span></a></div></section>
+</main>
+<footer class="foot"><div class="wrap">
+<div class="dr" id="daily-redemption"><div class="drt"><span class="kick">The Daily Redemption</span><b class="drh">One real redemption, every weekday.</b>
+<p>The newsletter behind the desk: what the desk found on request, what it cost in points, and what it would have cost in cash. Free, and you can leave whenever you like.</p></div>
+<div class="drf"><form class="drform" id="focapForm" novalidate><input class="dri" id="focapEmail" type="email" required autocomplete="email" placeholder="you@yourbusiness.com" aria-label="Your email address"><button class="btn pk" type="submit">Get the newsletter</button></form>
+<p class="drm" id="focapMsg" role="status" aria-live="polite"></p></div>
+<script id="focapjs">(function(){
+  var f=document.getElementById('focapForm'); if(!f) return;
+  var i=document.getElementById('focapEmail'), b=f.querySelector('button'), m=document.getElementById('focapMsg');
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var v=(i.value||'').trim();
+    if(!v || v.indexOf('@')<1){ m.textContent='Please enter a valid email address.'; i.focus(); return; }
+    b.disabled=true; m.textContent='Sending...';
+    fetch('https://www.upnonstop.com/members/api/send-magic-link/', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({email:v, emailType:'signup', labels:['First Officer site'], name:''})
+    }).then(function(r){
+      if(r.ok){ f.style.display='none'; m.textContent='Check your inbox for the confirmation link.';
+        if(typeof gtag==='function') gtag('event','newsletter_signup',{page_path:location.pathname}); }
+      else { b.disabled=false; m.textContent='That did not go through. Try again in a moment.'; }
+    }).catch(function(){ b.disabled=false; m.textContent='That did not go through. Try again in a moment.'; });
+  });
+})();</script></div>
+<div class="cols">
+<div><a class="brand" href="home-modes.html"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><p class="tl">Your rewards desk. One conversation, every program.</p></div>
+<div><h6>Site</h6><a href="product-modes.html">Product</a><a href="pricing-modes.html">Pricing</a><a href="freebies-modes.html">Freebies</a><a href="calculator-modes.html">Calculator</a><a href="about-modes.html">About</a></div>
+<div><h6>More</h6><a href="trust-modes.html">Trust</a><a href="industries-modes.html">Industries</a><a href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">Text Your First Officer</a></div>
+</div>
+<div class="bar"><span class="addr"><span>UpNonStop | 235 Pavonia Avenue | Jersey City, NJ 07302 | Proudly Made in 🇺🇸</span></span><span class="fine">Every industry mix shown is a typical example. All figures are examples and estimates.</span></div>
+</div></footer>
+<script>window.FO_A="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/";</script>
+<script src="recovered/rec.js"></script>
+<script src="recovered/fo-modes-data.js"></script>
+<script src="recovered/fo-calc-basis.js"></script>
+<script src="recovered/calc.js"></script>
+</body>
+</html>

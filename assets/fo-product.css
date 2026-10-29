@@ -1,0 +1,35 @@
+/* fo-product.css: the product page's own sections (the desk sphere, the Strategist, the exchange, the tour, the celebrations) on the -modes system. */
+.pgs.dv{padding-top:0}
+.dv .sxw{margin-top:26px}
+.dv .cap2{font-size:11.5px;line-height:1.5;color:var(--mute);font-style:italic;text-align:center;margin:18px auto 0;max-width:760px}
+.stg{display:grid;grid-template-columns:1fr;gap:22px;margin-top:24px;align-items:start}
+.stgph{margin:0;text-align:center}
+.stgph .phone{max-width:300px;margin:0 auto;border-radius:38px;overflow:hidden;box-shadow:0 30px 60px -28px rgba(20,18,22,.45)}
+.stgph .phone img{width:100%;height:auto;display:block}
+.stgph figcaption{font-size:12px;color:var(--mute);font-style:italic;margin-top:10px}
+@media(min-width:900px){.stg{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;margin-top:32px}.stgph .phone{max-width:340px}}
+.sboard{background:#fff;border-radius:24px;padding:14px;box-shadow:0 30px 60px -28px rgba(20,18,22,.45),0 0 0 1px rgba(20,18,22,.06)}
+.sb-h{display:flex;align-items:center;gap:8px;padding-bottom:10px;border-bottom:1px solid rgba(20,18,22,.07);margin-bottom:10px}
+.sb-h .lv{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:var(--pink);box-shadow:0 0 0 4px rgba(250,24,150,.15);animation:ldb 1.4s ease-in-out infinite;flex:none}
+@keyframes ldb{50%{opacity:.35}}
+.sb-h b{font-size:14px;font-weight:800}
+.sb-h small{margin-left:auto;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.sb-grid{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.sb-t{background:var(--cream2);border-radius:10px;padding:7px 8px;font-size:10px;line-height:1.25;color:var(--body);min-height:48px;transition:background .4s,box-shadow .4s,transform .4s,color .4s}
+.sb-t small{display:block;font-family:var(--mono);font-size:7.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:2px}
+.sb-t.lit{background:#fff;box-shadow:0 0 0 1px var(--pinkl)}
+.sb-t.on{background:var(--blush);box-shadow:0 0 0 2px var(--pink),0 10px 20px -12px rgba(250,24,150,.6);transform:translateY(-2px);color:var(--ink)}
+.sb-t.on small{color:var(--pinkd)}
+.sb-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;overflow:visible}
+.sb-svg path{fill:none;stroke:var(--pink);stroke-width:2;stroke-linecap:round;opacity:0;transition:stroke-dashoffset .5s ease,opacity .2s}
+.sb-svg path.vis{opacity:.9}
+.sb-svg circle{fill:var(--pink);stroke:#fff;stroke-width:2}
+.sb-read{margin-top:10px;background:var(--blush);border-radius:14px;padding:10px 12px;min-height:88px;opacity:.5;transition:opacity .4s}
+.sb-read.vis{opacity:1}
+.sb-read small{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--pinkd)}
+.sb-read p{font-size:12.5px;line-height:1.45;color:var(--ink);margin-top:4px}
+.sb-fine{font-size:10.5px;color:var(--mute);font-style:italic;margin-top:8px;text-align:center}
+@media(min-width:761px){.sb-grid{grid-template-columns:repeat(4,1fr)}.sb-t{font-size:10.5px;padding:8px 9px}}
+/* the tour and the celebrations keep their rec.css look; headings on the -modes scale */
+#tour .lede,#cheer .lede{margin-top:12px}
+#cheer{border-radius:40px;margin:0 16px}

@@ -1,0 +1,30 @@
+/* fo-legacy31.css: The Long Version (hello) and the three dispatch issues on the modes type scale, with the modes Up next card. Loaded after fo-bridge.css. */
+h1{font-size:clamp(36px,10vw,46px);line-height:1.05;letter-spacing:-.02em}
+.foh2,h2.foh2{font-size:clamp(32px,9vw,40px);line-height:1.04}
+.pill{height:50px;padding:0 24px;font-size:15px}
+.hnote{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:14px}
+.l4note{font-size:12px}
+/* the modes Up next card, self-contained */
+.sec.tight.pnx{padding:40px 0 64px;background:var(--bg)}
+.pnx .wrap{max-width:var(--w);margin:0 auto}
+.nxt{display:grid;gap:10px;padding:24px 20px;text-decoration:none;color:var(--ink);background:#fff;border-radius:22px;border-top:5px solid var(--pink);box-shadow:0 0 0 1px rgba(20,18,22,.08),0 18px 36px -24px rgba(20,18,22,.35);transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.nxt:hover{transform:translateY(-4px)}
+.nxk{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--body);display:flex;align-items:center}
+.thr{display:inline-flex;gap:3px;margin-right:10px;vertical-align:middle}
+.thr i{width:14px;height:4px;border-radius:2px;display:block}
+.thr .te{background:#12834E}.thr .tb{background:#E8590C}.thr .tr{background:#7149C9}.thr .tl{background:#1E78B8}
+.nxh{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.05;letter-spacing:-.01em;margin:0}
+.nxh .pk{color:var(--pink)}
+.nxp{font-size:15.5px;color:var(--body);max-width:720px}
+.nxb{display:inline-flex;align-items:center;gap:8px;justify-self:stretch;justify-content:center;height:50px;padding:0 24px;border-radius:999px;background:var(--pink);color:#fff;font-weight:700;margin-top:6px}
+.nxt.reveal{opacity:1;transform:none}
+@media(min-width:761px){
+  h1{font-size:62px;line-height:1.02}
+  .foh2,h2.foh2{font-size:clamp(40px,4.6vw,56px)}
+  .sec.tight.pnx{padding:56px 0 88px}
+  .nxt{padding:34px 36px}
+  .nxh{font-size:48px}
+  .nxp{font-size:17px}
+  .nxb{justify-self:start}
+}
+@media(min-width:761px) and (max-width:1100px){h1{font-size:48px}}

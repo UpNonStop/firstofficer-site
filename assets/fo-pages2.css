@@ -1,0 +1,55 @@
+/* fo-pages2.css: our overrides on the -modes pages ported from Grok (Oct 29). Loaded last. */
+.mtm{font-size:11px;line-height:1.5;color:var(--mute);font-style:italic;margin:10px 0 0;max-width:640px}
+.mtm a{color:var(--pinkd);font-style:normal;font-weight:700;text-decoration:none}
+.qfine{font-size:11.5px;line-height:1.5;color:var(--mute);font-style:italic;text-align:center;margin:0 auto;max-width:760px}
+.onote{padding:24px 0 8px}
+@media(min-width:761px){.onote{padding:36px 0 8px}}
+@media(max-width:600px){.ohad{transform:none;padding:36px 18px 22px}.ohad .go{flex-direction:column;align-items:stretch}.ohad .go .btn{width:100%;flex:none}.mtm{text-align:center;margin:12px auto 0}}
+/* the calculator's "How we got this number" link sits centred on its own line */
+.chowl{display:block;width:max-content;max-width:100%;margin:16px auto 0;text-align:center}
+/* the newsletter band on the chapter pages */
+.capsec{padding-top:0}
+.cap31{background:#fff;border-radius:24px;padding:24px 20px;box-shadow:0 0 0 1px rgba(20,18,22,.07),0 18px 40px -28px rgba(20,18,22,.35);display:grid;gap:18px}
+.cap31 .lede{margin-top:10px}
+.cap31 .cap-l{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.cap31 .cap-row{display:flex;flex-direction:column;gap:10px}
+.cap31 input{height:52px;border-radius:14px;border:1.5px solid rgba(20,18,22,.14);padding:0 16px;font:500 15px var(--sans);color:var(--ink);background:#fff;min-width:0;width:100%}
+.cap31 input:focus{outline:3px solid var(--pinkl);border-color:var(--pink)}
+.cap31 .btn{height:52px;justify-content:center}
+.cap31 .cap-m{font-size:12.5px;color:var(--mute);margin:10px 0 0}
+.cap31 .cap-msg{font-size:13.5px;font-weight:600;color:var(--pinkd);margin:8px 0 0;min-height:1em}
+@media(min-width:900px){.cap31{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;padding:32px 34px;gap:34px}.cap31 .cap-row{flex-direction:row}.cap31 input{flex:1}.cap31 .btn{flex:none}}
+/* the Found Money Call request form */
+.bk31{background:#fff;border-radius:24px;padding:22px 20px;box-shadow:0 0 0 1px rgba(20,18,22,.07),0 18px 40px -28px rgba(20,18,22,.35);margin-top:22px}
+.bkg{display:grid;grid-template-columns:1fr;gap:14px}
+.bkg label{display:grid;gap:6px;font-size:13px;font-weight:600;color:var(--ink)}
+.bkg label span{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:500}
+.bkg input,.bkg select,.bkg textarea{height:50px;border-radius:14px;border:1.5px solid rgba(20,18,22,.14);padding:0 14px;font:500 15px var(--sans);color:var(--ink);background:#fff;width:100%;min-width:0}
+.bkg textarea{height:auto;padding:12px 14px;resize:vertical;line-height:1.45}
+.bkg select{appearance:none;-webkit-appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23141216' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center/16px}
+.bkg input:focus,.bkg select:focus,.bkg textarea:focus{outline:3px solid var(--pinkl);border-color:var(--pink)}
+.bkb{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px}
+.bkb .btn{height:52px}
+.bk-msg{font-size:13.5px;font-weight:600;color:var(--pinkd);margin:0;min-height:1em}
+.bk-fine{font-size:12px;color:var(--mute);font-style:italic;margin:14px 0 0;text-align:center}
+.bkdone h3{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.1;margin:8px 0 10px}
+.bkdone p{color:var(--body);font-size:15.5px;line-height:1.5}
+.bkdone .btn.wa{background:#25D366;color:#fff}
+@media(min-width:760px){.bk31{padding:30px 32px}.bkg{grid-template-columns:1fr 1fr;gap:16px 20px}.bkg .wide{grid-column:1/-1}}
+/* Oct 29 (Ohad): the $550 fee label sits under the bar on every width, never over the "a month found" line; the short-by label goes above the range */
+.cq .cbal,.cres .cbal{padding-top:36px}
+.cbt .mark{top:-6px;bottom:-8px}
+.cbt .mark span{top:100%;bottom:auto;margin:7px 0 0}
+.cbt .short::after{top:auto;bottom:calc(100% + 15px)}
+.cbx,.cq .cbx,.cres .cbx{margin-top:32px}
+
+/* Oct 29 (Ohad): the note keeps its lines. One line height for the writing and the rules (36px on phones, 40px from 761px), so every
+   line sits on its rule all the way down; no orphan words, the price never splits; the name in the hand, the title under it in plain type. */
+.ohad{--lh:36px;background-image:repeating-linear-gradient(180deg,transparent 0,transparent calc(var(--lh) - 1px),rgba(20,18,22,.07) calc(var(--lh) - 1px),rgba(20,18,22,.07) var(--lh))!important;background-origin:content-box!important}
+.ohad p{line-height:var(--lh)!important;text-wrap:pretty}
+.ohad br.dk{display:none}
+.ohad .nb{white-space:nowrap}
+.ohad .sig{display:block!important;margin-top:var(--lh)!important}
+.ohad .sig b{display:block;font:700 34px/1 'Caveat',cursive!important;color:var(--ink);letter-spacing:0}
+.ohad .sig small{display:block;font:500 14px/1.4 var(--sans)!important;letter-spacing:0!important;text-transform:none!important;color:var(--body);margin-top:6px}
+@media(min-width:761px){.ohad{--lh:40px}.ohad p{font-size:27px!important}.ohad .sig b{font-size:38px}.ohad br.dk{display:inline}}

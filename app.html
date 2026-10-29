@@ -22,42 +22,34 @@
    =========================================================================== */
 :root{
   --pink:#FA1896; --pink-lift:#FF5CB8; --pink-soft:#FFF0F7; --pink-deep:#C40F75;
-  --green:#0d6e3a; --green-lift:#12b45f; --green-soft:#e8f7ef;
-  --red:#B4241C;   --red-lift:#F2614E;   --red-soft:#FDEDEA;
-  --blue:#12457F;  --blue-lift:#3E8FD8;  --blue-soft:#EAF2FB;
-  --amber:#b06d0c; --amber-lift:#f0a93d; --amber-soft:#FBF1DD;
-  --pink-ink:#C40F75; --green-ink:#0d6e3a; --blue-ink:#12457F; --amber-ink:#8f5808; --red-ink:#B4241C;
-  --ink:#141210; --ink2:#4a453f; --ink3:#8b8177;
-  --paper:#ffffff; --alt:#f7f5f2; --rule:#e7e3dd;
+  /* Pillar colours, the same four the site uses: Earn green, Burn orange,
+     Return violet, Learn light blue. Cream ground from recovered/modes.css. */
+  --green:#12834E; --green-lift:#12834E; --green-soft:#E3F3EA;
+  --red:#E8590C;   --red-lift:#E8590C;   --red-soft:#FDEBDD;
+  --violet:#7149C9; --violet-soft:#EFE9FB;
+  --blue:#1E78B8;  --blue-lift:#1E78B8;  --blue-soft:#E2F0FA;
+  --amber:#C9500D; --amber-lift:#F26419; --amber-soft:#FDEBDD;
+  --pink-ink:#C40F75; --green-ink:#0F5E3B; --blue-ink:#1A5279; --amber-ink:#C9500D; --red-ink:#C9500D;
+  --ink:#141216; --ink2:#4A4550; --ink3:#6E6775;
+  --paper:#FAF6EE; --alt:#ffffff; --rule:#EBE1CD; --cream2:#F3ECDD;
   --sect:var(--pink);
   --sans:'FO Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
   --mono:'FO Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --ink:#f4f1ec; --ink2:#c3bcb2; --ink3:#8d857a;
-  --paper:#141210; --alt:#1c1917; --rule:#2c2825;
-  --pink-soft:#2a0d1c; --green-soft:#0c2418; --red-soft:#2a100c; --blue-soft:#0c1b2c;
-  --amber-soft:#2a1d08;
-  --pink-ink:#ff5cb8; --green-ink:#3ecf7a; --blue-ink:#6aa9ee; --amber-ink:#f0a93d; --red-ink:#f2614e;
-}}
-:root[data-theme="dark"]{
-  --ink:#f4f1ec; --ink2:#c3bcb2; --ink3:#8d857a;
-  --paper:#141210; --alt:#1c1917; --rule:#2c2825;
-  --pink-soft:#2a0d1c; --green-soft:#0c2418; --red-soft:#2a100c; --blue-soft:#0c1b2c;
-  --amber-soft:#2a1d08;
-  --pink-ink:#ff5cb8; --green-ink:#3ecf7a; --blue-ink:#6aa9ee; --amber-ink:#f0a93d; --red-ink:#f2614e;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;
   line-height:1.5;-webkit-font-smoothing:antialiased;
   padding-bottom:calc(24px + env(safe-area-inset-bottom))}
-.wrap{max-width:520px;margin:0 auto;min-height:100vh;position:relative}
+.inapp body,body{min-height:100vh}
+.wrap{max-width:560px;margin:0 auto;min-height:100vh;position:relative}
+@media (min-width:768px){.wrap{max-width:720px}}
 /* A 5px accent, not a status-bar fill. Painting the safe area in the section
    colour put a pink stripe above a black hero on Home: two colours meeting at a
    hard edge under the notch. The hero paints its own ground all the way up; the
    rule is just the line. */
-.rule{position:fixed;top:0;left:0;right:0;z-index:40;background:var(--sect);height:5px}
+/* In the flow now: the line scrolls away with the page like the site nav. */
+.rule{position:relative;background:var(--sect);height:5px}
 /* In the app there is no browser chrome for this line to sit under, so it
    becomes a stripe across the notch. The app sets .inapp on <html>. */
 .inapp .rule{display:none}
@@ -68,39 +60,39 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 
 /* ---- the plan, in execution ----------------------------------------------- */
 .meter{margin-top:18px}
-.meter .track{height:8px;border-radius:99px;background:rgba(255,255,255,.22);overflow:hidden}
-.meter .fill{height:100%;border-radius:99px;background:#fff;transition:width .6s cubic-bezier(.2,.7,.2,1)}
+.meter .track{height:8px;border-radius:99px;background:var(--cream2);box-shadow:inset 0 0 0 1px var(--rule);overflow:hidden}
+.meter .fill{height:100%;border-radius:99px;background:var(--sect);transition:width .6s cubic-bezier(.2,.7,.2,1)}
 .meter .ends{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-top:9px;
-  font:700 10px/1.35 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.62)}
-.meter .ends span:first-child{color:#fff;font-size:11.5px;white-space:nowrap}
+  font:700 10px/1.35 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink3)}
+.meter .ends span:first-child{color:var(--ink);font-size:11.5px;white-space:nowrap}
 .meter .ends span:last-child{text-align:right;font-size:9px;letter-spacing:.03em;
   opacity:.8;max-width:52%}
 
-/* ---- hero ---------------------------------------------------------------- */
-.hero{color:#fff;padding:calc(44px + env(safe-area-inset-top)) 20px 30px;position:relative;overflow:hidden}
-.hero.earn  {background:linear-gradient(163deg,#12a054,var(--green) 52%,#04381f)}
-.hero.burn  {background:linear-gradient(163deg,#D8382A,var(--red) 54%,#6B120D)}
-.hero.return{background:linear-gradient(163deg,var(--pink),#E0107F 56%,#9C0A5C)}
-.hero.learn {background:linear-gradient(163deg,#1E63AE,var(--blue) 52%,#08243F)}
-.hero.home  {background:linear-gradient(163deg,#2b2724,#141210 60%,#0a0908)}
-.hero::before{content:'';position:absolute;inset:0;z-index:0;
-  background-image:var(--shot);background-size:cover;background-position:center 42%;
-  opacity:.92}
-.hero::after{content:'';position:absolute;inset:0;z-index:1;
-  background:linear-gradient(180deg,rgba(0,0,0,.30) 0%,rgba(0,0,0,.16) 34%,rgba(0,0,0,.78) 100%)}
+/* ---- hero ----------------------------------------------------------------
+   Light, like the site's modes pages: cream ground, the photo faint under a
+   cream wash, ink type, the big figure in the tab's own pillar colour. */
+.hero{color:var(--ink);padding:26px 20px 26px;position:relative;overflow:hidden;isolation:isolate;
+  background:var(--paper);border-bottom:1px solid var(--rule)}
+.hero::before{content:'';position:absolute;inset:0;z-index:-2;
+  background-image:var(--shot);background-size:cover;background-position:center 42%}
+.hero::after{content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(98deg,rgba(250,246,238,.95) 0,rgba(250,246,238,.88) 48%,rgba(250,246,238,.72) 100%),
+             linear-gradient(180deg,rgba(250,246,238,0) 55%,var(--paper) 100%)}
 .hero.home  {--shot:url('img/cabin.jpg')}
 .hero.earn  {--shot:url('img/newyork.jpg')}
 .hero.burn  {--shot:url('img/tokyo.jpg')}
 .hero.return{--shot:url('img/hotel.jpg')}
 .hero.learn {--shot:url('img/rome.jpg')}
-.hero .mk{position:absolute;right:-26px;top:10px;width:126px;height:172px;opacity:.16;color:#fff;z-index:2}
+.hero .mk{position:absolute;right:-18px;top:14px;width:110px;height:150px;opacity:.12;color:var(--sect);z-index:0}
 .hero .in{position:relative;z-index:2}
-.kicker{display:inline-block;font:700 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
-  background:rgba(255,255,255,.16);padding:6px 11px;border-radius:100px;margin-bottom:14px}
-.num{display:block;font-family:var(--sans);font-stretch:113%;font-weight:800;font-size:56px;
-  line-height:.92;letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.kicker{display:inline-flex;align-items:center;gap:9px;font:700 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink);background:#fff;box-shadow:inset 0 0 0 1px rgba(20,18,22,.16);padding:7px 12px;border-radius:100px;margin-bottom:14px}
+.kicker::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--sect);flex:none}
+.num{display:block;font-family:var(--sans);font-stretch:113%;font-weight:800;font-size:56px;color:var(--sect-ink,var(--sect));
+  line-height:.92;letter-spacing:-.035em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
 .num.sm{font-size:38px}
-.say{font-size:14.5px;margin-top:10px;opacity:.92;max-width:34ch}
+.say{font-size:14.5px;margin-top:10px;color:var(--ink2);max-width:40ch}
+@media (min-width:768px){.hero{padding:34px 28px 32px}.num{font-size:68px}.num.sm{font-size:46px}.body{padding:20px 28px 30px}}
 
 /* ---- body ---------------------------------------------------------------- */
 .body{padding:18px 20px 26px}
@@ -114,10 +106,10 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 .tx s{display:block;text-decoration:none;font-size:12.5px;line-height:1.35;color:var(--ink3);
   font-weight:500;margin-top:3px}
 .v{font:700 15px/1 var(--mono);font-variant-numeric:tabular-nums;flex:0 0 auto}
-.v.g{color:var(--green-ink)} .v.p{color:var(--pink)} .v.d{color:var(--ink3)}
-.bul{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+.v.g{color:var(--green-ink)} .v.p{color:var(--violet)} .v.d{color:var(--ink3)}
+.bul{width:9px;height:9px;border-radius:2px;flex:0 0 auto}
 .bul.g{background:var(--green-lift)} .bul.a{background:var(--amber-lift)}
-.bul.p{background:var(--pink)} .bul.r{background:var(--red-lift)}
+.bul.p{background:var(--violet)} .bul.r{background:var(--red-lift)}
 .mult{font:700 9.5px/1 var(--mono);background:var(--green-soft);color:var(--green-ink);
   padding:4px 6px;border-radius:5px;flex:0 0 auto}
 .rw.exp{cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -140,7 +132,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 .flag.over_1{background:var(--amber-soft);color:var(--amber-ink)}
 .flag.under_1{background:var(--rule);color:var(--ink2)}
 .flag.none{background:var(--rule);color:var(--ink3)}
-.fc{background:var(--alt);border-radius:16px;padding:13px 15px;margin-top:10px}
+.fc{background:var(--alt);box-shadow:inset 0 0 0 1px var(--rule);border-radius:16px;padding:13px 15px;margin-top:10px}
 .fc .mh{justify-content:space-between}
 .fw{font:600 10.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
 .ft{margin:8px 0 0;font-size:15px;font-weight:700;letter-spacing:-.01em}
@@ -150,17 +142,17 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 .ms{margin:7px 0 0;font-size:13.5px;line-height:1.45;color:var(--ink)}
 .md{margin:4px 0 0;font-size:12.5px;line-height:1.45;color:var(--ink2)}
 @media (prefers-reduced-motion: reduce){.rw.exp::after{transition:none}}
-.note{background:var(--alt);border-radius:14px;padding:13px 15px;margin-top:16px;
+.note{background:var(--alt);box-shadow:inset 0 0 0 1px var(--rule);border-radius:14px;padding:13px 15px;margin-top:16px;
   font-size:13px;line-height:1.5;color:var(--ink2)}
 .note b{display:block;font:700 10px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;
   color:var(--ink3);margin-bottom:7px}
-.card{background:var(--alt);border-radius:16px;padding:15px 16px;margin-top:14px}
+.card{background:var(--alt);box-shadow:inset 0 0 0 1px var(--rule);border-radius:16px;padding:15px 16px;margin-top:14px}
 .card .k{font:700 9.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
 .card .b{font-family:var(--sans);font-stretch:113%;font-weight:800;font-size:30px;line-height:1;
   letter-spacing:-.03em;margin-top:8px;font-variant-numeric:tabular-nums}
 .card .s{font-size:13px;color:var(--ink2);margin-top:7px;line-height:1.45}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
-.pair>div{background:var(--alt);border-radius:12px;padding:11px 12px}
+.pair>div{background:var(--alt);box-shadow:inset 0 0 0 1px var(--rule);border-radius:12px;padding:11px 12px}
 .pair .k{font:500 9.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
 .pair .v2{font:700 17px/1 var(--mono);margin-top:7px;font-variant-numeric:tabular-nums}
 .act{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;
@@ -168,34 +160,39 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
   color:#fff;text-decoration:none;border-radius:100px;padding:15px 20px;font-weight:700;font-size:15px;
   box-shadow:0 6px 18px rgba(250,24,150,.28)}
 .act small{font:700 11px/1 var(--mono);opacity:.85}
-/* The bar is fixed, so the last element in the flow has to carry its own
-   clearance. Relying on body padding-bottom left this pill half under the bar
-   at maximum scroll. */
 .act{margin-bottom:calc(14px + env(safe-area-inset-bottom))}
 .honest{font-size:12px;line-height:1.5;color:var(--ink3);margin-top:18px;
   padding-top:14px;border-top:1px solid var(--rule)}
 
-/* ---- tabs ---------------------------------------------------------------- */
-.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;
-  background:var(--paper);border-top:1px solid var(--rule);
-  padding:4px 4px calc(3px + env(safe-area-inset-bottom));max-width:520px;margin:0 auto}
-.tab{flex:1;background:none;border:0;font:700 11.5px/1 var(--mono);letter-spacing:.07em;
-  text-transform:uppercase;color:var(--ink3);display:flex;flex-direction:column;align-items:center;
-  gap:5px;padding:4px 0;cursor:pointer;font-family:var(--mono)}
-.tab svg{width:23px;height:23px}
-.tab[aria-current="true"]{color:var(--sect)}
-.tab.mid{position:relative;justify-content:flex-start}
-/* The home button is the brand mark, so it should read as one colour. The old
-   gradient ran down into #C40F75, which meant most of the circle was not the
-   brand pink at all. Now it is #FA1896 with one soft lift top-left, and bigger,
-   so more of that pink shows around a chevron that has not changed size. */
-.tab.mid .hb{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  margin-top:-30px;border:4px solid var(--paper);
-  background:radial-gradient(70% 70% at 30% 20%,rgba(255,255,255,.28),transparent 62%),var(--pink);
-  box-shadow:0 10px 24px rgba(250,24,150,.42),0 2px 6px rgba(250,24,150,.3)}
-.tab.mid .hb svg{width:22px;height:30px;color:#fff}
-.tab.mid:active .hb{transform:scale(.95)}
-.tab.mid .hb{transition:transform .12s ease}
+/* ---- greeting and tabs -----------------------------------------------------
+   Nothing is fixed or sticky. The greeting and the tab row sit at the top of
+   the app area and scroll away with the page. Pillar order is Earn, Burn,
+   Return, Learn, with Learn last: the first three are the company's, Learn is
+   the owner's own. On a narrow phone the row scrolls sideways. */
+.top{padding:16px 20px 0;display:flex;align-items:center;gap:10px}
+.top .mk{width:20px;height:27px;flex:none}
+.top b{font:800 15px/1 var(--sans);letter-spacing:-.01em}
+.greet{padding:12px 20px 2px}
+.greet h1{font-family:var(--sans);font-stretch:113%;font-weight:800;font-size:27px;line-height:1.1;letter-spacing:-.03em}
+.greet h1 span{color:var(--pink)}
+.greet p{font:600 10.5px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-top:7px}
+.tabs{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+  padding:14px 16px 14px;scroll-padding:0 16px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{--tc:var(--pink);flex:1 0 60px;min-width:60px;background:#fff;border:0;box-shadow:inset 0 0 0 1px var(--rule);
+  border-radius:14px;padding:10px 9px 11px;cursor:pointer;color:var(--ink);text-align:left;
+  display:flex;flex-direction:column;align-items:flex-start;gap:6px;font-family:var(--sans);
+  -webkit-tap-highlight-color:transparent;transition:box-shadow .15s,background .15s}
+.tab[data-id="earn"]{--tc:var(--green)} .tab[data-id="burn"]{--tc:var(--red)}
+.tab[data-id="return"]{--tc:var(--violet)} .tab[data-id="learn"]{--tc:var(--blue)}
+.tab svg{width:20px;height:20px;color:var(--tc)}
+.tab.mid svg{width:15px;height:20px}
+.tab .tl{font:800 14px/1 var(--sans);letter-spacing:-.01em}
+.tab .tw{font:600 8.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+.tab[aria-current="true"]{box-shadow:inset 0 0 0 2px var(--tc);background:#fff}
+.tab[aria-current="true"] .tl{color:var(--tc)}
+.tab:focus-visible{outline:2px solid var(--tc);outline-offset:2px}
+@media (min-width:768px){.top,.greet{padding-left:28px;padding-right:28px}.tabs{padding-left:28px;padding-right:28px;gap:10px}.tab{padding:12px 14px 13px}.tab .tw{font-size:9.5px;letter-spacing:.12em}.greet h1{font-size:34px}}
 
 /* ---- states -------------------------------------------------------------- */
 .state{min-height:100vh;min-height:100dvh;box-sizing:border-box;
@@ -209,7 +206,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 /* The splash. Not a state screen with a different colour: the loading moment is
    the brand mark, so it is the ground, the words, and the chevrons under them. */
 .state,.splash{margin-bottom:calc(-24px - env(safe-area-inset-bottom))}
-.splash{position:fixed;inset:0;z-index:60;background:#F41886;
+.splash{position:relative;min-height:100vh;min-height:100dvh;background:#F41886;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   padding:40px 26px;text-align:center}
 .splash h2{font-family:var(--sans);font-stretch:113%;font-weight:800;
@@ -224,7 +221,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:
 }
 .state a{display:inline-block;margin-top:20px;background:var(--pink);color:#fff;text-decoration:none;
   border-radius:100px;padding:13px 22px;font-weight:700;font-size:14.5px}
-.handoff{margin:30px 20px calc(104px + env(safe-area-inset-bottom));text-align:center}
+.handoff{margin:30px 20px calc(30px + env(safe-area-inset-bottom));text-align:center}
 .handoff a{display:inline-block;background:var(--pink);color:#fff;text-decoration:none;
   border-radius:100px;padding:12px 20px;font-weight:700;font-size:14.5px}
 .handoff p{margin:11px 0 0;color:var(--ink3);font-size:12.5px;line-height:1.45;
@@ -275,14 +272,17 @@ html.inapp .handoff{display:none}
 <symbol id="i-burn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
   stroke-linecap="round" stroke-linejoin="round"><path d="M21.6 2.4 2.9 9.1a.55.55 0 0 0-.06 1l6.05 2.99 2.99 6.05a.55.55 0 0 0 1-.06z"/><path d="M21.6 2.4 8.9 13.1"/></symbol>
 <symbol id="i-learn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-  stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M16.2 16.2 21 21"/></symbol>
+  stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H3z"/><path d="M21 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></symbol>
 <symbol id="i-ret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
   stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5.5-6 4 4L21 6"/><path d="M15 6h6v6"/></symbol>
 </defs></svg>
 
 <div class="rule" id="rule"></div>
-<div class="wrap"><main id="screen" aria-live="polite"></main></div>
-<nav class="tabs" id="tabs" hidden></nav>
+<div class="wrap">
+<header class="top" id="top" hidden><svg class="mk" aria-hidden="true"><use href="#chev"/></svg><b>First Officer</b></header>
+<div class="greet" id="greet" hidden><h1 id="greet-h"></h1><p id="greet-s"></p></div>
+<nav class="tabs" id="tabs" aria-label="Your desk" hidden></nav>
+<main id="screen" aria-live="polite"></main></div>
 <script src="app.js"></script>
 </body>
 </html>
