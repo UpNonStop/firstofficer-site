@@ -1,0 +1,52 @@
+Trade photos (img/ind/)
+
+Hero photos: each trade's original photo, restored in PR #15 (565de6e) from 8215623 on home-v2-preview.
+Exceptions: auto-repair-shop and medical-exam replace originals that showed a ski chairlift and a dental chair;
+consulting is the original departures-board photo, restored.
+
+Secondary photos: -2 sits behind the code ledger, -3 behind the worked example.
+Unsplash photos are free to use under the Unsplash License (https://unsplash.com/license). Credited here with thanks.
+
+agencies-2  A production crew around the camera on a shoot. Photo by Jakob Owens on Unsplash. https://images.unsplash.com/photo-1632187989763-c9c620420b4d
+agencies-3  An agency team at one table, laptops open. Photo by Marvin Meyer on Unsplash. https://images.unsplash.com/photo-1519389950473-47ba0277781c
+auto-repair-2  Catalytic converters and exhaust parts on a wall. Photo by engin akyurt on Unsplash (https://unsplash.com/@enginakyurt). https://images.unsplash.com/photo-1759419281419-b04552b2691a
+auto-repair-3  Cars being repaired in a workshop. Photo by Winston Chen on Unsplash (https://unsplash.com/@winstonchen). https://images.unsplash.com/photo-1767681092416-bccf9410bda4
+auto-repair-shop  Repair bays with two-post lifts. Photo by Mehmet Talha Onuk on Unsplash. https://images.unsplash.com/photo-1727893119356-1702fe921cf9
+cleaning-2  A gloved hand cleaning a wet floor. Photo by James Lo on Unsplash (https://unsplash.com/@olsemaj). https://images.unsplash.com/photo-1740657254989-42fe9c3b8cce
+cleaning-3  Gloved hands cleaning an office desk. Photo by Kateryna Hliznitsova on Unsplash (https://unsplash.com/@kate_gliz). https://images.unsplash.com/photo-1627905646269-7f034dcc5738
+consulting-2  A traveler at the gate, feet on the carry-on. Photo by JESHOOTS.COM on Unsplash (https://unsplash.com/@jeshoots). https://images.unsplash.com/photo-1530521954074-e64f6810b32d
+consulting-3  A sunlit airport terminal. Photo by Briana Tozour on Unsplash. https://images.unsplash.com/photo-1532968899863-5b52ef155913
+contractors-2  An excavator loading a dump truck. Photo by Troy Mortier on Unsplash (https://unsplash.com/@troyscanon). https://images.unsplash.com/photo-1575281923032-f40d94ef6160
+contractors-3  Two crew in safety vests on a site. Photo by John Kakuk on Unsplash (https://unsplash.com/@lensatic). https://images.unsplash.com/photo-1652303518379-c0ef1c9fb2b1
+cpa-firms-2  Stacks of files and folders. Photo by Wesley Tingey on Unsplash. https://images.unsplash.com/photo-1583521214690-73421a1829a9
+cpa-firms-3  An open file-cabinet drawer. Photo by Maksym Kaharlytskyi on Unsplash. https://images.unsplash.com/photo-1569235186275-626cb53b83ce
+ecommerce-2  Boxes and packaging supplies in a warehouse. Photo by Guilherme Mendes on Unsplash (https://unsplash.com/@guilhermemendes). https://images.unsplash.com/photo-1769355104335-acef3aa4c9b6
+ecommerce-3  A stockroom of stacked cartons. Photo by Declan Sun on Unsplash (https://unsplash.com/@declansun). https://images.unsplash.com/photo-1757837593538-b4a8654132f1
+fitness-2  A bright gym floor with treadmills. Photo by Aalo Lens on Unsplash (https://unsplash.com/@aalolens). https://images.unsplash.com/photo-1757924284732-4189190321cf
+fitness-3  Rows of racks and benches in a gym. Photo by Ambitious Studio* | Rick Barrett on Unsplash (https://unsplash.com/@weareambitious). https://images.unsplash.com/photo-1689877020200-403d8542d95d
+hvac-2  Bins of copper fittings at a supply house. Photo by Guille B on Unsplash (https://unsplash.com/@guilleb). https://images.unsplash.com/photo-1711571603482-6023e3721132
+hvac-3  A tech on a roof among condensing units. Photo by ThisisEngineering on Unsplash (https://unsplash.com/@thisisengineering). https://images.unsplash.com/photo-1705579605238-24a90c8799c5
+it-services-2  A data center aisle. Photo by Taylor Vick on Unsplash (https://unsplash.com/@tvick). https://images.unsplash.com/photo-1564457461758-8ff96e439e83
+it-services-3  Patched network racks. Photo by Taylor Vick on Unsplash (https://unsplash.com/@tvick). https://images.unsplash.com/photo-1558494949-ef010cbdcc31
+landscaping-2  A crew mowing and blowing a backyard. Photo by Michael Smith on Unsplash (https://unsplash.com/@cutabovelandscapingnc). https://images.unsplash.com/photo-1734303023491-db8037a21f09
+landscaping-3  String trimming a lawn edge. Photo by Michael Kahn on Unsplash (https://unsplash.com/@mklibrary). https://images.unsplash.com/photo-1689728318937-17d24bc0a65c
+law-firms-2  Courthouse columns. Photo by Ambrose Prince on Unsplash (https://unsplash.com/@ambroseprince). https://images.unsplash.com/photo-1636652968964-22026624a69a
+law-firms-3  A county courthouse. Photo by Colin Lloyd on Unsplash (https://unsplash.com/@onthesearchforpineapples). https://images.unsplash.com/photo-1783733628473-ed17ce3c56b8
+medical-2  Supply shelves with labeled bins. Photo by James Baker on Unsplash (https://unsplash.com/@drwattselectric). https://images.unsplash.com/photo-1763025747123-bb3a2e3a5ac3
+medical-3  Stethoscope, pill organizer and dressings. Photo by Julia Zyablova on Unsplash (https://unsplash.com/@foyu). https://images.unsplash.com/photo-1603398938378-e54eab446dde
+medical-exam  Exam room: wall diagnostic set, gloves, monitor. Photo by fr0ggy5 on Unsplash. https://images.unsplash.com/photo-1682365114691-f0264ad25c52
+property-management-2  A unit mid-turnover, appliances wrapped. Photo by Brett Jordan on Unsplash. https://images.unsplash.com/photo-1741105820127-97dd1aaafe87
+property-management-3  Scaffolding on a facade repair. Photo by Yuriy Vertikov on Unsplash (https://unsplash.com/@noa69). https://images.unsplash.com/photo-1785234598179-24bf745a33ad
+real-estate-2  A listed house with a porch. Photo by todd kent on Unsplash (https://unsplash.com/@churchoftodd). https://images.unsplash.com/photo-1570129477492-45c003edd2be
+real-estate-3  House keys over model homes. Photo by Jakub Żerdzicki on Unsplash (https://unsplash.com/@jakubzerdzicki). https://images.unsplash.com/photo-1759428679273-11d914866394
+restaurants-2  Fresh produce in a market crate. Photo by Shelley Pauls on Unsplash. https://images.unsplash.com/photo-1567306295427-94503f8300d7
+restaurants-3  Sorting the catch into crates at market. Photo by Bernd Dittrich on Unsplash (https://unsplash.com/@hdbernd). https://images.unsplash.com/photo-1779517935535-d3c4491a3efb
+salons-2  A shelf of professional hair products. Photo by Pablo Hernández on Unsplash. https://images.unsplash.com/photo-1673241073904-686d244b62e3
+salons-3  A salon station by the mirror. Photo by Giorgio Trovato on Unsplash (https://unsplash.com/@giorgiotrovato). https://images.unsplash.com/photo-1626379501846-0df4067b8bb9
+trucking-2  A diesel pump at a rural station. Photo by Rob Wingate on Unsplash (https://unsplash.com/@robwingate). https://images.unsplash.com/photo-1530566855378-5bfa35ed0795
+trucking-3  Truck tires stacked tread to tread. Photo by Goh Rhy Yan on Unsplash. https://images.unsplash.com/photo-1527266258038-6ae3e089a609
+veterinary-2  A lab bench with analyzers and a microscope. Photo by Trnava University on Unsplash. https://images.unsplash.com/photo-1602052577122-f73b9710adba
+veterinary-3  A vet examining a dog on the table. Photo by Alexander Mass on Unsplash. https://images.unsplash.com/photo-1770836037289-e00e5f351d11
+consulting  the original consulting photo (departures board), from 8215623 on home-v2-preview
+dental-2  the original dental operatory photo (img/ph/i-dental2.webp, rebuild-v4)
+dental-3  the original dental operatory photo (img/ph/i-dental3.webp, rebuild-v4)

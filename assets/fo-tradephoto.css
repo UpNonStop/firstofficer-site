@@ -1,0 +1,14 @@
+/* Trade photos (audit/tradephoto.py). The hero keeps the trade's own photo (.mbg.tbg, from PR #15).
+   Two more photos from the same world sit behind the worked example and the code ledger, faded the same way,
+   so the setting carries down the page. Cards stay white on top; nothing floats. */
+.mbg.tbg.tq img{opacity:.3}
+.tsec{position:relative;isolation:isolate}
+.tsbg{position:absolute;left:0;right:0;top:0;bottom:0;z-index:-1;overflow:hidden;pointer-events:none}
+.tsbg picture,.tsbg img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.tsbg img{object-fit:cover;object-position:center 45%;opacity:.55;filter:saturate(.5)}
+.tsbg::after{content:"";position:absolute;left:0;right:0;top:0;bottom:0;background:linear-gradient(180deg,var(--cream,#FAF6EE) 0,rgba(250,246,238,.66) 18%,rgba(250,246,238,.6) 50%,rgba(250,246,238,.68) 82%,var(--cream,#FAF6EE) 100%)}
+@media (max-width:700px){
+ .tsbg{bottom:auto;height:min(100%,760px)}
+ .tsbg::after{background:linear-gradient(180deg,var(--cream,#FAF6EE) 0,rgba(250,246,238,.62) 14%,rgba(250,246,238,.62) 58%,var(--cream,#FAF6EE) 100%)}
+ .ledger .lh{flex-direction:column;align-items:flex-start;gap:6px}
+}

@@ -35,6 +35,10 @@
 .row > .code,.ledger .code{background:#fff!important;box-shadow:inset 0 0 0 1px rgba(250,24,150,.55)!important}
 .tdc.on .tst,.tdc.on .tic{background:#fff!important;box-shadow:inset 0 0 0 1px #16A06A!important}
 .bu.me{background:#fff!important;box-shadow:inset 0 0 0 1px rgba(22,160,106,.45)!important}
+.chip.ex{background:#fff!important;box-shadow:inset 0 0 0 1px rgba(20,18,22,.28)!important;color:#141216!important}
+.mf-c i{background:#fff!important;border-radius:12px!important;box-shadow:inset 0 0 0 1.5px #FA1896!important}
+.mf-c:hover{box-shadow:0 26px 48px -22px rgba(250,24,150,.35),0 0 0 1.5px #FA1896!important}
+.madlib select,.madlib select:hover,.madlib select:focus{background-color:#fff!important}
 
 /* ---- no dark blocks but the ticker: the name card and the pill chips go white with a pink edge ---- */
 .arc-head .who{background:#fff!important;color:#141216!important}
