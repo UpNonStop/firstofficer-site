@@ -47,3 +47,29 @@ html{scroll-padding-top:0}
 .pgl .lsq ol{margin:12px 0 0;padding-left:20px;display:grid;gap:8px;font-size:15px}
 .pgl .lsv{max-width:420px;margin:0 auto}
 @media(min-width:900px){.pgl .lsd{grid-template-columns:1fr 1fr}}
+/* flow pages (welcome, no-charge, day-one, 404): pgf */
+.pgf .fcd{background:#fff;border-radius:22px;padding:24px 22px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 18px 36px -24px rgba(20,18,22,.35);border-top:6px solid var(--pink);max-width:420px;margin:0 auto;display:grid;gap:6px}
+.pgf .fcd .chk{color:var(--pinkd)}
+.pgf .fcd .fbg{font-family:var(--serif);font-weight:400;font-size:clamp(44px,12vw,64px);line-height:1.05;color:var(--ink);margin-top:6px}
+.pgf .fcd small{font-size:14px;color:var(--body)}
+.pgf .fcd ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.pgf .fcd li{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:14px;padding:9px 12px;border-radius:12px;background:var(--cream)}
+.pgf .fcd li b{font-weight:700;text-align:right}
+.pgf .fcd li b a{color:var(--pinkd)}
+.pgf .fcd li b.g{color:#12834E}
+.pgf .fcd li i{font-style:normal;font-family:var(--mono);font-size:15px}
+.pgf .fft{font-size:12px;color:var(--mute);margin:10px 0 0;line-height:1.5}
+.pgf .fnt{display:grid;gap:14px;margin-top:20px}
+.pgf .fnc{display:block;background:#fff;border-radius:22px;padding:20px;box-shadow:0 0 0 1px rgba(20,18,22,.08);text-decoration:none;color:inherit}
+.pgf .fnc .chk{color:var(--pinkd)}
+.pgf .fnc p{margin:8px 0 0;font-size:15px;line-height:1.6;color:var(--body)}
+.pgf .fnc p a,.pgf .fnc p b{color:var(--pinkd);font-weight:700}
+.pgf .fnc.big{text-align:center;padding:26px 16px}
+.pgf .fnc.big b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(56px,16vw,88px);line-height:1;color:#E8590C}
+.pgf .fnc.big b i{font-style:normal}
+.pgf .fnc.big span{display:block;margin-top:8px;font-size:14px;color:var(--body)}
+.pgf .fnt.two{grid-template-columns:1fr 1fr}
+.pgf .fill{font-size:12.5px;color:var(--mute);margin:12px 0 0}
+.pgf .fbt{margin-top:14px;width:100%;justify-content:center}
+@media(min-width:900px){.pgf .fnt{grid-template-columns:1fr 1fr}}
+body.pgo em,body.pgo cite{font-style:normal!important}
