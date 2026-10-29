@@ -39,11 +39,13 @@ def render(fn,title,desc,body,on='',canon=None,head_extra='',tail_extra='',bcls=
 def redirect(fn,to,title,line,body=''):
     """Lightweight redirect page: meta refresh + canonical + JS replace that keeps any query string."""
     q=to.split('#')
-    js="location.replace('%s'+location.search+'%s')"%(q[0],('#'+q[1]) if len(q)>1 else '')
+    # htmlpreview-aware: on htmlpreview.github.io the target page is carried in the query, so swap the file name there
+    js=("(function(){var t='%s',h='%s',l=location;if(l.hostname=='htmlpreview.github.io'){var s=l.search.slice(1),i=s.indexOf('?'),"
+        "u=i<0?s:s.slice(0,i),q=i<0?'':s.slice(i);l.replace(l.pathname+'?'+u.replace(/[^\\/]*$/,t)+q+h)}else l.replace(t+l.search+h)})()")%(q[0],('#'+q[1]) if len(q)>1 else '')
     h=f'''<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,follow">
 <link rel="canonical" href="{SITE}{to}">
-<meta http-equiv="refresh" content="0; url={to}">
+<noscript><meta http-equiv="refresh" content="0; url={to}"></noscript>
 <title>{title} | First Officer</title>
 <script>{js};</script>
 <style>body{{margin:0;font:17px/1.5 'DM Sans',system-ui,sans-serif;background:#FAF6EE;color:#141216;display:grid;place-items:center;min-height:100vh;padding:24px;box-sizing:border-box}}a{{color:#E60F86;font-weight:700}}</style>
