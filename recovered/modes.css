@@ -444,3 +444,14 @@ details.tx p{margin:10px 0 0;color:var(--body);font-size:15px}
 details.tx summary{min-height:44px;justify-content:center}
 @media (max-width:760px){.ph .phb .mprob{display:inline-grid;justify-items:start;text-align:left;margin-left:auto;margin-right:auto}}
 h1,h2,h3,h4,.nxh,.stq,p,li,b{overflow-wrap:break-word}
+
+/* rec20: top bar never floats over content.
+   Phones and tablets (<=900px, where the menu button shows): a normal in-flow bar that scrolls away with the page.
+   Desktop: stays at the top while scrolling, but fully opaque, no see-through blur. */
+.modes .nav{background:#FAF6EE;-webkit-backdrop-filter:none;backdrop-filter:none}
+.modes .nav.solid{background:#FAF6EE}
+@media (max-width:900px){
+ .modes .nav,.modes .nav.solid{position:relative;top:auto;z-index:auto;box-shadow:0 1px 0 rgba(20,18,22,.08)}
+}
+/* rec20: the handwritten signature keeps its own size in every browser (explicit ratio, never collapses) */
+.nsig .nsvg{aspect-ratio:200/84;width:calc(var(--lh)*2*200/84);max-width:100%;height:auto;overflow:visible}
