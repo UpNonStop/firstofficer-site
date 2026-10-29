@@ -33,9 +33,9 @@ def ctas(pk=('Get your desk','book-modes.html'),calc=None):
     if calc: h+='<a class="mcalc" href="%s">%s <span class="ar">→</span></a>'%calc
     return h
 
-def hero(pill,h1,sub,checks,visual,pk=('Get your desk','book-modes.html'),calc=('calculator-modes.html','or run the calculator'),cls=''):
+def hero(pill,h1,sub,checks,visual,pk=('Get your desk','book-modes.html'),calc=('calculator-modes.html','or run the calculator'),cls='',bg=''):
     lis=''.join('<li><b>✓</b><span>%s</span></li>'%c for c in checks)
-    return f'''<section class="mh ph {cls}" id="mh"><div class="mbg" aria-hidden="true"></div>
+    return f'''<section class="mh ph {cls}" id="mh">{bg or '<div class="mbg" aria-hidden="true"></div>'}
 <div class="phw">
 <div class="pht"><span class="mpill"><i></i>{pill}</span><h1>{h1}</h1></div>
 <div class="phv">{visual}</div>

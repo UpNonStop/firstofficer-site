@@ -71,6 +71,20 @@ H1={'agencies':'Client ad spend. Software. Travel. <span class="pk">Almost all o
  'salons':'Product orders. Booking software. <span class="pk">Earning the minimum?</span>',
  'trucking':'Diesel is your biggest line. <span class="pk">Is it earning the most?</span>',
  'veterinary':'Distributor orders. Labs. Imaging. <span class="pk">Earning the minimum?</span>'}
+# Each trade's own photo, restored from history (img/ind, first added in 8215623). Pinned to the commit that re-adds them,
+# because B.ASSET's pinned commit predates them. Consulting's original was an airport departures board: travel imagery, so it has none.
+IMGA='https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@565de6e790af5eacdd6dbd2a5141adaa6004fcfe/img/ind/'
+NOPHOTO={'consulting'}
+# Secondary trade photos that exist in history (rebuild-v4/img/ph, 1585595). Only dental has any.
+PH2={'dental':[('dental-2','A dental operatory chair'),('dental-3','A dental chair and lamp')]}
+def tbg(slug):
+    if slug in NOPHOTO: return '<div class="mbg tbg" aria-hidden="true"></div>'  # plain cream, no rotating travel photos
+    u=IMGA+slug
+    return (f'<div class="mbg tbg" aria-hidden="true"><picture><source type="image/webp" srcset="{u}-800.webp 800w, {u}-1200.webp 1200w" sizes="100vw">'
+            f'<img src="{u}.jpg" alt="" width="1200" height="744" fetchpriority="high" decoding="async"></picture></div>')
+def ph2(slug):
+    if slug not in PH2: return ''
+    return '<div class="tph">'+''.join(f'<picture><source type="image/webp" srcset="{IMGA}{f}-640.webp"><img src="{IMGA}{f}-640.jpg" alt="{a}" width="640" height="960" loading="lazy" decoding="async"></picture>' for f,a in PH2[slug])+'</div>'
 def k1(v): return ('$%gk'%v)
 def rnd(n,s=10): return int(round(n/s)*s)
 
@@ -116,7 +130,7 @@ def page(slug,name,desc):
         dm(f'{esc(o["first"])} runs {esc(o["biz"])} in {o["city"]}, a fictional {lname} business. Here is where {lname} spend hides money, and what the desk does about it, one pillar at a time.',
            f'Where {lname} spend hides money, and what the desk does about it.'),
         [f'How {lname} spend codes, line by line.','Every move waits for your yes.','One number in dollars, every Friday.'],phone(o,name),
-        calc=(calc,'or run '+('the '+name+' example' if o['ind'] else 'your numbers')+' in the calculator'))
+        calc=(calc,'or run '+('the '+name+' example' if o['ind'] else 'your numbers')+' in the calculator'),bg=tbg(slug))
     mix=''.join(f'<li><span>{esc(a)}</span><em>{k1(b)}/mo</em><b>{f} → {t}</b></li>' for a,b,f,t in o['mix'])
     tmx=f'<div class="tmx"><div class="tmh"><span class="chk">Example mix · {esc(name)}</span><b>{esc(o["first"])}, {esc(o["biz"])}</b><small>{o["city"]} · about {k1(o["spend"])} a month on cards</small></div><ul>{mix}</ul><div class="tmf"><span>Per $1, est.</span><b>{x(o["frm"])} → {x(o["to"])}</b></div><small class="ill">Fictional owner. {ILL}</small></div>'
     codes=''.join(f'<li><span>{esc(a)}</span><b class="r{r}">up to {r}x</b></li>' if r>1 else f'<li><span>{esc(a)}</span><b class="r1">often 1x</b></li>' for a,k,r in L)
@@ -129,7 +143,7 @@ def page(slug,name,desc):
        ('return','Return',f'{esc(OFF[slug][0].upper()+OFF[slug][1:])} stay off the card.','A bill-pay fee often costs more than the points are worth. The desk decides line by line, and Friday counts what was found, in dollars.'),
        ('learn','Learn',f'How {esc(big[0].lower())} codes.','One short lesson a week from your own data: why the same purchase can code differently at two vendors, and what it means for you.')]
     body+=sec('02 · Where the money hides',f'Four places {esc(lname)} <span class="brush">money leaks.</span>',dm('Same four pillars as every desk, read through your trade\'s own codes.','Swipe: four places, one desk.'),
-        rail([f'<div class="pc4 k-{k}"><div class="pn"><b>0{i+1}</b>{t}</div><h3>{a}</h3><p>{b}</p></div>' for i,(k,t,a,b) in enumerate(W)],4,'Where the money hides'),id_='leaks')
+        rail([f'<div class="pc4 k-{k}"><div class="pn"><b>0{i+1}</b>{t}</div><h3>{a}</h3><p>{b}</p></div>' for i,(k,t,a,b) in enumerate(W)],4,'Where the money hides')+ph2(slug),id_='leaks')
     S=[('earn','Today','The Found Money Call','Free, about 20 minutes, six plain questions. Your number from your real statements.'),
        ('burn','Within 24 hours','Your strategy','Which card for which line, written for your vendors.'),
        ('return','Week 1','Your first moves','Three moves, with the exact taps. Each waits for your yes.'),

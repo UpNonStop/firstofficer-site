@@ -2,7 +2,7 @@
 (function(){
 var A=window.FO_A||'',RM=matchMedia('(prefers-reduced-motion: reduce)').matches,$=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
 /* hero photos: low opacity, rotating, same pool as home */
-var bg=$('.mbg');if(bg){var N=[];for(var i=0;i<=30;i++)N.push(A+'img/rec/bg/'+(i<10?'0':'')+i+'.webp');
+var bg=$('.mbg');if(bg&&!bg.classList.contains('tbg')){var N=[];for(var i=0;i<=30;i++)N.push(A+'img/rec/bg/'+(i<10?'0':'')+i+'.webp');
 var off=Math.floor(Math.random()*N.length),cur=0,els=[0,1].map(function(){var e=document.createElement('i');bg.insertBefore(e,bg.firstChild);return e});
 els[0].style.backgroundImage='url('+N[off]+')';els[0].classList.add('on');
 if(!RM)setInterval(function(){var nx=els[1-cur];off=(off+1)%N.length;var u=N[off],im=new Image();im.onload=function(){nx.style.backgroundImage='url('+u+')';nx.classList.add('on');els[cur].classList.remove('on');cur=1-cur};im.src=u},5200)}

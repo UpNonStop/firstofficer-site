@@ -66,7 +66,7 @@ function bar(bal,r){var bm=FEE*Math.max(3,Math.ceil(r.hi*1.1/FEE)),mid=r.mid;T(b
   var sh=$('.short',bal);sh.style.left=pc(Math.min(mid,FEE),bm);sh.style.width=pc(Math.max(0,FEE-mid),bm);
   sh.setAttribute('data-t',mid<FEE?'short '+u10(FEE-mid):'');
   var rg=$('.rng',bal);rg.style.left=pc(r.lo,bm);rg.style.width=pc(r.hi-r.lo,bm);
-  $('.mark',bal).style.left=pc(FEE,bm);
+  $('.mark',bal).style.left=pc(FEE,bm);$('.mark',bal).classList.toggle('lo',FEE/bm<.12);
   bal.setAttribute('aria-label','Your desk finds about '+u10(mid)+' a month, est., against the $550 a month fee')}
 function paint(R,r){
   K(R,'find',r.mid,function(v){return '~'+u10(v)});K(R,'m-find',r.mid,function(v){return '~'+u10(v)});
@@ -78,13 +78,24 @@ function paint(R,r){
 var BAS=$('#bas'),bv=$('#bv'),bs=$('#bs'),B=35000;
 var sp=(q.match(/[?&#]spend=(\d+)/)||[])[1];if(sp)B=Math.min(2e6,+sp);
 function fill(s){s.style.setProperty('--p',Math.min(100,s.value/s.max*100)+'%')}
+/* Basic slider: 0..1000 positions on a piecewise scale up to $1M+ a month. $0-20K is 30% of the track, $20-100K 30%, $100-250K 20%, $250K-1M 20%.
+   Snaps to $500 under $20K, $1K to $100K, $5K to $250K, $25K above. The typed box takes any figure up to $2M. */
+var SEG=[[0,0],[300,20000],[600,100000],[800,250000],[1000,1e6]],STP=[500,1000,5000,25000],SMAX=1e6;
+function stepAt(v){return v<20000?500:v<100000?1000:v<250000?5000:25000}
+function p2v(p){for(var i=0;i<4;i++){var a=SEG[i],b=SEG[i+1];if(p<=b[0]){var v=a[1]+(p-a[0])/(b[0]-a[0])*(b[1]-a[1]);return Math.min(SMAX,Math.round(v/STP[i])*STP[i])}}return SMAX}
+function v2p(v){v=Math.max(0,Math.min(SMAX,v));for(var i=0;i<4;i++){var a=SEG[i],b=SEG[i+1];if(v<=b[1])return a[0]+(v-a[1])/(b[1]-a[1])*(b[0]-a[0])}return 1000}
+function kmo(v){return v>=1e6?'$'+(Math.round(v/1e5)/10).toString().replace(/\.0$/,'')+'M':'$'+Math.round(v/1e3)+'K'}
 function bcalc(){var r=month([[B,BT,BD]],'mix'),v=verdict(r);
   bv.value=B.toLocaleString('en-US');if(document.activeElement!==bv){}
-  if(+bs.value!==B&&B<=+bs.max)bs.value=B;if(B>+bs.max)bs.value=bs.max;fill(bs);
+  bs.value=Math.round(v2p(B));bs.setAttribute('aria-valuetext',(B>=SMAX?'$1M+':usd(B))+' a month');fill(bs);bv.classList.toggle('lg',bv.value.length>7);
   paint(BAS,r);bar($('#bbal'),r);
-  BAS.className='cq '+v.c;say(BAS,$('#bvt'),$('#bvp'),v);
+  BAS.className='cq '+v.c+(r.mid>=1e4?' big':'');say(BAS,$('#bvt'),$('#bvp'),v);
   $$('a[data-full]',BAS).forEach(function(a){if(!a._b)a._b=a.getAttribute('href').split('#')[0];a.setAttribute('href',a._b.replace(/([?&])m=adv.*$/,'$1m=adv&spend='+B))})}
-bs.addEventListener('input',function(){B=+bs.value;bcalc()});
+bs.addEventListener('input',function(){B=p2v(+bs.value);bcalc()});
+bs.addEventListener('keydown',function(e){var k=e.key,up=k==='ArrowRight'||k==='ArrowUp',dn=k==='ArrowLeft'||k==='ArrowDown';
+  if(k==='Home'||k==='End'){e.preventDefault();B=k==='Home'?0:SMAX;bcalc();return}
+  if(!up&&!dn)return;e.preventDefault();var b=Math.min(B,SMAX);
+  B=up?Math.min(SMAX,Math.floor(b/stepAt(b))*stepAt(b)+stepAt(b)):Math.max(0,Math.ceil(b/stepAt(b-1))*stepAt(b-1)-stepAt(b-1));bcalc()});
 bv.addEventListener('input',function(){var c=bv.selectionStart,l=bv.value.length;B=Math.min(2e6,+(bv.value.replace(/[^0-9]/g,''))||0);bcalc();
   var n=bv.value.length;try{bv.setSelectionRange(Math.max(0,c+n-l),Math.max(0,c+n-l))}catch(e){}});
 bv.addEventListener('focus',function(){bv.select()});
@@ -135,9 +146,9 @@ function calc(){var L=D.cats.map(function(c,i){return [S[i],rateT(c),parseFloat(
   K(ADV,'mo',r.mo,usd);K(ADV,'bl',r.mo?r.t/r.mo:0,x);K(ADV,'vt',r.t,pts);K(ADV,'vd',r.d,pts);
   T(ADV,'who',(D.ind==='Other'?'Your mix':D.ind)+' · at '+rng(r.u)+' a point');
   paint(ADV,r);bar($('#cbal'),r);
-  T(ADV,'gatev','You: $'+Math.round(r.mo/1e3)+'K');
+  T(ADV,'gatev','You: '+kmo(r.mo));
   var gt=$('#cgt');$('.fill',gt).style.width=pc(r.mo,GMAX);$('.fee',gt).style.left=pc(GATE,GMAX);gt.classList.toggle('under',r.mo<GATE);
-  $('#cv').className='cv '+v.c;$('.cres').className='cres '+v.c;$('.cmini').className='cmini '+v.c;
+  $('#cv').className='cv '+v.c;$('.cres').className='cres '+v.c+(r.mid>=1e4?' big':'');$('.cmini').className='cmini '+v.c;
   say(ADV,$('#cvt'),$('#cvp'),v)}
 }
 /* ================= GO ADVANCED: scroll down, no tabs ================= */

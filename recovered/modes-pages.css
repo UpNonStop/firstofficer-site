@@ -142,3 +142,10 @@ table.cst{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.45}
 .csm a{color:var(--pinkd);text-decoration:none}
 @media(min-width:700px){.fbf{grid-template-columns:minmax(0,1fr) 240px;align-items:end}.fbg{grid-template-columns:repeat(2,minmax(0,1fr))}.cdl{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(min-width:1100px){.fbg{grid-template-columns:repeat(3,minmax(0,1fr))}.cdl{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Industry pages: the trade's own photo behind the hero, low opacity under the existing cream wash (no rotation, no dark block) */
+.tbg picture,.tbg img{position:absolute;inset:0;width:100%;height:100%}
+.tbg img{object-fit:cover;object-position:center 45%;opacity:.55;filter:saturate(.9)}
+.tph{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px;max-width:640px}
+.tph img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid rgba(0,0,0,.08)}
+@media (max-width:760px){.tbg img{opacity:.55}.tph{gap:8px}}

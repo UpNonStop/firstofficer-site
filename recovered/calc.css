@@ -52,7 +52,9 @@
 .bsl:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
 .bgt{position:absolute;top:2px;bottom:2px;width:2px;margin-left:-1px;background:var(--ink);pointer-events:none}
 .bgt span{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;font:600 9.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
-.bsx{display:flex;justify-content:space-between;font:500 10px var(--mono);color:var(--mute);margin-top:6px}
+.bsx{position:relative;height:14px;font:500 10px var(--mono);color:var(--mute);margin-top:6px}
+.bsx span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap}.bsx span:first-child{transform:none}.bsx span:last-child{transform:translateX(-100%)}
+.bin input.lg{font-size:40px}
 .ba{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:end;margin-top:16px;padding-top:14px;border-top:1px solid rgba(20,18,22,.08)}
 .bfind{display:block;font-family:var(--serif);font-weight:400;font-size:72px;line-height:.95;letter-spacing:-.03em;color:var(--pink);margin:6px 0 4px;font-variant-numeric:tabular-nums;white-space:nowrap}
 .cq.no .bfind,.cq.meh .bfind{color:var(--ink)}
@@ -93,6 +95,7 @@
 .cbt .rng::before{left:0}.cbt .rng::after{right:0}
 .cbt .mark{top:-16px;bottom:-6px;width:2px;margin-left:-1px;background:var(--ink)}
 .cbt .mark span{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:3px;font:600 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);white-space:nowrap;background:#fff;padding:0 4px}
+.cbt .mark.lo span{left:-1px;transform:none;padding-left:0}
 .cbx{display:flex;justify-content:space-between;font:500 10px var(--mono);color:var(--mute);margin-top:26px}
 /* ---------- Go advanced ---------- */
 .cadv{padding:96px 0 40px}
@@ -218,7 +221,7 @@
  .cq{padding:16px 16px 16px;border-radius:18px}
  .cqh{padding-bottom:10px}
  .bql{margin-top:12px;font-size:14px}
- .bin span{font-size:26px}.bin input{font-size:42px}
+ .bin span{font-size:26px}.bin input{font-size:42px}.bin input.lg{font-size:31px}
  .ba{grid-template-columns:minmax(0,1fr);gap:10px;margin-top:14px;padding-top:12px}
  .bfind{font-size:58px}
  .bk{grid-template-columns:1fr 1fr}.bk>div:first-child{border-left:0;padding-left:0}
@@ -367,6 +370,9 @@
  .cqh .wk{white-space:nowrap;letter-spacing:.08em;font-size:10px}
  .cqa{padding:0 12px}
 }
+@media (max-width:340px){
+ .cqh{gap:8px}.cqh .wk{letter-spacing:.04em}.cqa{padding:0 10px;font-size:12px}
+}
 
 /* ---------- pricing-modes.html: same hero, card and type system as the calculator; only what pricing adds ---------- */
 .pricing .chow{padding-bottom:40px}
@@ -389,3 +395,7 @@
  .chow .p4.p3{gap:12px;margin-top:24px}
  .casl.pq>div{padding:14px 0}
 }
+
+/* big spend ($1M scale): five-figure finds step down so they never meet the fee column */
+.cq.big .bfind{font-size:54px}.cres.big .cfind b{font-size:52px}
+@media (max-width:760px){.cq.big .bfind{font-size:50px}.cres.big .cfind b{font-size:46px}}
