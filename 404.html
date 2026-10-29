@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FJHCJ74L64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FJHCJ74L64');
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>Page not found | First Officer</title>
@@ -14,7 +22,19 @@
 <link rel="stylesheet" href="recovered/rec.css">
 <link rel="stylesheet" href="recovered/modes.css">
 <link rel="stylesheet" href="recovered/modes-pages.css">
-<meta name="robots" content="noindex">
+<link rel="canonical" href="https://firstofficer.upnonstop.com/404.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="First Officer">
+<meta property="og:title" content="Page not found | First Officer">
+<meta property="og:description" content="This page is not on the route. Four good routes back into the First Officer story.">
+<meta property="og:url" content="https://firstofficer.upnonstop.com/404.html">
+<meta property="og:image" content="https://firstofficer.upnonstop.com/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Page not found | First Officer">
+<meta name="twitter:description" content="This page is not on the route. Four good routes back into the First Officer story.">
+<meta name="twitter:image" content="https://firstofficer.upnonstop.com/og-card.png">
 </head>
 <body class="modes pgx pgr pgf">
 <header class="nav"><div class="nin">
@@ -50,6 +70,28 @@
 </div></section>
 </main>
 <footer class="foot"><div class="wrap">
+<div class="dr" id="daily-redemption"><div class="drt"><span class="kick">The Daily Redemption</span><b class="drh">One real redemption, every weekday.</b>
+<p>The newsletter behind the desk: what the desk found on request, what it cost in points, and what it would have cost in cash. Free, and you can leave whenever you like.</p></div>
+<div class="drf"><form class="drform" id="focapForm" novalidate><input class="dri" id="focapEmail" type="email" required autocomplete="email" placeholder="you@yourbusiness.com" aria-label="Your email address"><button class="btn pk" type="submit">Get the newsletter</button></form>
+<p class="drm" id="focapMsg" role="status" aria-live="polite"></p></div>
+<script id="focapjs">(function(){
+  var f=document.getElementById('focapForm'); if(!f) return;
+  var i=document.getElementById('focapEmail'), b=f.querySelector('button'), m=document.getElementById('focapMsg');
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var v=(i.value||'').trim();
+    if(!v || v.indexOf('@')<1){ m.textContent='Please enter a valid email address.'; i.focus(); return; }
+    b.disabled=true; m.textContent='Sending...';
+    fetch('https://www.upnonstop.com/members/api/send-magic-link/', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({email:v, emailType:'signup', labels:['First Officer site'], name:''})
+    }).then(function(r){
+      if(r.ok){ f.style.display='none'; m.textContent='Check your inbox for the confirmation link.';
+        if(typeof gtag==='function') gtag('event','newsletter_signup',{page_path:location.pathname}); }
+      else { b.disabled=false; m.textContent='That did not go through. Try again in a moment.'; }
+    }).catch(function(){ b.disabled=false; m.textContent='That did not go through. Try again in a moment.'; });
+  });
+})();</script></div>
 <div class="cols">
 <div><a class="brand" href="home-modes.html"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><p class="tl">Your rewards desk. One conversation, every program.</p></div>
 <div><h6>Site</h6><a href="product-modes.html">Product</a><a href="pricing-modes.html">Pricing</a><a href="freebies-modes.html">Freebies</a><a href="calculator-modes.html">Calculator</a><a href="about-modes.html">About</a></div>
@@ -60,5 +102,15 @@
 <script>window.FO_A="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/";</script>
 <script src="recovered/rec.js"></script>
 <script src="recovered/pages.js"></script>
+<script id="fo-track">(function(){
+  function ev(n,p){ if(typeof gtag==='function') gtag('event', n, p||{}); }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a'); if(!a) return;
+    var h = a.getAttribute('href')||'';
+    if (h.indexOf('book') > -1) ev('book_click', {page_path: location.pathname, link_text: (a.textContent||'').trim().slice(0,40)});
+    if (h.indexOf('wa.me') > -1) ev('whatsapp_click', {page_path: location.pathname, link_text: (a.textContent||'').trim().slice(0,40)});
+    else if (h.indexOf('calculator') > -1) ev('calculator_open', {page_path: location.pathname});
+  }, true);
+})();</script>
 </body>
 </html>

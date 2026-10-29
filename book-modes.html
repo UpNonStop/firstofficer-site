@@ -58,6 +58,28 @@
 </div></section>
 </main>
 <footer class="foot"><div class="wrap">
+<div class="dr" id="daily-redemption"><div class="drt"><span class="kick">The Daily Redemption</span><b class="drh">One real redemption, every weekday.</b>
+<p>The newsletter behind the desk: what the desk found on request, what it cost in points, and what it would have cost in cash. Free, and you can leave whenever you like.</p></div>
+<div class="drf"><form class="drform" id="focapForm" novalidate><input class="dri" id="focapEmail" type="email" required autocomplete="email" placeholder="you@yourbusiness.com" aria-label="Your email address"><button class="btn pk" type="submit">Get the newsletter</button></form>
+<p class="drm" id="focapMsg" role="status" aria-live="polite"></p></div>
+<script id="focapjs">(function(){
+  var f=document.getElementById('focapForm'); if(!f) return;
+  var i=document.getElementById('focapEmail'), b=f.querySelector('button'), m=document.getElementById('focapMsg');
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var v=(i.value||'').trim();
+    if(!v || v.indexOf('@')<1){ m.textContent='Please enter a valid email address.'; i.focus(); return; }
+    b.disabled=true; m.textContent='Sending...';
+    fetch('https://www.upnonstop.com/members/api/send-magic-link/', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({email:v, emailType:'signup', labels:['First Officer site'], name:''})
+    }).then(function(r){
+      if(r.ok){ f.style.display='none'; m.textContent='Check your inbox for the confirmation link.';
+        if(typeof gtag==='function') gtag('event','newsletter_signup',{page_path:location.pathname}); }
+      else { b.disabled=false; m.textContent='That did not go through. Try again in a moment.'; }
+    }).catch(function(){ b.disabled=false; m.textContent='That did not go through. Try again in a moment.'; });
+  });
+})();</script></div>
 <div class="cols">
 <div><a class="brand" href="home-modes.html"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><p class="tl">Your rewards desk. One conversation, every program.</p></div>
 <div><h6>Site</h6><a href="product-modes.html">Product</a><a href="pricing-modes.html">Pricing</a><a href="freebies-modes.html">Freebies</a><a href="calculator-modes.html">Calculator</a><a href="about-modes.html">About</a></div>
