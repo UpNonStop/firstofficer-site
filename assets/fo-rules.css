@@ -4,7 +4,7 @@
 *,*::before,*::after{font-style:normal!important}
 
 /* ---- nothing floats or sticks: the page rails, the calculator strip, the briefing's progress bar, older navs ---- */
-.rail,.mrail,.cstk,.cstick,.cout,.o-prog,.bkside,.calcread,.fonav,.fonav.stuck,.wa-mock,.mcta,#ffd .sticky,#ffd .nav,html.dir-c #ffd .desk .grp{position:static!important;top:auto!important;bottom:auto!important}
+.rail,.mrail,.cstick,.cout,.o-prog,.bkside,.calcread,.fonav,.fonav.stuck,.wa-mock,.mcta,#ffd .sticky,#ffd .nav,html.dir-c #ffd .desk .grp{position:static!important;top:auto!important;bottom:auto!important}
 .mcta{display:none!important}
 
 /* ---- the logo is the pink chevrons on a transparent ground, never on a tile ---- */

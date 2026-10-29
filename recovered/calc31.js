@@ -54,6 +54,9 @@ function pc(v,m){return Math.max(0,Math.min(100,v/m*100))+'%'}
 function month(L,uid){var mo=0,t=0,d=0;L.forEach(function(l){mo+=l[0];t+=l[0]*l[1];d+=l[0]*l[2]});
   var u=U(uid),gain=Math.max(0,d-t)*UTIL;
   return {mo:mo,t:t,d:d,u:u,lo:gain*u.floor/100,mid:gain*u.mid/100,hi:gain*u.ceil/100,flat:u.floor===u.ceil}}
+var CAP=250000;
+function capped(L,r){if(r.mo<=CAP)return r;var k=CAP/r.mo,c=month(L.map(function(l){return [l[0]*k,l[1],l[2]]}),r.u.id);c.big=true;return c}
+function bigV(r){var v=verdict(r);v.p='Above $250K a month on cards, the desk sizes it on the call. Bonus rates sit inside yearly caps, so a straight line overstates big spend: the figures here stop at $250K, est.';return v}
 function verdict(r){var f=r.flat;
   if(r.mo<GATE)return {c:'no',t:'Not a fit yet.',p:'At '+usd(r.mo)+' a month on cards, $550 a month would cost you more than it finds. The fee starts to make sense past ~$25K a month, est.'};
   if(r.lo>=FEE)return {c:'fit',t:'Clears the fee.',p:'Even at the floor, the extra points beat $550 a month, est. Your Found Money Call checks it on your real statements.'};
@@ -70,12 +73,12 @@ function bar(bal,r){var bm=FEE*Math.max(3,Math.ceil(r.hi*1.1/FEE)),mid=r.mid;T(b
   var rg=$('.rng',bal);rg.style.left=pc(r.lo,bm);rg.style.width=pc(r.hi-r.lo,bm);
   $('.mark',bal).style.left=pc(FEE,bm);$('.mark',bal).classList.toggle('lo',FEE/bm<.12);
   bal.setAttribute('aria-label','Your desk finds about '+u10(mid)+' a month, est., against the $550 a month fee')}
-function paint(R,r){
-  K(R,'find',r.mid,function(v){return '~'+u10(v)});K(R,'m-find',r.mid,function(v){return '~'+u10(v)});
-  T(R,'findr',r.flat?'at '+c2(r.u.floor)+' a point':u10(r.lo)+' to '+u10(r.hi));
-  K(R,'net',r.mid-FEE,sg);T(R,'netr',r.flat?'at '+c2(r.u.floor)+' a point, est.':sg(r.lo-FEE)+' to '+sg(r.hi-FEE)+', est.');
-  K(R,'rx',r.mid/FEE,nx);K(R,'m-rx',r.mid/FEE,nx);T(R,'rxr',r.flat?'at '+c2(r.u.floor)+' a point, est.':nx(r.lo/FEE)+' to '+nx(r.hi/FEE)+', est.');
-  K(R,'plus',Math.max(0,r.d-r.t),function(v){return '+'+pts(v)})}
+function paint(R,r){var G=r.big,A=G?' at $250K':'',fm=function(v){return G?u10(v)+'+':'~'+u10(v)},px=function(v){return nx(v)+(G?'+':'')};
+  K(R,'find',r.mid,fm);K(R,'m-find',r.mid,fm);
+  T(R,'findr',(r.flat?'at '+c2(r.u.floor)+' a point':u10(r.lo)+' to '+u10(r.hi))+A);
+  K(R,'net',r.mid-FEE,G?function(v){return usd(r10(v))+'+'}:sg);T(R,'netr',(r.flat?'at '+c2(r.u.floor)+' a point':sg(r.lo-FEE)+' to '+sg(r.hi-FEE))+A+', est.');
+  K(R,'rx',r.mid/FEE,px);K(R,'m-rx',r.mid/FEE,px);T(R,'rxr',(r.flat?'at '+c2(r.u.floor)+' a point':nx(r.lo/FEE)+' to '+nx(r.hi/FEE))+A+', est.');
+  K(R,'plus',Math.max(0,r.d-r.t),function(v){return G?pts(v)+'+':'+'+pts(v)})}
 /* ================= BASIC ================= */
 var BAS=$('#bas'),bv=$('#bv'),bs=$('#bs'),B=35000;
 var sp=(q.match(/[?&#]spend=(\d+)/)||[])[1];if(sp)B=Math.min(2e6,+sp);
@@ -87,7 +90,7 @@ function stepAt(v){return v<20000?500:v<100000?1000:v<250000?5000:25000}
 function p2v(p){for(var i=0;i<4;i++){var a=SEG[i],b=SEG[i+1];if(p<=b[0]){var v=a[1]+(p-a[0])/(b[0]-a[0])*(b[1]-a[1]);return Math.min(SMAX,Math.round(v/STP[i])*STP[i])}}return SMAX}
 function v2p(v){v=Math.max(0,Math.min(SMAX,v));for(var i=0;i<4;i++){var a=SEG[i],b=SEG[i+1];if(v<=b[1])return a[0]+(v-a[1])/(b[1]-a[1])*(b[0]-a[0])}return 1000}
 function kmo(v){return v>=1e6?'$'+(Math.round(v/1e5)/10).toString().replace(/\.0$/,'')+'M':'$'+Math.round(v/1e3)+'K'}
-function bcalc(){var r=month([[B,BT,BD]],'mix'),v=verdict(r);
+function bcalc(){var r=capped([[B,BT,BD]],month([[B,BT,BD]],'mix')),v=r.big?bigV(r):verdict(r);
   bv.value=B.toLocaleString('en-US');if(document.activeElement!==bv){}
   bs.value=Math.round(v2p(B));bs.setAttribute('aria-valuetext',(B>=SMAX?'$1M+':usd(B))+' a month');fill(bs);bv.classList.toggle('lg',bv.value.length>7);
   paint(BAS,r);bar($('#bbal'),r);
@@ -144,15 +147,15 @@ function load(){D=IN[idx];S=D.cats.map(function(c){return c[1]*1000});SEL.value=
   $('#ccul').innerHTML=(TH[D.ind]||TH.Other).map(function(t){return '<li>'+t+'</li>'}).join('');
   rows();calc()}
 function rateT(c){return mix==='ex'?parseFloat(c[2]):+mix}
-function calc(){var L=D.cats.map(function(c,i){return [S[i],rateT(c),parseFloat(c[3])]}),r=month(L,use),v=verdict(r);
+function calc(){var L=D.cats.map(function(c,i){return [S[i],rateT(c),parseFloat(c[3])]}),r=month(L,use),rc=capped(L,r),v=rc.big?bigV(rc):verdict(rc);
   L.forEach(function(l,i){tw($('[data-et="'+i+'"]'),l[0]*l[1],pts);tw($('[data-ed="'+i+'"]'),l[0]*l[2],pts);
     var s=$$('#crows .crs')[i];fill(s);$('[data-r="'+i+'"]').textContent=x(l[1])});
   K(ADV,'mo',r.mo,usd);K(ADV,'bl',r.mo?r.t/r.mo:0,x);K(ADV,'vt',r.t,pts);K(ADV,'vd',r.d,pts);
   T(ADV,'who',(D.ind==='Other'?'Your mix':D.ind)+' · at '+rng(r.u)+' a point');
-  paint(ADV,r);bar($('#cbal'),r);
+  paint(ADV,rc);bar($('#cbal'),rc);
   T(ADV,'gatev','You: '+kmo(r.mo));
   var gt=$('#cgt');$('.fill',gt).style.width=pc(r.mo,GMAX);$('.fee',gt).style.left=pc(GATE,GMAX);gt.classList.toggle('under',r.mo<GATE);
-  $('#cv').className='cv '+v.c;$('.cres').className='cres '+v.c+(r.mid>=1e4?' big':'');$('.cmini').className='cmini '+v.c;
+  $('#cv').className='cv '+v.c;$('.cres').className='cres '+v.c+(rc.mid>=1e4?' big':'');$('.cmini').className='cmini '+v.c;
   say(ADV,$('#cvt'),$('#cvp'),v)}
 }
 /* ================= GO ADVANCED: scroll down, no tabs ================= */
