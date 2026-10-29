@@ -47,7 +47,7 @@ a{color:inherit}
 
 .ey{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;
     letter-spacing:.22em;color:var(--pink);margin:0 0 14px}
-.wrap{max-width:660px;margin:0 auto;padding:0 20px}
+.o-wrap{max-width:660px;margin:0 auto;padding:0 20px}
 
 /* the site's closing pink band */
 .pinkband{background:var(--pink);border-radius:20px;padding:44px 26px;text-align:center;
@@ -80,21 +80,21 @@ a{color:inherit}
 .hero h1 em{display:block;font-style:italic;color:var(--pink);font-size:.8em;margin-top:8px}
 .hero>p{margin:0 auto;max-width:40ch;font-size:16.5px;color:var(--body);line-height:1.6}
 
-.sec{padding:34px 0 0;text-align:center}
-.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:22px 24px;
+.o-sec{padding:34px 0 0;text-align:center}
+.o-card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:22px 24px;
       text-align:left;box-shadow:0 14px 40px rgba(20,18,22,.06)}
 .prog-t{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 14px}
 .prog-t b{font-size:16px;font-weight:700;letter-spacing:-.3px}
 .prog-t span{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;
   text-transform:uppercase;color:var(--pink)}
-.bar{height:7px;border-radius:99px;background:var(--soft);overflow:hidden;margin:0 0 14px}
-.bar i{display:block;height:100%;width:50%;border-radius:99px;background:var(--pink)}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.st{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12.5px;font-weight:700;
+.o-bar{height:7px;border-radius:99px;background:var(--soft);overflow:hidden;margin:0 0 14px}
+.o-bar i{display:block;height:100%;width:50%;border-radius:99px;background:var(--pink)}
+.o-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.o-st{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12.5px;font-weight:700;
   padding:9px 6px;border-radius:100px;background:var(--soft);color:var(--body);min-height:38px}
-.st.done{background:rgba(46,194,126,.14);color:#1b6b46}
-.st.done:before{content:"\2713";font-weight:800}
-.st.todo:before{content:"";width:7px;height:7px;border-radius:50%;border:2px solid var(--pink);flex:none}
+.o-st.done{background:rgba(46,194,126,.14);color:#1b6b46}
+.o-st.done:before{content:"\2713";font-weight:800}
+.o-st.todo:before{content:"";width:7px;height:7px;border-radius:50%;border:2px solid var(--pink);flex:none}
 
 .rep{border-radius:16px;overflow:hidden;box-shadow:0 18px 50px rgba(20,18,22,.12);text-align:left}
 .rep-h{display:flex;align-items:center;justify-content:space-between;gap:14px;background:var(--black);padding:17px 22px}
@@ -108,10 +108,10 @@ a{color:inherit}
 .li b{font-size:15px;font-weight:700;white-space:nowrap}
 .li+.li{border-top:1px solid var(--hairline)}
 .hr{height:2px;background:var(--ink);margin:12px 0 4px;border-radius:2px}
-.tot{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0 2px}
-.tot span{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;
+.o-tot{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0 2px}
+.o-tot span{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;
   letter-spacing:.18em;color:var(--body)}
-.tot b{font-size:clamp(28px,6.4vw,38px);font-weight:800;color:var(--pink);letter-spacing:-1.2px}
+.o-tot b{font-size:clamp(28px,6.4vw,38px);font-weight:800;color:var(--pink);letter-spacing:-1.2px}
 .note{font-family:var(--mono);font-size:10px;font-weight:500;text-transform:uppercase;
   letter-spacing:.15em;color:var(--mute);margin:12px 0 0;line-height:1.9}
 
@@ -139,14 +139,14 @@ a{color:inherit}
 .gap .ic{width:40px;height:40px;border-radius:12px;flex:none;display:grid;place-items:center;font-size:18px}
 .ic-cy{background:rgba(55,195,220,.16)} .ic-pk{background:rgba(250,24,150,.11)}
 .ic-wa{background:rgba(46,189,89,.15)}
-.gap .tx{flex:1;min-width:0;display:flex;flex-direction:column;height:100%}
-.gap .tx b{display:block;font-size:15.5px;font-weight:700;letter-spacing:-.2px;margin:0 0 4px}
-.gap .tx p{margin:0 0 14px;font-size:14.5px;color:var(--body);line-height:1.55}
+.gap .o-tx{flex:1;min-width:0;display:flex;flex-direction:column;height:100%}
+.gap .o-tx b{display:block;font-size:15.5px;font-weight:700;letter-spacing:-.2px;margin:0 0 4px}
+.gap .o-tx p{margin:0 0 14px;font-size:14.5px;color:var(--body);line-height:1.55}
 .gap .pill{margin-top:auto;align-self:flex-start;min-width:190px}
 .ways{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .ways .pill{width:100%;min-height:48px;font-size:14px}
 @media(max-width:520px){.ways{grid-template-columns:1fr}}
-@media(max-width:430px){.gaps{grid-auto-rows:auto}.gap .pill{min-width:0;width:100%}.st{font-size:11px}}
+@media(max-width:430px){.gaps{grid-auto-rows:auto}.gap .pill{min-width:0;width:100%}.o-st{font-size:11px}}
 
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 .fonav{background:var(--white);border-bottom:1px solid var(--hairline);position:sticky;top:0;z-index:60}
@@ -197,23 +197,28 @@ letter-spacing:.51px}
 letter-spacing:.72px;text-transform:uppercase;line-height:17.1px;text-align:right;max-width:620px}
 @media(max-width:700px){.ftbar{flex-direction:column;gap:12px}
 </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap">
+<link rel="stylesheet" href="recovered/rec.css">
+<link rel="stylesheet" href="recovered/modes.css">
+<link rel="stylesheet" href="recovered/modes-pages.css">
 </head>
-<body>
-<div class="fonav">
-  <div class="fonav-in">
-    <a href="https://firstofficer.upnonstop.com/" aria-label="First Officer home" style="text-decoration:none;color:inherit;display:inline-flex">
-      <div class="brand"><img src="https://firstofficer.upnonstop.com/img/fo-chevron.png" alt="First Officer">
-        <div><div class="n">First Officer</div><div class="by">by UpNonStop&trade;</div></div>
-      </div>
-    </a>
-    <div class="links">
-      <a href="product.html">Product</a><a href="pricing.html">Pricing</a>
-      <a href="how.html">How</a><a href="trust.html">Trust</a>
-      <a href="calculator.html">Calculator</a><a href="about.html">About</a>
-    </div>
-    <a class="pill green" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">&#128172; Text the desk</a>
-  </div>
+<body class="modes pgx pgo">
+<header class="nav"><div class="nin">
+<a class="brand" href="home-modes.html" aria-label="First Officer home"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a>
+<nav class="links" aria-label="Main"><a href="product-modes.html" class="">Product</a><a href="pricing-modes.html" class="">Pricing</a><a class="fz" href="freebies-modes.html"><span><svg class="fzmk" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 15.5C18 13.2 31 14.6 46 12.9S77 12.2 96 10.6"/><path class="b" pathLength="1" d="M6 11.4C24 10.8 40 12.1 58 10.4S84 9.6 93 8.9"/></svg>Freebies</span></a><a href="calculator-modes.html" class="">Calculator</a><a href="about-modes.html" class="">About</a></nav>
+<span class="nbtns"><a class="btn pk" href="book-modes.html">Get your desk</a><a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a></span>
+<button class="burger" aria-label="Open menu" aria-expanded="false" onclick="foNav(true)"><span></span><span></span></button>
+</div></header>
+<div class="sheet" id="sheet" aria-hidden="true">
+<div class="top"><a class="brand" href="home-modes.html"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><button class="x" aria-label="Close menu" onclick="foNav(false)">×</button></div>
+<nav><a href="product-modes.html"><span class="t">Product</span><small>01</small></a><a href="pricing-modes.html"><span class="t">Pricing</span><small>02</small></a><a href="freebies-modes.html" class="fz"><span class="t"><svg class="fzmk" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 15.5C18 13.2 31 14.6 46 12.9S77 12.2 96 10.6"/><path class="b" pathLength="1" d="M6 11.4C24 10.8 40 12.1 58 10.4S84 9.6 93 8.9"/></svg>Freebies</span><small>03</small></a><a href="calculator-modes.html"><span class="t">Calculator</span><small>04</small></a><a href="about-modes.html"><span class="t">About</span><small>05</small></a><div class="sublabel">More</div><a class="sub" href="trust-modes.html">Trust</a><a class="sub" href="industries-modes.html">Industries</a></nav>
+<a class="btn pk" href="book-modes.html">Get your desk</a>
+<a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a>
 </div>
+<div class="tick" aria-label="Desk tips"><div class="tr"><span class="h"><b>Desk tips, illustrated</b></span><span><em class="E">EARN</em> <b>Ad spend</b> Match it to a bonus category</span><span><em class="B">BURN</em> <b>Award rules</b> Vet them before you book</span><span><em class="E">EARN</em> <b>Internet &amp; phone</b> Check it against bonus categories</span><span><em class="B">BURN</em> <b>Transfer bonuses</b> Check before you move points</span><span><em class="R">RETURN</em> <b>Hotel nights</b> Compare points against cash</span><span><em class="L">LEARN</em> <b>Expiring points</b> Every program keeps its own clock</span><span><em class="R">RETURN</em> <b>Statement credits</b> Use them before they lapse</span><span><em class="B">BURN</em> <b>Partner charts</b> Compare them with the airline&#39;s price</span><span><em class="L">LEARN</em> <b>Idle points</b> Lose ground while they sit</span><span><em class="R">RETURN</em> <b>Friday report</b> Every week, in plain words</span><span class="h"><b>Desk tips, illustrated</b></span><span><em class="E">EARN</em> <b>Ad spend</b> Match it to a bonus category</span><span><em class="B">BURN</em> <b>Award rules</b> Vet them before you book</span><span><em class="E">EARN</em> <b>Internet &amp; phone</b> Check it against bonus categories</span><span><em class="B">BURN</em> <b>Transfer bonuses</b> Check before you move points</span><span><em class="R">RETURN</em> <b>Hotel nights</b> Compare points against cash</span><span><em class="L">LEARN</em> <b>Expiring points</b> Every program keeps its own clock</span><span><em class="R">RETURN</em> <b>Statement credits</b> Use them before they lapse</span><span><em class="B">BURN</em> <b>Partner charts</b> Compare them with the airline&#39;s price</span><span><em class="L">LEARN</em> <b>Idle points</b> Lose ground while they sit</span><span><em class="R">RETURN</em> <b>Friday report</b> Every week, in plain words</span></div></div>
+<div class="oldbody">
+
+
 
 <header class="hero">
   <span class="badge"><i></i><span>Day one&nbsp;&middot; The desk is open</span></span>
@@ -221,20 +226,20 @@ letter-spacing:.72px;text-transform:uppercase;line-height:17.1px;text-align:righ
   <p>I have drafted your strategy from what you told me. Two things would sharpen it, and both take a minute.</p>
 </header>
 
-<main class="wrap">
+<main class="o-wrap">
 
-  <section class="sec">
-    <div class="card">
+  <section class="o-sec">
+    <div class="o-card">
       <div class="prog-t"><b>Your file</b><span>2 of 4 done</span></div>
-      <div class="bar"><i></i></div>
-      <div class="steps">
-        <span class="st done">Spend</span><span class="st done">Cards</span>
-        <span class="st todo">Inbox</span><span class="st todo">Accounts</span>
+      <div class="o-bar"><i></i></div>
+      <div class="o-steps">
+        <span class="o-st done">Spend</span><span class="o-st done">Cards</span>
+        <span class="o-st todo">Inbox</span><span class="o-st todo">Accounts</span>
       </div>
     </div>
   </section>
 
-  <section class="sec">
+  <section class="o-sec">
     <p class="ey">The draft&nbsp;&middot; Built today</p>
     <div class="rep">
       <div class="rep-h"><b>Draft strategy</b><span>$35,000 a month</span></div>
@@ -243,13 +248,13 @@ letter-spacing:.72px;text-transform:uppercase;line-height:17.1px;text-align:righ
         <div class="li"><span>Where it could land<em>Same spend, routed</em></span><b>2.6x</b></div>
         <div class="li"><span>The gap, in points<em>Every year, on spending you already do</em></span><b>630,000</b></div>
         <div class="hr"></div>
-        <div class="tot"><span>What that could be worth</span><b>$13,230</b></div>
+        <div class="o-tot"><span>What that could be worth</span><b>$13,230</b></div>
       </div>
     </div>
     <p class="note">Modelled on your stated spend at 2.1 cents a point&nbsp;&middot; Your mix and your redemptions will differ</p>
   </section>
 
-  <section class="sec">
+  <section class="o-sec">
     <div class="band">
       <p class="ey">What it turns into</p>
       <h2>Not points.<em> Nights, and seats.</em></h2>
@@ -258,31 +263,31 @@ letter-spacing:.72px;text-transform:uppercase;line-height:17.1px;text-align:righ
     </div>
   </section>
 
-  <section class="sec">
+  <section class="o-sec">
     <p class="ey">What is missing&nbsp;&middot; 3 items</p>
     <div class="gaps">
       <div class="gap">
         <span class="ic ic-cy">&#9993;</span>
-        <span class="tx"><b>Offers are sitting in your inbox</b>
+        <span class="o-tx"><b>Offers are sitting in your inbox</b>
           <p>Targeted offers and statement credits arrive by email and expire quietly. Send them across and I read only those.</p>
           <a class="pill cyan" href="https://wa.me/16199404040?text=STATEMENT">&#128172; Send statements</a></span>
       </div>
       <div class="gap">
         <span class="ic ic-pk">&#128179;</span>
-        <span class="tx"><b>I cannot see how your vendors code</b>
+        <span class="o-tx"><b>I cannot see how your vendors code</b>
           <p>Two of your suppliers probably code as wholesale, which pays 1x whichever card you use. A read only connection tells me which.</p>
           <a class="pill pink" href="connect.html">See the ways to connect</a></span>
       </div>
       <div class="gap">
         <span class="ic ic-wa">&#128172;</span>
-        <span class="tx"><b>Something here look wrong?</b>
+        <span class="o-tx"><b>Something here look wrong?</b>
           <p>The draft is mine, not yours, until you say so. Tell me what I have missed and I will rebuild it.</p>
           <a class="pill green" href="https://wa.me/16199404040?text=About%20my%20draft">Tell me what is off</a></span>
       </div>
     </div>
   </section>
 
-  <section class="sec">
+  <section class="o-sec">
     <p class="ey">Three ways to reach me&nbsp;&middot; Whichever suits</p>
     <div class="ways">
       <a class="pill green" href="https://wa.me/16199404040?text=My%20cards">&#128172; WhatsApp</a>
@@ -292,36 +297,31 @@ letter-spacing:.72px;text-transform:uppercase;line-height:17.1px;text-align:righ
     <p class="note">One thread, one inbox, one app&nbsp;&middot; They all reach the same desk</p>
   </section>
 
-  <section class="sec">
+  <section class="o-sec">
     <div class="pinkband">
       <p class="ey">Or take the wheel</p>
       <h2>The draft is mine<em> until you say otherwise.</em></h2>
       <p>Open it and move the pieces yourself. Nothing saves until you say so.</p>
-      <a class="pill white" href="strategist.html">Fine-tune the strategy</a>
-    </div>
+      </div>
   </section>
 
 </main>
 
-<div class="fofoot">
-  <section class="focap">
-    <div class="focap-in">
-      <div class="focap-k">The Daily Redemption</div>
-      <h2 class="focap-h">One real redemption, every weekday.</h2>
-      <p class="focap-s">The newsletter behind the desk: what the desk found on request, what it
-      cost in points, and what it would have cost in cash. Free, and you can leave whenever you like.</p>
-      <div class="focap-f">
-        <input class="focap-i" type="email" placeholder="you@yourbusiness.com" aria-label="Your email address">
-        <a class="focap-b" href="https://upnonstop.com">Get the newsletter</a>
-      </div>
-    </div>
-  </section>
-  <div class="sitedir"><div class="sd-col"><div class="sd-h">Product</div><a href="pricing.html">Pricing</a><a href="how.html">How It Works</a><a href="product.html">The Product</a><a href="strategist.html">The Strategist</a><a href="trust.html">Trust & Security</a><a href="calculator.html">Run The Numbers</a></div><div class="sd-col"><div class="sd-h">Your Industry</div><a href="for-agencies.html">Agencies</a><a href="for-auto-repair.html">Auto Repair</a><a href="for-cleaning.html">Cleaning</a><a href="for-consulting.html">Consulting</a><a href="for-contractors.html">Contractors</a><a href="for-cpa-firms.html">CPA Firms</a><a href="for-dental.html">Dental</a><a href="for-ecommerce.html">E-Commerce</a><a href="for-fitness.html">Fitness</a><a href="for-hvac.html">HVAC</a><a href="for-it-services.html">IT & MSP</a><a href="for-landscaping.html">Landscaping</a><a href="for-law-firms.html">Law Firms</a><a href="for-medical.html">Medical</a><a href="for-property-management.html">Property Management</a><a href="for-real-estate.html">Real Estate</a><a href="for-restaurants.html">Restaurants</a><a href="for-salons.html">Salons</a><a href="for-trucking.html">Trucking</a><a href="for-veterinary.html">Veterinary</a></div><div class="sd-col"><div class="sd-h">Field Notes</div><a href="https://firstofficer.upnonstop.com/field-notes.html#loyalty">Loyalty</a><a href="https://firstofficer.upnonstop.com/field-notes.html#affiliates">Affiliates</a><a href="https://firstofficer.upnonstop.com/field-notes.html#cashback">Cashback</a><a href="https://firstofficer.upnonstop.com/field-notes.html#expiration">Expiration</a><a href="https://firstofficer.upnonstop.com/field-notes.html#complexity">Complexity</a><a href="https://firstofficer.upnonstop.com/field-notes.html#timing">Timing</a><a href="https://firstofficer.upnonstop.com/field-notes.html#proactive">Proactive</a><a href="https://firstofficer.upnonstop.com/field-notes.html#value">Value</a><a href="field-notes.html">Field Notes</a></div><div class="sd-col"><div class="sd-h">More</div><a href="https://upnonstop.com">The Daily Redemption</a><a href="connect.html">Connect</a><a href="privacy-policy.html">Privacy Policy</a><a href="privacy-policy.html#do-not-sell">Do Not Sell My Info</a><a href="terms-of-service.html">Terms of Service</a></div></div>
-  <div class="ftbar">
-    <div class="ftbrand"><a href="https://firstofficer.upnonstop.com/">First Officer <span>by UpNonStop&trade;</span></a></div>
-    <div class="ftlegal">Independent: no affiliate relationships with any issuer. An educational
-    tool, not a licensed financial advisor. US businesses only. &copy; 2026 UpNonStop.</div>
-  </div>
+
+
+
+
 </div>
+<footer class="foot"><div class="wrap">
+<div class="cols">
+<div><a class="brand" href="home-modes.html"><img src="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><p class="tl">Your rewards desk. One conversation, every program.</p></div>
+<div><h6>Site</h6><a href="product-modes.html">Product</a><a href="pricing-modes.html">Pricing</a><a href="freebies-modes.html">Freebies</a><a href="calculator-modes.html">Calculator</a><a href="about-modes.html">About</a></div>
+<div><h6>More</h6><a href="trust-modes.html">Trust</a><a href="industries-modes.html">Industries</a><a href="field-notes.html">Field Notes</a><a href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">Text Your First Officer</a></div>
+</div>
+<div class="bar"><span class="addr"><span>UpNonStop | 235 Pavonia Avenue | Jersey City, NJ 07302 | Proudly Made in 🇺🇸</span></span><span class="fine">Every owner shown is a fictional example. Illustrative, est. Not tax, legal or financial advice.</span></div>
+</div></footer>
+<script>window.FO_A="https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/";</script>
+<script src="recovered/rec.js"></script>
+<script src="recovered/pages.js"></script>
 </body>
 </html>
