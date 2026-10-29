@@ -120,7 +120,7 @@ def transplant(fn,on=''):
     out=scrub(out)
     open(p,'w').write(finish(out));print('transplanted',fn,'renamed',len(col))
 
-STEP1=['strategist.html','hello.html','how.html','field-notes.html','connect.html','welcome.html','no-charge.html','day-one.html','briefing.html','404.html']+sorted(os.path.basename(f) for f in glob.glob(os.path.join(ROOT,'for-*.html')))
+STEP1=['field-notes.html','connect.html','welcome.html','no-charge.html','day-one.html','briefing.html','404.html']+sorted(os.path.basename(f) for f in glob.glob(os.path.join(ROOT,'for-*.html')))
 
 if __name__=='__main__':
     steps=sys.argv[1:] or ['1']
