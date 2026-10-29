@@ -123,7 +123,6 @@ def proof():
 </section>
 '''
 
-SIG='<svg class="nsvg" viewBox="0 0 200 84" width="171" height="72" role="img" aria-label="Ohad"><title>Ohad</title><g transform="skewX(-12) translate(14 0)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path stroke-width="2.7" d="M40 22 C24 22 12 40 14 54 C16 68 32 70 44 58 C56 46 58 26 48 20 C42 16 34 20 32 26"/><path stroke-width="2.3" d="M46 52 C56 46 66 34 72 20 C76 10 76 4 72 5 C68 6 66 18 64 32 C62 46 61 58 61 66 C63 56 68 48 74 46 C80 44 82 50 81 58 C81 63 83 66 87 64"/><path stroke-width="2.2" d="M101 50 C95 44 86 48 86 57 C86 65 94 66 99 58 C101 54 102 50 102 48 C101 56 101 63 105 65 C108 66 112 62 115 58"/><path stroke-width="2.1" d="M131 50 C125 44 116 48 116 57 C116 65 124 66 129 58 C134 48 138 28 142 10 C144 4 141 4 139 12 C135 30 133 50 135 62 C136 67 141 66 146 60"/><path stroke-width="1.5" d="M16 78 C58 72 108 70 148 72 C164 73 176 70 186 64"/></g></svg>'
 def _jit(html,seed):
     """wrap each word in a span with a small, repeatable rotation and baseline shift, like a real pen line"""
     k=[seed]
@@ -150,7 +149,7 @@ def note():
     body=''.join('<p%s>%s</p>\n'%(' class="nlead"' if i==0 else '',_jit(t,i*97+11)) for i,t in enumerate(P))
     return ('<section class="mnote" id="note" aria-label="Note from Ohad"><div class="wrap">\n<div class="ncard reveal">\n'
       '<span class="nlab">Note from Ohad</span>\n<div class="nbody">\n'+body+
-      '<div class="nsig">'+SIG+'<p class="nname">'+_jit('— Ohad Sternberg',7)+'</p><p class="nrole">'+_jit('Founder, UpNonStop',23)+'</p></div>\n</div></div>\n'
+      '</div></div>\n'
       '<div class="ncv"><a class="btn ghost" href="calculator.html">Run the calculator <span class="ar">→</span></a><a class="btn ghost" href="freebies.html">Everything, free from the desk <span class="ar">→</span></a></div>\n</div></section>\n')
 
 NXT='''<section class="sec tight pnx"><div class="wrap"><a class="nxt reveal" href="product-modes.html">

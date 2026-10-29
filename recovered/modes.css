@@ -214,9 +214,6 @@
 .nbody .nlead{font-weight:400;font-size:25px;letter-spacing:-.005em}
 .nbody a{color:var(--pink);font-weight:400;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:5px}
 .nhl{color:inherit;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20' preserveAspectRatio='none'%3E%3Cpath d='M1.5 5.5 C20 3.2 48 4.4 70 3 S92 3.6 98.8 2.6 L99.4 16.2 C80 17.6 52 16.4 30 17.8 S8 17 0.6 18 Z' fill='%23FA1896' fill-opacity='.26'/%3E%3C/svg%3E") 0 62%/100% 72% no-repeat;padding:0 5px;margin:0 -5px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.nsig{color:#1F2D4E}
-.nsig .nsvg{display:block;width:auto;height:calc(var(--lh)*2);margin:0 0 0 -6px}
-.nsig p{margin:0}.nsig .nname{font-weight:400}
 .ncv{display:flex;justify-content:center;margin-top:26px}.ncv .btn{height:48px;padding:0 22px;font-size:14.5px}
 
 /* ---------- explanation: the payoff headline right after the note ---------- */
@@ -448,7 +445,9 @@ h1,h2,h3,h4,.nxh,.stq,p,li,b{overflow-wrap:break-word}
 /* rec21: top bar never floats over content, at any width. A normal in-flow bar that scrolls away with the page:
    solid cream, thin bottom line, no blur, no shadow. */
 .modes .nav,.modes .nav.solid{position:relative;top:auto;z-index:auto;background:#FAF6EE;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 1px 0 rgba(20,18,22,.08)}
-/* rec20: the handwritten signature keeps its own size in every browser (explicit ratio, never collapses) */
-.nsig .nsvg{aspect-ratio:200/84;width:calc(var(--lh)*2*200/84);max-width:100%;height:auto;overflow:visible}
 /* rec21: in-page jumps (#how, #doors, #advs) land with a little breathing room above the section */
 html{scroll-padding-top:16px}
+/* rec23: the note has no sign-off; the card ends one ruled line after the last line of text */
+.nbody p:last-child{margin-bottom:0}
+.ncard{padding-bottom:30px}
+@media (max-width:760px){.ncard{padding-bottom:24px}}

@@ -9,9 +9,8 @@ import build as B
 import links as LK
 
 WA='https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call'
-# the landing's program logos and Ohad's signature, read from build_modes.py (not imported: importing it rebuilds the landing)
+# the landing's program logos, read from build_modes.py (not imported: importing it rebuilds the landing)
 _BM=open(os.path.join(HERE,'build_modes.py')).read()
-SIG=re.search(r"^SIG='(.*?)'\s*$",_BM,re.M).group(1)
 LOGOS=[1,12,2,17,47,18,25,9]
 NAMES={1:'Amex',2:'Chase',17:'United',12:'Hyatt',47:'Virgin Atlantic',25:'Aeroplan',9:'Marriott',18:'Delta'}
 SL={1:'amex',2:'chase',17:'united',12:'hyatt',47:'virgin-atlantic',25:'aeroplan',9:'marriott',18:'delta'}

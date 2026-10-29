@@ -192,9 +192,6 @@
 /* Ohad's signed promise: a single handwritten line, the note's look, lightly */
 .cpro{display:flex;align-items:center;justify-content:center;gap:28px;max-width:900px;margin:56px auto 0;text-align:left}
 .cpro .mlead{margin:0;max-width:600px}
-.cpsig{flex:none;color:#1F2D4E;display:flex;flex-direction:column}
-.cpsig .nsvg{display:block;height:58px;width:auto}
-.cpsig span{font-size:12px;color:var(--body);line-height:1.35}.cpsig b{display:block;color:var(--ink);font-size:13px}
 .calc .why{margin-top:0}
 /* ---------- responsive ---------- */
 @media (max-width:1240px){.chw{grid-template-columns:minmax(0,1fr) 480px;column-gap:40px;padding:0 28px}.ch h1{font-size:50px}.bfind{font-size:62px}.cbox{grid-template-columns:minmax(0,1fr) 440px}.cfind b{font-size:60px}.chow .p4{grid-template-columns:1fr 1fr}}
@@ -211,7 +208,7 @@
  .cmini>div{padding:10px 12px}.cmini>div+div{border-left:1px solid rgba(20,18,22,.1)}
  .cmini b{display:block;font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.05;color:var(--ink);margin-top:4px;font-variant-numeric:tabular-nums}
  .cmini.fit div:first-child b,.cmini.fit .rx{color:var(--pink)}
- .cpro{flex-direction:column;text-align:center;gap:12px}.cpsig{align-items:center}
+ .cpro{flex-direction:column;text-align:center;gap:12px}
 }
 @media (max-width:760px){
  .ch{padding:16px 0 40px}
