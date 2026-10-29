@@ -1,0 +1,83 @@
+/* fo-sphere.css (Oct 29, v35): Grok's desk sphere, scoped to .sxw so nothing leaks into the page (and nothing leaks in: the pulse class is sxbeat, not beat, which the story uses). Globe (product) and cluster (home, the
+   twenty trades). The sphere sizes itself from its own container, so it fits a phone, a story beat or a full section. */
+.sxw{container-type:inline-size;width:100%;--ink:#141216;--body:#3d3843;--mute:#6f6977}
+.sxw .etag{font:600 10.5px/1 'DM Sans',sans-serif;font-style:normal;color:#6f6977;background:#efedf1;border-radius:5px;padding:2px 5px;vertical-align:1px;white-space:nowrap}
+.sxw .lg{--s:40px;width:var(--s);height:var(--s);border-radius:50%;background:#fff;box-shadow:0 0 0 1px #e6e1ea;display:grid;place-items:center;overflow:hidden;flex:none;transition:box-shadow .5s,transform .6s cubic-bezier(.2,.7,.2,1)}
+.sxw .lg img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+.sxw .wk{display:inline-flex;gap:3px;align-items:center;height:8px}
+.sxw .wk i{width:4px;height:4px;border-radius:50%;background:#bdb6c4;animation:sxwk 1.25s ease-in-out infinite;animation-delay:var(--d,0s)}
+.sxw .wk i:nth-child(2){animation-delay:calc(var(--d,0s) + .16s)}.sxw .wk i:nth-child(3){animation-delay:calc(var(--d,0s) + .32s)}
+@keyframes sxwk{0%,60%,100%{transform:translateY(0);opacity:.45}30%{transform:translateY(-3px);opacity:1}}
+.sxw .fade{transition:opacity .28s ease,transform .28s ease}.sxw .fade.out{opacity:0;transform:translateY(4px)}
+.sx{display:grid;gap:14px;justify-items:center}
+.sph{--W:min(420px,calc(100cqw - 4px));--b:calc(var(--W) * .115);width:var(--W);height:var(--W);position:relative;margin:0 auto;contain:layout}
+.sx[data-mode=cluster] .sph{--b:calc(var(--W) * .118)}
+.sbody{display:none}
+.sshade{display:none}
+.sn{position:absolute;left:50%;top:50%;width:var(--b);height:var(--b);margin:calc(var(--b) / -2) 0 0 calc(var(--b) / -2);will-change:transform,opacity;transform-origin:50% 50%}
+.sn .lg{width:100%;height:100%;box-shadow:0 0 0 1px #e6e1ea,0 10px 18px -10px rgba(20,18,22,.35);transition:box-shadow .35s}
+.sn.dk .lg{box-shadow:0 0 0 1.5px #f6b5d8,0 4px 10px -6px rgba(20,18,22,.25)}
+.sxw .pip{position:absolute;right:-16%;top:-14%;background:#fff;border-radius:999px;padding:3px 4px;line-height:0;box-shadow:0 0 0 1px #ebe6ee,0 3px 8px -4px rgba(20,18,22,.3);opacity:0;transform:scale(.5);transition:opacity .25s,transform .25s,background .25s}
+.sxw .pip .wk{height:5px;gap:2px}.sxw .pip .wk i{width:3px;height:3px}
+.sn.busy .pip,.sn.hush .pip,.sn.act .pip{opacity:1;transform:none}
+.sn.hush .wk i{animation:none;opacity:1;transform:none;background:#FA1896}
+.sn.act .lg{box-shadow:0 0 0 1.5px #FA1896,0 0 0 5px rgba(250,24,150,.10),0 10px 24px -10px rgba(250,24,150,.5)}
+.sn.act .pip{background:#FA1896;box-shadow:none}.sn.act .wk{display:none}
+.sn.act .pip::after{content:"\2713";display:block;color:#fff;font:700 8px/5px 'DM Sans',sans-serif;width:11px;height:5px;text-align:center}
+.sx.paused .wk i{animation-play-state:paused}
+.sfo{position:absolute;left:50%;top:50%;width:calc(var(--b) * 1.25);height:calc(var(--b) * 1.25);transform:translate(-50%,-50%);z-index:600;border-radius:50%;background:#fff;box-shadow:0 0 0 1.5px #FA1896,0 14px 30px -12px rgba(250,24,150,.55);display:grid;place-items:center}
+.sfo img{width:60%;height:60%;object-fit:contain}
+.sfo::after{content:"";position:absolute;inset:-1px;border-radius:50%;box-shadow:0 0 0 2px #FA1896;opacity:0}
+.sfo.sxbeat{animation:sxfobeat .55s cubic-bezier(.2,.7,.2,1)}.sfo.sxbeat::after{animation:sxping 1s ease-out}
+@keyframes sxfobeat{0%{transform:translate(-50%,-50%) scale(1)}40%{transform:translate(-50%,-50%) scale(1.08)}100%{transform:translate(-50%,-50%) scale(1)}}
+@keyframes sxping{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(1.4)}}
+/* answers popping up beside the logo that answered (cluster) */
+.sxw .bb{position:absolute;left:50%;top:50%;z-index:650;pointer-events:none;background:#fff;border-radius:999px;padding:5px 10px 5px 8px;font:600 11px/1.2 'DM Sans',sans-serif;color:var(--body);white-space:nowrap;box-shadow:0 0 0 1px #ebe6ee,0 10px 22px -12px rgba(20,18,22,.35);display:flex;align-items:center;gap:6px;animation:sxbbin .38s cubic-bezier(.2,.8,.2,1.2) both}
+.sxw .bb i{width:7px;height:7px;border-radius:50%;background:var(--c,#bdb6c4);flex:none}
+.sxw .bb.dk{box-shadow:0 0 0 1.5px var(--c),0 12px 24px -12px var(--c);color:var(--ink);font-weight:700}
+.sxw .bb b{font-weight:700;color:var(--ink)}
+.sxw .bb.out{animation:sxbbout .35s ease both}
+@keyframes sxbbin{from{opacity:0;scale:.7}to{opacity:1;scale:1}}
+@keyframes sxbbout{to{opacity:0;scale:.9}}
+.sxw p.ssub{font:500 12.5px/1.5 'DM Sans',sans-serif;color:var(--mute);text-align:center;margin:2px auto 0;max-width:none;width:100%;text-wrap:wrap}
+.sxw p.ssub>span{display:block}.sxw p.ssub .nb{white-space:nowrap}
+/* the latest answer (fixed height so nothing jumps) */
+.sxw .rcard{width:100%;max-width:520px;min-height:142px;background:#fff;border-radius:16px;box-shadow:0 0 0 1.5px #FA1896,0 16px 30px -24px rgba(250,24,150,.6);padding:12px 14px;overflow:hidden}
+.sxw .rk{display:flex;align-items:center;gap:6px;font:600 10.5px 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#a0889a;margin:0 0 7px}
+.sxw .rk .lv{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:#16A06A;box-shadow:0 0 0 4px rgba(22,160,106,.18);display:inline-block;animation:none;flex:none}
+.sxw .rh{display:flex;align-items:center;gap:6px;font:700 12.5px 'DM Sans',sans-serif;color:var(--ink)}.sxw .rh .lg{--s:22px}
+.sxw .arr{font-weight:500;color:var(--mute)}
+.sxw .pg{font:700 10px/1 'DM Sans',sans-serif;color:#fff;background:var(--c);border-radius:999px;padding:4px 8px;margin-left:auto}
+.sxw .rt{font:400 13.5px/1.45 'DM Sans',sans-serif;color:var(--body);margin-top:6px}
+.sxw .rt.serif{font:400 17px/1.3 'DM Serif Display',Georgia,serif;color:var(--ink)}.sxw .rt.serif .etag{font-family:'DM Sans',sans-serif;vertical-align:2px}
+.also2{width:100%;max-width:520px;height:20px;font:500 12px/20px 'DM Sans',sans-serif;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
+.also2 b{color:var(--ink);font-weight:700}
+.sx[data-mode=cluster]>.also2{display:none}
+.sxw .side{display:none}
+/* the feed (globe) and the plan chips (cluster) */
+.sxw .fcol,.sxw .sh2{background:#faf8fb;border-radius:18px;box-shadow:inset 0 0 0 1px #eee9f1;padding:14px 16px 6px}
+.sxw .sh2{padding:14px 16px}
+.sxw .sh2>b{display:block;font:700 13px 'DM Sans',sans-serif;color:var(--ink);margin:0 0 10px}
+.sxw .sl2{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:7px;max-height:104px;overflow:hidden;align-content:flex-start}
+.sxw .sl2 li{display:inline-flex;align-items:center;gap:6px;background:#fff;border-radius:999px;box-shadow:0 0 0 1px #ece7ef;padding:6px 11px;font:600 12.5px 'DM Sans',sans-serif;color:var(--ink);animation:sxbbin .4s both}
+.sxw .sl2 li i{width:7px;height:7px;border-radius:50%;background:var(--c)}
+.sxw .fh{display:flex;align-items:baseline;justify-content:space-between;font:700 13px 'DM Sans',sans-serif;color:var(--ink);margin:0 0 8px}.sxw .fh span{font:500 12px 'DM Sans',sans-serif;color:var(--mute)}
+.sxw .fl{list-style:none;margin:0;padding:0;height:286px;overflow:hidden;-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent)}
+.sxw .fl li{display:flex;align-items:center;gap:9px;padding:7px 2px;border-bottom:1px solid #f0ecf2;font:500 13px 'DM Sans',sans-serif;color:var(--mute);animation:sxfin .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes sxfin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.sxw .fl li .lg{--s:26px}.sxw .fl li b{color:var(--ink);font-weight:700;white-space:nowrap}.sxw .fl li>span:not(.lg){flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sxw .fl li i{font-style:normal;font-weight:700;color:#FA1896;font-size:12px}
+.sxw .fl li.fd{align-items:flex-start}.sxw .fl li.fd>span:not(.lg){white-space:normal;color:var(--body);line-height:1.4}.sxw .fl li.fd i{color:#fff;background:var(--c);border-radius:999px;padding:3px 7px;font-size:10px;line-height:1}
+/* wide: the sphere beside the latest answer and the feed or the plan */
+@container (min-width:860px){
+  .sx{grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:48px;align-items:center;justify-items:stretch}
+  .sph{--W:min(560px,58cqw);--b:calc(var(--W) * .104)}
+  .sx[data-mode=cluster] .sph{--b:calc(var(--W) * .108)}
+  .sxw .pip{padding:4px 5px}.sxw .pip .wk{height:6px;gap:3px}.sxw .pip .wk i{width:4px;height:4px}.sn.act .pip::after{font-size:10px;width:14px;height:6px;line-height:6px}
+  .sx>.rcard,.sx>.also2{display:none}
+  .sxw .side{display:flex;flex-direction:column;gap:14px;min-width:0}
+  .sxw .side .rcard{max-width:none;min-height:150px;padding:15px 18px}.sxw .side .rt{font-size:14.5px}.sxw .side .rt.serif{font-size:21px}
+  .sxw .bb{font-size:12px;padding:6px 12px 6px 9px}
+  .sxw p.ssub{grid-column:1/-1;justify-self:center}
+}
+@media (prefers-reduced-motion:reduce){.sxw .wk i{animation:none;opacity:.7}.sxw .fade,.sxw .lg{transition:none}.sfo.sxbeat,.sfo.sxbeat::after{animation:none}.sxw .bb,.sxw .sl2 li,.sxw .fl li{animation:none}}
