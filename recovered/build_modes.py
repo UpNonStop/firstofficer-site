@@ -45,7 +45,7 @@ def hero():
 </div>
 <div class="mrest">
 <p class="mlab"><span data-k="label">Example: Leo, Linden Row Insurance, Columbus, OH. Fictional. Figures are estimates.</span> <button class="wnext" type="button">Next example →</button></p>
-<p class="msub">Every loyalty program has a team constantly rewriting the rules. While you run your business, your spend earns less than it should, and your points buy less than they could. Your desk of specialists works on that with you.</p>
+<p class="msub">Every loyalty program has a team constantly rewriting the rules. While you run your business, your spend earns less than it should, and your points buy less than they could. Your desk works on that with you.</p>
 <p class="mtag">Your spend, working harder.<br>Your points, going further.</p>
 <div class="mctas" id="mctas"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a></div>
 <a class="mcalc" href="calculator.html">or run the calculator <span class="ar">→</span></a>

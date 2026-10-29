@@ -1170,8 +1170,8 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 </div>
 <script>
 (function(){
-  /* ===== CONFIG: paste Ohad's Cal.com booking link here (e.g. "https://cal.com/USERNAME/found-money-call").
-     TODO(Ohad): Cal.com link not set yet. While this is empty, the calendar tile is hidden and the other options show. ===== */
+  /* ===== CONFIG: paste Ohad's Google Calendar appointment schedule link here (e.g. "https://calendar.app.google/XXXX").
+     TODO(Ohad): booking link not set yet. While this is empty, the calendar tile is hidden and the other options show. ===== */
   var CAL_URL = "";
   var WA = "16199404040", EMAIL = "desk@upnonstop.com";
   var IND = {agencies:"Agencies","auto-repair":"Auto repair",cleaning:"Cleaning",consulting:"Consulting",contractors:"Contractors","cpa-firms":"CPA firms",dental:"Dental",ecommerce:"E-commerce",fitness:"Fitness",hvac:"HVAC","it-services":"IT services",landscaping:"Landscaping","law-firms":"Law firms",medical:"Medical","property-management":"Property management","real-estate":"Real estate",restaurants:"Restaurants",salons:"Salons",trucking:"Trucking",veterinary:"Veterinary",other:"Other"};
@@ -1191,7 +1191,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
   var SMS='+16199404040'; var ios=/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent); document.getElementById('smsLink').href='sms:'+SMS+(ios?'&':'?')+'body='+encodeURIComponent(summary());
   document.getElementById('waLink').href='https://wa.me/'+WA+'?text='+encodeURIComponent(summary());
   ev('book_view',{from:ctx.from||'direct',industry:ctx.industry||'none'});
-  var calOK = /^https:\/\/(app\.)?cal\.com\/[\w.\-\/]+$/.test(CAL_URL);
+  var calOK = /^https:\/\/(calendar\.app\.google\/[\w-]+|calendar\.google\.com\/calendar\/appointments\/schedules\/[\w-]+)\/?$/.test(CAL_URL);
   if (!calOK){ document.getElementById('tileCal').hidden = true; }
   var panels = {sms:'p-sms',calendar:'p-calendar',whatsapp:'p-whatsapp',email:'p-form',callback:'p-form'}, mode='';
   function show(ch){
@@ -1200,7 +1200,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
     document.getElementById('bkDone').classList.remove('on');
     var p=document.getElementById(panels[ch]); p.classList.add('on');
     if (ch==='calendar' && calOK && !document.querySelector('#bkEmbed iframe')){
-      var f=document.createElement('iframe'); var u=new URL(CAL_URL); u.searchParams.set('embed','true'); u.searchParams.set('notes',summary());
+      var f=document.createElement('iframe'); var u=new URL(CAL_URL); u.searchParams.set('gv','true');
       f.src=u.toString(); f.title='Pick a time for The Found Money Call'; f.loading='lazy'; document.getElementById('bkEmbed').appendChild(f);
     }
     var cb = ch==='callback';
@@ -1233,7 +1233,6 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
     location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent((cb?'Callback request':'Email request')+': The Found Money Call')+'&body='+encodeURIComponent(body.join('\n'));
     done(cb?'callback':'email');
   });
-  window.addEventListener('message',function(e){ if(/cal\.com$/.test(new URL(e.origin).hostname) && e.data && JSON.stringify(e.data).indexOf('bookingSuccessful')>-1) done('calendar'); });
   if (q.get('ch') && panels[q.get('ch')] && (q.get('ch')!=='calendar'||calOK)) show(q.get('ch'));
 })();
 </script>
@@ -1315,7 +1314,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 
 
 
-<div class="nsheet" id="nsheet" aria-hidden="true"><button class="nclose" aria-label="Close menu" onclick="foNav(false)">×</button><nav class="nlist"><a href="product.html">Product</a><a href="pricing.html" onclick="foNav(false)">Pricing</a><a href="how.html">How</a><a href="trust.html">Trust</a><a href="calculator.html" onclick="foNav(false)">Calculator</a><a href="#note" onclick="foNav(false)">About</a><a href="#industries" onclick="foNav(false)">Your Industry</a><a href="#notes" onclick="foNav(false)">Field Notes</a><a href="https://upnonstop.com">The Daily Redemption</a></nav><a class="pill green nsheet-cta" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call" style="text-decoration:none">💬 Text Your First Officer</a></div>
+<div class="nsheet" id="nsheet" aria-hidden="true"><button class="nclose" aria-label="Close menu" onclick="foNav(false)">×</button><nav class="nlist"><a href="product.html">Product</a><a href="pricing.html" onclick="foNav(false)">Pricing</a><a href="how.html">How</a><a href="trust.html">Trust</a><a href="calculator.html" onclick="foNav(false)">Calculator</a><a href="about.html#note" onclick="foNav(false)">About</a><a href="#industries" onclick="foNav(false)">Your Industry</a><a href="#notes" onclick="foNav(false)">Field Notes</a><a href="https://upnonstop.com">The Daily Redemption</a></nav><a class="pill green nsheet-cta" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call" style="text-decoration:none">💬 Text Your First Officer</a></div>
 <script>function foNav(open){var sh=document.getElementById("nsheet");var b=document.querySelector(".nburger");sh.classList.toggle("open",open);document.body.classList.toggle("nolock",open);sh.setAttribute("aria-hidden",open?"false":"true");if(b)b.setAttribute("aria-expanded",open?"true":"false");}</script>
 
 <style id="fo66">
