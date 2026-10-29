@@ -10,3 +10,15 @@ body.pgo>.oldbody{display:block;width:100%}
 /* Ohad, Oct 29: the top bar scrolls away with the page at every width. Never sticky, fixed or pinned. */
 body.pgx .nav,body.pgx .nav.solid,body.pgo .nav,body.pgr .nav{position:relative!important;top:auto!important;z-index:5}
 html{scroll-padding-top:0}
+/* Industry template (for-*.html), mobile first */
+.pgi .ix2{display:grid;gap:16px;margin-top:22px}
+.pgi .ixc{background:#fff;border-radius:22px;padding:20px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 18px 36px -24px rgba(20,18,22,.35)}
+.pgi .ixl{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.pgi .ixl li{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:14px;padding:9px 12px;border-radius:12px;background:var(--cream)}
+.pgi .ixl b{font-family:var(--mono);font-size:12px;white-space:nowrap;padding:3px 8px;border-radius:6px;color:#fff;background:#12834E}
+.pgi .ixl b.r3{background:#1E78B8}.pgi .ixl b.r2{background:#7149C9}.pgi .ixl b.r1{background:#fff;color:var(--body);box-shadow:inset 0 0 0 1px rgba(20,18,22,.15)}
+.pgi .ixn{font-size:12.5px;color:var(--mute);margin:12px 0 0}
+.pgi .ixb{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.pgi .ixb .btn{flex:1 1 auto;justify-content:center}
+.btn.gh{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+@media(min-width:900px){.pgi .ix2{grid-template-columns:1fr 1fr;align-items:start}}
