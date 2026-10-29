@@ -100,7 +100,7 @@
 .cbox{display:grid;grid-template-columns:minmax(0,1fr) 520px;align-items:start;background:#fff;border-radius:22px;box-shadow:0 0 0 1px var(--hair),0 30px 60px -40px rgba(20,18,22,.35);overflow:clip}
 .cin{padding:30px 34px 32px}
 .cres{align-self:stretch;border-left:1px solid var(--hair);background:#fff}
-.cstk{position:sticky;top:calc(var(--navh,72px) + 20px);padding:30px 34px 30px}
+.cstk{position:sticky;top:24px;padding:30px 34px 30px}
 .cmini{display:none}
 /* spend rows */
 .crows{border-top:1px solid var(--ink)}
