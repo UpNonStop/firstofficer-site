@@ -11,7 +11,7 @@ N=[
   st=('0.6¢ to 3¢+','what one point can be worth, est.'),
   p=[('The value ladder is hidden','Programs show the simple options first: statement credit, gift cards. The richer ones, transfers to airline and hotel partners, sit behind menus and partner lists.'),
      ('Cents per point is abstract','“1.6 cents a point” means little. “The ad spend paid for a hotel night” means a lot. It is the same math, est., so the desk always says it in dollars.'),
-     ('Prices move by the day','Many programs price awards by demand. The same seat can cost very different points on different days, so a fixed rule of thumb breaks.'),
+     ('Prices move by the day','Many programs price awards by demand. The same flight can cost very different points on different days, so a fixed rule of thumb breaks.'),
      ('The best value takes the most knowledge','The richest redemptions depend on three things at once: the transfer ratio, the award space and the timing. Nobody learns that by accident.')],
   d=('Every balance, in dollars','The desk values each balance in dollars, est., against the trips you actually want, and says plainly when the value is not there.'),
   q=['Do you know what one of your points is worth, in cents?','Have you ever moved points to a travel partner?','Is your balance tied to a trip, or just sitting?']),
@@ -27,7 +27,7 @@ N=[
  dict(s='complexity',t='Why it is this hard',h='The rules are complex. <span class="pk">That is not an accident.</span>',
   l='Every layer of complexity moves a little value from your account to the program’s.',
   st=('1:1 · 3:1','two common transfer ratios, est.'),
-  p=[('Charts gave way to moving prices','Award charts once told you what a seat cost. Many programs now price by demand, with no published chart to plan against.'),
+  p=[('Charts gave way to moving prices','Award charts once told you what an award cost. Many programs now price by demand, with no published chart to plan against.'),
      ('Bonus categories depend on codes','A bonus applies only when the merchant’s category code matches. A grocery pickup or a warehouse club may not code as a grocery store, and few people are told.'),
      ('Transfer ratios are not standard','Many bank points move 1:1 to airline partners. Some move at less, and some hotel points move at about 3:1. Each ratio can change.'),
      ('Terms change with little notice','Programs can change terms, earning rates and partners. What you learned last year may not hold this year.')],
@@ -94,7 +94,7 @@ def field_notes():
         body+=sec(f'Field note {n["n"]} · {n["t"]}',n['h'],n['l'],rail([card(i+1,a,b) for i,(a,b) in enumerate(n['p'][:3])],3,n['t'])+more,id_=n['s'],cls='fn')
     body+='<section class="sec tight"><div class="wrap"><p class="ill">'+ILL+' Point values depend on how and when you redeem. Not tax, legal or financial advice.</p></div></section>\n'
     body+=nxt('03','calculator-modes.html','Notes are general. <span class="pk">Your numbers aren\'t.</span>','Move one slider and see what your own spend is worth against $550 a month.','Run your numbers')
-    M.render('field-notes.html','Field Notes | How the rewards game actually works | First Officer','Eight short notes on what a point is worth, cash back, timing, expiry and who card advice serves. Illustrative estimates.',body,on='',canon='field-notes.html',bcls='pgl')
+    M.render('field-notes.html','Field Notes | How the rewards game actually works | First Officer','Eight short notes on what a point is worth, cash back, timing, expiry and who card advice serves. Illustrative estimates.',body,on='',canon='field-notes.html',bcls='pgl',robots=None,ga=True,meta=M.seo('Field Notes: How the rewards game actually works','Eight short notes on what a point is worth, cash back, timing, expiry and who card advice serves.','field-notes.html',ld=[dict(M.ORG,**{'@context':'https://schema.org'}),M.crumbs('Field Notes','field-notes.html')]))
 
 def lesson(i):
     n=N[i];nx=N[i+1] if i+1<len(N) else None

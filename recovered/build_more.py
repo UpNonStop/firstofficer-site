@@ -28,12 +28,53 @@ def tail(extra=''):
 
 def finish(h): return B.absol(BP.relink(h))
 
-def render(fn,title,desc,body,on='',canon=None,head_extra='',tail_extra='',bcls=''):
+GA4='''<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FJHCJ74L64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FJHCJ74L64');
+</script>'''
+# funnel events, as on main: book_click, whatsapp_click, calculator_open
+FOTRACK='''<script id="fo-track">(function(){
+  function ev(n,p){ if(typeof gtag==='function') gtag('event', n, p||{}); }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a'); if(!a) return;
+    var h = a.getAttribute('href')||'';
+    if (h.indexOf('book') > -1) ev('book_click', {page_path: location.pathname, link_text: (a.textContent||'').trim().slice(0,40)});
+    if (h.indexOf('wa.me') > -1) ev('whatsapp_click', {page_path: location.pathname, link_text: (a.textContent||'').trim().slice(0,40)});
+    else if (h.indexOf('calculator') > -1) ev('calculator_open', {page_path: location.pathname});
+  }, true);
+})();</script>
+'''
+def seo(title,desc,url,img='og-card.png',ld=()):
+    """Open Graph, Twitter card and JSON-LD, as on main."""
+    import json as _j
+    t=title.replace('"','&quot;');d=desc.replace('"','&quot;');u=SITE+url;im=SITE+img
+    h=(f'<meta property="og:type" content="website">\n<meta property="og:site_name" content="First Officer">\n<meta property="og:title" content="{t}">\n'
+       f'<meta property="og:description" content="{d}">\n<meta property="og:url" content="{u}">\n<meta property="og:image" content="{im}">\n'
+       '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n'
+       f'<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="{t}">\n<meta name="twitter:description" content="{d}">\n<meta name="twitter:image" content="{im}">')
+    for o in ld: h+='\n<script type="application/ld+json">'+_j.dumps(o,ensure_ascii=False,separators=(',',':'))+'</script>'
+    return h
+ORG={"@type":"Organization","name":"First Officer by UpNonStop","url":SITE,"logo":{"@type":"ImageObject","url":SITE+"logo-128.png"}}
+def crumbs(name,url):
+    return {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":SITE},{"@type":"ListItem","position":2,"name":name,"item":SITE+url}]}
+
+def render(fn,title,desc,body,on='',canon=None,head_extra='',tail_extra='',bcls='',robots='noindex',ga=False,meta='',wa_tag=''):
+    """robots=None makes the page indexable; ga=True adds GA4 + the fo-track funnel events; meta = seo() output;
+    wa_tag appends a per-page WhatsApp code (e.g. site-hvac-1) to every WhatsApp link, as main's for-* pages do."""
     h=B.head(title,desc).replace('<link rel="stylesheet" href="recovered/rec.css">',CSSL)
+    h=h.replace('<meta name="robots" content="noindex">\n',('<meta name="robots" content="%s">\n'%robots) if robots else '',1)
+    if ga: h=h.replace('<meta charset="UTF-8">\n','<meta charset="UTF-8">\n'+GA4+'\n',1)
     if canon: h=h.replace('</head>','<link rel="canonical" href="'+SITE+canon+'">\n</head>')
+    if meta: h=h.replace('</head>',meta+'\n</head>')
+    if ga: tail_extra=tail_extra+FOTRACK
     if head_extra: h=h.replace('</head>',head_extra+'\n</head>')
     nav,tick,foot=chrome(on)
     h+='<body class="modes pgx pgr %s">\n'%bcls+nav+tick+'<main>\n'+body+'</main>\n'+foot+tail(tail_extra)+'</body>\n</html>\n'
+    if wa_tag: h=h.replace(B.WA,B.WA+'%20'+wa_tag)
     open(os.path.join(ROOT,fn),'w').write(finish(h));print('built',fn)
 
 def redirect(fn,to,title,line,body=''):
