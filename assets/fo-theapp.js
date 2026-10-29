@@ -8,11 +8,11 @@ if(!root||!F||!P.length)return;
 var p=P[0],A=window.FO_A||'',RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
 var CAP={
-  desk:['Desk','The four pillars at a glance and your thread with the desk underneath. Ask anything, any time.'],
-  earn:['Earn','Which card for which spend. Each move shows what it is worth a year, and waits for your OK.'],
-  burn:['Burn','Points into trips. A goal, a pace and a plan. The desk vets the requirements and books after you approve.'],
-  'return':['Return','Friday, in dollars. What the desk found, counted in dollars and checked against your statements.'],
-  learn:['Learn','Two minutes a week. One short lesson from your own data: what changed in your programs, and what it means for your goal.']};
+  desk:['Desk','The four pillars at a glance and the thread with the desk underneath. Ask anything, any time.'],
+  earn:['Earn','Which card for which spend. Each move shows what it is worth a year, and waits for the owner\'s OK.'],
+  burn:['Burn','Points into trips. A goal, a pace and a plan. The desk vets the requirements and books after the owner approves.'],
+  'return':['Return','Friday, in dollars. What the desk found, counted in dollars and checked against the owner\'s statements.'],
+  learn:['Learn','Two minutes a week. One short lesson from the owner\'s own data: what changed in the programs, and what it means for the goal.']};
 var TITLE={earn:p.short+'’s Earn',burn:p.short+'’s Burn','return':p.short+'’s Return',learn:p.first+'’s Learn'};
 function greet(){var h=new Date().getHours();return h<5?'Good evening':h<12?'Good morning':h<17?'Good afternoon':'Good evening'}
 function clock(){var d=new Date(),h=d.getHours(),m=d.getMinutes();var c=$('.mclk',root);if(c)c.textContent=(h%12||12)+':'+(m<10?'0':'')+m}
@@ -24,11 +24,11 @@ function desk(){
          ['burn','Burn','#E8590C',p.pct+'%','of the Tokyo goal, '+Math.round(p.have/1000)+'k points'],
          ['return','Return','#7149C9',usd(retSum),'last Friday, est.'],
          ['learn','Learn','#1E78B8',p.learn[1],p.learn[2]]];
-  return '<div class="zdk-on"><i></i>Your desk is online<span>Updated 8:14 AM</span></div>'+
+  return '<div class="zdk-on"><i></i>The desk is online<span>Updated 8:14 AM</span></div>'+
     '<div class="zdk-g">'+t.map(function(x){return '<button type="button" class="zdk" data-go="'+x[0]+'" style="--c:'+x[2]+'"><small>'+x[1]+'</small><b>'+x[3]+'</b><span>'+x[4]+'</span></button>'}).join('')+'</div>'+
-    '<div class="zkc zdk-t"><div class="zkh">Your desk<b>Since Friday</b></div><div class="zdk-cons"><i></i><i></i><i></i>Checked 3 programs · 6s</div>'+
-    F.bub('o','Anything waiting for me?',p)+F.bub('f','Good morning, '+p.first+'. One move is confirmed. One more waits for your OK.',p)+'</div>'+
-    '<div class="zdk-ask"><span>Ask your First Officer</span><i aria-hidden="true">↑</i></div>'}
+    '<div class="zkc zdk-t"><div class="zkh">The desk<b>Since Friday</b></div><div class="zdk-cons"><i></i><i></i><i></i>Checked 3 programs · 6s</div>'+
+    F.bub('o','Anything waiting for me?',p)+F.bub('f','Good morning, '+p.first+'. One move is confirmed. One more waits for approval.',p)+'</div>'+
+    '<div class="zdk-ask"><span>Ask First Officer</span><i aria-hidden="true">↑</i></div>'}
 var H={desk:desk(),earn:F.earn(p),burn:F.burn(p),'return':F.ret(p),learn:F.learn(p)};
 $$('.mpane',root).forEach(function(e){e.innerHTML=H[e.dataset.t]||''});
 var cur='desk';
@@ -39,7 +39,7 @@ function show(t,fromUser){
   $$('.mtb button',root).forEach(function(b){var on=b.dataset.t===t;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false')});
   $$('.tlist button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.t===t?'true':'false')});
   var sub=$('[data-tk="sub"]',root),ti=$('[data-tk="title"]',root);
-  if(t==='desk'){sub.textContent='Today · Week 9 with your desk';ti.innerHTML=greet()+', <em>'+p.first+'.</em>'}
+  if(t==='desk'){sub.textContent='Today · Week 9 with the desk';ti.innerHTML=greet()+', <em>'+p.first+'.</em>'}
   else{sub.textContent=greet()+', '+p.first;ti.textContent=TITLE[t]}
   var ch=$('[data-tk="caph"]'),cp=$('[data-tk="capp"]');if(ch)ch.textContent=CAP[t][0];if(cp)cp.textContent=CAP[t][1];
   if(fromUser){var bar=$('.mtb',root);if(bar)bar.classList.add('held');stop()}

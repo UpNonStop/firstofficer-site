@@ -48,7 +48,7 @@ var SAY=[
 ];
 var lg={};S.forEach(function(s){lg[s[0]]=A+'img/hero/prog/'+s[2]+'.jpg'});
 function pods(){return S.map(function(s,i){return '<div class="dpod" data-i="'+i+'"><img src="'+lg[s[0]]+'" alt=""><div><b>'+s[1]+'</b><small><span class="dst">'+s[3][0]+'</span><i class="dots"><u></u><u></u><u></u></i></small></div></div>'}).join('')}
-host.innerHTML='<div class="dh"><span class="lv"></span><b>First Officer, at work</b><span class="dsub">every program on your file, kept current as the rules change</span><div class="dsay"><img src="'+lg[SAY[0][0]]+'" alt=""><span>'+SAY[0][1]+'</span></div></div>'+
+host.innerHTML='<div class="dh"><span class="lv"></span><b>First Officer, at work</b><span class="dsub">every program on file, kept current as the rules change</span><div class="dsay"><img src="'+lg[SAY[0][0]]+'" alt=""><span>'+SAY[0][1]+'</span></div></div>'+
  '<div class="dtrack"><div class="dset">'+pods()+'</div><div class="dset" aria-hidden="true">'+pods()+'</div></div>'+
  '<p class="dfine">A person reviews every booking. Fictional examples; programs shown for identification only.</p>';
 if(RM)return;

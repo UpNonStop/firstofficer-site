@@ -29,7 +29,6 @@
 .pillchips span{background:#fff!important}
 .pillchips span:nth-child(3) b{color:#7348F0!important}
 .pillchips span:nth-child(3){box-shadow:0 0 0 1.5px rgba(115,72,240,.4)!important}
-.mcalc{background:#fff!important}
 .apc.soon{background:#fff!important;box-shadow:inset 0 0 0 1px #FA1896!important}
 .freego{background:#fff!important;box-shadow:inset 0 0 0 1.5px #FA1896,0 18px 36px -24px rgba(20,18,22,.3)!important}
 .row > .code,.ledger .code{background:#fff!important;box-shadow:inset 0 0 0 1px rgba(250,24,150,.55)!important}
@@ -44,7 +43,7 @@
 .arc-head .who{background:#fff!important;color:#141216!important}
 .trades > a.all{background:#fff!important;color:#141216!important;box-shadow:inset 0 0 0 1.5px #141216!important}
 
-/* ---- no circles except the logos and the pill dot (60 rules) ---- */
+/* ---- no circles except the logos and the pill dot (59 rules) ---- */
 .badge i,
 .cmp li::before,
 .dh .lv,
@@ -73,7 +72,6 @@
 .human .hi,
 .ledger .lf i,
 .ledger .lh b i,
-.mstk .pd u,
 .ncta .pill.green.wa-ic,
 .nug .coin,
 .nug .ni,
