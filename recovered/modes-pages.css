@@ -73,3 +73,9 @@ html{scroll-padding-top:0}
 .pgf .fbt{margin-top:14px;width:100%;justify-content:center}
 @media(min-width:900px){.pgf .fnt{grid-template-columns:1fr 1fr}}
 body.pgo em,body.pgo cite{font-style:normal!important}
+/* 320 overflow guard: industry mix card */
+.pgi .ix2{grid-template-columns:minmax(0,1fr)}
+.pgi .tmx{min-width:0}
+.pgi .tmx li{grid-template-columns:minmax(0,1fr) auto auto}
+@media(max-width:359px){.pgi .tmx{padding:16px}.pgi .tmx li{gap:6px;padding:9px 9px;font-size:13px}.pgi .tmx li em,.pgi .tmx li b{font-size:12px}}
+@media(min-width:900px){.pgi .ix2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
