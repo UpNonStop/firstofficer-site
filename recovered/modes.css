@@ -455,3 +455,5 @@ h1,h2,h3,h4,.nxh,.stq,p,li,b{overflow-wrap:break-word}
 }
 /* rec20: the handwritten signature keeps its own size in every browser (explicit ratio, never collapses) */
 .nsig .nsvg{aspect-ratio:200/84;width:calc(var(--lh)*2*200/84);max-width:100%;height:auto;overflow:visible}
+/* rec20: on desktop, in-page jumps (#how, #doors, #advs) land below the opaque top bar, not under it */
+@media (min-width:901px){html{scroll-padding-top:calc(var(--navh) + 16px)}}
