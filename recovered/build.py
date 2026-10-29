@@ -4,7 +4,7 @@ import os
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSET='https://cdn.jsdelivr.net/gh/UpNonStop/firstofficer-site@2ce444a2568eed6f915cdcaf09e3438a42d34b30/'
 FONTS='https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=JetBrains+Mono:wght@400;500;700&display=swap'
-SUB="Every loyalty program has their team constantly rewriting the rules. While you're busy running your business, your spend earns less than it should, and your points and miles buy less than they could.\\n\\nFirstOfficer by UpNonStop runs a desk of specialists across 50+ programs, each an expert in its niche. They all work for you, so you skip those rookie mistakes. Your Bespoke Strategy is reviewed weekly and optimized continuously, so every dollar you spend works harder.\\n\\nYour spend, working harder. Your points, going further."
+SUB="Every loyalty program has their team constantly rewriting the rules. While you're busy running your business, your spend earns less than it should, and your points and miles buy less than they could.\\n\\nFirstOfficer by UpNonStop runs one desk across every major program, working for you, so you skip those rookie mistakes. Your Bespoke Strategy is reviewed weekly and optimized continuously, so every dollar you spend works harder.\\n\\nYour spend, working harder. Your points, going further."
 WA='https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call'
 
 def head(title,desc):
@@ -47,10 +47,34 @@ def ticker():
     one='<span class="h"><b>Desk tips, illustrated</b></span>'+''.join(f'<span><em class="{c}">{p}</em> <b>{t}</b> {d}</span>' for c,p,t,d in TIPS)
     return f'<div class="tick" aria-label="Desk tips"><div class="tr">{one}{one}</div></div>\n'
 
+# The Daily Redemption signup, same endpoint, payload and GA4 event as main's #focap band, styled for the modes footer
+DR='''<div class="dr" id="daily-redemption"><div class="drt"><span class="kick">The Daily Redemption</span><b class="drh">One real redemption, every weekday.</b>
+<p>The newsletter behind the desk: what the desk found on request, what it cost in points, and what it would have cost in cash. Free, and you can leave whenever you like.</p></div>
+<div class="drf"><form class="drform" id="focapForm" novalidate><input class="dri" id="focapEmail" type="email" required autocomplete="email" placeholder="you@yourbusiness.com" aria-label="Your email address"><button class="btn pk" type="submit">Get the newsletter</button></form>
+<p class="drm" id="focapMsg" role="status" aria-live="polite"></p></div>
+<script id="focapjs">(function(){
+  var f=document.getElementById('focapForm'); if(!f) return;
+  var i=document.getElementById('focapEmail'), b=f.querySelector('button'), m=document.getElementById('focapMsg');
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var v=(i.value||'').trim();
+    if(!v || v.indexOf('@')<1){ m.textContent='Please enter a valid email address.'; i.focus(); return; }
+    b.disabled=true; m.textContent='Sending...';
+    fetch('https://www.upnonstop.com/members/api/send-magic-link/', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({email:v, emailType:'signup', labels:['First Officer site'], name:''})
+    }).then(function(r){
+      if(r.ok){ f.style.display='none'; m.textContent='Check your inbox for the confirmation link.';
+        if(typeof gtag==='function') gtag('event','newsletter_signup',{page_path:location.pathname}); }
+      else { b.disabled=false; m.textContent='That did not go through. Try again in a moment.'; }
+    }).catch(function(){ b.disabled=false; m.textContent='That did not go through. Try again in a moment.'; });
+  });
+})();</script></div>
+'''
 def footer():
     return f'''<footer class="foot"><div class="wrap">
-<div class="cols">
-<div><a class="brand" href="home-recovered.html"><img src="img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><p class="tl">Your rewards desk. One conversation, 50+ programs, trained on new data nightly.</p></div>
+{DR}<div class="cols">
+<div><a class="brand" href="home-recovered.html"><img src="img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><p class="tl">Your rewards desk. One conversation, every program.</p></div>
 <div><h6>Site</h6><a href="product-recovered.html">Product</a><a href="pricing.html">Pricing</a><a href="freebies.html">Freebies</a><a href="calculator.html">Calculator</a><a href="about.html">About</a></div>
 <div><h6>More</h6><a href="trust.html">Trust</a><a href="industries.html">Industries</a><a href="{WA}">Text Your First Officer</a></div>
 </div>
@@ -136,7 +160,7 @@ def scripts(hero=False):
 
 # ---------------- HOME ----------------
 def home():
-    h=head('First Officer | You are not bad at Points & Miles','First Officer by UpNonStop: your rewards desk across 50+ programs. One conversation, every pillar.')
+    h=head('First Officer | You are not bad at Points & Miles','First Officer by UpNonStop: your rewards desk across every major program. One conversation, every pillar.')
     h+='<body>\n'
     h+=f'<script>window.FO_SUBHEAD="{SUB}";</script>\n'
     h+=nav('')+ticker()
@@ -180,7 +204,7 @@ def home():
 
 <article class="beat" id="b3">
 <div class="reveal"><div class="bn"><i>03</i>The solution</div><h3 class="h3">He texts First Officer. The desk takes it from there.</h3>
-<p class="short">One conversation. Specialists across 50+ programs behind it.</p><p>Trained on new data nightly. Every move vetted. Nothing moves without his yes.</p></div>
+<p class="short">One conversation. Every major program behind it.</p><p>Every move vetted. Nothing moves without his yes.</p></div>
 <div class="sol reveal d2">
 '''+shot('earn','Linden Row\'s Earn screen','p1')+shot('burn','Linden Row\'s Burn screen','p2')+'''
 <div class="float f1"><small>Earn · waiting for your OK</small><b>Ads 1x → 4x</b>$7,200 a year, est.</div>
@@ -219,7 +243,7 @@ def product():
     h+='<body>\n'+nav('Product')+ticker()+'<main>\n'
     h+='''<section class="phead"><div class="wrap g">
 <div class="reveal"><span class="kick">Product</span><h1>One desk. <span class="brush">Four pillars.</span> <span class="l3">Every move your call.</span></h1>
-<p class="lede">First Officer is one conversation. Behind it, specialists across 50+ programs, trained on new data nightly. Here is how the desk works, and what you see in the app.</p>
+<p class="lede">First Officer is one conversation, across every major program. Here is how the desk works, and what you see in the app.</p>
 <div class="pillchips"><span><b>01</b>Earn</span><span><b>02</b>Burn</span><span><b>03</b>Return</span><span><b>04</b>Learn</span></div>
 <div class="ctas"><a class="btn pk" href="book.html">Book the Found Money Call <span class="ar">→</span></a><a class="btn ghost" href="#tour">See the app</a></div></div>
 <div class="fan reveal d2">'''+shot('earn','Linden Row\'s Earn screen','a')+shot('burn','Linden Row\'s Burn screen','b')+shot('return','Linden Row\'s Return screen','c')+'''</div>
@@ -227,7 +251,7 @@ def product():
 
 <section class="sec" style="padding-top:60px" id="how"><div class="how onink"><div class="wrap">
 <div class="reveal"><span class="kick">How it works</span><h2 class="h2">Ask once. The whole desk works it.</h2>
-<p class="lede">You talk to First Officer. The right specialists pick it up, check it against your spend and the latest rules, and hand back one clear answer.</p></div>
+<p class="lede">You talk to First Officer. The desk picks it up, checks it against your spend and the latest rules, and hands back one clear answer.</p></div>
 <div class="howg">
 <ol class="steps reveal">
 <li class="on"><b>Talk for 20 minutes</b><span>The Found Money Call, free. Your spend, your goals, your trips.</span></li>
@@ -298,6 +322,7 @@ def absol(h):
     # relative font url()s once it inlines the CSS. Pin every image/font to the jsDelivr mirror of the same repo.
     return re.sub(r'((?:src|href)=["\']|url\()(img/|recovered/fonts/)',lambda m:m.group(1)+ASSET+m.group(2),h)
 if __name__=='__main__':
-    open(os.path.join(ROOT,'home-recovered.html'),'w').write(absol(home()))
-    open(os.path.join(ROOT,'product-recovered.html'),'w').write(absol(product()))
+    fix=lambda h:h.replace('href="freebies.html"','href="freebies-modes.html"').replace('href="industries.html"','href="industries-modes.html"')
+    open(os.path.join(ROOT,'home-recovered.html'),'w').write(absol(fix(home())))
+    open(os.path.join(ROOT,'product-recovered.html'),'w').write(absol(fix(product())))
     print('built')

@@ -733,3 +733,15 @@ p,li span,.why span,.cs .p,.cs .sub,figcaption,.est,.sub,small{text-wrap:pretty}
   #top .rbg i{background-position:center 40%}
   #top .rbg::after{background:linear-gradient(180deg,rgba(250,246,238,.34) 0,rgba(250,246,238,.5) 300px,rgba(250,246,238,.66) 560px,var(--cream) 100%)}
 }
+/* The Daily Redemption signup, top of the shared footer: white card on cream, no dark block, nothing sticky */
+.foot .dr{display:grid;gap:18px;background:#fff;border-radius:22px;padding:24px 20px;margin:0 0 48px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 18px 36px -26px rgba(20,18,22,.35)}
+.foot .drh{display:block;font-family:var(--sans);font-size:24px;line-height:1.15;font-weight:800;letter-spacing:-.01em;color:var(--ink);margin:10px 0 8px}
+.foot .drt p{font-size:15px;line-height:1.55;color:var(--body);margin:0;max-width:560px}
+.foot .drform{display:flex;flex-direction:column;gap:10px}
+.foot .dri{width:100%;box-sizing:border-box;min-height:50px;padding:12px 16px;border-radius:14px;border:1.5px solid rgba(20,18,22,.18);background:var(--cream);font:inherit;font-size:16px;color:var(--ink)}
+.foot .dri:focus{outline:none;border-color:var(--pinkd);box-shadow:0 0 0 3px rgba(230,15,134,.18)}
+.foot .drform .btn{justify-content:center;min-height:50px;width:100%}
+.foot .drm{font-size:14px;color:var(--body);margin:8px 0 0;min-height:1em}
+.foot .drm:empty{display:none}
+@media(min-width:560px){.foot .drform{flex-direction:row}.foot .drform .btn{width:auto;flex:none}}
+@media(min-width:900px){.foot .dr{grid-template-columns:1.1fr 1fr;align-items:center;gap:40px;padding:32px 36px;margin-bottom:56px}.foot .drh{font-size:28px}}
