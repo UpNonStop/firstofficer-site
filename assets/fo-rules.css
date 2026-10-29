@@ -43,7 +43,7 @@
 .arc-head .who{background:#fff!important;color:#141216!important}
 .trades > a.all{background:#fff!important;color:#141216!important;box-shadow:inset 0 0 0 1.5px #141216!important}
 
-/* ---- no circles except the logos and the pill dot (53 rules) ---- */
+/* ---- no circles except the logos and the pill dot (54 rules) ---- */
 .badge i,
 .cmp li::before,
 .dh .lv,
@@ -70,6 +70,7 @@
 .human .hi,
 .ledger .lf i,
 .ledger .lh b i,
+.mstk .pd u,
 .ncta .pill.green.wa-ic,
 .nug .coin,
 .nug .ni,

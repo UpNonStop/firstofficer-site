@@ -93,17 +93,19 @@ function bcalc(){var r=month([[B,BT,BD]],'mix'),v=verdict(r);
   paint(BAS,r);bar($('#bbal'),r);
   BAS.className='cq '+v.c+(r.mid>=1e4?' big':'');say(BAS,$('#bvt'),$('#bvp'),v);
   $$('a[data-full]',BAS).forEach(function(a){if(!a._b)a._b=a.getAttribute('href').split('#')[0];a.setAttribute('href',a._b.replace(/([?&])m=adv.*$/,'$1m=adv&spend='+B))})}
-bs.addEventListener('input',function(){B=p2v(+bs.value);bcalc()});
+bs.addEventListener('input',function(){halt();B=p2v(+bs.value);bcalc()});
 bs.addEventListener('keydown',function(e){var k=e.key,up=k==='ArrowRight'||k==='ArrowUp',dn=k==='ArrowLeft'||k==='ArrowDown';
   if(k==='Home'||k==='End'){e.preventDefault();B=k==='Home'?0:SMAX;bcalc();return}
   if(!up&&!dn)return;e.preventDefault();var b=Math.min(B,SMAX);
   B=up?Math.min(SMAX,Math.floor(b/stepAt(b))*stepAt(b)+stepAt(b)):Math.max(0,Math.ceil(b/stepAt(b-1))*stepAt(b-1)-stepAt(b-1));bcalc()});
-bv.addEventListener('input',function(){var c=bv.selectionStart,l=bv.value.length;B=Math.min(2e6,+(bv.value.replace(/[^0-9]/g,''))||0);bcalc();
+bv.addEventListener('input',function(){halt();var c=bv.selectionStart,l=bv.value.length;B=Math.min(2e6,+(bv.value.replace(/[^0-9]/g,''))||0);bcalc();
   var n=bv.value.length;try{bv.setSelectionRange(Math.max(0,c+n-l),Math.max(0,c+n-l))}catch(e){}});
 bv.addEventListener('focus',function(){bv.select()});
 /* Watch it run: $10K -> $80K once, ~3.2s, any touch stops it */
 var run=$('#brun'),raf=0,running=false;
 function stop(){if(!running)return;running=false;inst=false;cancelAnimationFrame(raf);run.classList.remove('on');run.setAttribute('aria-pressed','false');$('span',run).textContent='Watch it run';bcalc()}
+/* a typed or slid value wins over a sweep in flight: stop it without repainting the old value */
+function halt(){if(!running)return;running=false;inst=false;cancelAnimationFrame(raf);run.classList.remove('on');run.setAttribute('aria-pressed','false');$('span',run).textContent='Watch it run'}
 function go(){if(running){stop();return}
   if(RM){B=80000;bcalc();return}
   running=true;inst=true;run.classList.add('on');run.setAttribute('aria-pressed','true');$('span',run).textContent='Running · tap to stop';
