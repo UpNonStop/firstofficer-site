@@ -28,7 +28,7 @@
 .nbody span{display:inline-block;transform:translateY(var(--y)) rotate(var(--r))}
 .nbody .nlead{font-weight:400}
 .nbody a{color:#E0117F;font-weight:400;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:5px}
-.nhl{color:inherit;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20' preserveAspectRatio='none'%3E%3Cpath d='M1.5 5.5 C20 3.2 48 4.4 70 3 S92 3.6 98.8 2.6 L99.4 16.2 C80 17.6 52 16.4 30 17.8 S8 17 0.6 18 Z' fill='%23FA1896' fill-opacity='.26'/%3E%3C/svg%3E") 0 62%/100% 72% no-repeat;padding:0 5px;margin:0 -5px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.nhl{color:inherit;background:none;padding:0;margin:0}  /* pre-merge pass: no pastel highlight, the words stay */
 .ncv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;max-width:440px;margin:26px auto 0}
 .ncv .btn{width:100%;min-width:0;height:52px;padding:0 10px;font-size:15px;font-weight:700}
 @media (min-width:761px){
