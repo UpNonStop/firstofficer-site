@@ -79,3 +79,15 @@ body.pgo em,body.pgo cite{font-style:normal!important}
 .pgi .tmx li{grid-template-columns:minmax(0,1fr) auto auto}
 @media(max-width:359px){.pgi .tmx{padding:16px}.pgi .tmx li{gap:6px;padding:9px 9px;font-size:13px}.pgi .tmx li em,.pgi .tmx li b{font-size:12px}}
 @media(min-width:900px){.pgi .ix2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+/* 404 routes */
+.pgf .rts .rt{display:grid;gap:6px;border-top:5px solid var(--pink);transition:transform .2s ease,box-shadow .2s ease}
+.pgf .rts .rt:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(20,18,22,.1),0 22px 40px -26px rgba(20,18,22,.45)}
+.pgf .rt .rth{font-family:var(--serif);font-weight:400;font-size:clamp(24px,6.4vw,30px);line-height:1.15;color:var(--ink);margin-top:4px}
+.pgf .rt p{margin:2px 0 0}
+.pgf .rt .rtb{margin-top:10px;font-weight:700;color:var(--pinkd);font-size:15px}
+.pgf .fql{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.pgf .fql a{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border-radius:14px;background:#fff;box-shadow:0 0 0 1px rgba(20,18,22,.1);color:var(--ink);font-weight:600;font-size:15px;text-decoration:none}
+.pgf .fql a:hover{color:var(--pinkd)}
+@media(prefers-reduced-motion:reduce){.pgf .rts .rt{transition:none}.pgf .rts .rt:hover{transform:none}}
+/* ticker track: modes.css has a global .tr (progress bar, 8px tall, cream) that squashed the ticker */
+.tick .tr{height:auto;border-radius:0;background:none;margin-top:0;overflow:visible;align-items:center}

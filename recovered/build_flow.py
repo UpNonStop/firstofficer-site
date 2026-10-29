@@ -20,7 +20,7 @@ def welcome():
               step('return','On a Friday','Your first scorecard','What the desk sees, card by card, in dollars, est., wherever a statement or a connection lets it measure. Your welcome message has the date.')],3,'What happens next'))
     b+=sec('Worth knowing','Reply once a day <span class="brush">and nothing gets lost.</span>','',
         '<div class="fnt"><div class="fnc"><span class="chk">WhatsApp</span><p>WhatsApp only lets the desk write within 24 hours of your last message. A short reply to each note keeps everything arriving.</p></div>'
-        '<div class="fnc"><span class="chk">Billing</span><p>$550 a month, billed monthly through Stripe. Manage it in the <a href="https://billing.stripe.com/p/login/fZe02g10J1In7mMcMM">billing portal</a>, or ask in your thread. A month you have paid for runs to its end. There is no pause: if you stop, the work stops.</p></div></div>')
+        '<div class="fnc"><span class="chk">Billing</span><p>$550 a month, billed monthly. Manage it in your <a href="https://billing.stripe.com/p/login/fZe02g10J1In7mMcMM">billing portal</a>, or ask in your thread. A month you have paid for runs to its end. There is no pause: if you stop, the work stops.</p></div></div>')
     b+=nxt('02','day-one.html','Day one: your draft strategy.','The desk drafts your strategy from what you told it, then asks for the two things that would sharpen it.','See day one')
     M.render('welcome.html','You’re in | First Officer','Payment received. Your welcome is waiting in WhatsApp.',b,canon='welcome.html',bcls='pgf',head_extra='<meta name="robots" content="noindex,follow">')
 
@@ -50,11 +50,21 @@ def day_one():
     M.render('day-one.html','Day one | First Officer','Day one: your draft strategy, and the two things that would sharpen it. Illustrative estimates.',b,canon='day-one.html',bcls='pgf',head_extra='<meta name="robots" content="noindex,follow">')
 
 def p404():
-    v=fcard('404 · Off the route','404','This page does not exist. The points you are looking for might be somewhere else.',[('Start','<a href="home-modes.html">Home</a>'),('What it does','<a href="product-modes.html">The product</a>'),('Your numbers','<a href="calculator-modes.html">The calculator</a>')])
-    b=hero('Page not found','This page took <span class="pk">a different route.</span>','The page you asked for does not exist. Here are the ones most people are looking for.',
-        ['Home','The product','The calculator'],v,pk=('Back to First Officer','home-modes.html'),calc=('field-notes.html','or read the field notes'))
-    b+=nxt('01','home-modes.html','Start at the beginning.','Every business card swipe earns something. The desk makes sure it earns the most, est.','Go home')
-    M.render('404.html','Page not found | First Officer','This page does not exist.',b,canon=None,bcls='pgf',head_extra='<meta name="robots" content="noindex">')
+    v=fcard('404 · Missed connection','404','This page is not on the route. The desk has rebooked you.',
+        [('Requested','<i>Not found</i>'),('Rebooked to','<a href="home-modes.html">The story, from the top</a>'),('Fastest route','<a href="calculator-modes.html">Your number, est.</a>'),('Or ask','<a href="'+WA+'">Text the desk</a>')])
+    b=hero('404 · Page not found','Missed connection. <span class="pk">We rebooked you.</span>',
+        dm('The page you asked for is not here. Missing a connection happens to the best itineraries; the answer is always the next good route. Here are four, in story order.','Not here. Here are four good routes, in story order.'),
+        ['Four routes, one story.','The Found Money Call is free, 20 min.','Nothing moves without your yes.'],v,pk=('Start the story','home-modes.html'),calc=('calculator-modes.html','or run your numbers'))
+    R=[('01','Home','home-modes.html','You are not bad at Points & Miles. You are just outnumbered.','Every program has a team rewriting the rules. Start here to see what a desk on your side changes.','Start the story'),
+       ('02','Calculator','calculator-modes.html','What could your spend earn?','Pick your trade, set your monthly card spend and see the gap in dollars, est.','Run your numbers'),
+       ('03','Pricing','pricing-modes.html','$550 a month, flat.','The desk fits best from about $25k a month on cards. See first if your spend clears it.','See pricing'),
+       ('04','Book','book-modes.html','The Found Money Call.','Free, 20 minutes. The desk walks you through what it found in your spend.','Book the call')]
+    cards=''.join(f'<a class="fnc rt" href="{h}"><span class="chk">Chapter {n} · {k}</span><b class="rth">{t}</b><p>{d}</p><span class="rtb">{bt} <span class="ar">→</span></span></a>' for n,k,h,t,d,bt in R)
+    b+=sec('Four routes back','Pick up the story <span class="brush">where it suits you.</span>',dm('Home tells the story, the calculator puts your numbers in it, pricing shows what the desk costs, and the call shows what it found.','Story, numbers, price, call.'),'<div class="fnt rts">'+cards+'</div>')
+    Q=[('product-modes.html','What the desk does'),('trust-modes.html','What it sees, and never touches'),('industries-modes.html','Your trade'),('field-notes.html','Field notes'),('about-modes.html','About'),(WA,'💬 Text the desk')]
+    b+=sec('Looking for something else','Or jump <span class="brush">straight there.</span>','','<div class="fql">'+''.join(f'<a href="{h}">{t} <span class="ar">→</span></a>' for h,t in Q)+'</div>',cls='tight')
+    b+=nxt('01','home-modes.html','Start at the beginning.','You are not bad at Points & Miles. You are just outnumbered. Meet the desk that evens it out.','Start the story')
+    M.render('404.html','Page not found | First Officer','This page is not on the route. Four good routes back into the First Officer story.',b,canon=None,bcls='pgf',head_extra='<meta name="robots" content="noindex">')
 
 if __name__=='__main__':
     welcome();no_charge();day_one();p404()

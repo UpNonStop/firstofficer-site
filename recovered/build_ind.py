@@ -36,7 +36,7 @@ LINES={
 OFF={'agencies':'contractors, freelancers and studio rent','auto-repair':'bay rent and payroll','cleaning':'crew payroll','consulting':'subcontractors and office rent',
  'contractors':'subcontractors and payroll','cpa-firms':'seasonal staff and rent','dental':'rent and staff costs','ecommerce':'warehouse rent and payroll','fitness':'rent and payroll',
  'hvac':'payroll','it-services':'rent and payroll','landscaping':'crew payroll','law-firms':'expert fees and rent','medical':'rent and staff costs',
- 'property-management':'property taxes and vendors that do not take cards','real-estate':'desk fees and payroll','restaurants':'rent, payroll and delivery commissions',
+ 'property-management':'big bills and vendors that do not take cards','real-estate':'desk fees and payroll','restaurants':'rent, payroll and delivery commissions',
  'salons':'booth rent and payroll','trucking':'factoring and driver payroll','veterinary':'rent and staff costs'}
 # Fictional owners for the 11 trades the calculator has no example for: first, biz, city, trip, when, dest image, % there
 OWN={'auto-repair':('Marco','Ridgeline Auto Service','Boise, ID','Yellowstone in a cabin for 4','Next summer',5,38),
@@ -124,7 +124,7 @@ def page(slug,name,desc):
         dm(f'{esc(o["catch"])} was earning {o["cfrom"]}. On a {o["cto"]} card it is worth about {usd(o["gain"])} a year, est. The desk shows the move first and waits for a yes.',f'{esc(o["catch"])}: {o["cfrom"]} → {o["cto"]}, about {usd(o["gain"])} a year, est.'),
         '<div class="ix2">'+tmx+side+'</div>',id_='example')
     W=[('earn','Earn',f'{esc(bon[0])} belongs on a bonus card.',f'It can earn up to {bon[2]}x on a card that rewards it, inside a yearly cap. The desk tracks the cap and moves the next dollar before it fills.'),
-       ('burn','Burn',f'Points into {esc(o["trip"].lower() if o["trip"].split()[0] not in ("Yellowstone","Cancún","Lisbon","Hawaii","Costa","Iceland","Orlando","Paris","Rome","Mexico","Banff","Maui","Tokyo") else o["trip"])}.','The desk maps the programs, checks taxes and fees, and gives the trip a pace. It books only after you approve.'),
+       ('burn','Burn',f'Points into {esc(o["trip"].lower() if o["trip"].split()[0] not in ("Yellowstone","Cancún","Cancun","Lisbon","Hawaii","Costa","Iceland","Orlando","Paris","Rome","Mexico","Banff","Maui","Tokyo") else o["trip"])}.','The desk maps the programs, checks taxes and fees, and gives the trip a pace. It books only after you approve.'),
        ('return','Return',f'{esc(OFF[slug][0].upper()+OFF[slug][1:])} stay off the card.','A bill-pay fee often costs more than the points are worth. The desk decides line by line, and Friday counts what was found, in dollars.'),
        ('learn','Learn',f'How {esc(big[0].lower())} codes.','One short lesson a week from your own data: why the same purchase can code differently at two vendors, and what it means for you.')]
     body+=sec('02 · Where the money hides',f'Four places {esc(lname)} <span class="brush">money leaks.</span>',dm('Same four pillars as every desk, read through your trade\'s own codes.','Swipe: four places, one desk.'),

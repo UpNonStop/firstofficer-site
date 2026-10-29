@@ -54,7 +54,7 @@ window.FO_MODES=[
 {first:'Terrence',ini:'KR',biz:'Keystone Realty Group',short:'Keystone',ind:'Real estate',city:'Dallas, TX',spend:420,from:1.3,to:2.8,
  cats:[['Listing ads',15,'1.5x','3x'],['Signage and print',7,'1x','2x'],['Agent travel',7,'1x','3x'],['Closing gifts',6,'1.5x','3x']],
  qE:'Listing ads and signage run about $35k a month. Can points fund a sales contest?',move:['Listing ads to 3x',4300],earnL:[2,12],
- trip:'Cancun for your top 6 agents',when:'Contest prize',img:'img/hero/dest/04.jpg',pct:39,have:156000,need:400000,burnL:[12,2,19],qB:'Top 6 agents win a trip. Can points pay for it?',
+ trip:'Cancun for the top 6 agents',when:'Contest prize',img:'img/hero/dest/04.jpg',pct:39,have:156000,need:400000,burnL:[12,2,19],qB:'My top 6 agents win a trip. Can points pay for it?',
  reqs:['6 rooms, 4 nights, est.','A backup resort mapped','Flights in cash unless points win','Contest rules drafted'],
  ret:[['Agent travel at 3x',360],['Print shop on the right card',210],['Closing gifts on 2x',150]],
  learn:['Team trips, the smart split','2¢+','a point on the resort, est.',[['Flights on points',1.1],['Flights in cash',1],['Resort on points, est.',2]],'Hotel on points. Flights in cash unless points clearly win.']},

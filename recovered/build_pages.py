@@ -90,6 +90,7 @@ def stories(lim=10):
 def page(fn,title,desc,body,on=''):
     h=B.head(title,desc)
     h=h.replace('<link rel="stylesheet" href="recovered/rec.css">','<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap">\n<link rel="stylesheet" href="recovered/rec.css">\n<link rel="stylesheet" href="recovered/modes.css">')
+    if fn in ('product-modes.html','trust-modes.html'): h=h.replace('<link rel="stylesheet" href="recovered/modes.css">','<link rel="stylesheet" href="recovered/modes.css">\n<link rel="stylesheet" href="recovered/modes-pages.css">',1)
     h+='<body class="modes pgx">\n'+B.nav(on).replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')+B.ticker()+'<main>\n'+body+'</main>\n'
     h+=B.footer().replace('Leo and Linden Row Insurance are fictional. All figures are examples and estimates.','Every owner shown is a fictional example. All figures are illustrative estimates.')
     h+='<script>window.FO_A="'+B.ASSET+'";</script>\n<script src="recovered/rec.js"></script>\n<script src="recovered/pages.js"></script>\n</body>\n</html>\n'
