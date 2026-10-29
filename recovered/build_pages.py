@@ -90,7 +90,7 @@ def stories(lim=10):
 def page(fn,title,desc,body,on=''):
     h=B.head(title,desc)
     h=h.replace('<link rel="stylesheet" href="recovered/rec.css">','<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap">\n<link rel="stylesheet" href="recovered/rec.css">\n<link rel="stylesheet" href="recovered/modes.css">')
-    if fn in ('product-modes.html','trust-modes.html'): h=h.replace('<link rel="stylesheet" href="recovered/modes.css">','<link rel="stylesheet" href="recovered/modes.css">\n<link rel="stylesheet" href="recovered/modes-pages.css">',1)
+    if fn in ('product-modes.html','trust-modes.html','freebies-modes.html'): h=h.replace('<link rel="stylesheet" href="recovered/modes.css">','<link rel="stylesheet" href="recovered/modes.css">\n<link rel="stylesheet" href="recovered/modes-pages.css">',1)
     h+='<body class="modes pgx">\n'+B.nav(on).replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')+B.ticker()+'<main>\n'+body+'</main>\n'
     h+=B.footer().replace('Leo and Linden Row Insurance are fictional. All figures are examples and estimates.','Every owner shown is a fictional example. All figures are illustrative estimates.')
     h+='<script>window.FO_A="'+B.ASSET+'";</script>\n<script src="recovered/rec.js"></script>\n<script src="recovered/pages.js"></script>\n</body>\n</html>\n'
@@ -268,20 +268,82 @@ def trust():
     page('trust-modes.html','Trust | What we see, what we never touch | First Officer','Read-only connections, your approval first, no affiliate money and what we do not claim.',body)
 
 # ---------------- freebies ----------------
-NUG=[('earn','Shipping and mail','4 nuggets','Labels, freight and storage. Three ways a box gets coded.',['Couriers code as 4215. Motor freight is 4214.','Storage you pay for codes as 4225, public warehousing.','Ask your card which of the three it treats as a bonus line.']),
-     ('burn','Auto repair','3 nuggets','Towing, parts and the shop itself code apart.',['Towing you pay for is 7549, its own code, separate from repair.','Parts houses and repair shops code differently.','A card that rewards one may not reward the other.']),
-     ('return','Cleaning','3 nuggets','Same jug of chemical, different codes.',['Your carpet sub is 7217, apart from janitorial.','Mops and rags out for laundry: 7211, commercial laundries.','Supply houses and big-box stores code differently.']),
-     ('learn','Clinics','2 nuggets','Supplies and uniforms through every exam room.',['Scrubs are 5137, uniforms and commercial clothing.','Medical supply houses and pharmacies code apart.'])]
+# Library content ported from PR #14 (free-from-the-desk.html) by ffd_extract.py into freebies-data.json.
+# Tax, legal, lending and HR packs were left out there; this page only renders what survived.
+FFD=json.load(open(os.path.join(HERE,'freebies-data.json')))
+KIND={'nuggets':('earn','Golden Nugget pack','Nuggets'),'sheet':('return','Code sheet','Code sheets'),'script':('burn','What to say','Scripts'),
+      'checklist':('learn','Checklist','Checklists'),'travel':('burn','Travel smarts','Travel'),'decoder':('learn','Decoder','Decoders'),'gutcheck':('return','Gut check','Gut checks')}
+TRN=dict((s_,n_) for s_,n_,_ in TR)
+def fbrows(rows,lim=None):
+    r=rows[:lim] if lim else rows
+    return ('<table class="cst"><thead><tr><th>Code</th><th>Where you see it</th></tr></thead><tbody>'+
+        ''.join(f'<tr><td><b>{c}</b></td><td>{(w[0].upper()+w[1:]) if w else nm}{"<small>"+nm+"</small>" if w else ""}</td></tr>' for c,w,nm in r)+'</tbody></table>')
+def fbbody(c):
+    if 'rows' in c: return fbrows(c['rows'])
+    if 'quote' in c: return f'<p>{c["lead"]}</p><blockquote>{c["quote"]}</blockquote>'
+    tag='ol' if c.get('list') in ('ol','ticks') else 'ul'
+    cls={'ticks':'tk','terms':'tm'}.get(c.get('list'),'')
+    return f'<{tag} class="{cls}">'+''.join(f'<li>{i}</li>' for i in c['items'])+f'</{tag}>'
+def fbcard(c,op=False,cid=True):
+    k,lab,_=KIND[c['ty']]
+    return (f'<details class="fbk k-{k}"{" id="+chr(34)+c["id"]+chr(34) if cid else ""} data-ty="{c["ty"]}" data-ind="{c["ind"]}"{" open" if op else ""}>'
+        f'<summary><span class="chk">{lab} · {c["time"]}</span><b>{c["title"]}</b><small>{c["love"]}</small></summary><div class="fbi">{fbbody(c)}</div></details>')
+def codes_for(slug):
+    """The trade's own code sheet; contractors merge the shared supply sheet; CPA firms fall back to the everyday sheet."""
+    ids=['codes-'+slug]+(['mcc'] if slug=='contractors' else [])
+    rows=[];seen=set()
+    for i in ids:
+        for c in FFD:
+            if c['id']==i:
+                for r in c['rows']:
+                    if r[0] not in seen: seen.add(r[0]);rows.append(r)
+    if rows: return next(c for c in FFD if c['id']==ids[0]),rows
+    c=next(c for c in FFD if c['id']=='codes-everyday');return c,c['rows'][:10]
+def nug_for(slug):
+    return next((c for c in FFD if c['id']=='nug-'+slug),None) or next((c for c in FFD if c['ty']=='nuggets' and c['ind']!='all' and slug in c['ind'].split()),None)
+def allcodes():
+    out={}
+    for c in FFD:
+        for r in c.get('rows',[]):
+            if r[0] not in out or (not out[r[0]][1] and r[1]): out[r[0]]=r
+    return [out[k] for k in sorted(out)]
+FB_JS=r"""<script>(function(){var g=document.getElementById('fbg');if(!g)return;var cards=[].slice.call(g.querySelectorAll('.fbk')),ty='all',ind='all',lim=9,open=false,
+more=document.getElementById('fbmore'),cnt=document.getElementById('fbcnt'),sel=document.getElementById('fbtrade'),chips=[].slice.call(document.querySelectorAll('.fbc'));
+var q=new URLSearchParams(location.search).get('t');if(q&&sel.querySelector('option[value="'+q+'"]')){ind=q;sel.value=q;}
+function own(c){return ind!='all'&&c.getAttribute('data-ind').split(' ').indexOf(ind)>-1;}
+function apply(){var m=cards.filter(function(c){var i=c.getAttribute('data-ind');return(ty=='all'||c.getAttribute('data-ty')==ty)&&(ind=='all'||i=='all'||i.split(' ').indexOf(ind)>-1);});
+m.sort(function(a,b){return(own(b)?1:0)-(own(a)?1:0)||cards.indexOf(a)-cards.indexOf(b);});
+cards.forEach(function(c){c.hidden=true;});m.forEach(function(c,i){g.appendChild(c);c.hidden=!open&&i>=lim;});
+more.hidden=open||m.length<=lim;more.textContent='Show all '+m.length;cnt.textContent=m.length+(m.length==1?' card':' cards')+(ind!='all'?' for '+sel.options[sel.selectedIndex].text:'');}
+chips.forEach(function(b){b.addEventListener('click',function(){ty=b.getAttribute('data-ty');open=false;chips.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});apply();});});
+sel.addEventListener('change',function(){ind=sel.value;open=false;apply();});more.addEventListener('click',function(){open=true;apply();});
+apply();var h=location.hash.slice(1),t=h&&document.getElementById(h);if(t&&t.classList.contains('fbk')){t.hidden=false;t.open=true;}
+var cs=document.getElementById('cdq'),rows=[].slice.call(document.querySelectorAll('#cdl li')),cm=document.getElementById('cdmore'),co=false,cn=document.getElementById('cdcnt');
+function capply(){var v=(cs.value||'').toLowerCase().trim(),n=0;rows.forEach(function(r){var ok=!v||r.textContent.toLowerCase().indexOf(v)>-1;if(ok)n++;r.hidden=!ok||(!co&&!v&&n>12);});cm.hidden=co||!!v||rows.length<=12;cn.textContent=v?(n+(n==1?' match':' matches')):(rows.length+' codes');}
+cs.addEventListener('input',capply);cm.addEventListener('click',function(){co=true;capply();});capply();})();</script>"""
 def freebies():
-    vis='<div class="fst">'+''.join(f'<div class="fpk k-{k}"><span class="chk">Golden Nugget pack · {n}</span><b>{t}</b><p>{d}</p></div>' for k,t,n,d,_ in NUG[:3])+'</div>'
-    h=hero('Freebies · free from the desk','Everything I\'d tell you <span class="pk">on a call. Free.</span>',
-      dm('Read it, use it, keep it. Golden Nugget packs on how your spend codes, and a page for every trade. General education, not tax, legal or financial advice.','Read it, use it, keep it. General education, not advice.'),
-      ['Golden Nugget packs, a minute each.','Twenty trade pages.','No sign-up to read.'],vis,calc=('calculator-modes.html','or start with the calculator'))
-    packs=''.join(f'<details class="tx np k-{k}"><summary><span class="chk">Golden Nugget pack · {n}</span><b>{t}</b><small>{d}</small></summary><ul>'+''.join(f'<li><b>✓</b>{x_}</li>' for x_ in L)+'</ul></details>' for k,t,n,d,L in NUG)
-    body=h+sec('Start here','Four packs, <span class="brush">a minute each.</span>',dm('Merchant codes decide what a purchase earns. These are the ones owners miss most. Codes can vary by merchant and card.','Tap a pack to open it. Codes can vary by merchant and card.'),'<div class="txs n2">'+packs+'</div>')
-    body+=sec('By trade','Your trade\'s <span class="brush">own page.</span>','','<div class="trg sm">'+''.join(f'<a class="trd" href="for-{s}.html"><h3>{n}</h3><p>{d}</p><span class="mcalc">Read it <span class="ar">→</span></span></a>' for s,n,d in TR)+'</div>')
+    nn=sum(1 for c in FFD if c['ty']=='nuggets');AC=allcodes()
+    show=[next(c for c in FFD if c['id']==i) for i in ('nug-cards','codes-everyday','supplier')]
+    vis='<div class="fst">'+''.join(f'<div class="fpk k-{KIND[c["ty"]][0]}"><span class="chk">{KIND[c["ty"]][1]} · {c["time"]}</span><b>{c["title"]}</b><p>{c["love"]}</p></div>' for c in show)+'</div>'
+    h=hero('Freebies · free from the desk','Everything we\'d tell you <span class="pk">on a call. Free.</span>',
+      dm('Read it, use it, keep it. Golden Nugget packs, code sheets, scripts and checklists, plus a page for every trade. General education, not tax, legal or financial advice.','Read it, use it, keep it. General education, not advice.'),
+      [f'{nn} Golden Nugget packs, a minute each.',f'{len(AC)} merchant codes, decoded.','No sign-up to read.'],vis,calc=('calculator-modes.html','or start with the calculator'))
+    tys=[t for t in KIND if any(c['ty']==t for c in FFD)]
+    chips='<button class="fbc" type="button" data-ty="all" aria-pressed="true">All</button>'+''.join(f'<button class="fbc" type="button" data-ty="{t}" aria-pressed="false">{KIND[t][2]}</button>' for t in tys)
+    sel='<label class="fbs"><span>Your trade</span><select id="fbtrade"><option value="all">Every trade</option>'+''.join(f'<option value="{s_}">{n_}</option>' for s_,n_,_ in TR)+'</select></label>'
+    lib=(f'<div class="fbf"><div class="fbcs" role="group" aria-label="Filter by kind">{chips}</div>{sel}</div><p class="fbn" id="fbcnt" aria-live="polite"></p>'
+         '<div class="fbg" id="fbg">'+''.join(fbcard(c) for c in FFD)+'</div><div class="fbm"><button class="btn gh" type="button" id="fbmore" hidden>Show all</button></div>'
+         '<p class="fbd">General information about how card rewards and merchant codes work, not tax, legal or financial advice. Codes are set by each merchant\'s processor and can vary.</p>')
+    body=h+sec('01 · The library',f'{len(FFD)} cards. <span class="brush">Open the one you need.</span>',dm('Pick a kind, or pick your trade and its own packs come first. Each card opens in place.','Pick a kind or your trade. Tap a card to open it.'),lib,id_='library')
+    cdl='<ul class="cdl" id="cdl">'+''.join(f'<li><b>{c}</b><span>{(w[0].upper()+w[1:]) if w else nm}{"<small>"+nm+"</small>" if w else ""}</span></li>' for c,w,nm in AC)+'</ul>'
+    cdx=(f'<div class="cdx"><label class="cds"><span>Search a code or a word</span><input id="cdq" type="search" inputmode="search" placeholder="5074, fuel, software…" autocomplete="off"></label><p class="fbn" id="cdcnt" aria-live="polite"></p></div>'
+         +cdl+'<div class="fbm"><button class="btn gh" type="button" id="cdmore">Show all codes</button></div>')
+    body+=sec('02 · Merchant codes, decoded','The four digits <span class="brush">behind every swipe.</span>',dm('Type the code from your statement, or a word like fuel, and see where it usually shows up. Codes can vary by merchant and card.','Type a code or a word. Codes can vary by merchant and card.'),cdx,id_='codes')
+    body+=sec('03 · By trade','Your trade\'s <span class="brush">own page.</span>','','<div class="trg sm">'+''.join(f'<a class="trd" href="for-{s_}.html"><h3>{n_}</h3><p>{d_}</p><span class="mcalc">Read it <span class="ar">→</span></span></a>' for s_,n_,d_ in TR)+'</div>',id_='trades')
+    body+=sec('04 · One more freebie','One real redemption, <span class="brush">every weekday.</span>','','<p class="fbx"><a class="btn pk" href="#daily-redemption">Get The Daily Redemption <span class="ar">→</span></a></p>')
     body+=nxt('01','home-modes.html','Rather have it done for you? <span class="pk">That\'s what the desk is for.</span>','Start where every owner starts: you are not bad at Points &amp; Miles, you are just outnumbered.','Start the story')
-    page('freebies-modes.html','Freebies | Free from the desk | First Officer','Golden Nugget packs on how spend codes, and a page for every trade. General education, not advice.',body,'Freebies')
+    body+=FB_JS
+    page('freebies-modes.html','Freebies | Free from the desk | First Officer','Golden Nugget packs, code sheets, scripts and checklists, and a page for every trade. General education, not advice.',body,'Freebies')
 
 if __name__=='__main__':
     product();book();about();industries();trust();freebies()

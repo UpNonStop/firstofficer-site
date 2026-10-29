@@ -5,7 +5,8 @@ HERE=os.path.dirname(os.path.abspath(__file__));sys.path.insert(0,HERE)
 import build as B
 import build_pages as BP
 import build_more as M
-from build_pages import P,TR,ILL,WA,esc,x,usd,pts,dm,hero,sec,rail,nxt,deskcta,stories
+from build_pages import P,TR,ILL,WA,esc,x,usd,pts,dm,hero,sec,rail,nxt,deskcta,stories,fbrows,fbcard,codes_for,nug_for
+WACODE={'property-management':'property-mgmt'}  # same per-trade WhatsApp codes as main's for-* pages
 CPP=0.016  # est. value of a card point, same 1.6 cents the product page uses
 CAP=150000 # yearly cap on a bonus pool, est.
 # slug -> calculator ?ind slug and persona index (only the 10 calculator industries have both)
@@ -133,11 +134,22 @@ def page(slug,name,desc):
        ('burn','Within 24 hours','Your strategy','Which card for which line, written for your vendors.'),
        ('return','Week 1','Your first moves','Three moves, with the exact taps. Each waits for your yes.'),
        ('learn','Every Friday','Your scorecard','One number in dollars, next to a flat 2% card, after the $550 fee.')]
-    body+=sec('03 · How it starts','Four steps. <span class="brush">No spreadsheets.</span>','',BP.pillars_like(S))
-    body+=sec('04 · Owners like you','Ten trades, <span class="brush">ten catches.</span>',dm('Every trade hides money in a different place. Swipe through ten fictional owners.','Swipe: ten owners, ten catches.'),stories(),id_='stories')
+    cs,rows=codes_for(slug);ng=nug_for(slug);own=cs['id']=='codes-'+slug
+    sheet=(f'<div class="ixc csh"><span class="chk">{"Code sheet · "+esc(name) if own else "Code sheet · every business"}</span><b class="csb">{cs["title"]}</b>{fbrows(rows)}'
+           f'<p class="ixn">Codes are set by each merchant\'s processor and can vary. General information, not tax, legal or financial advice.</p></div>')
+    right=(fbcard(ng,cid=False) if ng else '')+f'<p class="csm"><a href="freebies-modes.html?t={slug}#library">Every code sheet and nugget pack <span class="ar">→</span></a></p>'
+    body+=sec('03 · The code sheet',f'The codes {esc(lname)} spend <span class="brush">runs under.</span>',
+        dm('Your card pays its bonus on the code a store runs under, not on what you bought. These are the ones a '+esc(lname)+' statement shows most.','The code decides the bonus, not the item.'),
+        '<div class="ix2 csx">'+sheet+'<div class="csr">'+right+'</div></div>',id_='codes')
+    body+=sec('04 · How it starts','Four steps. <span class="brush">No spreadsheets.</span>','',BP.pillars_like(S))
+    body+=sec('05 · Owners like you','Ten trades, <span class="brush">ten catches.</span>',dm('Every trade hides money in a different place. Swipe through ten fictional owners.','Swipe: ten owners, ten catches.'),stories(),id_='stories')
     body+=deskcta(f'$550 a month, flat. The Found Money Call is free and tells you first if {lname} spend like yours clears the fee.')
     body+=nxt('03',calc,f'{esc(o["first"])}\'s numbers are fiction. <span class="pk">Yours aren\'t.</span>',f'Open the calculator{" on the "+esc(name)+" example" if o["ind"] else ""}, then type your own lines. Fits, close call or not a fit, against $550 a month.','Run your numbers')
-    M.render('for-%s.html'%slug,f'First Officer for {name} | Where {lname} spend hides money',desc,body,canon='for-%s.html'%slug,bcls='pgi')
+    fn='for-%s.html'%slug;title=f'First Officer for {name} | Where {lname} spend hides money'
+    svc={"@context":"https://schema.org","@type":"Service","name":title.split(' | ')[0],"serviceType":"Business rewards desk for "+lname,
+         "description":desc,"url":M.SITE+fn,"areaServed":{"@type":"Country","name":"United States"},"provider":M.ORG}
+    M.render(fn,title,desc,body,canon=fn,bcls='pgi',robots=None,ga=True,wa_tag='site-%s-1'%WACODE.get(slug,slug),
+        meta=M.seo(title,desc,fn,'og-for-%s.png'%slug,[svc,M.crumbs(name,fn)]))
 
 if __name__=='__main__':
     for s,n,d in TR: page(s,n,f'Where {n.lower() if n not in ("HVAC","IT services") else n} spend hides money: {d.lower()}. A fictional example owner, illustrative estimates.')
