@@ -41,7 +41,7 @@ def redirect(fn,to,title,line,body=''):
     q=to.split('#')
     # htmlpreview-aware: on htmlpreview.github.io the target page is carried in the query, so swap the file name there
     js=("(function(){var t='%s',h='%s',l=location;if(l.hostname=='htmlpreview.github.io'){var s=l.search.slice(1),i=s.indexOf('?'),"
-        "u=i<0?s:s.slice(0,i),q=i<0?'':s.slice(i);l.replace(l.pathname+'?'+u.replace(/[^\\/]*$/,t)+q+h)}else l.replace(t+l.search+h)})()")%(q[0],('#'+q[1]) if len(q)>1 else '')
+        "u=i<0?s:s.slice(0,i),q=i<0?'':s.slice(i);l.replace(l.origin+l.pathname+'?'+u.replace(/[^\\/]*$/,t)+q+h)}else l.replace(t+l.search+h)})()")%(q[0],('#'+q[1]) if len(q)>1 else '')
     h=f'''<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,follow">
 <link rel="canonical" href="{SITE}{to}">
