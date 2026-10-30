@@ -8,7 +8,7 @@
 
 /* hero: the bill is the visual, lined up with the headline */
 .ps-hero{padding:22px 0 0;background-image:linear-gradient(rgba(20,18,22,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(20,18,22,.04) 1px,transparent 1px);background-size:28px 28px;background-position:-1px -1px}
-.ps-hg{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"a" "bill" "b";gap:22px}
+.ps-hg{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"a" "b" "bill";gap:22px}
 .ps-ha{grid-area:a}.ps-hb{grid-area:b}.ps-bill{grid-area:bill}
 .ps-ha .mpill{margin:0;font-size:11px}
 .ps-hero h1{font-family:var(--serif);font-weight:400;font-size:36px;line-height:1.04;letter-spacing:-.02em;color:var(--ink);margin:16px 0 12px;text-wrap:balance}

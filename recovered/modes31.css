@@ -406,9 +406,10 @@ details.tx p{margin:10px 0 0;color:var(--body);font-size:15px}
 @media (max-width:760px){
  .dk{display:none}.mb{display:inline}
  .ph{padding:22px 0 44px}
- .phw{padding:0 20px;grid-template-columns:minmax(0,1fr);grid-template-areas:"t" "v" "b";text-align:center}
+ .phw{padding:0 20px;grid-template-columns:minmax(0,1fr);grid-template-areas:"t" "b" "v";text-align:center}
+ .phb .mctas{margin-top:14px}
  .ph h1{font-size:36px;line-height:1.05;margin:12px auto 18px;max-width:380px}
- .phv{width:100%;margin:0 auto 22px;text-align:left}
+ .phv{width:100%;margin:26px auto 0;text-align:left}
  .phstar{max-width:280px}
  .ph .mprob{justify-items:center}.ph .mprob .m3{display:flex}
  .ph .msub{margin:14px auto 14px;font-size:15.5px}
