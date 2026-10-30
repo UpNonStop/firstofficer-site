@@ -22,7 +22,7 @@
 <div id="ffd"><main id="main"><div class="desk" id="desk-top"><div class="pop-hero bleed"><div class="phx" data-rand data-iv="6400" data-ph="img/rec/bg/00.webp,img/rec/bg/01.webp,img/rec/bg/02.webp,img/rec/bg/03.webp,img/rec/bg/04.webp,img/rec/bg/05.webp,img/rec/bg/06.webp,img/rec/bg/07.webp,img/rec/bg/08.webp,img/rec/bg/09.webp,img/rec/bg/10.webp,img/rec/bg/11.webp,img/rec/bg/12.webp,img/rec/bg/13.webp,img/rec/bg/14.webp,img/rec/bg/15.webp,img/rec/bg/16.webp,img/rec/bg/17.webp,img/rec/bg/18.webp,img/rec/bg/19.webp,img/rec/bg/20.webp,img/rec/bg/21.webp,img/rec/bg/22.webp,img/rec/bg/23.webp,img/rec/bg/24.webp,img/rec/bg/25.webp,img/rec/bg/26.webp,img/rec/bg/27.webp,img/rec/bg/28.webp,img/rec/bg/29.webp,img/rec/bg/30.webp" aria-hidden="true"></div><section class="dhero">
 <div class="dh-l">
 <div class="eyebrow">Free From the Desk</div>
-<h1>Everything I'd tell you <em>over coffee.</em></h1>
+<h1>Everything I'd tell you <br><em>over coffee.</em></h1>
 <p class="lede">Most owners put serious money on cards every month, and nobody ever sits them down and explains how it actually works. So here it is: the codes, the questions, the notes we keep for each trade. Free to read.</p><div class="ffd-pair"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a><a class="btn bl" href="calculator.html">Run your numbers <span class="ar">→</span></a></div><style id="ffd-pair-css">#ffd .ffd-pair{display:grid;grid-template-columns:1fr;gap:10px;margin-top:20px;max-width:540px}@media(min-width:560px){#ffd .ffd-pair{grid-template-columns:1fr 1fr}}#ffd .ffd-pair .btn{min-height:52px;margin:0;color:#fff;font-weight:700}#ffd .ffd-pair .btn.pk{background:#FA1896}#ffd .ffd-pair .btn.wa{background:#25D366}#ffd .ffd-pair .btn.bl{background:#429AD4}@media(min-width:560px){#ffd .ffd-pair .btn.bl{grid-column:1/-1}}</style>
 </div>
 <div class="vault"><a class="feat" href="calculator.html">
@@ -683,7 +683,7 @@ function apply(){
  });
  if(empty)empty.hidden=shownTotal>0;
  if(!out)return;
- if(term){out.textContent=shownTotal?(hits?hits+(hits===1?' matching line':' matching lines')+' in '+shownTotal+(shownTotal===1?' card':' cards'):shownTotal+(shownTotal===1?' card':' cards')):'';}
+ if(term){out.textContent=shownTotal?(hits?hits+(hits===1?' matching line':' matching lines')+' in '+shownTotal+(shownTotal===1?' card':' cards'):shownTotal+(shownTotal===1?' card':' cards')):'No matches for “'+(f.q||'').trim()+'”. Try a trade, a program or a card name.';}
  else if(f.ind!=='all'){out.textContent=(counts[f.ind]||0)+' items just for your '+label(tsel)+', plus everything for every business.';}
  else{out.textContent='';}
 }
