@@ -36,7 +36,9 @@ function build(){
     for(var i=0;i<path.length;i++){if(path[i]&&path[i].tagName==='A'){a=path[i];break}}if(!a)return;
     var h=a.getAttribute('href')||'',t=(a.textContent||'').trim().slice(0,40),pp={page_path:location.pathname,link_text:t,transport_type:'beacon'};
     if(/(^|\/)book\.html/.test(h))ev('book_click',pp);
-    if(h.indexOf('wa.me')>-1)ev('whatsapp_click',pp);else if(/(^|\/)calculator\.html/.test(h))ev('calculator_open',{page_path:location.pathname,transport_type:'beacon'})},true);
+    if(h.indexOf('wa.me')>-1)ev('whatsapp_click',pp);else if(/(^|\/)calculator\.html/.test(h))ev('calculator_open',{page_path:location.pathname,transport_type:'beacon'});
+    /* the Book request leaves the page from the done panel: WhatsApp, email or the calendar is the lead (bookLead, below) */
+    if(a.closest('#bookdone'))bookLead(a.id==='bookmail'?'email':(h.indexOf('wa.me')>-1?'whatsapp':'calendar'))},true);
   /* the calculator's example owner counts as the visitor's trade only once they pick it (or arrive from a trade page) */
   document.addEventListener('change',function(e){if(e.target&&e.target.id==='cind')e.target.setAttribute('data-picked','1')},true);
   /* the spend counts as the visitor's own only once they type it or move the slider: never the example's or the sweep's */
@@ -99,11 +101,18 @@ function build(){
   /* a spend band, never the figure itself: under 10K, 10K to 25K ... 250K and up */
   function band(v){var s=String(v||'').toLowerCase().replace(/,/g,''),m=s.match(/([0-9.]+)\s*([km]?)/),n=m?+m[1]*(m[2]==='k'?1e3:m[2]==='m'?1e6:1):0;
     if(!n)return 'unknown';return n<1e4?'under 10K':n<25e3?'10K to 25K':n<5e4?'25K to 50K':n<1e5?'50K to 100K':n<25e4?'100K to 250K':'250K and up'}
-  /* the second audit (P1-18): a valid Book request is the lead (GA4's generate_lead), with the trade and a spend band, no personal data */
-  document.addEventListener('submit',function(e){var f=e.target;if(!(f&&f.id==='bookform'&&f.hidden))return;var g=function(n){var x=f.querySelector('[name='+n+']');return x?String(x.value||'').trim():''};
-    ev('generate_lead',{page_path:location.pathname,method:'book_form',industry:g('industry').slice(0,40)||'not given',spend_band:band(g('spend'))})});
+  /* the Book request (re-audit FO-P1-10): a valid submit is book_form_complete, since nothing has left the page yet. The lead, GA4's generate_lead,
+     is the request leaving it: a tap on WhatsApp, email or the calendar in the done panel, or the endpoint taking it once the site has one
+     (fo-book31.js says so with a fo-book-sent event). One lead a page, with the trade and a spend band, no personal data; sent as beacons, since the tap usually leaves the page */
+  function bookp(m){var f=document.getElementById('bookform'),g=function(n){var x=f&&f.querySelector('[name='+n+']');return x?String(x.value||'').trim():''};
+    return {page_path:location.pathname,method:m,industry:g('industry').slice(0,40)||'not given',spend_band:band(g('spend')),transport_type:'beacon'}}
+  function bookLead(m){once('generate_lead',bookp(m))}
+  /* past the checks, the form hides (no endpoint) or its button waits on the endpoint */
+  document.addEventListener('submit',function(e){var f=e.target;if(!f||f.id!=='bookform')return;var b=f.querySelector('button[type=submit]');
+    if(f.hidden||(b&&b.disabled))ev('book_form_complete',bookp('book_form'))});
+  document.addEventListener('fo-book-sent',function(){bookLead('book_form')});
   /* and the calculator's answer, once the visitor settles on a spend (2s after the last move), each time the band changes */
-  if(CALC){var ct=null,lb='';['input','change'].forEach(function(k){document.addEventListener(k,function(){clearTimeout(ct);ct=setTimeout(function(){var bv=document.getElementById('bv'),b=band(bv&&bv.value);if(b!==lb){lb=b;ev('calculator_result',{page_path:location.pathname,spend_band:b})}},2000)},true)})}
+  if(CALC){var ct=null,lb='';['input','change'].forEach(function(k){document.addEventListener(k,function(){clearTimeout(ct);ct=setTimeout(function(){var bv=document.getElementById('bv'),b=band(bv&&bv.value);if(b!==lb){lb=b;ev('calculator_result',{page_path:location.pathname,spend_band:b,transport_type:'beacon'})}},2000)},true)})}
   function up(){nav.classList.toggle('solid',scrollY>30);
     var mob=innerWidth<=760,near=fh.getBoundingClientRect().top<innerHeight+120,show=mob&&scrollY>520&&!near;
     if(mc){mc.classList.toggle('show',show);document.body.style.paddingBottom=show?'calc(64px + env(safe-area-inset-bottom,0px))':''}}
