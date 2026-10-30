@@ -321,6 +321,7 @@
 .fo .win .wb{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:7px;line-height:1}
 .fo .win .wb .dot{width:6px;height:6px;background:var(--card);border-radius:50%;animation:pulse 2s infinite}
 .fo .win .wtop h3{font-family:var(--serif);font-size:23px;line-height:1.15;margin-bottom:4px;color:#fff}
+.fo .win .wtop h2{font-family:var(--serif);font-size:23px;line-height:1.15;margin-bottom:4px;color:#fff;font-weight:700;letter-spacing:-.01em}
 .fo .win .wtop .wl{font-size:13px;color:rgba(255,255,255,.9);line-height:1.55}
 .fo .win .wacts{display:grid;grid-template-columns:1fr 1fr 1fr}
 .fo .win .wmath{display:flex;justify-content:center;align-items:center;gap:10px 18px;flex-wrap:wrap;padding:14px 18px 13px;background:var(--alt);border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;font-weight:800;color:var(--ink);letter-spacing:.3px}
@@ -424,6 +425,15 @@
   .fo .win .wacts{grid-template-columns:1fr}.fo .win .wact{border-right:none;border-bottom:1px solid var(--hair)}
   .fo .vgauge{gap:12px}.fo .mast .mr{font-size:9px}
 }
+/* re-audit P1-16: on phones the copy reads at 12px or more; the infographic rows wrap instead of shrinking */
+@media (max-width:600px){
+  .fo .mast-row .l,.fo .mast-row .r,.fo .mast-foot,.fo .hero .badge,.fo .bluf .bk,.fo .kick .fl,.fo .win .wb,.fo .win .wact .an,.fo .win .wact .at,.fo .rpc .rl,.fo .rpc .rw,.fo .rwh .s,.fo .frn .sub,.fo .ic .tag,.fo .ic .tag::before,.fo .ic .micro,.fo .vhkey,.fo .vm .ml,.fo .vmnote,.fo .vgauge .gl,.fo .vgauge .gflag,.fo .vflow .fnode,.fo .vflow svg text,.fo .vhcol .hx,.fo .cta .fine,.pnx .nxk,
+  .fo .bhead .bt,.fo .bhead .bclock,.fo .f-door,.fo .f-ratio,.fo .f-when,.fo .f-status i,.fo .bfoot,.fo .sch,.fo .blip .bl2,.fo .scfoot,.fo .hub::after,.fo .strip .sroute,.fo .strip .ssub,.fo .stamp,
+  .fo .kick .k,.fo .kick .feed,.fo .win .wmath .mut{font-size:12px}
+  .fo .flap,.fo .strip .sroute{white-space:normal}
+  .fo .vhcol{min-width:0}.fo .ic .tag{line-height:1.3}.fo .blip .bl2{letter-spacing:.3px}
+}
+@media (max-width:345px){.fo .vhcol .hx{font-size:10px;letter-spacing:0}}
 @media(max-width:345px){
 .fo .vm{grid-template-columns:42px 1fr auto;gap:7px}
 .fo .vm .ml{font-size:8px;letter-spacing:.2px}
@@ -488,7 +498,7 @@
       <div class="win rv">
         <div class="wtop">
           <div class="wb"><span class="dot"></span>One window, one example</div>
-          <h3>Last Saturday this page dated a window to Saturday, July 18, at 11:59 PM ET.<br>R. moved 80,000 points through it before lunch.</h3>
+          <h2>Last Saturday this page dated a window to Saturday, July 18, at 11:59 PM ET.<br>R. moved 80,000 points through it before lunch.</h2>
           <div class="wl">After that window, the same example at the standard ratio lands 20,000 fewer points, roughly $460 less in hotel credit by our valuation. A fictional example, figures est.</div>
         </div>
         <div class="wacts">
