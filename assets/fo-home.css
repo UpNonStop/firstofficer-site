@@ -259,3 +259,4 @@
   .beat .pillars{grid-template-columns:repeat(4,minmax(0,1fr))}
   .beat .pil{height:460px}
 }
+.beat .h3 .ln{display:block}
