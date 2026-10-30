@@ -1,0 +1,198 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>First Officer for Dental Practices · Agreement ladder mockup</title><meta name="description" content="Your supply, lab and equipment spend already earns travel. A monthly desk works it across 50+ programs."><meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="img/fo-chevron-transparent-v2.png"><link rel="stylesheet" href="assets/fo-site-tokens.css"><link rel="stylesheet" href="assets/fo-site.css"><link rel="stylesheet" href="assets/hero-frame.css"><link rel="stylesheet" href="assets/fo-v4.css"><style>
+/* industry agreement ladder mockup: page-local styles on top of the v4 skin */
+:root{--learnL:#5AB0E6}
+#hero{position:relative;isolation:isolate;overflow:hidden;padding-top:40px}
+#hero .aph{position:absolute;inset:0;z-index:-1;pointer-events:none;background:var(--bg)}
+#hero .aph img{position:absolute;right:0;top:0;height:100%;width:62%;object-fit:cover;object-position:50% 40%;opacity:.22;filter:saturate(.85)}
+#hero .aph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0,var(--bg) 34%,rgba(250,246,238,.55) 62%,rgba(250,246,238,.25) 100%)}
+#hero .h1{font-size:40px;line-height:1.06}
+@media(min-width:900px){#hero .h1{font-size:60px;line-height:1.02}#hero{padding:72px 0 84px}}
+.belief{display:inline-block;margin-top:18px;font:600 13px/1.4 var(--mono);letter-spacing:.06em;color:var(--ink2);border:1px dashed var(--pinkLine);background:#fff;border-radius:12px;padding:10px 14px}
+.belief b{color:var(--pinkdeep)}
+.hbtns{display:grid;gap:10px;margin-top:22px}
+@media(min-width:700px){.hbtns{display:flex}.hbtns .btn{width:auto;min-width:220px}}
+.persona .tag{display:inline-block;font:600 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);border:1px solid var(--line);border-radius:999px;padding:6px 9px}
+.persona .who{display:flex;gap:12px;align-items:center;margin-top:12px}
+.persona .av{width:46px;height:46px;border-radius:50%;background:var(--pinkWash);border:1px solid var(--pinkLine);display:grid;place-items:center;font:400 20px/1 var(--serif);color:var(--pinkdeep);flex:none}
+.ladder{counter-reset:r;display:grid;gap:10px;max-width:860px}
+.rung{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 18px;transition:border-color .25s,background .25s}
+.rung .n{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font:700 13px/1 var(--mono);color:var(--pinkdeep);background:var(--pinkWash);border:1px solid var(--pinkLine)}
+.rung h3{font:400 21px/1.25 var(--serif);color:var(--ink)}
+.rung p{margin-top:4px;font:400 14.5px/1.5 var(--font);color:var(--ink2)}
+.rung .yn{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.rung .yn button{font:600 13px/1 var(--font);border-radius:999px;padding:9px 14px;border:1px solid var(--line);background:#fff;color:var(--ink2);cursor:pointer}
+.rung .yn button[aria-pressed="true"].y{background:var(--earn);border-color:var(--earn);color:#fff}
+.rung .yn button[aria-pressed="true"].no{background:var(--ink2);border-color:var(--ink2);color:#fff}
+.rung.yes{border-color:color-mix(in srgb,var(--earn) 45%,#fff);background:#FBFEFC}
+.rung .tie{display:block;margin-top:8px;font:600 11px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.tally{margin-top:16px;max-width:860px}
+.calc{display:grid;gap:16px}
+@media(min-width:1000px){.calc{grid-template-columns:1.05fr .95fr;gap:28px;align-items:start}}
+.sl{padding:16px 0;border-top:1px solid var(--line)}
+.sl:first-of-type{border-top:0}
+.sl .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sl .top b{font:700 20px/1.2 var(--font);font-variant-numeric:tabular-nums}
+.sl .top span{font:600 15px/1.35 var(--font)}
+.cmpx{margin-top:14px;display:grid;gap:12px}
+.cmpx .ln{display:flex;justify-content:space-between;gap:10px;font:500 14px/1.35 var(--font);color:var(--ink2)}
+.cmpx .ln b{color:var(--ink);font-variant-numeric:tabular-nums}
+.cmpx .bar{height:10px;border-radius:5px;background:var(--track,#EFEAF0);overflow:hidden;margin-top:6px}
+.cmpx .bar i{display:block;height:100%;border-radius:5px;background:var(--c,var(--ink3));width:var(--w,0%);transition:width .5s var(--ease,ease)}
+.verdict{margin-top:14px;border-radius:14px;padding:12px 14px;font:500 14px/1.5 var(--font)}
+.verdict.ok{background:var(--earn-w);color:#0D5E38}
+.verdict.no{background:#F4F1F5;color:var(--ink2)}
+.est{display:inline-block;font:700 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--ink2);border-radius:6px;padding:5px 7px;vertical-align:middle;margin-left:6px}
+.pillars{display:grid;gap:12px}
+@media(min-width:760px){.pillars{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.pillars{grid-template-columns:repeat(4,1fr)}}
+.pillars>.card+.card,.obj>.card+.card{margin-top:0}
+.pil{border-top:5px solid var(--c)}
+.pil .lab{color:var(--c)!important}
+.pil .q{display:block;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font:italic 400 15px/1.45 var(--serif);color:var(--ink)}
+.hsteps{display:grid;gap:10px;max-width:900px;counter-reset:s}
+.hstep{display:grid;grid-template-columns:54px 1fr;gap:14px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+.hstep .k{font:700 11px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--c,var(--pinkdeep));padding-top:4px}
+.hstep h3{font:400 20px/1.25 var(--serif)}
+.hstep p{margin-top:4px;font:400 14.5px/1.5 var(--font);color:var(--ink2)}
+.obj{display:grid;gap:12px}
+@media(min-width:900px){.obj{grid-template-columns:1fr 1fr}}
+.obj .card .said{display:block;font:600 12px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.obj .card h3{margin-top:8px}
+.offer{display:grid;gap:16px}
+@media(min-width:1000px){.offer{grid-template-columns:1.1fr .9fr;align-items:center}}
+.offer .price{font:400 64px/1 var(--serif);color:var(--ink)}
+.offer .price small{font:500 16px/1 var(--font);color:var(--ink3);margin-left:6px}
+.chk{display:grid;gap:8px;margin-top:14px}
+.chk div{display:flex;gap:10px;font:500 15px/1.45 var(--font);color:var(--ink2)}
+.chk div::before{content:"✓";color:var(--earn);font-weight:700}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:0 18px}
+.faq details+details{margin-top:10px}
+.faq summary{cursor:pointer;list-style:none;padding:16px 0;font:600 16px/1.4 var(--font);color:var(--ink);display:flex;justify-content:space-between;gap:12px}
+.faq summary::after{content:"+";color:var(--pink2);font-weight:700}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 16px;font:400 15px/1.55 var(--font);color:var(--ink2)}
+.easyno{margin-top:14px;font:italic 400 17px/1.45 var(--serif);color:var(--ink2)}
+</style></head><body>
+<!-- MOCKUP · industry page, honest agreement ladder (dental) · built by _build/build_industry_agreement.py · static HTML, not production -->
+<header class="nav"><div class="nav-in">
+<a class="brand" href="home.html" aria-label="First Officer home"><span class="mk"><img src="img/fo-chevron-transparent-v2.png" alt=""></span><span><b>First Officer</b><small>by UpNonStop™</small></span></a>
+<nav class="nlinks" aria-label="Main"><a href="product.html">Product</a><a href="pricing.html">Pricing</a><a class="fz" href="free-from-the-desk.html"><span><svg class="fzmk" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 15.5C18 13.2 31 14.6 46 12.9S77 12.2 96 10.6"/><path class="b" pathLength="1" d="M6 11.4C24 10.8 40 12.1 58 10.4S84 9.6 93 8.9"/></svg>Freebies</span></a><a href="calculator.html">Calculator</a><a href="about.html">About</a></nav>
+<div class="ncta"><a class="btn-sm wa" href="https://wa.me/16199404040?text=First%20Officer" title="Texting is coming soon. WhatsApp for now." aria-label="Text Your First Officer (WhatsApp for now)">💬<span class="t">Text Your First Officer</span></a><a class="btn-sm pk" href="book.html">Get your desk</a>
+<button class="burger" aria-label="Open menu" onclick="document.querySelector('.sheet').classList.toggle('open')"><i></i></button></div>
+</div></header>
+<div class="sheet"><a href="product.html">Product</a><a href="pricing.html">Pricing</a><a class="fz" href="free-from-the-desk.html"><span><svg class="fzmk" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path pathLength="1" d="M4 15.5C18 13.2 31 14.6 46 12.9S77 12.2 96 10.6"/><path class="b" pathLength="1" d="M6 11.4C24 10.8 40 12.1 58 10.4S84 9.6 93 8.9"/></svg>Freebies</span></a><a href="calculator.html">Calculator</a><a href="about.html">About</a><a href="field-notes.html">Field Notes</a><a href="trust.html">Trust</a><a href="industries.html">Industries</a><a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer">💬 Text Your First Officer</a><a class="btn" href="book.html">Get your desk</a></div>
+<main id="main">
+<section class="sec" id="hero"><div class="aph" aria-hidden="true"><img src="img/ph/i-dental2.webp" alt=""></div><div class="wrap"><div class="split">
+<div class="head" style="margin-bottom:0"><span class="hlab"><span class="lab earn">First Officer for Dental Practices</span></span>
+<h1 class="h1" style="margin-top:14px">Your supply bills already earn travel. <em>Someone just has to work them.</em></h1>
+<p class="lede">The practice already puts supplies, lab fees and equipment on cards. First Officer is a monthly desk that works that spend across 50+ programs, so the points turn into trips you actually take. You keep running the practice.</p>
+<span class="belief"><b>The one idea:</b> spend you already make + a desk working it every month = travel the practice has already paid for.</span>
+<div class="hbtns"><a class="btn" href="#estimate">See my estimate</a><a class="btn ghost" href="book.html?from=for-dental-agreement-hero">Book a Found Money Call</a></div>
+<p class="cap" style="margin-top:12px">$550 a month, month to month, no exit fee. Estimates on this page are illustrative.</p></div>
+<div class="card hero persona"><span class="tag">Fictional persona · illustrative</span>
+<div class="who"><span class="av">P</span><div><b style="font:600 16px/1.3 var(--font)">Dr. Priya, practice owner</b><span class="cap" style="display:block;margin:0">Two-chair general practice · about $520K a year on cards</span></div></div>
+<div class="div"></div>
+<div class="kv"><span>Dental supply distributors</span><b>$240,000</b></div><div class="kv"><span>Lab fees</span><b>$120,000</b></div><div class="kv"><span>Equipment and imaging</span><b>$90,000</b></div><div class="kv"><span>Practice software and phones</span><b>$40,000</b></div><div class="kv"><span>Everything else</span><b>$30,000</b></div>
+<div class="kv tot"><span>Card spend, a year</span><b>$520,000</b></div>
+<p class="cap" style="margin-top:10px">Dr. Priya is not a client. She is a composite profile used to show how the estimate works. Rent and payroll stay off the card.</p></div>
+</div></div></section>
+
+<section class="sec" id="ladder"><div class="wrap">
+<div class="head"><span class="lab">Start with what you already know</span><h2 class="h2">Six things most practice owners <em>already agree with.</em></h2><p class="lede">No pitch yet. Just check the ones that are true for your practice. If most are not, this page is not for you, and that is a perfectly good answer.</p></div>
+<div class="ladder"><div class="rung" data-rung><span class="n">01</span><div><h3>Supplies, lab fees and equipment already go on a card.</h3><p>Gloves, composite, crowns, aligner cases, imaging, software. It is the biggest line on the statement, and it gets paid every month whether anyone watches it or not.</p><span class="tie">Possibility</span><div class="yn" role="group" aria-label="Is this true for you?"><button type="button" class="y" aria-pressed="false">True for us</button><button type="button" class="no" aria-pressed="false">Not really</button></div></div></div><div class="rung" data-rung><span class="n">02</span><div><h3>Those cards already earn points on all of it.</h3><p>Not a new expense, not a new vendor. The practice is already earning; the only open question is what that earning turns into.</p><span class="tie">Benefit</span><div class="yn" role="group" aria-label="Is this true for you?"><button type="button" class="y" aria-pressed="false">True for us</button><button type="button" class="no" aria-pressed="false">Not really</button></div></div></div><div class="rung" data-rung><span class="n">03</span><div><h3>The points mostly sit, or go to whatever was quickest.</h3><p>A statement credit here, a gift card there. Nobody chose that. It is just what happens when no one owns the balance.</p><span class="tie">Honest status quo</span><div class="yn" role="group" aria-label="Is this true for you?"><button type="button" class="y" aria-pressed="false">True for us</button><button type="button" class="no" aria-pressed="false">Not really</button></div></div></div><div class="rung" data-rung><span class="n">04</span><div><h3>Nobody at the practice has time to learn 50+ programs.</h3><p>Transfer partners, award rules and bonus categories change through the year. Keeping up is a job in itself, and it is not the job you trained for.</p><span class="tie">Not your fault</span><div class="yn" role="group" aria-label="Is this true for you?"><button type="button" class="y" aria-pressed="false">True for us</button><button type="button" class="no" aria-pressed="false">Not really</button></div></div></div><div class="rung" data-rung><span class="n">05</span><div><h3>You would rather the points became trips you actually want.</h3><p>A family trip at school break, a conference trip done properly, a long weekend that the practice spend already paid for.</p><span class="tie">Personal benefit</span><div class="yn" role="group" aria-label="Is this true for you?"><button type="button" class="y" aria-pressed="false">True for us</button><button type="button" class="no" aria-pressed="false">Not really</button></div></div></div><div class="rung" data-rung><span class="n">06</span><div><h3>If someone else did that job every month, it would be worth knowing what it is worth.</h3><p>Not a promise. An estimate on your own spend, with our fee taken out first and plain cash back as the yardstick.</p><span class="tie">Fit</span><div class="yn" role="group" aria-label="Is this true for you?"><button type="button" class="y" aria-pressed="false">True for us</button><button type="button" class="no" aria-pressed="false">Not really</button></div></div></div></div>
+<div class="note tally" id="tally" aria-live="polite"><span class="ic">✓</span><span>Tap “True for us” on the ones that fit. Nothing here is saved or sent anywhere.</span></div>
+</div></section>
+
+<section class="sec" id="estimate"><div class="wrap">
+<div class="head"><span class="lab earn">Your estimate <span class="est">Estimate</span></span><h2 class="h2">What your card spend could be worth, <em>after our fee.</em></h2><p class="lede">Move the sliders to your practice. The math is on the page, the $550 fee comes out first, and the yardstick is plain 2% cash back, the easiest thing you could do instead.</p></div>
+<div class="calc">
+<div class="card">
+<div class="sl"><div class="top"><span>Practice card spend, a year</span><b id="vSp">$520,000</b></div><input class="rng" id="sp" type="range" min="100000" max="1500000" step="10000" value="520000" aria-label="Practice card spend per year"><span class="cap">Supplies, labs, equipment, software, phones. Not rent or payroll.</span></div>
+<div class="sl"><div class="top"><span>Blended earn rate</span><b id="vEr">2.1x</b></div><input class="rng" id="er" type="range" min="1" max="3" step="0.1" value="2.1" aria-label="Blended points per dollar"><span class="cap">Points per dollar across all lines, inside published caps. Most practice profiles we model land near 2x; the desk verifies yours.</span></div>
+<p class="cap" style="margin-top:12px"><b>The formula.</b> Points = spend × earn rate. Value = points × about 3 cents × 85% of points used × 72% for travel you would not have bought anyway. Net = value minus $550 a month. Compared with 2% cash back on the same spend.</p>
+</div>
+<div class="card hero top" style="--c:var(--earn)"><span class="lab earn">Estimated net, a year, after our fee <span class="est">Estimate</span></span><span class="num tn" id="oNet" style="margin-top:8px">$0</span>
+<div class="div"></div>
+<div class="kv"><span>Points a year</span><b id="oPts">0</b></div>
+<div class="kv"><span>Valued honestly</span><b id="oVal">$0</b></div>
+<div class="kv neg"><span>Our fee, $550 × 12</span><b>−$6,600</b></div>
+<div class="kv tot"><span>Net, a month</span><b id="oMo">$0</b></div>
+<div class="cmpx"><div><div class="ln"><span>2% cash back, a year</span><b id="oCb">$0</b></div><div class="bar"><i id="bCb" style="--c:var(--ink3)"></i></div></div><div><div class="ln"><span>First Officer, a year, after fee</span><b id="oFo">$0</b></div><div class="bar"><i id="bFo" style="--c:var(--earn)"></i></div></div></div>
+<div class="verdict" id="verdict"></div>
+<a class="btn" href="book.html?from=for-dental-agreement-estimate" style="margin-top:16px">Check it against my real statements</a>
+<p class="cap" style="margin-top:10px">Estimated and illustrative. Not a projection of your results. Program terms, caps and point values change, and redemption value depends on what you book.</p></div>
+</div></div></section>
+
+<section class="sec" id="pillars"><div class="wrap">
+<div class="head"><span class="lab">What the $550 covers</span><h2 class="h2">Four jobs, <em>every month.</em></h2><p class="lede">Each one answers a question you have probably already asked yourself about the practice cards.</p></div>
+<div class="pillars"><article class="card pil" style="--c:var(--earn)"><span class="lab">Earn</span><h3 class="h3" style="margin-top:8px">Every vendor on the right card</h3><p style="margin-top:6px">The desk maps how your distributors, labs and software vendors code, then routes each one to the card that earns the most on it, inside published caps.</p><span class="q">Would you agree the same supply invoice should earn as much as it can?</span></article><article class="card pil" style="--c:var(--burn)"><span class="lab">Burn</span><h3 class="h3" style="margin-top:8px">Points into trips you choose</h3><p style="margin-top:6px">When you want to go somewhere, Burn checks the program rules, transfer terms and fees first, then the desk books it for you as an ad hoc service.</p><span class="q">Would you rather spend points on purpose than let them sit?</span></article><article class="card pil" style="--c:var(--return)"><span class="lab">Return</span><h3 class="h3" style="margin-top:8px">A monthly recap in plain numbers</h3><p style="margin-top:6px">Each month you see what was earned, what was used and what it was worth against 2% cash back. No dashboards to learn.</p><span class="q">Is it fair to want proof every month, not a pitch once a year?</span></article><article class="card pil" style="--c:var(--learnL)"><span class="lab">Learn</span><h3 class="h3" style="margin-top:8px">Your setup, explained</h3><p style="margin-top:6px">Program terms change. Learn tells you what changed, why it matters for the practice, and what the desk did about it, in language you could hand to your accountant.</p><span class="q">Would it help to actually understand your own setup?</span></article></div>
+</div></section>
+
+<section class="sec" id="how"><div class="wrap">
+<div class="head"><span class="lab">How it works</span><h2 class="h2">You say yes or no. <em>The desk does the rest.</em></h2></div>
+<div class="hsteps"><div class="hstep" style="--c:var(--pinkdeep)"><span class="k">Call</span><div><h3>A free 20-minute Found Money Call</h3><p>We look at your card mix and vendor list together. If plain cash back wins for your practice, we say so on the call.</p></div></div><div class="hstep" style="--c:var(--earn)"><span class="k">Earn</span><div><h3>The desk maps and routes your spend</h3><p>Vendor codes verified against real statements, each line routed to the card that earns the most on it. You approve every change.</p></div></div><div class="hstep" style="--c:var(--burn)"><span class="k">Burn</span><div><h3>You ask for a trip; Burn vets it first</h3><p>Dates, places, who is travelling. Burn checks the program requirements, transfer terms and fees before anything moves, then the desk books it as an ad hoc service and you confirm.</p></div></div><div class="hstep" style="--c:var(--return)"><span class="k">Return</span><div><h3>A recap lands every month</h3><p>Earned, used, valued, and compared with 2% cash back, after our fee.</p></div></div><div class="hstep" style="--c:var(--learnL)"><span class="k">Learn</span><div><h3>What changed, in plain words</h3><p>When a program changes its terms, you hear what it means for the practice and what the desk did.</p></div></div></div>
+</div></section>
+
+<section class="sec" id="objections"><div class="wrap">
+<div class="head"><span class="lab">Fair questions</span><h2 class="h2">The doubts worth having, <em>answered straight.</em></h2></div>
+<div class="obj"><article class="card"><span class="said">“I already have a good card.”</span><h3 class="h3">Agreed, and that is the right starting point.</h3><p style="margin-top:6px">A good card is the base. The question is whether every vendor lands on the card that earns most on it, and whether the points become something you wanted. The desk works with the cards you have and only suggests a change when the math clears it.</p></article><article class="card"><span class="said">“I don't have time for another thing.”</span><h3 class="h3">Exactly. That is the whole reason this exists.</h3><p style="margin-top:6px">You do not learn the programs; the desk does. Your part is a yes or a no on changes and trips. If even that feels like too much in a given month, you can stop.</p></article><article class="card"><span class="said">“Is $550 a month really worth it?”</span><h3 class="h3">Only if the numbers say so. That is a fair test.</h3><p style="margin-top:6px">The estimate takes the $550 out before it shows you anything, and it lines up against plain 2% cash back. If cash back wins at your spend, the page says so, and so will we.</p></article><article class="card"><span class="said">“What if it doesn't work out?”</span><h3 class="h3">Then you should be able to leave. You can.</h3><p style="margin-top:6px">Month to month, no exit fee, no annual contract. You stay because each month's recap is worth it, or you go.</p></article></div>
+<div class="note" style="margin-top:16px"><span class="ic">⏱</span><span><b>On timing, honestly.</b> There is no deadline on this page. The only clock is the one you already have: every month of practice spend earns something, and months nobody works are value that does not come back.</span></div>
+</div></section>
+
+<section class="sec" id="offer"><div class="wrap"><div class="card hero offer">
+<div><span class="lab">The offer</span><h2 class="h2" style="margin-top:10px">One desk for the practice cards. <em>Every month.</em></h2>
+<div class="chk"><div>Earn, Burn, Return and Learn, every month</div><div>Ongoing white-glove client service, not a one-off review</div><div>Trips booked for you as an ad hoc service, vetted by Burn first</div><div>Month to month. No exit fee. No annual contract.</div></div></div>
+<div style="text-align:center"><span class="price">$550<small>/ month</small></span><p class="cap" style="margin-top:8px">If your estimate does not clear the fee and beat 2% cash back, we will tell you not to sign up.</p></div>
+</div></div></section>
+
+<section class="sec" id="call"><div class="wrap"><div class="card hero cta-card"><span class="mk"><img src="img/fo-chevron-transparent-v2.png" alt=""></span><h3 class="h2" style="font-size:30px">If the numbers work, is it worth a 20-minute call?</h3><p class="lede">The Found Money Call is free. We check your estimate against real statements and tell you plainly whether First Officer is worth it for your practice.</p><div class="btns"><a class="btn" href="book.html?from=for-dental-agreement-cta">Book Your “Found Money” Call</a></div><p class="easyno">And if it is not a fit, that is a perfectly good answer.</p></div></div></section>
+
+<section class="sec faq" id="faq"><div class="wrap" style="max-width:860px">
+<div class="head"><span class="lab">FAQ</span><h2 class="h2">Questions practice owners <em>ask first.</em></h2></div>
+<details><summary>Is First Officer a credit card?</summary><p>No. First Officer is an independent desk. We have no affiliate relationships with any issuer, so a card recommendation is only ever about your numbers.</p></details><details><summary>Do I have to change the cards the practice uses?</summary><p>Not by default. The desk starts with what you have. Any change is proposed with the math behind it, and nothing moves without your yes.</p></details><details><summary>What does the estimate on this page include?</summary><p>Points from spend times a blended earn rate, valued at about 3 cents a point, with 85% of points assumed used and a further discount for travel you would not have bought anyway. Our $550 monthly fee comes out before the net figure. It is an estimate, not a projection of your results.</p></details><details><summary>How does booking a trip work?</summary><p>You tell the desk what you want. Burn vets the requirements first: program rules, transfer terms and fees. Then the desk books it for you as an ad hoc service, and you confirm before anything is final.</p></details><details><summary>Is this a one-time optimization?</summary><p>No. You are an ongoing client. Programs change through the year, so the desk works your accounts every month, with white-glove service throughout.</p></details><details><summary>Can I cancel?</summary><p>Yes, any month. Month to month, no exit fee.</p></details>
+</div></section>
+</main>
+<footer class="foot"><div class="wrap">
+<p class="dn">Dr. Priya is a fictional persona. Every figure on this page is an illustrative estimate, not a result or a promise. Your numbers depend on your cards, your vendors and published program terms.</p>
+<div class="fdir">
+<div class="fb"><a class="brand" href="home.html"><span class="mk"><img src="img/fo-chevron-transparent-v2.png" alt=""></span><span><b>First Officer</b><small>by UpNonStop™</small></span></a><p>A desk of specialists across 50+ programs, working for your business spend.</p></div>
+<div><span class="lab">Product</span><a href="pricing.html">Pricing</a><a href="how.html">How It Works</a><a href="product.html">The Product</a><a href="strategist.html">The Strategist</a><a href="trust.html">Trust &amp; Security</a><a href="calculator.html">Run The Numbers</a><a href="app.html">The App <span class="soon">Soon</span></a></div>
+<div class="ind" id="ftind"><span class="lab">Specialized Industries</span><div class="lst"><a href="for-agencies.html">Agencies</a><a href="for-auto-repair.html">Auto Repair</a><a href="for-cleaning.html">Cleaning</a><a href="for-consulting.html">Consulting</a><a href="for-contractors.html">Contractors</a><a href="for-cpa-firms.html">CPA Firms</a><a href="for-dental.html">Dental</a><a href="for-ecommerce.html">E-Commerce</a><a href="for-fitness.html">Fitness</a><a href="for-hvac.html">HVAC</a><a href="for-it-services.html">IT & MSP</a><a href="for-landscaping.html">Landscaping</a><a href="for-law-firms.html">Law Firms</a><a href="for-medical.html">Medical</a><a href="for-property-management.html">Property Management</a><a href="for-real-estate.html">Real Estate</a><a href="for-restaurants.html">Restaurants</a><a href="for-salons.html">Salons</a><a href="for-trucking.html">Trucking</a><a href="for-veterinary.html">Veterinary</a></div><a href="industries.html" style="color:var(--pink2);font-weight:600">All industries →</a></div>
+<div><span class="lab">Free</span><a href="free-from-the-desk.html">Freebies</a><a href="field-notes.html">Field Notes</a><a href="upns.html">The Intelligence Report</a><a href="https://upnonstop.com">The Daily Redemption</a><a href="hello.html">The Long Version</a></div>
+<div><span class="lab">Company</span><a href="about.html">About</a><a href="connect.html">Connect</a><a href="privacy-policy.html">Privacy Policy</a><a href="privacy-policy.html#do-not-sell">Do Not Sell My Info</a><a href="terms-of-service.html">Terms of Service</a><a href="disclaimer.html">Disclaimer</a></div>
+</div>
+<div class="fbar"><div>UpNonStop | 235 Pavonia Avenue | Jersey City, NJ 07302 | Proudly Made in 🇺🇸</div><div>Independent: no affiliate relationships with any issuer. An educational tool, not a licensed financial advisor. US businesses only. © 2026 UpNonStop.</div></div>
+</div></footer>
+<script src="assets/site.js"></script><script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var usd=function(n){return (n<0?'−$':'$')+Math.round(Math.abs(n)).toLocaleString('en-US')};
+  /* value per point = 3.0 cents x 85% used x 72% honest discount = 0.01836 */
+  var VPP=0.03*0.85*0.72, FEE=550*12;
+  function upd(){
+    var sp=+$('sp').value, er=+$('er').value, pts=sp*er, val=pts*VPP, net=val-FEE, cb=sp*0.02;
+    $('vSp').textContent=usd(sp); $('vEr').textContent=er.toFixed(1)+'x';
+    [['sp',sp,100000,1500000],['er',er,1,3]].forEach(function(a){$(a[0]).style.setProperty('--p',((a[1]-a[2])/(a[3]-a[2])*100)+'%')});
+    $('oPts').textContent=Math.round(pts).toLocaleString('en-US'); $('oVal').textContent=usd(val);
+    $('oNet').textContent=usd(net); $('oMo').textContent=usd(net/12); $('oCb').textContent=usd(cb); $('oFo').textContent=usd(net);
+    var mx=Math.max(cb,net,1); $('bCb').style.setProperty('--w',Math.max(0,cb/mx*100)+'%'); $('bFo').style.setProperty('--w',Math.max(0,net/mx*100)+'%');
+    var v=$('verdict'), d=net-cb;
+    if(d>0){v.className='verdict ok';v.textContent='At these numbers, the estimate beats 2% cash back by about '+usd(d)+' a year after our fee. Worth checking against your real statements.'}
+    else{v.className='verdict no';v.textContent='At these numbers, plain 2% cash back likely wins by about '+usd(-d)+' a year. That is an honest no, and we would tell you the same on a call.'}
+  }
+  ['sp','er'].forEach(function(i){$(i).addEventListener('input',upd)}); upd();
+  var rs=[].slice.call(document.querySelectorAll('[data-rung]'));
+  function tally(){
+    var y=rs.filter(function(r){return r.classList.contains('yes')}).length, n=rs.filter(function(r){return r.dataset.no}).length, t=$('tally').lastElementChild;
+    if(!y&&!n){t.textContent='Tap “True for us” on the ones that fit. Nothing here is saved or sent anywhere.';return}
+    t.innerHTML=y>=4?'<b>'+y+' of '+rs.length+' true for your practice.</b> Then the estimate below is worth two minutes of your time.':'<b>'+y+' of '+rs.length+' so far.</b> If most of these do not fit, First Officer probably is not for you, and that is fine.';
+  }
+  rs.forEach(function(r){var b=r.querySelectorAll('button');
+    b[0].addEventListener('click',function(){var on=b[0].getAttribute('aria-pressed')!=='true';b[0].setAttribute('aria-pressed',on);b[1].setAttribute('aria-pressed','false');r.classList.toggle('yes',on);delete r.dataset.no;tally()});
+    b[1].addEventListener('click',function(){var on=b[1].getAttribute('aria-pressed')!=='true';b[1].setAttribute('aria-pressed',on);b[0].setAttribute('aria-pressed','false');r.classList.remove('yes');if(on)r.dataset.no='1';else delete r.dataset.no;tally()});
+  });
+})();
+</script></body></html>
