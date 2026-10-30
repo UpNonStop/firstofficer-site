@@ -1,4 +1,4 @@
-/* fo-pages2.css: our overrides on the -modes pages ported from Grok (Oct 29). Loaded last. */
+/* fo-pages2.css: our overrides on the -modes pages (Oct 29). Loaded last. */
 .mtm{font-size:11px;line-height:1.5;color:var(--mute);font-style:italic;margin:10px 0 0;max-width:640px}
 .mtm a{color:var(--pinkd);font-style:normal;font-weight:700;text-decoration:none}
 .qfine{font-size:11.5px;line-height:1.5;color:var(--mute);font-style:italic;text-align:center;margin:0 auto;max-width:760px}

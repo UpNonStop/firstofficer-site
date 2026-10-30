@@ -1,5 +1,5 @@
-/* The hero's desk strip: the specialists at work, one per program, with what they are doing right now and what they just handed back.
-   The specialists are our own software agents; a person reviews every booking. Owners named here are the site's fictional examples.
+/* The hero's desk strip: the programs at work, one per program, with what they are doing right now and what they just handed back.
+   A person reviews every booking. Owners named here are the site's fictional examples.
    Program names and logos are shown for identification only. Reduced motion: a still strip. */
 (function(){
 var host=document.querySelector('.mdesk');if(!host)return;
@@ -54,10 +54,10 @@ host.innerHTML='<div class="dh"><span class="lv"></span><b>First Officer, at wor
 if(RM)return;
 var st=S.map(function(){return 0}),say=0,sayEl=host.querySelector('.dsay');
 function all(i){return [].slice.call(host.querySelectorAll('.dpod[data-i="'+i+'"]'))}
-function tick(){var i=Math.floor(Math.random()*S.length),ps=all(i);ps.forEach(function(p){p.classList.add('think')});
+function tick(){if(document.documentElement.classList.contains('fo-still'))return;var i=Math.floor(Math.random()*S.length),ps=all(i);ps.forEach(function(p){p.classList.add('think')});
   setTimeout(function(){st[i]=(st[i]+1)%S[i][3].length;ps.forEach(function(p){p.querySelector('.dst').textContent=S[i][3][st[i]];p.classList.remove('think');p.classList.add('lit')})},1100);
   setTimeout(function(){ps.forEach(function(p){p.classList.remove('lit')})},2300)}
-function speak(){say=(say+1)%SAY.length;sayEl.classList.add('off');setTimeout(function(){sayEl.querySelector('img').src=lg[SAY[say][0]];sayEl.querySelector('span').textContent=SAY[say][1];sayEl.classList.remove('off')},380)}
+function speak(){if(document.documentElement.classList.contains('fo-still'))return;say=(say+1)%SAY.length;sayEl.classList.add('off');setTimeout(function(){sayEl.querySelector('img').src=lg[SAY[say][0]];sayEl.querySelector('span').textContent=SAY[say][1];sayEl.classList.remove('off')},380)}
 var on=false,t1,t2;
 new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!on){on=true;t1=setInterval(tick,1900);t2=setInterval(speak,3800);tick()}else if(!e.isIntersecting&&on){on=false;clearInterval(t1);clearInterval(t2)}})},{threshold:.2}).observe(host);
 })();

@@ -137,9 +137,9 @@ function rows(){var p=D;
     t.addEventListener('input',function(){var v=Math.min(2e6,+(t.value.replace(/[^0-9]/g,''))||0);S[i]=v;if(v>+s.max)s.max=Math.ceil(v/5000)*5000;s.value=v;calc()});
     t.addEventListener('blur',function(){t.value=S[i].toLocaleString('en-US')});
     t.addEventListener('focus',function(){t.select()})});
-  $('#cet').innerHTML='<div class="ceh" role="row"><span>Points a month</span><span>Today</span><span>With desk</span></div>'+
-    p.cats.map(function(c,i){return '<div class="cer" role="row"><span>'+c[0]+'</span><span data-et="'+i+'">·</span><span class="d" data-ed="'+i+'">·</span></div>'}).join('')+
-    '<div class="cer tot" role="row"><span>Total</span><span data-k="vt">·</span><span class="d" data-k="vd">·</span></div>'}
+  $('#cet').innerHTML='<div class="ceh" role="row"><span role="columnheader">Points a month</span><span role="columnheader">Today</span><span role="columnheader">With desk</span></div>'+
+    p.cats.map(function(c,i){return '<div class="cer" role="row"><span role="rowheader">'+c[0]+'</span><span role="cell" data-et="'+i+'">·</span><span role="cell" class="d" data-ed="'+i+'">·</span></div>'}).join('')+
+    '<div class="cer tot" role="row"><span role="rowheader">Total</span><span role="cell" data-k="vt">·</span><span role="cell" class="d" data-k="vd">·</span></div>'}
 function load(){D=IN[idx];S=D.cats.map(function(c){return c[1]*1000});SEL.value=idx;
   var o=D.ind==='Other',m=moK(D);
   $('#cwho').textContent=o?'Start blank, type your own':'Typical mix: $'+(Math.round(m*10)/10)+'K a month, est.';
