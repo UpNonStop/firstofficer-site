@@ -30,13 +30,13 @@ function build(){
   /* the trade pages keep Field Notes under More, as they had on #15 */
   if(document.body.hasAttribute('data-trade')){var mw=fs.querySelector('.more .wa');if(mw){var fn=document.createElement('a');fn.href='field-notes.html';fn.textContent='Field Notes';mw.parentNode.insertBefore(fn,mw)}}
   /* the calculator, pricing and the trade pages hand the trade and the monthly spend to the Book page, so the request arrives with them */
-  /* the funnel events main's pages fired into GA4: book_click, whatsapp_click, calculator_open (links in the chrome's shadow roots included) */
+  /* the funnel events main's pages fired into GA4: book_click, whatsapp_click, calculator_open (links in the chrome's shadow roots included); sent as beacons so they survive the page unloading on the click */
   function ev(n,p){if(typeof gtag==='function')gtag('event',n,p||{})}
   document.addEventListener('click',function(e){var path=e.composedPath?e.composedPath():[],a=null;
     for(var i=0;i<path.length;i++){if(path[i]&&path[i].tagName==='A'){a=path[i];break}}if(!a)return;
-    var h=a.getAttribute('href')||'',t=(a.textContent||'').trim().slice(0,40),pp={page_path:location.pathname,link_text:t};
+    var h=a.getAttribute('href')||'',t=(a.textContent||'').trim().slice(0,40),pp={page_path:location.pathname,link_text:t,transport_type:'beacon'};
     if(/(^|\/)book\.html/.test(h))ev('book_click',pp);
-    if(h.indexOf('wa.me')>-1)ev('whatsapp_click',pp);else if(/(^|\/)calculator\.html/.test(h))ev('calculator_open',{page_path:location.pathname})},true);
+    if(h.indexOf('wa.me')>-1)ev('whatsapp_click',pp);else if(/(^|\/)calculator\.html/.test(h))ev('calculator_open',{page_path:location.pathname,transport_type:'beacon'})},true);
   /* the calculator's example owner counts as the visitor's trade only once they pick it (or arrive from a trade page) */
   document.addEventListener('change',function(e){if(e.target&&e.target.id==='cind')e.target.setAttribute('data-picked','1')},true);
   /* the spend counts as the visitor's own only once they type it or move the slider: never the example's or the sweep's */
