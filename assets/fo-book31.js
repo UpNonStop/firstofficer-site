@@ -23,7 +23,7 @@
   if(sp>0&&ss){var lab=sp<10000?'Under $10K':sp<25000?'$10K to $25K':sp<50000?'$25K to $50K':sp<=100000?'$50K to $100K':sp<=250000?'$100K to $250K':sp<=1000000?'$250K to $1M':'Over $1M';
     [].forEach.call(ss.options,function(o){if(o.textContent===lab)ss.value=o.value||o.textContent})}
   var exact=sp>0?'$'+sp.toLocaleString('en-US')+' a month':'';
-  /* the email door carries what arrived with the visitor: the trade, and the spend only when they set it */
+  /* the email option carries what arrived with the visitor: the trade, and the spend only when they set it */
   var emd=document.querySelector('#options .d-em a[href^="mailto:"]');
   if(emd&&(ind||sp>0))emd.href=MAIL+'?subject='+encodeURIComponent('Found Money Call request')+'&body='+encodeURIComponent('Industry: '+(ind||'')+'\nMonthly card spend: about '+(sp>0?'$'+sp.toLocaleString('en-US'):'$'));
 
