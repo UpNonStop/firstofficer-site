@@ -1,51 +1,5 @@
-/* Home page only (index.html): CTA reach and the mobile pass from the Oct 30 landing brief.
-   Layout and CSS only: every word shown is the page's existing copy; proposed copy waits for Ohad's yes.
-   Sections 1, 2 and 4 keep something on screen while you scroll. That deliberately overrides
-   assets/fo-rules.css and the chrome's "nothing sticky" on this page only. Each section stands alone. */
-
-/* 1. desktop header: fo-cta.js adds html.fo-stick once the chrome has drawn the header (and lets its
-   nav stick inside the shadow root), so the reserved min-height of #fo-header holds the space until
-   then (no layout jump). display:contents lets the nav stick against the whole page, not its host. */
-@media (min-width:901px){
-  html.fo-stick #fo-header{display:contents}
-}
-
-/* 2. phones and tablets (900px and down; the header hides its buttons up to 900px): a slim bar docked
-   flush to the bottom edge, no margins, no halo: the pink "Get your desk" and the light-blue "Run your
-   numbers", equal size, the same pills as the page.
-   assets/fo-cta.js shows it only while none of the page's pink buttons, nor the footer, is on screen. */
-.fo-dock{display:none}
-@media (max-width:900px){
-  .fo-dock{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:250;align-items:center;justify-content:center;gap:10px;
-    padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:#FFFDF9;box-shadow:0 -1px 0 rgba(250,24,150,.25);
-    transform:translateY(110%);visibility:hidden;transition:transform .35s cubic-bezier(.22,1,.36,1),visibility 0s linear .35s}
-  .fo-dock.show{transform:none;visibility:visible;transition:transform .35s cubic-bezier(.22,1,.36,1),visibility 0s}
-  .fo-dock .btn{flex:1 1 0;min-width:0;max-width:250px;height:44px;padding:0 10px;font-size:14.5px;box-shadow:inset 0 -2px 0 rgba(0,0,0,.12)}
-  .fo-dock .btn:hover,.fo-dock .btn:focus-visible{transform:none;box-shadow:inset 0 -2px 0 rgba(0,0,0,.12)}
-  html.fo-still .fo-dock,html.fo-still .fo-dock.show{transition:none}
-}
-@media (max-width:900px) and (prefers-reduced-motion:reduce){.fo-dock,.fo-dock.show{transition:none}}
-@media print{.fo-dock{display:none!important}}
-
-/* 3. the story's two stops, in the site's own buttons: after 02 the light-blue "Run your numbers",
-   after 05 the pink "Get your desk". The hero and the price keep their buttons exactly as they are. */
+/* Home page only (index.html): the story's two stops, in the site's own buttons. In the flow of the
+   page, so they take no screen while you read: after 02 the light-blue "Run your numbers", after 05 the
+   pink "Get your desk". Nothing on this page stays on screen (the nav scrolls away, as everywhere). */
 .fo-inl{grid-column:1/-1;display:flex;justify-content:center;margin:6px 0 0}
 .fo-inl .btn{height:52px;padding:0 26px;font-size:15px}
-
-/* 4. the story chips stay at the top of the story on phones; the active beat gets the pink ring */
-@media (max-width:760px){
-  #story .mrail{position:sticky!important;top:0!important;z-index:120;flex-wrap:nowrap!important;justify-content:flex-start!important;
-    overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:none;margin:0 calc(var(--gut,20px)*-1) 22px!important;
-    padding:6px var(--gut,20px)!important;background:rgba(250,246,238,.97)!important;box-shadow:0 1px 0 rgba(20,18,22,.08)!important}
-  #story .mrail::-webkit-scrollbar{display:none}
-  #story .mrail{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 18px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 18px,#000 calc(100% - 18px),transparent 100%)}
-  #story .mrail a.on{box-shadow:inset 0 0 0 1.5px #FA1896;color:#D90D7E!important}
-}
-
-/* 5. hit areas */
-.mtb button::after{content:"";position:absolute;left:0;right:0;top:-7px;bottom:0}
-.mtm a,.mnote .nbody a,.beat .fine a{display:inline-block}
-.mtm a{padding:15px 4px;margin:-15px -4px}
-.mnote .nbody a{position:relative;z-index:1;padding:8px 0;margin:-8px 0}
-.beat .fine a{padding:14px 0;margin:-14px 0}
-.celnav button{box-sizing:border-box;height:44px;border:solid transparent;border-width:5px 0;margin:-5px 0;background-clip:padding-box!important}
