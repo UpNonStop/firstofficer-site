@@ -239,3 +239,17 @@ ul.cw > li > span{font-size:11px!important}
 /* FO-P2-03: one focus ring, 3px pink, on the hero phone's tabs and the pricing chips too
    (the chrome's Pause button gets the same 3px inside assets/fo-chrome.js) */
 .mtb button:focus-visible,.ps-chips a:focus-visible{outline:3px solid var(--pink,#FA1896);outline-offset:3px}
+/* ==== FO-P1-01 (D13: waiting on Ohad's OK) ===========================================================
+   Fills behind small text that read at 4.5:1 or better. Brand pink #FA1896 stays for headlines, large
+   type and lines; only these fills and small labels change. Delete this block (and the matching one in
+   assets/fo-chrome.js) to undo. */
+.btn.pk,.btn.ink,.nxb,.celnav button.on,.cs .cta,.ixb>.pk.btn{background-color:#E0117F!important}
+.btn.pk:hover,.btn.pk:focus-visible,.btn.ink:hover,.nxb:hover,.nxb:focus-visible{background-color:#C30E6E!important}
+.btn.wa,.btn.wa:hover,.btn.wa:focus-visible{color:#0B2E17!important}
+.btn.lb,.cqa{background-color:#1E70AA!important}
+.btn.lb:hover,.btn.lb:focus-visible,.cqa:hover{background-color:#185D8E!important}
+.k-burn .pn b,.stc b.k-burn{background-color:#C2410C!important}
+/* The Daily Redemption issues: small pink and grey text on cream */
+body .fo{--t3:#6F675C}
+body .fo .mast-foot .pk{color:#D4107A}
+/* ==== end FO-P1-01 ==== */
