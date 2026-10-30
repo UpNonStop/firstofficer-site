@@ -42,7 +42,7 @@
 .mah span{margin-left:auto;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pc7);background:#fff;padding:3px 7px;border-radius:6px}
 .mgr{padding:8px 16px 8px}
 .mgr small{display:block;font-size:11px;color:#6B6672;font-weight:500}
-.mgr h4{margin:1px 0 0;font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.05;color:var(--pc7);transition:color .4s}
+.mgr h4,.mgr .mh4{margin:1px 0 0;font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.05;color:var(--pc7);transition:color .4s}
 .mpanes{position:absolute;left:0;right:0;top:118px;bottom:70px;overflow:hidden}
 .mpane{position:absolute;inset:0;padding:4px 12px 10px;display:flex;flex-direction:column;gap:6px;opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s var(--ease);pointer-events:none}
 .mpane.on{opacity:1;transform:none;pointer-events:auto}
@@ -86,7 +86,7 @@
 .zrl{display:flex;justify-content:space-between;gap:8px;font-size:10px;padding:5px 0;border-top:1px solid #F1ECF3}.zrl span{color:#4A4550}.zrl b{color:var(--pc7);font-variant-numeric:tabular-nums}
 .zby{font-size:9.5px;color:var(--pc7);font-weight:600;display:flex;gap:5px;align-items:center}
 .zls .zlt{font-size:8.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pc6)}
-.zls h5{margin:2px 0 6px;font-size:13px;font-weight:700;line-height:1.2}
+.zls h5,.zls .mh5{margin:2px 0 6px;font-size:13px;font-weight:700;line-height:1.2}
 .zls .zlb{display:flex;align-items:baseline;gap:6px;margin-bottom:7px}.zls .zlb b{font-family:var(--serif);font-weight:400;font-size:34px;line-height:1;color:var(--pc6)}.zls .zlb small{font-size:9.5px;color:#6B6672}
 .zlbars{display:grid;gap:5px}.zlbars div{display:grid;grid-template-columns:96px 1fr 34px;gap:6px;align-items:center;font-size:9.5px;color:#4A4550}
 .zlbars u{height:8px;border-radius:3px;background:#ECEAEE;overflow:hidden;display:block;text-decoration:none}.zlbars u i{display:block;height:100%;background:#A49CAD}.zlbars div:last-child u i{background:var(--pc6)}.zlbars b{text-align:right;font-variant-numeric:tabular-nums}
@@ -257,7 +257,7 @@
 .modes .wc:hover{transform:none}
 .modes .wc.sc,.modes .wc.mv,.modes .wc.sh{background:#fff;color:var(--ink);box-shadow:0 0 0 1px rgba(20,18,22,.1)}
 .modes .wc.mv .bars u{background:#ECEAEE}.modes .wc.mv .bars u i{background:#8A8492}.modes .wc.mv .bars u i.g{background:var(--pink)}
-.modes .wc.sh h5{color:var(--body)}
+.modes .wc.sh h5,.modes .wc.sh .mh5{color:var(--body)}
 .modes .wc.sh .card{background:#F6F5F7;color:var(--ink);-webkit-backdrop-filter:none;backdrop-filter:none}
 .modes .wc.sh .card small,.modes .wc.sh .fine,.modes .wc.sh .tg{color:var(--body);opacity:1}
 .modes .why div,.modes .why div:nth-child(even),.modes .why div:hover,.modes .why div:nth-child(even):hover{background:#fff;color:var(--ink);box-shadow:0 0 0 1px rgba(20,18,22,.1);transform:none}
@@ -442,7 +442,7 @@ details.tx p{margin:10px 0 0;color:var(--body);font-size:15px}
 .wnext{min-height:40px;padding:10px 6px}
 details.tx summary{min-height:44px;justify-content:center}
 @media (max-width:760px){.ph .phb .mprob{display:inline-grid;justify-items:start;text-align:left;margin-left:auto;margin-right:auto}}
-h1,h2,h3,h4,.nxh,.stq,p,li,b{overflow-wrap:break-word}
+h1,h2,h3,h4,.mh4,.nxh,.stq,p,li,b{overflow-wrap:break-word}
 
 /* rec21: top bar never floats over content, at any width. A normal in-flow bar that scrolls away with the page:
    solid cream, thin bottom line, no blur, no shadow. */

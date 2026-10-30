@@ -238,6 +238,7 @@
 .fo .win .wb{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:7px;line-height:1}
 .fo .win .wb .dot{width:6px;height:6px;background:var(--card);border-radius:50%;animation:pulse 2s infinite}
 .fo .win .wtop h3{font-family:var(--serif);font-size:23px;line-height:1.15;margin-bottom:4px;color:#fff}
+.fo .win .wtop h2{font-family:var(--serif);font-size:23px;line-height:1.15;margin-bottom:4px;color:#fff;font-weight:700;letter-spacing:-.01em}
 .fo .win .wtop .wl{font-size:13px;color:rgba(255,255,255,.9);line-height:1.55}
 .fo .win .wacts{display:grid;grid-template-columns:1fr 1fr 1fr}
 .fo .win .wmath{display:flex;justify-content:center;align-items:baseline;gap:8px;flex-wrap:wrap;padding:13px 18px;background:var(--alt);border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;font-weight:800;color:var(--ink);letter-spacing:.3px}
@@ -323,6 +324,12 @@
   .fo .win .wacts{grid-template-columns:1fr}.fo .win .wact{border-right:none;border-bottom:1px solid var(--hair)}
   .fo .vgauge{gap:12px}.fo .mast .mr{font-size:9px}
 }
+/* re-audit P1-16: on phones the copy reads at 12px or more; the infographic rows wrap instead of shrinking */
+@media (max-width:600px){
+  .fo .mast-row .l,.fo .mast-row .r,.fo .mast-foot,.fo .hero .badge,.fo .bluf .bk,.fo .kick .fl,.fo .win .wb,.fo .win .wact .an,.fo .win .wact .at,.fo .rpc .rl,.fo .rpc .rw,.fo .rwh .s,.fo .frn .sub,.fo .ic .tag,.fo .ic .tag::before,.fo .ic .micro,.fo .vhkey,.fo .vm .ml,.fo .vmnote,.fo .vgauge .gl,.fo .vgauge .gflag,.fo .vflow .fnode,.fo .vflow svg text,.fo .vhcol .hx,.fo .cta .fine,.pnx .nxk{font-size:12px}
+  .fo .kick{flex-wrap:wrap}.fo .vhcol{min-width:0}.fo .ic .tag{line-height:1.3}
+}
+@media (max-width:345px){.fo .vhcol .hx{font-size:10px;letter-spacing:0}}
 </style>
 
 <div class="fo">
@@ -356,7 +363,7 @@
       <div class="win rv">
         <div class="wtop">
           <div class="wb"><span class="dot"></span>One save, told three ways</div>
-          <h3>M. was one click from overpaying by $2,600. First Officer saw the other price first.</h3>
+          <h2>M. was one click from overpaying by $2,600. First Officer saw the other price first.</h2>
           <div class="wl">He was six minutes from paying 165,000 points on a flight that also priced at 100,000. A fictional example, figures est.</div>
         </div>
         <div class="wacts">
