@@ -217,3 +217,25 @@ ul.cw > li > span{font-size:11px!important}
 .fnm a,.tnote a{padding:13px 0}
 .fcd li b>a{padding:8px 0}
 /* /prodfix ---- */
+/* Re-audit Oct 31, FO-P1-15: every control at least 44px to tap on phones. Where a visual can stay
+   small, the hit area grows instead (::after, or padding with a matching negative margin). */
+#bgo,#bs,.celnav button,.ps-trh a,#ffd select,#ffd summary{min-height:44px}
+.celnav button{padding:0 16px}
+#crows label,.ps-chips a,.foot .meta a{position:relative}
+#crows label::after,.ps-chips a::after,.foot .meta a::after{content:"";position:absolute;left:-2px;right:-2px;top:50%;height:44px;transform:translateY(-50%)}
+#crows input.crs{min-width:44px;min-height:44px}
+/* the home page's small ones: the hero phone's Earn/Burn/Return/Learn tabs (zoomed to .88 on phones),
+   the note's two links, "Important information", "How the desk is built"; the story chips get 12px
+   between rows so each keeps its whole 44px */
+.mtb button::after{content:"";position:absolute;left:0;right:0;top:-7px;bottom:0}
+.mtm a,.mnote .nbody a,.beat .fine a{display:inline-block}
+.mtm a{padding:15px 4px;margin:-15px -4px}
+.mnote .nbody a{position:relative;z-index:1;padding:8px 0;margin:-8px 0}
+.beat .fine a{padding:14px 0;margin:-14px 0}
+@media (max-width:760px){#story .mrail{row-gap:12px}.ps-chips{row-gap:16px}}
+/* FO-P2-01: no wide empty bands around the Up next card on phones (40px above, 48px below with the
+   footer's own 32px from assets/fo-chrome.js) */
+@media (max-width:600px){main>section:has(+ .sec.tight.pnx){padding-bottom:24px}.sec.tight.pnx{padding-top:16px;padding-bottom:16px}}
+/* FO-P2-03: one focus ring, 3px pink, on the hero phone's tabs and the pricing chips too
+   (the chrome's Pause button gets the same 3px inside assets/fo-chrome.js) */
+.mtb button:focus-visible,.ps-chips a:focus-visible{outline:3px solid var(--pink,#FA1896);outline-offset:3px}
