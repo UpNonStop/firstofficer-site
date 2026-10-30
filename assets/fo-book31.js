@@ -24,7 +24,7 @@
     [].forEach.call(ss.options,function(o){if(o.textContent===lab)ss.value=o.value||o.textContent})}
   var exact=sp>0?'$'+sp.toLocaleString('en-US')+' a month':'';
   /* the email door carries what arrived with the visitor: the trade, and the spend only when they set it */
-  var emd=document.querySelector('#doors .d-em a[href^="mailto:"]');
+  var emd=document.querySelector('#options .d-em a[href^="mailto:"]');
   if(emd&&(ind||sp>0))emd.href=MAIL+'?subject='+encodeURIComponent('Found Money Call request')+'&body='+encodeURIComponent('Industry: '+(ind||'')+'\nMonthly card spend: about '+(sp>0?'$'+sp.toLocaleString('en-US'):'$'));
 
   function lines(){var L=['First Officer Found Money Call request'];
