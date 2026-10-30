@@ -94,3 +94,126 @@
 #ffd .desk #deskcount:not(:empty){cursor:pointer}
 #ffd .desk #deskcount:not(:empty)::after{content:" ↓"}
 /* ---- /reaudit ---- */
+/* ---- prodfix (Oct 30 production audit) ---- */
+/* the headline font from this site (same v17 latin file as Google Fonts), preloaded in <head>: no late re-wrap of the hero headline */
+@font-face{font-family:"DM Serif Display";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/DMSerifDisplay-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* text shades: the same hues, a touch deeper, so small text reads at 4.5:1 on white and cream */
+html:root{--pinkd:#D90D7E;--earn:#117F4B;--learn:#1C73B0}
+.tmx li b{color:#117F4B}.pgl .brush,.pgl .kick,.pgl .fnm a{color:#1C73B0}.mrail a b,.mrail a.on b{color:#D90D7E!important}
+/* rails that scroll take focus (set by the chrome while they scroll); the ring shows where */
+.srail:focus-visible,.tsh:focus-visible,.cels:focus-visible,.tl90:focus-visible{outline:3px solid #FA1896;outline-offset:4px;border-radius:14px}
+/* the product tour after a pick: the tab stays marked, no countdown bar */
+.ttabs.held button.on::after{animation:none;width:100%}
+/* the calculator's small print sits in a dd that lays out exactly as the small did */
+dd.fo-sub{display:contents}
+/* paused: the slow zoom on the hero photos stops too */
+.fo-still .mbg i,.fo-still .rbg i{animation:none}
+/* where an 11px label met its neighbour: the strategy board's header and the calculator's fit gate keep each part whole */
+.sb-h{flex-wrap:wrap}.sb-h b,.sb-h small{white-space:nowrap}
+@media (max-width:480px){.sb-h small{flex-basis:100%;margin-left:16px}}
+.csh{gap:10px}.csh b{white-space:nowrap;flex:none}
+/* the logo is never on a tile (second audit P1-5): the trade pages' Freebies link and The App's door keep the chevron, not its tile */
+.freego .tile,.nugc .tile{background:transparent!important;box-shadow:none!important;border:0!important}
+.tdc .tic:has(img),.tdc.on .tic:has(img){background:transparent!important;box-shadow:none!important}
+/* the 11px floor (Oct 30 audit): labels the scan found under 11px, outside the phone mockups and the archived dispatch issues, at the widths where they were under */
+@media (max-width:760px){
+div.chw > div.chl > span.mpill,
+div.mwin > div.wp > small,
+div.mwin > div.ww > small.wlab,
+div.mwrap > div.mtop > span.mpill,
+div.phb > div.mlogos > span,
+div.phw > div.pht > span.mpill,
+div.wbars > div > span,
+div.wtrip > div > em,
+ul.wl > li > b{font-size:11px!important}}
+a.freego > span.tx > small,
+a.ucard > div > small,
+article.dk > div.dk-meta > span.chip.ex,
+article.dk.lastvis > div.dk-meta > span.chip.ex,
+article.dk.lead > div.dk-meta > span.chip.ex,
+div > div.bn > i,
+div > small > span.dst,
+div.ba > div.baf > span.wk,
+div.bkg > label > span,
+div.bkg > label.wide > span,
+div.bsw > i.bgt > span,
+div.cards > div.prc > small,
+div.cet > div.ceh > span,
+div.cgate > div.csh > b,
+div.cgate > div.csh > span,
+div.chead > div.cfee > small,
+div.chead > div.cfind > small,
+div.cin > div.clab.c2 > span,
+div.clab > span > label,
+div.cpick > div.cmix > span,
+div.cpick > div.cuse > span,
+div.cq.fit > div.bsx > span,
+div.cq.fit > div.cqh > span.wk,
+div.cstk > div.clab > span.rr,
+div.csum > div > small,
+div.fi > div.rh > span.pg,
+div.fi > div.rt > em.etag,
+div.fi > div.rt.serif > em.etag,
+div.ledger > div.lh > b,
+div.ledger > div.lh > span,
+div.ledger2 > div.lhead > b,
+div.ledger2 > div.lhead > span,
+div.ledger2 > div.lrow2 > span.status,
+div.ledger2 > div.lrow2 > span.status.a,
+div.ledger2 > div.lrow2 > span.status.g,
+div.lrow2 > div.card > small,
+div.mf > a.mf-c > small,
+div.mwin > div.wp > span.wk,
+div.mwin > div.ww > span.wk,
+div.mwrap > div.mdesk > p.dfine,
+div.nugs > div.nugc > span.n,
+div.panel.ink > div.ph > span.tag.d,
+div.phb > div.tdoors > span,
+div.pvs > a.pv.pv1 > b,
+div.pvs > a.pv.pv1 > i,
+div.pvs > a.pv.pv2 > b,
+div.pvs > a.pv.pv2 > i,
+div.pvs > a.pv.pv3 > b,
+div.pvs > a.pv.pv3 > i,
+div.sb-grid > div.sb-t > small,
+div.sboard > div.sb-grid > div.sb-t,
+div.sboard > div.sb-h > small,
+div.sboard > div.sb-read > small,
+div.spend > div.tot > span.est,
+div.st > p.stc > b.k-burn,
+div.st > p.stc > b.k-earn,
+div.st > p.stc > b.k-return,
+div.stg > div.sboard > p.sb-fine,
+div.tdg > div.tdc > span.tst,
+div.vault > a.feat > div.ft-k,
+div.ways > div > small,
+div.wc.mv > div.top > h5,
+div.wc.mv > div.top > span.tag.d,
+div.wc.sc > div.top > h5,
+div.wc.sc > div.top > span.tag.p,
+div.wc.sh > div.top > h5,
+div.wc.sh > div.top > span.tag,
+div.wtrip > div > small,
+dl.bk > div > dt,
+dl.bk > div.ret > dt,
+dl.casl > div > dt,
+dl.ckpi > div > dt,
+dl.ckpi > div.net > dt,
+dl.ckpi > div.ret > dt,
+figure > figcaption > em,
+nav.mrail > a > b,
+ol > li > span.chip.ex,
+ul.cw > li > span{font-size:11px!important}
+/* tap targets (Oct 30 audit): transparent hit areas of 44px on the small controls the scan found; nothing on screen moves */
+.tgl::before{content:"";position:absolute;left:-2px;right:-2px;top:-10px;bottom:-10px}
+.wnext{position:relative}
+.wnext::after{content:"";position:absolute;left:0;right:0;top:-2px;bottom:-2px}
+.ps-trh a,.ps-more,.ps-chips a{position:relative}
+.ps-trh a::after,.ps-more::after{content:"";position:absolute;left:0;right:0;top:-11px;bottom:-11px}
+.ps-chips a::after{content:"";position:absolute;left:0;right:0;top:-8px;bottom:-8px}
+#ffd .desk .dk .grab::after{content:"";position:absolute;left:0;right:0;top:-6px;bottom:-6px}
+#ffd .desk .readfirst summary{min-height:44px}
+/* links that stand on their own line: a taller hit area on the same line */
+.fnm a,.tnote a{padding:13px 0}
+.fcd li b>a{padding:8px 0}
+/* /prodfix ---- */

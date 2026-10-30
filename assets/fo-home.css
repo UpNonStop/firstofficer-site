@@ -85,7 +85,7 @@
 .wl li{flex-wrap:wrap}
 .wl li u{width:100%;height:4px;border-radius:2px;background:#ECEAEE;overflow:hidden;display:block;text-decoration:none;margin-top:-2px}
 .wl li u i{display:block;height:100%;background:var(--ink);opacity:.72;border-radius:2px}
-/* the desk strip: the specialists at work, under the hero grid on desktop, under the phone and the cards on phones */
+/* the desk strip: the programs at work, under the hero grid on desktop, under the phone and the cards on phones */
 .mh .mwrap{grid-template-rows:auto 1fr auto}
 .mdesk{grid-column:1/-1;grid-row:3;margin-top:28px;background:rgba(255,255,255,.58);border-radius:22px;padding:12px 14px 10px;box-shadow:0 0 0 1px rgba(20,18,22,.06),0 18px 40px -28px rgba(20,18,22,.35);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);overflow:hidden;min-height:132px}
 .dh{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;font-size:12.5px;line-height:1.3}

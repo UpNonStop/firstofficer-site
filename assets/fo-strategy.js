@@ -29,7 +29,7 @@ function run(){clear();cur=(cur+1)%P.length;var path=P[cur];if(lb)lb.textContent
   if(si===path.t.length-1){timers.push(setTimeout(function(){rd.querySelector('p').textContent=path.r;rd.classList.add('vis')},RM?0:260))}},si*step))});
  if(!RM){var amb=[];while(amb.length<6){var r=Math.floor(Math.random()*T.length);if(path.t.indexOf(r)<0&&amb.indexOf(r)<0)amb.push(r)}
   amb.forEach(function(ri,ai){timers.push(setTimeout(function(){if(!tiles[ri].classList.contains('on'))tiles[ri].classList.add('lit')},300+ai*240))});
-  timers.push(setTimeout(function(){if(live)run()},path.t.length*step+6200))}}
+  timers.push(setTimeout(function w(){if(!live)return;if(document.documentElement.classList.contains('fo-still')){timers.push(setTimeout(w,800));return}run()},path.t.length*step+6200))}}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!live){live=true;run()}else if(!e.isIntersecting&&live){live=false;clear()}})},{threshold:.25});
 io.observe(g);
 addEventListener('resize',function(){if(live){clear();run()}});

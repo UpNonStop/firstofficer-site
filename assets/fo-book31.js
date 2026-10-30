@@ -46,8 +46,10 @@
   function fallback(body){var wa=document.getElementById('bookwa'),em=document.getElementById('bookmail');
     if(wa)wa.href=WA+encodeURIComponent(body);if(em)em.href=MAIL+'?subject='+encodeURIComponent('Found Money Call request')+'&body='+encodeURIComponent(body)}
   /* sent: say so. Not sent (no endpoint yet): one tap left, and say that instead */
-  function finish(sent){f.hidden=true;if(!done)return;
-    if(!sent){var k=done.querySelector('.kick'),h=done.querySelector('h3'),p=done.querySelector('p');
+  function finish(sent){f.hidden=true;if(msg)msg.textContent='';if(!done)return;
+    var k=done.querySelector('.kick'),h=done.querySelector('h3'),p=done.querySelector('p');
+    if(sent){if(k)k.textContent='Got it';if(h)h.textContent='Your request is on its way.';if(p)p.textContent='We reply within one business day. If you would rather not wait, the same answers are ready to send right now:'}
+    if(!sent){
       if(k)k.textContent='One tap left';if(h)h.textContent='Send it, and it is on its way.';
       if(p)p.textContent='Your answers are already in the message. Send it on WhatsApp or by email, and the desk replies within one business day.'}
     done.hidden=false;done.scrollIntoView({block:'nearest'})}

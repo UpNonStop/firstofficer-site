@@ -329,7 +329,7 @@ em,i{font-style:normal}
 .pillchips span{height:34px;padding:0 14px;border-radius:999px;background:var(--ink);color:var(--cream);font-weight:700;font-size:13.5px;display:inline-flex;align-items:center;gap:8px}
 .pillchips span b{font-family:var(--mono);font-size:10px;color:var(--cream);font-weight:500}
 
-/* desk animation: no lines. specialists think, rise toward the chevron, light up, settle */
+/* desk animation: no lines. programs think, rise toward the chevron, light up, settle */
 .how{background:var(--ink);color:var(--cream);border-radius:40px;margin:0 16px;padding:110px 0}
 .howg{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center;margin-top:50px}
 .steps{list-style:none;display:flex;flex-direction:column;gap:6px;counter-reset:s}

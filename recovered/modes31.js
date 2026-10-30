@@ -58,14 +58,14 @@ function show(t,quiet){
 var T=['earn','burn','return','learn'],DUR=5200,timer=null,held=RM||Q.has('tab');
 if(RM)document.documentElement.classList.add('fo-still');
 function hold(){held=true;clearInterval(timer);$('.mtb').classList.add('held');$('.mstage').classList.add('tried')}
-function cycle(){if(held)return;timer=setInterval(function(){show(T[(T.indexOf(tab)+1)%4])},DUR)}
+function cycle(){if(held)return;timer=setInterval(function(){if(document.documentElement.classList.contains('fo-still'))return;show(T[(T.indexOf(tab)+1)%4])},DUR)}
 $$('.mtb button').forEach(function(b){b.addEventListener('click',function(){hold();show(b.dataset.t)})});
 $$('.wnext').forEach(function(nb){nb.addEventListener('click',function(){idx=idx%P.length+1;render();if(!held){clearInterval(timer);cycle()}})});
 render();clock();setTimeout(function(){clock();setInterval(clock,60000)},(60-new Date().getSeconds())*1000);
 if(held)$('.mtb').classList.add('held');cycle();
 /* ---- hero photos: low opacity, rotating ---- */
-var bg=$('.mbg'),N=[];for(var i=0;i<=30;i++)N.push(A+'img/rec/bg/'+(i<10?'0':'')+i+'.webp');
-var off=Math.floor(Math.random()*N.length),cur=0,els=[0,1].map(function(){var e=document.createElement('i');bg.insertBefore(e,bg.firstChild);return e});
+var bg=$('.mbg'),N=[],SFX=innerWidth<761?'-m':'';for(var i=0;i<=30;i++)N.push(A+'img/rec/bg/'+(i<10?'0':'')+i+SFX+'.webp');
+var off=window.FO_BG0?FO_BG0.k%N.length:Math.floor(Math.random()*N.length),cur=0,els=[0,1].map(function(){var e=document.createElement('i');bg.insertBefore(e,bg.firstChild);return e});
 els[0].style.backgroundImage='url('+N[off]+')';els[0].classList.add('on');
-if(!RM)setInterval(function(){var nx=els[1-cur];off=(off+1)%N.length;nx.style.backgroundImage='url('+N[off]+')';var im=new Image();im.onload=function(){nx.classList.add('on');els[cur].classList.remove('on');cur=1-cur};im.src=N[off]},5200);
+if(!RM)setInterval(function(){if(document.documentElement.classList.contains('fo-still'))return;var nx=els[1-cur];off=(off+1)%N.length;nx.style.backgroundImage='url('+N[off]+')';var im=new Image();im.onload=function(){nx.classList.add('on');els[cur].classList.remove('on');cur=1-cur};im.src=N[off]},5200);
 })();
