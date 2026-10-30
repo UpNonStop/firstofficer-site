@@ -74,7 +74,7 @@
 #fo-header{display:block;min-height:92px}
 @media (min-width:901px){#fo-header{min-height:100px}}
 /* phones: on home the button row sits under the headline, before the phone */
-@media (max-width:600px){.mh .mwrap{display:flex;flex-direction:column;align-items:stretch}.mh .mwrap>*,.mh .mrest>*{min-width:0}.mh .mrest{display:contents}.mh .mtop{order:-2}.mh #mctas{order:-1;margin-top:18px}.mh .mrest>.mlab{margin-top:18px}}
+@media (max-width:600px){.mh .mwrap{display:flex;flex-direction:column;align-items:stretch}.mh .mwrap>*,.mh .mrest>*{min-width:0}.mh .mrest{display:contents}.mh #mctas{margin-top:18px}.mh .mrest>.mlab{margin-top:18px}}
 /* less air above the footer */
 .sec.tight.pnx{padding-bottom:32px}
 /* Book: the sections closer together */

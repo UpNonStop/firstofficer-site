@@ -536,3 +536,34 @@ html{scroll-padding-top:16px}
 @keyframes zwk{from{transform:scaleY(0)}}
 @media (prefers-reduced-motion:reduce){.mpane.on .zwkb i{animation:none}}
 .fo-still .mpane.on .zwkb i{animation:none}
+/* Home hero (FO-P1-02): the bubbles (#mctas) come right after the title in the source, so focus order
+   matches what you see on phones. Phones up to 760px show them before the demo (as on the other heroes);
+   from 761px the left column is placed piece by piece so desktop looks exactly as before.
+   Scoped to #top (the home hero) so it outranks the .mh rules in fo-home.css, which loads later. */
+@media (max-width:760px) and (min-width:601px){
+ #top .mwrap{grid-template-rows:auto auto auto auto auto}
+ #top #mctas{grid-column:1/-1;grid-row:2;margin:6px 0 18px}
+ #top .mstage,#top .mwin{grid-row:3}
+ #top .mrest{grid-row:4}
+ #top .mdesk{grid-row:5}
+}
+@media (min-width:761px){
+ #top .mrest{display:contents}
+ #top .mrest>*{grid-column:1}
+ #top .mrest>.mlab,#top .mrest>.msub{grid-row:2}
+ #top .mrest>.mtag{grid-row:3}
+ #top #mctas{grid-column:1;grid-row:4}
+ #top .mrest>.mlogos{grid-row:5}
+ #top .mrest>.mtm{grid-row:6}
+ #top .mstage{grid-row:1/7}
+}
+@media (min-width:1241px){
+ #top .mwrap{grid-template-rows:auto auto auto auto auto 1fr auto}
+ #top .mwin{grid-row:1/7}
+ #top .mdesk{grid-row:7}
+}
+@media (max-width:1240px) and (min-width:761px){
+ #top .mwrap{grid-template-rows:auto auto auto auto auto 1fr auto auto}
+ #top .mwin{grid-row:7}
+ #top .mdesk{grid-row:8}
+}
