@@ -95,11 +95,11 @@
     var days=d.days.length?'on '+list(d.days):'',times=d.times.length?list(d.times.map(function(t){return t.split(',')[0].toLowerCase()})):'';
     var parts=[days,times].filter(Boolean).join(', ');
     return 'We will call '+d.phone+' '+(parts?parts+', ':'at a time that suits you, ')+tzLabel(d.tz)+' time. We confirm it first by '+(d.confirm_by||'text message').toLowerCase()+'.'}
-  function bodyText(d){var L=['First Officer callback request','Name: '+d.first_name+(d.last_name?' '+d.last_name:''),'Business: '+d.business,'Phone: '+d.phone,'Email: '+d.email,'Time zone: '+tzLabel(d.tz)];
+  function bodyText(d){var L=['Found Money Call application','Name: '+d.first_name+(d.last_name?' '+d.last_name:''),'Business: '+d.business,'Phone: '+d.phone,'Email: '+d.email,'Time zone: '+tzLabel(d.tz)];
     if(d.days.length)L.push('Days: '+d.days.join(', '));if(d.times.length)L.push('Time: '+d.times.join('; '));
     if(d.industry)L.push('Industry: '+d.industry);if(d.spend)L.push('Card spend a month: '+d.spend);if(d.notes)L.push('Notes: '+d.notes);
     return L.join('\n')}
-  function mailText(d){return 'mailto:desk@upnonstop.com?subject='+encodeURIComponent('Callback request: '+d.first_name+', '+d.business)+'&body='+encodeURIComponent(bodyText(d))}
+  function mailText(d){return 'mailto:desk@upnonstop.com?subject='+encodeURIComponent('Found Money Call application: '+d.first_name+', '+d.business)+'&body='+encodeURIComponent(bodyText(d))}
   function fallback(d,lead){msg.textContent=lead;
     var m=document.createElement('a');m.href=mailText(d);m.textContent='Send them by email';msg.appendChild(m);msg.appendChild(document.createTextNode('.'))}
   function set(k,v){[].forEach.call(done.querySelectorAll('[data-cb="'+k+'"]'),function(e){e.textContent=v})}
