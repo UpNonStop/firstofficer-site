@@ -26,7 +26,7 @@ if(!phones.length)return;
 
 function Thread(el,lag){
   var th=el.querySelector('.cv-th'),sr=el.querySelector('.cv-sr'),qs=$$('.cv-q',el),ch=el.getAttribute('data-ch');
-  var next=1,timers=[],held=false,vis=false,busy=false,started=false;
+  var next=2,timers=[],held=false,vis=false,busy=false,started=false;
   function later(fn,ms){var t=setTimeout(function(){timers=timers.filter(function(x){return x!==t});fn()},ms);timers.push(t)}
   function cancel(){timers.forEach(clearTimeout);timers=[];busy=false}
   function stamp(){return ch==='wa'?'<i class="cv-t">'+clock()+'</i>':''}

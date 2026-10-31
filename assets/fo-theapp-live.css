@@ -51,6 +51,8 @@
 .ta-oc[data-cv="im"] li::before{background:#0A84FF}
 .ta-cvw .ta-ph{max-width:262px}
 .ta-cvw .ta-sc{container-type:inline-size;background:#FAF6EE}
+/* the page frames its screenshots by placing every img in the screen; these screens are drawn, so their small images stay in place */
+.ta-cvw .ta-sc .cv img{position:static;left:auto;top:auto;max-width:none;display:block}
 
 /* one conversation screen */
 .cv{position:absolute;inset:0;display:flex;flex-direction:column;font-family:'DM Sans',system-ui,sans-serif;color:#141216;-webkit-font-smoothing:antialiased}
