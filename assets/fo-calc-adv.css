@@ -178,8 +178,10 @@
 /* pink type on beige */
 .calc .xnote a,.calc .cq .xpin a,.calc .xmini a,.calc .cq .wfine a,.calc .cv a,.calc .bverd a,.calc .xtr .d{color:#B80F6E}
 
-/* at 320 the 19px "Go advanced" pill ran past the Basic card's edge: the card head wraps instead */
-@media (max-width:360px){.calc .cq .cqh{flex-wrap:wrap;row-gap:10px}}
+/* the 19px "Go advanced" pill ran past the Basic card's edge on phones (320, and 375 to 430 too: at 390 it stuck out 17px past the
+   card): the card head wraps whenever the two don't fit, so the pill drops under "Does it clear the fee?" on every phone and sits
+   beside it wherever there is room */
+.calc .cq .cqh{flex-wrap:wrap;row-gap:10px}
 
 /* 44px controls at every width, tablets included (phones already had them): Watch it run, the "Your cards today" and "Valued at" choices,
    the group actions and the two jump links */
