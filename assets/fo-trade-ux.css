@@ -1,0 +1,73 @@
+/* fo-trade-ux.css: the 20 trade pages, one tight rhythm and a phone-first pass.
+   Ohad, 31 Oct: "all industry pages are not sophisticated enough. and too much space between sections ... can't even fathom how
+   terrible is the mobile version". Loaded last on every for-*.html; every rule is scoped to body.pgi (the trade pages' body class). */
+
+/* ---- 1. Rhythm. Sections ran 120px top and bottom, about 250px between one section's words and the next. Now the site's one rhythm
+   (fo-polish.css gives every other page the same): 56px each side on desktop, about 112px between sections; 44 on tablets; 32 on
+   phones, whatever inline padding a section carried. ---- */
+body.pgi main>section.sec:not(.pnx):not(.tight){padding-top:56px!important;padding-bottom:56px!important}
+body.pgi main>section.sec#example{padding-top:64px!important}
+@media (max-width:1023px){body.pgi main>section.sec:not(.pnx):not(.tight){padding-top:44px!important;padding-bottom:44px!important}}
+@media (max-width:600px){body.pgi main>section.sec:not(.pnx):not(.tight){padding-top:32px!important;padding-bottom:32px!important}}
+@media (max-width:760px){body.pgi main>section.sec#example{padding-top:40px!important}}
+/* the hero hands over to the example sooner (it ended on 70px of air, 44 on phones) */
+body.pgi #mh.ph{padding-bottom:32px!important}
+@media (max-width:760px){body.pgi #mh.ph{padding-bottom:20px!important}}
+/* the "Get your desk." strip sits close to the steps above it */
+body.pgi main>section.sec.tight:not(.pnx){padding-top:8px!important}
+
+/* ---- 2. Inside a section: one gap from the words to what they introduce (32px, 24 on phones) ---- */
+body.pgi main>section>.wrap>.reveal:has(>.h2)+*{margin-top:32px!important}
+body.pgi .itiles+.reveal{margin-top:56px!important}
+body.pgi .nugs{margin-top:28px!important}
+body.pgi .freego{margin-top:14px!important}
+body.pgi #desk .cap2{margin-top:14px!important}
+@media (max-width:760px){
+  body.pgi main>section>.wrap>.reveal:has(>.h2)+*{margin-top:24px!important}
+  body.pgi .itiles+.reveal{margin-top:40px!important}
+  body.pgi .nugs{margin-top:20px!important}
+}
+
+/* ---- 3. The four facts read as one band, not four loose tiles ---- */
+body.pgi .itiles{margin-top:0;gap:12px}
+@media (max-width:760px){body.pgi .itiles{gap:8px}body.pgi .itiles div{padding:14px 14px 12px}body.pgi .itiles b{font-size:27px}}
+
+/* ---- 4. The codes ledger: "usually supply house" reads as one line, so each row is one line tall on desktop and about half the
+   height it was on phones ---- */
+body.pgi .ledger .who b{display:inline}
+@media (min-width:761px){body.pgi .ledger .row{padding-top:12px;padding-bottom:12px}}
+@media (max-width:760px){
+  body.pgi .ledger .lh{padding:12px 14px;flex-wrap:wrap;gap:4px 12px}
+  body.pgi .ledger .row{grid-template-columns:54px minmax(0,1fr);gap:2px 12px;padding:10px 14px}
+  body.pgi .ledger .code{font-size:12px;padding:5px 4px;grid-row:1/3;align-self:center}
+  body.pgi .ledger .cat{font-size:14.5px;line-height:1.3;font-weight:600}
+  body.pgi .ledger .who{display:block;font-size:13.5px;line-height:1.35;color:var(--mute,#6E6776)}
+  body.pgi .ledger .who b{display:inline;font-size:13.5px;font-weight:700;color:var(--ink,#141216)}
+}
+
+/* ---- 5. Other trades: the plain chips become the trades themselves, each its own photo, emoji and name, as on Industries ---- */
+body.pgi .ttiles{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:12px}
+body.pgi .tt{position:relative;display:block;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:#EAE0CE;text-decoration:none;color:#fff;
+  box-shadow:0 0 0 1px rgba(110,80,40,.15),0 14px 28px -18px rgba(80,55,20,.45);transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s}
+body.pgi .tt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+body.pgi .tt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,22,0) 34%,rgba(20,18,22,.82))}
+body.pgi .tt .ttn{position:absolute;left:10px;right:8px;bottom:9px;z-index:1;font-weight:700;font-size:13.5px;line-height:1.2;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+body.pgi .tt .ttn i{display:block;font-size:19px;line-height:1;margin-bottom:5px;text-shadow:none}
+body.pgi .tt:hover,body.pgi .tt:focus-visible{transform:translateY(-3px);box-shadow:0 0 0 2px #FA1896,0 18px 32px -18px rgba(250,24,150,.55)}
+body.pgi .tt:hover img{transform:scale(1.06)}
+body.pgi .tt.all{display:grid;place-items:center;background:#F3ECDF;color:#141216;text-align:center}
+body.pgi .tt.all::after{content:none}
+body.pgi .tt.all .ttn{position:static;color:#141216;text-shadow:none;padding:0 10px;font-size:14px}
+@media (max-width:1299px){body.pgi .tt .ttn{font-size:12.5px;left:8px}}
+/* below 1180px the twenty sit in one row to swipe, so they never stack into four rows of photos or squeeze their names */
+@media (max-width:1179px){
+  body.pgi .ttiles{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-left:-28px;margin-right:-28px;padding:2px 28px 10px;scrollbar-width:none;overscroll-behavior-x:contain}
+  body.pgi .ttiles::-webkit-scrollbar{display:none}
+  body.pgi .tt{flex:0 0 136px;aspect-ratio:1/1;scroll-snap-align:start}
+  body.pgi .tt .ttn{font-size:13.5px;left:10px}
+}
+@media (max-width:760px){body.pgi .ttiles{margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px}body.pgi .tt{flex-basis:132px}}
+@media (prefers-reduced-motion:reduce){body.pgi .tt,body.pgi .tt img{transition:none}body.pgi .tt:hover{transform:none}body.pgi .tt:hover img{transform:none}}
+
+/* ---- 6. Golden nugget cards: the title stops short of the card's number in the corner (at 360px some ran under it) ---- */
+body.pgi .nugc h3{padding-right:30px}

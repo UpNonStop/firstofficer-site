@@ -98,3 +98,11 @@
   .ind2 .ocq{font-size:18px}
   .ind2 .ocr{margin-top:14px;justify-content:flex-start}
 }
+
+/* One rhythm with the trade pages (Ohad, 31 Oct: "too much space between sections"): about 112px between one section's words and the
+   next on desktop, 64 on phones, and the hero hands over sooner */
+.ind2 main>.sec.pgs{padding:56px 0}
+.ind2 #mh.ph{padding-bottom:32px}
+@media (max-width:1023px){.ind2 main>.sec.pgs{padding:44px 0}}
+@media (max-width:760px){.ind2 #mh.ph{padding-bottom:20px}}
+@media (max-width:600px){.ind2 main>.sec.pgs{padding:32px 0}}
