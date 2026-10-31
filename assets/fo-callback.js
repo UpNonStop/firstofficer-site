@@ -1,12 +1,12 @@
-/* "Call me back" on book.html (option four). The card's button opens the form in place, no overlay.
+/* "Call me back" on book.html (option four). The form sits on the page; the card's button scrolls to it.
    On send, the answers and a short technical note go to the desk's Google Apps Script web app, which adds a row to the
    Google Sheet "First Officer - Call-me-back requests" and emails the desk every detail (backend/apps-script/, DEPLOY.md there).
    With Do Not Track or Global Privacy Control on, the technical note is cut to the page, time zone and language.
    No answer from this form ever goes to Google Analytics: GA gets only the event name, the trade and a spend band.
-   If the endpoint is not set yet, or cannot be reached, the same answers are ready to send on WhatsApp or by email,
-   so nothing typed is lost. */
+   If the endpoint is not set yet, or cannot be reached, the same answers are ready to send by email in one tap,
+   so nothing typed is lost (Ohad, 31 Oct: no WhatsApp hand-off on this form). */
 (function(){
-  /* The one setting: the Apps Script web app URL (Deploy > Web app, ends in /exec). Empty = WhatsApp and email only. */
+  /* The one setting: the Apps Script web app URL (Deploy > Web app, ends in /exec). Empty = the email hand-off only. */
   var CALLBACK_ENDPOINT='https://script.google.com/macros/s/AKfycbxwvezX9s-79MevLMxzt_v6t7BRVEnvE3eMovBqiLOkETxt_sDivR5EUdpLd0dfEt5n/exec';
   var sec=document.getElementById('callback'),f=document.getElementById('cbform'),done=document.getElementById('cbdone');
   if(!sec||!f)return;
@@ -22,14 +22,15 @@
 
   /* ---- open in place ---- */
   function open(focus){
-    if(sec.hidden){sec.hidden=false;openedAt=Date.now();ga('callback_open',{page_path:location.pathname})}
+    if(sec.hidden)sec.hidden=false;
+    if(!openedAt){openedAt=Date.now();ga('callback_open',{page_path:location.pathname})}
     openers.forEach(function(a){a.setAttribute('aria-expanded','true')});
     sec.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
     if(focus!==false){var first=q('first_name');if(first)setTimeout(function(){try{first.focus({preventScroll:true})}catch(e){first.focus()}},reduce?0:420)}
   }
   openers.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();open();try{history.replaceState(null,'','#callback')}catch(err){}})});
   if(location.hash==='#callback')open(false);
-  f.addEventListener('focusin',function(){if(!firstInput)firstInput=Date.now()});
+  f.addEventListener('focusin',function(){if(!firstInput)firstInput=Date.now();if(!openedAt){openedAt=Date.now();ga('callback_open',{page_path:location.pathname})}});
 
   /* ---- what the visitor brought with them ---- */
   var tzSel=q('tz');
@@ -45,10 +46,13 @@
     if(pick&&tzSel&&!tzSel.value)tzSel.value=pick}catch(e){}
   var sp=new URLSearchParams(location.search);
   var ind=(sp.get('industry')||'').replace(/[^\w &,.-]/g,'').slice(0,40).trim().toLowerCase();
-  var si=q('industry');if(ind&&si)[].forEach.call(si.options,function(o){if(o.textContent.trim().toLowerCase()===ind)si.value=o.value||o.textContent});
+  var ALIAS={'dental practice':'dental','marketing agency':'agencies','agency':'agencies','contractor':'contractors','cpa firms':'cpa firm','law firms':'law firm','restaurants':'restaurant','salons':'salon','it services':'it and msp','ecommerce':'e-commerce'};
+  var si=q('industry');if(ind&&si){var want=ALIAS[ind]||ind;[].forEach.call(si.options,function(o){if(o.textContent.trim().toLowerCase()===want)si.value=o.value||o.textContent})}
   var n=parseInt((sp.get('spend')||'').replace(/[^0-9]/g,''),10),ss=q('spend');
   if(n>0&&ss){var lab=n<10000?'Under $10K':n<25000?'$10K to $25K':n<50000?'$25K to $50K':n<=100000?'$50K to $100K':n<=250000?'$100K to $250K':n<=1000000?'$250K to $1M':'Over $1M';
     [].forEach.call(ss.options,function(o){if(o.textContent===lab)ss.value=o.value||o.textContent})}
+  var em=document.querySelector('#options .d-em a[href^="mailto:"]');
+  if(em&&(ind||n>0))em.href='mailto:desk@upnonstop.com?subject='+encodeURIComponent('Found Money Call request')+'&body='+encodeURIComponent('Industry: '+(si&&si.value?si.value:ind)+'\nMonthly card spend: '+(n>0?'about $'+n.toLocaleString('en-US'):''));
 
   /* ---- the technical note ---- */
   function cookie(k){var m=document.cookie.match(new RegExp('(?:^|; )'+k+'=([^;]*)'));return m?decodeURIComponent(m[1]):''}
@@ -91,15 +95,13 @@
     var days=d.days.length?'on '+list(d.days):'',times=d.times.length?list(d.times.map(function(t){return t.split(',')[0].toLowerCase()})):'';
     var parts=[days,times].filter(Boolean).join(', ');
     return 'We will call '+d.phone+' '+(parts?parts+', ':'at a time that suits you, ')+tzLabel(d.tz)+' time. We confirm it first by '+(d.confirm_by||'text message').toLowerCase()+'.'}
-  function waText(d){var L=['First Officer callback request','Name: '+d.first_name+(d.last_name?' '+d.last_name:''),'Business: '+d.business,'Phone: '+d.phone,'Email: '+d.email,'Time zone: '+tzLabel(d.tz)];
+  function bodyText(d){var L=['First Officer callback request','Name: '+d.first_name+(d.last_name?' '+d.last_name:''),'Business: '+d.business,'Phone: '+d.phone,'Email: '+d.email,'Time zone: '+tzLabel(d.tz)];
     if(d.days.length)L.push('Days: '+d.days.join(', '));if(d.times.length)L.push('Time: '+d.times.join('; '));
     if(d.industry)L.push('Industry: '+d.industry);if(d.spend)L.push('Card spend a month: '+d.spend);if(d.notes)L.push('Notes: '+d.notes);
-    return 'https://wa.me/16199404040?text='+encodeURIComponent(L.join('\n'))}
-  function mailText(d){var u=decodeURIComponent(waText(d).split('?text=')[1]);return 'mailto:desk@upnonstop.com?subject='+encodeURIComponent('Callback request: '+d.first_name+', '+d.business)+'&body='+encodeURIComponent(u)}
+    return L.join('\n')}
+  function mailText(d){return 'mailto:desk@upnonstop.com?subject='+encodeURIComponent('Callback request: '+d.first_name+', '+d.business)+'&body='+encodeURIComponent(bodyText(d))}
   function fallback(d,lead){msg.textContent=lead;
-    var a=document.createElement('a');a.href=waText(d);a.target='_blank';a.rel='noopener';a.textContent='💬 Send on WhatsApp';msg.appendChild(a);
-    msg.appendChild(document.createTextNode(' or '));
-    var m=document.createElement('a');m.href=mailText(d);m.textContent='✉️ send by email';msg.appendChild(m);msg.appendChild(document.createTextNode('.'))}
+    var m=document.createElement('a');m.href=mailText(d);m.textContent='Send them by email';msg.appendChild(m);msg.appendChild(document.createTextNode('.'))}
   function set(k,v){[].forEach.call(done.querySelectorAll('[data-cb="'+k+'"]'),function(e){e.textContent=v})}
   var BAND={'Under $10K':'under 10K','$10K to $25K':'10K to 25K','$25K to $50K':'25K to 50K','$50K to $100K':'50K to 100K','$100K to $250K':'100K to 250K','$250K to $1M':'250K and up','Over $1M':'250K and up'};
 
@@ -110,7 +112,7 @@
       cards:all('cards'),spend_lines:all('spend_lines'),goals:all('goals'),trip:val('trip'),notes:val('notes'),heard:val('heard'),
       consent:true,consent_text:(f.querySelector('.cbconsent span')||{}).textContent||'',company_site:val('company_site'),
       fill_ms:Date.now()-(firstInput||openedAt||loadedAt),meta:meta()};
-    if(!CALLBACK_ENDPOINT){fallback(d,'One tap to send these answers to the desk: ');ga('callback_handoff',{page_path:location.pathname});return}
+    if(!CALLBACK_ENDPOINT){fallback(d,'One tap sends these answers to the desk: ');ga('callback_handoff',{page_path:location.pathname});return}
     sending=true;btn.disabled=true;btn.setAttribute('aria-busy','true');msg.textContent='Sending...';
     /* text/plain and no-cors: a "simple" request, so the browser sends it straight to Apps Script with no preflight.
        The reply cannot be read (opaque), so a request that leaves the browser counts as sent; only a network failure falls back. */

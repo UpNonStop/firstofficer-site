@@ -17,8 +17,8 @@ https://docs.google.com/spreadsheets/d/1g1ZqWfkf8WnenG7cFe5yWhRMgCaVLnCFnFhhutm2
    Check it: open the URL in a browser; it should show `{"ok":true,"service":"First Officer call-me-back",...}`.
 5. **Put the URL in the site.** In `assets/fo-callback.js` on PR #41 (branch fix/book-callback-rebased-2026-10-31), set
    `var CALLBACK_ENDPOINT='https://script.google.com/macros/s/.../exec';` (line 9), commit, and merge #41 when you are ready
-   (or send the URL to Grok Bot and it will commit it to the branch). Until it is set, the form still works: its Send button
-   hands the same answers to WhatsApp or email instead.
+   (or paste the URL to Claude and it commits it). Until it is set, the form still works: its Send button
+   hands the same answers to email instead.
 
 **Trying it safely:** put `TEST` at the start of the first name or the business name. That request is written to the
 sheet with `TEST` in the Status column and sends no email. Delete TEST rows whenever you like.
