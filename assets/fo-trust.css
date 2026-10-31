@@ -1,0 +1,118 @@
+/* Trust (Ohad, 31 Oct): Leo's file start to finish, what the desk does and never does, five commitments,
+   the three ways in, straight answers. Loaded by trust.html only, after fo-polish.css. Phone first.
+   White cards on the beige page, one pink primary per section, no bands, no pastels, no dark blocks. */
+.trp{--tl-line:#E3DCE6;--tl-card:var(--card,0 0 0 1px rgba(20,18,22,.08),0 22px 44px -30px rgba(20,18,22,.42));--tl-mute:#5E5766}
+
+/* ---------- rhythm: tighter than the shared sections ---------- */
+.trp main>.sec.pgs{padding:36px 0}
+.trp .mh.ph{padding-bottom:28px}
+.trp .trs .h2{font-size:clamp(34px,8.6vw,58px);margin-top:14px}
+.trp .trs .lede{margin-top:14px;max-width:640px}
+@media (min-width:980px){
+  .trp main>.sec.pgs{padding:56px 0}
+  .trp .mh.ph{padding-bottom:40px}
+  .trp .trs .h2{font-size:clamp(44px,4.4vw,58px)}
+}
+
+/* ---------- hero: the access levels as one product card ---------- */
+.trp .trx{background:#fff;border-radius:22px;box-shadow:var(--tl-card);padding:12px 14px 6px}
+.trp .trx-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font:600 11px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--tl-mute);padding:4px 4px 10px}
+.trp .trx-top b{display:inline-flex;align-items:center;gap:8px;color:var(--ink);font-weight:600}
+.trp .trx-top b i{width:8px;height:8px;border-radius:50%;background:var(--earn);box-shadow:0 0 0 4px rgba(16,123,73,.16)}
+.trp .trx .lvl{gap:0;border-top:1px solid var(--tl-line)}
+.trp .trx .lv{background:none!important;box-shadow:none!important;border:0!important;border-radius:0!important;padding:13px 6px 13px 18px!important;position:relative;border-bottom:1px solid var(--tl-line)!important}
+.trp .trx .lv:last-child{border-bottom:0!important}
+.trp .trx .lv::before{content:"";position:absolute;left:4px;top:15px;bottom:15px;width:3px;border-radius:2px;background:var(--c,var(--earn))}
+.trp .trx .lv .chk{font:700 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.trp .trx .lv b{font:700 17px/1.25 var(--sans);color:var(--ink);margin:6px 0 3px}
+.trp .trx .lv p{font:400 14.5px/1.45 var(--sans);color:var(--body)}
+
+/* ---------- 01 · Leo's file, start to finish ---------- */
+.trp .tsteps{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px;position:relative}
+.trp .tsteps::before{content:"";position:absolute;left:12px;top:10px;bottom:10px;width:2px;background:var(--tl-line)}
+.trp .tst{position:relative;margin-left:34px;background:#fff;border-radius:18px;box-shadow:var(--tl-card);padding:16px 16px 14px;display:flex;flex-direction:column;min-width:0}
+.trp .tst::before{content:"";position:absolute;left:-29px;top:19px;width:14px;height:14px;border-radius:4px;background:var(--pk,#FA1896);box-shadow:0 0 0 4px var(--cream,#FAF6EE)}
+.trp .tst-k{display:flex;align-items:center;gap:8px;font:700 11.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--pks,#D90D7E)}
+.trp .tst-k .n{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;background:var(--pks,#D90D7E);color:#fff;font:700 11px/1 var(--mono);letter-spacing:0}
+.trp .tst h3{font:400 24px/1.1 var(--serif);letter-spacing:-.01em;color:var(--ink);margin:12px 0 0}
+.trp .tst>p{font:400 15.5px/1.5 var(--sans);color:var(--body);margin:7px 0 14px}
+.trp .tpn{margin-top:auto;background:var(--cream,#FAF6EE);border-radius:14px;padding:11px 12px;box-shadow:inset 0 0 0 1px rgba(20,18,22,.07)}
+.trp .tpn .key{display:flex;align-items:center;flex-wrap:wrap;gap:6px 8px;font:600 10.5px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--tl-mute)}
+.trp .tpn .key i{width:9px;height:9px;border-radius:3px;background:#BB4401;flex:none}
+.trp .tpn.fri .key i{background:#7149C9}
+.trp .tpn .key em{margin-left:auto;font:600 10px/1 var(--mono);font-style:normal;letter-spacing:.08em;color:var(--tl-mute);background:#fff;border-radius:5px;padding:4px 6px;box-shadow:inset 0 0 0 1px rgba(20,18,22,.08)}
+.trp .tpn>b{display:block;font:400 36px/1 var(--serif);letter-spacing:-.01em;color:var(--ink);margin:8px 0 3px}
+.trp .tpn .val{display:block;font:500 13.5px/1.4 var(--sans);color:var(--body)}
+.trp .tpn.acc>div{display:grid;grid-template-columns:20px auto minmax(0,1fr);align-items:center;gap:8px;padding:7px 0}
+.trp .tpn.acc>div::before{content:"\2713";width:20px;height:20px;border-radius:5px;display:grid;place-items:center;font:700 11px/1 var(--sans);color:#fff;background:var(--earn)}
+.trp .tpn.acc>.no{border-top:1px dashed #DDD5E0}
+.trp .tpn.acc>.no::before{content:"\2715";background:var(--tl-mute)}
+.trp .tpn.acc span{font:600 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--tl-mute)}
+.trp .tpn.acc b{font:600 13.5px/1.3 var(--sans);color:var(--ink);text-align:right}
+.trp .tpn.tck ul{list-style:none;margin:0 0 10px;padding:0;display:grid;gap:7px}
+.trp .tpn.tck li{position:relative;padding-left:28px;font:500 13.5px/1.4 var(--sans);color:var(--ink)}
+.trp .tpn.tck li::before{content:"\2713";position:absolute;left:0;top:-1px;width:20px;height:20px;border-radius:5px;display:grid;place-items:center;font:700 11px/1 var(--sans);color:#fff;background:var(--earn)}
+.trp .tpn .stamp{display:inline-block;font:700 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--pks,#D90D7E);border:2px solid var(--pks,#D90D7E);border-radius:8px;padding:7px 9px;transform:rotate(-2deg);background:#fff}
+.trp .tpn.msg{display:flex;flex-direction:column;gap:9px}
+.trp .tpn.msg .bub{align-self:flex-end;margin:0;background:var(--pk,#FA1896);color:#fff;font:700 19px/1.25 var(--sans);border-radius:16px;border-top-right-radius:6px;padding:10px 14px;box-shadow:0 10px 22px -12px rgba(250,24,150,.75)}
+.trp .tpn .okl{display:flex;align-items:center;gap:8px;font:600 13.5px/1.35 var(--sans);color:#0B6B3F}
+.trp .tpn .okl::before{content:"\2713";width:20px;height:20px;border-radius:5px;display:grid;place-items:center;flex:none;font:700 11px/1 var(--sans);color:#fff;background:var(--earn)}
+@media (min-width:700px){
+  .trp .tsteps{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .trp .tsteps::before,.trp .tst::before{display:none}
+  .trp .tst{margin-left:0}
+}
+@media (min-width:1180px){
+  .trp .tsteps{grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;padding-top:34px;margin-top:40px;align-items:stretch}
+  .trp .tsteps::before{display:block;left:8px;right:8px;top:7px;bottom:auto;width:auto;height:2px;background:var(--pk,#FA1896)}
+  .trp .tst::before{display:block;left:16px;top:-34px}
+  .trp .tst h3{font-size:23px;min-height:2.2em}
+  .trp .tst>p{font-size:15px}
+}
+.trp .tcta{display:flex;justify-content:center;margin:26px 0 0}
+.trp .tcta .btn{max-width:100%}
+.trp .tfine{font:400 12.5px/1.5 var(--sans);color:var(--tl-mute);text-align:center;max-width:720px;margin:18px auto 0}
+
+/* ---------- 02 · what the desk does, and never does ---------- */
+.trp .tdd{display:grid;gap:14px;margin-top:28px}
+.trp .tdd-c{background:#fff;border-radius:20px;box-shadow:var(--tl-card);padding:18px 18px 6px;border-top:4px solid var(--earn);min-width:0}
+.trp .tdd-c.dont{border-top-color:var(--ink)}
+.trp .tdd-k{display:flex;align-items:center;gap:9px;font:700 12px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--earn)}
+.trp .tdd-k i{width:10px;height:10px;border-radius:3px;background:currentColor}
+.trp .tdd-c.dont .tdd-k{color:var(--ink)}
+.trp .tdd-c ul{list-style:none;margin:12px 0 0;padding:0}
+.trp .tdd-c li{position:relative;padding:12px 0 12px 34px;border-top:1px solid var(--tl-line);font:500 16px/1.45 var(--sans);color:var(--ink)}
+.trp .tdd-c li::before{content:"\2713";position:absolute;left:0;top:12px;width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font:700 12px/1 var(--sans);color:#fff;background:var(--earn)}
+.trp .tdd-c.dont li::before{content:"\2715";background:var(--ink)}
+@media (min-width:820px){.trp .tdd{grid-template-columns:1fr 1fr;gap:18px}.trp .tdd-c{padding:22px 24px 8px}}
+
+/* ---------- 03 · five commitments ---------- */
+.trp .trl{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:12px}
+.trp .trl>li{background:#fff;border-radius:18px;box-shadow:var(--tl-card);padding:18px;display:flex;flex-direction:column;min-width:0}
+.trp .trl-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.trp .trl .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;box-shadow:inset 0 0 0 1.5px rgba(217,13,126,.5);color:var(--pks,#D90D7E);background:#fff}
+.trp .trl .ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.trp .trl-n{font:600 12px/1 var(--mono);letter-spacing:.08em;color:var(--tl-mute)}
+.trp .trl h3{font:400 27px/1.08 var(--serif);letter-spacing:-.01em;color:var(--ink);margin:14px 0 0}
+.trp .trl li>p{font:400 15.5px/1.5 var(--sans);color:var(--body);margin:8px 0 0}
+.trp .trl-cta{box-shadow:0 0 0 2px var(--pk,#FA1896),0 28px 50px -28px rgba(250,24,150,.5)!important}
+.trp .trl-k{font:700 11px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--pks,#D90D7E)}
+.trp .trl-cta h3{margin-top:12px}
+.trp .trl-cta>p{margin-bottom:16px!important}
+.trp .trl-cta .btn{margin-top:auto;width:100%;justify-content:center;white-space:normal;height:auto;min-height:56px;padding:12px 16px;line-height:1.2;text-align:center}
+@media (max-width:639px){.trp .trl>li{padding:15px 16px}.trp .trl .ic{width:36px;height:36px;border-radius:10px}.trp .trl .ic svg{width:19px;height:19px}.trp .trl h3{font-size:24px;margin-top:10px}.trp .trl li>p{font-size:15px;margin-top:6px}}
+@media (min-width:640px){.trp .trl{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
+@media (min-width:1000px){.trp .trl{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
+
+/* ---------- 04 · connect: no WhatsApp links, the word to reply in the thread ---------- */
+.trp .cnx .tkw{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;min-height:44px;border-radius:12px;background:var(--cream,#FAF6EE);box-shadow:inset 0 0 0 1px rgba(20,18,22,.08);font:500 13px/1.3 var(--sans);color:var(--body)}
+.trp .cnx .tkw b{font:700 12px/1 var(--mono);letter-spacing:.12em;color:var(--ink);background:#fff;border-radius:6px;padding:5px 7px;box-shadow:inset 0 0 0 1px rgba(20,18,22,.12)}
+.trp #connect .srail{margin-top:26px}
+.trp #sees .ledger2{margin-top:18px}
+
+/* ---------- 05 · straight answers ---------- */
+.trp #answers .txs{margin-top:24px}
+@media (min-width:900px){.trp #answers .txs{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
+
+/* ---------- up next: closer to the answers ---------- */
+.trp .sec.tight.pnx{padding-top:8px}
