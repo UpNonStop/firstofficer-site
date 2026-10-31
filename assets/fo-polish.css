@@ -378,3 +378,7 @@ html body .sec.tight.pnx:not(:has(+ .band)){padding-top:96px!important;padding-b
 /* phones: a long label in the card's button (Trust's and Pricing's "Book the ... Found Money Call") wraps as two centred lines inside the
    pill, rather than running out of its fixed 52px */
 @media (max-width:899px){html body .pnx .nxb{height:auto!important;min-height:52px;padding-top:12px!important;padding-bottom:12px!important;line-height:1.25;text-align:center}}
+
+/* No white anywhere (Ohad, 31 Oct): the strategy board's lit cell on Product and Home is cream inside its pink ring, not white
+   (fo-rules.css paints it #fff and is generated, so the change lives here) */
+html .sb-t.on{background:#FBF7EF!important}
