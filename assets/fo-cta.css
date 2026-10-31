@@ -1,11 +1,6 @@
-/* Home page only (index.html): the story's two stops, in the site's own buttons. In the flow of the
-   page, so they take no screen while you read: after 02 the light-blue "Run your numbers", after 05 the
-   pink "Get your desk". Nothing on this page stays on screen (the nav scrolls away, as everywhere). */
-/* max-width:none: the story's paragraph rule (.beat p, 470px) was pinning the stop under the left column
-   on desktop; the stop now spans the beat and the button sits on the page's centre line at every width.
-   Label 19px bold so it counts as large text (WCAG 3:1) on the brand pink and light-blue fills. */
-.fo-inl,.beat p.fo-inl{grid-column:1/-1;display:flex;justify-content:center;margin:6px 0 0;max-width:none;width:100%}
-.fo-inl .btn{height:56px;padding:0 28px;font-size:19px;font-weight:700}
+/* Home page only (index.html). The page's own pair, "Book the free Found Money Call" and "Run your numbers", sits in four places:
+   the hero, Ohad's note, the $550 price and the closing band. The story's stops carry no buttons (Ohad, 31 Oct: "remove all the shit
+   load of pink and blue buttons throughout the page"); on phones the pair docks at the bottom instead (.hdock, below). */
 
 /* ---------- Landing brief (Ohad, 31 Oct) ---------- */
 /* "Month to month, no exit fee." under the hero buttons, and beside the $550 on the price beat's receipt */
@@ -18,14 +13,8 @@
 /* the note's button row: the pink comes first, on its own full-width row on phones */
 .ncv .btn.pk{font-size:19px;font-weight:700;grid-column:1/-1}
 @media (min-width:761px){.ncv{flex-wrap:wrap;gap:12px;max-width:none}}
-/* a stop that carries two buttons (02 Pain: the pink and "Run your numbers") wraps on phones */
-.fo-inl{flex-wrap:wrap;gap:12px}
-/* stops that only exist on phones, where the four Proof pillars stack (on desktop they sit in one row) */
-.fo-inl.hpo,.beat p.fo-inl.hpo{display:none}
-@media (max-width:760px){.fo-inl.hpo,.beat p.fo-inl.hpo{display:flex}.pillars .fo-inl{margin:2px 0}}
-/* the primary label is longer now: let it wrap rather than overflow on the narrowest phones */
-.fo-inl .btn,.mctas .btn.pk,.ctas .btn.pk{max-width:100%}
-@media (max-width:400px){.fo-inl .btn{padding:0 18px;font-size:18.7px}}
+/* the primary label is long: let it wrap rather than overflow on the narrowest phones */
+.mctas .btn.pk,.ctas .btn.pk{max-width:100%}
 
 /* Tap targets at 44px or more */
 .wnext{min-height:44px}
@@ -37,13 +26,18 @@
 .wc.sh .tgl.on::before{background:var(--pink,#FA1896)}
 .wc.sh .tgl::after{top:13px;left:5px}
 
-/* Phones only: one slim docked button, flush to the bottom edge. It shows while no other pink button is on
-   screen and steps aside near the footer (assets/fo-home-dock.js). Nothing else on this page is fixed. */
+/* Phones only: the pair, docked (Ohad, 31 Oct: "Found Money Call + red phone emoji (left in pink) and next to it (run your numbers +
+   calculator emoji)"). A slim bar flush to the bottom edge, no margins and no shadow halo, holding the two buttons side by side.
+   It comes up once the hero's buttons have gone off the top, steps aside while any of the page's own pairs is on screen, and
+   stays down from the closing band to the end (assets/fo-home-dock.js). The labels keep the buttons' DM Sans bold but scale
+   with the screen so both fit on one line (13px at 320, about 16px at 390, 18px at most): two 19px labels with their emoji
+   need about 440px side by side, wider than almost every phone. Nothing else on this page is fixed. */
 .hdock{display:none}
 @media (max-width:760px){
-  .hdock{display:block;position:fixed;left:0;right:0;bottom:0;z-index:250;transform:translateY(105%);visibility:hidden;transition:transform .28s cubic-bezier(.22,1,.36,1),visibility 0s linear .28s}
+  .hdock{display:flex;gap:6px;position:fixed;left:0;right:0;bottom:0;z-index:250;padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));background:#FAF6EE;border-top:1px solid rgba(110,80,40,.16);transform:translateY(105%);visibility:hidden;transition:transform .28s cubic-bezier(.22,1,.36,1),visibility 0s linear .28s}
   .hdock.on{transform:none;visibility:visible;transition:transform .28s cubic-bezier(.22,1,.36,1)}
-  .hdock .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:auto;min-height:56px;margin:0;padding:14px 12px calc(14px + env(safe-area-inset-bottom,0px));border-radius:0;font-size:19px;font-weight:700;line-height:1.2;box-shadow:none;white-space:nowrap}
+  html body .hdock a.btn.btn{flex:1 1 0;min-width:0;width:auto;display:flex;align-items:center;justify-content:center;gap:.3em;margin:0;min-height:52px!important;height:auto!important;padding:8px 6px!important;border-radius:999px;font-size:clamp(13px,calc(4.82vw - 3.1px),18px)!important;line-height:1.15!important;white-space:nowrap;box-shadow:inset 0 -2px 0 rgba(0,0,0,.12);transform:none}
+  .hdock .em{flex:none;font-size:1.06em;line-height:1}
 }
 @media (max-width:760px) and (prefers-reduced-motion:reduce){.hdock,.hdock.on{transition:none}}
 /* Desktop: the header stays on screen on this page (the script lets the shared nav stick; the ticker scrolls away) */
@@ -86,8 +80,8 @@
 }
 @media (prefers-reduced-motion:reduce){#b2 .big .gnow,#b2 .big .ggap{transform:none!important;transition:none!important}}
 
-/* every stop is the hero's pair now: side by side from 601px, and on phones both full width, stacked, as in the hero */
-@media (max-width:600px){.fo-inl .btn,.band .ctas .btn{flex:1 1 100%;width:100%}}
+/* the closing band's pair: side by side from 601px, and on phones both full width, stacked, as in the hero */
+@media (max-width:600px){.band .ctas .btn{flex:1 1 100%;width:100%}}
 .band .ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
 #b2 .pc .x{width:44px!important;height:44px!important;align-self:start;line-height:1}
 
