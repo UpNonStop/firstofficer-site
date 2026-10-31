@@ -387,9 +387,11 @@ html .sb-t.on{background:#FBF7EF!important}
    pink, WhatsApp green, light blue, the dispatch's green and the briefing's pink, sets its words the same way: DM Sans 19px bold, no
    tracking, and stands at least 52px tall (a label that needs two lines grows). The green had stayed at 15px when FO-P1-01b took the pink
    and blue labels to 19px for contrast; its words stay dark green (#0B2E17) on the original fill. The header's and footer's own buttons
-   live in the chrome and already match. */
-html body :is(.btn.pk,.btn.wa,.btn.lb,.btn.bl,.btn.lrn,.btn.fgh,.fo .cta a,.pill.pink,.pill.green,.nxb){font-family:'DM Sans',system-ui,sans-serif!important;font-size:19px!important;font-weight:700!important;letter-spacing:normal!important;text-transform:none!important}
-html body :is(.btn.pk,.btn.wa,.btn.lb,.btn.bl,.btn.lrn,.btn.fgh,.fo .cta a,.pill.pink,.pill.green){height:auto!important;min-height:52px!important;padding-top:10px!important;padding-bottom:10px!important;line-height:1.2!important;box-sizing:border-box!important}
+   live in the chrome and already match.
+   Every button class is in it now, not a list of colours (Ohad, 31 Oct: "note again different fonts"): the gold "Grab my freebies",
+   the outlined "Open the example app", Pricing's "Talk to our team" and Freebies' "Run my numbers" had stayed at 15px. */
+html body :is(.btn,.btnp,.fo .cta a,.pill.pink,.pill.green,.nxb){font-family:'DM Sans',system-ui,sans-serif!important;font-size:19px!important;font-weight:700!important;letter-spacing:normal!important;text-transform:none!important}
+html body :is(.btn,.fo .cta a,.pill.pink,.pill.green){height:auto!important;min-height:52px!important;padding-top:10px!important;padding-bottom:10px!important;line-height:1.2!important;box-sizing:border-box!important}
 html body :is(.fo .cta a,.pill.pink,.pill.green){padding-left:24px!important;padding-right:24px!important;display:inline-flex!important;align-items:center;justify-content:center}
 @media (min-width:900px){html body .pnx .nxt>.nxb{height:52px!important}}
 
