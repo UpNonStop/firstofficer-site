@@ -66,6 +66,9 @@ if(held)$('.mtb').classList.add('held');cycle();
 /* ---- hero photos: low opacity, rotating ---- */
 var bg=$('.mbg'),N=[],SFX=innerWidth<761?'-m':'';for(var i=0;i<=30;i++)N.push(A+'img/rec/bg/'+(i<10?'0':'')+i+SFX+'.webp');
 var off=window.FO_BG0?FO_BG0.k%N.length:Math.floor(Math.random()*N.length),cur=0,els=[0,1].map(function(){var e=document.createElement('i');bg.insertBefore(e,bg.firstChild);return e});
-els[0].style.backgroundImage='url('+N[off]+')';els[0].classList.add('on');
-if(!RM)setInterval(function(){if(document.documentElement.classList.contains('fo-still'))return;var nx=els[1-cur];off=(off+1)%N.length;nx.style.backgroundImage='url('+N[off]+')';var im=new Image();im.onload=function(){nx.classList.add('on');els[cur].classList.remove('on');cur=1-cur};im.src=N[off]},5200);
+/* phones cycle four photos, so the hero stops downloading once they are cached; the first photo is already painted under the layers (--bg0, from the head) and clears once the first layer is in; the rotation runs only while the hero is on screen and the tab is visible (QA re-audit items 3 and 4) */
+if(SFX){N=[0,1,2,3].map(function(j){return N[(off+j)%N.length]});off=0}
+els[0].style.backgroundImage='url('+N[off]+')';els[0].classList.add('on');setTimeout(function(){bg.style.backgroundImage='none'},2600);
+var seen=true;if('IntersectionObserver' in window)new IntersectionObserver(function(es){seen=es[0].isIntersecting}).observe(bg);
+if(!RM)setInterval(function(){if(!seen||document.hidden||document.documentElement.classList.contains('fo-still'))return;var nx=els[1-cur];off=(off+1)%N.length;nx.style.backgroundImage='url('+N[off]+')';var im=new Image();im.onload=function(){nx.classList.add('on');els[cur].classList.remove('on');cur=1-cur};im.src=N[off]},5200);
 })();
