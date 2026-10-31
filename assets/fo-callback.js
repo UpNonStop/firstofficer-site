@@ -1,10 +1,13 @@
 /* "Call me back" on book.html (option four). The card's button opens the form in place, no overlay.
-   On send, the answers and a short technical note go to the desk's callback endpoint, which saves the request,
-   emails the desk every detail and emails the visitor a confirmation with what happens next.
+   On send, the answers and a short technical note go to the desk's Google Apps Script web app, which adds a row to the
+   Google Sheet "First Officer - Call-me-back requests" and emails the desk every detail (backend/apps-script/, DEPLOY.md there).
    With Do Not Track or Global Privacy Control on, the technical note is cut to the page, time zone and language.
-   If the endpoint cannot be reached, the same answers are ready to send on WhatsApp, so nothing typed is lost. */
+   No answer from this form ever goes to Google Analytics: GA gets only the event name, the trade and a spend band.
+   If the endpoint is not set yet, or cannot be reached, the same answers are ready to send on WhatsApp or by email,
+   so nothing typed is lost. */
 (function(){
-  var ENDPOINT='https://cuzuzzbezswvejnoskum.supabase.co/functions/v1/fo-callback-request';
+  /* The one setting: the Apps Script web app URL (Deploy > Web app, ends in /exec). Empty = WhatsApp and email only. */
+  var CALLBACK_ENDPOINT='';
   var sec=document.getElementById('callback'),f=document.getElementById('cbform'),done=document.getElementById('cbdone');
   if(!sec||!f)return;
   var msg=f.querySelector('.bk-msg'),btn=f.querySelector('button[type=submit]');
@@ -77,7 +80,7 @@
     if(!val('first_name'))return bad('first_name','Your first name, so we know who to ask for.');
     if(!val('business'))return bad('business','The business name, so we can prepare.');
     if(val('phone').replace(/\D/g,'').length<10)return bad('phone','A mobile number we can call, with the area code.');
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(val('email')))return bad('email','A business email for the confirmation.');
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(val('email')))return bad('email','A business email, so we can reach you if the call drops.');
     if(!val('tz'))return bad('tz','Your time zone, so we call at the right hour.');
     if(!q('consent').checked)return bad('consent','Tick the box so we can call or text this number.');
     return false}
@@ -92,6 +95,11 @@
     if(d.days.length)L.push('Days: '+d.days.join(', '));if(d.times.length)L.push('Time: '+d.times.join('; '));
     if(d.industry)L.push('Industry: '+d.industry);if(d.spend)L.push('Card spend a month: '+d.spend);if(d.notes)L.push('Notes: '+d.notes);
     return 'https://wa.me/16199404040?text='+encodeURIComponent(L.join('\n'))}
+  function mailText(d){var u=decodeURIComponent(waText(d).split('?text=')[1]);return 'mailto:desk@upnonstop.com?subject='+encodeURIComponent('Callback request: '+d.first_name+', '+d.business)+'&body='+encodeURIComponent(u)}
+  function fallback(d,lead){msg.textContent=lead;
+    var a=document.createElement('a');a.href=waText(d);a.target='_blank';a.rel='noopener';a.textContent='💬 Send on WhatsApp';msg.appendChild(a);
+    msg.appendChild(document.createTextNode(' or '));
+    var m=document.createElement('a');m.href=mailText(d);m.textContent='✉️ send by email';msg.appendChild(m);msg.appendChild(document.createTextNode('.'))}
   function set(k,v){[].forEach.call(done.querySelectorAll('[data-cb="'+k+'"]'),function(e){e.textContent=v})}
   var BAND={'Under $10K':'under 10K','$10K to $25K':'10K to 25K','$25K to $50K':'25K to 50K','$50K to $100K':'50K to 100K','$100K to $250K':'100K to 250K','$250K to $1M':'250K and up','Over $1M':'250K and up'};
 
@@ -102,16 +110,17 @@
       cards:all('cards'),spend_lines:all('spend_lines'),goals:all('goals'),trip:val('trip'),notes:val('notes'),heard:val('heard'),
       consent:true,consent_text:(f.querySelector('.cbconsent span')||{}).textContent||'',company_site:val('company_site'),
       fill_ms:Date.now()-(firstInput||openedAt||loadedAt),meta:meta()};
+    if(!CALLBACK_ENDPOINT){fallback(d,'One tap to send these answers to the desk: ');ga('callback_handoff',{page_path:location.pathname});return}
     sending=true;btn.disabled=true;btn.setAttribute('aria-busy','true');msg.textContent='Sending...';
+    /* text/plain and no-cors: a "simple" request, so the browser sends it straight to Apps Script with no preflight.
+       The reply cannot be read (opaque), so a request that leaves the browser counts as sent; only a network failure falls back. */
     var ctl=window.AbortController?new AbortController():null,timer=setTimeout(function(){if(ctl)ctl.abort()},20000);
-    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d),signal:ctl?ctl.signal:undefined})
-    .then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok||!j.ok)throw j;return j})})
-    .then(function(j){clearTimeout(timer);sending=false;
-      f.hidden=true;set('name',d.first_name);set('email',d.email);set('ref',j.ref||'');set('line',whenLine(d));
+    fetch(CALLBACK_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d),keepalive:true,signal:ctl?ctl.signal:undefined})
+    .then(function(){clearTimeout(timer);sending=false;msg.textContent='';
+      f.hidden=true;set('name',d.first_name);set('ref','FO-'+rid.replace(/[^a-z0-9]/gi,'').slice(0,8).toUpperCase());set('line',whenLine(d));
       done.hidden=false;try{done.focus({preventScroll:true})}catch(x){}done.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
       ga('generate_lead',{page_path:location.pathname,method:'callback_form',industry:(d.industry||'not given').slice(0,40),spend_band:BAND[d.spend]||'unknown'})})
-    .catch(function(j){clearTimeout(timer);sending=false;btn.disabled=false;btn.removeAttribute('aria-busy');
-      var limit=j&&j.error==='rate_limited';msg.textContent=limit?'We already have a few requests from this connection. Send this one on WhatsApp and we will pick it up there: ':'That did not go through. Try again, or send the same answers on WhatsApp: ';
-      var a=document.createElement('a');a.href=waText(d);a.target='_blank';a.rel='noopener';a.textContent='💬 Send on WhatsApp';msg.appendChild(a)});
+    .catch(function(){clearTimeout(timer);sending=false;btn.disabled=false;btn.removeAttribute('aria-busy');
+      fallback(d,'That did not go through. Try again, or send the same answers in one tap: ')});
   });
 })();
