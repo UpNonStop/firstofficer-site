@@ -378,3 +378,53 @@ html body .sec.tight.pnx:not(:has(+ .band)){padding-top:96px!important;padding-b
 /* phones: a long label in the card's button (Trust's and Pricing's "Book the ... Found Money Call") wraps as two centred lines inside the
    pill, rather than running out of its fixed 52px */
 @media (max-width:899px){html body .pnx .nxb{height:auto!important;min-height:52px;padding-top:12px!important;padding-bottom:12px!important;line-height:1.25;text-align:center}}
+
+/* No white anywhere (Ohad, 31 Oct): the strategy board's lit cell on Product and Home is cream inside its pink ring, not white
+   (fo-rules.css paints it #fff and is generated, so the change lives here) */
+html .sb-t.on{background:#FBF7EF!important}
+
+/* One button on every page (Ohad, 31 Oct: "look how different these text fonts are (type and size)"). Every filled call-to-action pill,
+   pink, WhatsApp green, light blue, the dispatch's green and the briefing's pink, sets its words the same way: DM Sans 19px bold, no
+   tracking, and stands at least 52px tall (a label that needs two lines grows). The green had stayed at 15px when FO-P1-01b took the pink
+   and blue labels to 19px for contrast; its words stay dark green (#0B2E17) on the original fill. The header's and footer's own buttons
+   live in the chrome and already match. */
+html body :is(.btn.pk,.btn.wa,.btn.lb,.btn.bl,.btn.lrn,.btn.fgh,.fo .cta a,.pill.pink,.pill.green,.nxb){font-family:'DM Sans',system-ui,sans-serif!important;font-size:19px!important;font-weight:700!important;letter-spacing:normal!important;text-transform:none!important}
+html body :is(.btn.pk,.btn.wa,.btn.lb,.btn.bl,.btn.lrn,.btn.fgh,.fo .cta a,.pill.pink,.pill.green){height:auto!important;min-height:52px!important;padding-top:10px!important;padding-bottom:10px!important;line-height:1.2!important;box-sizing:border-box!important}
+html body :is(.fo .cta a,.pill.pink,.pill.green){padding-left:24px!important;padding-right:24px!important;display:inline-flex!important;align-items:center;justify-content:center}
+@media (min-width:900px){html body .pnx .nxt>.nxb{height:52px!important}}
+
+/* Field Notes: the way on from each note is two real buttons, the lesson in Learn blue and the index as an outline, not a line of
+   underlined links with a dot between them (Ohad, 31 Oct: "poor design leftover on the field notes") */
+.fn .fnm{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:32px 0 0}
+.fn .fnm .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 26px;border-radius:999px;text-decoration:none}
+.fn .fnm .btn.lrn{background:#085884;color:#fff;box-shadow:0 10px 24px -12px rgba(8,88,132,.55)}
+.fn .fnm .btn.lrn:hover{background:#064A70}
+.fn .fnm .btn.fgh{background:transparent;color:#141216;box-shadow:inset 0 0 0 1.5px rgba(20,18,22,.22)}
+.fn .fnm .btn.fgh:hover{box-shadow:inset 0 0 0 1.5px #085884;color:#085884}
+@media (max-width:600px){.fn .fnm .btn{flex:1 1 100%}}
+
+/* Freebies' hero: the pink and the green sit side by side at their own widths, the blue under them, so no label folds onto two lines */
+#ffd .ffd-pair{display:flex!important;flex-wrap:wrap;gap:10px}
+#ffd .ffd-pair>.btn{width:auto!important;flex:1 1 auto;white-space:nowrap}
+#ffd .ffd-pair>.btn.bl{flex-basis:100%}
+@media (max-width:600px){#ffd .ffd-pair>.btn{flex-basis:100%;white-space:normal}}
+
+/* One rhythm between sections (Ohad, 31 Oct: "too much space between sections", "the amount of padding ... is concerning"). Sections ran
+   120px top and bottom on the chapter pages (about 250px between one section's last line and the next one's first) and 72 to 96 on
+   Product, Book, The App and the Calculator. Now 56px each side on desktop (about 112px between sections), 44 on tablets, 32 on phones.
+   Home keeps the landing's own rhythm; the trade pages and Industries carry theirs (the trade-pages pass). A section a page deliberately
+   starts with no top padding (an ID rule) keeps it. */
+:where(html:not(:has(#hdock))) body:not(.pgi):not(.ind2) main>section.sec:not(.mh):not(.pnx):not(.band){padding-top:56px;padding-bottom:56px}
+@media (max-width:1023px){:where(html:not(:has(#hdock))) body:not(.pgi):not(.ind2) main>section.sec:not(.mh):not(.pnx):not(.band){padding-top:44px;padding-bottom:44px}}
+@media (max-width:600px){:where(html:not(:has(#hdock))) body:not(.pgi):not(.ind2) main>section.sec:not(.mh):not(.pnx):not(.band){padding-top:32px;padding-bottom:32px}}
+
+/* One way a section opens (Ohad, 31 Oct: "why this is so ugly justified to the left?"): from 1024px a kicker, heading and lede no longer
+   hang in the left half over an empty right one. The kicker runs the full width, the heading takes the left, the lede the right, their last
+   lines level, the way Pricing's "Four jobs" opens. A heading whose pink line cannot fold (the brush lines never wrap) and leaves the lede
+   less than 380px keeps the lede under it instead, so nothing ever overlaps. Phones and tablets stay stacked. */
+@media (min-width:1024px){
+  main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child){display:flex;flex-wrap:wrap;align-items:flex-end;column-gap:56px;row-gap:0}
+  main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child)>.kick{flex:0 0 100%}
+  main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child)>.h2{flex:3 1 0;margin-bottom:0}
+  main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child)>.lede{flex:1 0 380px;max-width:520px;margin:22px 0 0;padding-bottom:.35em}
+}
