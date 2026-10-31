@@ -1,6 +1,10 @@
 /* The App page, rebuilt 31 Oct (Ohad: "why does it look so immature"). Loaded last on the-app.html only.
-   Mobile first. Beige ground, white cards, one phone style on the page: every real app screen sits in the same
-   ink frame as the hero phone. No circles except logos and the pill dot; nothing sticky; figures carry est. */
+   Mobile first. Beige ground and beige boxes, never white ones; one phone style on the page: every real app screen
+   sits in the same ink frame as the hero phone. No circles except logos and the pill dot; nothing sticky; figures carry est. */
+
+/* ---- no white boxes (Ohad, 31 Oct: "eliminate the white background in the boxes. can't have it"). The About tokens:
+   a box one step deeper than the cream, wells one step deeper again, chips lighter, warm hairlines and shadows ---- */
+.tapp{--tbx:#F3ECDF;--tbx-line:rgba(110,80,40,.15);--tbx-well:#EAE0CE;--tbx-chip:#F8F2E7;--tbx-div:#E2D7C4;--tcard:0 0 0 1px var(--tbx-line),0 22px 44px -32px rgba(80,55,20,.4)}
 
 /* ---- rhythm: one gap between sections, one gap from heading to content ---- */
 .tapp main>.sec:not(.pnx){padding-top:44px;padding-bottom:44px}
@@ -14,8 +18,13 @@
   .tapp main>.sec.tight.pnx{padding-top:16px}
 }
 
-/* ---- hero: the list's markers are short bars, not dots ---- */
+/* ---- hero: the pill and the option chips on beige, the list in beige boxes; the open tab keeps its pillar bar.
+   The list's markers are short bars, not dots ---- */
+.tapp .mpill,.tapp .tdoors span{background:var(--tbx-chip);box-shadow:0 0 0 1px var(--tbx-line)}
 @media(min-width:761px){
+  .tapp .tlist button{background:var(--tbx);box-shadow:inset 0 0 0 1px var(--tbx-line)}
+  .tapp .tlist button:hover{background:#EFE6D6}
+  .tapp .tlist button[aria-pressed="true"]{background:var(--tbx);box-shadow:inset 4px 0 0 var(--tc),inset 0 0 0 1px var(--tbx-line),0 14px 28px -20px rgba(80,55,20,.45)}
   .tapp .tlist i{width:4px;height:20px;border-radius:2px}
   .tapp .tlist button[aria-pressed="true"] i{box-shadow:none}
 }
@@ -28,16 +37,16 @@
 
 /* ---- 01 the four pillars: four cards, each a phone on its pillar's tint, cropped at the fold ---- */
 .tapp .ta-rail{margin-top:24px}
-.ta-pc{display:grid;grid-template-rows:auto 1fr;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 0 0 1px rgba(20,18,22,.07),0 22px 44px -32px rgba(20,18,22,.45)}
-.ta-pv{height:330px;overflow:hidden;padding:24px 26px 0;background:linear-gradient(180deg,var(--t) 0%,rgba(255,255,255,.55) 100%);position:relative}
-.ta-pv::after{content:"";position:absolute;left:0;right:0;bottom:0;height:36px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff)}
+.ta-pc{display:grid;grid-template-rows:auto 1fr;background:var(--tbx);border-radius:24px;overflow:hidden;box-shadow:var(--tcard)}
+.ta-pv{height:330px;overflow:hidden;padding:24px 26px 0;background:var(--tbx);background:linear-gradient(180deg,color-mix(in srgb,var(--c) 15%,var(--tbx)) 0%,var(--tbx) 100%);position:relative}
+.ta-pv::after{content:"";position:absolute;left:0;right:0;bottom:0;height:36px;background:linear-gradient(180deg,rgba(243,236,223,0),var(--tbx))}
 .ta-pv .ta-ph{max-width:236px}
 .ta-pb{display:grid;gap:10px;align-content:start;padding:18px 22px 22px}
 .ta-pk{display:flex;align-items:center;gap:9px;font:600 11.5px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--c)}
 .ta-pk::before{content:"";flex:none;width:18px;height:3px;border-radius:2px;background:var(--c)}
 .ta-pc h3{font-family:var(--serif);font-weight:400;font-size:27px;line-height:1.08;letter-spacing:-.01em;color:var(--ink);margin:0}
 .ta-pc p{font-size:16px;line-height:1.55;color:var(--body);margin:0}
-.ta-pf{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-top:4px;padding-top:12px;border-top:1px solid rgba(20,18,22,.09)}
+.ta-pf{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-top:4px;padding-top:12px;border-top:1px solid var(--tbx-div)}
 .ta-pf b{font:800 28px/1 var(--sans);letter-spacing:-.02em;color:var(--c);font-variant-numeric:tabular-nums}
 .ta-pf span{font-size:14.5px;color:var(--body)}
 .ta-fine{font-size:13px;line-height:1.5;color:var(--mute);font-style:italic;text-align:center;margin:18px auto 0;max-width:680px}
@@ -53,30 +62,29 @@
 .ta-mk.l{right:auto;left:-12px}
 .ta-mk.l::before{right:auto;left:100%}
 .ta-sl{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.ta-sl li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;align-items:start;background:#fff;border-radius:20px;padding:16px 16px 16px 14px;box-shadow:0 0 0 1px rgba(20,18,22,.07),0 18px 36px -30px rgba(20,18,22,.45)}
+.ta-sl li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;align-items:start;background:var(--tbx);border-radius:20px;padding:16px 16px 16px 14px;box-shadow:var(--tcard)}
 .ta-sl li>b{width:32px;height:32px;border-radius:10px;background:#FA1896;color:#141216;font:800 15px/32px var(--sans);text-align:center}
 .ta-sl h3{font:800 18px/1.25 var(--sans);color:var(--ink);margin:3px 0 4px}
 .ta-sl p{font-size:16px;line-height:1.55;color:var(--body);margin:0}
 
 /* ---- 03 where the desk lives: three full cards, each with a glimpse of the thread ---- */
 .ta-op{display:grid;gap:14px;margin-top:24px}
-.ta-oc{display:grid;gap:16px;align-content:start;background:#fff;border-radius:24px;padding:22px;box-shadow:0 0 0 1px rgba(20,18,22,.07),0 22px 44px -34px rgba(20,18,22,.45);border-top:4px solid var(--c)}
+.ta-oc{display:grid;gap:16px;align-content:start;background:var(--tbx);border-radius:24px;padding:22px;box-shadow:var(--tcard);border-top:4px solid var(--c)}
 .ta-oc.on{border-top-color:#25D366}
 .ta-oh{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .ta-oc h3{font:800 23px/1.15 var(--sans);color:var(--ink);margin:0}
-.ta-chip{font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:7px 10px;border-radius:7px;background:#F3ECDD;color:#4A4550;white-space:nowrap}
-.ta-oc.on .ta-chip{background:#E5F8EC;color:#0E6B42}
+.ta-chip{font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:7px 10px;border-radius:7px;background:var(--tbx-chip);box-shadow:inset 0 0 0 1px var(--tbx-line);color:#4A4550;white-space:nowrap}
+.ta-oc.on .ta-chip{background:#E5F8EC;box-shadow:none;color:#0E6B42}
 .ta-ov{border-radius:18px;padding:14px;display:grid;gap:8px;align-content:start;min-height:122px}
-.ta-wa{background:#EFE7DC}
-.ta-tx{background:#F6F5F7}
-.ta-ap{background:#FAF7EF;grid-template-columns:1fr 1fr;gap:8px}
+/* the threads sit on the box itself, framed by a hairline, so the desk's bubble can be the well colour */
+.ta-wa,.ta-tx{background:transparent;box-shadow:inset 0 0 0 1px var(--tbx-div)}
+.ta-ap{background:var(--tbx-well);grid-template-columns:1fr 1fr;gap:8px}
 .ta-bu{max-width:86%;padding:9px 12px;border-radius:16px;font-size:14.5px;line-height:1.4;color:#1F1A24}
 .ta-bu small{display:block;font-size:11.5px;font-weight:700;color:#0E6B42;margin-bottom:2px}
 .ta-wa .me{justify-self:end;background:#D9FDD3;border-bottom-right-radius:5px}
-.ta-wa .fo{justify-self:start;background:#fff;border-bottom-left-radius:5px;box-shadow:0 1px 0 rgba(20,18,22,.08)}
-.ta-tx .in{justify-self:start;background:#E7E5EA;border-bottom-left-radius:5px}
-.ta-tx .out{justify-self:end;background:#fff;border-bottom-right-radius:5px;box-shadow:inset 0 0 0 1px rgba(20,18,22,.1)}
-.ta-ap span{display:grid;gap:3px;background:#fff;border-radius:12px;padding:9px 10px;border-top:3px solid var(--k);box-shadow:0 0 0 1px rgba(60,40,70,.07)}
+.ta-wa .fo{justify-self:start;background:var(--tbx-well);border-bottom-left-radius:5px}
+.ta-tx .in{justify-self:start;background:var(--tbx-well);border-bottom-left-radius:5px}
+.ta-ap span{display:grid;gap:3px;background:var(--tbx-chip);border-radius:12px;padding:9px 10px;border-top:3px solid var(--k);box-shadow:0 0 0 1px var(--tbx-line)}
 .ta-ap small{font:700 10.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--k)}
 .ta-ap b{font:800 19px/1.05 var(--sans);letter-spacing:-.02em;color:var(--k);font-variant-numeric:tabular-nums}
 .ta-oc ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
@@ -90,12 +98,16 @@
 
 /* ---- 04 the rules: four statements, each with a large numeral ---- */
 .ta-rl{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:12px}
-.ta-rl li{display:grid;gap:8px;align-content:start;background:#fff;border-radius:22px;padding:22px;box-shadow:0 0 0 1px rgba(20,18,22,.07),0 18px 36px -30px rgba(20,18,22,.45)}
+.ta-rl li{display:grid;gap:8px;align-content:start;background:var(--tbx);border-radius:22px;padding:22px;box-shadow:var(--tcard)}
 .ta-rl li>b{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1;color:#FA1896}
 .ta-rl h3{font:800 20px/1.2 var(--sans);color:var(--ink);margin:4px 0 0}
 .ta-rl p{font-size:16px;line-height:1.55;color:var(--body);margin:0}
 .ta-more{margin:22px 0 0;text-align:center}
 .ta-more .btn{min-height:48px}
+.tapp .ta-more .btn.gh,.tapp .ta-more .btn.gh:hover{background:transparent}
+
+/* ---- Up next: the same beige box ---- */
+.tapp .nxt{background:var(--tbx);box-shadow:var(--tcard)}
 
 /* ---- 05 the close: a beige panel, the three actions ---- */
 .ta-cl{display:grid;justify-items:center;gap:14px;text-align:center;background:linear-gradient(150deg,#F6F0E4 0%,#EFE6D4 100%);border-radius:28px;padding:34px 20px 30px}
