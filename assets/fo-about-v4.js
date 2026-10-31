@@ -29,3 +29,29 @@ sp.addEventListener('input',calc);
 $$('.v4seg button').forEach(function(b){b.addEventListener('click',function(){rate=+b.dataset.r;$$('.v4seg button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});calc()})});
 calc();
 })();
+/* round 3: the week, the dial, the four questions, the jargon translator */
+(function(){
+function $(s,c){return (c||document).querySelector(s)}function $$(s,c){return [].slice.call((c||document).querySelectorAll(s))}
+var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* a week in the programs */
+var wb=$('.v4wk-b'),wl=$('#v4wk'),ws=$('#v4wk-s');
+if(wb&&wl&&ws){var full=ws.textContent;ws.textContent='Four alerts to read, decode and act on, on top of the actual job.';
+wb.addEventListener('click',function(){var on=wb.getAttribute('aria-expanded')!=='true';wb.setAttribute('aria-expanded',on?'true':'false');wl.classList.toggle('on',on);
+ws.textContent=on?full:'Four alerts to read, decode and act on, on top of the actual job.';wb.firstChild.textContent=on?'Show the raw rules ':'Hand it to the desk '})}
+/* points or cash dial */
+var ci=$('#v4c'),pi=$('#v4pp'),fi=$('#v4f'),nd=$('#v4needle'),cv=$('#v4cv'),vd=$('#v4vd');
+function dial(){var c=+ci.value||0,p=+pi.value||0,f=+fi.value||0,v=p>0?Math.max(0,(c-f)/p*100):0;
+cv.textContent=(v<10?v.toFixed(2):v.toFixed(1)).replace(/\.?0+$/,'')+'¢';
+if(nd)nd.style.transform='rotate('+(Math.min(3,v)/3*180-90).toFixed(1)+'deg)';
+if(v<1){vd.className='v4vd b';vd.textContent='A plain cash out usually beats this, est.'}
+else if(v<=1.6){vd.className='v4vd l';vd.textContent='A fair use, est.'}
+else{vd.className='v4vd e';vd.textContent='A strong use, est. Better than a plain cash out.'}}
+if(ci&&pi&&fi&&cv&&vd){[ci,pi,fi].forEach(function(i){i.addEventListener('input',function(){$$('.v4pre button').forEach(function(x){x.setAttribute('aria-pressed','false')});dial()})});
+$$('.v4pre button').forEach(function(b){b.addEventListener('click',function(){ci.value=b.dataset.c;pi.value=b.dataset.p;fi.value=b.dataset.f;$$('.v4pre button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});dial()})});dial()}
+/* four questions */
+$$('.v4rev').forEach(function(b){b.addEventListener('click',function(){var on=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',on?'true':'false');b.textContent=on?'Hide our answer':'See our answer'})});
+/* jargon translator */
+var jt=$('#v4jt');
+$$('.v4jw button').forEach(function(b){b.addEventListener('click',function(){$$('.v4jw button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+if(jt){jt.textContent=b.dataset.t;if(!rm){jt.classList.remove('pop');void jt.offsetWidth;jt.classList.add('pop')}}})});
+})();
