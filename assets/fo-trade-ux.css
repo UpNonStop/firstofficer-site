@@ -66,7 +66,9 @@ body.pgi .tt.all .ttn{position:static;color:#141216;text-shadow:none;padding:0 1
   body.pgi .tt{flex:0 0 136px;aspect-ratio:1/1;scroll-snap-align:start}
   body.pgi .tt .ttn{font-size:13.5px;left:10px}
 }
-@media (max-width:760px){body.pgi .ttiles{margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px}body.pgi .tt{flex-basis:132px}}
+/* the row bleeds to the screen edge by exactly the page's own side padding: 20px up to 900px, 28px above (it ran 8px past the screen at 761 to 900px) */
+@media (max-width:900px){body.pgi .ttiles{margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px}}
+@media (max-width:760px){body.pgi .tt{flex-basis:132px}}
 @media (prefers-reduced-motion:reduce){body.pgi .tt,body.pgi .tt img{transition:none}body.pgi .tt:hover{transform:none}body.pgi .tt:hover img{transform:none}}
 
 /* ---- 6. Golden nugget cards: the title stops short of the card's number in the corner (at 360px some ran under it) ---- */
