@@ -358,3 +358,7 @@ body .fo .mast-foot .pk{color:#D4107A}
   .mh.ph:has(img[src*="ind/"]) .phw{grid-template-rows:auto 1fr}
   .mh.ph:has(img[src*="ind/"]) .phb{margin-top:6px}
 }
+
+/* No white boxes (Ohad, 31 Oct: "eliminate the white background in the boxes. can't have it"): the "Up next" card on every page sits in
+   beige on the warm hairline, the same tokens as About's boxes and the footer's newsletter card (fo-chrome.js) */
+html .nxt{background:#F3ECDF;box-shadow:0 0 0 1px rgba(110,80,40,.15),0 22px 44px -32px rgba(80,55,20,.4)}

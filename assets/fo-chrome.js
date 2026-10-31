@@ -38,7 +38,9 @@ function build(){
      drawn bar in the same frame, so nothing moves. */
   (function(){var NOWA='a[href*="wa.me"]{display:none!important}';
     var x=document.createElement('style');x.textContent='@media (min-width:901px){.nav{position:sticky!important;top:0!important;z-index:300!important}}.nav '+NOWA+'.sheet '+NOWA+'.sheet .btn.pk{margin-top:auto}';hs.appendChild(x);
-    var y=document.createElement('style');y.textContent='.more '+NOWA;fs.appendChild(y);
+    /* no white boxes (Ohad, 31 Oct: "eliminate the white background in the boxes. can't have it"): the newsletter card sits in beige on the
+       warm hairline, its email field one step lighter (the same tokens as About's boxes) */
+    var y=document.createElement('style');y.textContent='.more '+NOWA+'.foot .dr{background:#F3ECDF;box-shadow:0 0 0 1px rgba(110,80,40,.15),0 22px 44px -32px rgba(80,55,20,.4)}.foot .dri{background:#FBF7EF;border-color:rgba(110,80,40,.15)}';fs.appendChild(y);
     if(!document.getElementById('fo-chrome-stick')){var d=document.createElement('style');d.id='fo-chrome-stick';d.textContent='@media (min-width:901px){#fo-header{display:contents}html{scroll-padding-top:84px}.cstk{top:92px}}';
       /* a page that hides sideways overflow on both html and body (the legal pages) makes body a scroller, and a sticky bar inside it never sticks: clip instead, same look */
       if(getComputedStyle(document.documentElement).overflowX!=='visible')d.textContent+='@media (min-width:901px){body{overflow-x:clip!important}}';
