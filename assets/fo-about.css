@@ -33,7 +33,7 @@
 @media (min-width:980px){.abp main>.sec.abs,.abp main>.sec.mnote{contain-intrinsic-size:auto 1000px}}
 .abp .sec.abs{padding:64px 0}
 .abp .abs .lede{max-width:680px}
-.abp .abs.band{background:#fff;border-top:1px solid rgba(20,18,22,.06);border-bottom:1px solid rgba(20,18,22,.06)}
+
 @media (min-width:980px){.abp .sec.abs{padding:96px 0}}
 
 /* ---------- 01 · one Saturday morning (the timeline) ---------- */
@@ -199,13 +199,8 @@ html.fo-still .abp .abt *,html.fo-still .abp .abt *::before,html.fo-still .abp .
   .abp .abr-l h3{font-size:28px}
 }
 
-/* ---------- 01 · Leo's three cards: one size, one pink that deepens with each step ---------- */
+/* ---------- 01 · Leo's three cards: one size at every width ---------- */
 .abp .abt-card{--mute:#5E5766}
-.abp .abs.band .abt-s:nth-child(1) .abt-card{background:rgba(250,24,150,.05)}
-.abp .abs.band .abt-s:nth-child(2) .abt-card{background:rgba(250,24,150,.11)}
-.abp .abs.band .abt-s:nth-child(3) .abt-card{background:rgba(250,24,150,.19)}
-.abp .abt-s:nth-child(3) .msg .bub-fo{background:#fff}
-.abp .abt-s:nth-child(3) .msg-f{color:#0B6B3F}
 @media (max-width:979px){
   .abp .abt{grid-auto-rows:1fr}
   .abp .abt-s{display:flex;flex-direction:column}
