@@ -158,7 +158,7 @@ def page(slug,name,desc):
     body+=sec('04 · How it starts','Four steps. <span class="brush">No spreadsheets.</span>','',BP.pillars_like(S))
     body+=sec('05 · Owners like you','Ten trades, <span class="brush">ten catches.</span>',dm('Every trade hides money in a different place. Swipe through ten fictional owners.','Swipe: ten owners, ten catches.'),stories(),id_='stories')
     body+=deskcta(f'$550 a month, flat. The Found Money Call is free and tells you first if {lname} spend like yours clears the fee.')
-    body+=nxt('03',calc,f'{esc(o["first"])}\'s numbers are fiction. <span class="pk">Yours aren\'t.</span>',f'Open the calculator{" on the "+esc(name)+" example" if o["ind"] else ""}, then type your own lines. Fits, close call or not a fit, against $550 a month.','Run your numbers')
+    body+=nxt('03',calc,f'{esc(o["first"])}\'s numbers are fictional.<br><span class="pk">Yours aren\'t.</span>',f'Open the calculator{" on the "+esc(name)+" example" if o["ind"] else ""}, then type your own lines. Fits, close call or not a fit, against $550 a month.','Run your numbers')
     fn='for-%s.html'%slug;title=f'First Officer for {name} | Where {lname} spend hides money'
     svc={"@context":"https://schema.org","@type":"Service","name":title.split(' | ')[0],"serviceType":"Business rewards desk for "+lname,
          "description":desc,"url":M.SITE+fn,"areaServed":{"@type":"Country","name":"United States"},"provider":M.ORG}
