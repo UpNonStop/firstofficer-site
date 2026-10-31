@@ -250,6 +250,9 @@ body .fo .mast-foot .pk{color:#D4107A}
    The chrome's header and footer buttons get the same two rules inside assets/fo-chrome.js. */
 .btn.pk,.btn.lb,.nxb,.cqa#bgo,.ttabs [role=tab]{font-size:19px!important;font-weight:700!important}
 .btn.wa,.btn.wa:hover,.btn.wa:focus-visible,.ctab .btn.cr,.pill.green,.fo .cta a[href*="wa.me"]{color:#0B2E17!important}
+/* FO-P1-01c (Ohad, 31 Oct): small labels on the original fills, too small for the large-text rule, take ink instead of white:
+   Burn pillar badges and chips 5.2:1 on #E8590C, the pink Fee badge and the story's active step pill 5.0:1 on #FA1896. Fills unchanged. */
+.k-burn>.pn>b,.k-fee>.pn>b,.stc>.k-burn,.celnav button.on{color:#141216!important}
 /* ==== end FO-P1-01 ==== */
 
 /* Re-audit extra: anchor jumps do not glide when the visitor asks for reduced motion (rec31.css and fo.css set html{scroll-behavior:smooth}) */
