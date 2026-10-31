@@ -10,7 +10,7 @@ var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){retu
 var CAP={
   desk:['Desk','The four pillars at a glance and the thread with the desk underneath. Ask anything, any time.'],
   earn:['Earn','Which card for which spend. Each move shows what it is worth a year, and waits for the owner\'s OK.'],
-  burn:['Burn','Points into trips. A goal, a pace and a plan. The desk vets the requirements and books after the owner approves.'],
+  burn:['Burn','Points into trips. A goal, a pace and a strategy. The desk vets the requirements and books after the owner approves.'],
   'return':['Return','Friday, in dollars. What the desk found, counted in dollars and checked against the owner\'s statements.'],
   learn:['Learn','Two minutes a week. One short lesson from the owner\'s own data: what changed in the programs, and what it means for the goal.']};
 var TITLE={earn:p.short+'’s Earn',burn:p.short+'’s Burn','return':p.short+'’s Return',learn:p.first+'’s Learn'};
