@@ -7,7 +7,11 @@ function mark(root){var here=(location.pathname.split('/').pop()||'home.html').r
 /* Google Analytics 4 on every page, live domain only, and not when the browser asks not to be tracked (the Privacy Policy promises both) */
 function ga(){if(!/(^|\.)upnonstop\.com$/.test(location.hostname))return;if(navigator.doNotTrack==='1'||window.doNotTrack==='1')return;if(document.querySelector('script[src*="googletagmanager.com/gtag/js"]'))return;
   window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-FJHCJ74L64');
-  var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-FJHCJ74L64';document.head.appendChild(s)}
+  /* the tag itself loads once the page has settled (QA re-audit item 6): gtag.js blocked phones' main thread for 200 to 970ms during load.
+     Calls made before then wait in dataLayer and go out when it arrives. */
+  var go=function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-FJHCJ74L64';document.head.appendChild(s)};
+  var idle=function(){if('requestIdleCallback' in window)requestIdleCallback(go,{timeout:3000});else setTimeout(go,1500)};
+  if(document.readyState==='complete')idle();else addEventListener('load',idle)}
 function build(){
   fontface();ga();
   var hh=host('fo-header','top'),fh=host('fo-footer','end');
