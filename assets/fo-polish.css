@@ -223,6 +223,7 @@ a[href^="upns-"] h3 .pk{color:#D10A72}
 /* pink type under 24px in the Saturday Dispatch reads in the deeper pink (4.9:1); Freebies' pink group headers take the button pink, with full-white notes and a darker count chip */
 html body .fo .mast-foot .pk,html body .fo .bl em,html body .fo .kick .k,html body .fo .w .at,html body .fo .wmath .pk,html body .fo .tag em,html body .fo .meta a{color:#D10A72}
 html.dir-c.o3h #ffd .desk .grp:not([data-grp="nuggets"]){--c:#E0137F}
+#fo-nxt31 .nxb{background:#E0137F}
 html.dir-c.o3h #ffd .desk .grp:not([data-grp="nuggets"]) .grp-n{background:rgba(0,0,0,.16);color:#fff}
 /* pillar colors as small type read in their deeper tones on white (Earn 5.4:1, Burn 5.2:1, Learn 5.3:1); the read meter, the pricing headers' small type and the Freebies notes follow */
 .chp.k-burn .chk,.k-burn>small,.burn>.pil-h>b,.burn .prc small,.k-burn[href$="#covers"]{color:#C2410C}
