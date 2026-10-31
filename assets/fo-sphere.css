@@ -25,7 +25,9 @@
 .sn.act .pip{background:#FA1896;box-shadow:none}.sn.act .wk{display:none}
 .sn.act .pip::after{content:"\2713";display:block;color:#fff;font:700 8px/5px 'DM Sans',sans-serif;width:11px;height:5px;text-align:center}
 .sx.paused .wk i{animation-play-state:paused}
-.sfo{position:absolute;left:50%;top:50%;width:calc(var(--b) * 1.25);height:calc(var(--b) * 1.25);transform:translate(-50%,-50%);z-index:600;border-radius:50%;background:#fff;box-shadow:0 0 0 1.5px #FA1896,0 14px 30px -12px rgba(250,24,150,.55);display:grid;place-items:center}
+/* The chevron sits at the sphere's middle depth: nodes are stacked 0 to 300 by depth (fo-sphere.js place()), so programs
+   swinging in front cover it and programs behind pass under it (Ohad, 31 Oct). Lit nodes (400+) are always front ones. */
+.sfo{position:absolute;left:50%;top:50%;width:calc(var(--b) * 1.25);height:calc(var(--b) * 1.25);transform:translate(-50%,-50%);z-index:150;border-radius:50%;background:#fff;box-shadow:0 0 0 1.5px #FA1896,0 14px 30px -12px rgba(250,24,150,.55);display:grid;place-items:center}
 .sfo img{width:60%;height:60%;object-fit:contain}
 .sfo::after{content:"";position:absolute;inset:-1px;border-radius:50%;box-shadow:0 0 0 2px #FA1896;opacity:0}
 .sfo.sxbeat{animation:sxfobeat .55s cubic-bezier(.2,.7,.2,1)}.sfo.sxbeat::after{animation:sxping 1s ease-out}
