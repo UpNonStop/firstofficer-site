@@ -113,3 +113,71 @@ html:not(.fo-still) .is-off :is(.mbg i,.rbg i,.mpill i,.mtb button,.mstk .pd u,.
 @media (max-width:760px){.st p.stc,.st p.stq,.pc4>p,html.dir-c #ffd .desk .dk:not(.lead) p.love,.pnx .nxt .nxp,.nxt .nxp,.phb p.msub,.mrest p.msub,.chb p.msub,.chx>p,.ps-pcb p,.ps-li p,.ps-no p,.ps-et p,.tdc>p,li>p,.cv>p,.door>p,.edg>p,.vcard>p,.fnm,html .cnx .cw li{font-size:16px}}
 /* and while motion is paused (the ticker's pause, on by default under reduced motion) the tour's tab bar stops drawing its 6s progress fill on Product, since the tour itself has stopped advancing */
 html.fo-still .celnav button.on::after{animation:none}
+
+/* ==== No white boxes, every page (Ohad, 31 Oct 2026: "eliminate the white background in the boxes. can't have it",
+   "i dont' want to see white boxes again. so fix that shit galore everywhere") ====
+   The same tokens as About (assets/fo-about.css): a box is beige #F3ECDF, a step deeper than the page's cream; a well
+   inside a box goes deeper again (#EAE0CE); a chip or inner card on a box is a light cream (#F8F2E7); form fields are
+   #FBF7EF on a warm hairline. Only background colours change here, so every ring, border, pillar top and shadow stays,
+   and active, checked and hover states are left out of each selector so they keep their own fills.
+   Not touched: the header and footer (newsletter, Up next) in the shared chrome, anything inside a phone mockup
+   (.phone, .mphone, .cel), program logo chips and the hero's small pill label. */
+:root{--nw-bx:#F3ECDF;--nw-well:#EAE0CE;--nw-chip:#F8F2E7;--nw-in:#FBF7EF;--nw-in-line:rgba(110,80,40,.22)}
+
+/* boxes */
+.chp,.sboard,.rcard,.sh2,.fcol,.cels-cards>.wc,.wcards>.wc.sh,.rc>.st,.tl90>li,.pc4,.lsq,.lsn,
+.mwin>.wp,.mwin>.ww,.mwin>.wfine,.beat>.panel,.pill4>li,.ways>div,.cards>.prc,.tset>.tc,.pillars>.pil,.beat>.receipt,.arc-head>.who,
+.ps-bill,.ps-pc,.ps-lm>li,.ps-clr,.ps-no,.ps-tl>li,.ps-faq>div,.ps-ebox,
+.tmx,.ixc,.itiles>div,.nugc,.freego,.ledger,.pcta,.trg>.trd,.lvl>.lv,.ledger2,.txs>.tx,
+.shelf>.dk:not(.lead):not(.gold),.mf>.mf-c,.db-r>.readfirst,.db-r>.filters,.shelf>.more-tile,
+.fnx>.fni,.vlad,.vtwo>.vcard,.phv>.bfa,
+.phv>.fcd,.fnt>.fnc,.ugrid31>.ucard,a.fx-board,.fx-ph,.fx-q,
+.rwgrid>.rwcard,.rwpulse>.rpc,.gal>.ic,.wrap>.win,.wrap>.board,.viz>.strip{background-color:var(--nw-bx)!important;--pinkd:#C30E6E}
+.upnsw>.fo,.fo>.mast,.fo>.hero,.fo>.foot,.ic>.tag,.foot>.tag{background-color:#FBF7EF!important}
+.wmath>.mut{background-color:transparent!important}
+
+/* wells inside a box, and the light cream cards and chips that sit on a box */
+.chp .chv,.receipt .rr.tot{background-color:var(--nw-well)!important;--pinkd:#B00C63}
+.chp .chv .ill{color:#5E5766}
+.chv>.bfa,.chv>.bgo,.chv>.bls,.wc>.card:not(#nw),.sboard .sb-read,.ps-ebox .ps-edesk{background-color:var(--nw-chip)!important;--pinkd:#C30E6E}
+.wc .tag:not(#nw),.ph .tag:not(#nw),.top .tag:not(#nw),.row>.code,.ixl b.r1,.sl2>li,.sph .bb,.dset>.dpod,.dh>.dsay,.mstk>.try,.ps-ents>span,.ps-epill,.ps-tg>.ps-tt,
+.chips>.chip.ex,.feat>.btnp,.o-open .badge,.pgf .fql a{background-color:var(--nw-chip)!important;--pinkd:#C30E6E}
+.mf-c>i:not(#nw){background-color:var(--nw-chip)!important}
+/* stateful chips: only their resting state moves; .on, .all, :checked and :hover keep their own fills */
+.modes .celnav button:not(.on){background-color:var(--nw-chip)!important}
+.trades a:not(.all),.trades>a.all:not(#nw):not(:hover){background-color:var(--nw-chip)!important}
+.mrail a:not(#nw),.mrail a.on:not(#nw){background-color:var(--nw-chip)!important}
+.ps-chips a:not(#nw){background-color:var(--nw-chip)!important}
+#sees .lamp.on:not(#nw){background-color:var(--nw-chip)!important}
+/* ghost buttons: beige at rest, their own fill on hover */
+body:not(.tapp) .btn.gh:not(:hover),.pill.ghost:not(:hover),.ps-eb:not(:hover){background-color:var(--nw-chip)!important}
+/* the form fields that were white (Freebies' filters, the Calculator's industry list; Book's form is already beige); fields drawn
+   as plain text, like the Calculator's typed amounts, stay as they are. The footer's newsletter field belongs to the chrome. */
+#ffd select,#ffd .find input,.csel>select{background-color:var(--nw-in)!important;border-color:var(--nw-in-line)!important}
+/* white washes and white paper */
+.wcards.hcmp>.wc.mv,.pain>.big{background-image:linear-gradient(150deg,#F6F0E4 0%,#EFE6D4 100%)!important;background-color:var(--nw-bx)!important}
+.gallery>.screen{background-color:var(--cream,#FAF6EE)!important}
+.mwrap>.mdesk{background-color:rgba(243,236,223,.82)!important}
+.ncard{background-color:#FBF4E6!important}
+/* Freebies: the gold group's cards had a near-white wash, now a gold-tinted beige; the white "grab" button on a pink lead card goes light cream */
+.shelf>.dk.gold:not(.lead){background-image:linear-gradient(180deg,#F7EDD4 0%,#F3ECDF 100%)!important;background-color:var(--nw-bx)!important}
+html.dir-c.o3h #ffd .desk .dk.lead:not(.gold) .grab:not(#nw){background-color:var(--nw-chip)!important}
+/* Dispatch 062: its WhatsApp button was near-white; it takes the WhatsApp green the other dispatches use */
+.cta.dots>a[href*="wa.me"]{background-color:#25D366!important}
+/* Calculator: the basic card, the advanced box with its result side, and the method box are boxes; the notes, the
+   mix switch, the fine print and the "run" button sit on them in light cream. The verdict states only recolour text
+   and rings, and the sticky result keeps its place. */
+.chr>.cq,.wrap>.cbox,.cbox>.cres,.wrap>.cdet{background-color:var(--nw-bx)!important;--pinkd:#C30E6E}
+.cin>.ccon,.cmix>.cseg,.cq>.wfine,.bact>.brun{background-color:var(--nw-chip)!important;--pinkd:#C30E6E}
+/* text on the new beige keeps AA: the small pinks above, the mode rail's hard-coded pink, the desk cards' grey labels,
+   the dispatch's muted grey (#776E62 was 4.3:1 on beige, #6E665B is 4.8:1), and Trust's commitment numbers, which were
+   white on a pill with no fill (invisible on white too) and now sit on ink */
+.mrail a b:not(#nw),.mrail a.on b:not(#nw){color:#C30E6E!important}
+#ffd .mf-c small:not(#nw){color:#C30E6E}
+.rcard>.rk:not(#nw){color:#6E6776}
+.upnsw>.fo:not(#nw){--t4:#6E665B}
+.pc4:not([class*="k-"]) .pn b{background-color:var(--c,#141216)}
+/* Trust's and Industries' new boxes (they landed on main while this was built) */
+.trp .tst,.trp .trl>li,.trp .trx,.trp .tdd-c,.ind2 .tc,.ind2 .oc,.ind2 .pgc{background-color:var(--nw-bx)!important;--pinkd:#C30E6E;--pks:#C30E6E}
+.trp .trl .ic,.trp .tpn .stamp,.trp .tpn .key em,.ind2 .tce{background-color:var(--nw-chip)!important}
+/* ==== end no white boxes ==== */
