@@ -351,3 +351,10 @@ body .fo .mast-foot .pk{color:#D4107A}
 }
 @media (min-width:1000px){.fx-pg .sec.tight{padding:44px 0}.fx-pg .sec.fx-t + .sec.fx-t{padding-top:24px}}
 /* ==== end fuller desktop pages ==== */
+
+/* Trade pages (31 Oct): the hero's checklist sits right under the headline on every for-* page, as #37 did for dental
+   (the phone column was spanning the auto grid rows and pushed the checklist 35 to 98px down). */
+@media (min-width:1025px){
+  .mh.ph:has(img[src*="ind/"]) .phw{grid-template-rows:auto 1fr}
+  .mh.ph:has(img[src*="ind/"]) .phb{margin-top:6px}
+}
