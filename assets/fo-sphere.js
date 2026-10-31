@@ -46,8 +46,10 @@ D.shuffle(nodes).slice(0,Math.round(N*.5)).forEach(function(nd){setBusy(nd,true)
 nodes.forEach(function(nd){if(nd.dk)setBusy(nd,true)});
 place();
 if(D.RM){var dd=nextDarnell(.45);if(dd)activate(dd[0],dd[1]);var g=D.shuffle(nodes.filter(function(nd){return !nd.dk&&eligible(nd,.55)})).slice(0,2);g.forEach(function(nd){activate(nd,genResp())});place();o.onStatic&&o.onStatic(api);return api}
-var wait=D.clock(root),raf=0,last=0,vis=false;
-function frame(now){raf=requestAnimationFrame(frame);var dt=Math.min(.05,(now-last)/1000);last=now;T+=dt;ang+=(o.rot||0)*dt;if(o.onFrame)o.onFrame(dt,T,api);place()}
+var wait=D.clock(root),raf=0,last=0,vis=false,gap=o.fps?1000/o.fps-2:0;
+function frame(now){raf=requestAnimationFrame(frame);if(gap&&now-last<gap)return;var dt=Math.min(.05,(now-last)/1000);last=now;T+=dt;ang+=(o.rot||0)*dt;if(o.onFrame)o.onFrame(dt,T,api);place()}
+/* o.idle: lay the sphere out now, start moving once the page has loaded and gone idle (About's hero) */
+function start(){
 if('IntersectionObserver' in window){new IntersectionObserver(function(e){vis=e[0].isIntersecting;root.classList.toggle('paused',!vis);
  if(vis&&!raf){last=performance.now();raf=requestAnimationFrame(frame)}else if(!vis&&raf){cancelAnimationFrame(raf);raf=0}},{threshold:0}).observe(root)}
 else{last=performance.now();raf=requestAnimationFrame(frame)}
@@ -61,6 +63,8 @@ if(o.beats!==false)(async function(){await wait(500);for(;;){await wait(1600);va
  var pool=D.shuffle(nodes.filter(function(nd){return !nd.dk&&nd.busy&&eligible(nd,o.minD)}));
  while(picks.length<k&&pool.length)picks.push([pool.pop(),genResp()]);
  picks.forEach(function(p,ix){setTimeout(function(){activate(p[0],p[1],p[1].dk?2300:1400)},ix*70)})}})();
+}
+if(o.idle){var go=function(){if('requestIdleCallback' in window)requestIdleCallback(start,{timeout:3000});else setTimeout(start,1500)};if(document.readyState==='complete')go();else addEventListener('load',go,{once:true})}else start();
 return api};
 window.GEN=[["Watching bonuses", "Earn"], ["Card offers scan", "Earn"], ["Logging miles", "Earn"], ["Spend cap watch", "Earn"], ["Award chart check", "Burn"], ["Partner awards", "Burn"], ["Transfer ratios", "Burn"], ["Surcharge check", "Burn"], ["Cash rate compare", "Return"], ["Fare rules", "Return"], ["Free night rules", "Return"], ["Rules checked", "Learn"], ["Updating rules", "Learn"], ["Rules check", "Learn"], ["Routing rules", "Learn"]];
 window.RC=function(c,serif){return '<div class="rh">'+DV.lg(c.n)+'<b>'+DV.names[c.n]+'</b><span class="arr">to First Officer</span><span class="pg" style="--c:'+DV.pc[c.p]+'">'+c.p+'</span></div><div class="rt'+(serif?' serif':'')+'">'+c.t+'</div>'};
@@ -81,6 +85,6 @@ window.FOSPH=function(root){var D=DV,cfg={};try{cfg=JSON.parse(D.$('script.sphcf
   else{if(fl)fl.insertAdjacentHTML('afterbegin','<li class="fg">'+D.lg(nd.n)+'<b>'+D.names[nd.n]+'</b><span>'+r.s+'</span><i>✓</i></li>');
    recent.unshift('<b>'+D.names[nd.n]+'</b> '+r.s.toLowerCase());recent=recent.slice(0,2);if(also)D.swap(also,'Just now: '+recent.join(' · '))}
   if(fl)while(fl.children.length>9)fl.lastElementChild.remove()}
- api=SPH(root,{mode:mode,rot:mode==='cluster'?0:(cfg.rot||.12),a0:cfg.a0||.4,gen:GEN,onAct:onAct,minD:mode==='cluster'?0:.6,con:con});
+ api=SPH(root,{mode:mode,rot:mode==='cluster'?0:(cfg.rot||.12),a0:cfg.a0||.4,gen:GEN,onAct:onAct,minD:mode==='cluster'?0:.6,con:con,fps:cfg.fps||0,idle:!!cfg.idle});
  return api};
 (function(){function boot(){DV.$$('.sx[data-sph]').forEach(function(r){window.FOSPH(r)})}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot()})();
