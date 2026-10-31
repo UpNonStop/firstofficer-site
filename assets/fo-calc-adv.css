@@ -190,3 +190,8 @@
    so Go advanced usually comes out lower. Readable, not fine print. */
 .wfine.bgap{display:block;font-size:14px;line-height:1.5;color:var(--body,#4A4550);opacity:1}
 .wfine.bgap a{color:var(--ink,#141216);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+/* the fees tile closes the stack as one full-width row, so the five cards and Past every cap fill whole rows (Venture Business is the fifth card) */
+.xc.xfees{grid-column:1/-1}
+/* a long card name (Capital One Venture Business) pushes its fee to the next line instead of squeezing it into two */
+.xc .xch{flex-wrap:wrap;row-gap:2px}
+.xc .xch small{white-space:nowrap}
