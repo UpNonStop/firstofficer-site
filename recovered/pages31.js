@@ -9,7 +9,7 @@ if(!RM)setInterval(function(){if(document.documentElement.classList.contains('fo
 /* rails: rectangle progress, synced to scroll */
 $$('.srail').forEach(function(r){var d=r.nextElementSibling;if(!d||!d.classList.contains('sdots'))return;var n=r.children.length;
   d.innerHTML=Array(n+1).join('<i></i>');var dots=$$('i',d);
-  function upd(){var w=r.children[0].getBoundingClientRect().width+12,k=Math.min(n-1,Math.round(r.scrollLeft/w));dots.forEach(function(e,j){e.classList.toggle('on',j===k)})}
+  function upd(){var w=r.children[0].getBoundingClientRect().width+12,e=r.scrollWidth-r.clientWidth,k=e>4&&r.scrollLeft>=e-4?n-1:Math.min(n-1,Math.round(r.scrollLeft/w));dots.forEach(function(e,j){e.classList.toggle('on',j===k)})}
   r.addEventListener('scroll',upd,{passive:true});upd();
   dots.forEach(function(e,j){e.addEventListener('click',function(){r.scrollTo({left:r.children[j].offsetLeft-r.children[0].offsetLeft,behavior:RM?'auto':'smooth'})})})});
 /* tap-to-expand on phones, open on desktop */

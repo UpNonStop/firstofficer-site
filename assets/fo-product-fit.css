@@ -1,0 +1,69 @@
+/* Product (Oct 31): no dead space inside or between the bricks.
+   Ohad: "the product page too looks too loose and disorganized ... so much empty space within and across the various bricks".
+   Loaded last, on product.html only, so it is one place to read and one file to drop to undo.
+   Beige ground stays: sections stay transparent on the page's cream; cards stay the site's white cards. */
+
+/* 1. One rhythm between sections: 120px of padding top and bottom (240px between bricks) becomes 72px on desktop,
+   36px on phones. The hero hands over closer to Leo, and the "Up next" card sits closer to the last section. */
+main>.sec:not(.mh):not(.pnx){padding-top:36px;padding-bottom:36px}
+main>#desk{padding-top:0}
+#mh.ph{padding-bottom:24px}
+@media (min-width:761px){
+  main>.sec:not(.mh):not(.pnx){padding-top:72px;padding-bottom:72px}
+  main>#desk{padding-top:0}
+  #mh.ph{padding-bottom:36px}
+  main>#leo{padding-top:56px}
+  main>.sec.tight.pnx{padding-top:24px;padding-bottom:28px}
+}
+
+/* 2. One gap from a section's heading to its content (was 32 to 60px) */
+#leo .chps,#strategist .stg,#tour .tour,#cheer .cels,#stories .srail,#leaks .srail{margin-top:22px}
+#cheer .cels-cards{margin-top:18px}
+@media (min-width:761px){
+  #leo .chps,#strategist .stg,#tour .tour,#cheer .cels,#stories .srail,#leaks .srail{margin-top:30px}
+  #cheer .cels-cards{margin-top:24px}
+}
+
+/* 3. Leo's four pillars: on desktop a 2 x 2 board (Earn, Burn / Return, Learn) instead of four full-width rows, so the
+   four pillars read as one set. The panels in a row share one height, so no card
+   carries a gap between its words and its panel. From 900px wide (laptops, tablets on their side) the board is two
+   across; below that the cards stack, and on phones they and their panels sit a little tighter. */
+#leo .chp{padding:18px;gap:14px}
+#leo .chv{padding:14px}
+@media (min-width:900px){
+  #leo .chps{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
+  #leo .chp{grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr;gap:18px;padding:26px;align-items:start}
+  #leo .chp h3{font-size:32px}
+  #leo .chv{align-self:stretch;display:flex;flex-direction:column;padding:18px}
+  #leo .chv>:first-child{flex:1 1 auto}
+}
+@media (min-width:761px) and (max-width:899px){
+  #leo .chp{gap:24px;padding:24px}
+  #leo .chv{padding:18px}
+}
+/* Learn's two figures were split by a lone middle dot that read as a stray mark; a hairline divides them instead */
+#leo .k-learn .bfa>i{font-size:0;line-height:0;color:transparent;flex:0 0 1px;width:1px;align-self:stretch;background:rgba(20,18,22,.12);margin:2px 0}
+
+/* 4. Inside the app: the phone a little smaller and closer, and the column beside it carries the tabs, the pane and
+   "Open the example app", so it is not a short block floating next to a tall phone */
+@media (min-width:761px){
+  #tour .tour{grid-template-columns:340px minmax(0,1fr);gap:48px}
+  #tour .tour .phone{max-width:318px}
+  #tour .tpane{margin-top:24px}
+  #tour .tside .tourmore{margin-top:26px;justify-content:flex-start}
+}
+#tour .tside .tourmore{display:flex}
+
+/* 5. Ten owners: the copy says "Swipe through ten owners", so on desktop too it is one row to swipe (3 and a bit
+   in view, with the dots), instead of a 3-column grid four rows deep that left the tenth owner alone on the last row */
+@media (min-width:761px){
+  #stories .srail{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:4px 2px 12px;scroll-padding:0 2px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:rgba(20,18,22,.25) transparent}
+  #stories .srail>.rc{flex:0 0 calc((100% - 42px) / 3.25);scroll-snap-align:start}
+  #stories .sdots{display:flex;gap:6px;justify-content:center;margin-top:10px;min-height:6px}
+  #stories .sdots i{width:18px;height:6px;border-radius:3px;background:rgba(20,18,22,.16);cursor:pointer;transition:width .3s,background .3s}
+  #stories .sdots i.on{width:34px;background:var(--pink)}
+}
+
+/* 6. "The win" band: a deeper beige panel instead of a wash that starts at pure white in its top corner
+   (Ohad, 31 Oct: the beige ground, no white bands) */
+#cheer.onink{background:linear-gradient(150deg,#F6F0E4 0%,#EFE6D4 100%)}
