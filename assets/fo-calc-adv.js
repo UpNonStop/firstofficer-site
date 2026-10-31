@@ -95,59 +95,66 @@ var TODAY=[['1','1x card',1],['1.5','1.5x card',1.5],['2','2x card',2],['3','3x 
 var TR={};TODAY.forEach(function(t){TR[t[0]]=t});
 function tShort(k){return k==='none'?'Not on a card':/^c/.test(k)?TR[k][1].replace(' cash back',' back'):x(TR[k][2])}
 
-/* ---------------- industry mixes: $ a month and how each line is paid today (est., fictional). Ex: the example owner's first name ---------------- */
+/* ---------------- the 21 industries the site covers, in the Industries page's order and names: the 20 trades, then Other, a general small-business mix.
+   Each: [slug, name, example owner's first name, $ a month and how each line is paid today (est., fictional), things to consider, how the sentence names it] ---------------- */
 var IND=[
- ['auto-repair','Auto repair shop','',{indsup:[18000],furn:[1000],elec:[500],soft:[900],adsOn:[2000],util:[1200],phone:[400],net:[200],ins:[1500],rentEq:[400],fuel:[600],office:[200],dues:[200],pro:[600],meals:[300],maint:[600],rent:[7000,'none']},
-  ['Parts orders, often from a few suppliers','Shop software and diagnostic subscriptions','Tools and equipment, and how they are paid for','Which suppliers take cards without a surcharge']],
- ['cleaning','Cleaning company','',{indsup:[7000],fuel:[4500],fleet:[1500],adsOn:[2500],soft:[600],phone:[900],ins:[1800],contr:[4500],rentEq:[300],office:[200],meals:[200],payr:[400],dues:[100],online:[600],rent:[3000,'none']},
-  ['Supplies and chemicals, often on repeat orders','Fuel and vans','Subcontractors, and which ones take cards','Insurance and bonding, and whether a card fee applies']],
- ['consulting','Consulting firm','',{air:[6000,'1.5'],hotel:[5000,'1.5'],car:[1500,'1.5'],transit:[400],meals:[2500,'1.5'],events:[600],soft:[3000],cloud:[600],phone:[500],net:[300],elec:[800],office:[200],contr:[4000],pro:[1500],dues:[500],adsOn:[1500],ins:[600],rent:[5000,'none']},
-  ['Client travel, often the biggest line','Software seats that grow with the team','Subcontractors and their payment terms','Client meals and events']],
- ['contractor','Contractor','Dustin',{build:[42400],rentEq:[10000,'1.5'],fuel:[5000],fleet:[1500],hotel:[6000],meals:[1500],phone:[600],net:[200],soft:[600],ins:[3000],tax:[600],office:[200],adsOn:[1500],dues:[200],loan:[4000,'none']},
-  ['Materials, often the biggest line','Job-site hotels and travel','Fuel and equipment rental','Supplier terms versus paying by card']],
- ['cpa-firm','CPA firm','',{soft:[6500],cloud:[800],pro:[2000],dues:[1200],adsOn:[1500],office:[1200,'1.5'],elec:[1000],furn:[400],phone:[500],net:[300],ins:[1200],meals:[900,'1.5'],events:[400],air:[1200],hotel:[1000],payr:[400],util:[400],contr:[4500],rent:[6000,'none']},
-  ['Tax and audit software renewals','Licenses and continuing education','Seasonal staff and contractors','Which vendors take cards without fees']],
- ['dental-practice','Dental practice','Leila',{indsup:[13000],labs:[6000],soft:[3500,'1.5'],cloud:[500,'1.5'],adsOn:[4000,'2'],adsPrint:[800],net:[400],phone:[500],office:[700,'1.5'],elec:[600],furn:[300],ins:[900],util:[600],dues:[400],meals:[300,'1.5'],payr:[300],rent:[7000,'none']},
-  ['Supply orders, often from a few large vendors','Practice and imaging software','Lab fees, and whether your labs take cards','Patient marketing and ads']],
+ ['marketing-agency','Agencies','Anjali',{adsOn:[12000],adsTv:[1500],soft:[6000,'2'],cloud:[1500,'1.5'],contr:[6000,'1.5'],air:[3500,'1.5'],hotel:[2500,'1.5'],car:[800,'1.5'],meals:[1500,'1.5'],events:[500],elec:[1200],office:[300],net:[400],phone:[600],pro:[800],dues:[300],payr:[400],rent:[6000,'none']},
+  ['Client ad spend that runs through your cards','Software seats that grow with the team','Contractors, and which ones take cards','Shoot and client travel'],'agencies'],
+ ['auto-repair','Auto repair','',{indsup:[18000],furn:[1000],elec:[500],soft:[900],adsOn:[2000],util:[1200],phone:[400],net:[200],ins:[1500],rentEq:[400],fuel:[600],office:[200],dues:[200],pro:[600],meals:[300],maint:[600],rent:[7000,'none']},
+  ['Parts orders, often from a few suppliers','Shop software and diagnostic subscriptions','Tools and equipment, and how they are paid for','Which suppliers take cards without a surcharge'],'auto repair shops'],
+ ['cleaning','Cleaning','',{indsup:[7000],fuel:[4500],fleet:[1500],adsOn:[2500],soft:[600],phone:[900],ins:[1800],contr:[4500],rentEq:[300],office:[200],meals:[200],payr:[400],dues:[100],online:[600],rent:[3000,'none']},
+  ['Supplies and chemicals, often on repeat orders','Fuel and vans','Subcontractors, and which ones take cards','Insurance and bonding, and whether a card fee applies'],'cleaning companies'],
+ ['consulting','Consulting','',{air:[6000,'1.5'],hotel:[5000,'1.5'],car:[1500,'1.5'],transit:[400],meals:[2500,'1.5'],events:[600],soft:[3000],cloud:[600],phone:[500],net:[300],elec:[800],office:[200],contr:[4000],pro:[1500],dues:[500],adsOn:[1500],ins:[600],rent:[5000,'none']},
+  ['Client travel, often the biggest line','Software seats that grow with the team','Subcontractors and their payment terms','Client meals and events'],'consulting firms'],
+ ['contractor','Contractors','Dustin',{build:[42400],rentEq:[10000,'1.5'],fuel:[5000],fleet:[1500],hotel:[6000],meals:[1500],phone:[600],net:[200],soft:[600],ins:[3000],tax:[600],office:[200],adsOn:[1500],dues:[200],loan:[4000,'none']},
+  ['Materials, often the biggest line','Job-site hotels and travel','Fuel and equipment rental','Supplier terms versus paying by card'],'contractors'],
+ ['cpa-firm','CPA firms','',{soft:[6500],cloud:[800],pro:[2000],dues:[1200],adsOn:[1500],office:[1200,'1.5'],elec:[1000],furn:[400],phone:[500],net:[300],ins:[1200],meals:[900,'1.5'],events:[400],air:[1200],hotel:[1000],payr:[400],util:[400],contr:[4500],rent:[6000,'none']},
+  ['Tax and audit software renewals','Licenses and continuing education','Seasonal staff and contractors','Which vendors take cards without fees'],'CPA firms'],
+ ['dental-practice','Dental','Leila',{indsup:[13000],labs:[6000],soft:[3500,'1.5'],cloud:[500,'1.5'],adsOn:[4000,'2'],adsPrint:[800],net:[400],phone:[500],office:[700,'1.5'],elec:[600],furn:[300],ins:[900],util:[600],dues:[400],meals:[300,'1.5'],payr:[300],rent:[7000,'none']},
+  ['Supply orders, often from a few large vendors','Practice and imaging software','Lab fees, and whether your labs take cards','Patient marketing and ads'],'dental practices'],
  ['e-commerce','E-commerce','Ines',{adsOn:[9000],whole:[8000],ship:[3000],pack:[1200],soft:[1500],cloud:[300],online:[800],elec:[300],office:[100],contr:[800],phone:[200],net:[150],pro:[400]},
-  ['Ad spend on search and social','Shipping and packaging','Inventory from your suppliers','Seasonal peaks around the holidays']],
- ['fitness','Gym or fitness studio','',{furn:[4000],adsOn:[5000],soft:[1500],util:[4500],maint:[1500],contr:[3000],ins:[900],phone:[300],net:[300],office:[200],dues:[300],whole:[1500],indsup:[1000],online:[600],meals:[200],payr:[400],rent:[9000,'none']},
-  ['Equipment purchases and repairs','Booking software and music licenses','Utilities, often a large monthly line','Instructors and how they are paid']],
+  ['Ad spend on search and social','Shipping and packaging','Inventory from your suppliers','Seasonal peaks around the holidays'],'e-commerce'],
+ ['fitness','Fitness','',{furn:[4000],adsOn:[5000],soft:[1500],util:[4500],maint:[1500],contr:[3000],ins:[900],phone:[300],net:[300],office:[200],dues:[300],whole:[1500],indsup:[1000],online:[600],meals:[200],payr:[400],rent:[9000,'none']},
+  ['Equipment purchases and repairs','Booking software and music licenses','Utilities, often a large monthly line','Instructors and how they are paid'],'gyms and studios'],
  ['hvac','HVAC','Hector',{build:[17000],indsup:[2000],fuel:[6500],fleet:[1500],rentEq:[800,'1.5'],phone:[900,'1.5'],net:[300,'1.5'],soft:[900,'1.5'],adsOn:[3000,'1.5'],adsPrint:[600],office:[300,'1.5'],elec:[400],ins:[1200],meals:[400,'1.5'],dues:[200],util:[300],payr:[200],tax:[200],loan:[2500,'none']},
-  ['Fuel and fleet costs','Supplier and equipment purchases','Seasonal swings in what you spend','Vendors who take cards without fees']],
- ['insurance-agency','Insurance agency','Leo',{adsOn:[12300],adsPrint:[1000],adsAgency:[1000,'1.5'],soft:[5500],cloud:[800,'1.5'],net:[400,'1.5'],phone:[700,'1.5'],air:[2500,'1.5'],hotel:[2200,'1.5'],car:[900,'1.5'],transit:[300],meals:[1800,'1.5'],events:[600],office:[600,'1.5'],elec:[700],furn:[300],pro:[1500],dues:[400],ins:[900],util:[300],payr:[300],rent:[6000,'none']},
-  ['Lead-gen and ad spend is often the biggest line','Agency software and subscriptions billed every month','Travel to carriers and conferences','Which vendors take cards without a surcharge']],
- ['it-services','IT services firm','',{elec:[12000],soft:[8000],cloud:[6000],net:[600],phone:[900],contr:[3000],air:[1500,'1.5'],hotel:[1200,'1.5'],car:[800,'1.5'],meals:[800],office:[300],adsOn:[1500],ins:[700],dues:[300],fuel:[600],rent:[5000,'none']},
-  ['Hardware bought for clients','Software licenses resold or managed','Cloud bills that grow with clients','Subcontractors and their payment terms']],
- ['landscaping','Landscaping company','',{build:[9000],fuel:[5000],fleet:[2000],rentEq:[3000],indsup:[2000],adsOn:[1500],adsPrint:[500],phone:[600],soft:[400],ins:[1500],meals:[400],office:[100],dues:[200],tax:[300],loan:[3000,'none']},
-  ['Plants, stone and supply yards','Fuel and trucks','Equipment rental and repairs','Seasonal swings in what you spend']],
- ['law-firm','Law firm','Chidi',{air:[2500],hotel:[2000],car:[800],transit:[400],soft:[3500],cloud:[400],pro:[5000],tax:[2000],office:[900,'1.5'],elec:[600],furn:[400],meals:[1200,'1.5'],events:[400],dues:[600],ins:[1500],net:[400],phone:[600],adsOn:[2500,'1.5'],rent:[9000,'none']},
-  ['Client costs you pay up front','Travel to depositions and court','Filing fees and research software','Which fees can be paid by card at all']],
- ['marketing-agency','Marketing agency','Anjali',{adsOn:[12000],adsTv:[1500],soft:[6000,'2'],cloud:[1500,'1.5'],contr:[6000,'1.5'],air:[3500,'1.5'],hotel:[2500,'1.5'],car:[800,'1.5'],meals:[1500,'1.5'],events:[500],elec:[1200],office:[300],net:[400],phone:[600],pro:[800],dues:[300],payr:[400],rent:[6000,'none']},
-  ['Client ad spend that runs through your cards','Software seats that grow with the team','Contractors, and which ones take cards','Shoot and client travel']],
- ['medical-practice','Medical practice','',{indsup:[12000],labs:[4000],soft:[4000,'1.5'],cloud:[600],adsOn:[2500],office:[800,'1.5'],elec:[800],furn:[400],ins:[2000],util:[900],phone:[600],net:[400],dues:[800],pro:[1500],meals:[400],payr:[400],rent:[8000,'none']},
-  ['Medical supplies, often from a few large vendors','Records and billing software','Labs, and whether they take cards','Insurance premiums, and whether a card fee applies']],
+  ['Fuel and fleet costs','Supplier and equipment purchases','Seasonal swings in what you spend','Vendors who take cards without fees'],'HVAC'],
+ ['it-services','IT services','',{elec:[12000],soft:[8000],cloud:[6000],net:[600],phone:[900],contr:[3000],air:[1500,'1.5'],hotel:[1200,'1.5'],car:[800,'1.5'],meals:[800],office:[300],adsOn:[1500],ins:[700],dues:[300],fuel:[600],rent:[5000,'none']},
+  ['Hardware bought for clients','Software licenses resold or managed','Cloud bills that grow with clients','Subcontractors and their payment terms'],'IT services'],
+ ['landscaping','Landscaping','',{build:[9000],fuel:[5000],fleet:[2000],rentEq:[3000],indsup:[2000],adsOn:[1500],adsPrint:[500],phone:[600],soft:[400],ins:[1500],meals:[400],office:[100],dues:[200],tax:[300],loan:[3000,'none']},
+  ['Plants, stone and supply yards','Fuel and trucks','Equipment rental and repairs','Seasonal swings in what you spend'],'landscaping companies'],
+ ['law-firm','Law firms','Chidi',{air:[2500],hotel:[2000],car:[800],transit:[400],soft:[3500],cloud:[400],pro:[5000],tax:[2000],office:[900,'1.5'],elec:[600],furn:[400],meals:[1200,'1.5'],events:[400],dues:[600],ins:[1500],net:[400],phone:[600],adsOn:[2500,'1.5'],rent:[9000,'none']},
+  ['Client costs you pay up front','Travel to depositions and court','Filing fees and research software','Which fees can be paid by card at all'],'law firms'],
+ ['medical-practice','Medical','',{indsup:[12000],labs:[4000],soft:[4000,'1.5'],cloud:[600],adsOn:[2500],office:[800,'1.5'],elec:[800],furn:[400],ins:[2000],util:[900],phone:[600],net:[400],dues:[800],pro:[1500],meals:[400],payr:[400],rent:[8000,'none']},
+  ['Medical supplies, often from a few large vendors','Records and billing software','Labs, and whether they take cards','Insurance premiums, and whether a card fee applies'],'medical practices'],
  ['property-management','Property management','',{maint:[12000],build:[6000],util:[5000],ins:[3000],soft:[1500],adsOn:[1500],adsPrint:[300],phone:[500],net:[300],office:[300],fuel:[800],pro:[1200],dues:[300],tax:[500,'none']},
-  ['Repairs and upkeep across properties','Supply runs for maintenance','Utilities you pay for tenants','Which vendors take cards without fees']],
+  ['Repairs and upkeep across properties','Supply runs for maintenance','Utilities you pay for tenants','Which vendors take cards without fees'],'property management'],
  ['real-estate','Real estate','Terrence',{adsOn:[10700,'1.5'],adsPrint:[7000],car:[2000],fuel:[1500],events:[4000,'1.5'],meals:[1500,'1.5'],soft:[1500],phone:[500],net:[200],office:[300],dues:[800],pro:[1000],ins:[500],elec:[300],air:[1500],hotel:[1500],transit:[200],rent:[4000,'none']},
-  ['Listing ads and portals','Signage and print','Travel to showings','Closing gifts and client events']],
- ['restaurant','Restaurant','Teresa',{whole:[16000],adsOn:[3000,'2'],soft:[800],net:[300],phone:[300],util:[1800],indsup:[1500],pack:[600],office:[100],maint:[800],ins:[900],dues:[100],rent:[8000,'none'],tax:[1500,'none']},
-  ['Food suppliers, and whether they take cards','Delivery apps and ads','Phone, internet and utilities','Card surcharges, where margins are thin']],
- ['salon-or-spa','Salon or spa','',{indsup:[9000],whole:[5000],adsOn:[3500],soft:[1200],util:[2000],maint:[800],ins:[900],phone:[400],net:[200],furn:[800],office:[200],dues:[300],online:[600],meals:[200],payr:[400],rent:[7000,'none']},
-  ['Professional products, often on repeat orders','Retail stock for resale','Booking software and payment fees','Seasonal promotions and ads']],
+  ['Listing ads and portals','Signage and print','Travel to showings','Closing gifts and client events'],'real estate'],
+ ['restaurant','Restaurants','Teresa',{whole:[16000],adsOn:[3000,'2'],soft:[800],net:[300],phone:[300],util:[1800],indsup:[1500],pack:[600],office:[100],maint:[800],ins:[900],dues:[100],rent:[8000,'none'],tax:[1500,'none']},
+  ['Food suppliers, and whether they take cards','Delivery apps and ads','Phone, internet and utilities','Card surcharges, where margins are thin'],'restaurants'],
+ ['salon-or-spa','Salons','',{indsup:[9000],whole:[5000],adsOn:[3500],soft:[1200],util:[2000],maint:[800],ins:[900],phone:[400],net:[200],furn:[800],office:[200],dues:[300],online:[600],meals:[200],payr:[400],rent:[7000,'none']},
+  ['Professional products, often on repeat orders','Retail stock for resale','Booking software and payment fees','Seasonal promotions and ads'],'salons and spas'],
  ['trucking','Trucking','Wade',{fuel:[45000],fleet:[8000],transit:[4000],tax:[1300],ins:[2500],phone:[500],net:[200],soft:[900],meals:[500],hotel:[300],office:[100],loan:[6000,'none']},
-  ['Fleet fuel, usually most of the spend','Tires, repairs and parts','Tolls and permits','Where fuel is bought, and how it is paid for']],
- ['veterinary-clinic','Veterinary clinic','',{indsup:[14000],labs:[3000],soft:[2500,'1.5'],cloud:[300],adsOn:[2000],util:[1200],ins:[1200],phone:[500],net:[300],office:[500,'1.5'],elec:[600],furn:[300],dues:[500],pro:[1000],meals:[300],maint:[600],rent:[7000,'none']},
-  ['Medical supplies and pharmacy orders','Reference labs and outside services','Practice software','Which distributors take cards without a surcharge']]];
-var ALIAS={restaurants:'restaurant',dental:'dental-practice',agencies:'marketing-agency',agency:'marketing-agency',law:'law-firm','law-firms':'law-firm',realestate:'real-estate',ecommerce:'e-commerce',contractors:'contractor',insurance:'insurance-agency',
-  'cpa-firms':'cpa-firm',cpa:'cpa-firm',medical:'medical-practice',salons:'salon-or-spa',salon:'salon-or-spa',veterinary:'veterinary-clinic',vet:'veterinary-clinic','it':'it-services',gym:'fitness'};
+  ['Fleet fuel, usually most of the spend','Tires, repairs and parts','Tolls and permits','Where fuel is bought, and how it is paid for'],'trucking'],
+ ['veterinary-clinic','Veterinary','',{indsup:[14000],labs:[3000],soft:[2500,'1.5'],cloud:[300],adsOn:[2000],util:[1200],ins:[1200],phone:[500],net:[300],office:[500,'1.5'],elec:[600],furn:[300],dues:[500],pro:[1000],meals:[300],maint:[600],rent:[7000,'none']},
+  ['Medical supplies and pharmacy orders','Reference labs and outside services','Practice software','Which distributors take cards without a surcharge'],'veterinary clinics'],
+ ['other','Other','',{adsOn:[3000],adsPrint:[400],soft:[2500],cloud:[400],net:[250],phone:[450],air:[1500],hotel:[1200],car:[500],transit:[150],fuel:[900],fleet:[300],ship:[700],pack:[200],office:[400],elec:[600],furn:[300],indsup:[3000],whole:[2500],online:[800],meals:[900],events:[300],pro:[900],contr:[1500],ins:[1000],util:[700],payr:[250],dues:[200],maint:[400],rent:[5000,'none'],tax:[600,'none']},
+  ['Your biggest monthly lines, and which card each one goes on','Software and subscriptions that renew every month','Suppliers and vendors, and which take cards without a surcharge','Travel and meals, and which card each one goes on'],'your business']];
+/* every name and slug that reaches this page: the trade pages' file names (for-*.html, also read from the referrer), the Industries page, Book's list */
+var ALIAS={restaurants:'restaurant',dental:'dental-practice',agencies:'marketing-agency',agency:'marketing-agency','marketing-agencies':'marketing-agency',law:'law-firm','law-firms':'law-firm',realestate:'real-estate',ecommerce:'e-commerce',contractors:'contractor',
+  'cpa-firms':'cpa-firm',cpa:'cpa-firm',medical:'medical-practice',salons:'salon-or-spa',salon:'salon-or-spa',spa:'salon-or-spa',veterinary:'veterinary-clinic',vet:'veterinary-clinic','it':'it-services','it-and-msp':'it-services','it-msp':'it-services',msp:'it-services',gym:'fitness',
+  'other-industries':'other',general:'other',insurance:'other','insurance-agency':'other'};
 
 /* ---------------- state ---------------- */
 var A={},T={},use='mix',mix='ex',idx=0,first=true;
 var q=location.search,qp={};q.replace(/^\?/,'').split('&').forEach(function(kv){if(!kv)return;var p=kv.split('=');try{qp[decodeURIComponent(p[0])]=decodeURIComponent((p[1]||'').replace(/\+/g,' '))}catch(e){}});
-(function(){var want=slug(qp.industry||qp.ind||''),ex=(qp.ex||'').toLowerCase();if(ALIAS[want])want=ALIAS[want];
-  IND.forEach(function(p,i){if(p[0]===slug('Insurance agency'))idx=i});
-  IND.forEach(function(p,i){if((want&&(p[0]===want||slug(p[1])===want))||(ex&&p[2].toLowerCase()===ex))idx=i})})();
+/* the starting point: the industry asked for (?ind=, ?industry=, ?ex=), else the trade page the visitor just came from, else Other */
+var VIA=false;
+(function(){var want=slug(qp.industry||qp.ind||''),ex=(qp.ex||'').toLowerCase();
+  if(!want&&!ex){var rf=document.referrer||'',rm=rf.indexOf(location.origin)===0&&rf.match(/\/for-([a-z-]+)\.html/);if(rm){want=slug(rm[1]);VIA=true}}
+  if(ALIAS[want])want=ALIAS[want];
+  IND.forEach(function(p,i){if(p[0]==='other')idx=i});
+  IND.forEach(function(p,i){if((want&&(p[0]===want||slug(p[1])===want))||(ex&&p[2]&&p[2].toLowerCase()===ex))idx=i})})();
 var SP=+(qp.spend||0)||0;
 
 /* ---------------- the router: every line on a card, inside each card's yearly cap ---------------- */
@@ -212,7 +219,7 @@ function paint(){var r=model(),v,G2=r.mo>BIG;v=verdict(r);
   K('plus',Math.max(0,r.d-r.t),function(n){return '+'+pts(n)});
   K('mo',r.mo,usd);K('bl',r.mo?r.t/r.mo:0,x);K('vt',r.t,pts);K('dl',r.mo?r.d/r.mo:0,x);
   S('off',r.off?usd(r.off)+' a month marked not on a card is not counted.':'');
-  S('who',IND[idx][1]+' · at '+rng(r.u)+' a point');S('gatev','You: '+kmo(r.mo));
+  S('who',(IND[idx][0]==='other'?'Your mix':IND[idx][1])+' · at '+rng(r.u)+' a point');S('gatev','You: '+kmo(r.mo));
   var gt=$('#xgt');$('.fill',gt).style.width=pc(r.mo,GMAX);$('.fee',gt).style.left=pc(GATE,GMAX);gt.classList.toggle('under',r.mo<GATE);
   bar($('#xbal'),r);
   $('#xv').className='cv '+v.c;$('.cres',root).className='cres '+v.c+(r.mid>=1e4?' big':'');$('.cmini',root).className='cmini '+v.c;
@@ -272,8 +279,9 @@ function load(scale){var p=IND[idx],mix0=p[3],sum=0;
   if(scale&&SP>0&&sum>0){var k=SP/sum;LN.forEach(function(l){if(A[l.id]&&T[l.id]!=='none')A[l.id]=Math.round(A[l.id]*k/100)*100})}
   $('#cind').value=String(idx);
   var on=0;LN.forEach(function(l){if(A[l.id]&&T[l.id]!=='none')on+=A[l.id]});
-  $('#cwho').textContent=(scale&&SP>0?'Typical mix, scaled to '+kmo(SP)+' a month, est.':'Typical mix: '+kmo(on)+' a month on cards, est.');
-  $('#ccth').textContent='Things to consider for '+(p[1]==='HVAC'?'HVAC':p[1].toLowerCase());
+  var gm=p[0]==='other'?'General small-business mix':'Typical mix';
+  $('#cwho').textContent=(scale&&SP>0?gm+', scaled to '+kmo(SP)+' a month, est.':gm+': '+kmo(on)+' a month on cards, est.');
+  $('#ccth').textContent='Things to consider for '+p[5];
   $('#ccul').innerHTML=p[4].map(function(t){return '<li>'+t+'</li>'}).join('');
   build();LN.forEach(function(l){$('#xa-'+l.id).value=(A[l.id]||0).toLocaleString('en-US');$('#xt-'+l.id).value=T[l.id]});
   paint()}
@@ -281,7 +289,8 @@ function load(scale){var p=IND[idx],mix0=p[3],sum=0;
 /* ---------------- controls ---------------- */
 var SEL=$('#cind');
 SEL.innerHTML=IND.map(function(p,i){return '<option value="'+i+'">'+p[1]+'</option>'}).join('');
-SEL.addEventListener('change',function(){idx=+SEL.value;SP=0;load(false)});
+SEL.addEventListener('change',function(){idx=+SEL.value;SP=0;SEL.setAttribute('data-picked','1');load(false)});
+if(VIA)SEL.setAttribute('data-picked','1');
 $('#cuse').innerHTML=BS.types.map(function(t){return '<button type="button" role="radio" data-u="'+t.id+'" aria-checked="'+(t.id===use)+'"'+(t.id===use?' class="on"':'')+'><b>'+t.name+'</b><small>'+rng(t)+'</small></button>'}).join('');
 $$('#cuse button').forEach(function(b){b.addEventListener('click',function(){use=b.dataset.u;$$('#cuse button').forEach(function(o){var on=o===b;o.classList.toggle('on',on);o.setAttribute('aria-checked',on)});paint()})});
 $$('#cmix button').forEach(function(b){b.addEventListener('click',function(){mix=b.dataset.m;$$('#cmix button').forEach(function(o){var on=o===b;o.classList.toggle('on',on);o.setAttribute('aria-checked',on)});
