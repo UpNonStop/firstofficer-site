@@ -77,7 +77,7 @@ function build(){
     var s=saved();set(s==='1'||(s!=='0'&&(RMQ.matches||H.classList.contains('fo-still'))),false);
     bt.addEventListener('click',function(){set(!H.classList.contains('fo-still'),true)})})();
   /* rails that scroll sideways take keyboard focus, only while they actually scroll */
-  function rails(){document.querySelectorAll('.srail,.tsh,.cels,.tl90').forEach(function(r){var s=r.scrollWidth>r.clientWidth+2&&/(auto|scroll)/.test(getComputedStyle(r).overflowX);
+  function rails(){document.querySelectorAll('.srail,.tsh,.cels,.tl90,.vp,.ttrack').forEach(function(r){var s=r.scrollWidth>r.clientWidth+2&&/(auto|scroll)/.test(getComputedStyle(r).overflowX);
     if(s&&!r.hasAttribute('tabindex')){r.setAttribute('tabindex','0');r.setAttribute('data-fo-tab','')}else if(!s&&r.hasAttribute('data-fo-tab')){r.removeAttribute('tabindex');r.removeAttribute('data-fo-tab')}})}
   rails();addEventListener('load',rails);var rt=null;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(rails,250)});
   /* the phone mockup's own titles are app screen text, not the page's headings */
