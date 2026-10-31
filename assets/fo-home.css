@@ -1,5 +1,5 @@
 /* Home (Oct 28 night): the modes hero from home-modes, the note, one story with the rail. Loaded after rec.css and modes.css. Mobile first. */
-.mh .btn.wa{background:#25D366;color:#fff;box-shadow:0 10px 24px -10px rgba(37,211,102,.7),inset 0 -2px 0 rgba(0,0,0,.12)}
+.mh .btn.wa{background:#25D366;color:#141216;box-shadow:0 10px 24px -10px rgba(37,211,102,.7),inset 0 -2px 0 rgba(0,0,0,.12)}
 .mcalc{display:inline-block;margin-top:12px;font-weight:700;color:var(--pinkd);text-decoration:none;border-bottom:2px solid var(--pinkl);padding-bottom:2px;font-size:14px}
 .onote{padding:24px 0 8px}
 .sec.arc{padding:44px 0 16px}
@@ -11,7 +11,7 @@
 .beat .fine{font-size:12px;color:var(--mute);font-style:italic;margin-top:10px}
 .beat .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 .beat .ctas .btn{flex:1}
-.beat .btn.wa{background:#25D366;color:#fff;box-shadow:0 10px 24px -10px rgba(37,211,102,.7),inset 0 -2px 0 rgba(0,0,0,.12)}
+.beat .btn.wa{background:#25D366;color:#141216;box-shadow:0 10px 24px -10px rgba(37,211,102,.7),inset 0 -2px 0 rgba(0,0,0,.12)}
 .p4.inbeat{display:grid;grid-template-columns:1fr;gap:10px;margin-top:0}
 .p4.inbeat .pc4{padding:16px 16px 14px}
 .p4.inbeat .pc4 h4{font-family:var(--sans);font-size:17px;font-weight:800;line-height:1.2;margin:10px 0 6px;color:var(--ink)}
@@ -225,7 +225,7 @@
 .bandin .lede{margin-top:12px;font-size:16px}
 .bandin .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 .bandin .ctas .btn{flex:1}
-.bandin .btn.wa{background:#25D366;color:#fff;box-shadow:0 10px 24px -10px rgba(37,211,102,.7),inset 0 -2px 0 rgba(0,0,0,.12)}
+.bandin .btn.wa{background:#25D366;color:#141216;box-shadow:0 10px 24px -10px rgba(37,211,102,.7),inset 0 -2px 0 rgba(0,0,0,.12)}
 .bandfine{font-size:11.5px;line-height:1.5;color:var(--mute);font-style:italic;text-align:center;margin:22px auto 0;max-width:760px}
 /* the sent-to-the-desk card in the Burn screen: white, not orange; the chevron on blush */
 .zsd{background:#fff!important;color:var(--ink)!important;box-shadow:inset 0 0 0 1.5px var(--pc5)}

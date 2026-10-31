@@ -41,7 +41,7 @@ em,i{font-style:normal}
 .links a.on{color:var(--pinkd)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:48px;padding:0 24px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:0;cursor:pointer;white-space:nowrap;transition:transform .25s var(--ease),box-shadow .25s,background .25s;font-family:var(--sans)}
 .btn:active{transform:scale(.97)}
-.btn.pk{background:var(--pink);color:#fff;box-shadow:0 10px 24px -10px rgba(250,24,150,.7),inset 0 -2px 0 rgba(0,0,0,.12)}
+.btn.pk{background:#E0137F;color:#fff;box-shadow:0 10px 24px -10px rgba(250,24,150,.7),inset 0 -2px 0 rgba(0,0,0,.12)}
 .btn.pk:hover{background:var(--pinkd);transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(250,24,150,.75)}
 .btn.ink{background:var(--ink);color:#fff}
 .btn.ink:hover{transform:translateY(-2px)}
@@ -610,7 +610,7 @@ em,i{font-style:normal}
 /* persona chip and small controls */
 .arc-head .who{background:#fff;color:var(--ink);box-shadow:0 0 0 1.5px var(--pinkl),0 16px 30px -18px rgba(230,15,134,.45)}
 .who small{color:var(--mute)}
-.rail a.on,.mrail a.on,.celnav button.on,.ttabs button.on,.tgl.on{background:var(--pink);color:#fff}
+.rail a.on,.mrail a.on,.celnav button.on,.ttabs button.on,.tgl.on{background:#E0137F;color:#fff}
 .beat .bn i{background:var(--pinkl);color:var(--pinkd)}
 .ttabs button.on::after{background:rgba(255,255,255,.75)}
 .pillchips span{background:#fff;color:var(--ink);box-shadow:0 0 0 1.5px var(--pinkl)}
