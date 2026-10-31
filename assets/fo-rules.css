@@ -98,3 +98,7 @@
 .zdk-ask i,
 .zdk-cons i,
 .zdk-on i{border-radius:28%!important}
+
+/* ---- FO-P1-18: endless decorative loops pause while their section is out of view (.is-off is set by recovered/rec31.js).
+   No content-visibility on the sections: its paint containment clipped card shadows at section edges (book form card) and moved text by 1px, and it did not lower TBT ---- */
+html:not(.fo-still) .is-off :is(.mbg i,.rbg i,.mpill i,.mtb button,.mstk .pd u,.lv,.ledger .lh b i,.dtrack,.ttrack,.track,.ptrack,.float,.dots u,.scene .call,.sxw .wk i){animation-play-state:paused!important}
