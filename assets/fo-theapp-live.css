@@ -71,8 +71,7 @@
 .cv-nm small{font-size:3.5cqi;color:#667781}
 .cv-ic{margin-left:auto;display:flex;gap:4cqi;align-items:center}
 .cv-ic svg{width:5.6cqi;height:5.6cqi;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.cv-th{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:2.2cqi;padding:3cqi 3.6cqi 2.6cqi;transition:opacity .35s ease}
-.cv-th.out{opacity:0}
+.cv-th{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:2.2cqi;padding:3cqi 3.6cqi 2.6cqi}
 .cv-dt{align-self:center;font-size:3.3cqi;font-weight:600;letter-spacing:.02em;color:#54656F;background:#F8F2E7;padding:1.1cqi 2.8cqi;border-radius:2.2cqi;margin-bottom:auto;box-shadow:0 1px 0 rgba(20,18,22,.06)}
 .cv-b{position:relative;max-width:82%;padding:2.3cqi 3.2cqi;font-size:clamp(10px,4.55cqi,13px);line-height:1.38;border-radius:4cqi;animation:cvIn .32s cubic-bezier(.2,.8,.3,1) both;overflow-wrap:anywhere}
 .cv-b.me{align-self:flex-end}
@@ -160,7 +159,7 @@
 .cv.ap .cv-in i{background:#FA1896}
 
 /* reduced motion: bubbles simply appear */
-@media(prefers-reduced-motion:reduce){.cv-b{animation:none}.cv-b.ty u{animation:none}.cv-th{transition:none}}
+@media(prefers-reduced-motion:reduce){.cv-b{animation:none}.cv-b.ty u{animation:none}}
 
 /* phones and tablets: the three threads are a swipe row with the rail's dots; tablets show two at a time */
 @media(max-width:1023px){

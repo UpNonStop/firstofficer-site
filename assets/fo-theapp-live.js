@@ -1,5 +1,5 @@
 /* The App page (the-app.html): the three threads under "Where the desk lives" (WhatsApp, Messages, the app) play the same short
-   conversation in the background, each a beat apart, until the visitor taps one of the questions; then that thread answers what was
+   conversation in the background, each a beat apart, older messages leaving at the top as in a real thread, until the visitor taps one of the questions; then that thread answers what was
    tapped and stops playing on its own. The landing's "Try it yourself" cue points at them and at the hero phone, and fades once the
    visitor has tried. Nothing plays off screen, in a hidden tab or under reduced motion.
    Leo and Linden Row Insurance are the site's fictional example; every figure is an estimate. */
@@ -34,7 +34,7 @@ function Thread(el,lag){
     var dl=th.querySelector('.cv-dl');if(dl)dl.parentNode.removeChild(dl);
     th.appendChild(b);
     if(ch==='im'&&kind==='me'){var d=document.createElement('span');d.className='cv-dl';d.textContent='Delivered';th.appendChild(d)}
-    var all=$$('.cv-b',th);for(var k=0;k<all.length-5;k++)all[k].parentNode.removeChild(all[k]);
+    var all=$$('.cv-b',th);for(var k=0;k<all.length-7;k++)all[k].parentNode.removeChild(all[k]);
     return b}
   function settle(){var ty=th.querySelector('.cv-b.ty');if(ty)ty.parentNode.removeChild(ty);
     var last=$$('.cv-b',th).pop();if(last&&last.classList.contains('me')&&last.dataset.i)add('fo',esc(A(+last.dataset.i))+stamp())}
@@ -46,11 +46,9 @@ function Thread(el,lag){
     if(RM){answer();return}
     later(function(){add('fo ty','<u></u><u></u><u></u>')},520);
     later(answer,1500)}
-  function reset(done){th.classList.add('out');later(function(){$$('.cv-b,.cv-dl',th).forEach(function(b){b.parentNode.removeChild(b)});th.classList.remove('out');next=0;done(700)},380)}
   function play(d){
     if(held||!vis||RM||document.hidden||busy||timers.length)return;
-    later(function(){exchange(next,false,function(){next=(next+1)%Q.length;
-      if(next===0)later(function(){reset(play)},4200);else play()})},d!=null?d:(started?2700:lag));
+    later(function(){exchange(next,false,function(){next=(next+1)%Q.length;play()})},d!=null?d:(started?2900:lag));
     started=true}
   function pause(){cancel();settle()}
   qs.forEach(function(q){q.addEventListener('click',function(){
