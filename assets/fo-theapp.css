@@ -3,7 +3,7 @@
 /* ---- the phone: full size here, a fifth tab (Desk) in brand pink ---- */
 .tapp .mphone{zoom:1;margin:0 auto}
 .mphone.p-desk{--pc7:#B80F68;--pc6:#E3158A;--pc5:#FA1896;--pc3:#F9B5D8;--pc2:#FCD3E8;--pc1:#FEE9F3}
-.tapp .mtb button[data-t=desk]{--tc:#E3158A}
+.tapp .mtb button[data-t=desk]{--tc:#C8106F}
 .tapp .mtb button:nth-child(1){animation-delay:0s}.tapp .mtb button:nth-child(2){animation-delay:1.28s}
 .tapp .mtb button:nth-child(3){animation-delay:2.56s}.tapp .mtb button:nth-child(4){animation-delay:3.84s}
 .tapp .mtb button:nth-child(5){animation-delay:5.12s}
@@ -13,7 +13,7 @@
 /* ---- the Desk screen ---- */
 .zdk-on{display:flex;align-items:center;gap:6px;font-size:9.5px;font-weight:600;color:#4A4550;padding:0 2px}
 .zdk-on i{width:6px;height:6px;border-radius:50%;background:#107B49;box-shadow:0 0 0 3px rgba(16,123,73,.18)}
-.zdk-on span{margin-left:auto;color:#8A8492;font-weight:500}
+.zdk-on span{margin-left:auto;color:#6E6876;font-weight:500}
 .zdk-g{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .zdk{all:unset;box-sizing:border-box;cursor:pointer;background:#fff;border-radius:14px;padding:8px 9px 9px;box-shadow:0 0 0 1px rgba(60,40,70,.07),0 6px 14px -10px rgba(60,40,70,.3);border-top:3px solid var(--c);display:grid;gap:2px;align-content:start;min-height:82px;transition:transform .2s ease}
 .zdk:hover{transform:translateY(-2px)}
@@ -25,7 +25,7 @@
 .zdk-cons{display:inline-flex;align-items:center;gap:3px;justify-self:start;font-size:9px;font-weight:600;color:#4A4550;background:#F6F5F7;border-radius:999px;padding:3px 9px 3px 6px}
 .zdk-cons i{width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 1px rgba(60,40,70,.15);margin-right:-5px}
 .zdk-cons i:nth-child(3){margin-right:4px}
-.zdk-ask{display:flex;align-items:center;justify-content:space-between;background:#fff;border-radius:999px;padding:5px 5px 5px 12px;box-shadow:0 0 0 1px rgba(60,40,70,.1);font-size:10.5px;color:#8A8492;margin-top:auto}
+.zdk-ask{display:flex;align-items:center;justify-content:space-between;background:#fff;border-radius:999px;padding:5px 5px 5px 12px;box-shadow:0 0 0 1px rgba(60,40,70,.1);font-size:10.5px;color:#6E6876;margin-top:auto}
 .zdk-ask i{width:22px;height:22px;border-radius:50%;background:#FA1896;color:#fff;display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:700}
 
 /* ---- the hero ---- */
@@ -100,3 +100,6 @@
   .tlist button[aria-pressed="true"] b{color:var(--tc)}
 }
 @media(min-width:1100px){.tarules{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* Fix all 31 Oct (supersedes #29): the Desk screen's small pink labels read at 4.5:1 (the pink fills in the mock stay) */
+.mphone.p-desk .zkc .zkh b,.mphone.p-desk .zbu small{color:#C8106F}
