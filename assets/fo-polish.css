@@ -4,7 +4,7 @@
 .btn.wa{background:#25D366;color:#fff;box-shadow:0 10px 24px -10px rgba(37,211,102,.7),inset 0 -2px 0 rgba(0,0,0,.12)}
 .btn.wa:hover,.btn.wa:focus-visible{background:#1EBE5A;color:#fff;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(30,190,90,.6)}
 .btn.lb{background:#429AD4;color:#fff;box-shadow:0 10px 24px -10px rgba(66,154,212,.75),inset 0 -2px 0 rgba(0,0,0,.12)}
-.btn.lb:hover,.btn.lb:focus-visible{background:#085884;color:#fff;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(8,88,132,.6)}
+.btn.lb:hover,.btn.lb:focus-visible{background:#1E78B8;color:#fff;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(30,120,184,.6)}
 .btn.gd{background:#F5B700;color:#141216;box-shadow:0 10px 24px -10px rgba(214,160,0,.75),inset 0 -2px 0 rgba(0,0,0,.1)}
 .btn.gd:hover,.btn.gd:focus-visible{background:#E8AC00;color:#141216;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(214,160,0,.6)}
 .trio{display:flex;flex-wrap:wrap;gap:10px}
@@ -238,19 +238,21 @@ ul.cw > li > span{font-size:11px!important}
 /* FO-P2-03: one focus ring, 3px pink, on the hero phone's tabs and the pricing chips too
    (the chrome's Pause button gets the same 3px inside assets/fo-chrome.js) */
 .mtb button:focus-visible,.ps-chips a:focus-visible{outline:3px solid var(--pink,#FA1896);outline-offset:3px}
-/* ==== FO-P1-01 (D13: waiting on Ohad's OK) ===========================================================
-   Fills behind small text that read at 4.5:1 or better. Brand pink #FA1896 stays for headlines, large
-   type and lines; only these fills and small labels change. Delete this block (and the matching one in
-   assets/fo-chrome.js) to undo. */
-.btn.pk,.btn.ink,.nxb,.celnav button.on,.cs .cta,.ixb>.pk.btn{background-color:#E0117F!important}
-.btn.pk:hover,.btn.pk:focus-visible,.btn.ink:hover,.nxb:hover,.nxb:focus-visible{background-color:#C30E6E!important}
-.btn.wa,.btn.wa:hover,.btn.wa:focus-visible{color:#0B2E17!important}
-.btn.lb,.cqa{background-color:#1E70AA!important}
-.btn.lb:hover,.btn.lb:focus-visible,.cqa:hover{background-color:#185D8E!important}
-.k-burn .pn b,.stc b.k-burn{background-color:#BB4401!important}
+/* ==== FO-P1-01, button fills reverted to the brand originals (Ohad, 31 Oct): pink #FA1896, WhatsApp #25D366
+   with white type, light blue #429AD4 with white type, Burn #E8590C. Only the issues' small text stays deepened. */
+.k-burn .pn b,.stc b.k-burn{background-color:#E8590C!important}
 /* The Daily Redemption issues: small pink and grey text on cream */
 body .fo{--t3:#6F675C}
 body .fo .mast-foot .pk{color:#D4107A}
+/* FO-P1-01b, labels on the original fills pass WCAG AA without touching the fills (Ohad, 31 Oct: "fix it if needed").
+   White on pink #FA1896 is 3.7:1, on light blue #429AD4 3.1:1, on Burn #E8590C 3.6:1: each passes as large text (3:1 from 18.66px bold),
+   so those button labels are 19px bold. White on WhatsApp green #25D366 is 2.0:1 at any size, so its label is dark green #0B2E17 (7.5:1).
+   The chrome's header and footer buttons get the same two rules inside assets/fo-chrome.js. */
+.btn.pk,.btn.lb,.nxb,.cqa#bgo,.ttabs [role=tab]{font-size:19px!important;font-weight:700!important}
+.btn.wa,.btn.wa:hover,.btn.wa:focus-visible,.ctab .btn.cr,.pill.green,.fo .cta a[href*="wa.me"]{color:#0B2E17!important}
+/* FO-P1-01c (Ohad, 31 Oct): small labels on the original fills, too small for the large-text rule, take ink instead of white:
+   Burn pillar badges and chips 5.2:1 on #E8590C and the story's active step pill 5.0:1 on #FA1896. Fills unchanged. */
+.k-burn>.pn>b,.stc>.k-burn,.celnav button.on{color:#141216!important}
 /* ==== end FO-P1-01 ==== */
 
 /* Re-audit extra: anchor jumps do not glide when the visitor asks for reduced motion (rec31.css and fo.css set html{scroll-behavior:smooth}) */
