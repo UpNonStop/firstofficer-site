@@ -1,0 +1,100 @@
+/* Industries page only (industries.html, body.ind2). Ohad, 31 Oct: 21 boxes, the 20 trades and other industries, in 7 rows of 3,
+   each with its photo, its emoji and one read-more call to action; the four pillars and the owner stories made richer;
+   spacing tightened on every width. Colour classes are page-only (the site's .k-* chip classes paint fills). */
+.ind2 .pg-earn,.ind2 .r-earn{--c:#107B49}
+.ind2 .pg-burn,.ind2 .r-burn{--c:#BB4401}
+.ind2 .pg-return,.ind2 .r-return{--c:#7149C9}
+.ind2 .pg-learn{--c:#085884}
+
+/* spacing: the sections were 120px top and bottom on desktop, 80px on phones */
+.ind2 main>.sec.pgs{padding:64px 0}
+@media (max-width:760px){.ind2 main>.sec.pgs{padding:40px 0}}
+
+/* ---------- 01 · the trades: 7 rows of 3 ---------- */
+.ind2 .tg{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.ind2 .tg>li{display:flex;min-width:0}
+.ind2 .tc{position:relative;display:flex;flex-direction:column;flex:1;min-width:0;background:#fff;border-radius:18px;overflow:hidden;text-decoration:none;color:#141216;box-shadow:0 0 0 1px rgba(20,18,22,.07),0 18px 38px -28px rgba(20,18,22,.45);transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s}
+.ind2 .tc:hover{transform:translateY(-3px);box-shadow:0 0 0 1px rgba(250,24,150,.28),0 26px 48px -28px rgba(20,18,22,.5)}
+.ind2 .tc:focus-visible{outline:3px solid #FA1896;outline-offset:3px}
+.ind2 .tci{display:block;aspect-ratio:12/5;overflow:hidden;background:#EDE6D8}
+.ind2 .tci img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.ind2 .tc:hover .tci img{transform:scale(1.04)}
+.ind2 .tce{position:relative;z-index:1;display:grid;place-items:center;width:46px;height:46px;margin:-23px 0 0 16px;border-radius:14px;background:#fff;box-shadow:0 0 0 1px rgba(20,18,22,.06),0 8px 18px -8px rgba(20,18,22,.35);font-size:23px;line-height:1}
+.ind2 .tcb{display:block;padding:6px 18px 0;margin-bottom:16px}
+.ind2 .tcb h3{font:400 23px/1.1 'DM Serif Display',Georgia,serif;letter-spacing:-.01em;color:#141216;margin:4px 0 0}
+.ind2 .tch{display:block;font:400 15px/1.45 'DM Sans',system-ui,sans-serif;color:#4A4550;margin-top:6px}
+.ind2 .tcc{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding:13px 18px 15px;border-top:1px dashed rgba(20,18,22,.13);font:700 14.5px/1.2 'DM Sans',system-ui,sans-serif;color:#141216}
+.ind2 .tca{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;box-shadow:inset 0 0 0 1.5px #141216;color:#141216;transition:background .2s,box-shadow .2s,color .2s}
+.ind2 .tca svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ind2 .tc:hover .tca,.ind2 .tc:focus-visible .tca{background:#FA1896;box-shadow:none;color:#fff}
+/* other industries: no single trade's photo; the twenty trade marks, quietly, and the chevron */
+.ind2 .tcm{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(4,1fr);place-items:center;padding:10px 18px;background:linear-gradient(135deg,#F3ECDD,#E9DDC6);font-size:22px;line-height:1}
+.ind2 .tcm span{opacity:.6;filter:saturate(.75)}
+.ind2 .tcv img{display:block;width:26px;height:26px;object-fit:contain}
+.ind2 .tcf{display:block;font:600 13.5px/1.4 'DM Sans',system-ui,sans-serif;color:#5E5766;margin-top:8px}
+.ind2 .tco .tcc{border-top:0;padding-top:0}
+.ind2 .tco .tcc .btn{width:100%;height:auto;min-height:50px;padding:10px 14px;justify-content:center;text-align:center;white-space:normal;line-height:1.2}
+@media (max-width:1039px){.ind2 .tg{gap:14px}.ind2 .tcb h3{font-size:20px}.ind2 .tch{font-size:14px}.ind2 .tcc{font-size:13.5px;padding:12px 14px 13px}.ind2 .tcb{padding:6px 14px 0}}
+/* phones: one tappable row per trade (photo, emoji, name, the line, the arrow), so twenty-one boxes stay one short scroll */
+@media (max-width:699px){
+  .ind2 .tg{grid-template-columns:minmax(0,1fr);gap:8px;margin-top:18px}
+  .ind2 .tc:not(.tco){display:grid;grid-template-columns:68px minmax(0,1fr) 34px;align-items:center;column-gap:13px;padding:8px 12px 8px 8px;border-radius:16px}
+  .ind2 .tc:not(.tco) .tci{grid-row:1;grid-column:1;width:68px;height:68px;aspect-ratio:auto;border-radius:12px}
+  .ind2 .tc:not(.tco) .tce{grid-row:1;grid-column:1;align-self:end;justify-self:end;width:30px;height:30px;margin:0 -7px -7px 0;border-radius:9px;font-size:16px}
+  .ind2 .tc:not(.tco) .tcb{grid-row:1;grid-column:2;padding:0;margin:0}
+  .ind2 .tc:not(.tco) .tcb h3{font-size:18.5px;margin:0}
+  .ind2 .tc:not(.tco) .tch{font-size:13.5px;line-height:1.4;margin-top:2px}
+  .ind2 .tc:not(.tco) .tcc{grid-row:1;grid-column:3;padding:0;border:0;margin:0}
+  .ind2 .tc:not(.tco) .tcl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+  .ind2 .tco .tci{aspect-ratio:3/1}
+  .ind2 .tcm{grid-template-columns:repeat(10,1fr);grid-template-rows:repeat(2,1fr);font-size:20px;padding:8px 10px}
+  .ind2 .tco .tcb{padding:6px 16px 0;margin-bottom:14px}
+  .ind2 .tco .tcc{padding:0 14px 14px}
+}
+
+/* ---------- 02 · the four pillars ---------- */
+.ind2 .pg4{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.ind2 .pgc{display:flex;flex-direction:column;min-width:0;background:#fff;border-radius:18px;padding:18px 18px 16px;border-top:4px solid var(--c);box-shadow:0 0 0 1px rgba(20,18,22,.07),0 18px 38px -28px rgba(20,18,22,.45)}
+.ind2 .pgt{display:flex;align-items:center;gap:10px}
+.ind2 .pgi{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:rgba(20,18,22,.05);background:color-mix(in srgb,var(--c) 12%,#fff);color:var(--c)}
+.ind2 .pgi svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ind2 .pgn{font:700 12px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+.ind2 .pgc h3{font:400 23px/1.12 'DM Serif Display',Georgia,serif;color:#141216;margin:14px 0 0}
+.ind2 .pgc p{font:400 15px/1.5 'DM Sans',system-ui,sans-serif;color:#4A4550;margin:8px 0 14px}
+.ind2 .pgx{margin-top:auto;background:#FAF6EE;border-radius:12px;padding:10px 12px;box-shadow:inset 0 0 0 1px rgba(20,18,22,.06)}
+.ind2 .pgx b{display:block;font:400 26px/1.05 'DM Serif Display',Georgia,serif;color:var(--c)}
+.ind2 .pgx span{display:block;font:500 13px/1.35 'DM Sans',system-ui,sans-serif;color:#5E5766;margin-top:3px}
+.ind2 .pgf{margin:14px 0 0;text-align:center;font:400 12.5px/1.4 'DM Sans',system-ui,sans-serif;color:#6E6776}
+@media (max-width:1039px){.ind2 .pg4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:699px){.ind2 .pg4{gap:10px;margin-top:20px}.ind2 .pgc{padding:13px 12px 12px}.ind2 .pgi{width:32px;height:32px}.ind2 .pgi svg{width:19px;height:19px}.ind2 .pgn{font-size:11px;letter-spacing:.1em}.ind2 .pgc h3{font-size:18px;margin-top:10px}.ind2 .pgc p{font-size:13.5px;line-height:1.45;margin:6px 0 12px}.ind2 .pgx{padding:8px 10px}.ind2 .pgx b{font-size:20px}.ind2 .pgx span{font-size:12.5px}}
+
+/* ---------- 03 · owners like you ---------- */
+.ind2 .og{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ind2 .oc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"h r" "q r" "m r" "f f";column-gap:22px;min-width:0;background:#fff;border-radius:18px;padding:18px;box-shadow:0 0 0 1px rgba(20,18,22,.07),0 18px 38px -28px rgba(20,18,22,.45)}
+.ind2 .och{grid-area:h;display:flex;align-items:center;gap:12px}
+.ind2 .oca{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#FDE7F2;color:#B80D6B;font:700 13px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.04em;box-shadow:inset 0 0 0 1.5px rgba(250,24,150,.35)}
+.ind2 .och b{display:block;font:700 16px/1.25 'DM Sans',system-ui,sans-serif;color:#141216}
+.ind2 .och small{display:block;font:500 13px/1.3 'DM Sans',system-ui,sans-serif;color:#5E5766;margin-top:2px}
+.ind2 .ocq{grid-area:q;font:400 19px/1.35 'DM Serif Display',Georgia,serif;color:#141216;margin:14px 0 0}
+.ind2 .ocm{grid-area:m;align-self:end;margin-top:14px;background:#FAF6EE;border-radius:12px;padding:10px 12px 8px;box-shadow:inset 0 0 0 1px rgba(20,18,22,.06)}
+.ind2 .ocb{display:grid;grid-template-columns:104px minmax(0,1fr) auto;align-items:center;gap:10px;padding:4px 0}
+.ind2 .ocb span{font:600 11.5px/1.2 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#5E5766}
+.ind2 .ocb i{display:block;height:8px;border-radius:8px;background:rgba(20,18,22,.08);overflow:hidden}
+.ind2 .ocb i u{display:block;height:100%;border-radius:8px;background:#8A8290}
+.ind2 .ocb.oca2 i u{background:#107B49}
+.ind2 .ocb b{font:800 18px/1 'DM Sans',system-ui,sans-serif;color:#141216;min-width:44px;text-align:right}
+.ind2 .ocm small{display:block;font:500 12px/1.2 'DM Sans',system-ui,sans-serif;color:#6E6776;text-align:right;margin-top:2px}
+.ind2 .ocr{grid-area:r;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.ind2 .ocr li{border-left:3px solid var(--c);padding:1px 0 1px 12px}
+.ind2 .ocr b{display:block;font:700 11px/1.2 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--c)}
+.ind2 .ocr span{display:block;font:400 14.5px/1.45 'DM Sans',system-ui,sans-serif;color:#4A4550;margin-top:3px}
+.ind2 .oc .ill{grid-area:f;display:block;margin-top:12px;font:400 12px/1.4 'DM Sans',system-ui,sans-serif;color:#6E6776}
+@media (max-width:1039px){.ind2 .oc{column-gap:16px;padding:16px}.ind2 .ocq{font-size:17.5px}.ind2 .ocb{grid-template-columns:92px minmax(0,1fr) auto}.ind2 .ocb span{font-size:10.5px;letter-spacing:.03em}}
+/* below 900px the ten stories sit in a sideways rail (the site's srail), so the section is one story tall */
+@media (max-width:899px){
+  .ind2 .og{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:20px calc(var(--gut,20px)*-1) 0;padding:4px var(--gut,20px) 12px;scroll-padding:0 var(--gut,20px);scrollbar-width:none}
+  .ind2 .og::-webkit-scrollbar{display:none}
+  .ind2 .oc{flex:0 0 min(86%,400px);scroll-snap-align:start;grid-template-columns:minmax(0,1fr);grid-template-areas:"h" "q" "m" "r" "f";padding:16px}
+  .ind2 .ocq{font-size:18px}
+  .ind2 .ocr{margin-top:14px;justify-content:flex-start}
+}
