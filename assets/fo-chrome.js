@@ -30,6 +30,20 @@ function build(){
   mark(hs);mark(fs);
   /* 901 to 1060px the bar is too narrow for every link plus both buttons (59px too wide at 901, and 7px at 1001 once the labels went to 19px bold): there the WhatsApp button shows its icon only, its label stays for screen readers */
   (function(){var x=document.createElement('style');x.textContent='@media (min-width:901px) and (max-width:1060px){.nav .btn.wa{font-size:0;width:46px;padding:0;justify-content:center;gap:0}.nav .btn.wa::before{content:"\\1F4AC";font-size:18px;line-height:1}}';hs.appendChild(x)})();
+  /* One header and one footer on every page, the landing's (Ohad, 31 Oct: "have the landing page top nav bar look and feel and behavior
+     (sticky) on all possible pages ... make sure our footer is also identical"). From 901px the nav stays on screen while the ticker under it
+     scrolls away; the bar and the phone menu carry one action, "Get your desk", as on the landing; the footer's More column is the same list
+     everywhere (Trust, Industries, Field Notes). WhatsApp stays in each page's own content. Anchored sections land below the sticky bar, and
+     the calculator's sticky result sits under it rather than behind it. The page's reserved header space (fo-polish.css) is swapped for the
+     drawn bar in the same frame, so nothing moves. */
+  (function(){var NOWA='a[href*="wa.me"]{display:none!important}';
+    var x=document.createElement('style');x.textContent='@media (min-width:901px){.nav{position:sticky!important;top:0!important;z-index:300!important}}.nav '+NOWA+'.sheet '+NOWA+'.sheet .btn.pk{margin-top:auto}';hs.appendChild(x);
+    var y=document.createElement('style');y.textContent='.more '+NOWA;fs.appendChild(y);
+    if(!document.getElementById('fo-chrome-stick')){var d=document.createElement('style');d.id='fo-chrome-stick';d.textContent='@media (min-width:901px){#fo-header{display:contents}html{scroll-padding-top:84px}.cstk{top:92px}}';
+      /* a page that hides sideways overflow on both html and body (the legal pages) makes body a scroller, and a sticky bar inside it never sticks: clip instead, same look */
+      if(getComputedStyle(document.documentElement).overflowX!=='visible')d.textContent+='@media (min-width:901px){body{overflow-x:clip!important}}';
+      document.head.appendChild(d)}
+    if(!document.body.hasAttribute('data-trade')&&!fs.querySelector('.more a[href="field-notes.html"]')){var mw=fs.querySelector('.more .wa');if(mw){var fn=document.createElement('a');fn.href='field-notes.html';fn.textContent='Field Notes';mw.parentNode.insertBefore(fn,mw);mark(fs)}}})();
   /* the Daily Redemption signup lives in the footer now: same endpoint, payload and GA4 event as before; off the live domain it says so instead of pretending */
   (function(){var f=fs.querySelector('.drform');if(!f)return;var i=f.querySelector('.dri'),b=f.querySelector('button'),m=fs.querySelector('.drm'),LIVE=/(^|\.)upnonstop\.com$/.test(location.hostname);
     f.addEventListener('submit',function(e){e.preventDefault();var v=(i.value||'').trim();
