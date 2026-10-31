@@ -1,0 +1,188 @@
+/* About (Oct 31): how the desk works. Software watches, a person checks, the owner decides.
+   Loaded by about.html only, after fo-polish.css. Phone first; 980px and up is the desktop layout.
+   No circles except logos and the pill dot, no dark blocks, pink display type starts on its own line. */
+
+.abp{--ink:#141216;--body:#4A4550;--mute:#6E6776;--line:#EEE8F0;--pk:#FA1896;--pks:#C30E6E;--earn:#107B49;--burn:#BB4401;
+  --card:0 0 0 1px rgba(20,18,22,.08),0 22px 44px -30px rgba(20,18,22,.42);--ease:cubic-bezier(.22,1,.36,1)}
+
+/* ---------- hero: the crew card ---------- */
+.abp .abx{background:#fff;border-radius:22px;box-shadow:var(--card);padding:14px 14px 12px;position:relative}
+.abp .abx-top{display:flex;align-items:center;justify-content:space-between;gap:10px;font:600 11px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding:2px 4px 0}
+.abp .abx-top b{display:inline-flex;align-items:center;gap:8px;color:var(--ink);font-weight:600}
+.abp .abx-top b i{width:8px;height:8px;border-radius:50%;background:var(--earn);box-shadow:0 0 0 4px rgba(16,123,73,.16)}
+.abp .abx .sxw{margin:4px 0 0}
+.abp .abx .sph{--W:min(380px,calc(100cqw - 8px));--b:calc(var(--W) * .13)}
+.abp .abx .sph{opacity:0;transition:opacity .6s ease}
+.abp .abx .sx.ready .sph{opacity:1}
+.abp .abx-crew{list-style:none;margin:6px 0 0;padding:0;border-top:1px solid var(--line)}
+.abp .abx-crew li{display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:12px;align-items:start;padding:11px 4px;border-bottom:1px solid var(--line)}
+.abp .abx-crew .n{grid-row:span 2;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font:700 12px/1 var(--mono);color:#fff;background:var(--ink)}
+.abp .abx-crew li:nth-child(2) .n{background:var(--pks)}
+.abp .abx-crew li:nth-child(3) .n{background:var(--earn)}
+.abp .abx-crew b{font:700 16px/1.3 var(--sans);color:var(--ink)}
+.abp .abx-crew span:last-child{font:400 14.5px/1.45 var(--sans);color:var(--body)}
+.abp .abx-fine{font:400 11.5px/1.45 var(--sans);color:var(--mute);margin:10px 4px 2px;text-align:center}
+
+.abp .phw{grid-template-rows:auto 1fr}
+.abp .phb{align-self:start}
+@media (min-width:761px) and (max-width:979px){.abp .phw{grid-template-columns:minmax(0,1fr);grid-template-areas:"t" "b" "v";grid-template-rows:auto}.abp .phv{width:100%;max-width:560px;margin-top:30px;align-self:start}}
+
+/* ---------- shared section rhythm ---------- */
+/* below the hero, each section renders when it nears the screen: first paint stays as quick as before */
+.abp main>.sec.abs,.abp main>.sec.mnote{content-visibility:auto;contain-intrinsic-size:auto 1400px}
+@media (min-width:980px){.abp main>.sec.abs,.abp main>.sec.mnote{contain-intrinsic-size:auto 1000px}}
+.abp .sec.abs{padding:64px 0}
+.abp .abs .lede{max-width:680px}
+.abp .abs.band{background:#fff;border-top:1px solid rgba(20,18,22,.06);border-bottom:1px solid rgba(20,18,22,.06)}
+@media (min-width:980px){.abp .sec.abs{padding:96px 0}}
+
+/* ---------- 01 · one Saturday morning (the timeline) ---------- */
+.abp .abt{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:34px;position:relative}
+.abp .abt::before{content:"";position:absolute;left:10px;top:12px;bottom:12px;width:2px;background:#E3DCE6}
+.abp .abt-s{position:relative;padding-left:40px;min-width:0}
+.abp .abt-time{display:flex;align-items:baseline;gap:8px;font:500 12px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.abp .abt-time b{font:700 15px/1 var(--mono);letter-spacing:0;color:var(--ink);text-transform:none}
+.abp .abt-time::before{content:"";position:absolute;left:3px;top:1px;width:16px;height:16px;border-radius:5px;background:var(--pk);box-shadow:0 0 0 4px #fff,0 0 0 6px rgba(250,24,150,.22)}
+.abp .abt-s h3{display:flex;align-items:center;gap:10px;font:700 13px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--pks);margin:12px 0 12px}
+.abp .abt-s h3 .n{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;background:var(--pks);color:#fff;font:700 12px/1 var(--mono);letter-spacing:0}
+.abp .abt-card{background:#fff;border-radius:20px;box-shadow:var(--card);padding:18px 18px 16px;position:relative;display:flex;flex-direction:column}
+.abp .abt-foot{margin-top:auto}
+.abp .abs.band .abt-card{box-shadow:0 0 0 1px rgba(20,18,22,.09),0 22px 44px -30px rgba(20,18,22,.42)}
+.abp .abt-cap{font:400 16px/1.5 var(--sans);color:var(--body);margin:12px 0 0}
+.abp .abt-k{display:flex;align-items:center;gap:8px;font:600 11.5px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.abp .abt-k i{width:10px;height:10px;border-radius:3px;background:var(--burn);flex:none}
+.abp .abt-hr{border:0;border-top:1px dashed #E3DCE6;margin:14px 0}
+
+/* station 1: the signal */
+.abp .sig-big{font:400 66px/1 var(--serif);letter-spacing:-.02em;color:var(--ink);margin:12px 0 4px}
+.abp .sig-sub{font:500 15.5px/1.45 var(--sans);color:var(--body)}
+.abp .sig-match{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font:600 15px/1.35 var(--sans);color:var(--ink)}
+.abp .pgc{font:700 11px/1 var(--sans);color:#fff;background:var(--burn);border-radius:999px;padding:5px 9px;letter-spacing:.02em}
+.abp .sig-math{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:10px;font:500 15px/1.3 var(--sans);color:var(--mute)}
+.abp .sig-math s{text-decoration-thickness:2px;text-decoration-color:rgba(20,18,22,.45)}
+.abp .sig-math i{font-style:normal;color:var(--pks);font-weight:700}
+.abp .sig-math b{font:700 20px/1 var(--sans);color:var(--ink)}
+.abp .etag{font:600 11px/1 var(--sans);font-style:normal;color:var(--mute);background:#F1EDF2;border-radius:5px;padding:3px 6px;vertical-align:1px;white-space:nowrap}
+
+/* station 2: the check */
+.abp .abk ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:11px}
+.abp .abk li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:11px;align-items:start;font:500 15.5px/1.4 var(--sans);color:var(--ink)}
+.abp .abk li i{font-style:normal;width:22px;height:22px;border-radius:6px;background:var(--earn);color:#fff;display:grid;place-items:center;font:700 12px/1 var(--sans);margin-top:-1px}
+.abp .abk-f{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.abp .stamp{display:inline-flex;align-items:center;gap:7px;font:700 11.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--pks);border:2px solid var(--pks);border-radius:7px;padding:7px 10px 6px;transform:rotate(-2.5deg);background:#fff}
+.abp .abk-f>span:last-child{font:500 12.5px/1.2 var(--mono);color:var(--mute)}
+
+/* station 3: the yes */
+.abp .msg-h{display:flex;align-items:center;gap:10px;font:700 15px/1.2 var(--sans);color:var(--ink)}
+.abp .msg-h img{width:32px;height:32px;border-radius:9px;background:#fff;box-shadow:0 0 0 1.5px var(--pk);padding:6px;object-fit:contain;flex:none}
+.abp .msg-h span{margin-left:auto;font:500 12.5px/1 var(--mono);color:var(--mute)}
+.abp .msg .bub{font:400 15.5px/1.45 var(--sans);border-radius:16px;padding:11px 13px;margin:12px 0 0;max-width:94%}
+.abp .msg .bub-fo{background:#F5F1EA;color:var(--ink);border-top-left-radius:6px}
+.abp .msg .bub-me{margin-left:auto;width:max-content;max-width:80%;background:var(--pk);color:#fff;font:700 19px/1.3 var(--sans);border-top-right-radius:6px;box-shadow:0 10px 22px -12px rgba(250,24,150,.75)}
+.abp .msg .bub-t{font:500 12px/1.2 var(--mono);color:var(--mute);text-align:right;margin:6px 2px 0}
+.abp .msg-f{display:flex;align-items:center;gap:9px;font:600 14px/1.35 var(--sans);color:var(--earn)}
+.abp .msg-f i{font-style:normal;width:22px;height:22px;border-radius:6px;background:var(--earn);color:#fff;display:grid;place-items:center;font:700 12px/1 var(--sans);flex:none}
+.abp .abt-fine{font:400 12.5px/1.5 var(--sans);color:var(--mute);text-align:center;max-width:760px;margin:30px auto 0}
+
+/* the morning plays once when it comes into view: stations, then the checks, then the yes.
+   Final state is the default, so reduced motion and the pause button show it at rest. */
+@keyframes abIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes abPop{0%{opacity:0;transform:scale(.6)}65%{opacity:1;transform:scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes abStamp{0%{opacity:0;transform:rotate(-2.5deg) scale(1.6)}100%{opacity:1;transform:rotate(-2.5deg) scale(1)}}
+@keyframes abMark{from{background:#fff;box-shadow:0 0 0 4px #fff,0 0 0 6px #E3DCE6}}
+@keyframes abFillH{from{transform:scaleX(0)}}
+.abp .abt-s{--d:0s}
+.abp .abt-s.in .abt-time::before{animation:abMark .5s var(--ease) calc(var(--d) + .2s) both}
+.abp .abt-s.in .abt-card{animation:abIn .7s var(--ease) calc(var(--d) + .15s) both}
+.abp .abt-s.in .abk li{animation:abIn .45s var(--ease) both}
+.abp .abt-s.in .abk li:nth-child(1){animation-delay:calc(var(--d) + .55s)}
+.abp .abt-s.in .abk li:nth-child(2){animation-delay:calc(var(--d) + .8s)}
+.abp .abt-s.in .abk li:nth-child(3){animation-delay:calc(var(--d) + 1.05s)}
+.abp .abt-s.in .abk li:nth-child(4){animation-delay:calc(var(--d) + 1.3s)}
+.abp .abt-s.in .stamp{animation:abStamp .45s cubic-bezier(.3,1.4,.5,1) calc(var(--d) + 1.6s) both}
+.abp .abt-s.in .msg .bub-fo{animation:abIn .5s var(--ease) calc(var(--d) + .55s) both}
+.abp .abt-s.in .msg .bub-me{animation:abPop .5s var(--ease) calc(var(--d) + 1.25s) both;transform-origin:100% 0}
+.abp .abt-s.in .msg .bub-t{animation:abIn .4s var(--ease) calc(var(--d) + 1.45s) both}
+.abp .abt-s.in .msg-f{animation:abIn .45s var(--ease) calc(var(--d) + 1.6s) both}
+html.fo-still .abp .abt *,html.fo-still .abp .abt *::before,html.fo-still .abp .abt::after{animation:none!important}
+@media (prefers-reduced-motion:reduce){.abp .abt *,.abp .abt *::before,.abp .abt::after{animation:none!important}}
+
+@media (min-width:980px){
+  .abp .abt{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:56px;padding-top:44px;align-items:stretch}
+  .abp .abt::before{left:8px;right:8px;top:12px;bottom:auto;width:auto;height:2px}
+  .abp .abt::after{content:"";position:absolute;left:8px;right:8px;top:12px;height:2px;background:var(--pk);transform-origin:0 50%}
+  .abp .abt.in::after{animation:abFillH 2.2s cubic-bezier(.4,0,.2,1) .2s both}
+  .abp .abt-s{padding-left:0}
+  .abp .abt-time::before{left:0;top:-40px}
+  .abp .abt-s:nth-child(2){--d:.75s}
+  .abp .abt-s:nth-child(3){--d:1.5s}
+  .abp .abt-s.reveal{transition-delay:var(--d)}
+  .abp .abt-s{display:flex;flex-direction:column}
+  .abp .abt-card{flex:1}
+}
+
+/* ---------- 02 · why both ---------- */
+.abp .abc{display:grid;gap:16px;margin-top:34px}
+.abp .abc-c{background:#fff;border-radius:22px;box-shadow:var(--card);padding:22px 20px 20px;display:flex;flex-direction:column;min-width:0}
+.abp .abc-k{font:600 12px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.abp .abc-c h3{font:400 31px/1.08 var(--serif);letter-spacing:-.01em;color:var(--ink);margin:12px 0 18px}
+.abp .abc-c h3 .pk{color:var(--pk)}
+.abp .abc-c ul{list-style:none;margin:0;padding:16px 0 0;border-top:1px solid var(--line);display:grid;gap:12px}
+.abp .abc-c li{position:relative;padding-left:34px;font:400 16px/1.45 var(--sans);color:var(--body)}
+.abp .abc-c li::before{position:absolute;left:0;top:0;width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font:700 12px/1 var(--sans)}
+.abp .abc-c li.y::before{content:"\2713" / "";background:var(--earn);color:#fff}
+.abp .abc-c li.n::before{content:"\2715" / "";background:#F1EDF2;color:#5B5463}
+.abp .abc-c.own{box-shadow:0 0 0 2px var(--pk),0 28px 50px -28px rgba(250,24,150,.5)}
+.abp .abc-c.own .abc-k{color:var(--pks)}
+.abp .abc-c.own li{color:var(--ink);font-weight:500}
+@media (min-width:900px){.abp .abc{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:44px;align-items:stretch}.abp .abc-c{padding:26px 24px 24px}.abp .abc-c h3{min-height:2.16em}}
+
+/* ---------- the note: three facts under it ---------- */
+.abp .abf{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:720px;margin:26px auto 0;background:#fff;border-radius:18px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 16px 32px -24px rgba(20,18,22,.38)}
+.abp .abf>div{padding:15px 16px 16px;min-width:0}
+.abp .abf>div+div{border-left:1px solid var(--line)}
+.abp .abf>div:nth-child(3){grid-column:1/-1;border-left:0;border-top:1px solid var(--line)}
+.abp .abf dt{font:600 11px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.abp .abf dd{margin:7px 0 0;font:400 24px/1.08 var(--serif);color:var(--ink)}
+@media (min-width:640px){.abp .abf dd{font-size:27px}}
+.abp .abf dd.tx{font:600 16px/1.4 var(--sans)}
+@media (min-width:640px){.abp .abf{grid-template-columns:1fr 1fr 1.35fr}.abp .abf>div:nth-child(3){grid-column:auto;border-left:1px solid var(--line);border-top:0}}
+
+/* ---------- 03 · the rules, as statements ---------- */
+.abp .abr-l{list-style:none;margin:34px 0 0;padding:0;border-top:1px solid #E7E1EA}
+.abp .abr-l>li{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:12px;row-gap:18px;padding:28px 0;border-bottom:1px solid #E7E1EA;align-items:start}
+.abp .abr-n{font:600 13px/1 var(--mono);letter-spacing:.08em;color:var(--pks);padding-top:12px}
+.abp .abr-t h3{font:400 clamp(36px,9vw,64px)/1.02 var(--serif);letter-spacing:-.02em;color:var(--ink)}
+.abp .abr-t p{font:400 17px/1.55 var(--sans);color:var(--body);margin:12px 0 0;max-width:560px}
+.abp .abr-p{grid-column:2;background:var(--cream,#FAF6EE);border-radius:18px;padding:16px 18px;box-shadow:inset 0 0 0 1px rgba(20,18,22,.07)}
+.abp .abr-p .key{display:flex;align-items:center;gap:8px;font:600 11px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.abp .abr-p .key i{width:10px;height:10px;border-radius:3px;background:var(--burn);flex:none}
+.abp .abr-p .key em{margin-left:auto;font:600 10.5px/1 var(--mono);font-style:normal;letter-spacing:.08em;color:var(--mute);background:#fff;border-radius:5px;padding:4px 6px;box-shadow:inset 0 0 0 1px rgba(20,18,22,.08)}
+.abp .abr-p b{display:block;font:700 18px/1.3 var(--sans);color:var(--ink);margin-top:9px}
+.abp .abr-p .val{display:block;font:500 14.5px/1.4 var(--sans);color:var(--body);margin-top:3px}
+.abp .abr-p.led>div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 0;border-bottom:1px dashed #DDD5E0}
+.abp .abr-p.led>div:last-child{border-bottom:0;padding-bottom:2px}
+.abp .abr-p.led>div:first-child{padding-top:2px}
+.abp .abr-p.led span{font:500 14.5px/1.3 var(--sans);color:var(--body)}
+.abp .abr-p.led b{margin:0;font-size:18px;white-space:nowrap}
+.abp .abr-p.led b.z{font:400 30px/1 var(--serif)}
+.abp .abr-p.fri b{font:400 46px/1 var(--serif);letter-spacing:-.01em;margin:10px 0 4px}
+@media (min-width:980px){
+  .abp .abr-l{margin-top:48px}
+  .abp .abr-l>li{grid-template-columns:84px minmax(0,1fr) 340px;column-gap:32px;padding:40px 0;align-items:center}
+  .abp .abr-n{font-size:15px;padding-top:0;align-self:start;margin-top:22px}
+  .abp .abr-p{grid-column:3}
+}
+
+/* ---------- 04 · clear lines, one strip ---------- */
+.abp .abl-c{background:#fff;border-radius:22px;box-shadow:var(--card);padding:22px 20px 8px}
+.abp .abl-h h2{font:400 30px/1.1 var(--serif);letter-spacing:-.01em;color:var(--ink);margin:12px 0 4px}
+.abp .abl-l{list-style:none;margin:10px 0 0;padding:0}
+.abp .abl-l li{position:relative;padding:14px 0 14px 34px;border-top:1px solid var(--line);font:400 16px/1.45 var(--sans);color:var(--body)}
+.abp .abl-l li::before{content:"\2715" / "";position:absolute;left:0;top:15px;width:22px;height:22px;border-radius:6px;background:#F1EDF2;color:#5B5463;display:grid;place-items:center;font:700 11px/1 var(--sans)}
+.abp .abl-l b{color:var(--ink);font-weight:700}
+@media (min-width:900px){
+  .abp .abl-c{display:grid;grid-template-columns:280px minmax(0,1fr);column-gap:44px;padding:32px 34px 16px;align-items:start}
+  .abp .abl-l{margin:0;display:grid;grid-template-columns:1fr 1fr;column-gap:30px}
+  .abp .abl-l li:nth-child(-n+2){border-top:0}
+}
