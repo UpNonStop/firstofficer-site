@@ -220,7 +220,6 @@ ul.cw > li > span{font-size:11px!important}
 /* Re-audit Oct 31, FO-P1-15: every control at least 44px to tap on phones. Where a visual can stay
    small, the hit area grows instead (::after, or padding with a matching negative margin). */
 #bgo,#bs,.celnav button,.ps-trh a,#ffd select,#ffd summary{min-height:44px}
-.celnav button{padding:0 16px}
 #crows label,.ps-chips a,.foot .meta a{position:relative}
 #crows label::after,.ps-chips a::after,.foot .meta a::after{content:"";position:absolute;left:-2px;right:-2px;top:50%;height:44px;transform:translateY(-50%)}
 #crows input.crs{min-width:44px;min-height:44px}
