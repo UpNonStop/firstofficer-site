@@ -125,3 +125,10 @@ function build(){
 try{if(window.top!==window.self&&'scrollRestoration' in history){history.scrollRestoration='manual';if(!location.hash)scrollTo(0,0)}}catch(e){}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
 })();
+
+/* First page of the visit in this tab and where it came from, kept in sessionStorage for the Book page's callback note.
+   Nothing is sent anywhere until a visitor submits that form. Skipped under Do Not Track or Global Privacy Control. */
+(function(){try{if(navigator.doNotTrack==='1'||window.doNotTrack==='1'||navigator.globalPrivacyControl===true)return;var s=window.sessionStorage;if(!s)return;
+if(!s.getItem('fo_ft')){var q=new URLSearchParams(location.search),u={};['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid','ref'].forEach(function(k){var v=q.get(k);if(v)u[k]=v.slice(0,120)});
+var r=document.referrer||'';if(r.indexOf(location.origin)===0)r='';s.setItem('fo_ft',JSON.stringify({at:new Date().toISOString(),landing:(location.pathname+location.search).slice(0,300),referrer:r.slice(0,300),utm:u}))}
+s.setItem('fo_pv',String((parseInt(s.getItem('fo_pv'),10)||0)+1))}catch(e){}})();
