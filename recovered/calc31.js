@@ -166,10 +166,7 @@ g.addEventListener('click',seen);$$('a[href="#advs"]').forEach(function(a){a.add
 if(!A)setTimeout(seen,8000);
 if(A&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){seen();io.disconnect()}})},{threshold:.15});io.observe(A)}})();
 /* ================= HERO BACKGROUND: the landing's rotating photos ================= */
-(function(){var bg=$('.mbg');if(!bg)return;var N=[];for(var i=0;i<=30;i++)N.push(A+'img/rec/bg/'+(i<10?'0':'')+i+'.webp');
-  var off=Math.floor(Math.random()*N.length),cur=0,els=[0,1].map(function(){var e=document.createElement('i');bg.insertBefore(e,bg.firstChild);return e});
-  els[0].style.backgroundImage='url('+N[off]+')';els[0].classList.add('on');
-  if(!RM)setInterval(function(){var nx=els[1-cur];off=(off+1)%N.length;nx.style.backgroundImage='url('+N[off]+')';var im=new Image();im.onload=function(){nx.classList.add('on');els[cur].classList.remove('on');cur=1-cur};im.src=N[off]},5200)})();
+/* the hero photos come from pages31.js (phone-sized files on phones); the second rotator that sent desktop photos to phones is gone (QA re-audit item 4) */
 bcalc();if(ADV)load();
 if(want||/[?&#]m=adv/.test(q))setTimeout(function(){toAdv(false)},60);
 first=false;
