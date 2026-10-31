@@ -117,7 +117,7 @@
     /* text/plain and no-cors: a "simple" request, so the browser sends it straight to Apps Script with no preflight.
        The reply cannot be read (opaque), so a request that leaves the browser counts as sent; only a network failure falls back. */
     var ctl=window.AbortController?new AbortController():null,timer=setTimeout(function(){if(ctl)ctl.abort()},20000);
-    fetch(CALLBACK_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d),keepalive:true,signal:ctl?ctl.signal:undefined})
+    fetch(CALLBACK_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d),signal:ctl?ctl.signal:undefined})
     .then(function(){clearTimeout(timer);sending=false;msg.textContent='';
       f.hidden=true;set('name',d.first_name);set('ref','FO-'+rid.replace(/[^a-z0-9]/gi,'').slice(0,8).toUpperCase());set('line',whenLine(d));
       done.hidden=false;try{done.focus({preventScroll:true})}catch(x){}done.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
