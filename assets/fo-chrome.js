@@ -7,7 +7,21 @@ function mark(root){var here=(location.pathname.split('/').pop()||'home.html').r
 /* Google Analytics 4 on every page, live domain only, and not when the browser asks not to be tracked (the Privacy Policy promises both) */
 function ga(){if(!/(^|\.)upnonstop\.com$/.test(location.hostname))return;if(navigator.doNotTrack==='1'||window.doNotTrack==='1')return;if(document.querySelector('script[src*="googletagmanager.com/gtag/js"]'))return;
   window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-FJHCJ74L64');
-  var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-FJHCJ74L64';document.head.appendChild(s)}
+  /* the tag itself loads once the page has settled (QA re-audit item 6): gtag.js blocked phones' main thread for 200 to 970ms during load.
+     Calls made before then wait in dataLayer and go out when it arrives. */
+  var sent=false,go=function(){if(sent)return;sent=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-FJHCJ74L64';document.head.appendChild(s)};
+  /* early clicks (Ohad, 31 Oct: keep the speed, lose no clicks). Every page defines dataLayer and gtag inline in its head, so any event
+     fired before the tag arrives is queued. A tracked click fetches the tag at once. If the visitor leaves for another First Officer page
+     before it lands, the queued events ride along in sessionStorage and that page sends them (once, credited to the page they came from).
+     A tracked click to another site (wa.me, the calendar) waits for the tag, at most 1.2 seconds, then goes. No form contents are ever queued. */
+  var K='fo-ga-q',live=function(){return dataLayer.push!==Array.prototype.push};
+  try{var q=JSON.parse(sessionStorage.getItem(K)||'[]');sessionStorage.removeItem(K);q.forEach(function(x){if(x[2])x[1].page_location=x[2];gtag('event',x[0],x[1])})}catch(e){}
+  addEventListener('pagehide',function(){if(live())return;try{var q=[];for(var i=0;i<dataLayer.length;i++){var x=dataLayer[i];if(x&&x[0]==='event'&&x[1])q.push([x[1],x[2]||{},location.href])}if(q.length)sessionStorage.setItem(K,JSON.stringify(q))}catch(e){}});
+  window.foGaNow=go;
+  window.foGaHold=function(e,a){var h=a.href||'';if(live()||e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||(a.target&&a.target!=='_self')||!/^https?:/.test(h)||a.host===location.host)return;
+    e.preventDefault();go();var t0=Date.now(),w=setInterval(function(){if(live()||Date.now()-t0>1200){clearInterval(w);setTimeout(function(){location.href=h},live()?120:0)}},50)};
+  var idle=function(){if('requestIdleCallback' in window)requestIdleCallback(go,{timeout:3000});else setTimeout(go,1500)};
+  if(document.readyState==='complete')idle();else addEventListener('load',idle)}
 function build(){
   fontface();ga();
   var hh=host('fo-header','top'),fh=host('fo-footer','end');
@@ -33,14 +47,15 @@ function build(){
   if(document.body.hasAttribute('data-trade')){var mw=fs.querySelector('.more .wa');if(mw){var fn=document.createElement('a');fn.href='field-notes.html';fn.textContent='Field Notes';mw.parentNode.insertBefore(fn,mw)}}
   /* the calculator, pricing and the trade pages hand the trade and the monthly spend to the Book page, so the request arrives with them */
   /* the funnel events main's pages fired into GA4: book_click, whatsapp_click, calculator_open (links in the chrome's shadow roots included); sent as beacons so they survive the page unloading on the click */
-  function ev(n,p){if(typeof gtag==='function')gtag('event',n,p||{})}
+  function ev(n,p){if(typeof gtag==='function')gtag('event',n,p||{});if(window.foGaNow)foGaNow()}
   document.addEventListener('click',function(e){var path=e.composedPath?e.composedPath():[],a=null;
     for(var i=0;i<path.length;i++){if(path[i]&&path[i].tagName==='A'){a=path[i];break}}if(!a)return;
     var h=a.getAttribute('href')||'',t=(a.textContent||'').trim().slice(0,40),pp={page_path:location.pathname,link_text:t,transport_type:'beacon'};
     if(/(^|\/)book\.html/.test(h))ev('book_click',pp);
     if(h.indexOf('wa.me')>-1)ev('whatsapp_click',pp);else if(/(^|\/)calculator\.html/.test(h))ev('calculator_open',{page_path:location.pathname,transport_type:'beacon'});
     /* the Book request leaves the page from the done panel: WhatsApp, email or the calendar is the lead (bookLead, below) */
-    if(a.closest('#bookdone'))bookLead(a.id==='bookmail'?'email':(h.indexOf('wa.me')>-1?'whatsapp':'calendar'))},true);
+    if(a.closest('#bookdone'))bookLead(a.id==='bookmail'?'email':(h.indexOf('wa.me')>-1?'whatsapp':'calendar'));
+    if(window.foGaHold&&(/(^|\/)(book|calculator)\.html/.test(h)||h.indexOf('wa.me')>-1||a.closest('#bookdone')))foGaHold(e,a)},true);
   /* the calculator's example owner counts as the visitor's trade only once they pick it (or arrive from a trade page) */
   document.addEventListener('change',function(e){if(e.target&&e.target.id==='cind')e.target.setAttribute('data-picked','1')},true);
   /* the spend counts as the visitor's own only once they type it or move the slider: never the example's or the sweep's */

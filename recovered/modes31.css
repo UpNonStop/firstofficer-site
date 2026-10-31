@@ -1,7 +1,7 @@
 /* home-modes.html: landing hero with the iPhone modes demo. Mockup only. No italics, no circles except round program logos and the pill dot. */
 .modes em,.modes i,.modes cite{font-style:normal}
 .mh{position:relative;isolation:isolate;overflow:hidden;padding:34px 0 64px}
-.mbg{position:absolute;left:0;right:0;top:0;bottom:0;z-index:-1;pointer-events:none;background:var(--cream);overflow:hidden}
+.mbg{position:absolute;left:0;right:0;top:0;bottom:0;z-index:-1;pointer-events:none;background:var(--cream) var(--bg0,none) center 45%/cover no-repeat;overflow:hidden}
 .mbg i{position:absolute;inset:0;background-size:cover;background-position:center 45%;opacity:0;transition:opacity 2.4s ease;animation:kb 22s ease-in-out infinite alternate}
 .mbg i.on{opacity:1}
 .mbg::after{content:"";position:absolute;inset:0;background:linear-gradient(98deg,rgba(250,246,238,.95) 0,rgba(250,246,238,.86) 36%,rgba(250,246,238,.6) 62%,rgba(250,246,238,.5) 100%),linear-gradient(180deg,rgba(250,246,238,0) 62%,var(--cream) 100%)}
