@@ -2,7 +2,7 @@
    Loaded by about.html only, after fo-polish.css. Phone first; 980px and up is the desktop layout.
    No circles except logos and the pill dot, no dark blocks, pink display type starts on its own line. */
 
-.abp{--ink:#141216;--body:#4A4550;--mute:#6E6776;--line:#EEE8F0;--pk:#FA1896;--pks:#C30E6E;--pkf:#D10F77;--earn:#107B49;--burn:#BB4401;
+.abp{--ink:#141216;--body:#4A4550;--mute:#6E6776;--line:#EEE8F0;--pk:#FA1896;--pks:#C30E6E;--earn:#107B49;--burn:#BB4401;
   --card:0 0 0 1px rgba(20,18,22,.08),0 22px 44px -30px rgba(20,18,22,.42);--ease:cubic-bezier(.22,1,.36,1)}
 
 /* ---------- hero: the crew card ---------- */
@@ -78,8 +78,8 @@
 .abp .msg-h span{margin-left:auto;font:500 12.5px/1 var(--mono);color:var(--mute)}
 .abp .msg .bub{font:400 15.5px/1.45 var(--sans);border-radius:16px;padding:11px 13px;margin:12px 0 0;max-width:94%}
 .abp .msg .bub-fo{background:#F5F1EA;color:var(--ink);border-top-left-radius:6px}
-.abp .msg .bub-me{margin-left:auto;width:max-content;max-width:80%;background:var(--pkf);color:#fff;font-weight:700;border-top-right-radius:6px;box-shadow:0 10px 22px -12px rgba(209,15,119,.75)}
-.abp .msg .bub-me small{display:block;font:500 11.5px/1.2 var(--mono);color:#fff;margin-top:4px;text-align:right}
+.abp .msg .bub-me{margin-left:auto;width:max-content;max-width:80%;background:var(--pk);color:#fff;font:700 19px/1.3 var(--sans);border-top-right-radius:6px;box-shadow:0 10px 22px -12px rgba(250,24,150,.75)}
+.abp .msg .bub-t{font:500 12px/1.2 var(--mono);color:var(--mute);text-align:right;margin:6px 2px 0}
 .abp .msg-f{display:flex;align-items:center;gap:9px;font:600 14px/1.35 var(--sans);color:var(--earn)}
 .abp .msg-f i{font-style:normal;width:22px;height:22px;border-radius:6px;background:var(--earn);color:#fff;display:grid;place-items:center;font:700 12px/1 var(--sans);flex:none}
 .abp .abt-fine{font:400 12.5px/1.5 var(--sans);color:var(--mute);text-align:center;max-width:760px;margin:30px auto 0}
@@ -102,6 +102,7 @@
 .abp .abt-s.in .stamp{animation:abStamp .45s cubic-bezier(.3,1.4,.5,1) calc(var(--d) + 1.6s) both}
 .abp .abt-s.in .msg .bub-fo{animation:abIn .5s var(--ease) calc(var(--d) + .55s) both}
 .abp .abt-s.in .msg .bub-me{animation:abPop .5s var(--ease) calc(var(--d) + 1.25s) both;transform-origin:100% 0}
+.abp .abt-s.in .msg .bub-t{animation:abIn .4s var(--ease) calc(var(--d) + 1.45s) both}
 .abp .abt-s.in .msg-f{animation:abIn .45s var(--ease) calc(var(--d) + 1.6s) both}
 html.fo-still .abp .abt *,html.fo-still .abp .abt *::before,html.fo-still .abp .abt::after{animation:none!important}
 @media (prefers-reduced-motion:reduce){.abp .abt *,.abp .abt *::before,.abp .abt::after{animation:none!important}}
