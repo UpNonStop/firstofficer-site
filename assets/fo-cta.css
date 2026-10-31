@@ -1,0 +1,46 @@
+/* Home page only (index.html): the story's two stops, in the site's own buttons. In the flow of the
+   page, so they take no screen while you read: after 02 the light-blue "Run your numbers", after 05 the
+   pink "Get your desk". Nothing on this page stays on screen (the nav scrolls away, as everywhere). */
+/* max-width:none: the story's paragraph rule (.beat p, 470px) was pinning the stop under the left column
+   on desktop; the stop now spans the beat and the button sits on the page's centre line at every width.
+   Label 19px bold so it counts as large text (WCAG 3:1) on the brand pink and light-blue fills. */
+.fo-inl,.beat p.fo-inl{grid-column:1/-1;display:flex;justify-content:center;margin:6px 0 0;max-width:none;width:100%}
+.fo-inl .btn{height:56px;padding:0 28px;font-size:19px;font-weight:700}
+
+/* ---------- Landing brief (Ohad, 31 Oct) ---------- */
+/* "Month to month, no exit fee." under the hero buttons, and beside the $550 on the price beat's receipt */
+.mterm{margin:12px 0 0;font:600 14px/1.4 var(--sans,'DM Sans',system-ui,sans-serif);color:#4A4550;letter-spacing:.01em}
+.receipt .rr .term{display:block;margin-top:2px;font-size:12.5px;font-weight:600;color:#5E5766}
+/* the note's button row: the pink comes first, on its own full-width row on phones */
+.ncv .btn.pk{font-size:19px;font-weight:700;grid-column:1/-1}
+@media (min-width:761px){.ncv{flex-wrap:wrap;gap:12px;max-width:none}}
+/* a stop that carries two buttons (02 Pain: the pink and "Run your numbers") wraps on phones */
+.fo-inl{flex-wrap:wrap;gap:12px}
+/* stops that only exist on phones, where the four Proof pillars stack (on desktop they sit in one row) */
+.fo-inl.hpo{display:none}
+@media (max-width:760px){.fo-inl.hpo{display:flex}.pillars .fo-inl{margin:2px 0}}
+/* the primary label is longer now: let it wrap rather than overflow on the narrowest phones */
+.fo-inl .btn,.mctas .btn.pk,.ctas .btn.pk{max-width:100%}
+@media (max-width:400px){.fo-inl .btn{padding:0 18px;font-size:18.7px}}
+
+/* Tap targets at 44px or more */
+.wnext{min-height:44px}
+.mrail a,.mrail a.on{height:44px}
+.mphone .mtb{padding:4px 8px 16px}
+.mphone .mtb button{min-height:50px}                     /* the phone picture is drawn at about 0.89 scale */
+.wc.sh .tgl{width:46px;height:44px;margin:-10px -2px;border-radius:0;background:transparent!important}
+.wc.sh .tgl::before{left:2px;right:2px;top:10px;bottom:10px;border-radius:999px;background:#ECEAEE;transition:background .3s}
+.wc.sh .tgl.on::before{background:var(--pink,#FA1896)}
+.wc.sh .tgl::after{top:13px;left:5px}
+
+/* Phones only: one slim docked button, flush to the bottom edge. It shows while no other pink button is on
+   screen and steps aside near the footer (assets/fo-home-dock.js). Nothing else on this page is fixed. */
+.hdock{display:none}
+@media (max-width:760px){
+  .hdock{display:block;position:fixed;left:0;right:0;bottom:0;z-index:250;transform:translateY(105%);visibility:hidden;transition:transform .28s cubic-bezier(.22,1,.36,1),visibility 0s linear .28s}
+  .hdock.on{transform:none;visibility:visible;transition:transform .28s cubic-bezier(.22,1,.36,1)}
+  .hdock .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:auto;min-height:56px;margin:0;padding:14px 12px calc(14px + env(safe-area-inset-bottom,0px));border-radius:0;font-size:19px;font-weight:700;line-height:1.2;box-shadow:none;white-space:nowrap}
+}
+@media (max-width:760px) and (prefers-reduced-motion:reduce){.hdock,.hdock.on{transition:none}}
+/* Desktop: the header stays on screen on this page (the script lets the shared nav stick; the ticker scrolls away) */
+@media (min-width:901px){#fo-header{display:contents}}
