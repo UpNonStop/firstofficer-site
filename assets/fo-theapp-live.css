@@ -171,7 +171,7 @@
   .tapp .ta-op+.sdots i{width:18px;height:6px;border-radius:3px;background:rgba(20,18,22,.16);cursor:pointer;transition:width .3s,background .3s}
   .tapp .ta-op+.sdots i.on{width:30px;background:#FA1896}
 }
-@media(min-width:761px) and (max-width:1023px){.tapp .ta-op{margin:30px -40px 0;padding:4px 40px 10px;scroll-padding:0 40px}.tapp .ta-op>.rc{flex-basis:46%}}
+@media(min-width:761px) and (max-width:1023px){.tapp .ta-op{margin-top:30px}.tapp .ta-op>.rc{flex-basis:46%}}
 @media(max-width:760px){.ta-cvw{padding:16px 12px 14px}.ta-cvw .ta-ph{max-width:244px}}
 @media(max-width:359px){.ta-cvw .ta-ph{max-width:222px}}
 @media(min-width:1024px){
