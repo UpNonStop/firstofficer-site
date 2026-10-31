@@ -185,3 +185,8 @@
    the group actions and the two jump links */
 #brun,#cmix button,#cuse button,.xact button{min-height:44px}
 .xlinks .chowl{display:inline-flex;align-items:center;min-height:44px}
+
+/* Basic says plainly what it is (Ohad, 31 Oct: keep Basic, label the gap): one blended rate with no yearly caps,
+   so Go advanced usually comes out lower. Readable, not fine print. */
+.wfine.bgap{display:block;font-size:14px;line-height:1.5;color:var(--body,#4A4550);opacity:1}
+.wfine.bgap a{color:var(--ink,#141216);font-weight:700;text-decoration:underline;text-underline-offset:3px}
