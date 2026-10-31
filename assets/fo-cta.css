@@ -21,8 +21,8 @@
 /* a stop that carries two buttons (02 Pain: the pink and "Run your numbers") wraps on phones */
 .fo-inl{flex-wrap:wrap;gap:12px}
 /* stops that only exist on phones, where the four Proof pillars stack (on desktop they sit in one row) */
-.fo-inl.hpo{display:none}
-@media (max-width:760px){.fo-inl.hpo{display:flex}.pillars .fo-inl{margin:2px 0}}
+.fo-inl.hpo,.beat p.fo-inl.hpo{display:none}
+@media (max-width:760px){.fo-inl.hpo,.beat p.fo-inl.hpo{display:flex}.pillars .fo-inl{margin:2px 0}}
 /* the primary label is longer now: let it wrap rather than overflow on the narrowest phones */
 .fo-inl .btn,.mctas .btn.pk,.ctas .btn.pk{max-width:100%}
 @media (max-width:400px){.fo-inl .btn{padding:0 18px;font-size:18.7px}}
