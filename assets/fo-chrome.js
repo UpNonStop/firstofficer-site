@@ -14,6 +14,8 @@ function build(){
   var hs=hh.attachShadow({mode:'open'});hs.innerHTML='<style>'+CSS+'</style>'+HEAD;
   var fs=fh.attachShadow({mode:'open'});fs.innerHTML='<style>'+CSS+FOOTCSS+'</style>'+FOOT;
   mark(hs);mark(fs);
+  /* 901 to 1000px the bar was too narrow for every link plus both buttons (59px too wide at 901): there the WhatsApp button shows its icon only, its label stays for screen readers */
+  (function(){var x=document.createElement('style');x.textContent='@media (min-width:901px) and (max-width:1000px){.nav .btn.wa{font-size:0;width:46px;padding:0;justify-content:center;gap:0}.nav .btn.wa::before{content:"\\1F4AC";font-size:18px;line-height:1}}';hs.appendChild(x)})();
   /* the Daily Redemption signup lives in the footer now: same endpoint, payload and GA4 event as before; off the live domain it says so instead of pretending */
   (function(){var f=fs.querySelector('.drform');if(!f)return;var i=f.querySelector('.dri'),b=f.querySelector('button'),m=fs.querySelector('.drm'),LIVE=/(^|\.)upnonstop\.com$/.test(location.hostname);
     f.addEventListener('submit',function(e){e.preventDefault();var v=(i.value||'').trim();
