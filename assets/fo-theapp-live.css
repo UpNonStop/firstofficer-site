@@ -1,0 +1,180 @@
+/* The App page (the-app.html), 31 Oct: Ohad, "Texting should have blue bubbles of iMessage to follow the green whatsapp on the left.
+   Need stronger mock ups for that page and the same try-it-yourself arrow we have in the landing page for the various conversations
+   that should run in the background". Loaded last on the-app.html only; assets/fo-theapp-live.js plays the threads.
+   Phones keep the page's one ink frame (.ta-ph .ta-fr .ta-sc), a full green battery and a cream screen, never plain white. */
+
+/* ---- the landing's try-it-yourself cue: index.html's .mstk markup, its look from assets/fo-home.css, on a cream card (no white) ---- */
+.tapp .mstk span.try{background:#FBF7EF;color:var(--ink);font:600 20px/1 'Caveat',cursive;letter-spacing:0;text-transform:none;padding:9px 14px 8px 15px;border-radius:12px;transform:rotate(-1.5deg);box-shadow:0 0 0 1px rgba(110,80,40,.16),0 14px 28px -18px rgba(80,55,20,.45);display:inline-flex;align-items:center;gap:11px;white-space:nowrap}
+.tapp .mstk span.try em{font-style:normal}
+.tapp .mstk .pd{display:inline-flex;gap:5px;align-items:center}
+.tapp .mstk .pd u{width:8px;height:8px;border-radius:50%;display:block;opacity:.3;animation:pdp 6.4s ease-in-out infinite;text-decoration:none}
+.tapp .mstk .pd .e{background:#107B49}
+.tapp .mstk .pd .b{background:#BB4401;animation-delay:1.6s}
+.tapp .mstk .pd .r{background:#7149C9;animation-delay:3.2s}
+.tapp .mstk .pd .l{background:#085884;animation-delay:4.8s}
+.tapp .mstka{stroke:var(--ink);opacity:.75}
+@keyframes pdp{0%,25%,100%{opacity:.3;transform:scale(1)}8%{opacity:1;transform:scale(1.4)}}
+.fo-still .tapp .mstk .pd u,.tapp .tried .mstk .pd u{animation:none;opacity:.8}
+@media(prefers-reduced-motion:reduce){.tapp .mstk .pd u{animation:none;opacity:.8}}
+
+/* hero: under the phone on phones and tablets, as the landing does on phones */
+.tapp .tah .tstage{position:relative}
+.tapp .tah .mstk{display:flex;position:static;margin:2px auto 0;justify-content:center;pointer-events:none}
+.tapp .tah .mstka{display:none}
+/* wide screens: beside the phone, the arrow running into its tab bar, as on the landing (mirrored: here the phone is on the right) */
+@media(min-width:1400px){
+  .tapp .tah .mstk{position:absolute;left:auto;right:calc(50% + 176px);bottom:92px;margin:0}
+  .tapp .tah .mstka{display:block;right:auto;left:100%;top:6px;margin:0 0 0 6px;transform:scaleX(-1)}
+}
+
+/* ---- 03 where the desk lives: three live threads, WhatsApp, then Texting in Messages blue, then the app ---- */
+.tapp #options .h2 .brush{white-space:normal}
+.ta-optry{display:flex;justify-content:center;margin:22px 0 -6px}
+.ta-optry .mstk{display:flex!important;position:relative;left:auto;right:auto;top:auto;bottom:auto;opacity:1;justify-content:center;pointer-events:none}
+.ta-optry .mstka{display:none}
+.tapp #options.tried .ta-optry .mstk{opacity:0}
+/* wide screens: the cue sits over the middle thread, Texting, its arrow running down into it the way the landing's runs into the phone */
+@media(min-width:1024px){
+  .ta-optry{margin:30px 0 -10px;padding-left:150px}
+  .ta-optry .mstka{display:block}
+}
+/* the cards' own tablet layout (WhatsApp spanning two columns) is for the old previews; the threads are a row now */
+.tapp .ta-op .ta-oc.on{grid-column:auto;grid-template-columns:none}
+.tapp .ta-op .ta-oc.on>*{grid-column:auto;grid-row:auto}
+.tapp .ta-op{margin-top:24px}
+.tapp .ta-op .ta-oc{gap:18px}
+/* the phone sits on its channel's tint */
+.ta-cvw{position:relative;border-radius:20px;padding:20px 16px 18px;background:linear-gradient(180deg,color-mix(in srgb,var(--cvt) 22%,#F3ECDF) 0%,#F3ECDF 92%)}
+.ta-oc[data-cv="wa"]{--cvt:#25D366}
+.ta-oc[data-cv="im"]{--cvt:#0A84FF;--c:#0A84FF}
+.ta-oc[data-cv="ap"]{--cvt:#FA1896}
+.ta-oc[data-cv="im"] li::before{background:#0A84FF}
+.ta-cvw .ta-ph{max-width:262px}
+.ta-cvw .ta-sc{container-type:inline-size;background:#FAF6EE}
+
+/* one conversation screen */
+.cv{position:absolute;inset:0;display:flex;flex-direction:column;font-family:'DM Sans',system-ui,sans-serif;color:#141216;-webkit-font-smoothing:antialiased}
+.cv-sb{flex:none;height:12.5cqi;display:flex;align-items:center;justify-content:space-between;padding:0 7.2cqi 0 9.4cqi;font-size:4.1cqi;font-weight:600;color:#141216}
+.cv-sb .isl{width:28.5cqi;height:8.1cqi;border-radius:4.4cqi;background:#000}
+.cv-sb .sig{display:flex;gap:1.6cqi;align-items:center}
+.cv-sb .sig svg{width:5cqi;height:auto;fill:#1F1A24}
+.cv-sb .sig u{width:6.8cqi;height:3.2cqi;border-radius:1cqi;border:.45cqi solid rgba(31,26,36,.55);position:relative;background:#34C759;background-clip:padding-box;box-shadow:inset 0 0 0 .3cqi #FAF6EE}
+.cv-sb .sig u::after{content:"";position:absolute;right:-1.3cqi;top:.6cqi;width:.65cqi;height:1.1cqi;border-radius:0 .4cqi .4cqi 0;background:rgba(31,26,36,.55)}
+.cv-hd{flex:none;display:flex;align-items:center;gap:2.6cqi;padding:1.6cqi 4.4cqi 2.6cqi;border-bottom:1px solid rgba(20,18,22,.08)}
+.cv-bk{font-size:8cqi;line-height:1;font-weight:400;margin:-1cqi .4cqi 0 -1cqi}
+.cv-av{flex:none;width:10.4cqi;height:10.4cqi;border-radius:50%;display:grid;place-items:center;background:#FDEEF6;box-shadow:inset 0 0 0 1px rgba(250,24,150,.18)}
+.cv-av img{width:62%;height:62%;object-fit:contain;display:block}
+.cv-nm{display:grid;line-height:1.15;min-width:0}
+.cv-nm b{font-size:4.6cqi;font-weight:700;white-space:nowrap}
+.cv-nm small{font-size:3.5cqi;color:#667781}
+.cv-ic{margin-left:auto;display:flex;gap:4cqi;align-items:center}
+.cv-ic svg{width:5.6cqi;height:5.6cqi;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.cv-th{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:2.2cqi;padding:3cqi 3.6cqi 2.6cqi;transition:opacity .35s ease}
+.cv-th.out{opacity:0}
+.cv-dt{align-self:center;font-size:3.3cqi;font-weight:600;letter-spacing:.02em;color:#54656F;background:#F8F2E7;padding:1.1cqi 2.8cqi;border-radius:2.2cqi;margin-bottom:auto;box-shadow:0 1px 0 rgba(20,18,22,.06)}
+.cv-b{position:relative;max-width:82%;padding:2.3cqi 3.2cqi;font-size:clamp(10px,4.55cqi,13px);line-height:1.38;border-radius:4cqi;animation:cvIn .32s cubic-bezier(.2,.8,.3,1) both;overflow-wrap:anywhere}
+.cv-b.me{align-self:flex-end}
+.cv-b.fo{align-self:flex-start}
+.cv-b i{font-style:normal}
+@keyframes cvIn{from{opacity:0;transform:translateY(6px) scale(.97)}to{opacity:1;transform:none}}
+.cv-b.ty{display:inline-flex;gap:1.3cqi;align-items:center;padding:3.1cqi 3.6cqi}
+.cv-b.ty u{width:1.7cqi;height:1.7cqi;border-radius:50%;background:currentColor;opacity:.35;animation:cvDot 1s ease-in-out infinite;text-decoration:none}
+.cv-b.ty u:nth-child(2){animation-delay:.16s}.cv-b.ty u:nth-child(3){animation-delay:.32s}
+@keyframes cvDot{0%,80%,100%{opacity:.25;transform:none}40%{opacity:.75;transform:translateY(-.6cqi)}}
+.cv-co{flex:none;display:grid;gap:2.2cqi;padding:2.6cqi 3.6cqi 2cqi;border-top:1px solid rgba(20,18,22,.07)}
+.cv-qs{display:grid;justify-items:end;gap:1.8cqi}
+.cv-q{all:unset;box-sizing:border-box;position:relative;cursor:pointer;max-width:100%;font:700 clamp(9.5px,4cqi,12px)/1.2 'DM Sans',system-ui,sans-serif;padding:1.9cqi 3.3cqi;border-radius:99px;transition:background .2s,transform .15s,box-shadow .2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* each suggestion is small on the phone; its tap area is the page's 44px */
+.cv-q::after{content:"";position:absolute;left:-2px;right:-2px;top:50%;height:44px;transform:translateY(-50%)}
+.cv-q:focus-visible{outline:3px solid #FA1896;outline-offset:2px}
+.cv-q.pr{transform:scale(.95)}
+.cv-in{display:flex;align-items:center;gap:2.2cqi;height:9.4cqi;padding:0 1.2cqi 0 3.6cqi;border-radius:99px;font-size:3.9cqi}
+.cv-in span{flex:1;opacity:.55}
+.cv-in i{flex:none;width:7.2cqi;height:7.2cqi;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:4cqi;font-weight:800;color:#fff}
+.cv-hb{flex:none;height:5.8cqi;display:grid;place-items:center}
+.cv-hb::before{content:"";width:35%;height:1.4cqi;border-radius:1cqi;background:#141216;opacity:.85}
+.cv-sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* WhatsApp: the wallpaper, the light green sent bubble, ticks, the green icons */
+.cv.wa .cv-hd{background:#F6F2EA;color:#1DAA61}
+.cv.wa .cv-nm{color:#111B21}
+.cv.wa .cv-th{background-color:#EFE7DD;background-image:radial-gradient(rgba(84,101,111,.07) 1px,transparent 1.4px),radial-gradient(rgba(84,101,111,.05) 1px,transparent 1.4px);background-size:7.5cqi 7.5cqi,11cqi 11cqi;background-position:0 0,3cqi 4cqi}
+.cv.wa .cv-b{color:#111B21;border-radius:3cqi;box-shadow:0 1px .5px rgba(11,20,26,.13)}
+.cv.wa .cv-b.me{background:#D9FDD3;border-top-right-radius:.6cqi}
+.cv.wa .cv-b.fo{background:#FFFDF8;border-top-left-radius:.6cqi}
+.cv.wa .cv-b i{float:right;margin:1.4cqi 0 -.6cqi 2.4cqi;font-size:2.9cqi;color:#667781;white-space:nowrap}
+.cv.wa .cv-b.me i::after{content:" ✓✓";color:#53BDEB;letter-spacing:-.12em}
+.cv.wa .cv-b.ty{color:#667781}
+.cv.wa .cv-co{background:#F6F2EA}
+.cv.wa .cv-q{background:#FFFDF8;color:#008069;box-shadow:0 0 0 1px #D1D7DB}
+.cv.wa .cv-q:hover{background:#E7FCE3}
+.cv.wa .cv-in{background:#FFFDF8;box-shadow:0 0 0 1px #E3DED5;color:#54656F}
+.cv.wa .cv-in i{background:#1DAA61}
+
+/* Messages: the blue sent bubble, the grey received one, the tails, "Delivered" */
+.cv.im .cv-hd{flex-direction:column;gap:1cqi;padding:.6cqi 4cqi 2.4cqi;background:#F4F2EE;position:relative}
+.cv.im .cv-bk{position:absolute;left:4cqi;top:3.2cqi;color:#0A84FF;font-size:8.4cqi}
+.cv.im .cv-av{width:11.6cqi;height:11.6cqi;background:linear-gradient(180deg,#E4DFD7,#CFC7BA);box-shadow:none}
+.cv.im .cv-nm{justify-items:center}
+.cv.im .cv-nm b{font-size:3.5cqi;font-weight:500}
+.cv.im .cv-nm b::after{content:" ›";color:#8E8E93}
+.cv.im .cv-th{background:#FBFAF7}
+.cv.im .cv-dt{background:none;box-shadow:none;color:#8E8E93;font-weight:500;padding:0}
+.cv.im .cv-dt b{font-weight:600}
+.cv.im .cv-b{border-radius:5.2cqi;padding:2.3cqi 3.6cqi}
+.cv.im .cv-b.me{background:#0A84FF;color:#fff;border-bottom-right-radius:1.6cqi}
+.cv.im .cv-b.fo{background:#E9E9EB;color:#000;border-bottom-left-radius:1.6cqi}
+.cv.im .cv-b.me::before,.cv.im .cv-b.fo::before{content:"";position:absolute;bottom:0;width:3.2cqi;height:3.2cqi}
+.cv.im .cv-b.me::before{right:-1.1cqi;background:radial-gradient(circle at 0 0,transparent 2.1cqi,#0A84FF 2.2cqi)}
+.cv.im .cv-b.fo::before{left:-1.1cqi;background:radial-gradient(circle at 100% 0,transparent 2.1cqi,#E9E9EB 2.2cqi)}
+.cv.im .cv-b i{display:none}
+.cv.im .cv-dl{align-self:flex-end;font-size:3.1cqi;color:#8E8E93;margin:-1.2cqi .4cqi 0}
+.cv.im .cv-b.ty{color:#8E8E93}
+.cv.im .cv-co{background:#FBFAF7}
+.cv.im .cv-q{background:#F0EEE9;color:#0A84FF}
+.cv.im .cv-q:hover{background:#E4EFFC}
+.cv.im .cv-in{background:#FBFAF7;box-shadow:0 0 0 1px #D6D3CC;color:#8E8E93}
+.cv.im .cv-in i{background:#0A84FF}
+
+/* the app: the hero phone's header and its pink-and-beige thread */
+.cv.ap .cv-hd{background:#FAF6EE;border-bottom:0;padding:.6cqi 5cqi 1.6cqi}
+.cv.ap .cv-hd img{width:5.6cqi;height:5.6cqi;object-fit:contain}
+.cv.ap .cv-hd b{font-size:4.1cqi;font-weight:700}
+.cv.ap .cv-hd .cv-ex{margin-left:auto;font-size:2.8cqi;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#C8106F;background:#F8F2E7;padding:1cqi 2.2cqi;border-radius:1.8cqi;box-shadow:0 0 0 1px rgba(200,16,111,.25)}
+.cv.ap .cv-kh{flex:none;display:flex;justify-content:space-between;align-items:center;margin:0 3.6cqi;padding:2.4cqi 3cqi;border-radius:3.4cqi 3.4cqi 0 0;background:#F3ECDF;font:600 2.9cqi/1 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#4A4550}
+.cv.ap .cv-kh b{color:#C8106F;font-weight:700}
+.cv.ap .cv-th{background:#F3ECDF;margin:0 3.6cqi;border-radius:0 0 3.4cqi 3.4cqi;padding-top:1cqi}
+.cv.ap .cv-b{border-radius:3.6cqi}
+.cv.ap .cv-b.me{background:#FDE3F0;color:#141216;border-bottom-right-radius:1cqi}
+.cv.ap .cv-b.fo{background:#FBF7EF;color:#141216;border-bottom-left-radius:1cqi;box-shadow:0 0 0 1px rgba(110,80,40,.14)}
+.cv.ap .cv-b.fo::before{content:"First Officer";display:block;font-size:2.9cqi;font-weight:700;color:#C8106F;margin-bottom:.6cqi}
+.cv.ap .cv-b.ty::before{content:none}
+.cv.ap .cv-b i{display:none}
+.cv.ap .cv-b.ty{color:#C8106F}
+.cv.ap .cv-co{border-top:0;padding-top:2.4cqi}
+.cv.ap .cv-q{background:#F3ECDF;color:#141216;box-shadow:0 0 0 1px rgba(110,80,40,.18)}
+.cv.ap .cv-q:hover{background:#FDE3F0}
+.cv.ap .cv-in{background:#FBF7EF;box-shadow:0 0 0 1px rgba(110,80,40,.18);color:#4A4550}
+.cv.ap .cv-in i{background:#FA1896}
+
+/* reduced motion: bubbles simply appear */
+@media(prefers-reduced-motion:reduce){.cv-b{animation:none}.cv-b.ty u{animation:none}.cv-th{transition:none}}
+
+/* phones and tablets: the three threads are a swipe row with the rail's dots; tablets show two at a time */
+@media(max-width:1023px){
+  .tapp .ta-op{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:22px -20px 0;padding:4px 20px 10px;scroll-padding:0 20px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .tapp .ta-op::-webkit-scrollbar{display:none}
+  .tapp .ta-op>.rc{flex:0 0 84%;scroll-snap-align:start;display:flex}
+  .tapp .ta-op>.rc>*{flex:1}
+  .tapp .ta-op+.sdots{display:flex;gap:6px;justify-content:center;margin-top:12px}
+  .tapp .ta-op+.sdots i{width:18px;height:6px;border-radius:3px;background:rgba(20,18,22,.16);cursor:pointer;transition:width .3s,background .3s}
+  .tapp .ta-op+.sdots i.on{width:30px;background:#FA1896}
+}
+@media(min-width:761px) and (max-width:1023px){.tapp .ta-op{margin:30px -40px 0;padding:4px 40px 10px;scroll-padding:0 40px}.tapp .ta-op>.rc{flex-basis:46%}}
+@media(max-width:760px){.ta-cvw{padding:16px 12px 14px}.ta-cvw .ta-ph{max-width:244px}}
+@media(max-width:359px){.ta-cvw .ta-ph{max-width:222px}}
+@media(min-width:1024px){
+  .tapp .ta-op{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
+  .tapp .ta-op>.rc{display:flex}.tapp .ta-op>.rc>*{flex:1}
+  .tapp .ta-op+.sdots{display:none}
+}
