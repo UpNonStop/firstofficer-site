@@ -108,6 +108,31 @@ function build(){
     var mob=innerWidth<=760,near=fh.getBoundingClientRect().top<innerHeight+120,show=mob&&scrollY>520&&!near;
     if(mc){mc.classList.toggle('show',show);document.body.style.paddingBottom=show?'calc(64px + env(safe-area-inset-bottom,0px))':''}}
   addEventListener('scroll',up,{passive:true});addEventListener('resize',up);up();
+  /* the docked call bar (QA re-audit item 1, 31 Oct): phones and tablets (900px and down, where the header hides its buttons),
+     slim, flush to the bottom edge, no margins, no halo, never a floating pill. It carries the page's own hero pills (pink, and the
+     light blue when the hero has one) and shows only while none of the page's pink buttons, no form and not the footer is on screen,
+     so one pink button is in view at a time. No timers, no popups, nothing to dismiss. Not on legal, client and redirect pages,
+     nor on a page that docks its own bar (#fo-dock). */
+  (function(){
+    var pg=location.pathname.split('/').pop()||'index.html';
+    if(document.getElementById('fo-dock')||/\/auth\//.test(location.pathname)||/^(privacy-policy|terms-of-service|disclaimer|404|welcome|day-one|no-charge|app|briefing|access|affiliates|privacy)\.html$/.test(pg))return;
+    var DOCKCSS='.dock{display:none}\n@media (max-width:900px){.dock{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:250;align-items:center;justify-content:center;gap:10px;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:#FFFDF9;box-shadow:0 -1px 0 rgba(250,24,150,.25);transform:translateY(110%);visibility:hidden;transition:transform .35s cubic-bezier(.22,1,.36,1),visibility 0s linear .35s}\n.dock.show{transform:none;visibility:visible;transition:transform .35s cubic-bezier(.22,1,.36,1),visibility 0s}\n.dock .btn{display:inline-flex;flex:1 1 0;width:auto;min-width:0;max-width:250px;height:44px;min-height:44px;margin:0;padding:0 10px;font-size:14.5px;box-shadow:inset 0 -2px 0 rgba(0,0,0,.12)}\n.dock .btn:only-child{max-width:340px}\n.dock .btn:hover,.dock .btn:focus-visible{transform:none;box-shadow:inset 0 -2px 0 rgba(0,0,0,.12)}\n.dock .btn.lb{background:#2A7AB8;color:#fff}\n.dock .btn.lb:hover{background:#246CA3}}\n@media (max-width:900px) and (prefers-reduced-motion:reduce){.dock,.dock.show{transition:none}}\n@media print{.dock{display:none!important}}';
+    var src=document.querySelector('#mctas,.mctas'),pk=src&&src.querySelector('.btn.pk'),lb=src&&src.querySelector('.btn.lb');
+    function pill(a,cls,href,html){var n;if(a){n=a.cloneNode(true);n.removeAttribute('id');var oc=n.getAttribute('onclick');if(oc)n.setAttribute('onclick',oc.replace('book-hero','book-dock'))}else{n=document.createElement('a');n.setAttribute('href',href);n.innerHTML=html}n.className='btn '+cls;return n}
+    var dh=host('fo-dockbar','end'),ds=dh.attachShadow({mode:'open'});
+    ds.innerHTML='<style>'+CSS+DOCKCSS+'</style><div class="dock" role="region" aria-label="Book the Found Money Call" inert></div>';
+    var dk=ds.querySelector('.dock');dk.appendChild(pill(pk,'pk','book.html','Get your desk <span class="ar">→</span>'));
+    if(lb||!src)dk.appendChild(pill(lb,'lb','calculator.html','Run your numbers'));
+    var mq=window.matchMedia?matchMedia('(max-width:900px)'):{matches:innerWidth<=900},on=null,raf=0,watch=[];
+    function list(){watch=[].slice.call(document.querySelectorAll('.btn.pk,form'))}
+    function seen(e){var r=e.getBoundingClientRect();return r.width>0&&r.height>0&&r.bottom>0&&r.top<innerHeight&&r.right>0&&r.left<innerWidth}
+    function typing(){var a=document.activeElement;return !!a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)}
+    function set(v){if(v===on)return;on=v;dk.classList.toggle('show',v);if(v)dk.removeAttribute('inert');else dk.setAttribute('inert','')}
+    function check(){raf=0;set(!!mq.matches&&!typing()&&!seen(fh)&&!watch.some(seen))}
+    function soon(){if(!raf)raf=requestAnimationFrame(check)}
+    list();addEventListener('scroll',soon,{passive:true});addEventListener('resize',soon);addEventListener('load',function(){list();soon()});
+    document.addEventListener('focusin',soon);document.addEventListener('focusout',function(){setTimeout(soon,60)});document.addEventListener('toggle',function(){list();soon()},true);check();
+  })();
   /* reveal fallback: whatever is already on screen shows, even when the observer missed it (a preview frame that restores its scroll) */
   function rv(){var h=innerHeight;document.querySelectorAll('.reveal:not(.in)').forEach(function(e){var r=e.getBoundingClientRect();if(r.top<h&&r.bottom>0)e.classList.add('in')})}
   rv();addEventListener('load',rv);addEventListener('scroll',rv,{passive:true});setTimeout(rv,700);
