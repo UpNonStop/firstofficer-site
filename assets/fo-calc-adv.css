@@ -1,0 +1,187 @@
+/* calculator.html · Go advanced (31 Oct 2026): every line of spend in ten groups, the card stack with its yearly caps, every line in a table,
+   and the compliance notes before the calculator starts and at the bottom. Calculator only; loads after calc.css and fo-polish.css.
+   Beige ground, white working surfaces, no circles, nothing sticky but the result panel on desktop (calc.css). */
+
+/* ---------- compliance notes: small, italic, centred, calm ---------- */
+.xnote{max-width:780px;margin:30px auto 0;text-align:center;font-style:italic;font-size:12.5px;line-height:1.6;color:var(--mute)}
+.xnote p{margin:0 0 8px}
+.xnote p:last-child{margin-bottom:0}
+.xnote .xnh{font-style:normal;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:10px}
+.xnote .xnh::before,.xnote .xnh::after{content:"";width:18px;height:2px;border-radius:1px;background:var(--ink);opacity:.5}
+.xnote a{color:var(--pinkd);font-style:normal;font-weight:700;text-decoration:none;white-space:nowrap}
+.xnote a:hover{text-decoration:underline}
+.xpre{padding:20px 0 0}
+.xfs{padding-top:8px!important;padding-bottom:40px!important}
+.xpost{margin-top:0}
+.cq .xpin{margin:-2px 0 12px;font-size:11.5px;line-height:1.4;font-style:italic;color:var(--mute)}
+.cq .xpin a{color:var(--pinkd);font-style:normal;font-weight:700;text-decoration:none}
+.mtm a+a{margin-left:0}
+
+/* ---------- the tools above the lines ---------- */
+.xtool{display:grid;gap:14px;margin:14px 0 6px}
+.xtool .cmix .cseg{display:grid;grid-template-columns:repeat(4,auto)}
+.xtool .cmix .cseg button{height:40px}
+.xact{display:flex;flex-wrap:wrap;gap:8px}
+.xact button{appearance:none;-webkit-appearance:none;border:0;background:#fff;box-shadow:inset 0 0 0 1px rgba(20,18,22,.16);border-radius:10px;min-height:40px;padding:0 14px;font:600 13px/1.2 var(--sans);color:var(--ink);cursor:pointer}
+.xact button:hover{box-shadow:inset 0 0 0 1px rgba(20,18,22,.34)}
+.xact button:focus-visible,.xg summary:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+
+/* ---------- groups and lines ---------- */
+.xgs{margin-top:10px;border-top:1px solid var(--ink)}
+.xg{border-bottom:1px solid var(--hair)}
+.xg summary{list-style:none;display:flex;align-items:center;gap:12px;min-height:58px;padding:8px 2px;cursor:pointer}
+.xg summary::-webkit-details-marker{display:none}
+.xgn{display:flex;flex-direction:column;gap:4px;font:700 15.5px/1.2 var(--sans);color:var(--ink)}
+.xgn small{font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.xgt{margin-left:auto;display:flex;align-items:baseline;gap:6px;font-size:12px;color:var(--body);white-space:nowrap}
+.xgt b{font-family:var(--serif);font-weight:400;font-size:22px;color:var(--ink);font-variant-numeric:tabular-nums}
+.xg summary::after{content:"";flex:none;width:8px;height:8px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);margin:0 6px 5px 6px;transition:transform .2s ease}
+.xg[open] summary::after{transform:rotate(225deg);margin-bottom:-3px}
+.xls{padding:0 0 12px}
+.xl{display:grid;grid-template-columns:minmax(0,1fr) 170px 170px;grid-template-areas:"h a t" "r r r";column-gap:12px;row-gap:6px;align-items:center;padding:12px 0;border-top:1px solid var(--hair2)}
+.xlh{grid-area:h;min-width:0}
+.xlh label{display:block;font:600 14.5px/1.3 var(--sans);color:var(--ink);cursor:pointer}
+.xlh small{display:block;font:500 11px/1.4 var(--mono);color:var(--mute);margin-top:3px}
+.xla{grid-area:a;display:flex;align-items:center;gap:4px;height:44px;padding:0 12px;border-radius:10px;background:#fff;box-shadow:inset 0 0 0 1px rgba(20,18,22,.16);transition:box-shadow .15s}
+.xla:focus-within{box-shadow:inset 0 0 0 2px var(--pink)}
+.xla span{font-family:var(--serif);font-size:17px;color:var(--mute)}
+.xla input{flex:1;min-width:0;width:100%;height:100%;border:0;outline:0;background:none;padding:0;font-family:var(--serif);font-size:20px;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+.xlt{grid-area:t;position:relative}
+.xlt select{appearance:none;-webkit-appearance:none;display:block;width:100%;height:44px;margin:0;border:0;border-radius:10px;background:#fff;box-shadow:inset 0 0 0 1px rgba(20,18,22,.16);padding:0 32px 0 12px;font:500 14px/1 var(--sans);color:var(--ink);cursor:pointer}
+.xlt::after{content:"";position:absolute;right:14px;top:50%;width:6px;height:6px;margin-top:-5px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:rotate(45deg);pointer-events:none}
+.xlt select:hover{box-shadow:inset 0 0 0 1px rgba(20,18,22,.34)}
+.xlt select:focus-visible{outline:0;box-shadow:inset 0 0 0 2px var(--pink)}
+.xlt select:disabled{opacity:.45;cursor:default}
+.xlr{grid-area:r;margin:0;font-size:12.5px;line-height:1.5;color:var(--body)}
+.xlr:empty{display:none}
+.xlr b{color:var(--pe);font-weight:700}
+.xlr em{font-style:normal;color:var(--ink);font-weight:600}
+.xlr.off{color:var(--mute);font-style:italic}
+.xoff{margin:10px 0 0;font-size:12.5px;line-height:1.45;color:var(--mute);font-style:italic}
+.xoff:empty{display:none}
+
+/* ---------- result panel additions ---------- */
+.xcf{margin:-8px 0 0;font-size:12px;line-height:1.4;color:var(--body)}
+.xlinks{display:flex;flex-wrap:wrap;column-gap:18px;row-gap:0}
+.xlinks .chowl{margin-top:4px}
+.xmini{margin:6px 0 0;font-size:11.5px;line-height:1.45;font-style:italic;color:var(--mute)}
+.xmini a{color:var(--pinkd);font-style:normal;font-weight:700;text-decoration:none}
+
+/* ---------- the card stack and every line ---------- */
+.xout{margin-top:24px;background:#fff;border-radius:22px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 18px 36px -24px rgba(20,18,22,.35);padding:30px 34px}
+.xoh .h3{margin:10px 0 6px}
+.xoh p{margin:0;max-width:760px;font-size:14px;line-height:1.55;color:var(--body)}
+.xcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.xc{display:flex;flex-direction:column;gap:9px;padding:16px 16px 14px;border-radius:14px;background:#FBF8F2;box-shadow:inset 0 0 0 1px rgba(20,18,22,.08)}
+.xc.idle{background:#fff}
+.xc.idle .xch b,.xc.idle .xcp{color:var(--mute)}
+.xch{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.xch b{font:700 15px/1.25 var(--sans);color:var(--ink)}
+.xch small{font:500 10.5px/1.2 var(--mono);color:var(--mute);text-align:right}
+.xct{margin:0;font-size:12.5px;line-height:1.5;color:var(--body)}
+.xcl{margin:0;font-size:12.5px;line-height:1.5;color:var(--ink)}
+.xcl span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-right:4px}
+.xcm{display:grid;grid-template-columns:30px minmax(0,1fr);align-items:center;column-gap:8px;row-gap:3px}
+.xcm>span{font:700 12px/1 var(--mono);color:var(--ink)}
+.xcm i{display:block;height:6px;border-radius:2px;background:rgba(20,18,22,.08);overflow:hidden}
+.xcm i b{display:block;height:100%;background:var(--pink);border-radius:2px;transition:width .25s ease-out}
+.xcm small{grid-column:2;font:500 10.5px/1.2 var(--mono);color:var(--mute)}
+.xcp{margin:auto 0 0;padding-top:8px;border-top:1px solid var(--hair2);font-size:12.5px;line-height:1.4;color:var(--body)}
+.xcp b{font-family:var(--serif);font-weight:400;font-size:21px;color:var(--ink);font-variant-numeric:tabular-nums}
+.xtd{margin-top:26px;border-top:1px solid var(--ink)}
+.xtd>summary{list-style:none;display:flex;align-items:center;gap:12px;min-height:58px;padding:8px 2px;cursor:pointer}
+.xtd>summary::-webkit-details-marker{display:none}
+.xtd>summary::after{content:"";flex:none;margin-left:auto;width:8px;height:8px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);margin-right:6px;margin-bottom:5px;transition:transform .2s ease}
+.xtd[open]>summary::after{transform:rotate(225deg);margin-bottom:-3px}
+.xtd>summary:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+.xtab{border-top:1px solid var(--hair)}
+.xth,.xtr{display:grid;grid-template-columns:minmax(0,1.5fr) 96px 110px minmax(0,1.7fr) 110px;column-gap:16px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--hair2)}
+.xth{padding:9px 0;font:500 10px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.xth>span:nth-child(2),.xth>span:nth-child(5),.xtr>span:nth-child(2),.xtr>span:nth-child(5){text-align:right}
+.xtr>span:first-child{font:600 14px/1.3 var(--sans);color:var(--ink)}
+.xtr small{display:block;margin-top:3px;font:500 11px/1.4 var(--mono);color:var(--mute)}
+.xtr>span:nth-child(2){font-family:var(--serif);font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums}
+.xtr>span:nth-child(3){font-size:13px;color:var(--body)}
+.xtr>span:nth-child(4){font-size:13px;color:var(--body)}
+.xtr>span:nth-child(4) b{font-family:var(--serif);font-weight:400;font-size:18px;color:var(--pe)}
+.xtr .d{font-family:var(--serif);font-size:18px;color:var(--pinkd);font-variant-numeric:tabular-nums}
+.xtr.off>span{color:var(--mute)}
+.xtr.off>span:first-child{font-weight:500}
+.xtr.none{display:block;font-size:13px;color:var(--mute);font-style:italic}
+.xtr.tot{border-bottom:0;border-top:1px solid var(--ink)}
+.xtr.tot>span:first-child{font-weight:700}
+.xtn{margin:12px 0 0;font-size:12px;line-height:1.5;color:var(--mute);font-style:italic}
+
+@media (max-width:1240px){
+  .xl{grid-template-columns:minmax(0,1fr) 150px 150px}
+  .xcards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:980px){
+  .xl{grid-template-columns:minmax(0,1fr) 170px 170px}
+}
+@media (max-width:760px){
+  .xnote{font-size:12.5px;margin-top:24px}
+  .xtool .cmix .cseg{grid-template-columns:1fr 1fr}
+  .xtool .cmix .cseg button{height:44px}
+  .xtool .cmix .cseg button:nth-child(3){border-left:0}
+  .xtool .cmix .cseg button:nth-child(n+3){border-top:1px solid var(--hair)}
+  .xact button{min-height:44px;flex:1 1 auto}
+  .xl{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"h h" "a t" "r r";row-gap:8px}
+  .xla input{font-size:18px}
+  .xlt select{font-size:16px}
+  .xgt b{font-size:20px}
+  .xout{padding:22px 18px;border-radius:20px}
+  .xcards{grid-template-columns:minmax(0,1fr)}
+  .xth{display:none}
+  .xtr{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-areas:"n n n" "m t x" "d d d";row-gap:6px;column-gap:10px;padding:12px 0}
+  .xtr>span:nth-child(1){grid-area:n}
+  .xtr>span:nth-child(2){grid-area:m;text-align:left}
+  .xtr>span:nth-child(3){grid-area:t}
+  .xtr>span:nth-child(4){grid-area:d}
+  .xtr>span:nth-child(5){grid-area:x;text-align:right}
+  .xtr>span:nth-child(n+2)::before{content:attr(data-l);display:block;font:500 9.5px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:2px}
+  .xtr.tot>span:nth-child(4){display:none}
+}
+
+/* ---------- no white boxes on the calculator (Ohad, 31 Oct: "eliminate the white background in the boxes. can't have it") ----------
+   The same beige tokens as About: every box one step deeper than the page's cream, on a warm hairline with a warm shadow;
+   wells inside a box one step deeper again; chips and inputs a step lighter, never white. Text on the beige keeps 4.5:1:
+   muted type goes to #5E5766 inside wells, and pink type on beige to #B80F6E. */
+.calc{--bx:#F3ECDF;--bx-line:rgba(110,80,40,.15);--bx-well:#EAE0CE;--bx-chip:#F8F2E7;--bx-in:#FBF7EF;--bx-rule:#D9CCB6;--bx-rule2:#E2D7C4;
+  --card:0 0 0 1px var(--bx-line),0 22px 44px -32px rgba(80,55,20,.4)}
+/* boxes */
+.calc .cq,.calc .cbox,.calc .xout,.calc .pc4,.calc .cdet,.calc .pnx .nxt{background:var(--bx);box-shadow:var(--card)}
+.calc .cres{background:transparent;border-color:var(--bx-rule2)}
+/* wells inside a box */
+.calc .cq .wfine,.calc .ccon,.calc .xc{background:var(--bx-well);box-shadow:none}
+.calc .ccon small,.calc .xc .xch small,.calc .xc .xcl span,.calc .xc .xcm small{color:#5E5766}
+.calc .xc .xcm i{background:rgba(110,80,40,.14)}
+.calc .xc .xcp{border-top-color:var(--bx-rule)}
+.calc .xc.idle{background:transparent;box-shadow:inset 0 0 0 1px var(--bx-rule)}
+.calc .xc.idle .xch small,.calc .xc.idle .xcl span,.calc .xc.idle .xcm small{color:var(--mute)}
+/* chips and controls */
+.calc .mpill,.calc .brun,.calc .cseg,.calc .xact button{background:var(--bx-chip)}
+.calc .mpill{box-shadow:inset 0 0 0 1px var(--bx-line)}
+.calc .cseg{border-color:var(--bx-line)}
+.calc .cseg button+button,.calc .cmix .cseg button:nth-child(n+3){border-color:var(--bx-line)}
+.calc .xact button{box-shadow:inset 0 0 0 1px var(--bx-line)}
+.calc .xact button:hover{box-shadow:inset 0 0 0 1px rgba(110,80,40,.34)}
+.calc .cmini,.calc .cmini>div+div{border-color:var(--bx-rule)}
+/* inputs */
+.calc .csel select,.calc .xla,.calc .xlt select{background:var(--bx-in);box-shadow:inset 0 0 0 1px var(--bx-line)}
+.calc .csel select:hover,.calc .xlt select:hover{box-shadow:inset 0 0 0 1px rgba(110,80,40,.34)}
+.calc .xla:focus-within,.calc .xlt select:focus-visible{box-shadow:inset 0 0 0 2px var(--pink)}
+.calc .csel select:focus-visible{box-shadow:inset 0 0 0 2px var(--pink),0 0 0 4px rgba(250,24,150,.14)}
+/* rules */
+.calc .xg,.calc .xl,.calc .xtr,.calc .cul button,.calc .cpick,.calc .csum>div+div,.calc .ckpi>div+div{border-color:var(--bx-rule2)}
+.calc .ckpi>div:nth-child(3){border-top-color:var(--bx-rule2)}
+/* pink type on beige */
+.calc .xnote a,.calc .cq .xpin a,.calc .xmini a,.calc .cq .wfine a,.calc .cv a,.calc .bverd a,.calc .xtr .d{color:#B80F6E}
+
+/* at 320 the 19px "Go advanced" pill ran past the Basic card's edge: the card head wraps instead */
+@media (max-width:360px){.calc .cq .cqh{flex-wrap:wrap;row-gap:10px}}
+
+/* 44px controls at every width, tablets included (phones already had them): Watch it run, the "Your cards today" and "Valued at" choices,
+   the group actions and the two jump links */
+#brun,#cmix button,#cuse button,.xact button{min-height:44px}
+.xlinks .chowl{display:inline-flex;align-items:center;min-height:44px}
