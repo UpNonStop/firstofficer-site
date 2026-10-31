@@ -131,15 +131,16 @@ var ALIAS={restaurants:'restaurant',dental:'dental-practice',agencies:'marketing
   'other-industries':'other',general:'other',insurance:'other','insurance-agency':'other'};
 
 
-/* ---------------- the router: every line on a card, inside each card's yearly cap ---------------- */
+/* ---------------- the router: every line on a card, inside each card's yearly cap (#71: a card only takes a line it improves; past every cap
+   a line stays on the card it is on today, never under 1x) ---------------- */
 function okB(l,b,pair,ibp){var e=l.e;
   if(b.id==='ibc5')return ibp&&!!e.ibc5;if(b.id==='abg4')return !!e.abg&&pair.indexOf(e.abg)>-1;
   if(b.id==='ibp3')return ibp&&!!e.ibp3;if(b.id==='ibc2')return !!e.ibc2;return true}
 function alt(l,k,pair,ibp){var r=0;for(var j=k+1;j<BK.length;j++)if(okB(l,BK[j],pair,ibp))r=Math.max(r,BK[j].r);return r}
 function route(rows,pair,ibp){var rem=rows.map(function(o){return o.a}),al=rows.map(function(){return {}}),cu={},pa=0;
-  BK.forEach(function(b,k){var el=[];rows.forEach(function(o,i){if(rem[i]>0&&okB(o.l,b,pair,ibp))el.push(i)});
+  BK.forEach(function(b,k){var el=[];rows.forEach(function(o,i){if(rem[i]>0&&okB(o.l,b,pair,ibp)&&(b.id==='base'||b.r>o.tr))el.push(i)});
     el.sort(function(p,s){return (alt(rows[p].l,k,pair,ibp)-alt(rows[s].l,k,pair,ibp))||(rem[s]-rem[p])});
-    var left=b.cap;el.forEach(function(i){if(left<=0)return;var t=Math.min(rem[i],left);al[i][b.id]=t;rem[i]-=t;left-=t;pa+=t*b.r});
+    var left=b.cap;el.forEach(function(i){if(left<=0)return;var t=Math.min(rem[i],left);al[i][b.id]=t;rem[i]-=t;left-=t;pa+=t*(b.id==='base'?Math.max(b.r,rows[i].tr):b.r)});
     cu[b.id]=b.cap===Infinity?b.cap:b.cap-left});
   var used={abg:(cu.abg4||0)>0,ibp:(cu.ibp3||0)>0||(cu.ibc5||0)>0};
   var fee=(used.abg?CARD.abg.fee:0)+(used.ibp?CARD.ibp.fee:0);
