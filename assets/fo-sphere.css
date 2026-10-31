@@ -44,7 +44,7 @@
 /* the latest answer (fixed height so nothing jumps) */
 .sxw .rcard{width:100%;max-width:520px;min-height:142px;background:#fff;border-radius:16px;box-shadow:0 0 0 1.5px #FA1896,0 16px 30px -24px rgba(250,24,150,.6);padding:12px 14px;overflow:hidden}
 .sxw .rk{display:flex;align-items:center;gap:6px;font:600 11px 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:#7A6876;margin:0 0 7px}
-.sxw .rk .lv{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:#16A06A;box-shadow:0 0 0 4px rgba(22,160,106,.18);display:inline-block;animation:none;flex:none}
+.sxw .rk .lv{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:#107B49;box-shadow:0 0 0 4px rgba(16,123,73,.18);display:inline-block;animation:none;flex:none}
 .sxw .rh{display:flex;align-items:center;gap:6px;font:700 12.5px 'DM Sans',sans-serif;color:var(--ink)}.sxw .rh .lg{--s:22px}
 .sxw .arr{font-weight:500;color:var(--mute)}
 .sxw .pg{font:700 10px/1 'DM Sans',sans-serif;color:#fff;background:var(--c);border-radius:999px;padding:4px 8px;margin-left:auto}

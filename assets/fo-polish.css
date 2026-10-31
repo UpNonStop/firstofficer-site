@@ -4,7 +4,7 @@
 .btn.wa{background:#25D366;color:#fff;box-shadow:0 10px 24px -10px rgba(37,211,102,.7),inset 0 -2px 0 rgba(0,0,0,.12)}
 .btn.wa:hover,.btn.wa:focus-visible{background:#1EBE5A;color:#fff;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(30,190,90,.6)}
 .btn.lb{background:#429AD4;color:#fff;box-shadow:0 10px 24px -10px rgba(66,154,212,.75),inset 0 -2px 0 rgba(0,0,0,.12)}
-.btn.lb:hover,.btn.lb:focus-visible{background:#1E78B8;color:#fff;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(30,120,184,.6)}
+.btn.lb:hover,.btn.lb:focus-visible{background:#085884;color:#fff;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(8,88,132,.6)}
 .btn.gd{background:#F5B700;color:#141216;box-shadow:0 10px 24px -10px rgba(214,160,0,.75),inset 0 -2px 0 rgba(0,0,0,.1)}
 .btn.gd:hover,.btn.gd:focus-visible{background:#E8AC00;color:#141216;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(214,160,0,.6)}
 .trio{display:flex;flex-wrap:wrap;gap:10px}
@@ -74,7 +74,7 @@
 #fo-header{display:block;min-height:92px}
 @media (min-width:901px){#fo-header{min-height:100px}}
 /* phones: on home the button row sits under the headline, before the phone */
-@media (max-width:600px){.mh .mwrap{display:flex;flex-direction:column;align-items:stretch}.mh .mwrap>*,.mh .mrest>*{min-width:0}.mh .mrest{display:contents}.mh .mtop{order:-2}.mh #mctas{order:-1;margin-top:18px}.mh .mrest>.mlab{margin-top:18px}}
+@media (max-width:600px){.mh .mwrap{display:flex;flex-direction:column;align-items:stretch}.mh .mwrap>*,.mh .mrest>*{min-width:0}.mh .mrest{display:contents}.mh #mctas{margin-top:18px}.mh .mrest>.mlab{margin-top:18px}}
 /* less air above the footer */
 .sec.tight.pnx{padding-bottom:32px}
 /* Book: the sections closer together */
@@ -98,8 +98,8 @@
 /* the headline font from this site (same v17 latin file as Google Fonts), preloaded in <head>: no late re-wrap of the hero headline */
 @font-face{font-family:"DM Serif Display";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/DMSerifDisplay-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 /* text shades: the same hues, a touch deeper, so small text reads at 4.5:1 on white and cream */
-html:root{--pinkd:#D90D7E;--earn:#117F4B;--learn:#1C73B0}
-.tmx li b{color:#117F4B}.pgl .brush,.pgl .kick,.pgl .fnm a{color:#1C73B0}.mrail a b,.mrail a.on b{color:#D90D7E!important}
+html:root{--pinkd:#D90D7E;--earn:#107B49;--learn:#085884}
+.tmx li b{color:#107B49}.pgl .brush,.pgl .kick,.pgl .fnm a{color:#085884}.mrail a b,.mrail a.on b{color:#D90D7E!important}
 /* rails that scroll take focus (set by the chrome while they scroll); the ring shows where */
 .srail:focus-visible,.tsh:focus-visible,.cels:focus-visible,.tl90:focus-visible{outline:3px solid #FA1896;outline-offset:4px;border-radius:14px}
 /* the product tour after a pick: the tab stays marked, no countdown bar */
@@ -217,3 +217,41 @@ ul.cw > li > span{font-size:11px!important}
 .fnm a,.tnote a{padding:13px 0}
 .fcd li b>a{padding:8px 0}
 /* /prodfix ---- */
+/* Re-audit Oct 31, FO-P1-15: every control at least 44px to tap on phones. Where a visual can stay
+   small, the hit area grows instead (::after, or padding with a matching negative margin). */
+#bgo,#bs,.celnav button,.ps-trh a,#ffd select,#ffd summary{min-height:44px}
+#crows label,.ps-chips a,.foot .meta a{position:relative}
+#crows label::after,.ps-chips a::after,.foot .meta a::after{content:"";position:absolute;left:-2px;right:-2px;top:50%;height:44px;transform:translateY(-50%)}
+#crows input.crs{min-width:44px;min-height:44px}
+/* the home page's small ones: the hero phone's Earn/Burn/Return/Learn tabs (zoomed to .88 on phones),
+   the note's two links, "Important information", "How the desk is built"; the story chips get 12px
+   between rows so each keeps its whole 44px */
+.mtb button::after{content:"";position:absolute;left:0;right:0;top:-7px;bottom:0}
+.mtm a,.mnote .nbody a,.beat .fine a{display:inline-block}
+.mtm a{padding:15px 4px;margin:-15px -4px}
+.mnote .nbody a{position:relative;z-index:1;padding:8px 0;margin:-8px 0}
+.beat .fine a{padding:14px 0;margin:-14px 0}
+@media (max-width:760px){#story .mrail{row-gap:12px}.ps-chips{row-gap:16px}}
+/* FO-P2-01: no wide empty bands around the Up next card on phones (40px above, 48px below with the
+   footer's own 32px from assets/fo-chrome.js) */
+@media (max-width:600px){main>section:has(+ .sec.tight.pnx){padding-bottom:24px}.sec.tight.pnx{padding-top:16px;padding-bottom:16px}}
+/* FO-P2-03: one focus ring, 3px pink, on the hero phone's tabs and the pricing chips too
+   (the chrome's Pause button gets the same 3px inside assets/fo-chrome.js) */
+.mtb button:focus-visible,.ps-chips a:focus-visible{outline:3px solid var(--pink,#FA1896);outline-offset:3px}
+/* ==== FO-P1-01 (D13: waiting on Ohad's OK) ===========================================================
+   Fills behind small text that read at 4.5:1 or better. Brand pink #FA1896 stays for headlines, large
+   type and lines; only these fills and small labels change. Delete this block (and the matching one in
+   assets/fo-chrome.js) to undo. */
+.btn.pk,.btn.ink,.nxb,.celnav button.on,.cs .cta,.ixb>.pk.btn{background-color:#E0117F!important}
+.btn.pk:hover,.btn.pk:focus-visible,.btn.ink:hover,.nxb:hover,.nxb:focus-visible{background-color:#C30E6E!important}
+.btn.wa,.btn.wa:hover,.btn.wa:focus-visible{color:#0B2E17!important}
+.btn.lb,.cqa{background-color:#1E70AA!important}
+.btn.lb:hover,.btn.lb:focus-visible,.cqa:hover{background-color:#185D8E!important}
+.k-burn .pn b,.stc b.k-burn{background-color:#BB4401!important}
+/* The Daily Redemption issues: small pink and grey text on cream */
+body .fo{--t3:#6F675C}
+body .fo .mast-foot .pk{color:#D4107A}
+/* ==== end FO-P1-01 ==== */
+
+/* Re-audit extra: anchor jumps do not glide when the visitor asks for reduced motion (rec31.css and fo.css set html{scroll-behavior:smooth}) */
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

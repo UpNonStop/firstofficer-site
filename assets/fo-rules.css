@@ -27,13 +27,13 @@
 .beat .wc.sh .card,.wc > .card{background:#fff!important;box-shadow:inset 0 0 0 1.5px #FA1896,0 14px 28px -20px rgba(20,18,22,.3)!important}
 .pc .x,.cs .by i,.beat .bn i,.bn > i{background:#fff!important;box-shadow:inset 0 0 0 1.5px #FA1896!important;color:#B80F6E!important}
 .pillchips span{background:#fff!important}
-.pillchips span:nth-child(3) b{color:#7348F0!important}
-.pillchips span:nth-child(3){box-shadow:0 0 0 1.5px rgba(115,72,240,.4)!important}
+.pillchips span:nth-child(3) b{color:#7149C9!important}
+.pillchips span:nth-child(3){box-shadow:0 0 0 1.5px rgba(113,73,201,.4)!important}
 .apc.soon{background:#fff!important;box-shadow:inset 0 0 0 1px #FA1896!important}
 .freego{background:#fff!important;box-shadow:inset 0 0 0 1.5px #FA1896,0 18px 36px -24px rgba(20,18,22,.3)!important}
 .row > .code,.ledger .code{background:#fff!important;box-shadow:inset 0 0 0 1px rgba(250,24,150,.55)!important}
-.tdc.on .tst,.tdc.on .tic{background:#fff!important;box-shadow:inset 0 0 0 1px #16A06A!important}
-.bu.me{background:#fff!important;box-shadow:inset 0 0 0 1px rgba(22,160,106,.45)!important}
+.tdc.on .tst,.tdc.on .tic{background:#fff!important;box-shadow:inset 0 0 0 1px #107B49!important}
+.bu.me{background:#fff!important;box-shadow:inset 0 0 0 1px rgba(16,123,73,.45)!important}
 .chip.ex{background:#fff!important;box-shadow:inset 0 0 0 1px rgba(20,18,22,.28)!important;color:#141216!important}
 .mf-c i{background:#fff!important;border-radius:12px!important;box-shadow:inset 0 0 0 1.5px #FA1896!important}
 .mf-c:hover{box-shadow:0 26px 48px -22px rgba(250,24,150,.35),0 0 0 1.5px #FA1896!important}
@@ -98,3 +98,7 @@
 .zdk-ask i,
 .zdk-cons i,
 .zdk-on i{border-radius:28%!important}
+
+/* ---- FO-P1-18: endless decorative loops pause while their section is out of view (.is-off is set by recovered/rec31.js).
+   No content-visibility on the sections: its paint containment clipped card shadows at section edges (book form card) and moved text by 1px, and it did not lower TBT ---- */
+html:not(.fo-still) .is-off :is(.mbg i,.rbg i,.mpill i,.mtb button,.mstk .pd u,.lv,.ledger .lh b i,.dtrack,.ttrack,.track,.ptrack,.float,.dots u,.scene .call,.sxw .wk i){animation-play-state:paused!important}
