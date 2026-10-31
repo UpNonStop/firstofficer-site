@@ -244,6 +244,12 @@ ul.cw > li > span{font-size:11px!important}
 /* The Daily Redemption issues: small pink and grey text on cream */
 body .fo{--t3:#6F675C}
 body .fo .mast-foot .pk{color:#D4107A}
+/* FO-P1-01b, labels on the original fills pass WCAG AA without touching the fills (Ohad, 31 Oct: "fix it if needed").
+   White on pink #FA1896 is 3.7:1, on light blue #429AD4 3.1:1, on Burn #E8590C 3.6:1: each passes as large text (3:1 from 18.66px bold),
+   so those button labels are 19px bold. White on WhatsApp green #25D366 is 2.0:1 at any size, so its label is dark green #0B2E17 (7.5:1).
+   The chrome's header and footer buttons get the same two rules inside assets/fo-chrome.js. */
+.btn.pk,.btn.lb,.nxb,.cqa#bgo,.ttabs [role=tab]{font-size:19px!important;font-weight:700!important}
+.btn.wa,.btn.wa:hover,.btn.wa:focus-visible,.ctab .btn.cr,.pill.green,.fo .cta a[href*="wa.me"]{color:#0B2E17!important}
 /* ==== end FO-P1-01 ==== */
 
 /* Re-audit extra: anchor jumps do not glide when the visitor asks for reduced motion (rec31.css and fo.css set html{scroll-behavior:smooth}) */

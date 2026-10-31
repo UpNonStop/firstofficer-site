@@ -123,5 +123,7 @@ function build(){
 }
 /* inside a preview frame a page opens at its top, not where the last page was scrolled to; the live site keeps the browser's own behaviour */
 try{if(window.top!==window.self&&'scrollRestoration' in history){history.scrollRestoration='manual';if(!location.hash)scrollTo(0,0)}}catch(e){}
+/* FO-P1-01b (Ohad, 31 Oct): button labels on the original fills pass WCAG AA: 19px bold on pink and light blue (large text, 3:1), dark green on WhatsApp green */
+CSS+=".btn.pk,.btn.lb{font-size:19px!important;font-weight:700!important}.btn.wa,.btn.wa:hover,.btn.wa:focus-visible{color:#0B2E17!important}";
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
 })();
