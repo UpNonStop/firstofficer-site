@@ -1,7 +1,7 @@
 /* calculator-modes.html: a sibling of home-modes.html. Built on modes.css: the same hero (rotating photos, cream overlay,
    hero type), the same white cards (radius 22, hairline + soft shadow), the same sections, buttons and compact CTA.
    No dark blocks (ticker only), no pastel tints, no italics outside the handwriting, no circles except logos and the pill dot. */
-.calc{--pe:#12834E;--pb:#E8590C;--pl:#1E78B8;--hair:rgba(20,18,22,.12);--hair2:rgba(20,18,22,.07)}
+.calc{--pe:#107B49;--pb:#BB4401;--pl:#085884;--hair:rgba(20,18,22,.12);--hair2:rgba(20,18,22,.07)}
 .calc span.pk{color:var(--pink)}
 .calc .rbg{display:none}
 .calc em{font-style:normal}
@@ -34,7 +34,7 @@
 .cqh .wk{color:var(--ink)}
 .cqa{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;line-height:1;color:#fff;background:#429AD4;padding:8px 14px;border-radius:999px;text-decoration:none;white-space:nowrap;box-shadow:0 0 0 0 rgba(90,176,230,.55);animation:cqp 2s ease-in-out infinite;transition:background .2s}
 .cqa .ar{color:#fff}
-.cqa:hover,.cqa:focus-visible{background:#1E78B8;color:#fff}
+.cqa:hover,.cqa:focus-visible{background:#085884;color:#fff}
 .cqa.seen{animation:none;box-shadow:none}
 @keyframes cqp{0%{box-shadow:0 0 0 0 rgba(90,176,230,.55);transform:scale(1)}50%{box-shadow:0 0 0 7px rgba(90,176,230,0);transform:scale(1.04)}100%{box-shadow:0 0 0 0 rgba(90,176,230,0);transform:scale(1)}}
 @media (prefers-reduced-motion:reduce){.cqa{animation:none}}
@@ -69,8 +69,8 @@
 .bverd{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.45;color:var(--body);margin:12px 0 0}
 .bverd strong{color:var(--ink);font-weight:700}
 .bverd a,.cv a{color:var(--pinkd,#B80F6E);font-weight:700;text-decoration:none;white-space:nowrap}
-.bvk{flex:none;width:22px;height:22px;border-radius:7px;display:inline-grid;place-items:center;font:700 13px/1 var(--sans);background:#fff;color:#12834E;box-shadow:inset 0 0 0 1.5px #12834E}
-.meh .bvk{color:#E8590C;box-shadow:inset 0 0 0 1.5px #E8590C}
+.bvk{flex:none;width:22px;height:22px;border-radius:7px;display:inline-grid;place-items:center;font:700 13px/1 var(--sans);background:#fff;color:#107B49;box-shadow:inset 0 0 0 1.5px #107B49}
+.meh .bvk{color:#BB4401;box-shadow:inset 0 0 0 1.5px #BB4401}
 .no .bvk{color:var(--pink);box-shadow:inset 0 0 0 1.5px var(--pink)}
 .bact{display:flex;align-items:center;gap:12px;margin-top:14px;flex-wrap:wrap}
 .brun{appearance:none;display:inline-flex;align-items:center;gap:10px;border:0;background:#fff;box-shadow:inset 0 0 0 2px var(--ink);color:var(--ink);font:700 13.5px/1 var(--sans);height:38px;padding:0 16px;border-radius:999px;cursor:pointer;transition:color .15s,box-shadow .15s}
@@ -270,11 +270,11 @@
 /* ---------- calc10: check marks, one size, top-aligned to the first line everywhere ---------- */
 .cok{gap:10px}
 .cok li{align-items:flex-start;line-height:1.45}
-.cok li b,.bvk{flex:none;width:20px;height:20px;border-radius:6px;display:inline-grid;place-items:center;font:700 12px/1 var(--sans);background:#fff;color:#12834E;box-shadow:inset 0 0 0 1.5px #12834E}
+.cok li b,.bvk{flex:none;width:20px;height:20px;border-radius:6px;display:inline-grid;place-items:center;font:700 12px/1 var(--sans);background:#fff;color:#107B49;box-shadow:inset 0 0 0 1.5px #107B49}
 .cok li b{margin-top:1.6px}
 .bverd{line-height:1.45}.bverd .bvk{margin-top:0}
 .cv h3{align-items:flex-start}.cv h3 .bvk{margin-top:4px}
-.meh .bvk{color:#E8590C;box-shadow:inset 0 0 0 1.5px #E8590C}
+.meh .bvk{color:#BB4401;box-shadow:inset 0 0 0 1.5px #BB4401}
 .no .bvk{color:var(--pink);box-shadow:inset 0 0 0 1.5px var(--pink)}
 
 /* ---------- calc10: phones (375 to 430). One spacing scale: 4 / 8 / 12 / 16 / 20 / 24 / 32. Page gutter = the landing's --gut (20px).

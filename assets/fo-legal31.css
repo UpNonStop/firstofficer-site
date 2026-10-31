@@ -21,7 +21,7 @@
 .appx{padding-top:20px}
 .apg{display:grid;grid-template-columns:1fr;gap:22px;align-items:center}
 .apcards{display:grid;grid-template-columns:1fr;gap:10px}
-.apc{background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 18px 36px -26px rgba(20,18,22,.35);border-top:4px solid #16A06A}
+.apc{background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 18px 36px -26px rgba(20,18,22,.35);border-top:4px solid #107B49}
 .apc.soon{border-top-color:var(--pinkl)}
 .apc small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
 .apc h3{font-size:19px;font-weight:800;margin:6px 0 4px;color:var(--ink)}

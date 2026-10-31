@@ -12,7 +12,7 @@
 
 /* ---- the Desk screen ---- */
 .zdk-on{display:flex;align-items:center;gap:6px;font-size:9.5px;font-weight:600;color:#4A4550;padding:0 2px}
-.zdk-on i{width:6px;height:6px;border-radius:50%;background:#16A06A;box-shadow:0 0 0 3px rgba(22,160,106,.18)}
+.zdk-on i{width:6px;height:6px;border-radius:50%;background:#107B49;box-shadow:0 0 0 3px rgba(16,123,73,.18)}
 .zdk-on span{margin-left:auto;color:#8A8492;font-weight:500}
 .zdk-g{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .zdk{all:unset;box-sizing:border-box;cursor:pointer;background:#fff;border-radius:14px;padding:8px 9px 9px;box-shadow:0 0 0 1px rgba(60,40,70,.07),0 6px 14px -10px rgba(60,40,70,.3);border-top:3px solid var(--c);display:grid;gap:2px;align-content:start;min-height:82px;transition:transform .2s ease}

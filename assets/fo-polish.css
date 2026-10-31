@@ -4,7 +4,7 @@
 .btn.wa{background:#25D366;color:#fff;box-shadow:0 10px 24px -10px rgba(37,211,102,.7),inset 0 -2px 0 rgba(0,0,0,.12)}
 .btn.wa:hover,.btn.wa:focus-visible{background:#1EBE5A;color:#fff;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(30,190,90,.6)}
 .btn.lb{background:#429AD4;color:#fff;box-shadow:0 10px 24px -10px rgba(66,154,212,.75),inset 0 -2px 0 rgba(0,0,0,.12)}
-.btn.lb:hover,.btn.lb:focus-visible{background:#1E78B8;color:#fff;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(30,120,184,.6)}
+.btn.lb:hover,.btn.lb:focus-visible{background:#085884;color:#fff;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(8,88,132,.6)}
 .btn.gd{background:#F5B700;color:#141216;box-shadow:0 10px 24px -10px rgba(214,160,0,.75),inset 0 -2px 0 rgba(0,0,0,.1)}
 .btn.gd:hover,.btn.gd:focus-visible{background:#E8AC00;color:#141216;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(214,160,0,.6)}
 .trio{display:flex;flex-wrap:wrap;gap:10px}
@@ -98,8 +98,8 @@
 /* the headline font from this site (same v17 latin file as Google Fonts), preloaded in <head>: no late re-wrap of the hero headline */
 @font-face{font-family:"DM Serif Display";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/DMSerifDisplay-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 /* text shades: the same hues, a touch deeper, so small text reads at 4.5:1 on white and cream */
-html:root{--pinkd:#D90D7E;--earn:#117F4B;--learn:#1C73B0}
-.tmx li b{color:#117F4B}.pgl .brush,.pgl .kick,.pgl .fnm a{color:#1C73B0}.mrail a b,.mrail a.on b{color:#D90D7E!important}
+html:root{--pinkd:#D90D7E;--earn:#107B49;--learn:#085884}
+.tmx li b{color:#107B49}.pgl .brush,.pgl .kick,.pgl .fnm a{color:#085884}.mrail a b,.mrail a.on b{color:#D90D7E!important}
 /* rails that scroll take focus (set by the chrome while they scroll); the ring shows where */
 .srail:focus-visible,.tsh:focus-visible,.cels:focus-visible,.tl90:focus-visible{outline:3px solid #FA1896;outline-offset:4px;border-radius:14px}
 /* the product tour after a pick: the tab stays marked, no countdown bar */
@@ -247,7 +247,7 @@ ul.cw > li > span{font-size:11px!important}
 .btn.wa,.btn.wa:hover,.btn.wa:focus-visible{color:#0B2E17!important}
 .btn.lb,.cqa{background-color:#1E70AA!important}
 .btn.lb:hover,.btn.lb:focus-visible,.cqa:hover{background-color:#185D8E!important}
-.k-burn .pn b,.stc b.k-burn{background-color:#C2410C!important}
+.k-burn .pn b,.stc b.k-burn{background-color:#BB4401!important}
 /* The Daily Redemption issues: small pink and grey text on cream */
 body .fo{--t3:#6F675C}
 body .fo .mast-foot .pk{color:#D4107A}

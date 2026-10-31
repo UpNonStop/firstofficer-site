@@ -12,7 +12,7 @@ h1{font-size:clamp(36px,10vw,46px);line-height:1.05;letter-spacing:-.02em}
 .nxk{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--body);display:flex;align-items:center}
 .thr{display:inline-flex;gap:3px;margin-right:10px;vertical-align:middle}
 .thr i{width:14px;height:4px;border-radius:2px;display:block}
-.thr .te{background:#12834E}.thr .tb{background:#E8590C}.thr .tr{background:#7149C9}.thr .tl{background:#1E78B8}
+.thr .te{background:#107B49}.thr .tb{background:#BB4401}.thr .tr{background:#7149C9}.thr .tl{background:#085884}
 .nxh{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.05;letter-spacing:-.01em;margin:0}
 .nxh .pk{color:var(--pink)}
 .nxp{font-size:15.5px;color:var(--body);max-width:720px}
