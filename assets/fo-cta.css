@@ -1,0 +1,5 @@
+/* Home page only (index.html): the story's two stops, in the site's own buttons. In the flow of the
+   page, so they take no screen while you read: after 02 the light-blue "Run your numbers", after 05 the
+   pink "Get your desk". Nothing on this page stays on screen (the nav scrolls away, as everywhere). */
+.fo-inl{grid-column:1/-1;display:flex;justify-content:center;margin:6px 0 0}
+.fo-inl .btn{height:52px;padding:0 26px;font-size:15px}
