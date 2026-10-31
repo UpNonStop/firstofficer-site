@@ -35,3 +35,6 @@
 #callback .bkg input,#callback .bkg select,#callback .bkg textarea{background-color:#FBF7EF;border-color:rgba(110,80,40,.24)}
 #callback .chips .chip input:not(:checked)+span{background:#F8F2E7;border-color:rgba(110,80,40,.22)}
 #mh .wath small{color:#0E6B35}
+
+/* the three answers link to the calculator case they come from */
+#edge .edg .ill a,#edge .edg p a{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;display:inline-block;padding:4px 0;margin:-4px 0}
