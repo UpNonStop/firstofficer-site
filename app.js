@@ -516,6 +516,36 @@ function stateScreen(title, body, cta, waText){
     s.appendChild(a);
   }
   screenEl.appendChild(s);
+  // A desktop browser gets a preview of the four tabs under the gate (CSS keeps it off phones and the app).
+  if (!document.documentElement.classList.contains('inapp')){
+    s.classList.add('has-pv');
+    screenEl.appendChild(statePreview());
+  }
+}
+
+function statePreview(){
+  var pv = el('section','pv');
+  pv.setAttribute('aria-label','What opens here');
+  pv.appendChild(el('p','pv-k','What opens here'));
+  pv.appendChild(el('h3',null,'Your desk, in four tabs.'));
+  var row = el('div','pv-row');
+  [['earn','Earn','Which card each bill goes on, and what it earns.'],
+   ['burn','Burn','Where your points go furthest when you spend them.'],
+   ['return','Return','What came back this week, in dollars.'],
+   ['learn','Learn','One short lesson, built on the cards you hold.']].forEach(function(t){
+    var f = el('figure','pv-c pv-' + (t[0] === 'return' ? 'ret' : t[0]));
+    var im = document.createElement('img');
+    im.src = 'img/rec/app/' + t[0] + '.webp'; im.width = 720; im.height = 1472;
+    im.loading = 'lazy'; im.decoding = 'async';
+    im.alt = 'Example ' + t[1] + ' tab from Leo\'s fictional desk';
+    f.appendChild(im);
+    var c = el('figcaption');
+    c.appendChild(el('b',null,t[1])); c.appendChild(el('span',null,t[2]));
+    f.appendChild(c); row.appendChild(f);
+  });
+  pv.appendChild(row);
+  pv.appendChild(el('p','pv-note','Example screens from Leo\'s fictional desk. Names and figures are illustrative, est.'));
+  return pv;
 }
 
 /* Which refusal this is, in the owner's terms. fo-app-state answers 401 with a

@@ -4,7 +4,7 @@
 .btn.wa{background:#25D366;color:#fff;box-shadow:0 10px 24px -10px rgba(37,211,102,.7),inset 0 -2px 0 rgba(0,0,0,.12)}
 .btn.wa:hover,.btn.wa:focus-visible{background:#1EBE5A;color:#fff;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(30,190,90,.6)}
 .btn.lb{background:#429AD4;color:#fff;box-shadow:0 10px 24px -10px rgba(66,154,212,.75),inset 0 -2px 0 rgba(0,0,0,.12)}
-.btn.lb:hover,.btn.lb:focus-visible{background:#085884;color:#fff;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(8,88,132,.6)}
+.btn.lb:hover,.btn.lb:focus-visible{background:#1E78B8;color:#fff;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(30,120,184,.6)}
 .btn.gd{background:#F5B700;color:#141216;box-shadow:0 10px 24px -10px rgba(214,160,0,.75),inset 0 -2px 0 rgba(0,0,0,.1)}
 .btn.gd:hover,.btn.gd:focus-visible{background:#E8AC00;color:#141216;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(214,160,0,.6)}
 .trio{display:flex;flex-wrap:wrap;gap:10px}
@@ -238,20 +238,116 @@ ul.cw > li > span{font-size:11px!important}
 /* FO-P2-03: one focus ring, 3px pink, on the hero phone's tabs and the pricing chips too
    (the chrome's Pause button gets the same 3px inside assets/fo-chrome.js) */
 .mtb button:focus-visible,.ps-chips a:focus-visible{outline:3px solid var(--pink,#FA1896);outline-offset:3px}
-/* ==== FO-P1-01 (D13: waiting on Ohad's OK) ===========================================================
-   Fills behind small text that read at 4.5:1 or better. Brand pink #FA1896 stays for headlines, large
-   type and lines; only these fills and small labels change. Delete this block (and the matching one in
-   assets/fo-chrome.js) to undo. */
-.btn.pk,.btn.ink,.nxb,.celnav button.on,.cs .cta,.ixb>.pk.btn{background-color:#E0117F!important}
-.btn.pk:hover,.btn.pk:focus-visible,.btn.ink:hover,.nxb:hover,.nxb:focus-visible{background-color:#C30E6E!important}
-.btn.wa,.btn.wa:hover,.btn.wa:focus-visible{color:#0B2E17!important}
-.btn.lb,.cqa{background-color:#1E70AA!important}
-.btn.lb:hover,.btn.lb:focus-visible,.cqa:hover{background-color:#185D8E!important}
-.k-burn .pn b,.stc b.k-burn{background-color:#BB4401!important}
+/* ==== FO-P1-01, button fills reverted to the brand originals (Ohad, 31 Oct): pink #FA1896, WhatsApp #25D366
+   with white type, light blue #429AD4 with white type, Burn #E8590C. Only the issues' small text stays deepened. */
+.k-burn .pn b,.stc b.k-burn{background-color:#E8590C!important}
 /* The Daily Redemption issues: small pink and grey text on cream */
 body .fo{--t3:#6F675C}
 body .fo .mast-foot .pk{color:#D4107A}
+/* FO-P1-01b, labels on the original fills pass WCAG AA without touching the fills (Ohad, 31 Oct: "fix it if needed").
+   White on pink #FA1896 is 3.7:1, on light blue #429AD4 3.1:1, on Burn #E8590C 3.6:1: each passes as large text (3:1 from 18.66px bold),
+   so those button labels are 19px bold. White on WhatsApp green #25D366 is 2.0:1 at any size, so its label is dark green #0B2E17 (7.5:1).
+   The chrome's header and footer buttons get the same two rules inside assets/fo-chrome.js. */
+.btn.pk,.btn.lb,.nxb,.cqa#bgo,.ttabs [role=tab]{font-size:19px!important;font-weight:700!important}
+.btn.wa,.btn.wa:hover,.btn.wa:focus-visible,.ctab .btn.cr,.pill.green,.fo .cta a[href*="wa.me"]{color:#0B2E17!important}
+/* FO-P1-01c (Ohad, 31 Oct): small labels on the original fills, too small for the large-text rule, take ink instead of white:
+   Burn pillar badges and chips 5.2:1 on #E8590C and the story's active step pill 5.0:1 on #FA1896. Fills unchanged. */
+.k-burn>.pn>b,.stc>.k-burn,.celnav button.on{color:#141216!important}
 /* ==== end FO-P1-01 ==== */
 
 /* Re-audit extra: anchor jumps do not glide when the visitor asks for reduced motion (rec31.css and fo.css set html{scroll-behavior:smooth}) */
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ==== Fix all 31 Oct (Ohad): small-label contrast to WCAG AA 4.5:1 and 24px+ tap targets.
+   Brand button fills (pink #FA1896, WhatsApp #25D366, light blue #429AD4, Burn #E8590C) are deliberately NOT touched here. ==== */
+/* Home phone mock: greys and inactive mode tabs */
+.zkc .zkh,.zsp .zx s,.zba div small{color:#6E6876!important}
+/* inactive tabs keep their pillar colour at full strength; the active one keeps its bar and bold weight */
+.mtb button{opacity:1!important}
+/* Second Brain read-out (home + product): no half-opacity wait state */
+.sb-read{opacity:1!important}
+/* Product: inline "ahead, after fee" note */
+.mv .v small[style]{color:#6E6876!important}
+/* Calculator: pink digits and the small fee chip label */
+.cer .d{color:#C8106F!important}
+.pc4.k-fee .pn b{background-color:#C8106F!important}
+/* Pricing: the "01" step number */
+.ps-bill .ps-bh span b{color:#C8106F!important}
+/* Trust: the grey "waiting" status chip */
+#sees .status.g{background:#6F6877!important}
+/* Freebies at phone width: pink section bands deepened so the white labels and disclaimers clear 4.5:1 (section bands, not buttons) */
+@media(max-width:640px){
+  html.dir-c.o3h #ffd .desk .grp:not([data-grp=nuggets]){--c:#D10C79;background-color:#D10C79}
+  html.dir-c.o3h #ffd .desk .grp:not([data-grp=nuggets]) .grp-n{background:rgba(0,0,0,.12)}
+  html.dir-c.o3h #ffd .desk .grp:not([data-grp=nuggets]) .grp-disc{color:#fff;opacity:1}
+}
+/* Tap targets: real boxes of 24px+ (the 44px ::after hit areas stay) */
+#ffd .copylink{display:inline-flex;align-items:center;min-height:28px;margin-block:-5px}
+#ffd .desk a[href="terms-of-service.html"],#ffd .desk a[href="privacy-policy.html"],
+.fo .foot a,.fo footer a{display:inline-block;padding-block:4px;margin-block:-4px}
+/* ==== end Fix all 31 Oct ==== */
+
+/* ==== Fix all 31 Oct: The Daily Redemption issues (upns-062/063/064), small text only.
+   Headline pink accents (.bl em) and the WhatsApp brand fill are left as they are. ==== */
+.upnsw .fo{--t4:#776E62}
+.upnsw .fo .disc{color:#6F675C!important}
+.upnsw .fo .kick .k,.upnsw .fo .badge,.upnsw .fo .at,.upnsw .fo .wmath .pk,.upnsw .fo .tag em,
+.upnsw .fo .meta a{color:#C8106F!important}
+.upnsw .fo .tag{color:color-mix(in srgb,var(--vc,#FA1896) 56%,#000)!important}
+.upnsw .fo .up,.upnsw .fo .at.up{color:#107B49!important}
+.upnsw .fo .down,.upnsw .fo .gflag{color:#C02F2F!important}
+.upnsw .fo .stamp{opacity:1!important;color:color-mix(in srgb,var(--sc,#2EC27E) 58%,#000)!important;border-color:color-mix(in srgb,var(--sc,#2EC27E) 58%,#000)!important}
+/* ==== end issues block ==== */
+
+/* ==== Fix all 31 Oct: for-dental hero at desktop. The surgery photo reads as dental (stronger photo inside the same
+   cream wash), and the checklist sits right under the headline instead of 80px below it. ==== */
+@media (min-width:1025px){
+  .mh.ph:has(img[src*="ind/dental"]) .phw{grid-template-rows:auto 1fr}
+  .mh.ph:has(img[src*="ind/dental"]) .phb{margin-top:6px}
+  .tbg img[src*="ind/dental"]{opacity:.85;filter:saturate(1.05) contrast(1.04);object-position:62% 45%}
+  .mbg.tbg:has(img[src*="ind/dental"])::after{background:linear-gradient(98deg,rgba(250,246,238,.95) 0,rgba(250,246,238,.88) 34%,rgba(250,246,238,.42) 54%,rgba(250,246,238,.22) 100%),linear-gradient(180deg,rgba(250,246,238,0) 62%,var(--cream) 100%)}
+}
+
+/* ==== Fix all 31 Oct (Ohad): fuller desktop pages (briefing, upns, timing, proactive). Existing assets only; examples named, figures est. ==== */
+.fx-peek,.fx-board{display:none}
+.fx-ph{margin:0;background:#fff;border-radius:22px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 22px 44px -30px rgba(20,18,22,.4);overflow:hidden;display:flex;flex-direction:column}
+.fx-ph img{display:block;width:100%;height:auto;aspect-ratio:720/860;object-fit:cover;object-position:top;background:#F4EFE6}
+.fx-ph figcaption{padding:14px 18px 18px;border-top:1px solid rgba(20,18,22,.08);text-align:left}
+.fx-ph figcaption b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C8106F}
+.fx-ph figcaption span{display:block;margin-top:6px;font-size:14px;line-height:1.45;color:#5E5866}
+.fx-split>.fx-ph{display:none}
+@media (min-width:1000px){
+  .sec.fx-t{padding:72px 0}
+  .fx-split{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:48px;align-items:center}
+  .fx-split>.fx-ph{display:flex}
+  .fx-split .lsd{grid-template-columns:1fr}
+  /* briefing */
+  .pgo .o-open{padding-bottom:72px}
+  .fx-peek{display:grid;grid-template-columns:1.1fr .9fr .9fr;gap:22px;max-width:1120px;margin:56px auto 0;text-align:left;align-items:stretch}
+  .fx-q{background:#fff;border-radius:22px;padding:28px 28px 24px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 22px 44px -30px rgba(20,18,22,.4);border-top:6px solid #C8106F}
+  .fx-q .fx-k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C8106F}
+  .fx-q h2{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.1;margin:10px 0 16px;color:var(--ink)}
+  .fx-q ol{list-style:none;margin:0;padding:0;display:grid;gap:0}
+  .fx-q li{display:flex;gap:14px;align-items:baseline;padding:11px 0;border-top:1px solid rgba(20,18,22,.08);font-size:16px;color:var(--ink)}
+  .fx-q li b{font-family:var(--mono);font-size:12px;color:#6E6876;min-width:22px}
+  .fx-q p{margin:12px 0 0;font-size:14px;color:#5E5866}
+  /* upns */
+  .fx-uh .wrap{display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:56px;align-items:center}
+  .fx-board{display:block;background:#fff;border-radius:22px;padding:24px 26px 22px;text-decoration:none;color:var(--ink);box-shadow:0 0 0 1px rgba(20,18,22,.08),0 26px 50px -30px rgba(20,18,22,.45);border-top:6px solid #C8106F;transition:transform .3s var(--ease)}
+  .fx-board:hover{transform:translateY(-3px)}
+  .fx-bk{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C8106F}
+  .fx-bh{display:block;font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.1;margin:8px 0 14px}
+  .fx-bh .pk{display:block;color:var(--pink)}
+  .fx-bl{list-style:none;margin:0;padding:0}
+  .fx-bl li{display:grid;grid-template-columns:1.6fr .7fr 1fr .8fr;gap:10px;padding:10px 0;border-top:1px solid rgba(20,18,22,.08);font-size:14.5px;align-items:baseline}
+  .fx-bl .r{font-family:var(--mono);font-weight:700}
+  .fx-bl .s,.fx-bl .d{color:#5E5866;font-size:13.5px}
+  .fx-bl .fx-bhd{border-top:0;padding-top:0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6E6876}
+  .fx-bl .fx-bhd span{font-size:11px;font-weight:400;color:#6E6876}
+  .fx-bn{display:block;margin-top:12px;font-size:13px;color:#5E5866}
+  .fx-board .go{display:inline-block;margin-top:10px;font-weight:700;color:#C8106F;font-size:15px}
+  .fx-uh{padding-top:72px;padding-bottom:24px}
+  .fx-pg .qfine{margin-top:18px}
+}
+@media (min-width:1000px){.fx-pg .sec.tight{padding:44px 0}.fx-pg .sec.fx-t + .sec.fx-t{padding-top:24px}}
+/* ==== end fuller desktop pages ==== */
