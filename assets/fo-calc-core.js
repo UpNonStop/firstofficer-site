@@ -1,7 +1,8 @@
 /* calculator.html · the one model behind Basic and Go advanced (31 Oct 2026).
    Ohad: the two modes must agree. Basic runs the industry's typical mix, scaled to the slider's spend, through the same card stack,
-   the same yearly caps, the same card annual fees and the same redemption values as Go advanced, so the same industry and the same
-   spend give the same answer in both. Loaded after FO_REDEMPTION_BASIS and before calc31.js (Basic) and fo-calc-adv.js (Go advanced).
+   the same yearly caps and the same redemption values as Go advanced, so the same industry and the same spend give the same answer
+   in both. Found money is the extra points only (today's points are taken off), every one counted, at about 1.6¢ a point (1.3¢ to
+   1.9¢), with card annual fees left out, as in the site's examples (Ohad, 31 Oct 2026). The fees still decide whether a card is used. Loaded after FO_REDEMPTION_BASIS and before calc31.js (Basic) and fo-calc-adv.js (Go advanced).
    Every figure is an estimate; terms as understood Oct 2026; example mixes are fictional.
    window.FO_CALC: the data (cards, lines, industries), model(A,T,use,mix), verdict(r), mixOf(i,spend), forSpend(i,spend), and the
    industry both modes share (idx, set, on). */
@@ -170,12 +171,13 @@ function model(A,T,use,mix){var u=U(use),rows=[],mo=0,off=0,t=0;
   LN.forEach(function(l){var m=A[l.id]||0;if(!m)return;var k=mix==='ex'?T[l.id]:(T[l.id]==='none'?'none':mix);
     if(k==='none'){off+=m;return}mo+=m;var tr=TR[k][2];t+=m*tr;rows.push({l:l,a:m*12,m:m,tr:tr})});
   var R=best(rows,u.mid),d=R.pa/12,cf=R.fee/12,gain=Math.max(0,d-t)*UTIL;
-  return {u:u,rows:rows,R:R,mo:mo,off:off,t:t,d:d,cf:cf,lo:gain*u.floor/100-cf,mid:gain*u.mid/100-cf,hi:gain*u.ceil/100-cf,flat:u.floor===u.ceil}}
+  /* found money: the extra points at the use's floor, middle and top. Card annual fees (cf) are shown, not taken off (Ohad, 31 Oct 2026) */
+  return {u:u,rows:rows,R:R,mo:mo,off:off,t:t,d:d,cf:cf,lo:gain*u.floor/100,mid:gain*u.mid/100,hi:gain*u.ceil/100,flat:u.floor===u.ceil}}
 function verdict0(r){var f=r.flat;
   if(r.mo<GATE)return {c:'no',t:'Not a fit yet.',p:'At '+usd(r.mo)+' a month on cards, $550 a month would cost you more than it finds. The fee starts to make sense past ~$25K a month, est.'};
-  if(r.lo>=FEE)return {c:'fit',t:'Clears the fee.',p:'Even at the floor, after the card fees, the extra points beat $550 a month, est. Your Found Money Call checks it on your real statements.'};
+  if(r.lo>=FEE)return {c:'fit',t:'Clears the fee.',p:'Even at the floor, the extra points beat $550 a month, est. Your Found Money Call checks it on your real statements.'};
   if(r.hi>=FEE)return {c:'meh',t:'Close call.',p:'It clears at the top of the range, not the floor. Your Found Money Call settles it on your real statements, free.'};
-  return {c:'no',t:'Not a fit yet.',p:'After the card fees, the extra points find about '+(f?u10(Math.max(0,r.lo)):u10(Math.max(0,r.lo))+' to '+u10(Math.max(0,r.hi)))+' a month, est., under the $550.'}}
+  return {c:'no',t:'Not a fit yet.',p:'The extra points find about '+(f?u10(Math.max(0,r.lo)):u10(Math.max(0,r.lo))+' to '+u10(Math.max(0,r.hi)))+' a month, est., under the $550.'}}
 function verdict(r){var v=verdict0(r);
   if(r.mo>BIG)v.p+=' Above $250K a month, the desk sizes it on the call: bigger spend often runs on more than one card per category.';
   return v}

@@ -6,7 +6,7 @@
      Ink Business Preferred 3x travel, shipping, internet, cable and phone, search and social ads, $150K a year combined
      Blue Business Plus     2x everyday purchases, $50K a year;  past every cap, a line stays on the card it is on today (never under 1x)
    A card only takes a line it improves: the desk never moves spend to a card that earns less than it does today.
-   Value: FO_REDEMPTION_BASIS (85% of the extra points counted, cents a point by use), less the stack's annual card fees, against the $550 a month fee.
+   Value: FO_REDEMPTION_BASIS (every extra point counted, cents a point by use), card annual fees shown but not taken off, against the $550 a month fee.
    Lines not on a card are not counted. Nothing typed here is stored or sent from this script. Every figure is an estimate; terms as understood Oct 2026.
    URL: ?ind=<slug> or ?industry=<name or slug> picks the industry, ?ex=<first name> its example's industry, ?spend=<n> scales the mix to n a month. */
 (function(){
@@ -57,7 +57,7 @@ function bar(bal,r){var mid=Math.max(0,r.mid),bm=FEE*Math.max(3,Math.ceil(Math.m
   var sh=$('.short',bal);sh.style.left=pc(Math.min(mid,FEE),bm);sh.style.width=pc(Math.max(0,FEE-mid),bm);sh.setAttribute('data-t',mid<FEE?'short '+u10(FEE-mid):'');
   var rg=$('.rng',bal),lo=Math.max(0,r.lo),hi=Math.max(0,r.hi);rg.style.left=pc(lo,bm);rg.style.width=pc(hi-lo,bm);
   $('.mark',bal).style.left=pc(FEE,bm);$('.mark',bal).classList.toggle('lo',FEE/bm<.12);
-  bal.setAttribute('aria-label','Your desk finds about '+u10(mid)+' a month, est., after card fees, against the $550 a month fee')}
+  bal.setAttribute('aria-label','Your desk finds about '+u10(mid)+' a month, est., against the $550 a month fee')}
 function bname(b,l){if(b==='abg4')return {c:'abg',r:4,w:'Amex Business Gold',k:ABGC[l.e.abg]};if(b==='ibp3')return {c:'ibp',r:3,w:'Ink Business Preferred',k:l.e.ibp3};
   if(b==='ibc5')return {c:'ibc',r:5,w:'Ink Business Cash',k:l.e.ibc5};if(b==='ibc2')return {c:'ibc',r:2,w:'Ink Business Cash',k:'gas and restaurants'};
   if(b==='bbp2')return {c:'bbp',r:2,w:'Blue Business Plus',k:'everyday purchases'};return {c:'',r:1,w:'1x past the caps',k:''}}
@@ -70,7 +70,7 @@ function paint(){var r=model(),v=verdict(r);
   var fm=function(n){return '~'+u10(Math.max(0,n))};
   K('find',r.mid,fm);K('m-find',r.mid,fm);
   S('findr',r.flat?'at '+c2(r.u.floor)+' a point':u10(Math.max(0,r.lo))+' to '+u10(Math.max(0,r.hi)));
-  S('cfees',r.cf>0?'After about '+usd(r.cf)+' a month in card annual fees, est.':'No card annual fees in this stack, est.');
+  S('cfees',r.cf>0?'Before about '+usd(r.cf)+' a month in card annual fees, est.':'No card annual fees in this stack, est.');
   K('net',r.mid-FEE,sg);S('netr',r.flat?'at '+c2(r.u.floor)+' a point':sg(r.lo-FEE)+' to '+sg(r.hi-FEE)+', est.');
   K('rx',Math.max(0,r.mid)/FEE,nx);K('m-rx',Math.max(0,r.mid)/FEE,nx);S('rxr',r.flat?'at '+c2(r.u.floor)+' a point':nx(Math.max(0,r.lo)/FEE)+' to '+nx(Math.max(0,r.hi)/FEE)+', est.');
   K('plus',Math.max(0,r.d-r.t),function(n){return '+'+pts(n)});
@@ -105,7 +105,7 @@ function stack(r){var R=r.R,rows=r.rows,box=$('#xcards'),html='';
   html+=tile('bbp',(bbW.length?'<p class="xcl"><span>This mix:</span> '+bbW.join(', ')+'</p>':'')+meter('bbp2',50000,'2x'),(R.cu.bbp2||0)>0,pm(['bbp2']));
   var over=0;rows.forEach(function(o,i){over+=(R.al[i].base||0)/12});
   html+='<div class="xc xbase'+(over>0?'':' idle')+'"><div class="xch"><b>Past every cap</b><small>Any card in the stack</small></div><p class="xct">Spend beyond the yearly caps above stays on the card it is on today, or counts at 1x. The desk never moves a line to a card that earns less. Bigger spend often runs on more than one card per category; the desk sizes that on the call.</p><p class="xcp">'+(over>0?'<b>'+usd(over)+'</b> a month past the caps, est.':'Nothing past the caps in this mix.')+'</p></div>';
-  html+='<div class="xc xfees"><div class="xch"><b>Card annual fees</b><small>Taken off what the desk finds</small></div><p class="xct">'+(R.fee?(R.used.abg?'Amex Business Gold $375':'')+(R.used.abg&&R.used.ibp?' and ':'')+(R.used.ibp?'Ink Business Preferred $95':'')+' a year, est. A card is left out when its points would not cover its fee.':'This mix needs no card with an annual fee, est.')+'</p><p class="xcp"><b>'+usd(R.fee/12)+'</b> a month, est.</p></div>';
+  html+='<div class="xc xfees"><div class="xch"><b>Card annual fees</b><small>Not taken off what the desk finds</small></div><p class="xct">'+(R.fee?(R.used.abg?'Amex Business Gold $375':'')+(R.used.abg&&R.used.ibp?' and ':'')+(R.used.ibp?'Ink Business Preferred $95':'')+' a year, est. A card is left out when its points would not cover its fee.':'This mix needs no card with an annual fee, est.')+'</p><p class="xcp"><b>'+usd(R.fee/12)+'</b> a month, est.</p></div>';
   box.innerHTML=html}
 
 /* every line, a month */

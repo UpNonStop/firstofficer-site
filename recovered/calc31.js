@@ -1,7 +1,7 @@
 /* calculator.html: a sibling of home-modes.html.
    Hero: the landing's rotating background photos (same set, same 5.2s crossfade) behind a landing-style card,
    the Basic calculator: one spend figure, spread over the industry's typical mix (the one picked under Go advanced, else Other) and run
-   through FO_CALC (fo-calc-core.js), the same card stack, caps and card fees as Go advanced, so both modes give the same answer.
+   through FO_CALC (fo-calc-core.js), the same card stack, caps and valuation as Go advanced, so both modes give the same answer.
    Plus a one-time "Watch it run" sweep ($10K -> $80K), stopped by any touch, skipped under reduced motion.
    FO_REDEMPTION_BASIS values, est. Mockup only; every figure is an estimate.
    URL: ?ind=<slug> or ?industry= sets the industry for both modes; ?ex=<first name> and ?m=adv scroll to Go advanced; ?spend=15000 sets Basic. */
@@ -29,7 +29,7 @@ function K(R,n,to,fmt){$$('[data-k="'+n+'"]',R).forEach(function(e){tw(e,to,fmt)
 function T(R,n,v){$$('[data-k="'+n+'"]',R).forEach(function(e){e.textContent=v})}
 function U(id){for(var i=0;i<BS.types.length;i++)if(BS.types[i].id===id)return BS.types[i];return BS.types[0]}
 function pc(v,m){return Math.max(0,Math.min(100,v/m*100))+'%'}
-/* ---- the month and the verdict: FO_CALC in fo-calc-core.js, the one model Go advanced uses too (card stack, yearly caps, card fees) ---- */
+/* ---- the month and the verdict: FO_CALC in fo-calc-core.js, the one model Go advanced uses too (card stack, yearly caps, valuation) ---- */
 function say(R,tEl,pEl,v){tEl.textContent=v.t;pEl.innerHTML=v.p+(v.c==='no'?' <a href="freebies.html">Get the Freebies →</a>':'');
   $$('.bvk',R).forEach(function(b){b.textContent=v.c==='fit'?'✓':v.c==='meh'?'≈':'×'})}
 /* balance bar: value found fills against the $550 marker; past it is pink, short of it reads as a gap */
