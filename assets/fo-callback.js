@@ -7,7 +7,7 @@
    so nothing typed is lost. */
 (function(){
   /* The one setting: the Apps Script web app URL (Deploy > Web app, ends in /exec). Empty = WhatsApp and email only. */
-  var CALLBACK_ENDPOINT='';
+  var CALLBACK_ENDPOINT='https://script.google.com/macros/s/AKfycbxwvezX9s-79MevLMxzt_v6t7BRVEnvE3eMovBqiLOkETxt_sDivR5EUdpLd0dfEt5n/exec';
   var sec=document.getElementById('callback'),f=document.getElementById('cbform'),done=document.getElementById('cbdone');
   if(!sec||!f)return;
   var msg=f.querySelector('.bk-msg'),btn=f.querySelector('button[type=submit]');
