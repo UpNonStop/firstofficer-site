@@ -136,12 +136,25 @@ var ALIAS={restaurants:'restaurant',dental:'dental-practice',agencies:'marketing
 function okB(l,b,pair,ibp){var e=l.e;
   if(b.id==='ibc5')return ibp&&!!e.ibc5;if(b.id==='abg4')return !!e.abg&&pair.indexOf(e.abg)>-1;
   if(b.id==='ibp3')return ibp&&!!e.ibp3;if(b.id==='ibc2')return !!e.ibc2;return true}
-function alt(l,k,pair,ibp){var r=0;for(var j=k+1;j<BK.length;j++)if(okB(l,BK[j],pair,ibp))r=Math.max(r,BK[j].r);return r}
-function route(rows,pair,ibp){var rem=rows.map(function(o){return o.a}),al=rows.map(function(){return {}}),cu={},pa=0;
-  BK.forEach(function(b,k){var el=[];rows.forEach(function(o,i){if(rem[i]>0&&okB(o.l,b,pair,ibp)&&(b.id==='base'||b.r>o.tr))el.push(i)});
-    el.sort(function(p,s){return (alt(rows[p].l,k,pair,ibp)-alt(rows[s].l,k,pair,ibp))||(rem[s]-rem[p])});
-    var left=b.cap;el.forEach(function(i){if(left<=0)return;var t=Math.min(rem[i],left);al[i][b.id]=t;rem[i]-=t;left-=t;pa+=t*(b.id==='base'?Math.max(b.r,rows[i].tr):b.r)});
-    cu[b.id]=b.cap===Infinity?b.cap:b.cap-left});
+/* exact allocation (min-cost flow): each card's capped space goes to the lines that gain the most per dollar on it, so what the desk
+   finds can only grow as spend grows. A card only takes a line it improves (#71); what no card takes stays on the card it is on today,
+   never under 1x. Lines alike in what they qualify for and in today's rate are pooled, routed, then shared back by size. */
+function route(rows,pair,ibp){var B=BK.filter(function(b){return b.id!=='base'}),m=B.length,gk={},P=[];
+  rows.forEach(function(o,i){var c=Math.max(1,o.tr),mk='';B.forEach(function(b){mk+=okB(o.l,b,pair,ibp)&&b.r>o.tr?'1':'0'});var k=mk+'|'+c;
+    if(gk[k]==null){gk[k]=P.length;P.push({c:c,mk:mk,a:0,ix:[]})}var g=P[gk[k]];g.a+=o.a;g.ix.push(i)});
+  var N=P.length,V=N+m+2,S=0,T=V-1,E=[],adj=[],v,i;for(v=0;v<V;v++)adj.push([]);
+  function add(u,w,cap,cost){adj[u].push(E.length);E.push({u:u,v:w,cap:cap,cost:cost});adj[w].push(E.length);E.push({u:w,v:u,cap:0,cost:-cost})}
+  var GB=[];P.forEach(function(g,j){add(S,1+j,g.a,0);GB.push([]);B.forEach(function(b,k){if(g.mk[k]==='1'){GB[j][k]=E.length;add(1+j,1+N+k,g.a,-(b.r-g.c))}})});
+  B.forEach(function(b,k){add(1+N+k,T,b.cap,0)});
+  for(var guard=0;guard<500;guard++){var d=[],pe=[],iq=[],q=[S];for(v=0;v<V;v++){d.push(Infinity);pe.push(-1);iq.push(false)}d[S]=0;iq[S]=true;
+    while(q.length){var u=q.shift();iq[u]=false;adj[u].forEach(function(ei){var e=E[ei];if(e.cap>1e-9&&d[u]+e.cost<d[e.v]-1e-12){d[e.v]=d[u]+e.cost;pe[e.v]=ei;if(!iq[e.v]){iq[e.v]=true;q.push(e.v)}}})}
+    if(!(d[T]<-1e-12))break;
+    var f=Infinity;for(v=T;v!==S;v=E[pe[v]].u)f=Math.min(f,E[pe[v]].cap);
+    for(v=T;v!==S;v=E[pe[v]].u){E[pe[v]].cap-=f;E[pe[v]^1].cap+=f}}
+  var al=rows.map(function(){return {}}),cu={},pa=0;BK.forEach(function(b){cu[b.id]=b.cap===Infinity?Infinity:0});
+  P.forEach(function(g,j){B.forEach(function(b,k){var ei=GB[j][k];if(ei==null)return;var fl=E[ei^1].cap;if(fl<=1e-9)return;cu[b.id]+=fl;
+    g.ix.forEach(function(ii){var t=fl*rows[ii].a/g.a;al[ii][b.id]=(al[ii][b.id]||0)+t;pa+=t*b.r})})});
+  rows.forEach(function(o,ii){var s=0;for(var k in al[ii])s+=al[ii][k];var rest=o.a-s;if(rest>1e-6){al[ii].base=rest;pa+=rest*Math.max(1,o.tr)}});
   var used={abg:(cu.abg4||0)>0,ibp:(cu.ibp3||0)>0||(cu.ibc5||0)>0};
   var fee=(used.abg?CARD.abg.fee:0)+(used.ibp?CARD.ibp.fee:0);
   return {al:al,cu:cu,pa:pa,fee:fee,pair:pair,ibp:ibp,used:used}}
@@ -167,11 +180,16 @@ function verdict(r){var v=verdict0(r);
   if(r.mo>BIG)v.p+=' Above $250K a month, the desk sizes it on the call: bigger spend often runs on more than one card per category.';
   return v}
 
-/* ---------------- an industry's typical mix, as is (spend null) or scaled so its card lines add up to spend; lines not on a card
-   stay as they are. Each scaled line rounds to $100, the same in both modes ---------------- */
-function mixOf(i,spend){var p=IND[i],m0=p[3],A={},T={},sum=0;
-  LN.forEach(function(l){var v=m0[l.id];A[l.id]=v?v[0]:0;T[l.id]=v&&v[1]?v[1]:(l.g==='nc'?'none':'1');if(v&&T[l.id]!=='none')sum+=v[0]});
-  if(spend!=null&&spend>=0&&sum>0){var k=spend/sum;LN.forEach(function(l){if(A[l.id]&&T[l.id]!=='none')A[l.id]=Math.round(A[l.id]*k/100)*100})}
+/* ---------------- an industry's typical mix, as is (spend null) or scaled so its card lines add up to the spend exactly, in $100 steps;
+   lines not on a card stay as they are. The steps are shared out by Webster's method, one $100 at a time to the line furthest below its
+   share, so the lines always add up to the spend (a $25K question is judged at $25K, not $24,700) and no line ever shrinks as the spend
+   grows (so what the desk finds can only grow) ---------------- */
+function apportion(w,H){var n=w.length,s=[],j,k,b,top;for(j=0;j<n;j++)s.push(0);
+  for(k=0;k<H;k++){top=-1;b=-1;for(j=0;j<n;j++){var pr=w[j]/(2*s[j]+1);if(pr>top){top=pr;b=j}}if(b<0)break;s[b]++}
+  return s}
+function mixOf(i,spend){var p=IND[i],m0=p[3],A={},T={},on=[];
+  LN.forEach(function(l){var v=m0[l.id];A[l.id]=v?v[0]:0;T[l.id]=v&&v[1]?v[1]:(l.g==='nc'?'none':'1');if(v&&T[l.id]!=='none')on.push(l.id)});
+  if(spend!=null&&spend>=0&&on.length){var u=apportion(on.map(function(id){return A[id]}),Math.round(spend/100));on.forEach(function(id,j){A[id]=u[j]*100})}
   return {A:A,T:T}}
 function forSpend(i,spend,use,mix){var m=mixOf(i,spend);return model(m.A,m.T,use||'mix',mix||'ex')}
 
