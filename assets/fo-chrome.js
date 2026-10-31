@@ -100,7 +100,7 @@ function build(){
     else ev('email_click',{page_path:location.pathname,link_text:(t.textContent||'').trim().slice(0,40)})},true);
   /* a spend band, never the figure itself: under 10K, 10K to 25K ... 250K and up */
   function band(v){var s=String(v||'').toLowerCase().replace(/,/g,''),m=s.match(/([0-9.]+)\s*([km]?)/),n=m?+m[1]*(m[2]==='k'?1e3:m[2]==='m'?1e6:1):0;
-    if(!n)return 'unknown';return n<1e4?'under 10K':n<25e3?'10K to 25K':n<5e4?'25K to 50K':n<1e5?'50K to 100K':n<25e4?'100K to 250K':'250K and up'}
+    if(n&&/^\s*under\b/.test(s))n-=1;if(!n)return 'unknown';return n<1e4?'under 10K':n<25e3?'10K to 25K':n<5e4?'25K to 50K':n<1e5?'50K to 100K':n<25e4?'100K to 250K':'250K and up'}
   /* the Book request (re-audit FO-P1-10): a valid submit is book_form_complete, since nothing has left the page yet. The lead, GA4's generate_lead,
      is the request leaving it: a tap on WhatsApp, email or the calendar in the done panel, or the endpoint taking it once the site has one
      (fo-book31.js says so with a fo-book-sent event). One lead a page, with the trade and a spend band, no personal data; sent as beacons, since the tap usually leaves the page */

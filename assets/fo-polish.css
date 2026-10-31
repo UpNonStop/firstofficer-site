@@ -253,3 +253,6 @@ ul.cw > li > span{font-size:11px!important}
 body .fo{--t3:#6F675C}
 body .fo .mast-foot .pk{color:#D4107A}
 /* ==== end FO-P1-01 ==== */
+
+/* Re-audit extra: anchor jumps do not glide when the visitor asks for reduced motion (rec31.css and fo.css set html{scroll-behavior:smooth}) */
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
