@@ -263,14 +263,33 @@
 .modes .why div,.modes .why div:nth-child(even),.modes .why div:hover,.modes .why div:nth-child(even):hover{background:#fff;color:var(--ink);box-shadow:0 0 0 1px rgba(20,18,22,.1);transform:none}
 .modes .why div b{color:var(--ink)}.modes .why div:first-child b{color:var(--pink)}
 .modes .why div span{color:var(--body)}
-.modes .cel .scr{background:#fff}
-.modes .cs .bd,.modes .cs .bd.pkb{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 .1em rgba(20,18,22,.16)}
-.modes .cs .bd.pkb{color:var(--pinkd)}
+/* The app mock (.cel) on every page wears the real app's own look, the same as the app screens beside it on Product
+   (strategy, Earn and the rest): the warm app canvas, the "Your desk is online" band under the header, white cards
+   on the app's hairline, the app's greys for type and its own Example chip. Ohad, 31 Oct: no app drawn in white. */
+.cel .scr{background:#FAF7EF}
+.cel .cs{color:#2F2B33}
+.cel .cs .lk b{color:#2F2B33}
+.cel .cs .lk small{color:#6E6776}
+.cel .cs .ex{font:600 1.08em/1 var(--sans);letter-spacing:0;text-transform:none;color:#7A6418;background:#FFF8DD;box-shadow:inset 0 0 0 .1em #DFD19F;padding:.45em .85em}
+.cel .cs .hd{position:relative;margin:.4em -1.8em 0;padding:0 1.8em 4.3em}
+.cel .cs .hd::after,.cel .cs .hd::before{position:absolute;bottom:0;height:2.5em;display:flex;align-items:center;font:500 1.2em/1 var(--sans)}
+.cel .cs .hd::after{content:"Your desk is online";left:0;right:0;z-index:0;padding-left:2.55em;color:#4B464A;background:linear-gradient(#2FA36C,#2FA36C) no-repeat 1.5em 50%/.6em .6em,#F5F3E8;box-shadow:inset 0 .09em 0 #E9E6DC,inset 0 -.09em 0 #E9E6DC}
+.cel .cs .hd::before{content:"Updated today";right:0;z-index:1;padding-right:1.5em;color:#6E6776}
+.cel .cs .bd,.cel .cs .bd.pkb{margin-top:2em;background:#fff;color:#2F2B33;box-shadow:0 0 0 .1em #E6E5DE,0 .6em 1.2em -.9em rgba(60,50,40,.35)}
+.modes .cs .bd.pkb,.cel .cs .bd.pkb{color:var(--pinkd)}
+.cel .cs .lb,.cel .cs .mini small,.cel .cs .nmr small,.cel .cs .goal .gb small,.cel .cs .goal .ax{color:#6E6776}
+.cel .cs .bg,.cel .cs .mini b,.cel .cs .nmr b,.cel .cs .goal .gb b{color:#2F2B33}
+.cel .cs .sub,.cel .cs .p,.cel .cs .cmp .r{color:#5E5A59}
+.cel .cs .cmp .r b{color:#2F2B33}
+.cel .cs .by{color:#4B464A}
+.cel .cs .mini div,.cel .cs .cmp,.cel .cs .goal{background:#fff;box-shadow:0 0 0 .1em #E6E5DE,0 .9em 1.8em -1.4em rgba(60,50,40,.3)}
+.cel .cs .nm{background:#fff;box-shadow:0 0 0 .1em #E6E5DE,0 1.1em 2.2em -1.5em rgba(60,50,40,.38)}
+.cel .cs .nmb .sh{background:#fff;color:#2F2B33;box-shadow:inset 0 0 0 .1em #E6E5DE}
+.cel .cs .cmp .t,.cel .cs .goal .tr{background:#EFECE4}
+.cel .cs .cmp .t i{background:#A8A29E}
+.cel .cs .home{background:#2F2B33}
 .modes .cs .by i,.modes .cs .nmb .ok{background:var(--pink);color:#fff}
-.modes .cs .nmb .sh{background:#fff}
-.modes .cs .cmp .t i{background:#8A8492}
 .modes .cs .goal .tr i{background:var(--pink)}
-.modes .cs .nm{box-shadow:0 0 0 .1em rgba(20,18,22,.1),0 1.2em 2.4em -1.6em rgba(20,18,22,.35)}
 .modes .celnav button{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px rgba(20,18,22,.16)}
 .modes .celnav button.on{background:var(--pink);color:#fff;box-shadow:none}
 
