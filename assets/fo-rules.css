@@ -102,3 +102,10 @@
 /* ---- FO-P1-18: endless decorative loops pause while their section is out of view (.is-off is set by recovered/rec31.js).
    No content-visibility on the sections: its paint containment clipped card shadows at section edges (book form card) and moved text by 1px, and it did not lower TBT ---- */
 html:not(.fo-still) .is-off :is(.mbg i,.rbg i,.mpill i,.mtb button,.mstk .pd u,.lv,.ledger .lh b i,.dtrack,.ttrack,.track,.ptrack,.float,.dots u,.scene .call,.sxw .wk i){animation-play-state:paused!important}
+
+/* QA re-audit item 12 (31 Oct 2026): with reduced motion the proof rails stop and stay a row to swipe, instead of unrolling into a 32-card stack */
+@media (prefers-reduced-motion:reduce){.vp{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}.cards,.ttrack{flex-wrap:nowrap!important}.ttrack{overflow-x:auto}}
+/* QA re-audit item 8 (31 Oct 2026): reading copy at 16px on phones. Fine print, labels, hero checklists and phone mockups keep their sizes */
+@media (max-width:760px){.st p.stc,.st p.stq,.pc4>p,html.dir-c #ffd .desk .dk:not(.lead) p.love,.pnx .nxt .nxp,.nxt .nxp,.phb p.msub,.mrest p.msub,.chb p.msub,.chx>p,.ps-pcb p,.ps-li p,.ps-no p,.ps-et p,.tdc>p,li>p,.cv>p,.door>p,.edg>p,.vcard>p,.fnm,html .cnx .cw li{font-size:16px}}
+/* while motion is paused (the ticker's pause, on by default under reduced motion) the tour's tab bar stops drawing its 6s progress fill on Product, since the tour itself has stopped advancing */
+html.fo-still .celnav button.on::after{animation:none}
