@@ -1,0 +1,155 @@
+/* The App page, rebuilt 31 Oct (Ohad: "why does it look so immature"). Loaded last on the-app.html only.
+   Mobile first. Beige ground, white cards, one phone style on the page: every real app screen sits in the same
+   ink frame as the hero phone. No circles except logos and the pill dot; nothing sticky; figures carry est. */
+
+/* ---- rhythm: one gap between sections, one gap from heading to content ---- */
+.tapp main>.sec:not(.pnx){padding-top:44px;padding-bottom:44px}
+.tapp #mh.ph{padding-bottom:30px}
+.tapp main>.sec.tight.pnx{padding-top:8px}
+.tapp .ta-sec .lede{max-width:640px}
+@media(min-width:761px){
+  .tapp main>.sec:not(.pnx){padding-top:80px;padding-bottom:80px}
+  .tapp #mh.ph{padding-bottom:56px}
+  .tapp main>#screens{padding-top:64px}
+  .tapp main>.sec.tight.pnx{padding-top:16px}
+}
+
+/* ---- hero: the list's markers are short bars, not dots ---- */
+@media(min-width:761px){
+  .tapp .tlist i{width:4px;height:20px;border-radius:2px}
+  .tapp .tlist button[aria-pressed="true"] i{box-shadow:none}
+}
+
+/* ---- one phone: the real app screen in the hero phone's ink frame ---- */
+.ta-ph{position:relative;width:100%;max-width:280px;margin:0 auto}
+.ta-fr{background:#141216;padding:3.125%;border-radius:16.25%/7.74%;box-shadow:0 0 0 1.5px #3a3540,0 40px 80px -34px rgba(20,18,22,.5),0 18px 30px -20px rgba(20,18,22,.38)}
+.ta-sc{position:relative;aspect-ratio:643.2/1398.4;border-radius:13.6%/6.3%;overflow:hidden;background:#FAF7EF;isolation:isolate}
+.ta-sc img{position:absolute;left:-5.97%;top:-2.6316%;width:111.94%;max-width:none;height:auto;display:block}
+
+/* ---- 01 the four pillars: four cards, each a phone on its pillar's tint, cropped at the fold ---- */
+.tapp .ta-rail{margin-top:24px}
+.ta-pc{display:grid;grid-template-rows:auto 1fr;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 0 0 1px rgba(20,18,22,.07),0 22px 44px -32px rgba(20,18,22,.45)}
+.ta-pv{height:330px;overflow:hidden;padding:24px 26px 0;background:linear-gradient(180deg,var(--t) 0%,rgba(255,255,255,.55) 100%);position:relative}
+.ta-pv::after{content:"";position:absolute;left:0;right:0;bottom:0;height:36px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff)}
+.ta-pv .ta-ph{max-width:236px}
+.ta-pb{display:grid;gap:10px;align-content:start;padding:18px 22px 22px}
+.ta-pk{display:flex;align-items:center;gap:9px;font:600 11.5px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--c)}
+.ta-pk::before{content:"";flex:none;width:18px;height:3px;border-radius:2px;background:var(--c)}
+.ta-pc h3{font-family:var(--serif);font-weight:400;font-size:27px;line-height:1.08;letter-spacing:-.01em;color:var(--ink);margin:0}
+.ta-pc p{font-size:16px;line-height:1.55;color:var(--body);margin:0}
+.ta-pf{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-top:4px;padding-top:12px;border-top:1px solid rgba(20,18,22,.09)}
+.ta-pf b{font:800 28px/1 var(--sans);letter-spacing:-.02em;color:var(--c);font-variant-numeric:tabular-nums}
+.ta-pf span{font-size:14.5px;color:var(--body)}
+.ta-fine{font-size:13px;line-height:1.5;color:var(--mute);font-style:italic;text-align:center;margin:18px auto 0;max-width:680px}
+
+/* ---- 02 behind the thread: the Desk tab with four numbered callouts, two on each side on wide screens ---- */
+.ta-sg{display:grid;gap:12px;margin-top:26px;grid-template-areas:"v" "l" "r"}
+.ta-sgv{grid-area:v;margin:0 0 16px;display:grid;justify-items:center;gap:14px}
+.ta-sll{grid-area:l}.ta-slr{grid-area:r}
+.ta-sgv figcaption{font-size:14px;color:var(--body);text-align:center}
+.ta-phl{max-width:300px}
+.ta-mk{position:absolute;right:-12px;width:30px;height:30px;margin-top:-15px;border-radius:9px;background:#FA1896;color:#141216;font:800 14px/30px var(--sans);text-align:center;box-shadow:0 0 0 3px #FAF6EE,0 8px 16px -8px rgba(250,24,150,.7);z-index:2}
+.ta-mk::before{content:"";position:absolute;right:100%;top:50%;width:26px;height:2px;margin-top:-1px;background:#FA1896}
+.ta-mk.l{right:auto;left:-12px}
+.ta-mk.l::before{right:auto;left:100%}
+.ta-sl{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.ta-sl li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;align-items:start;background:#fff;border-radius:20px;padding:16px 16px 16px 14px;box-shadow:0 0 0 1px rgba(20,18,22,.07),0 18px 36px -30px rgba(20,18,22,.45)}
+.ta-sl li>b{width:32px;height:32px;border-radius:10px;background:#FA1896;color:#141216;font:800 15px/32px var(--sans);text-align:center}
+.ta-sl h3{font:800 18px/1.25 var(--sans);color:var(--ink);margin:3px 0 4px}
+.ta-sl p{font-size:16px;line-height:1.55;color:var(--body);margin:0}
+
+/* ---- 03 where the desk lives: three full cards, each with a glimpse of the thread ---- */
+.ta-op{display:grid;gap:14px;margin-top:24px}
+.ta-oc{display:grid;gap:16px;align-content:start;background:#fff;border-radius:24px;padding:22px;box-shadow:0 0 0 1px rgba(20,18,22,.07),0 22px 44px -34px rgba(20,18,22,.45);border-top:4px solid var(--c)}
+.ta-oc.on{border-top-color:#25D366}
+.ta-oh{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ta-oc h3{font:800 23px/1.15 var(--sans);color:var(--ink);margin:0}
+.ta-chip{font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:7px 10px;border-radius:7px;background:#F3ECDD;color:#4A4550;white-space:nowrap}
+.ta-oc.on .ta-chip{background:#E5F8EC;color:#0E6B42}
+.ta-ov{border-radius:18px;padding:14px;display:grid;gap:8px;align-content:start;min-height:122px}
+.ta-wa{background:#EFE7DC}
+.ta-tx{background:#F6F5F7}
+.ta-ap{background:#FAF7EF;grid-template-columns:1fr 1fr;gap:8px}
+.ta-bu{max-width:86%;padding:9px 12px;border-radius:16px;font-size:14.5px;line-height:1.4;color:#1F1A24}
+.ta-bu small{display:block;font-size:11.5px;font-weight:700;color:#0E6B42;margin-bottom:2px}
+.ta-wa .me{justify-self:end;background:#D9FDD3;border-bottom-right-radius:5px}
+.ta-wa .fo{justify-self:start;background:#fff;border-bottom-left-radius:5px;box-shadow:0 1px 0 rgba(20,18,22,.08)}
+.ta-tx .in{justify-self:start;background:#E7E5EA;border-bottom-left-radius:5px}
+.ta-tx .out{justify-self:end;background:#fff;border-bottom-right-radius:5px;box-shadow:inset 0 0 0 1px rgba(20,18,22,.1)}
+.ta-ap span{display:grid;gap:3px;background:#fff;border-radius:12px;padding:9px 10px;border-top:3px solid var(--k);box-shadow:0 0 0 1px rgba(60,40,70,.07)}
+.ta-ap small{font:700 10.5px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--k)}
+.ta-ap b{font:800 19px/1.05 var(--sans);letter-spacing:-.02em;color:var(--k);font-variant-numeric:tabular-nums}
+.ta-oc ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.ta-oc li{display:grid;grid-template-columns:16px minmax(0,1fr);gap:10px;font-size:16px;line-height:1.45;color:var(--body)}
+.ta-oc li::before{content:"";width:14px;height:3px;border-radius:2px;margin-top:.62em;background:var(--c)}
+.ta-oc.on li::before{background:#25D366}
+.ta-oc .btn{justify-self:stretch;justify-content:center}
+.ta-soon{font-size:16px;line-height:1.45;color:var(--mute);font-style:italic}
+.ta-lk{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-weight:700;font-size:15.5px;color:#C8106F;text-decoration:none}
+.ta-lk:hover{text-decoration:underline}
+
+/* ---- 04 the rules: four statements, each with a large numeral ---- */
+.ta-rl{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:12px}
+.ta-rl li{display:grid;gap:8px;align-content:start;background:#fff;border-radius:22px;padding:22px;box-shadow:0 0 0 1px rgba(20,18,22,.07),0 18px 36px -30px rgba(20,18,22,.45)}
+.ta-rl li>b{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1;color:#FA1896}
+.ta-rl h3{font:800 20px/1.2 var(--sans);color:var(--ink);margin:4px 0 0}
+.ta-rl p{font-size:16px;line-height:1.55;color:var(--body);margin:0}
+.ta-more{margin:22px 0 0;text-align:center}
+.ta-more .btn{min-height:48px}
+
+/* ---- 05 the close: a beige panel, the three actions ---- */
+.ta-cl{display:grid;justify-items:center;gap:14px;text-align:center;background:linear-gradient(150deg,#F6F0E4 0%,#EFE6D4 100%);border-radius:28px;padding:34px 20px 30px}
+.ta-cl .h2{margin:0}
+.ta-cl>p:not(.ta-fine){font-size:17px;line-height:1.55;color:var(--body);max-width:560px;margin:0}
+.ta-cl .mctas{margin-top:6px;justify-content:center;width:100%;max-width:680px}
+.ta-cl .ta-fine{margin-top:4px}
+
+/* ---- phones: the pillar cards are a swipe row with the rail's own dots ---- */
+@media(max-width:760px){
+  .tapp .ta-rail>.rc{flex-basis:82%}
+  .ta-pv{height:300px;padding:22px 22px 0}
+  .ta-pv .ta-ph{max-width:214px}
+  .ta-pc h3{font-size:25px}
+  .ta-mk{right:-8px}
+  .ta-rl li{grid-template-columns:auto minmax(0,1fr);column-gap:16px;row-gap:4px;padding:18px}
+  .ta-rl li>b{grid-row:1/span 2;font-size:38px;line-height:.95}
+  .ta-rl h3{margin:0}
+}
+@media(max-width:359px){.ta-pv{height:270px}.ta-pv .ta-ph{max-width:196px}}
+
+/* ---- tablets: two pillar cards across ---- */
+@media(min-width:761px) and (max-width:1099px){
+  .tapp .ta-rail{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+}
+@media(min-width:761px){
+  .tapp .ta-rail{gap:18px;margin-top:32px}
+  .ta-sg{grid-template-columns:minmax(0,340px) minmax(0,1fr);grid-template-areas:"v l" "v r";align-content:center;column-gap:56px;row-gap:12px;margin-top:34px}
+  .ta-sll{align-self:end}.ta-slr{align-self:start}
+  .ta-sgv{margin:0}
+  .ta-phl{max-width:320px}
+  .ta-op{gap:18px;margin-top:32px}
+  .ta-rl{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:32px}
+  .ta-cl{padding:52px 40px 40px}
+}
+@media(min-width:1100px){
+  .ta-rl{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .ta-pv{height:340px}
+  .ta-sg{grid-template-columns:minmax(0,1fr) 340px minmax(0,1fr);grid-template-areas:"l v r";align-items:center;column-gap:64px}
+  .ta-sll,.ta-slr{align-self:center;gap:16px}
+  .ta-sll li{grid-template-columns:minmax(0,1fr) 32px;padding:18px 14px 18px 18px;text-align:right}
+  .ta-sll li>b{order:2}
+}
+
+/* ---- where the desk lives: WhatsApp across the top on tablets, three across from 1024px ---- */
+@media(min-width:761px) and (max-width:1023px){
+  .ta-op{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ta-oc.on{grid-column:1/-1;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:22px}
+  .ta-oc.on .ta-oh{grid-column:1/-1}
+  .ta-oc.on .ta-ov{grid-row:2/span 2}
+  .ta-oc.on ul{grid-column:2}
+  .ta-oc.on .btn{grid-column:2;align-self:end}
+}
+@media(min-width:1024px){.ta-op{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* ---- reduced motion: the cards and the phones simply show ---- */
+@media(prefers-reduced-motion:reduce){.ta-pc,.ta-sl li,.ta-oc,.ta-rl li{transition:none}}
