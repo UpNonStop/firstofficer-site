@@ -1,5 +1,8 @@
 /* Home page only (index.html): the story's two stops, in the site's own buttons. In the flow of the
    page, so they take no screen while you read: after 02 the light-blue "Run your numbers", after 05 the
    pink "Get your desk". Nothing on this page stays on screen (the nav scrolls away, as everywhere). */
-.fo-inl{grid-column:1/-1;display:flex;justify-content:center;margin:6px 0 0}
-.fo-inl .btn{height:52px;padding:0 26px;font-size:15px}
+/* max-width:none: the story's paragraph rule (.beat p, 470px) was pinning the stop under the left column
+   on desktop; the stop now spans the beat and the button sits on the page's centre line at every width.
+   Label 19px bold so it counts as large text (WCAG 3:1) on the brand pink and light-blue fills. */
+.fo-inl,.beat p.fo-inl{grid-column:1/-1;display:flex;justify-content:center;margin:6px 0 0;max-width:none;width:100%}
+.fo-inl .btn{height:56px;padding:0 28px;font-size:19px;font-weight:700}
