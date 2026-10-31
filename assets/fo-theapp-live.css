@@ -23,7 +23,7 @@
 .tapp .tah .mstka{display:none}
 /* wide screens: beside the phone, the arrow running into its tab bar, as on the landing (mirrored: here the phone is on the right) */
 @media(min-width:1400px){
-  .tapp .tah .mstk{position:absolute;left:auto;right:calc(50% + 176px);bottom:92px;margin:0}
+  .tapp .tah .mstk{position:absolute;left:auto;right:calc(50% + 176px);bottom:116px;margin:0}
   .tapp .tah .mstka{display:block;right:auto;left:100%;top:6px;margin:0 0 0 6px;transform:scaleX(-1)}
 }
 
