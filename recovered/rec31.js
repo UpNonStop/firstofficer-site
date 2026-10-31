@@ -11,6 +11,12 @@ addEventListener('keydown',function(e){if(e.key==='Escape')foNav(false)});
 /* reveal on view */
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);e.target.dispatchEvent(new CustomEvent('inview'))}})},{threshold:.18,rootMargin:'0px 0px -6% 0px'});
 $$('.reveal,.brush,[data-io]').forEach(function(el){io.observe(el)});
+/* out of view: a section's endless loops pause (.is-off, assets/fo-rules.css), and so does the header ticker */
+var off=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('is-off',!e.isIntersecting)})},{rootMargin:'150px 0px'});
+$$('main>section').forEach(function(s){off.observe(s)});
+function tickOff(){var h=document.getElementById('fo-header'),k=h&&h.shadowRoot&&h.shadowRoot.querySelector('.tick'),tr=k&&k.querySelector('.tr');if(!tr)return;
+  new IntersectionObserver(function(es){tr.style.animationPlayState=es[es.length-1].isIntersecting?'':'paused'}).observe(k)}
+if(document.readyState==='loading')addEventListener('DOMContentLoaded',tickOff);else tickOff();
 
 /* count-up, easeOutQuart */
 function fmt(n,d){return n.toLocaleString('en-US',{minimumFractionDigits:d||0,maximumFractionDigits:d||0})}
