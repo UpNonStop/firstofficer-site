@@ -247,3 +247,25 @@ html.fo-still .abp .abt *,html.fo-still .abp .abt *::before,html.fo-still .abp .
   .abp .abl-l{margin:0;display:grid;grid-template-columns:1fr 1fr;column-gap:30px}
   .abp .abl-l li:nth-child(-n+2){border-top:0}
 }
+
+/* ---------- no white boxes (Ohad, 31 Oct: "eliminate the white background in the boxes. can't have it") ----------
+   Every box on About sits in beige: one step deeper than the page's cream, on a warm hairline with a warm shadow.
+   Wells inside a box go one step deeper again, so the layers read without any white. */
+.abp{--bx:#F3ECDF;--bx-line:rgba(110,80,40,.15);--bx-well:#EAE0CE;--bx-chip:#F8F2E7;--line:#E2D7C4;
+  --card:0 0 0 1px var(--bx-line),0 22px 44px -32px rgba(80,55,20,.4)}
+.abp .abx,.abp .abt-card,.abp .abc-c,.abp .abf,.abp .abr-l>li,.abp .abl-c{background:var(--bx)}
+.abp .abs.band .abt-card,.abp .abf,.abp .abr-l>li{box-shadow:var(--card)}
+.abp .abc-c.own{background:var(--bx)}
+.abp .sig-bars,.abp .abk-m,.abp .msg .bub-fo,.abp .abr-p{background:var(--bx-well);box-shadow:none}
+.abp .sbr u{background:rgba(110,80,40,.12)}
+.abp .sbr u i{background:#A79C8C}
+.abp .sbr.now u i{background:var(--pk)}
+.abp .abt-hr{border-top-color:#D9CCB6}
+.abp .abr-p.led>div,.abp .abr-p.mix>div{border-bottom-color:#D9CCB6}
+.abp .abk-m .t{border-top-color:#D9CCB6}
+.abp .etag{background:rgba(110,80,40,.12);color:#5E5766}
+.abp .stamp{background:transparent}
+.abp .abr-p.acc span{background:var(--bx-chip);box-shadow:inset 0 0 0 1px var(--bx-line)}
+.abp .abl-l li::before{background:var(--bx-well)}
+.abp .ncard{background-color:#FBF4E6}
+.abp .nxt{background:var(--bx);box-shadow:var(--card)}
