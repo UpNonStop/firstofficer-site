@@ -20,10 +20,10 @@ var retSum=p.ret.reduce(function(a,r){return a+r[1]},0);
 function usd(n){return '$'+Math.round(n).toLocaleString('en-US')}
 function desk(){
   /* Leo's numbers, the same ones the home page, the product page and the Friday report use */
-  var t=[['earn','Earn','#12834E','$15,120','found per year, est.'],
-         ['burn','Burn','#E8590C',p.pct+'%','of the Tokyo goal, '+Math.round(p.have/1000)+'k points'],
+  var t=[['earn','Earn','#107B49','$15,120','found per year, est.'],
+         ['burn','Burn','#BB4401',p.pct+'%','of the Tokyo goal, '+Math.round(p.have/1000)+'k points'],
          ['return','Return','#7149C9',usd(retSum),'last Friday, est.'],
-         ['learn','Learn','#1E78B8',p.learn[1],p.learn[2]]];
+         ['learn','Learn','#085884',p.learn[1],p.learn[2]]];
   return '<div class="zdk-on"><i></i>The desk is online<span>Updated 8:14 AM</span></div>'+
     '<div class="zdk-g">'+t.map(function(x){return '<button type="button" class="zdk" data-go="'+x[0]+'" style="--c:'+x[2]+'"><small>'+x[1]+'</small><b>'+x[3]+'</b><span>'+x[4]+'</span></button>'}).join('')+'</div>'+
     '<div class="zkc zdk-t"><div class="zkh">The desk<b>Since Friday</b></div><div class="zdk-cons"><i></i><i></i><i></i>Checked 3 programs · 6s</div>'+
