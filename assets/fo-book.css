@@ -1,0 +1,37 @@
+/* Book (Ohad, 31 Oct): one main action, the Found Money Call, and the form as its application.
+   "Request my call" read like a help desk; the offer has a name, so the button claims it.
+   Book only, loaded last. Beige boxes, never white (Ohad, 31 Oct: "i dont' want to see white boxes again"). */
+
+/* the main action: one card, one button, the other ways in as small links under it */
+#options .bk1{max-width:760px;margin:26px 0 0;padding:22px 20px 18px;border-radius:22px;background:#F3ECDF;
+  box-shadow:0 0 0 1px rgba(110,80,40,.15),0 22px 44px -32px rgba(80,55,20,.4)}
+#options .bk1-l{list-style:none;margin:0 0 18px;padding:0;display:grid;gap:10px}
+#options .bk1-l li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;align-items:start;font:500 16px/1.4 var(--sans);color:var(--ink)}
+#options .bk1-l i{font-style:normal;width:22px;height:22px;border-radius:6px;background:#107B49;color:#fff;display:grid;place-items:center;font:700 12px/1 var(--sans);margin-top:-1px}
+#options .bk1-go{display:flex;width:100%;justify-content:center}
+#options .bk1-alt{margin:16px 0 0;font:400 15px/1.95 var(--sans);color:var(--body)}
+#options .bk1-alt a{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px;
+  display:inline-block;padding:4px 0;margin:-4px 0;line-height:1.3}
+@media (min-width:761px){
+  #options .bk1{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:32px;align-items:center;padding:28px 30px 22px;margin-top:30px}
+  #options .bk1-l{margin:0}
+  #options .bk1-go{width:auto;padding:0 28px}
+  #options .bk1-alt{grid-column:1/-1;margin-top:18px;padding-top:16px;border-top:1px solid #E2D7C4}
+}
+
+/* what happens next: four steps, not four pillars, so they do not wear the pillar colours */
+.pc4.bkx{--c:#141216}
+
+/* the hero's main button carries the offer's name, so it takes its own row on desktop and the two
+   other buttons sit together under it (no lone button on a second row) */
+@media (min-width:761px){#mh .mctas{display:flex;flex-wrap:wrap}#mh .mctas .btn.pk{margin-right:calc(100% - 1px)}}
+
+/* no white boxes on Book: the hero chat card, the application, its fields and chips, the steps, the three
+   answers and Up next all sit in beige; the chosen chips stay pink */
+#mh .phv .wat,#callback .bk31,#cbdone.bk31,.pc4.bkx,#edge .edg,#main .pnx .nxt{background:#F3ECDF}
+#mh .phv .wat,#callback .bk31,#cbdone.bk31,.pc4.bkx,#main .pnx .nxt{box-shadow:0 0 0 1px rgba(110,80,40,.15),0 22px 44px -32px rgba(80,55,20,.4)}
+#mh .wat .bu{background:#EAE0CE}
+#mh .wat .bu.me{background:#DCF5E3!important}
+#callback .bkg input,#callback .bkg select,#callback .bkg textarea{background-color:#FBF7EF;border-color:rgba(110,80,40,.24)}
+#callback .chips .chip input:not(:checked)+span{background:#F8F2E7;border-color:rgba(110,80,40,.22)}
+#mh .wath small{color:#0E6B35}
