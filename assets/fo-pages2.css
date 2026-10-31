@@ -31,7 +31,7 @@
 .bkb{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px}
 .bkb .btn{height:52px}
 .bk-msg{font-size:13.5px;font-weight:600;color:var(--pinkd);margin:0;min-height:1em}
-.bk-fine{font-size:12px;color:var(--mute);font-style:italic;margin:14px 0 0;text-align:center}
+.bk-fine{font-size:12px;color:var(--mute);font-style:normal;margin:14px 0 0;text-align:center}
 .bkdone h3{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.1;margin:8px 0 10px}
 .bkdone p{color:var(--body);font-size:15.5px;line-height:1.5}
 .bkdone .btn.wa{background:#25D366;color:#fff}
