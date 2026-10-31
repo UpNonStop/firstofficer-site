@@ -1,13 +1,13 @@
 /* calculator.html: a sibling of home-modes.html.
    Hero: the landing's rotating background photos (same set, same 5.2s crossfade) behind a landing-style card,
-   the Basic calculator: one spend figure -> one blended rate -> what your desk finds a month vs the $550 fee,
-   plus a one-time "Watch it run" sweep ($10K -> $80K), stopped by any touch, skipped under reduced motion.
-   Go advanced (below): example owners, spend by line, cards today, how you'll use the points, points table.
-   Same maths as the landing (annual / 12), FO_REDEMPTION_BASIS values, est. Mockup only; every figure is an estimate.
-   URL: ?ex=<first name> scrolls to Advanced on that owner; ?m=adv scrolls to Advanced; ?spend=15000 sets Basic. */
+   the Basic calculator: one spend figure, spread over the industry's typical mix (the one picked under Go advanced, else Other) and run
+   through FO_CALC (fo-calc-core.js), the same card stack, caps and valuation as Go advanced, so both modes give the same answer.
+   Plus a one-time "Watch it run" sweep ($10K -> $80K), stopped by any touch, skipped under reduced motion.
+   FO_REDEMPTION_BASIS values, est. Mockup only; every figure is an estimate.
+   URL: ?ind=<slug> or ?industry= sets the industry for both modes; ?ex=<first name> and ?m=adv scroll to Go advanced; ?spend=15000 sets Basic. */
 (function(){
 var A=window.FO_A||'',P=window.FO_MODES||[],BS=window.FO_REDEMPTION_BASIS,$=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
-var FEE=BS.fee/12,GATE=BS.gate,UTIL=BS.util,GMAX=80000,BT=1.2,BD=3.4;
+var C=window.FO_CALC,FEE=BS.fee/12,GATE=BS.gate,UTIL=BS.util,GMAX=80000;if(!C)return;
 var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 function pts(n){n=Math.round(n);return n>=1e6?(Math.round(n/1e4)/100).toFixed(2).replace(/0$/,'').replace(/\.0$/,'')+'M':n>=1e3?Math.round(n/1e3)+'k':''+n}
 function usd(n){return '$'+Math.round(n).toLocaleString('en-US')}
@@ -18,28 +18,7 @@ function c2(n){return (+n).toFixed(2).replace(/0$/,'').replace(/0$/,'').replace(
 function sg(n){n=r10(n);return (n<0?'−':'+')+usd(Math.abs(n))}
 function nx(v){return v.toFixed(1)+'×'}
 function rng(t){return t.floor===t.ceil?c2(t.floor):c2(t.floor)+' to '+c2(t.ceil)}
-/* Advanced starts from an industry, not a person: each industry reuses one example's line data, so the numbers stay identical.
-   Things to consider are general, plain prompts, not advice. ?ex=<first name> still maps to that example's industry; ?ind=<slug> works too. */
-var TH={'Insurance agency':['Lead-gen and ad spend is often the biggest line','Agency software and subscriptions billed every month','Travel to carriers and conferences','Which vendors take cards without a surcharge'],
-'HVAC':['Fuel and fleet costs','Supplier and equipment purchases','Seasonal swings in what you spend','Vendors who take cards without fees'],
-'Dental practice':['Supply orders, often from a few large vendors','Practice and imaging software','Lab fees, and whether your labs take cards','Patient marketing and ads'],
-'Marketing agency':['Client ad spend that runs through your cards','Software seats that grow with the team','Contractors, and which ones take cards','Shoot and client travel'],
-'Law firm':['Client costs you pay up front','Travel to depositions and court','Filing fees and research software','Which fees can be paid by card at all'],
-'Restaurant':['Food suppliers, and whether they take cards','Delivery apps and ads','Phone, internet and utilities','Card surcharges, where margins are thin'],
-'Trucking':['Fleet fuel, usually most of the spend','Tires, repairs and parts','Tolls and permits','Where fuel is bought, and how it is paid for'],
-'Real estate':['Listing ads and portals','Signage and print','Travel to showings','Closing gifts and client events'],
-'E-commerce':['Ad spend on Meta and Google','Shipping and packaging','Inventory from your suppliers','Seasonal peaks around the holidays'],
-'Contractor':['Materials, often the biggest line','Job-site hotels and travel','Fuel and equipment rental','Supplier terms versus paying by card'],
-'Other':['Your biggest monthly lines first','Software, phone and internet billed each month','Travel for the business','Vendors who take cards without fees']};
-var BLANK={first:'',ind:'Other',cats:[['Ads and marketing',0,'1x','4x'],['Software and phone',0,'1.5x','4x'],['Travel',0,'1x','3x'],['Everything else',0,'1x','2x']]};
-var IN=P.concat([BLANK]);
-function slug(t){return t.toLowerCase().replace(/[^a-z]+/g,'-').replace(/^-|-$/g,'')}
-var q=location.href,want=((q.match(/[?&#]ex=([a-z]+)/i)||[])[1]||'').toLowerCase(),wi=((q.match(/[?&#]ind=([a-z-]+)/i)||[])[1]||'').toLowerCase(),idx=0;
-/* the industry pages' own slugs map onto the example industries */
-var ALIAS={restaurants:'restaurant',dental:'dental-practice',agencies:'marketing-agency',law:'law-firm',realestate:'real-estate',ecommerce:'e-commerce',contractors:'contractor',insurance:'insurance-agency',trucking:'trucking',hvac:'hvac'};if(ALIAS[wi])wi=ALIAS[wi];
-IN.forEach(function(p,i){if((want&&p.first.toLowerCase()===want)||(wi&&slug(p.ind)===wi))idx=i});
-function moK(p){return p.cats.reduce(function(a,c){return a+c[1]},0)}
-var D,S=[],mix='ex',use='mix',first=true,inst=false;
+var q=location.href,want=((q.match(/[?&#]ex=([a-z]+)/i)||[])[1]||'').toLowerCase(),first=true,inst=false;
 /* ---- short tween: from what is on screen to the new value, 200ms; instant while the sweep runs ---- */
 function tw(el,to,fmt){if(!el)return;var from=el._c==null?to:el._c;el._v=to;cancelAnimationFrame(el._r);
   if(RM||first||inst||from===to){el._c=to;el.textContent=fmt(to);return}
@@ -50,35 +29,24 @@ function K(R,n,to,fmt){$$('[data-k="'+n+'"]',R).forEach(function(e){tw(e,to,fmt)
 function T(R,n,v){$$('[data-k="'+n+'"]',R).forEach(function(e){e.textContent=v})}
 function U(id){for(var i=0;i<BS.types.length;i++)if(BS.types[i].id===id)return BS.types[i];return BS.types[0]}
 function pc(v,m){return Math.max(0,Math.min(100,v/m*100))+'%'}
-/* ---- the shared month: lines of [spend, rate today, rate with desk] ---- */
-function month(L,uid){var mo=0,t=0,d=0;L.forEach(function(l){mo+=l[0];t+=l[0]*l[1];d+=l[0]*l[2]});
-  var u=U(uid),gain=Math.max(0,d-t)*UTIL;
-  return {mo:mo,t:t,d:d,u:u,lo:gain*u.floor/100,mid:gain*u.mid/100,hi:gain*u.ceil/100,flat:u.floor===u.ceil}}
-var CAP=250000;
-function capped(L,r){if(r.mo<=CAP)return r;var k=CAP/r.mo,c=month(L.map(function(l){return [l[0]*k,l[1],l[2]]}),r.u.id);c.big=true;return c}
-function bigV(r){var v=verdict(r);v.p='Above $250K a month on cards, the desk sizes it on the call. Bonus rates sit inside yearly caps, so a straight line overstates big spend: the figures here stop at $250K, est.';return v}
-function verdict(r){var f=r.flat;
-  if(r.mo<GATE)return {c:'no',t:'Not a fit yet.',p:'At '+usd(r.mo)+' a month on cards, $550 a month would cost you more than it finds. The fee starts to make sense past ~$25K a month, est.'};
-  if(r.lo>=FEE)return {c:'fit',t:'Clears the fee.',p:'Even at the floor, the extra points beat $550 a month, est. Your Found Money Call checks it on your real statements.'};
-  if(r.hi>=FEE)return {c:'meh',t:'Close call.',p:'It clears at the top of the range, not the floor. Your Found Money Call settles it on your real statements, free.'};
-  return {c:'no',t:'Not a fit yet.',p:'The extra points find about '+(f?u10(r.lo):u10(r.lo)+' to '+u10(r.hi))+' a month, est., under the $550.'}}
+/* ---- the month and the verdict: FO_CALC in fo-calc-core.js, the one model Go advanced uses too (card stack, yearly caps, valuation) ---- */
 function say(R,tEl,pEl,v){tEl.textContent=v.t;pEl.innerHTML=v.p+(v.c==='no'?' <a href="freebies.html">Get the Freebies →</a>':'');
   $$('.bvk',R).forEach(function(b){b.textContent=v.c==='fit'?'✓':v.c==='meh'?'≈':'×'})}
 /* balance bar: value found fills against the $550 marker; past it is pink, short of it reads as a gap */
-function bar(bal,r){var bm=FEE*Math.max(3,Math.ceil(r.hi*1.1/FEE)),mid=r.mid;T(bal,'bmax',usd(bm));
+function bar(bal,r){var bm=FEE*Math.max(3,Math.ceil(Math.max(0,r.hi)*1.1/FEE)),mid=Math.max(0,r.mid);T(bal,'bmax',usd(bm));
   $('.base',bal).style.width=pc(Math.min(mid,FEE),bm);
   var ov=$('.over',bal);ov.style.left=pc(FEE,bm);ov.style.width=pc(Math.max(0,mid-FEE),bm);
   var sh=$('.short',bal);sh.style.left=pc(Math.min(mid,FEE),bm);sh.style.width=pc(Math.max(0,FEE-mid),bm);
   sh.setAttribute('data-t',mid<FEE?'short '+u10(FEE-mid):'');
-  var rg=$('.rng',bal);rg.style.left=pc(r.lo,bm);rg.style.width=pc(r.hi-r.lo,bm);
+  var rg=$('.rng',bal);rg.style.left=pc(Math.max(0,r.lo),bm);rg.style.width=pc(Math.max(0,r.hi)-Math.max(0,r.lo),bm);
   $('.mark',bal).style.left=pc(FEE,bm);$('.mark',bal).classList.toggle('lo',FEE/bm<.12);
   bal.setAttribute('aria-label','Your desk finds about '+u10(mid)+' a month, est., against the $550 a month fee')}
-function paint(R,r){var G=r.big,A=G?' at $250K':'',fm=function(v){return G?u10(v)+'+':'~'+u10(v)},px=function(v){return nx(v)+(G?'+':'')};
+function paint(R,r){var Z=function(v){return Math.max(0,v)},fm=function(v){return '~'+u10(Z(v))};
   K(R,'find',r.mid,fm);K(R,'m-find',r.mid,fm);
-  T(R,'findr',(r.flat?'at '+c2(r.u.floor)+' a point':u10(r.lo)+' to '+u10(r.hi))+A);
-  K(R,'net',r.mid-FEE,G?function(v){return usd(r10(v))+'+'}:sg);T(R,'netr',(r.flat?'at '+c2(r.u.floor)+' a point':sg(r.lo-FEE)+' to '+sg(r.hi-FEE))+A+', est.');
-  K(R,'rx',r.mid/FEE,px);K(R,'m-rx',r.mid/FEE,px);T(R,'rxr',(r.flat?'at '+c2(r.u.floor)+' a point':nx(r.lo/FEE)+' to '+nx(r.hi/FEE))+A+', est.');
-  K(R,'plus',Math.max(0,r.d-r.t),function(v){return G?pts(v)+'+':'+'+pts(v)})}
+  T(R,'findr',r.flat?'at '+c2(r.u.floor)+' a point':u10(Z(r.lo))+' to '+u10(Z(r.hi)));
+  K(R,'net',r.mid-FEE,sg);T(R,'netr',(r.flat?'at '+c2(r.u.floor)+' a point':sg(r.lo-FEE)+' to '+sg(r.hi-FEE))+', est.');
+  K(R,'rx',Z(r.mid)/FEE,nx);K(R,'m-rx',Z(r.mid)/FEE,nx);T(R,'rxr',(r.flat?'at '+c2(r.u.floor)+' a point':nx(Z(r.lo)/FEE)+' to '+nx(Z(r.hi)/FEE))+', est.');
+  K(R,'plus',Math.max(0,r.d-r.t),function(v){return '+'+pts(v)})}
 /* ================= BASIC ================= */
 var BAS=$('#bas'),bv=$('#bv'),bs=$('#bs'),B=35000;
 var sp=(q.match(/[?&#]spend=(\d+)/)||[])[1];if(sp)B=Math.min(2e6,+sp);
@@ -90,7 +58,7 @@ function stepAt(v){return v<20000?500:v<100000?1000:v<250000?5000:25000}
 function p2v(p){for(var i=0;i<4;i++){var a=SEG[i],b=SEG[i+1];if(p<=b[0]){var v=a[1]+(p-a[0])/(b[0]-a[0])*(b[1]-a[1]);return Math.min(SMAX,Math.round(v/STP[i])*STP[i])}}return SMAX}
 function v2p(v){v=Math.max(0,Math.min(SMAX,v));for(var i=0;i<4;i++){var a=SEG[i],b=SEG[i+1];if(v<=b[1])return a[0]+(v-a[1])/(b[1]-a[1])*(b[0]-a[0])}return 1000}
 function kmo(v){return v>=1e6?'$'+(Math.round(v/1e5)/10).toString().replace(/\.0$/,'')+'M':'$'+Math.round(v/1e3)+'K'}
-function bcalc(){var r=capped([[B,BT,BD]],month([[B,BT,BD]],'mix')),v=r.big?bigV(r):verdict(r);
+function bcalc(){var r=C.forSpend(C.idx,B,'mix','ex'),v=C.verdict(r);
   bv.value=B.toLocaleString('en-US');if(document.activeElement!==bv){}
   bs.value=Math.round(v2p(B));bs.setAttribute('aria-valuetext',(B>=SMAX?'$1M+':usd(B))+' a month');fill(bs);bv.classList.toggle('lg',bv.value.length>7);
   paint(BAS,r);bar($('#bbal'),r);
@@ -118,46 +86,7 @@ function go(){if(running){stop();return}
   raf=requestAnimationFrame(f)}
 run.addEventListener('click',go);
 ['pointerdown','keydown','wheel','touchstart'].forEach(function(ev){window.addEventListener(ev,function(e){if(running&&!run.contains(e.target))stop()},{capture:true,passive:true})});
-/* ================= ADVANCED ================= */
-var ADV=$('#adv');
-if(ADV){
-var SEL=$('#cind');
-SEL.innerHTML=IN.map(function(p,i){return '<option value="'+i+'">'+(p.ind==='Other'?'Other / start blank':p.ind)+'</option>'}).join('');
-SEL.addEventListener('change',function(){idx=+SEL.value;load()});
-$('#cuse').innerHTML=BS.types.map(function(t){return '<button type="button" role="radio" data-u="'+t.id+'" aria-checked="'+(t.id===use)+'"'+(t.id===use?' class="on"':'')+'><b>'+t.name+'</b><small>'+rng(t)+'</small></button>'}).join('');
-$$('#cuse button').forEach(function(b){b.addEventListener('click',function(){use=b.dataset.u;$$('#cuse button').forEach(function(o){var on=o===b;o.classList.toggle('on',on);o.setAttribute('aria-checked',on)});calc()})});
-$$('#cmix button').forEach(function(b){b.addEventListener('click',function(){mix=b.dataset.m;$$('#cmix button').forEach(function(o){var on=o===b;o.classList.toggle('on',on);o.setAttribute('aria-checked',on)});calc()})});
-function rows(){var p=D;
-  $('#crows').innerHTML=p.cats.map(function(c,i){var mx=Math.max(20,Math.ceil(c[1]*3/5)*5)*1000;
-    return '<div class="crow"><label for="cv'+i+'">'+c[0]+'<small><s data-r="'+i+'">'+c[2]+'</s> → <b>'+c[3]+'</b> per $1</small></label>'+
-    '<div class="cri"><span>$</span><input id="cv'+i+'" type="text" inputmode="numeric" autocomplete="off" value="'+(c[1]*1000).toLocaleString('en-US')+'" aria-label="'+c[0]+', dollars a month"></div>'+
-    '<input class="crs" type="range" min="0" max="'+mx+'" step="100" value="'+c[1]*1000+'" aria-label="'+c[0]+', slider"></div>'}).join('');
-  $$('#crows .crow').forEach(function(r,i){var t=$('input[type=text]',r),s=$('.crs',r);
-    s.addEventListener('input',function(){S[i]=+s.value;t.value=S[i].toLocaleString('en-US');calc()});
-    t.addEventListener('input',function(){var v=Math.min(2e6,+(t.value.replace(/[^0-9]/g,''))||0);S[i]=v;if(v>+s.max)s.max=Math.ceil(v/5000)*5000;s.value=v;calc()});
-    t.addEventListener('blur',function(){t.value=S[i].toLocaleString('en-US')});
-    t.addEventListener('focus',function(){t.select()})});
-  $('#cet').innerHTML='<div class="ceh" role="row"><span role="columnheader">Points a month</span><span role="columnheader">Today</span><span role="columnheader">With desk</span></div>'+
-    p.cats.map(function(c,i){return '<div class="cer" role="row"><span role="rowheader">'+c[0]+'</span><span role="cell" data-et="'+i+'">·</span><span role="cell" class="d" data-ed="'+i+'">·</span></div>'}).join('')+
-    '<div class="cer tot" role="row"><span role="rowheader">Total</span><span role="cell" data-k="vt">·</span><span role="cell" class="d" data-k="vd">·</span></div>'}
-function load(){D=IN[idx];S=D.cats.map(function(c){return c[1]*1000});SEL.value=idx;
-  var o=D.ind==='Other',m=moK(D);
-  $('#cwho').textContent=o?'Start blank, type your own':'Typical mix: $'+(Math.round(m*10)/10)+'K a month, est.';
-  $('#ccth').textContent=o?'Things to consider for your business':'Things to consider for '+(D.ind==='HVAC'?'HVAC':D.ind.toLowerCase());
-  $('#ccul').innerHTML=(TH[D.ind]||TH.Other).map(function(t){return '<li>'+t+'</li>'}).join('');
-  rows();calc()}
-function rateT(c){return mix==='ex'?parseFloat(c[2]):+mix}
-function calc(){var L=D.cats.map(function(c,i){return [S[i],rateT(c),parseFloat(c[3])]}),r=month(L,use),rc=capped(L,r),v=rc.big?bigV(rc):verdict(rc);
-  L.forEach(function(l,i){tw($('[data-et="'+i+'"]'),l[0]*l[1],pts);tw($('[data-ed="'+i+'"]'),l[0]*l[2],pts);
-    var s=$$('#crows .crs')[i];fill(s);$('[data-r="'+i+'"]').textContent=x(l[1])});
-  K(ADV,'mo',r.mo,usd);K(ADV,'bl',r.mo?r.t/r.mo:0,x);K(ADV,'vt',r.t,pts);K(ADV,'vd',r.d,pts);
-  T(ADV,'who',(D.ind==='Other'?'Your mix':D.ind)+' · at '+rng(r.u)+' a point');
-  paint(ADV,rc);bar($('#cbal'),rc);
-  T(ADV,'gatev','You: '+kmo(r.mo));
-  var gt=$('#cgt');$('.fill',gt).style.width=pc(r.mo,GMAX);$('.fee',gt).style.left=pc(GATE,GMAX);gt.classList.toggle('under',r.mo<GATE);
-  $('#cv').className='cv '+v.c;$('.cres').className='cres '+v.c+(rc.mid>=1e4?' big':'');$('.cmini').className='cmini '+v.c;
-  say(ADV,$('#cvt'),$('#cvp'),v)}
-}
+/* Go advanced lives in fo-calc-adv.js. When its industry changes, Basic follows (FO_CALC.on, below), so both modes answer for the same mix. */
 /* ================= GO ADVANCED: scroll down, no tabs ================= */
 function toAdv(sm){stop();var el=$('#advs');if(!el)return;var y=el.getBoundingClientRect().top+scrollY-70;scrollTo({top:y,behavior:sm&&!RM?'smooth':'auto'})}
 $$('a[href="#advs"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();toAdv(true)})});
@@ -167,7 +96,7 @@ if(!A)setTimeout(seen,8000);
 if(A&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){seen();io.disconnect()}})},{threshold:.15});io.observe(A)}})();
 /* ================= HERO BACKGROUND: the landing's rotating photos ================= */
 /* the hero photos come from pages31.js (phone-sized files on phones); the second rotator that sent desktop photos to phones is gone (QA re-audit item 4) */
-bcalc();if(ADV)load();
+bcalc();C.on(function(){bcalc()});
 if(want||/[?&#]m=adv/.test(q))setTimeout(function(){toAdv(false)},60);
 first=false;
 })();

@@ -73,3 +73,11 @@ body.pgi .tt.all .ttn{position:static;color:#141216;text-shadow:none;padding:0 1
 
 /* ---- 6. Golden nugget cards: the title stops short of the card's number in the corner (at 360px some ran under it) ---- */
 body.pgi .nugc h3{padding-right:30px}
+
+/* 31 Oct: every rate on the example card and the codes card names the card that pays it, as the calculator does */
+.pgi .tmx li{row-gap:3px}
+.pgi .tmx li>small{grid-column:1/-1;font:500 11.5px/1.35 var(--sans);color:#5E5766;letter-spacing:0;text-transform:none}
+.pgi .ixl li>span{display:flex;flex-direction:column;gap:2px;min-width:0}
+.pgi .ixl li>span small{font:500 11.5px/1.35 var(--sans);color:#5E5766;letter-spacing:0;text-transform:none}
+/* "Run the <owner> example" names the owner on all 20 pages; on the narrowest phones it takes two lines instead of pushing the page sideways */
+@media (max-width:379px){body.pgi .ixb .btn{white-space:normal;max-width:100%;text-align:center}}
