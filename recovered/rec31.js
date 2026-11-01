@@ -95,9 +95,9 @@ var desk=$('.desk');if(desk){
       d.dataset.x=x;d.dataset.y=y;d.style.left=x+'px';d.style.top=y+'px'})}
   layout();addEventListener('resize',layout);
   var Q=window.FO_DESK_Q||[
-    {s:0,q:['Leo, Linden Row','Which card should our ad spend go on?'],who:[0,6,5],a:['First Officer','Move lead-gen ads to the 4x card. About $7,200 a year, est. Want me to set it up?']},
+    {s:0,q:['Leo, Linden Row','Which card should our ad spend go on?'],who:[0,6,5],a:['First Officer','Move lead-gen ads to the 4x card. About $6,240 a year, est. Want me to set it up?']},
     {s:4,q:['Leo, Linden Row','Can we get to Tokyo in business next spring?'],who:[1,4,3],a:['First Officer','You are 32% there. On pace for March 2027, est. When you pick dates, the desk vets them and books after you approve.']},
-    {s:3,q:['Leo, Linden Row','What did last week bring in?'],who:[5,0,2],a:['First Officer','$1,860 across 3 findings, checked against your statements. Est.']},
+    {s:3,q:['Leo, Linden Row','What did last week bring in?'],who:[5,0,2],a:['First Officer','$622 across 3 findings, checked against your statements. Est.']},
     {s:1,q:['Leo, Linden Row','What is one of my points actually worth?'],who:[6,3,4],a:['First Officer','About 1¢ as cash back. On your Tokyo flights, 5¢ or more. Your 2 minute lesson is ready. Est.']}
   ];
   var qi=0,timers=[];function T(f,ms){timers.push(setTimeout(f,ms))}
