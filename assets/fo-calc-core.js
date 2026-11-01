@@ -1,8 +1,8 @@
 /* calculator.html · the one model behind Basic and Go advanced (31 Oct 2026).
    Ohad: the two modes must agree. Basic runs the industry's typical mix, scaled to the slider's spend, through the same card stack,
    the same yearly caps and the same redemption values as Go advanced, so the same industry and the same spend give the same answer
-   in both. Found money is the extra points only (today's points are taken off), every one counted, at about 1.6¢ a point (1.3¢ to
-   1.9¢), with card annual fees left out, as in the site's examples (Ohad, 31 Oct 2026). The fees still decide whether a card is used. Loaded after FO_REDEMPTION_BASIS and before calc31.js (Basic) and fo-calc-adv.js (Go advanced).
+   in both. Found money is the extra points only (today's points are taken off), every one counted, at about 1.6¢ a point (1¢ to
+   2¢), with card annual fees left out, as in the site's examples (Ohad, 31 Oct and 1 Nov 2026). The fees still decide whether a card is used. Loaded after FO_REDEMPTION_BASIS and before calc31.js (Basic) and fo-calc-adv.js (Go advanced).
    Every figure is an estimate; terms as understood Oct 2026; example mixes are fictional.
    window.FO_CALC: the data (cards, lines, industries), model(A,T,use,mix), verdict(r), mixOf(i,spend), forSpend(i,spend), and the
    industry both modes share (idx, set, on). */
