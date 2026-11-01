@@ -176,3 +176,76 @@ body.tstory .srail[aria-label="Steps"]{position:relative}
 }
 /* off screen, the scan does not run */
 body.tstory .is-off .ledger .row::before{animation-play-state:paused}
+
+/* ---------- 01 · the example card, v2 (Ohad, 1 Nov: "the cards look fucking boring. why?") ----------
+   Beige on beige on beige read like a spreadsheet: five identical rows, the abstraction ("1.1x → 2.4x") as the headline, the dollars and
+   the actual cards in small grey text, and half the desktop card empty. Now the card is a tray holding two surfaces:
+   - the desk's read, in ink: who, then the one catch in dollars (the page's own "+$X a year, est."), then the per-$1 jump and its meter;
+   - the lines, routed: the priced line leads in pink, each line shows a four-step gauge (one step per 1x) and the cards it routes to,
+     drawn as small card shapes in each card's colour (no logos, no card art: a colour and a name); "Everything else" is a footnote row.
+   No new figures or words: every number and name is the page's own (the catch repeats the priced line's flag, which screen readers skip
+   on the line). Markup: .tmd wraps .tmh, .tmo and .tmf; li.hero / li.rest; .cc cc-<card> in .lcard and the codes list. */
+body.tstory .tmx{padding:10px!important;gap:12px;border-radius:28px}
+body.tstory .tmx .tmd{order:1;position:relative;display:flex;flex-direction:column;padding:24px 22px 22px;border-radius:20px;color:#F3ECDF;background:radial-gradient(110% 80% at 100% 0%,rgba(250,24,150,.32) 0%,rgba(250,24,150,0) 58%),radial-gradient(90% 70% at 0% 100%,rgba(113,73,201,.22) 0%,rgba(113,73,201,0) 62%),#141216;box-shadow:0 26px 54px -32px rgba(20,18,22,.75);overflow:hidden}
+/* inside the ink panel the order is who, the catch, then the jump (the older rules gave .tmh and .tmf flex orders of 1 and 2) */
+body.tstory .tmx .tmd>.tmh{order:0;align-self:stretch}
+body.tstory .tmx .tmd>.tmo{order:1}
+body.tstory .tmx .tmd>.tmf{order:2;align-self:stretch}
+body.tstory .tmx .tmd .tmh .chk{color:#FF6CBC}
+body.tstory .tmx .tmd .tmh b{color:#F8F2E7}
+body.tstory .tmx .tmd .tmh small{color:#B8AEC0}
+body.tstory .tmo{display:flex;flex-direction:column;margin-top:24px}
+body.tstory .tmo-n{font-family:var(--serif,'DM Serif Display',Georgia,serif);font-weight:400;font-size:clamp(64px,8.4vw,96px);line-height:.92;letter-spacing:-.025em;color:#FF3DA6;text-shadow:0 12px 44px rgba(250,24,150,.38)}
+body.tstory .tmo>small{margin-top:10px;font:500 12px/1 var(--mono,'JetBrains Mono',monospace);letter-spacing:.16em;text-transform:uppercase;color:#CFC6D6}
+body.tstory .tmo-l{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-top:18px}
+body.tstory .tmo-l i{font-style:normal;font-weight:700;font-size:16.5px;line-height:1.25;color:#F8F2E7}
+body.tstory .tmo-l em{font:700 13px/1 var(--mono,'JetBrains Mono',monospace);font-style:normal;padding:7px 10px;border-radius:9px;color:#FFD1E8;box-shadow:inset 0 0 0 1.5px rgba(255,108,188,.65)}
+/* the per-$1 jump and its meter, on ink */
+body.tstory .tmx .tmd .tmf{margin:24px 0 0!important;padding:18px 0 0!important;border-top:1px solid rgba(243,236,223,.14)!important}
+body.tstory .tmx .tmd .tmf>span{color:#B8AEC0}
+body.tstory .tmx .tmd .tmf>b{margin-top:8px;font-size:clamp(36px,4vw,46px);color:#F8F2E7}
+body.tstory .tmd .gapm{margin-top:16px}
+body.tstory .tmd .gtr{height:14px;background:rgba(243,236,223,.12)}
+body.tstory .tmd .gnow{background:#8F8697}
+body.tstory .tmd .gmk.now{background:#4A4550;border-top-color:#4A4550}
+body.tstory .tmd .gtk{color:#B8AEC0}
+/* the lines, routed */
+body.tstory .tmx ul{order:2;margin:0!important;gap:8px!important}
+body.tstory .tmx li{padding:14px 16px 15px!important;border-radius:16px!important;background:#F8F2E7!important;box-shadow:0 0 0 1px rgba(110,80,40,.13)!important}
+body.tstory .tmx li::before{display:none}
+body.tstory .tmx li>b{background:transparent!important;box-shadow:inset 0 0 0 1.5px rgba(20,18,22,.2)!important;color:#141216!important}
+body.tstory .tmx li.hero{order:-1;padding:16px 16px 17px!important;background:linear-gradient(135deg,#FBDDEC 0%,#F8F2E7 64%)!important;box-shadow:0 0 0 1.5px rgba(250,24,150,.55),0 20px 36px -26px rgba(195,14,110,.6)!important}
+body.tstory .tmx li.hero>span{font-size:17px}
+body.tstory .tmx li.hero>b{box-shadow:inset 0 0 0 1.5px rgba(250,24,150,.6)!important;color:#C30E6E!important}
+body.tstory .tmx li.rest{padding:12px 4px 2px!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;border-top:1px dashed rgba(110,80,40,.28)}
+body.tstory .tmx li.rest>span{font-size:14.5px;color:#4A4550}
+/* the bar becomes a four-step gauge, one step per 1x of the 0x to 4x scale */
+body.tstory .lm{height:12px!important;margin-top:12px!important;border-radius:3px!important;background:rgba(110,80,40,.12)!important;-webkit-mask:repeating-linear-gradient(90deg,#000 0 calc(25% - 3px),transparent calc(25% - 3px) 25%);mask:repeating-linear-gradient(90deg,#000 0 calc(25% - 3px),transparent calc(25% - 3px) 25%)}
+body.tstory .lm::before{background:#4A4550!important}
+body.tstory .tmx li.rest .lm{height:8px!important}
+/* the cards, as cards */
+body.tstory .tmx li>small.lcard,body.tstory .ixl li small{display:block!important;margin-top:9px!important;font:500 12.5px/1.9 var(--sans,'DM Sans',sans-serif)!important;color:#5E5766!important;text-transform:none!important;letter-spacing:0!important}
+body.tstory .cc{display:inline-flex;align-items:center;gap:7px;vertical-align:middle;white-space:nowrap;font-weight:700;color:#2A2630}
+body.tstory .cc>i{flex:none;position:relative;width:26px;height:17px;border-radius:4px;box-shadow:0 1px 2px rgba(20,18,22,.28)}
+body.tstory .cc>i::after{content:"";position:absolute;left:4px;top:5px;width:6px;height:5px;border-radius:1.5px;background:linear-gradient(135deg,#F3E2B0,#C7A456)}
+body.tstory .cc-bbp>i{background:linear-gradient(135deg,#5A8AE8 0%,#1F3F92 100%)}
+body.tstory .cc-gold>i{background:linear-gradient(135deg,#F0D290 0%,#C39436 55%,#9C7322 100%)}
+body.tstory .cc-gold>i::after{background:linear-gradient(135deg,#FBEFC8,#D9B867)}
+body.tstory .cc-vb>i{background:linear-gradient(135deg,#4A5572 0%,#151B2B 100%)}
+body.tstory .cc-inkp>i{background:linear-gradient(135deg,#2B3F6B 0%,#0D1630 100%)}
+body.tstory .cc-inkc>i{background:linear-gradient(135deg,#3AA0C4 0%,#156482 100%)}
+body.tstory .cthen{font-size:0}
+body.tstory .cthen::before{content:"→";display:inline-block;vertical-align:middle;position:relative;top:-1px;font:600 13px/1 var(--sans,'DM Sans',sans-serif);color:#8F8697;margin:0 8px}
+body.tstory .tmx .ill{order:3;margin:4px 8px 6px!important}
+/* the codes card: a long card name wraps in its own column instead of running under the rate chip */
+body.tstory .ixl li>span{min-width:0}
+body.tstory .ixl .cc{white-space:normal}
+body.tstory .ixl .cc>i{align-self:flex-start;margin-top:2px}
+/* a two-line kicker ("Example mix · Property management") keeps its lines apart */
+body.tstory .tmx .tmd .tmh .chk{line-height:1.45}
+@media (min-width:900px){
+  body.tstory .tmx{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)!important;grid-template-areas:"d l" "d i"!important;grid-template-rows:auto 1fr!important;column-gap:22px!important;row-gap:0!important;padding:12px!important}
+  body.tstory .tmx .tmd{grid-area:d;padding:30px 30px 28px;justify-content:space-between}
+  body.tstory .tmx ul{grid-area:l;align-self:start;margin:10px 8px 0 0!important}
+  body.tstory .tmx .ill{grid-area:i;align-self:end;margin:16px 8px 8px 2px!important}
+}
