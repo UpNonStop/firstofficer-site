@@ -394,6 +394,16 @@ html body :is(.btn,.btnp,.fo .cta a,.pill.pink,.pill.green,.nxb){font-family:'DM
 html body :is(.btn,.fo .cta a,.pill.pink,.pill.green){height:auto!important;min-height:52px!important;padding-top:10px!important;padding-bottom:10px!important;line-height:1.2!important;box-sizing:border-box!important}
 html body :is(.fo .cta a,.pill.pink,.pill.green){padding-left:24px!important;padding-right:24px!important;display:inline-flex!important;align-items:center;justify-content:center}
 @media (min-width:900px){html body .pnx .nxt>.nxb{height:52px!important}}
+/* Narrow phones: a button never runs past its column. A label that doesn't fit wraps inside the pill, which grows, instead of pushing
+   the page sideways or poking out of its card. Found on 31 Oct at 320 to 360px: the trade pages' "Run the <Name> example", Field
+   Notes' "Read the two-minute lesson" (1px at 360), "Open the example app", Trust's and Connect's "Book the free Found Money Call",
+   and The App's "Text Your First Officer". Home's docked pair keeps its one line (assets/fo-cta.css). */
+@media (max-width:600px){html body :is(.btn,.btnp,.fo .cta a,.pill.pink,.pill.green,.nxb){max-width:100%!important;white-space:normal!important;text-align:center}}
+/* Product's "Inside the app" column on phones was sizing itself to its widest child (the four 19px tabs, 309px in a 280px column at 320)
+   and the page scrolled sideways; the column keeps to the screen and the tabs row scrolls inside it, as it was built to */
+@media (max-width:760px){.tour{grid-template-columns:minmax(0,1fr)}}
+/* and its four tabs keep their words whole at 320 (the 280px row had squeezed "Return" to "Retur"): each tab takes its own width */
+@media (max-width:400px){html body .ttabs button{flex:1 1 auto;padding:0 6px}}
 
 /* Field Notes: the way on from each note is two real buttons, the lesson in Learn blue and the index as an outline, not a line of
    underlined links with a dot between them (Ohad, 31 Oct: "poor design leftover on the field notes") */
@@ -404,6 +414,10 @@ html body :is(.fo .cta a,.pill.pink,.pill.green){padding-left:24px!important;pad
 .fn .fnm .btn.fgh{background:transparent;color:#141216;box-shadow:inset 0 0 0 1.5px rgba(20,18,22,.22)}
 .fn .fnm .btn.fgh:hover{box-shadow:inset 0 0 0 1.5px #085884;color:#085884}
 @media (max-width:600px){.fn .fnm .btn{flex:1 1 100%}}
+/* "Read the two-minute lesson" stays on one line at 360 (it had run 1px past the screen), and where it must wrap it never splits
+   "two-minute" at its hyphen */
+@media (max-width:400px){.fn .fnm .btn{padding:0 14px}}
+.fn .fnm .lt{min-width:0}.fn .fnm .nw{white-space:nowrap}
 
 /* Freebies' hero: the pink and the green sit side by side at their own widths, the blue under them, so no label folds onto two lines */
 #ffd .ffd-pair{display:flex!important;flex-wrap:wrap;gap:10px}
