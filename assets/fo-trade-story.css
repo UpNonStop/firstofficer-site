@@ -1,13 +1,16 @@
 /* fo-trade-story.css: a trade page told as a story, the way the landing tells Leo's (Ohad, 31 Oct: "not sophisticated enough",
-   "lack of sophistication and visual storytelling"). Scoped to body.tstory so it rolls out one trade at a time: HVAC first.
+   "lack of sophistication and visual storytelling"). Scoped to body.tstory, which all 20 for-*.html pages carry (HVAC first, #79).
    - 01: the owner's mix becomes the drawn gap (today's rate per $1 against the routed one on a 0x to 4x scale, the gap hatched in pink)
-     over his statement lines, each flagged with its own today-to-routed bar, and the found money on the line that holds it.
+     over the owner's statement lines, each flagged with its own today-to-routed bar, and the found money on the line the page prices.
    - 03: the desk reads the ledger, line by line, and ticks each code it has checked.
    - 04: the four leaks read as flagged lines on one statement, every one in view on a phone (no swipe).
    - 07: the four steps are a timeline.
    Same beige tokens as the rest of the site (box #F3ECDF, well #EAE0CE, chip #F8F2E7, field #FBF7EF). Loaded last on the page.
-   Markup it expects (see for-hvac.html): body.tstory; .tmx[data-io] with .tmf holding a .gapm meter; each mix li with --a/--b
-   (today and routed rate as a share of the scale), an i.lm bar and, on the line that holds the found money, small.lflag. */
+   Markup it expects (see for-hvac.html): body.tstory; .tmx[data-io] with .tmf holding a .gapm meter (--now/--could, the card's two
+   per-$1 rates as shares of the scale, one tick per 1x); each mix li with --a/--b (today and routed rate as shares of the same scale),
+   an i.lm bar and, on the line that holds the found money, small.lflag (the card names under each line, small.lcard, are #84's,
+   placed by assets/fo-trade-ux.css). The pages are edited by hand: recovered/build_ind.py still writes the older mockup layout,
+   so a rebuild from it would drop this. */
 
 /* ---------- 01 · the example: the gap, drawn ---------- */
 body.tstory .ix2{gap:16px;margin-top:28px}
