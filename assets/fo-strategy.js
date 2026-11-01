@@ -4,7 +4,7 @@
 (function(){
 var T=[["Route","Lead-gen ads to the 4x card"],["Route","Agency software to the 4x card"],["Route","Carrier travel through the portal, 3x"],["Route","Everything else to the flat 2x card"],
  ["Vendor","Ad platforms typically code as 7311, advertising"],["Vendor","Shipping carriers typically code as 4215"],["Vendor","Wholesale food typically codes as 5099, 1x on most bonus cards"],["Vendor","Software typically codes as 5734"],
- ["Earn","4x on the top two categories, first $150k a year"],["Earn","3x on travel booked through the portal"],["Earn","2x flat on everything else"],["Cap","4x cap reached in November: reroute"],
+ ["Earn","4x on the top two categories, first $150k a year"],["Earn","3x on travel booked through the portal"],["Earn","2x flat on everything else"],["Cap","4x cap shared with software: rest to 3x"],
  ["Transfer","Points to an airline partner, 1:1"],["Transfer","Transfer only once award space is confirmed"],["Bonus","30% transfer bonus open this month"],["Rules","Award chart repricing announced for Q2"],
  ["Trip","Tokyo in business for 2: about 320k points, est."],["Trip","5 hotel nights on points for carrier visits, est."],["Credit","Unused travel credit, $530, claimed"],["Credit","Statement credit resets January 1"],
  ["Fee","Annual fee posts in 14 days: review it"],["Fee","Premium card fee: net positive with 3 travellers, est."],["Learn","What one point is worth: about 1.6 cents, est."],["Learn","Expiry clock: 24 months without activity"]];
