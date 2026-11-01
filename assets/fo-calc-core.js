@@ -21,9 +21,12 @@ var CARD={
   ibc:{n:'Ink Business Cash',fee:0,t:'5x at office supply stores and on internet, cable and phone, up to $25K a year combined; 2x at gas stations and restaurants, up to $25K a year combined; then 1x. Counted as points alongside Ink Business Preferred.'},
   abg:{n:'Amex Business Gold',fee:375,t:'4x on the 2 categories it is used for most each month, from 6 eligible, up to $150K a year combined; then 1x.'},
   ibp:{n:'Ink Business Preferred',fee:95,t:'3x on travel, shipping, internet, cable and phone, and search and social ads, up to $150K a year combined; then 1x.'},
-  bbp:{n:'Blue Business Plus',fee:0,t:'2x on everyday business purchases, up to $50K a year; then 1x.'}};
+  bbp:{n:'Blue Business Plus',fee:0,t:'2x on everyday business purchases, up to $50K a year; then 1x.'},
+  /* the uncapped 2x card (Ohad, 19 Sep: "Capital One also gets them 2x"; Spark Miles became Venture Business in spring 2026): spend past
+     the caps above earns 2x here, only when its points cover its fee (best() tries every stack with and without it) */
+  cap:{n:'Capital One Venture Business',fee:95,t:'2x on every purchase, with no yearly cap. In the stack only for spend past the caps above, and only when its points cover its fee.'}};
 var BK=[{id:'ibc5',c:'ibc',r:5,cap:25000},{id:'abg4',c:'abg',r:4,cap:150000},{id:'ibp3',c:'ibp',r:3,cap:150000},
-        {id:'ibc2',c:'ibc',r:2,cap:25000},{id:'bbp2',c:'bbp',r:2,cap:50000},{id:'base',c:'',r:1,cap:Infinity}];
+        {id:'ibc2',c:'ibc',r:2,cap:25000},{id:'bbp2',c:'bbp',r:2,cap:50000},{id:'cap2',c:'cap',r:2,cap:Infinity},{id:'base',c:'',r:1,cap:Infinity}];
 var ABGC={ads:'advertising',tech:'electronics, software and cloud',dining:'restaurants',gas:'gas stations',transit:'transit, parking and tolls',wireless:'wireless phone service'};
 
 /* ---------------- every line, in ten groups. [id, label, how it typically codes, eligibility, ibp3/ibc5 wording] ---------------- */
@@ -86,43 +89,43 @@ var TR={};TODAY.forEach(function(t){TR[t[0]]=t});
 var IND=[
  ['marketing-agency','Agencies','Anjali',{adsOn:[12000],adsTv:[1500],soft:[6000,'2'],cloud:[1500,'1.5'],contr:[6000,'1.5'],air:[3500,'1.5'],hotel:[2500,'1.5'],car:[800,'1.5'],meals:[1500,'1.5'],events:[500],elec:[1200],office:[300],net:[400],phone:[600],pro:[800],dues:[300],payr:[400],rent:[6000,'none']},
   ['Client ad spend that runs through your cards','Software seats that grow with the team','Contractors, and which ones take cards','Shoot and client travel'],'agencies'],
- ['auto-repair','Auto repair','',{indsup:[18000],furn:[1000],elec:[500],soft:[900],adsOn:[2000],util:[1200],phone:[400],net:[200],ins:[1500],rentEq:[400],fuel:[600],office:[200],dues:[200],pro:[600],meals:[300],maint:[600],rent:[7000,'none']},
+ ['auto-repair','Auto repair','Marco',{indsup:[18000],furn:[1000],elec:[500],soft:[900],adsOn:[2000],util:[1200],phone:[400],net:[200],ins:[1500],rentEq:[400],fuel:[600],office:[200],dues:[200],pro:[600],meals:[300],maint:[600],rent:[7000,'none']},
   ['Parts orders, often from a few suppliers','Shop software and diagnostic subscriptions','Tools and equipment, and how they are paid for','Which suppliers take cards without a surcharge'],'auto repair shops'],
- ['cleaning','Cleaning','',{indsup:[7000],fuel:[4500],fleet:[1500],adsOn:[2500],soft:[600],phone:[900],ins:[1800],contr:[4500],rentEq:[300],office:[200],meals:[200],payr:[400],dues:[100],online:[600],rent:[3000,'none']},
+ ['cleaning','Cleaning','Rosa',{indsup:[7000],fuel:[4500],fleet:[1500],adsOn:[2500],soft:[600],phone:[900],ins:[1800],contr:[4500],rentEq:[300],office:[200],meals:[200],payr:[400],dues:[100],online:[600],rent:[3000,'none']},
   ['Supplies and chemicals, often on repeat orders','Fuel and vans','Subcontractors, and which ones take cards','Insurance and bonding, and whether a card fee applies'],'cleaning companies'],
- ['consulting','Consulting','',{air:[6000,'1.5'],hotel:[5000,'1.5'],car:[1500,'1.5'],transit:[400],meals:[2500,'1.5'],events:[600],soft:[3000],cloud:[600],phone:[500],net:[300],elec:[800],office:[200],contr:[4000],pro:[1500],dues:[500],adsOn:[1500],ins:[600],rent:[5000,'none']},
+ ['consulting','Consulting','Priya',{air:[6000,'1.5'],hotel:[5000,'1.5'],car:[1500,'1.5'],transit:[400],meals:[2500,'1.5'],events:[600],soft:[3000],cloud:[600],phone:[500],net:[300],elec:[800],office:[200],contr:[4000],pro:[1500],dues:[500],adsOn:[1500],ins:[600],rent:[5000,'none']},
   ['Client travel, often the biggest line','Software seats that grow with the team','Subcontractors and their payment terms','Client meals and events'],'consulting firms'],
  ['contractor','Contractors','Dustin',{build:[42400],rentEq:[10000,'1.5'],fuel:[5000],fleet:[1500],hotel:[6000],meals:[1500],phone:[600],net:[200],soft:[600],ins:[3000],tax:[600],office:[200],adsOn:[1500],dues:[200],loan:[4000,'none']},
   ['Materials, often the biggest line','Job-site hotels and travel','Fuel and equipment rental','Supplier terms versus paying by card'],'contractors'],
- ['cpa-firm','CPA firms','',{soft:[6500],cloud:[800],pro:[2000],dues:[1200],adsOn:[1500],office:[1200,'1.5'],elec:[1000],furn:[400],phone:[500],net:[300],ins:[1200],meals:[900,'1.5'],events:[400],air:[1200],hotel:[1000],payr:[400],util:[400],contr:[4500],rent:[6000,'none']},
+ ['cpa-firm','CPA firms','Martin',{soft:[6500],cloud:[800],pro:[2000],dues:[1200],adsOn:[1500],office:[1200,'1.5'],elec:[1000],furn:[400],phone:[500],net:[300],ins:[1200],meals:[900,'1.5'],events:[400],air:[1200],hotel:[1000],payr:[400],util:[400],contr:[4500],rent:[6000,'none']},
   ['Tax and audit software renewals','Licenses and continuing education','Seasonal staff and contractors','Which vendors take cards without fees'],'CPA firms'],
  ['dental-practice','Dental','Leila',{indsup:[13000],labs:[6000],soft:[3500,'1.5'],cloud:[500,'1.5'],adsOn:[4000,'2'],adsPrint:[800],net:[400],phone:[500],office:[700,'1.5'],elec:[600],furn:[300],ins:[900],util:[600],dues:[400],meals:[300,'1.5'],payr:[300],rent:[7000,'none']},
   ['Supply orders, often from a few large vendors','Practice and imaging software','Lab fees, and whether your labs take cards','Patient marketing and ads'],'dental practices'],
  ['e-commerce','E-commerce','Ines',{adsOn:[9000],whole:[8000],ship:[3000],pack:[1200],soft:[1500],cloud:[300],online:[800],elec:[300],office:[100],contr:[800],phone:[200],net:[150],pro:[400]},
   ['Ad spend on search and social','Shipping and packaging','Inventory from your suppliers','Seasonal peaks around the holidays'],'e-commerce'],
- ['fitness','Fitness','',{furn:[4000],adsOn:[5000],soft:[1500],util:[4500],maint:[1500],contr:[3000],ins:[900],phone:[300],net:[300],office:[200],dues:[300],whole:[1500],indsup:[1000],online:[600],meals:[200],payr:[400],rent:[9000,'none']},
+ ['fitness','Fitness','Jordan',{furn:[4000],adsOn:[5000],soft:[1500],util:[4500],maint:[1500],contr:[3000],ins:[900],phone:[300],net:[300],office:[200],dues:[300],whole:[1500],indsup:[1000],online:[600],meals:[200],payr:[400],rent:[9000,'none']},
   ['Equipment purchases and repairs','Booking software and music licenses','Utilities, often a large monthly line','Instructors and how they are paid'],'gyms and studios'],
  ['hvac','HVAC','Hector',{build:[17000],indsup:[2000],fuel:[6500],fleet:[1500],rentEq:[800,'1.5'],phone:[900,'1.5'],net:[300,'1.5'],soft:[900,'1.5'],adsOn:[3000,'1.5'],adsPrint:[600],office:[300,'1.5'],elec:[400],ins:[1200],meals:[400,'1.5'],dues:[200],util:[300],payr:[200],tax:[200],loan:[2500,'none']},
   ['Fuel and fleet costs','Supplier and equipment purchases','Seasonal swings in what you spend','Vendors who take cards without fees'],'HVAC'],
- ['it-services','IT services','',{elec:[12000],soft:[8000],cloud:[6000],net:[600],phone:[900],contr:[3000],air:[1500,'1.5'],hotel:[1200,'1.5'],car:[800,'1.5'],meals:[800],office:[300],adsOn:[1500],ins:[700],dues:[300],fuel:[600],rent:[5000,'none']},
+ ['it-services','IT services','Samir',{elec:[12000],soft:[8000],cloud:[6000],net:[600],phone:[900],contr:[3000],air:[1500,'1.5'],hotel:[1200,'1.5'],car:[800,'1.5'],meals:[800],office:[300],adsOn:[1500],ins:[700],dues:[300],fuel:[600],rent:[5000,'none']},
   ['Hardware bought for clients','Software licenses resold or managed','Cloud bills that grow with clients','Subcontractors and their payment terms'],'IT services'],
- ['landscaping','Landscaping','',{build:[9000],fuel:[5000],fleet:[2000],rentEq:[3000],indsup:[2000],adsOn:[1500],adsPrint:[500],phone:[600],soft:[400],ins:[1500],meals:[400],office:[100],dues:[200],tax:[300],loan:[3000,'none']},
+ ['landscaping','Landscaping','Gus',{build:[9000],fuel:[5000],fleet:[2000],rentEq:[3000],indsup:[2000],adsOn:[1500],adsPrint:[500],phone:[600],soft:[400],ins:[1500],meals:[400],office:[100],dues:[200],tax:[300],loan:[3000,'none']},
   ['Plants, stone and supply yards','Fuel and trucks','Equipment rental and repairs','Seasonal swings in what you spend'],'landscaping companies'],
  ['law-firm','Law firms','Chidi',{air:[2500],hotel:[2000],car:[800],transit:[400],soft:[3500],cloud:[400],pro:[5000],tax:[2000],office:[900,'1.5'],elec:[600],furn:[400],meals:[1200,'1.5'],events:[400],dues:[600],ins:[1500],net:[400],phone:[600],adsOn:[2500,'1.5'],rent:[9000,'none']},
   ['Client costs you pay up front','Travel to depositions and court','Filing fees and research software','Which fees can be paid by card at all'],'law firms'],
- ['medical-practice','Medical','',{indsup:[12000],labs:[4000],soft:[4000,'1.5'],cloud:[600],adsOn:[2500],office:[800,'1.5'],elec:[800],furn:[400],ins:[2000],util:[900],phone:[600],net:[400],dues:[800],pro:[1500],meals:[400],payr:[400],rent:[8000,'none']},
+ ['medical-practice','Medical','Elena',{indsup:[12000],labs:[4000],soft:[4000,'1.5'],cloud:[600],adsOn:[2500],office:[800,'1.5'],elec:[800],furn:[400],ins:[2000],util:[900],phone:[600],net:[400],dues:[800],pro:[1500],meals:[400],payr:[400],rent:[8000,'none']},
   ['Medical supplies, often from a few large vendors','Records and billing software','Labs, and whether they take cards','Insurance premiums, and whether a card fee applies'],'medical practices'],
- ['property-management','Property management','',{maint:[12000],build:[6000],util:[5000],ins:[3000],soft:[1500],adsOn:[1500],adsPrint:[300],phone:[500],net:[300],office:[300],fuel:[800],pro:[1200],dues:[300],tax:[500,'none']},
+ ['property-management','Property management','Nadia',{maint:[12000],build:[6000],util:[5000],ins:[3000],soft:[1500],adsOn:[1500],adsPrint:[300],phone:[500],net:[300],office:[300],fuel:[800],pro:[1200],dues:[300],tax:[500,'none']},
   ['Repairs and upkeep across properties','Supply runs for maintenance','Utilities you pay for tenants','Which vendors take cards without fees'],'property management'],
  ['real-estate','Real estate','Terrence',{adsOn:[10700,'1.5'],adsPrint:[7000],car:[2000],fuel:[1500],events:[4000,'1.5'],meals:[1500,'1.5'],soft:[1500],phone:[500],net:[200],office:[300],dues:[800],pro:[1000],ins:[500],elec:[300],air:[1500],hotel:[1500],transit:[200],rent:[4000,'none']},
   ['Listing ads and portals','Signage and print','Travel to showings','Closing gifts and client events'],'real estate'],
  ['restaurant','Restaurants','Teresa',{whole:[16000],adsOn:[3000,'2'],soft:[800],net:[300],phone:[300],util:[1800],indsup:[1500],pack:[600],office:[100],maint:[800],ins:[900],dues:[100],rent:[8000,'none'],tax:[1500,'none']},
   ['Food suppliers, and whether they take cards','Delivery apps and ads','Phone, internet and utilities','Card surcharges, where margins are thin'],'restaurants'],
- ['salon-or-spa','Salons','',{indsup:[9000],whole:[5000],adsOn:[3500],soft:[1200],util:[2000],maint:[800],ins:[900],phone:[400],net:[200],furn:[800],office:[200],dues:[300],online:[600],meals:[200],payr:[400],rent:[7000,'none']},
+ ['salon-or-spa','Salons','Camille',{indsup:[9000],whole:[5000],adsOn:[3500],soft:[1200],util:[2000],maint:[800],ins:[900],phone:[400],net:[200],furn:[800],office:[200],dues:[300],online:[600],meals:[200],payr:[400],rent:[7000,'none']},
   ['Professional products, often on repeat orders','Retail stock for resale','Booking software and payment fees','Seasonal promotions and ads'],'salons and spas'],
  ['trucking','Trucking','Wade',{fuel:[45000],fleet:[8000],transit:[4000],tax:[1300],ins:[2500],phone:[500],net:[200],soft:[900],meals:[500],hotel:[300],office:[100],loan:[6000,'none']},
   ['Fleet fuel, usually most of the spend','Tires, repairs and parts','Tolls and permits','Where fuel is bought, and how it is paid for'],'trucking'],
- ['veterinary-clinic','Veterinary','',{indsup:[14000],labs:[3000],soft:[2500,'1.5'],cloud:[300],adsOn:[2000],util:[1200],ins:[1200],phone:[500],net:[300],office:[500,'1.5'],elec:[600],furn:[300],dues:[500],pro:[1000],meals:[300],maint:[600],rent:[7000,'none']},
+ ['veterinary-clinic','Veterinary','Owen',{indsup:[14000],labs:[3000],soft:[2500,'1.5'],cloud:[300],adsOn:[2000],util:[1200],ins:[1200],phone:[500],net:[300],office:[500,'1.5'],elec:[600],furn:[300],dues:[500],pro:[1000],meals:[300],maint:[600],rent:[7000,'none']},
   ['Medical supplies and pharmacy orders','Reference labs and outside services','Practice software','Which distributors take cards without a surcharge'],'veterinary clinics'],
  ['other','Other','',{adsOn:[3000],adsPrint:[400],soft:[2500],cloud:[400],net:[250],phone:[450],air:[1500],hotel:[1200],car:[500],transit:[150],fuel:[900],fleet:[300],ship:[700],pack:[200],office:[400],elec:[600],furn:[300],indsup:[3000],whole:[2500],online:[800],meals:[900],events:[300],pro:[900],contr:[1500],ins:[1000],util:[700],payr:[250],dues:[200],maint:[400],rent:[5000,'none'],tax:[600,'none']},
   ['Your biggest monthly lines, and which card each one goes on','Software and subscriptions that renew every month','Suppliers and vendors, and which take cards without a surcharge','Travel and meals, and which card each one goes on'],'your business']];
@@ -134,14 +137,14 @@ var ALIAS={restaurants:'restaurant',dental:'dental-practice',agencies:'marketing
 
 /* ---------------- the router: every line on a card, inside each card's yearly cap (#71: a card only takes a line it improves; past every cap
    a line stays on the card it is on today, never under 1x) ---------------- */
-function okB(l,b,pair,ibp){var e=l.e;
+function okB(l,b,pair,ibp,cp){var e=l.e;if(b.id==='cap2')return !!cp;
   if(b.id==='ibc5')return ibp&&!!e.ibc5;if(b.id==='abg4')return !!e.abg&&pair.indexOf(e.abg)>-1;
   if(b.id==='ibp3')return ibp&&!!e.ibp3;if(b.id==='ibc2')return !!e.ibc2;return true}
 /* exact allocation (min-cost flow): each card's capped space goes to the lines that gain the most per dollar on it, so what the desk
    finds can only grow as spend grows. A card only takes a line it improves (#71); what no card takes stays on the card it is on today,
    never under 1x. Lines alike in what they qualify for and in today's rate are pooled, routed, then shared back by size. */
-function route(rows,pair,ibp){var B=BK.filter(function(b){return b.id!=='base'}),m=B.length,gk={},P=[];
-  rows.forEach(function(o,i){var c=Math.max(1,o.tr),mk='';B.forEach(function(b){mk+=okB(o.l,b,pair,ibp)&&b.r>o.tr?'1':'0'});var k=mk+'|'+c;
+function route(rows,pair,ibp,cp){var B=BK.filter(function(b){return b.id!=='base'}),m=B.length,gk={},P=[];
+  rows.forEach(function(o,i){var c=Math.max(1,o.tr),mk='';B.forEach(function(b){mk+=okB(o.l,b,pair,ibp,cp)&&b.r>o.tr?'1':'0'});var k=mk+'|'+c;
     if(gk[k]==null){gk[k]=P.length;P.push({c:c,mk:mk,a:0,ix:[]})}var g=P[gk[k]];g.a+=o.a;g.ix.push(i)});
   var N=P.length,V=N+m+2,S=0,T=V-1,E=[],adj=[],v,i;for(v=0;v<V;v++)adj.push([]);
   function add(u,w,cap,cost){adj[u].push(E.length);E.push({u:u,v:w,cap:cap,cost:cost});adj[w].push(E.length);E.push({u:w,v:u,cap:0,cost:-cost})}
@@ -152,16 +155,17 @@ function route(rows,pair,ibp){var B=BK.filter(function(b){return b.id!=='base'})
     if(!(d[T]<-1e-12))break;
     var f=Infinity;for(v=T;v!==S;v=E[pe[v]].u)f=Math.min(f,E[pe[v]].cap);
     for(v=T;v!==S;v=E[pe[v]].u){E[pe[v]].cap-=f;E[pe[v]^1].cap+=f}}
-  var al=rows.map(function(){return {}}),cu={},pa=0;BK.forEach(function(b){cu[b.id]=b.cap===Infinity?Infinity:0});
+  var al=rows.map(function(){return {}}),cu={},pa=0;BK.forEach(function(b){cu[b.id]=b.id==='base'?Infinity:0});
   P.forEach(function(g,j){B.forEach(function(b,k){var ei=GB[j][k];if(ei==null)return;var fl=E[ei^1].cap;if(fl<=1e-9)return;cu[b.id]+=fl;
     g.ix.forEach(function(ii){var t=fl*rows[ii].a/g.a;al[ii][b.id]=(al[ii][b.id]||0)+t;pa+=t*b.r})})});
   rows.forEach(function(o,ii){var s=0;for(var k in al[ii])s+=al[ii][k];var rest=o.a-s;if(rest>1e-6){al[ii].base=rest;pa+=rest*Math.max(1,o.tr)}});
-  var used={abg:(cu.abg4||0)>0,ibp:(cu.ibp3||0)>0||(cu.ibc5||0)>0};
-  var fee=(used.abg?CARD.abg.fee:0)+(used.ibp?CARD.ibp.fee:0);
-  return {al:al,cu:cu,pa:pa,fee:fee,pair:pair,ibp:ibp,used:used}}
+  var used={abg:(cu.abg4||0)>0,ibp:(cu.ibp3||0)>0||(cu.ibc5||0)>0,cap:(cu.cap2||0)>0};
+  var fee=(used.abg?CARD.abg.fee:0)+(used.ibp?CARD.ibp.fee:0)+(used.cap?CARD.cap.fee:0);
+  return {al:al,cu:cu,pa:pa,fee:fee,pair:pair,ibp:ibp,cp:cp,used:used}}
 function best(rows,cpp){var cats=[];rows.forEach(function(o){var c=o.l.e.abg;if(c&&cats.indexOf(c)<0)cats.push(c)});
   var pairs=[[]];cats.forEach(function(c,i){pairs.push([c]);for(var j=i+1;j<cats.length;j++)pairs.push([c,cats[j]])});
-  var top=null;pairs.forEach(function(pr){[true,false].forEach(function(ib){var r=route(rows,pr,ib);r.v=r.pa*UTIL*cpp/100-r.fee;if(!top||r.v>top.v+1e-9)top=r})});
+  /* every Business Gold pair, with and without Ink Business Preferred, with and without Venture Business: the stack that finds the most after fees */
+  var top=null;pairs.forEach(function(pr){[true,false].forEach(function(ib){[false,true].forEach(function(cp){var r=route(rows,pr,ib,cp);r.v=r.pa*UTIL*cpp/100-r.fee;if(!top||r.v>top.v+1e-9)top=r})})});
   return top}
 
 /* ---------------- the month ---------------- */

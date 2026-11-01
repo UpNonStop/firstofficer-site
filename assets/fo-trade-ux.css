@@ -73,3 +73,12 @@ body.pgi .tt.all .ttn{position:static;color:#141216;text-shadow:none;padding:0 1
 
 /* ---- 6. Golden nugget cards: the title stops short of the card's number in the corner (at 360px some ran under it) ---- */
 body.pgi .nugc h3{padding-right:30px}
+
+/* 1 Nov: every rate on the example card and the codes card names the card that pays it, as the calculator does */
+.pgi .tmx li{row-gap:3px}
+.pgi .tmx li>small.lcard{grid-column:1/-1;font:500 11.5px/1.35 var(--sans);color:#5E5766;letter-spacing:0;text-transform:none}
+.pgi .ixl li>span{display:flex;flex-direction:column;gap:2px;min-width:0}
+.pgi .ixl li>span small{font:500 11.5px/1.35 var(--sans);color:#5E5766;letter-spacing:0;text-transform:none}
+/* on a story page (#79) the card's name sits under the line's amount, above its bar and flag */
+body.tstory .tmx ul li{grid-template-areas:"n r" "m r" "lab lab" "bar bar" "flag flag"}
+body.tstory .tmx ul li>small.lcard{grid-area:lab;margin-top:2px}
