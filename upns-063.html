@@ -165,7 +165,7 @@
 .fo .bluf .bk i{width:6px;height:6px;border-radius:50%;background:var(--pink)}
 .fo .bluf .bl{font-family:var(--font);font-weight:400;font-size:16.5px;line-height:1.55;letter-spacing:0;color:var(--ink);margin-bottom:15px;max-width:640px}
 .fo .bluf .bl:last-child{margin-bottom:0}
-.fo .bluf .bl em{font-style:normal;font-family:var(--serif);font-size:22px;line-height:1;color:var(--pink);margin-right:3px}
+.fo .bluf .bl em{font-style:normal;font-family:var(--serif);font-size:22px;line-height:1;color:#C30E6E;margin-right:3px}
 
 /* ============ INSIGHT CARD SYSTEM ============ */
 .fo .gal{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
@@ -336,7 +336,7 @@
 .fo .win .wmath .mut{color:var(--t3);font-weight:600}
 .fo .win .wmath .pk{color:var(--pink)}
 .fo .win .wact{position:relative;overflow:hidden;padding:18px 18px 16px;border-right:1px solid var(--hair)}
-.fo .win .wact .ghost{position:absolute;top:-6px;right:8px;font-family:var(--serif);font-size:88px;line-height:1;color:rgba(35,32,26,.06);pointer-events:none}
+.fo .win .wact .ghost{position:absolute;top:-6px;right:8px;font-family:var(--serif);font-size:88px;line-height:1;color:rgba(35,32,26,.06);pointer-events:none}.ghost::before{content:attr(data-n)}
 .fo .win .wact.w .ghost{color:rgba(250,24,150,.09)}
 .fo .win .wact:last-child{border-right:none}
 .fo .win .wact .an{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--t4);margin-bottom:7px}
@@ -350,7 +350,7 @@
 .fo .cta{background:linear-gradient(135deg,var(--pink),#e0117f);border-radius:20px;padding:42px 34px;text-align:center;position:relative;overflow:hidden}
 .fo .cta h3{font-family:var(--serif);font-size:26px;color:#fff;line-height:1.15;margin-bottom:12px;position:relative;z-index:2}
 .fo .cta p{font-size:15px;color:rgba(255,255,255,.9);max-width:440px;margin:0 auto 24px;line-height:1.6;position:relative;z-index:2}
-.fo .cta a{display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;font-weight:800;font-size:15px;text-decoration:none;padding:14px 28px;border-radius:100px;box-shadow:0 12px 30px -8px rgba(0,0,0,.3);position:relative;z-index:2}
+.fo .cta a{display:inline-flex;align-items:center;gap:9px;background:#F8F2E7;color:var(--pink);font-weight:800;font-size:15px;text-decoration:none;padding:14px 28px;border-radius:100px;box-shadow:0 12px 30px -8px rgba(0,0,0,.3);position:relative;z-index:2}
 .fo .cta .fine{font-family:var(--mono);font-size:9px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.78);margin-top:16px;position:relative;z-index:2}
 @media (max-width:480px){.fo .cta{padding:38px 14px}html body .fo .cta a{padding-left:18px!important;padding-right:18px!important}}
 @media (min-width:384px) and (max-width:480px){.fo .cta a{white-space:nowrap}}
@@ -480,9 +480,9 @@
           <div class="wl">After that window, the same move needs 30,000 more points, roughly $1,200 by our valuation. A fictional example, figures est.</div>
         </div>
         <div class="wacts">
-          <div class="wact"><span class="ghost">01</span><div class="an">Printed &middot; Sat Jul 11, 6:00 AM ET</div><div class="at">The window</div><div class="av">2 options</div><div class="ac">Last Saturday, line two of this dispatch: 2 of them end Tuesday, July 14, at 11:59 PM ET.</div></div>
-          <div class="wact f"><span class="ghost">02</span><div class="an">Example &middot; the math</div><div class="at">Taking the option</div><div class="av">130,000</div><div class="ac">Example: 100,000 points through Bank A at +30% would land as 130,000, moved only once the desk is ready to book.</div></div>
-          <div class="wact w"><span class="ghost">03</span><div class="an">Window end &middot; Tue Jul 14, 11:59 PM ET</div><div class="at">The difference</div><div class="av">+30,000</div><div class="ac">After July 14, the same 130,000 costs 130,000 points flat.</div></div>
+          <div class="wact"><span class="ghost" data-n="01" aria-hidden="true"></span><div class="an">Printed &middot; Sat Jul 11, 6:00 AM ET</div><div class="at">The window</div><div class="av">2 options</div><div class="ac">Last Saturday, line two of this dispatch: 2 of them end Tuesday, July 14, at 11:59 PM ET.</div></div>
+          <div class="wact f"><span class="ghost" data-n="02" aria-hidden="true"></span><div class="an">Example &middot; the math</div><div class="at">Taking the option</div><div class="av">130,000</div><div class="ac">Example: 100,000 points through Bank A at +30% would land as 130,000, moved only once the desk is ready to book.</div></div>
+          <div class="wact w"><span class="ghost" data-n="03" aria-hidden="true"></span><div class="an">Window end &middot; Tue Jul 14, 11:59 PM ET</div><div class="at">The difference</div><div class="av">+30,000</div><div class="ac">After July 14, the same 130,000 costs 130,000 points flat.</div></div>
         </div>
         <div class="wmath"><span class="mut">The math</span><span>130,000 landed for 100,000 = 30,000 points ahead</span><span class="mut">&middot;</span><span class="pk">roughly $1,200 by our valuation</span></div>
       </div>
