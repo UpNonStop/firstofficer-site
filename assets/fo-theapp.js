@@ -27,7 +27,7 @@ function desk(){
   return '<div class="zdk-on"><i></i>The desk is online<span>Updated 8:14 AM</span></div>'+
     '<div class="zdk-g">'+t.map(function(x){return '<button type="button" class="zdk" data-go="'+x[0]+'" style="--c:'+x[2]+'"><small>'+x[1]+'</small><b>'+x[3]+'</b><span>'+x[4]+'</span></button>'}).join('')+'</div>'+
     '<div class="zkc zdk-t"><div class="zkh">The desk<b>Since Friday</b></div><div class="zdk-cons"><i></i><i></i><i></i>Checked 3 programs · 6s</div>'+
-    F.bub('o','Anything waiting for me?',p)+F.bub('f','Good morning, '+p.first+'. One move is confirmed. One more waits for approval.',p)+'</div>'+
+    F.bub('o','Anything waiting for me?',p)+F.bub('f',greet()+', '+p.first+'. One move is confirmed. One more waits for approval.',p)+'</div>'+
     '<div class="zdk-ask"><span>Ask First Officer</span><i aria-hidden="true">↑</i></div>'}
 var H={desk:desk(),earn:F.earn(p),burn:F.burn(p),'return':F.ret(p),learn:F.learn(p)};
 $$('.mpane',root).forEach(function(e){e.innerHTML=H[e.dataset.t]||''});
