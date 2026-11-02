@@ -46,9 +46,9 @@
 /* the phone sits on its channel's tint */
 .ta-cvw{position:relative;border-radius:20px;padding:20px 16px 18px;background:linear-gradient(180deg,color-mix(in srgb,var(--cvt) 22%,#F3ECDF) 0%,#F3ECDF 92%)}
 .ta-oc[data-cv="wa"]{--cvt:#25D366}
-.ta-oc[data-cv="im"]{--cvt:#0A84FF;--c:#0A84FF}
+.ta-oc[data-cv="im"]{--cvt:#0866D6;--c:#0866D6}
 .ta-oc[data-cv="ap"]{--cvt:#FA1896}
-.ta-oc[data-cv="im"] li::before{background:#0A84FF}
+.ta-oc[data-cv="im"] li::before{background:#0866D6}
 .ta-cvw .ta-ph{max-width:262px}
 .ta-cvw .ta-sc{container-type:inline-size;background:#FAF6EE}
 /* the page frames its screenshots by placing every img in the screen; these screens are drawn, so their small images stay in place */
@@ -68,7 +68,7 @@
 .cv-av img{width:62%;height:62%;object-fit:contain;display:block}
 .cv-nm{display:grid;line-height:1.15;min-width:0}
 .cv-nm b{font-size:4.6cqi;font-weight:700;white-space:nowrap}
-.cv-nm small{font-size:3.5cqi;color:#667781}
+.cv-nm small{font-size:3.5cqi;color:#5B6B74}
 .cv-ic{margin-left:auto;display:flex;gap:4cqi;align-items:center}
 .cv-ic svg{width:5.6cqi;height:5.6cqi;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .cv-th{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:2.2cqi;padding:3cqi 3.6cqi 2.6cqi}
@@ -103,9 +103,9 @@
 .cv.wa .cv-b{color:#111B21;border-radius:3cqi;box-shadow:0 1px .5px rgba(11,20,26,.13)}
 .cv.wa .cv-b.me{background:#D9FDD3;border-top-right-radius:.6cqi}
 .cv.wa .cv-b.fo{background:#FFFDF8;border-top-left-radius:.6cqi}
-.cv.wa .cv-b i{float:right;margin:1.4cqi 0 -.6cqi 2.4cqi;font-size:2.9cqi;color:#667781;white-space:nowrap}
+.cv.wa .cv-b i{float:right;margin:1.4cqi 0 -.6cqi 2.4cqi;font-size:2.9cqi;color:#5B6B74;white-space:nowrap}
 .cv.wa .cv-b.me i::after{content:" ✓✓";color:#53BDEB;letter-spacing:-.12em}
-.cv.wa .cv-b.ty{color:#667781}
+.cv.wa .cv-b.ty{color:#5B6B74}
 .cv.wa .cv-co{background:#F6F2EA}
 .cv.wa .cv-q{background:#FFFDF8;color:#008069;box-shadow:0 0 0 1px #D1D7DB}
 .cv.wa .cv-q:hover{background:#E7FCE3}
@@ -114,28 +114,28 @@
 
 /* Messages: the blue sent bubble, the grey received one, the tails, "Delivered" */
 .cv.im .cv-hd{flex-direction:column;gap:1cqi;padding:.6cqi 4cqi 2.4cqi;background:#F4F2EE;position:relative}
-.cv.im .cv-bk{position:absolute;left:4cqi;top:3.2cqi;color:#0A84FF;font-size:8.4cqi}
+.cv.im .cv-bk{position:absolute;left:4cqi;top:3.2cqi;color:#0866D6;font-size:8.4cqi}
 .cv.im .cv-av{width:11.6cqi;height:11.6cqi;background:linear-gradient(180deg,#E4DFD7,#CFC7BA);box-shadow:none}
 .cv.im .cv-nm{justify-items:center}
 .cv.im .cv-nm b{font-size:3.5cqi;font-weight:500}
-.cv.im .cv-nm b::after{content:" ›";color:#8E8E93}
+.cv.im .cv-nm b::after{content:" ›";color:#6C6C70}
 .cv.im .cv-th{background:#FBFAF7}
-.cv.im .cv-dt{background:none;box-shadow:none;color:#8E8E93;font-weight:500;padding:0}
+.cv.im .cv-dt{background:none;box-shadow:none;color:#6C6C70;font-weight:500;padding:0}
 .cv.im .cv-dt b{font-weight:600}
 .cv.im .cv-b{border-radius:5.2cqi;padding:2.3cqi 3.6cqi}
-.cv.im .cv-b.me{background:#0A84FF;color:#fff;border-bottom-right-radius:1.6cqi}
+.cv.im .cv-b.me{background:#0866D6;color:#fff;border-bottom-right-radius:1.6cqi}
 .cv.im .cv-b.fo{background:#E9E9EB;color:#000;border-bottom-left-radius:1.6cqi}
 .cv.im .cv-b.me::before,.cv.im .cv-b.fo::before{content:"";position:absolute;bottom:0;width:3.2cqi;height:3.2cqi}
-.cv.im .cv-b.me::before{right:-1.1cqi;background:radial-gradient(circle at 0 0,transparent 2.1cqi,#0A84FF 2.2cqi)}
+.cv.im .cv-b.me::before{right:-1.1cqi;background:radial-gradient(circle at 0 0,transparent 2.1cqi,#0866D6 2.2cqi)}
 .cv.im .cv-b.fo::before{left:-1.1cqi;background:radial-gradient(circle at 100% 0,transparent 2.1cqi,#E9E9EB 2.2cqi)}
 .cv.im .cv-b i{display:none}
-.cv.im .cv-dl{align-self:flex-end;font-size:3.1cqi;color:#8E8E93;margin:-1.2cqi .4cqi 0}
-.cv.im .cv-b.ty{color:#8E8E93}
+.cv.im .cv-dl{align-self:flex-end;font-size:3.1cqi;color:#6C6C70;margin:-1.2cqi .4cqi 0}
+.cv.im .cv-b.ty{color:#6C6C70}
 .cv.im .cv-co{background:#FBFAF7}
-.cv.im .cv-q{background:#F0EEE9;color:#0A84FF}
+.cv.im .cv-q{background:#F0EEE9;color:#0866D6}
 .cv.im .cv-q:hover{background:#E4EFFC}
-.cv.im .cv-in{background:#FBFAF7;box-shadow:0 0 0 1px #D6D3CC;color:#8E8E93}
-.cv.im .cv-in i{background:#0A84FF}
+.cv.im .cv-in{background:#FBFAF7;box-shadow:0 0 0 1px #D6D3CC;color:#6C6C70}
+.cv.im .cv-in i{background:#0866D6}
 
 /* the app: the hero phone's header and its pink-and-beige thread */
 .cv.ap .cv-hd{background:#FAF6EE;border-bottom:0;padding:.6cqi 5cqi 1.6cqi}
