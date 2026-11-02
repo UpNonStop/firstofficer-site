@@ -176,3 +176,5 @@
 
 /* ---- reduced motion: the cards and the phones simply show ---- */
 @media(prefers-reduced-motion:reduce){.ta-pc,.ta-sl li,.ta-oc,.ta-rl li{transition:none}}
+/* Nov 2 · each card's button or link sits on the card's bottom line, whatever the list above it holds */
+.ta-oc{grid-template-rows:auto auto 1fr auto}.ta-oc>ul{align-self:start}
