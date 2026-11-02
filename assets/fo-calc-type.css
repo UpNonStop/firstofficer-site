@@ -61,3 +61,7 @@
   .calc main .cdet summary{padding:14px 0;min-height:56px}
   .calc main .cdet summary .xps{flex-direction:column;gap:2px}
 }
+
+/* Nov 2 · the ⚡ made the two-button rows wider than their 480px column: they wrap to full-width rows instead of spilling out of the card */
+.cq .mctas,.cbtn{display:flex;flex-wrap:wrap}
+.cq .mctas .btn,.cbtn .btn{flex:1 1 auto;width:auto}

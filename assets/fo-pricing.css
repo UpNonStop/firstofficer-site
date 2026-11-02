@@ -164,3 +164,7 @@
 
 /* Up next sits on the same paper, one gap above it */
 .pst .pnx{padding-top:0}
+
+/* Nov 2 · the 🧮 keeps the button's size (the row's text rule was catching it), and fits one line on small phones */
+.ps-clrgo .btn>span[aria-hidden="true"]{font-size:inherit;color:inherit}
+@media (max-width:400px){.ps-clrgo .btn{padding:0 16px}}

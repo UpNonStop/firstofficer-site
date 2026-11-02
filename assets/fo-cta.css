@@ -8,7 +8,9 @@
    pink tick, instead of drifting to the bottom of the hero on desktop (Ohad, 31 Oct: "so strange to have it randomly sitting on the left") */
 .mctas .mterm{flex:0 0 100%;display:flex;align-items:center;gap:8px;margin:4px 0 0;font:600 14px/1.4 var(--sans,'DM Sans',system-ui,sans-serif);color:#4A4550;letter-spacing:.01em}
 .mctas .mterm::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;background:#FA1896 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.3l2.6 2.5L12 5.4' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px 12px no-repeat}
-@media (max-width:600px){.mctas .mterm{justify-content:center}}
+/* and its wink, a line under it, in step with its words (Ohad, 2 Nov: "We know you would love this so we don't need to lock you in ;)") */
+.mctas .mwink{flex:0 0 100%;margin:-4px 0 0;padding-left:26px;text-wrap:balance;font:500 14px/1.4 var(--sans,'DM Sans',system-ui,sans-serif);color:#5E5766}
+@media (max-width:600px){.mctas .mterm{justify-content:center}.mctas .mwink{padding-left:0;text-align:center}}
 .receipt .rr .term{display:block;margin-top:2px;font-size:12.5px;font-weight:600;color:#5E5766}
 /* the note's button row: the pink comes first, on its own full-width row on phones */
 .ncv .btn.pk{font-size:19px;font-weight:700;grid-column:1/-1}
@@ -99,3 +101,5 @@
 @media (max-width:389px){#go .bandin .h2{font-size:7.6vw}#go .bandin{min-width:0}}
 @media (max-width:400px){#go .ctas .btn{padding-left:18px!important;padding-right:18px!important;max-width:100%}}
 @media (max-width:389px){#go .ctas .btn{white-space:normal;text-align:center}}
+/* Nov 2 · Home story beats on phones: the two buttons stack full width instead of squeezing the pink one into a five-line blob */
+@media (max-width:600px){.beat .ctas .btn{flex:1 1 100%;width:100%}}
