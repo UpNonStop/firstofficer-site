@@ -451,3 +451,11 @@ html body :is(.fo .cta a,.pill.pink,.pill.green){padding-left:24px!important;pad
    (phones, small laptops), it breaks into balanced lines, never a lone word. */
 main :is(h1,h2,.h2,h3){text-wrap:balance}
 @media (min-width:1024px){main .h2{max-width:100%}}
+
+/* The Up next card (2 Nov). Its heading follows the same rule: the pink line is its own block and each line set balances, so no line is left
+   holding one word ("The Found Money Call is the / film."). Its button stays on one line on phones: tighter sides under 420px, and the arrow
+   steps aside under 390px, where the label alone fills the button. */
+.pnx .nxh{text-wrap:balance}
+.pnx .nxh .pk{display:block;text-wrap:balance}
+@media (max-width:420px){html body .pnx .nxb{padding-left:14px!important;padding-right:14px!important;gap:6px}}
+@media (max-width:389px){html body .pnx .nxb .ar{display:none}}
