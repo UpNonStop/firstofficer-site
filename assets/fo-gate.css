@@ -1,0 +1,99 @@
+/* Gate pages (Nov 2, 2026): the 404 and the app-link pages (link, invite, plaid-oauth, delete-account).
+   One screen, one clear next step for a prospect and one for an owner. Same nav, ticker and footer as every page. */
+.fg{--fg-ink:#141216;--fg-ink2:#4A4450;--fg-pink:#FA1896;--fg-pinkd:#C30E6E;--fg-box:#F3ECDF;--fg-well:#EAE0CE;--fg-chip:#F8F2E7;--fg-rule:#D3C4A8;--fg-cream:#FAF6EE;
+  display:block;background:var(--fg-cream);color:var(--fg-ink);font-family:'DM Sans',system-ui,sans-serif;text-align:center;
+  padding:clamp(30px,4.2vw,54px) 16px clamp(28px,3.4vw,44px)}
+.fg [hidden]{display:none!important}
+.fg-in{max-width:880px;margin:0 auto}
+
+/* The departures board: three split-flap tiles that flip once to 404 */
+.fg-board{display:flex;justify-content:center;gap:clamp(10px,1.3vw,14px);margin:0 0 20px}
+.fg-f{--w:clamp(78px,8.4vw,98px);--r:calc(var(--w)*.11);position:relative;width:var(--w);height:calc(var(--w)*1.32);border-radius:var(--r);
+  background:#1A171D;color:#FAF6EE;font:700 calc(var(--w)*.98)/1 'DM Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums;perspective:calc(var(--w)*8);
+  box-shadow:0 24px 40px -24px rgba(20,18,22,.65),inset 0 0 0 1px rgba(255,255,255,.05)}
+.fg-f>span{position:absolute;left:0;right:0;height:50%;overflow:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.fg-f>.t,.fg-f>.ft{top:0;background:#24202A;border-radius:var(--r) var(--r) 0 0}
+.fg-f>.b,.fg-f>.fb{bottom:0;background:#1A171D;border-radius:0 0 var(--r) var(--r)}
+.fg-f>span>i{position:absolute;left:0;right:0;height:200%;display:flex;align-items:center;justify-content:center;font-style:normal}
+.fg-f>.t>i,.fg-f>.ft>i{top:0}
+.fg-f>.b>i,.fg-f>.fb>i{bottom:0}
+.fg-f>.ft{transform-origin:50% 100%;z-index:2;visibility:hidden}
+.fg-f>.fb{transform-origin:50% 0;z-index:2;visibility:hidden;transform:rotateX(90deg)}
+.fg-f::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:#0D0C0F;z-index:3}
+.fg-f::before{content:"";position:absolute;z-index:4;top:50%;left:5px;right:5px;height:12px;margin-top:-6px;border-radius:2px;
+  background:linear-gradient(90deg,#45404B 0 4px,transparent 4px calc(100% - 4px),#45404B calc(100% - 4px))}
+
+/* The board row: what was asked for, and its status */
+.fg-row{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:6px 18px;margin:0 auto 20px;
+  font:500 14px/1.4 'JetBrains Mono',ui-monospace,monospace;color:var(--fg-ink2)}
+.fg-row code{font:inherit;color:var(--fg-ink);max-width:min(34ch,86vw);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fg-row .fg-st{display:inline-flex;align-items:center;gap:9px;color:var(--fg-pinkd)}
+.fg-row .fg-st::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--fg-pink);box-shadow:0 0 0 3px rgba(250,24,150,.18)}
+
+/* The app icon, so the button reads as the app it opens */
+.fg-icon{display:block;width:88px;height:88px;margin:0 auto 26px;border-radius:20px;box-shadow:0 0 0 1px #E3D7C1,0 16px 30px -18px rgba(20,18,22,.5)}
+.fg-who{margin:0 auto 12px;max-width:34em;font-size:clamp(17px,1.6vw,19px);line-height:1.5;font-weight:600;color:var(--fg-ink)}
+
+.fg h1{font:400 clamp(42px,5.5vw,68px)/1.02 'DM Serif Display',Georgia,serif;letter-spacing:-.012em;color:var(--fg-ink);margin:0 auto 16px;max-width:15em;text-wrap:balance}
+.fg h1 .pk{color:var(--fg-pink)}
+.fg-sub{font-size:clamp(17px,1.6vw,19px);line-height:1.55;color:var(--fg-ink2);max-width:34em;margin:0 auto}
+.fg-sub b{color:var(--fg-ink);font-weight:700}
+.fg-near{margin:14px auto 0;font-size:16.5px;line-height:1.5;color:var(--fg-ink2)}
+.fg-near a{color:var(--fg-pinkd);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+/* One primary step, centered (app-link pages) */
+.fg-go{display:flex;flex-direction:column;align-items:center;gap:12px;max-width:420px;margin:28px auto 0}
+.fg .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:58px;height:auto;padding:12px 24px;border-radius:999px;
+  font:700 19px/1.2 'DM Sans',system-ui,sans-serif;letter-spacing:0;text-decoration:none;text-align:center;white-space:normal}
+.fg-note{margin:0;font-size:15px;line-height:1.5;color:var(--fg-ink2)}
+.fg-miss{margin:2px 0 0;padding:12px 16px;border-radius:14px;background:var(--fg-chip);font-size:15px;line-height:1.5;color:var(--fg-ink)}
+
+/* Two lanes in one ticket: new here, or already flying with us */
+.fg-lanes{position:relative;display:grid;grid-template-columns:1fr 1fr;margin:30px auto 0;background:var(--fg-box);border-radius:24px;text-align:left}
+.fg-lane{position:relative;display:flex;flex-direction:column;padding:28px 32px 26px}
+.fg-lane+.fg-lane{border-left:2px dashed var(--fg-rule)}
+.fg-lane+.fg-lane::before,.fg-lane+.fg-lane::after{content:"";position:absolute;left:-13px;width:24px;height:24px;border-radius:50%;background:var(--fg-cream)}
+.fg-lane+.fg-lane::before{top:-12px}
+.fg-lane+.fg-lane::after{bottom:-12px}
+.fg-lane h2{font:400 28px/1.12 'DM Serif Display',Georgia,serif;color:var(--fg-ink);margin:0 0 8px;text-wrap:balance}
+.fg-lane p{font-size:16.5px;line-height:1.55;color:var(--fg-ink2);margin:0 0 20px}
+.fg-lane .btn{margin-top:auto}
+.fg-alt{display:block;margin-top:11px;padding:3px 0;text-align:center;font-weight:600;font-size:15.5px;line-height:1.4;color:var(--fg-ink);
+  text-decoration:underline;text-decoration-color:rgba(20,18,22,.35);text-underline-offset:4px}
+.fg-alt:hover,.fg-alt:focus-visible{text-decoration-color:var(--fg-pink)}
+.fg-foot{margin:26px auto 0;font-size:16px;line-height:1.5;color:var(--fg-ink2)}
+.fg-foot a{color:var(--fg-pinkd);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.fg-foot a,.fg-near a,.fg-steps a,.fg-doc p a,.fg-list a{padding:2px 0}
+
+/* Delete account: the steps and the fine print, left aligned for reading */
+.fg-doc{max-width:720px;margin:36px auto 0;text-align:left}
+.fg-doc h2{font:400 30px/1.12 'DM Serif Display',Georgia,serif;color:var(--fg-ink);margin:0 0 14px}
+.fg-steps{list-style:none;margin:0;padding:0;counter-reset:fgs}
+.fg-steps li{counter-increment:fgs;position:relative;padding:0 0 18px 48px;font-size:17px;line-height:1.55;color:var(--fg-ink2)}
+.fg-steps li b{color:var(--fg-ink)}
+.fg-steps li::before{content:counter(fgs);position:absolute;left:0;top:-2px;width:32px;height:32px;border-radius:50%;background:var(--fg-ink);color:#FAF6EE;
+  display:flex;align-items:center;justify-content:center;font:700 15px/1 'JetBrains Mono',ui-monospace,monospace}
+.fg-steps a,.fg-doc p a,.fg-list a{color:var(--fg-pinkd);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.fg-list{list-style:none;margin:0 0 4px;padding:0}
+.fg-list li{position:relative;padding:0 0 12px 18px;font-size:16px;line-height:1.55;color:var(--fg-ink2)}
+.fg-list li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--fg-pink)}
+.fg-list li b{color:var(--fg-ink)}
+.fg-doc .fg-lanes{margin:30px 0 28px}
+.fg-doc p{font-size:16.5px;line-height:1.6;color:var(--fg-ink2);margin:0 0 14px}
+.fg-doc .fg-go{margin:26px 0 30px;max-width:420px}
+
+@media (max-width:720px){
+  .fg-lanes{grid-template-columns:1fr}
+  .fg-lane{padding:24px 20px 22px}
+  .fg-lane+.fg-lane{border-left:0;border-top:2px dashed var(--fg-rule)}
+  .fg-lane+.fg-lane::before{top:-13px;left:-12px}
+  .fg-lane+.fg-lane::after{top:-13px;bottom:auto;left:auto;right:-12px}
+  .fg-lane h2{font-size:26px}
+}
+@media (max-width:420px){
+  .fg .btn .ar{display:none}
+}
+@media (max-width:380px){
+  .fg .btn{padding:12px 16px}
+  .fg-f{--w:74px}
+}
