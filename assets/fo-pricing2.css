@@ -1,0 +1,166 @@
+/* Pricing, rebuilt (Nov 2, 2026). Ohad: "the price page looks like shit ... this doesn't embed the looks and feel of confidence and
+   nonchalant in transparency." One idea carries it: the fare. Every charge and every non-charge on one receipt, then four calm sections.
+   Phone first. Type: DM Serif Display for headlines and the fare's amounts, JetBrains Mono for small caps labels, DM Sans for the rest. */
+.pp{--ink:#141216;--body:#4A4450;--mute:#6E6776;--pink:#FA1896;--pinkd:#C30E6E;--paper:#FBF7EF;--box:#F3ECDF;--well:#EAE0CE;--chip:#F8F2E7;
+  --rule:rgba(20,18,22,.1);--earn:#107B49;--burn:#BB4401;--ret:#7149C9;--learn:#085884;
+  --mono:'JetBrains Mono',ui-monospace,monospace;--sans:'DM Sans',system-ui,sans-serif;--serif:'DM Serif Display',Georgia,serif}
+.pp .lbl{font:500 11px/1.35 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+
+/* 1. The opening: the price, said once, plainly */
+.pp-hero{padding:36px 0 40px}
+.pp-hero .wrap{display:grid;gap:36px}
+.pp-tag{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 12px;border-radius:999px;background:var(--chip);box-shadow:inset 0 0 0 1px var(--rule)}
+.pp-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pink)}
+/* The headline scales with its column, so each of its two lines stays whole: "$550 a month, flat." / "Whatever you spend." */
+.pp-say{container-type:inline-size;min-width:0}
+.pp h1{font:400 clamp(34px,9.6vw,44px)/1.02 var(--serif);font-size:min(76px,10.4cqi);letter-spacing:-.018em;color:var(--ink);margin:18px 0 0}
+.pp h1 .pk{display:block;color:var(--pink)}
+.pp-sub{font:400 19px/1.55 var(--sans);color:var(--body);margin:18px 0 0;max-width:34em}
+.pp-go{display:flex;flex-direction:column;gap:12px;margin:26px 0 0}
+.pp-go .btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:12px 16px;border-radius:999px;text-decoration:none;text-align:center}
+@media (max-width:349px){.pp-go .btn{padding-left:12px;padding-right:12px}.pp-go .btn .ar{display:none}}
+.pp-trust{display:flex;flex-wrap:wrap;gap:6px 18px;margin:18px 0 0;padding:0;list-style:none;font:500 14px/1.45 var(--sans);color:var(--body)}
+.pp-trust li{display:inline-flex;align-items:center;gap:8px}
+.pp-trust li::before{content:"";width:16px;height:16px;flex:none;border-radius:50%;background:var(--earn) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3l2.2 2.2 4.8-4.9' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+
+/* 2. The fare: one receipt, every charge and every non-charge */
+.pp-fare{container-type:inline-size;position:relative;background:var(--paper);border-radius:22px;box-shadow:0 0 0 1px var(--rule),0 28px 56px -36px rgba(20,18,22,.45);overflow:visible}
+.pp-fh{display:flex;justify-content:space-between;gap:12px;padding:18px 22px 14px;border-bottom:1px solid var(--rule)}
+.pp-fh .lbl:first-child{color:var(--ink)}
+.pp-lines{list-style:none;margin:0;padding:6px 22px 4px}
+.pp-lines>li{padding:16px 0 18px;border-bottom:1px solid var(--rule)}
+.pp-lines>li:last-child{border-bottom:0}
+.pp-row{display:flex;align-items:baseline;gap:10px}
+.pp-row b{font:700 17px/1.25 var(--sans);color:var(--ink)}
+.pp-row i{flex:1;min-width:16px;border-bottom:2px dotted rgba(20,18,22,.28);transform:translateY(-5px)}
+.pp-row em{font:400 30px/1 var(--serif);font-style:normal;color:var(--ink);white-space:nowrap;font-variant-numeric:lining-nums}
+.pp-row em small{font:500 14px/1 var(--sans);color:var(--mute);margin-left:3px}
+.pp-main .pp-row em{font-size:44px;color:var(--pink)}
+.pp-lines .lbl{display:block;margin:0 0 6px}
+.pp-lines p{font:400 14px/1.5 var(--sans);color:var(--body);margin:8px 0 0;max-width:34em}
+.pp-star{color:#C5A226;margin-left:2px}
+.pp-pills{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:12px 0 0;padding:0}
+.pp-pills li{display:inline-flex;align-items:center;gap:6px;padding:5px 10px 5px 8px;border-radius:999px;background:var(--chip);box-shadow:inset 0 0 0 1px var(--rule);font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.pp-pills li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c)}
+.pp-tear{position:relative;height:22px;margin:0 22px}
+.pp-tear::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:2px dashed rgba(20,18,22,.18)}
+/* The notches: centered on the card's outline (1px outside its edge), page-colored, with the outline carried round the bite */
+.pp-tear::after{content:"";position:absolute;top:0;bottom:0;left:-23px;right:-23px;pointer-events:none;
+  background:radial-gradient(circle at 0 50%,var(--cream,#FAF6EE) 10px,rgba(20,18,22,.1) 10px 11px,transparent 11.5px),
+             radial-gradient(circle at 100% 50%,var(--cream,#FAF6EE) 10px,rgba(20,18,22,.1) 10px 11px,transparent 11.5px)}
+.pp-zero{list-style:none;margin:0;padding:4px 22px 6px}
+.pp-zero li{display:flex;align-items:baseline;gap:10px;padding:9px 0}
+.pp-zero span{font:400 15px/1.35 var(--sans);color:var(--body)}
+.pp-zero i{flex:1;min-width:16px;border-bottom:2px dotted rgba(20,18,22,.2);transform:translateY(-4px)}
+.pp-zero b{font:700 17px/1 var(--sans);color:var(--ink);font-variant-numeric:tabular-nums}
+.pp-nh{padding:4px 22px 0}
+.pp-end{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0 0;padding:16px 22px;background:var(--box);border-radius:0 0 22px 22px;border-top:1px solid var(--rule)}
+.pp-end b{font:400 22px/1.15 var(--serif);color:var(--ink)}
+.pp-end .lbl{color:var(--earn);white-space:nowrap}
+/* A very narrow fare (phones under 360px): each amount takes its own line under its name, so no name breaks around a leader */
+@container (max-width:300px){
+  .pp-row{flex-wrap:wrap;row-gap:4px}
+  .pp-row i{display:none}
+  .pp-row em{flex-basis:100%}
+  .pp-end{flex-direction:column;align-items:flex-start;gap:6px}
+}
+
+/* 3. Sections: the site's opening (kicker, heading, lede), then one panel each */
+.pp .sec .reveal{margin-bottom:26px}
+.pp-panel{background:var(--box);border-radius:24px;box-shadow:0 0 0 1px var(--rule)}
+.pp-jobs{display:grid;grid-template-columns:1fr;list-style:none;margin:0;padding:6px 22px}
+.pp-jobs li{padding:20px 0;border-bottom:1px solid var(--rule)}
+.pp-jobs li:last-child{border-bottom:0}
+.pp-jobs .lbl{display:inline-flex;align-items:center;gap:8px;color:var(--c)}
+.pp-jobs .lbl::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c)}
+.pp-jobs h3{font:700 19px/1.25 var(--sans);color:var(--ink);margin:10px 0 0}
+.pp-jobs p{font:400 15px/1.55 var(--sans);color:var(--body);margin:8px 0 0}
+.pp .lede a{color:var(--pinkd);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.pp-more{display:inline-block;margin:8px 0 0;padding:12px 0;font:700 15px/1.4 var(--sans);color:var(--pinkd);text-decoration:none}
+.pp-more:hover,.pp-more:focus-visible{text-decoration:underline;text-underline-offset:4px}
+
+/* 4. Does it pay for itself: one scale, two answers */
+.pp-fit{padding:24px 22px 22px}
+.pp-scale{position:relative;margin:34px 0 0}
+.pp-bar{position:relative;height:12px;border-radius:999px;background:var(--well);overflow:visible}
+.pp-bar .on{position:absolute;left:25%;right:0;top:0;bottom:0;border-radius:0 999px 999px 0;background:linear-gradient(90deg,#F7A7CF,var(--pink))}
+.pp-mark{position:absolute;left:25%;top:-30px;bottom:-6px;width:2px;margin-left:-1px;background:var(--ink)}
+.pp-mark span{position:absolute;left:50%;top:0;transform:translateX(-50%);white-space:nowrap;padding:3px 8px;border-radius:6px;background:var(--paper);color:var(--ink);box-shadow:0 0 0 1px rgba(20,18,22,.25);font:700 11px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.pp-ax{position:relative;height:18px;margin:10px 0 0;font:500 12px/1 var(--sans);color:var(--mute);font-variant-numeric:tabular-nums}
+.pp-ax span{position:absolute;top:0;transform:translateX(-50%)}
+.pp-ax span:first-child{transform:none}
+.pp-ax span:last-child{transform:translateX(-100%)}
+.pp-zones{display:grid;gap:12px;margin:22px 0 0}
+.pp-zones div{padding:16px 18px;border-radius:16px;background:var(--chip);box-shadow:inset 0 0 0 1px var(--rule)}
+.pp-zones .yes{box-shadow:inset 3px 0 0 var(--pink),inset 0 0 0 1px var(--rule)}
+.pp-zones .lbl{display:block;margin:0 0 6px}
+.pp-zones .yes .lbl{color:var(--pinkd)}
+.pp-zones p{font:400 15px/1.5 var(--sans);color:var(--body);margin:0}
+.pp-zones b{color:var(--ink)}
+.pp-zones a{color:var(--pinkd);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.pp-go.pp-after{margin-top:22px}
+.pp-not{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.pp-not li{display:flex;gap:12px;align-items:flex-start;font:400 15px/1.5 var(--sans);color:var(--body)}
+.pp-not li::before{content:"";flex:none;width:20px;height:20px;margin-top:1px;border-radius:50%;background:var(--well) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M7 7l6 6M13 7l-6 6' stroke='%234A4450' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center/20px no-repeat}
+.pp-not b{color:var(--ink)}
+.pp-not a{color:var(--pinkd);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+/* 5. The first month: a rail of five steps */
+.pp-steps{list-style:none;margin:0;padding:8px 22px;counter-reset:pps}
+.pp-steps li{position:relative;counter-increment:pps;padding:16px 0 16px 50px}
+.pp-steps li::before{content:counter(pps);position:absolute;left:0;top:14px;width:32px;height:32px;border-radius:50%;background:var(--ink);color:#FAF6EE;display:flex;align-items:center;justify-content:center;font:700 13px/1 var(--mono)}
+.pp-steps li::after{content:"";position:absolute;left:15px;top:50px;bottom:-14px;width:2px;background:var(--well)}
+.pp-steps li:last-child::after{display:none}
+.pp-steps .lbl{display:block}
+.pp-steps h3{font:700 17px/1.3 var(--sans);color:var(--ink);margin:6px 0 0}
+.pp-steps p{font:400 15px/1.5 var(--sans);color:var(--body);margin:6px 0 0}
+
+/* 6. Questions: one column of answers */
+.pp-faq{padding:4px 22px}
+.pp-faq details{border-bottom:1px solid var(--rule)}
+.pp-qcol:last-child details:last-child{border-bottom:0}
+.pp-faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;padding:14px 0;cursor:pointer;list-style:none;font:700 17px/1.35 var(--sans);color:var(--ink)}
+.pp-faq summary::-webkit-details-marker{display:none}
+.pp-faq summary::after{content:"";flex:none;width:28px;height:28px;border-radius:50%;background:var(--chip) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cpath d='M9 12l5 5 5-5' fill='none' stroke='%23141216' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/28px no-repeat;box-shadow:inset 0 0 0 1px var(--rule);transition:transform .2s}
+.pp-faq details[open] summary::after{transform:rotate(180deg)}
+.pp-faq p{font:400 15px/1.6 var(--sans);color:var(--body);margin:0;padding:0 0 18px;max-width:46em}
+.pp-faq a{color:var(--pinkd);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+/* 7. Enterprise, said in one line */
+.pp #enterprise.sec{padding-top:0}
+.pp-ent{display:flex;flex-direction:column;gap:14px;padding:22px}
+.pp-ent h3{font:700 19px/1.3 var(--sans);color:var(--ink);margin:6px 0 0}
+.pp-ent p{font:400 15px/1.5 var(--sans);color:var(--body);margin:6px 0 0}
+.pp-ent .pp-more{margin:0}
+
+/* 8. The fine print: small and centered (upright: the site carries no italics, per the Oct 29 brief in fo-rules.css) */
+.pp-fine{max-width:760px;margin:28px auto 0;text-align:center;font:400 12.5px/1.6 var(--sans);color:var(--mute)}
+.pp-fine a{color:var(--pinkd);font-weight:700}
+
+@media (min-width:600px){
+  .pp-fare{max-width:560px}
+  .pp-go{flex-direction:row;flex-wrap:wrap}
+  .pp-go .btn{flex:0 0 auto}
+  .pp-zones{grid-template-columns:1fr 1fr}
+  .pp-jobs{grid-template-columns:1fr 1fr;column-gap:28px}
+  .pp-jobs li:nth-last-child(2){border-bottom:0}
+}
+@media (min-width:1024px){
+  .pp-hero{padding:40px 0 60px}
+  /* the whole fare sits above the fold at 1440 x 900 */
+  .pp-lines>li{padding:14px 0 15px}
+  .pp-zero li{padding:7px 0}
+  .pp-hero .wrap{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:64px;align-items:center}
+  .pp-fare{max-width:520px;justify-self:end;width:100%}
+  .pp-jobs{grid-template-columns:repeat(4,1fr);column-gap:0;padding:8px 8px}
+  .pp-jobs li{padding:24px 24px 26px;border-bottom:0;border-left:1px solid var(--rule)}
+  .pp-jobs li:first-child{border-left:0}
+  .pp-fit{padding:30px 34px 30px}
+  .pp-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;padding:26px 26px 28px}
+  .pp-steps li{padding:52px 18px 0 0}
+  .pp-steps li::before{top:0;left:0}
+  .pp-steps li::after{left:40px;right:8px;top:15px;bottom:auto;width:auto;height:2px}
+  .pp-faq{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;align-items:start;padding:8px 34px}
+  .pp-qcol details:last-child{border-bottom:0}
+  .pp-ent{flex-direction:row;align-items:center;justify-content:space-between;padding:26px 34px}
+}
