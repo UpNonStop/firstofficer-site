@@ -20,7 +20,7 @@ var retSum=p.ret.reduce(function(a,r){return a+r[1]},0);
 function usd(n){return '$'+Math.round(n).toLocaleString('en-US')}
 function desk(){
   /* Leo's numbers, the same ones the home page, the product page and the Friday report use */
-  var t=[['earn','Earn','#107B49','$15,120','found per year, est.'],
+  var t=[['earn','Earn','#107B49','$12,240','found per year, est.'],
          ['burn','Burn','#BB4401',p.pct+'%','of the Tokyo goal, '+Math.round(p.have/1000)+'k points'],
          ['return','Return','#7149C9',usd(retSum),'last Friday, est.'],
          ['learn','Learn','#085884',p.learn[1],p.learn[2]]];
