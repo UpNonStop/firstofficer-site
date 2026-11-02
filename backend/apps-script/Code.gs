@@ -1,6 +1,6 @@
 /** @OnlyCurrentDoc */
 /**
- * First Officer, "Call me back" requests (book.html, option four).
+ * First Officer, "Call me back" requests (book.html, option four) and enterprise inquiries (enterprise.html, "Talk to our team").
  *
  * A Google Apps Script web app bound to the Google Sheet "First Officer - Call-me-back requests".
  * The site's form POSTs one JSON body (Content-Type text/plain, so the browser sends it without a CORS preflight).
@@ -92,10 +92,11 @@ function doGet() {
 function notify_(d, row, when) {
   var to = NOTIFY_TO || Session.getEffectiveUser().getEmail();
   if (!to) return;
-  var name = row[1], subject = 'Call-me-back: ' + name + ', ' + row[4] + (row[5] ? ' (' + row[5] + ')' : '');
+  var ent = /^enterprise/.test(str_((d.meta || {}).form));
+  var name = row[1], subject = (ent ? 'Enterprise: ' : 'Call-me-back: ') + name + ', ' + row[4] + (row[5] ? ' (' + row[5] + ')' : '');
   var lines = [];
   for (var i = 0; i < HEADERS.length; i++) if (row[i] !== '' && row[i] !== null) lines.push(HEADERS[i] + ': ' + row[i]);
-  var body = 'New call-me-back request from firstofficer.upnonstop.com\n\n' + lines.join('\n') +
+  var body = (ent ? 'New enterprise inquiry' : 'New call-me-back request') + ' from firstofficer.upnonstop.com\n\n' + lines.join('\n') +
     '\n\nSheet: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl();
   MailApp.sendEmail({ to: to, subject: subject, body: body, replyTo: str_(d.email), name: 'First Officer site' });
 }
