@@ -1,0 +1,63 @@
+/* Calculator type system (Nov 2, 2026). Loaded last on calculator.html.
+   Ohad: "the CSS and style of crazy fonts on this page is horrrrrrrific. the go advanced is so huge in comparison to the other fonts there."
+   The page carried 61 text styles across three families. One scale now:
+   - DM Serif Display: headlines, and the answer's own figures (the found amount, the fee, the cover ratio).
+   - JetBrains Mono: the small caps labels only, at one size (11px), plus the markers on the bars.
+   - DM Sans: everything else, at six sizes: 19 (lede, buttons, card titles), 16, 15 (line names), 14 (reading), 13 (notes), 12 (axes, hero fine print). */
+.calc main{--ty-sans:'DM Sans',system-ui,sans-serif;--ty-mono:'JetBrains Mono',ui-monospace,monospace;--ty-serif:'DM Serif Display',Georgia,serif}
+
+/* 1. Small caps labels: one style everywhere */
+.calc main :is(.cq .wk,.baf .wk,.pn,.pn b,.xgn small,.xcl>span,.xth span,.cmix>span,.cuse>span,.clab>span,.clab>span>label,.csh>span,.cvs,.cfind>small,.cfee>small,dl.bk dt,dl.ckpi dt,.casl dt,.csum small,.cmini small){
+  font-family:var(--ty-mono)!important;font-size:11px!important;font-weight:500!important;line-height:1.35!important;letter-spacing:.12em!important;text-transform:uppercase!important;font-style:normal!important}
+.calc main :is(i.mark span,i.bgt span,.csh>b){font-family:var(--ty-mono)!important;font-size:11px!important;font-weight:700!important;letter-spacing:.1em!important;text-transform:uppercase!important}
+.calc main i.mark span{background:#FBF7EF!important}
+
+/* 2. Notes and data that were set in mono or small serif: DM Sans */
+.calc main :is(.xlh small,.xtr span small,.xch small,.xcm small,.fo-sub small,.fo-sub small span,.xcp,.csum span,.xgt){
+  font-family:var(--ty-sans)!important;font-size:13px!important;font-weight:400!important;line-height:1.45!important;letter-spacing:0!important;text-transform:none!important;font-style:normal!important}
+.calc main :is(.bsub,.cfind>span){font-family:var(--ty-sans)!important;font-size:13px!important;font-weight:400!important;letter-spacing:0!important}
+.calc main :is(.bsub em,.cfind>span em,#cuse button small){font-family:var(--ty-sans)!important;font-size:13px!important;font-weight:500!important;letter-spacing:0!important;font-style:normal!important;font-variant-numeric:tabular-nums;text-transform:none!important}
+.calc main :is(div.cq.fit>div.bsx>span,div.cbal>div.cbx>span){font-family:var(--ty-sans)!important;font-size:12px!important;font-weight:500!important;letter-spacing:0!important;font-variant-numeric:tabular-nums}
+.calc main .xcm>span{font-family:var(--ty-sans)!important;font-size:13px!important;font-weight:700!important;letter-spacing:0!important}
+
+/* 3. Working figures in the lines, the table and the stack: DM Sans, tabular, not display serif */
+.calc main .xla span{font-family:var(--ty-sans)!important;font-size:15px!important;font-weight:600!important}
+.calc main .xla input{font-family:var(--ty-sans)!important;font-size:16px!important;font-weight:600!important;font-variant-numeric:tabular-nums;letter-spacing:0!important}
+.calc main .xtab .xtr>span{font-family:var(--ty-sans)!important;font-size:15px!important;font-weight:600!important;font-variant-numeric:tabular-nums;letter-spacing:0!important}
+.calc main .xtab .xtr>span b,.calc main .xtab .xtr>span.d{font-family:var(--ty-sans)!important;font-size:15px!important;font-weight:700!important;font-variant-numeric:tabular-nums}
+.calc main .xgt b,.calc main .xcp b{font-family:var(--ty-sans)!important;font-size:17px!important;font-weight:700!important;font-variant-numeric:tabular-nums;letter-spacing:0!important}
+.calc main .csum b{font-family:var(--ty-sans)!important;font-size:22px!important;font-weight:700!important;font-variant-numeric:tabular-nums;letter-spacing:-.01em!important}
+
+/* 4. The answer: two serif sizes only */
+.calc main :is(.cfind>b,.bfind){font-family:var(--ty-serif)!important;font-size:clamp(52px,4.6vw,64px)!important;line-height:1!important}
+.calc main :is(.cfee>b,dl.bk dd:not(.fo-sub),dl.ckpi dd:not(.fo-sub),#xv h3){font-family:var(--ty-serif)!important;font-size:clamp(28px,2.3vw,32px)!important;line-height:1.05!important}
+.calc main .xoh h3.h3{font-size:clamp(28px,2.3vw,32px)!important;line-height:1.1!important}
+
+/* 5. DM Sans steps: 15 for line names, 16 for group names, 14 for reading, 13 for notes, 12 for the hero's fine print */
+.calc main :is(.xlh label,.xtab .xtr>span[role=rowheader]){font-size:15px!important;font-weight:600!important}
+.calc main .xgn{font-size:16px!important;font-weight:700!important}
+.calc main :is(.xlr,.xlr em,.xlr b,.cseg button,.chowl,.clab>small,.bgx,.bact small,.xact button,.xcl,.xct,.xoff,.cdet .cnote,.cdet .cnote a){font-size:13px!important}
+.calc main :is(.cseg button,.chowl){font-weight:600!important}
+.calc main :is(.ccon li,.bverd,.bverd span,#xv p,#cuse button b,.casl dd){font-size:14px!important}
+.calc main :is(.ccon b,.bverd strong,.brun span){font-size:14px!important;font-weight:700!important}
+.calc main :is(.xpin,.xmini,.xpin a,.xmini a,.ccon small,.ccon small a){font-size:12px!important}
+.calc main .pc4 h3{font-size:19px!important}
+
+/* 6. Go advanced, in the calculator's header: a small chip beside its label, not a full-size button */
+.calc main .cqh a.cqa#bgo{font-size:14px!important;font-weight:700!important;height:34px;padding:0 14px;background:#2A7AB8;color:#fff}
+.calc main .cqh a.cqa#bgo:hover,.calc main .cqh a.cqa#bgo:focus-visible{background:#085884}
+
+/* 7. Before you start and the fine print: the same panel as Every assumption, line by line, at the calculator's width */
+.calc main .cdet.xpd{margin:28px 0 0}
+.calc main #xpre{margin:24px 0 20px}
+.calc main .cdet summary{gap:16px;align-items:center}
+.calc main .cdet summary::after{flex:none}
+.calc main .cdet summary .xps{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;min-width:0}
+.calc main .cdet summary .xps b{font:700 15px/1.3 var(--ty-sans);color:var(--ink)}
+.calc main .cdet summary .xps span{font:400 14px/1.4 var(--ty-sans);color:var(--body)}
+.calc main .casl dd a{color:#C30E6E;font-weight:700;text-decoration:underline;text-underline-offset:3px;padding:2px 0}
+.calc main .cdet .cnote a{color:#C30E6E;font-weight:700}
+@media (max-width:760px){
+  .calc main .cdet summary{padding:14px 0;min-height:56px}
+  .calc main .cdet summary .xps{flex-direction:column;gap:2px}
+}
