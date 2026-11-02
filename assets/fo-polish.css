@@ -441,11 +441,26 @@ html body :is(.fo .cta a,.pill.pink,.pill.green){padding-left:24px!important;pad
    lines level, the way Pricing's "Four jobs" opens. A heading whose pink line cannot fold (the brush lines never wrap) and leaves the lede
    less than 380px keeps the lede under it instead, so nothing ever overlaps. Phones and tablets stay stacked. */
 @media (min-width:1024px){
-  main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child){display:flex;flex-wrap:wrap;align-items:flex-end;column-gap:56px;row-gap:0}
+  main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child){display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;column-gap:56px;row-gap:0}
   main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child)>.kick{flex:0 0 100%}
-  main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child)>.h2{flex:3 1 0;margin-bottom:0}
+  main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child)>.h2{flex:0 1 auto;max-width:100%;margin-bottom:0}
   main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child)>.lede{flex:1 0 380px;max-width:520px;margin:22px 0 0;padding-bottom:.35em}
 }
+
+/* Headlines break where we break them (Ohad, 2 Nov: "why some headlines ... have a BR like this"). A headline is an ink line and a pink line,
+   split by one <br>. On desktop each line now holds as one line: the heading takes its natural width (flex-basis auto above), the lede sits
+   beside it when both fit and under it when they don't, and no heading is capped at 900px any more. Where a line is longer than the column
+   (phones, small laptops), it breaks into balanced lines, never a lone word. */
+main :is(h1,h2,.h2,h3){text-wrap:balance}
+@media (min-width:1024px){main .h2{max-width:100%}}
+
+/* The Up next card (2 Nov). Its heading follows the same rule: the pink line is its own block and each line set balances, so no line is left
+   holding one word ("The Found Money Call is the / film."). Its button stays on one line on phones: tighter sides under 420px, and the arrow
+   steps aside under 390px, where the label alone fills the button. */
+.pnx .nxh{text-wrap:balance}
+.pnx .nxh .pk{display:block;text-wrap:balance}
+@media (max-width:420px){html body .pnx .nxb{padding-left:14px!important;padding-right:14px!important;gap:6px}}
+@media (max-width:389px){html body .pnx .nxb .ar{display:none}}
 
 /* Nov 2 · the 🧮 and ⚡ in the buttons. A tighter emoji gap everywhere (not in the dock, which sets its own),
    and on desktop the three-button rows get 18px sides and an 8px gap so they keep one row */
