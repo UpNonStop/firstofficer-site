@@ -67,3 +67,67 @@ main>#desk{padding-top:0}
 /* 6. "The win" band: a deeper beige panel instead of a wash that starts at pure white in its top corner
    (Ohad, 31 Oct: the beige ground, no white bands) */
 #cheer.onink{background:linear-gradient(150deg,#F6F0E4 0%,#EFE6D4 100%)}
+
+/* ---------- Meet Leo: Earn and Learn, drawn instead of listed (Ohad, 2 Nov: "such a poor look and feel", "even worse") ----------
+   Earn was two numbers far apart in a beige box; Learn was "5¢+ · 2 min" in a mostly empty one. Each now holds one ink panel, the same
+   language as the trade pages' example card: the move in dollars, big, with its status, and the per-$1 jump on a 0x to 4x gauge (Earn);
+   what one point is worth, big, and the spread between a cash out and business class (Learn). Burn and Return keep their photo and
+   receipt, so the 2x2 reads ink, cream / cream, ink. Figures are the card's own; "Cash out, about 1¢" is the calculator's own floor. */
+#leo .chv .pvx{position:relative;display:flex;flex-direction:column;gap:14px;border-radius:18px;padding:20px 20px 18px;color:#F3ECDF;background:radial-gradient(110% 80% at 100% 0%,rgba(250,24,150,.32) 0%,rgba(250,24,150,0) 58%),radial-gradient(90% 70% at 0% 100%,rgba(113,73,201,.2) 0%,rgba(113,73,201,0) 62%),#141216;box-shadow:0 22px 44px -28px rgba(20,18,22,.7);overflow:hidden}
+#leo .chv .pvx.pl{background:radial-gradient(110% 80% at 100% 0%,rgba(66,154,212,.38) 0%,rgba(66,154,212,0) 58%),radial-gradient(90% 70% at 0% 100%,rgba(8,88,132,.35) 0%,rgba(8,88,132,0) 62%),#141216}
+#leo .pvh{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;font:500 11.5px/1.3 var(--mono,'JetBrains Mono',monospace);letter-spacing:.14em;text-transform:uppercase;color:#CFC6D6}
+#leo .pvh em{font-style:normal;font-weight:700;letter-spacing:.06em;padding:6px 9px;border-radius:9px;color:#FFD1E8;box-shadow:inset 0 0 0 1.5px rgba(255,108,188,.6);white-space:nowrap}
+#leo .pvh em s{text-decoration-thickness:1.5px;opacity:.75}
+#leo .pvx.pl .pvh em{color:#CDE9FB;box-shadow:inset 0 0 0 1.5px rgba(124,195,242,.6)}
+#leo .pvm{display:flex;flex-direction:column;gap:8px}
+#leo .pvm b{font-family:var(--serif,'DM Serif Display',Georgia,serif);font-weight:400;font-size:clamp(56px,6.2vw,76px);line-height:.92;letter-spacing:-.02em;color:#FF3DA6;text-shadow:0 12px 40px rgba(250,24,150,.38)}
+#leo .pvx.pl .pvm b{color:#7CC3F2;text-shadow:0 12px 40px rgba(66,154,212,.4)}
+#leo .pvm span{font:500 12px/1.3 var(--mono,'JetBrains Mono',monospace);letter-spacing:.14em;text-transform:uppercase;color:#CFC6D6}
+#leo .pvs{display:flex;align-items:center;gap:9px;font-weight:600;font-size:14.5px;color:#F8F2E7}
+#leo .pvs i{flex:none;width:9px;height:9px;border-radius:50%;background:#FF3DA6;box-shadow:0 0 0 0 rgba(255,61,166,.6);animation:pvPulse 1.8s ease-out infinite}
+@keyframes pvPulse{0%{box-shadow:0 0 0 0 rgba(255,61,166,.55)}100%{box-shadow:0 0 0 10px rgba(255,61,166,0)}}
+#leo .pvr{display:flex;align-items:flex-end;gap:18px;padding-top:14px;border-top:1px solid rgba(243,236,223,.14)}
+#leo .pvl{display:flex;flex-direction:column;gap:4px}
+#leo .pvl span{font:500 11px/1.2 var(--mono,'JetBrains Mono',monospace);letter-spacing:.12em;text-transform:uppercase;color:#B8AEC0}
+#leo .pvl b{font-family:var(--serif,'DM Serif Display',Georgia,serif);font-weight:400;font-size:34px;line-height:1;color:#B8AEC0}
+#leo .pvl.a b{color:#F8F2E7}
+#leo .pvr small{margin-left:auto;font:500 11px/1.2 var(--mono,'JetBrains Mono',monospace);letter-spacing:.12em;text-transform:uppercase;color:#B8AEC0}
+#leo .pvg .trk{position:relative;height:14px;border-radius:999px;background:rgba(243,236,223,.12);overflow:hidden}
+#leo .pvg .trk i{position:absolute;top:0;bottom:0}
+#leo .pvg .trk .n{left:0;width:var(--now);background:#8F8697;border-radius:999px 0 0 999px}
+#leo .pvg .trk .g{left:var(--now);width:calc(var(--could) - var(--now));background:repeating-linear-gradient(-45deg,#FA1896 0 7px,#FF6CBC 7px 13px);border-radius:0 999px 999px 0}
+#leo .pvg .tks{display:flex;justify-content:space-between;margin-top:8px;font:500 11px/1 var(--mono,'JetBrains Mono',monospace);color:#B8AEC0}
+#leo .chp:not(.in) .pvg .trk .g,#leo .reveal:not(.in) .pvg .trk .g{transform:scaleX(0)}
+#leo .pvg .trk .g{transform-origin:left center;transition:transform 1s cubic-bezier(.2,.7,.2,1) .4s}
+#leo .lad{list-style:none;margin:0;padding:14px 0 0;border-top:1px solid rgba(243,236,223,.14);display:grid;gap:12px}
+#leo .lad li{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"l v" "b b";align-items:baseline;row-gap:7px;font-size:14px;color:#CFC6D6}
+#leo .lad li span{grid-area:l}
+#leo .lad li b{grid-area:v;font:700 13px/1 var(--mono,'JetBrains Mono',monospace);color:#F3ECDF;white-space:nowrap}
+#leo .lad li i{grid-area:b;display:block;height:12px;border-radius:999px;background:rgba(243,236,223,.12);position:relative;overflow:hidden}
+#leo .lad li i::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--w);border-radius:999px;background:#8F8697;transform-origin:left center;transition:transform 1s cubic-bezier(.2,.7,.2,1) .4s}
+#leo .lad li.on i::after{background:linear-gradient(90deg,#429AD4,#7CC3F2)}
+#leo .reveal:not(.in) .lad li i::after{transform:scaleX(0)}
+#leo .lad li.on span,#leo .lad li.on b{color:#F8F2E7;font-weight:700}
+/* Return: the receipt fills its well and its total sits on the bottom line, as on a receipt */
+#leo .k-return .chv{display:flex;flex-direction:column}
+#leo .k-return .chv>.bls{flex:1 1 auto;display:flex;flex-direction:column}
+#leo .k-return .bls li.t{margin-top:auto}
+/* the total is the receipt's footer: a dashed tear, a purple band, the dollars large */
+#leo .k-return .chv>.bls{overflow:hidden}
+#leo .k-return .bls li.t{margin:auto -16px -6px;padding:16px 16px 18px;align-items:baseline;background:#EEE6FB;border-top:1.5px dashed rgba(113,73,201,.45)}
+#leo .k-return .bls li:nth-last-child(2){border-bottom:0}
+@media (min-width:900px){#leo .k-return .bls li:not(.t){padding:13px 0;font-size:15px}#leo .k-return .bls li.t{padding:20px 16px 22px}}
+#leo .k-return .bls li.t span{font:600 11.5px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#5B3BA8}
+#leo .k-return .bls li.t b{font-size:clamp(30px,3vw,38px);line-height:1}
+/* Burn: the trip as a photo card that fills its well, the plan over the picture */
+#leo .k-burn .chv{display:flex;flex-direction:column}
+#leo .k-burn .chv>.bgo{position:relative;flex:1 1 auto;display:block;min-height:230px;padding:0;border-radius:18px;overflow:hidden;background:#141216!important;box-shadow:0 22px 44px -28px rgba(20,18,22,.7)}
+#leo .k-burn .bgo .im{position:absolute;inset:0;height:auto;border-radius:0;background-size:cover;background-position:center 40%}
+#leo .k-burn .bgo .im::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,22,0) 30%,rgba(20,18,22,.88) 100%)}
+#leo .k-burn .bgo>div:last-child{position:absolute;left:0;right:0;bottom:0;padding:16px 18px 18px}
+#leo .k-burn .bgo b{display:block;font-family:var(--serif,'DM Serif Display',Georgia,serif);font-weight:400;font-size:28px;line-height:1.05;color:#F8F2E7}
+#leo .k-burn .bgo small{display:block;margin-top:6px;font:500 12px/1.3 var(--mono,'JetBrains Mono',monospace);letter-spacing:.12em;text-transform:uppercase;color:#E9DFD0}
+#leo .k-burn .bgo .tr{margin-top:12px;height:10px;border-radius:999px;background:rgba(243,236,223,.22);overflow:hidden}
+#leo .k-burn .bgo .tr i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#E8590C,#FF8A3D)}
+@media (prefers-reduced-motion:reduce){#leo .pvs i{animation:none}#leo .pvg .trk .g{transition:none;transform:none!important}}
+@media (max-width:380px){#leo .pvl b{font-size:30px}}

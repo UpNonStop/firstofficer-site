@@ -250,7 +250,9 @@ body .fo .mast-foot .pk{color:#D4107A}
 .btn.wa,.btn.wa:hover,.btn.wa:focus-visible,.ctab .btn.cr,.pill.green,.fo .cta a[href*="wa.me"]{color:#0B2E17!important}
 /* FO-P1-01c (Ohad, 31 Oct): small labels on the original fills, too small for the large-text rule, take ink instead of white:
    Burn pillar badges and chips 5.2:1 on #E8590C and the story's active step pill 5.0:1 on #FA1896. Fills unchanged. */
-.k-burn>.pn>b,.stc>.k-burn,.celnav button.on{color:#141216!important}
+.k-burn>.pn>b,.stc>.k-burn{color:#141216!important}
+/* on a pink fill the words are white (Ohad, 2 Nov: "the black font in the pink bubbles should be white text when the bubble becomes pink behind it") */
+html body .celnav button.on{color:#fff!important}
 /* ==== end FO-P1-01 ==== */
 
 /* Re-audit extra: anchor jumps do not glide when the visitor asks for reduced motion (rec31.css and fo.css set html{scroll-behavior:smooth}) */
@@ -444,3 +446,11 @@ html body :is(.fo .cta a,.pill.pink,.pill.green){padding-left:24px!important;pad
   main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child)>.h2{flex:3 1 0;margin-bottom:0}
   main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child)>.lede{flex:1 0 380px;max-width:520px;margin:22px 0 0;padding-bottom:.35em}
 }
+
+/* Nov 2 · the 🧮 and ⚡ in the buttons. A tighter emoji gap everywhere (not in the dock, which sets its own),
+   and on desktop the three-button rows get 18px sides and an 8px gap so they keep one row */
+.btn>span[aria-hidden="true"]:first-child{margin-right:-3px}
+.hdock .btn>span[aria-hidden="true"]:first-child{margin-right:0}
+@media (min-width:761px){.mctas.trio{column-gap:8px}.mctas.trio .btn{padding-left:18px;padding-right:18px}}
+/* a button label that has to wrap breaks into even lines, never a one-word orphan (the longhand, so nowrap buttons stay nowrap) */
+.btn,.nxb{text-wrap-style:balance}

@@ -163,17 +163,6 @@ html.fo-still .abp .abt *,html.fo-still .abp .abt *::before,html.fo-still .abp .
 .abp .abc-c.own li{color:var(--ink);font-weight:500}
 @media (min-width:900px){.abp .abc{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:44px;align-items:stretch}.abp .abc-c{padding:26px 24px 24px}.abp .abc-c h3{min-height:2.16em}}
 
-/* ---------- the note: three facts under it ---------- */
-.abp .abf{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:720px;margin:26px auto 0;background:#fff;border-radius:18px;box-shadow:0 0 0 1px rgba(20,18,22,.08),0 16px 32px -24px rgba(20,18,22,.38)}
-.abp .abf>div{padding:15px 16px 16px;min-width:0}
-.abp .abf>div+div{border-left:1px solid var(--line)}
-.abp .abf>div:nth-child(3){grid-column:1/-1;border-left:0;border-top:1px solid var(--line)}
-.abp .abf dt{font:600 11px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
-.abp .abf dd{margin:7px 0 0;font:400 24px/1.08 var(--serif);color:var(--ink)}
-@media (min-width:640px){.abp .abf dd{font-size:27px}}
-.abp .abf dd.tx{font:600 16px/1.4 var(--sans)}
-@media (min-width:640px){.abp .abf{grid-template-columns:1fr 1fr 1.35fr}.abp .abf>div:nth-child(3){grid-column:auto;border-left:1px solid var(--line);border-top:0}}
-
 /* ---------- 03 · the rules, six compact cards ---------- */
 .abp .abr-hd .lede{max-width:640px}
 .abp .abr-l{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
@@ -253,8 +242,8 @@ html.fo-still .abp .abt *,html.fo-still .abp .abt *::before,html.fo-still .abp .
    Wells inside a box go one step deeper again, so the layers read without any white. */
 .abp{--bx:#F3ECDF;--bx-line:rgba(110,80,40,.15);--bx-well:#EAE0CE;--bx-chip:#F8F2E7;--line:#E2D7C4;
   --card:0 0 0 1px var(--bx-line),0 22px 44px -32px rgba(80,55,20,.4)}
-.abp .abx,.abp .abt-card,.abp .abc-c,.abp .abf,.abp .abr-l>li,.abp .abl-c{background:var(--bx)}
-.abp .abs.band .abt-card,.abp .abf,.abp .abr-l>li{box-shadow:var(--card)}
+.abp .abx,.abp .abt-card,.abp .abc-c,.abp .abr-l>li,.abp .abl-c{background:var(--bx)}
+.abp .abs.band .abt-card,.abp .abr-l>li{box-shadow:var(--card)}
 .abp .abc-c.own{background:var(--bx)}
 .abp .sig-bars,.abp .abk-m,.abp .msg .bub-fo,.abp .abr-p{background:var(--bx-well);box-shadow:none}
 .abp .sbr u{background:rgba(110,80,40,.12)}
@@ -269,3 +258,7 @@ html.fo-still .abp .abt *,html.fo-still .abp .abt *::before,html.fo-still .abp .
 .abp .abl-l li::before{background:var(--bx-well)}
 .abp .ncard{background-color:#FBF4E6}
 .abp .nxt{background:var(--bx);box-shadow:var(--card)}
+
+/* the note's two buttons (Nov 2): room for the 🧮 on desktop, one line each on phones */
+.abp .ncv{max-width:520px}
+@media (max-width:560px){.abp .ncv{grid-template-columns:minmax(0,1fr);max-width:400px}}

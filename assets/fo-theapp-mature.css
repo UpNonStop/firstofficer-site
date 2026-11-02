@@ -37,18 +37,21 @@
 
 /* ---- 01 the four pillars: four cards, each a phone on its pillar's tint, cropped at the fold ---- */
 .tapp .ta-rail{margin-top:24px}
-.ta-pc{display:grid;grid-template-rows:auto 1fr;background:var(--tbx);border-radius:24px;overflow:hidden;box-shadow:var(--tcard)}
+.ta-pc{height:100%;display:grid;grid-template-rows:auto 1fr;background:var(--tbx);border-radius:24px;overflow:hidden;box-shadow:var(--tcard)}
 .ta-pv{height:330px;overflow:hidden;padding:24px 26px 0;background:var(--tbx);background:linear-gradient(180deg,color-mix(in srgb,var(--c) 15%,var(--tbx)) 0%,var(--tbx) 100%);position:relative}
 .ta-pv::after{content:"";position:absolute;left:0;right:0;bottom:0;height:36px;background:linear-gradient(180deg,rgba(243,236,223,0),var(--tbx))}
 .ta-pv .ta-ph{max-width:236px}
-.ta-pb{display:grid;gap:10px;align-content:start;padding:18px 22px 22px}
+.ta-pb{display:flex;flex-direction:column;gap:10px;padding:18px 22px 22px}
 .ta-pk{display:flex;align-items:center;gap:9px;font:600 11.5px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--c)}
 .ta-pk::before{content:"";flex:none;width:18px;height:3px;border-radius:2px;background:var(--c)}
 .ta-pc h3{font-family:var(--serif);font-weight:400;font-size:27px;line-height:1.08;letter-spacing:-.01em;color:var(--ink);margin:0}
 .ta-pc p{font-size:16px;line-height:1.55;color:var(--body);margin:0}
-.ta-pf{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-top:4px;padding-top:12px;border-top:1px solid var(--tbx-div)}
+/* the figure sits on the card's bottom edge in all four cards (Ohad, 2 Nov: "all should align to the bottom of their respective cards"),
+   its label beside it and bottom-aligned, so the four figures share one line whatever the text above them runs to */
+.tapp .ta-rail>.rc{display:flex}.tapp .ta-rail>.rc>.ta-pc{flex:1 1 auto}
+.ta-pf{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:end;column-gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--tbx-div)}
 .ta-pf b{font:800 28px/1 var(--sans);letter-spacing:-.02em;color:var(--c);font-variant-numeric:tabular-nums}
-.ta-pf span{font-size:14.5px;color:var(--body)}
+.ta-pf span{font-size:14.5px;line-height:1.3;color:var(--body);padding-bottom:1px}
 .ta-fine{font-size:13px;line-height:1.5;color:var(--mute);font-style:italic;text-align:center;margin:18px auto 0;max-width:680px}
 
 /* ---- 02 behind the thread: the Desk tab with four numbered callouts, two on each side on wide screens ---- */
@@ -57,13 +60,13 @@
 .ta-sll{grid-area:l}.ta-slr{grid-area:r}
 .ta-sgv figcaption{font-size:14px;color:var(--body);text-align:center}
 .ta-phl{max-width:300px}
-.ta-mk{position:absolute;right:-12px;width:30px;height:30px;margin-top:-15px;border-radius:9px;background:#FA1896;color:#141216;font:800 14px/30px var(--sans);text-align:center;box-shadow:0 0 0 3px #FAF6EE,0 8px 16px -8px rgba(250,24,150,.7);z-index:2}
+.ta-mk{position:absolute;right:-12px;width:30px;height:30px;margin-top:-15px;border-radius:9px;background:#FA1896;color:#fff;font:800 14px/30px var(--sans);text-align:center;box-shadow:0 0 0 3px #FAF6EE,0 8px 16px -8px rgba(250,24,150,.7);z-index:2}
 .ta-mk::before{content:"";position:absolute;right:100%;top:50%;width:26px;height:2px;margin-top:-1px;background:#FA1896}
 .ta-mk.l{right:auto;left:-12px}
 .ta-mk.l::before{right:auto;left:100%}
 .ta-sl{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .ta-sl li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;align-items:start;background:var(--tbx);border-radius:20px;padding:16px 16px 16px 14px;box-shadow:var(--tcard)}
-.ta-sl li>b{width:32px;height:32px;border-radius:10px;background:#FA1896;color:#141216;font:800 15px/32px var(--sans);text-align:center}
+.ta-sl li>b{width:32px;height:32px;border-radius:10px;background:#FA1896;color:#fff;font:800 15px/32px var(--sans);text-align:center}
 .ta-sl h3{font:800 18px/1.25 var(--sans);color:var(--ink);margin:3px 0 4px}
 .ta-sl p{font-size:16px;line-height:1.55;color:var(--body);margin:0}
 
@@ -75,6 +78,14 @@
 .ta-oc h3{font:800 23px/1.15 var(--sans);color:var(--ink);margin:0}
 .ta-chip{font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:7px 10px;border-radius:7px;background:var(--tbx-chip);box-shadow:inset 0 0 0 1px var(--tbx-line);color:#4A4550;white-space:nowrap}
 .ta-oc.on .ta-chip{background:#E5F8EC;box-shadow:none;color:#0E6B42}
+/* "Coming soon" is a pink message bubble with white words (Ohad, 2 Nov) */
+.ta-oc:not(.on) .ta-chip{background:#FA1896;box-shadow:none;color:#fff;border-radius:999px 999px 4px 999px;padding:7px 11px}
+/* Texting opens a text to the desk, in iMessage blue (Ohad, 2 Nov: "should also link to jumpstart a text message") */
+.btn.im{background:#0A84FF;color:#fff;box-shadow:0 10px 24px -10px rgba(10,132,255,.6),inset 0 -2px 0 rgba(0,0,0,.12)}
+.btn.im:hover,.btn.im:focus-visible{background:#0071E3;color:#fff}
+.ta-oc .btn.im{justify-self:stretch;justify-content:center}
+/* Phones: the channel buttons keep the 19px site size; tighter sides fit one line from 414px, and a wrap reads as two even lines */
+@media (max-width:480px){.ta-oc{padding:20px}.ta-oc .btn{padding-left:12px;padding-right:12px;text-wrap-style:balance;text-align:center}.ta-oc .btn.im{gap:5px}}
 .ta-ov{border-radius:18px;padding:14px;display:grid;gap:8px;align-content:start;min-height:122px}
 /* the threads sit on the box itself, framed by a hairline, so the desk's bubble can be the well colour */
 .ta-wa,.ta-tx{background:transparent;box-shadow:inset 0 0 0 1px var(--tbx-div)}
