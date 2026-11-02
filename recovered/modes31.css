@@ -197,7 +197,7 @@
 /* ---------- hero win cards: white, no dark blocks ---------- */
 .ww{background:#fff;color:var(--ink);box-shadow:0 0 0 1px rgba(20,18,22,.08),0 18px 36px -24px rgba(20,18,22,.35)}
 .ww .wk,.ww .wlab{color:var(--body)}
-.wnum span{color:#8A8492}.wnum b{color:var(--pink)}
+.wnum span{color:#6A6472}.wnum b{color:var(--pink)}
 .wbars div{color:var(--body)}.wbars u{background:#ECEAEE}.wbars u i{background:#8A8492}.wbars u i.wg{background:var(--pink)}
 .wtrip{border-top-color:#ECEAEE}.wtrip small,.wtrip em{color:var(--body)}
 .wl li b{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px rgba(20,18,22,.22)}
