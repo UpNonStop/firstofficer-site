@@ -439,8 +439,15 @@ html body :is(.fo .cta a,.pill.pink,.pill.green){padding-left:24px!important;pad
    lines level, the way Pricing's "Four jobs" opens. A heading whose pink line cannot fold (the brush lines never wrap) and leaves the lede
    less than 380px keeps the lede under it instead, so nothing ever overlaps. Phones and tablets stay stacked. */
 @media (min-width:1024px){
-  main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child){display:flex;flex-wrap:wrap;align-items:flex-end;column-gap:56px;row-gap:0}
+  main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child){display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;column-gap:56px;row-gap:0}
   main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child)>.kick{flex:0 0 100%}
-  main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child)>.h2{flex:3 1 0;margin-bottom:0}
+  main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child)>.h2{flex:0 1 auto;max-width:100%;margin-bottom:0}
   main section :is(.reveal,.cbhead):has(>.kick:first-child + .h2 + .lede:last-child)>.lede{flex:1 0 380px;max-width:520px;margin:22px 0 0;padding-bottom:.35em}
 }
+
+/* Headlines break where we break them (Ohad, 2 Nov: "why some headlines ... have a BR like this"). A headline is an ink line and a pink line,
+   split by one <br>. On desktop each line now holds as one line: the heading takes its natural width (flex-basis auto above), the lede sits
+   beside it when both fit and under it when they don't, and no heading is capped at 900px any more. Where a line is longer than the column
+   (phones, small laptops), it breaks into balanced lines, never a lone word. */
+main :is(h1,h2,.h2,h3){text-wrap:balance}
+@media (min-width:1024px){main .h2{max-width:100%}}
