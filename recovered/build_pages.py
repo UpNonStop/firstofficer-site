@@ -133,7 +133,7 @@ def product():
         ('return','Leak 03 · Return','Value quietly runs out.','Credits reset, certificates lapse and balances can expire. None of it announces itself.','The desk watches the clocks and flags each one in time.')]
     body+=sec('Where the money hides','Three leaks. <span class="brush">Three fixes.</span>',dm('Most businesses lose value in the same three places, and none of the fixes ask you to spend differently.','Three places value leaks. None of the fixes change what you buy.'),
         rail([f'<div class="pc4 k-{k}"><div class="pn"><b>{a}</b></div><h3>{t}</h3><p>{d}</p><p class="chm"><b>✓</b> The fix: {f[0].lower()+f[1:]}</p></div>' for k,a,t,d,f in LK],3,'Three leaks'),id_='leaks')
-    body+=nxt('03','calculator-modes.html','Leo\'s numbers are fiction. <span class="pk">Yours aren\'t.</span>','Move one slider and see what your spend is really worth, against $550 a month: fits, close call or not a fit.','Run your numbers')
+    body+=nxt('03','calculator-modes.html','Leo\'s numbers are fictional.<br><span class="pk">Yours aren\'t.</span>','Move one slider and see what your spend is really worth, against $550 a month: fits, close call or not a fit.','Run your numbers')
     page('product-modes.html','Product | One desk, four pillars | First Officer','What the desk can do: Earn, Burn, Return, Learn. Fictional examples, illustrative estimates.',body,'Product')
 
 # ---------------- book: the Found Money Call ----------------

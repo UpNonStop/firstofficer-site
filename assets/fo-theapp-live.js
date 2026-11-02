@@ -10,7 +10,7 @@ function greet(){var h=new Date().getHours();return h<5?'Good evening':h<12?'Goo
 function clock(){var d=new Date(),h=d.getHours(),m=d.getMinutes();return (h%12||12)+':'+(m<10?'0':'')+m}
 var Q=['Anything waiting for me?','What did Friday find?','Tokyo in business next spring?'];
 function A(i){return [greet()+', Leo. One move is confirmed. One more waits for approval.',
-  'Friday count: $1,860 found this week, est. Checked against the statements.',
+  'Friday count: $622 found this week, est. Checked against the statements.',
   'On pace for spring 2027: 102,400 of about 320,000 points, est. Nothing is booked before an OK.'][i]}
 function esc(t){return t.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
 

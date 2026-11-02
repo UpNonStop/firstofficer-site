@@ -178,10 +178,22 @@
 /* pink type on beige */
 .calc .xnote a,.calc .cq .xpin a,.calc .xmini a,.calc .cq .wfine a,.calc .cv a,.calc .bverd a,.calc .xtr .d{color:#B80F6E}
 
-/* at 320 the 19px "Go advanced" pill ran past the Basic card's edge: the card head wraps instead */
-@media (max-width:360px){.calc .cq .cqh{flex-wrap:wrap;row-gap:10px}}
+/* the 19px "Go advanced" pill ran past the Basic card's edge on phones (320, and 375 to 430 too: at 390 it stuck out 17px past the
+   card): the card head wraps whenever the two don't fit, so the pill drops under "Does it clear the fee?" on every phone and sits
+   beside it wherever there is room */
+.calc .cq .cqh{flex-wrap:wrap;row-gap:10px}
 
 /* 44px controls at every width, tablets included (phones already had them): Watch it run, the "Your cards today" and "Valued at" choices,
    the group actions and the two jump links */
 #brun,#cmix button,#cuse button,.xact button{min-height:44px}
 .xlinks .chowl{display:inline-flex;align-items:center;min-height:44px}
+
+/* Basic says plainly what it is (Ohad, 31 Oct: keep Basic, label the gap): one blended rate with no yearly caps,
+   so Go advanced usually comes out lower. Readable, not fine print. */
+.wfine.bgap{display:block;font-size:14px;line-height:1.5;color:var(--body,#4A4550);opacity:1}
+.wfine.bgap a{color:var(--ink,#141216);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+/* the fees tile closes the stack as one full-width row, so the five cards and Past every cap fill whole rows (Venture Business is the fifth card) */
+.xc.xfees{grid-column:1/-1}
+/* a long card name (Capital One Venture Business) pushes its fee to the next line instead of squeezing it into two */
+.xc .xch{flex-wrap:wrap;row-gap:2px}
+.xc .xch small{white-space:nowrap}

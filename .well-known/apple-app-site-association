@@ -5,11 +5,26 @@
         "appIDs": ["G85N2K8XNH.com.upnonstop.firstofficer"],
         "components": [
           {
+            "/": "/link",
+            "comment": "Email links to sign in or confirm an email change: /link?c=<challenge>&t=<token>. The app's link screen reads them."
+          },
+          {
+            "/": "/invite",
+            "comment": "Team invitations: /invite?token=<token>. The app's invite screen reads them."
+          },
+          {
+            "/": "/plaid-oauth",
+            "comment": "Where a bank sends someone back after signing in at the bank (Plaid OAuth on iOS)."
+          },
+          {
             "/": "/app.html",
             "comment": "The owner app. The token rides in the query, and a components entry with no ? clause matches the path whatever the query carries, so both ?t= and ?k= open the app."
           }
         ]
       }
     ]
+  },
+  "webcredentials": {
+    "apps": ["G85N2K8XNH.com.upnonstop.firstofficer"]
   }
 }
