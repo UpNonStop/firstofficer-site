@@ -141,7 +141,7 @@ def page():
     h+='<body class="modes calc">\n'+B.nav('Calculator').replace('home-recovered.html','home-modes.html')+B.ticker()+'<main>\n'+hero()+advanced()+how()+LK.nxt('04','pricing-modes.html','Your number cleared, or came close? <span class="pk">Here\'s what the desk costs.</span>','One flat $550 a month, the same for every business. Fits, close call or not a fit, you see which before you sign up.','See the pricing')+'</main>\n'
     h+=B.footer().replace('home-recovered.html','home-modes.html').replace('Leo and Linden Row Insurance are fictional. All figures are examples and estimates.','Every industry mix shown is a typical example. All figures are examples and estimates.')
     h+='<script>window.FO_A="'+B.ASSET+'";</script>\n<script src="recovered/rec.js"></script>\n<script src="recovered/fo-modes-data.js"></script>\n<script src="recovered/fo-calc-basis.js"></script>\n<script src="recovered/calc.js"></script>\n</body>\n</html>\n'
-    h=h.replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')
+    h=h.replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Same spend, more points, and better trips for fewer points.')
     h=re.sub(r'<div class="mcta">.*?</a></div>\n?','',h,flags=re.S)
     # nav exactly as the landing: pink Get your desk + green Message your First Officer (bar and menu sheet)
     h=h.replace('<a class="btn pk" href="'+WA+'">💬 Message your First Officer</a>\n<button class="burger"','<span class="nbtns"><a class="btn pk" href="book.html">Get your desk</a><a class="btn wa" href="'+WA+'">💬 Message your First Officer</a></span>\n<button class="burger"',1)

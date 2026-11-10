@@ -74,11 +74,11 @@ DR='''<div class="dr" id="daily-redemption"><div class="drt"><span class="kick">
 def footer():
     return f'''<footer class="foot"><div class="wrap">
 {DR}<div class="cols">
-<div><a class="brand" href="home-recovered.html"><img src="img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><p class="tl">Your rewards desk. One conversation, every program.</p></div>
+<div><a class="brand" href="home-recovered.html"><img src="img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><p class="tl">Same spend, more points, and better trips for fewer points.</p></div>
 <div><h6>Site</h6><a href="product-recovered.html">Product</a><a href="pricing.html">Pricing</a><a href="freebies.html">Freebies</a><a href="calculator.html">Calculator</a><a href="about.html">About</a></div>
 <div><h6>More</h6><a href="trust.html">Trust</a><a href="industries.html">Industries</a><a href="{WA}">Message your First Officer</a></div>
 </div>
-<div class="bar"><span class="addr"><span>UpNonStop | 235 Pavonia Avenue | Jersey City, NJ 07302 | Proudly Made in 🇺🇸</span></span><span class="fine">Leo and Linden Row Insurance are fictional. All figures are examples and estimates.</span></div>
+<div class="bar"><span class="addr"><span>Proudly Made in 🇺🇸 | UpNonStop LLC | 235 Pavonia Avenue | Jersey City, NJ 07302</span></span><span class="fine">Leo and Linden Row Insurance are fictional. All figures are examples and estimates.</span></div>
 </div></footer>
 <div class="mcta"><div><small>Flat monthly</small><b>$550 a month</b></div><a class="btn pk" href="book.html">Get your desk</a></div>
 '''
