@@ -12,10 +12,10 @@ DISC='Every owner shown is a fictional example. Illustrative, est. Not tax, lega
 CSSL='<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap">\n<link rel="stylesheet" href="recovered/rec.css">\n<link rel="stylesheet" href="recovered/modes.css">\n<link rel="stylesheet" href="recovered/modes-pages.css">'
 
 def chrome(on=''):
-    """-modes top bar (pink Get your desk + green Text Your First Officer), ticker, approved footer. No bottom bars."""
+    """-modes top bar (pink Get your desk + green Message your First Officer), ticker, approved footer. No bottom bars."""
     nav=B.nav(on)
-    nav=nav.replace('<a class="btn pk" href="'+WA+'">💬 Text Your First Officer</a>\n<button class="burger"','<span class="nbtns"><a class="btn pk" href="book.html">Get your desk</a><a class="btn wa" href="'+WA+'">💬 Text Your First Officer</a></span>\n<button class="burger"',1)
-    nav=nav.replace('<a class="btn pk" href="'+WA+'">💬 Text Your First Officer</a>\n</div>','<a class="btn pk" href="book.html">Get your desk</a>\n<a class="btn wa" href="'+WA+'">💬 Text Your First Officer</a>\n</div>',1)
+    nav=nav.replace('<a class="btn pk" href="'+WA+'">💬 Message your First Officer</a>\n<button class="burger"','<span class="nbtns"><a class="btn pk" href="book.html">Get your desk</a><a class="btn wa" href="'+WA+'">💬 Message your First Officer</a></span>\n<button class="burger"',1)
+    nav=nav.replace('<a class="btn pk" href="'+WA+'">💬 Message your First Officer</a>\n</div>','<a class="btn pk" href="book.html">Get your desk</a>\n<a class="btn wa" href="'+WA+'">💬 Message your First Officer</a>\n</div>',1)
     assert 'class="nbtns"' in nav
     foot=B.footer().replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')
     foot=foot.replace('Leo and Linden Row Insurance are fictional. All figures are examples and estimates.',DISC)

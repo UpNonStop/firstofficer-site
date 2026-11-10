@@ -98,6 +98,6 @@
   .fg-f{--w:74px}
 }
 
-/* 9 Nov: the green button says "WhatsApp Your First Officer" now, 287px at 19px bold. The lane's button is 328px with 22px either
+/* 9 Nov: the green button says "Message your First Officer" now, 287px at 19px bold. The lane's button is 328px with 22px either
    side, 3px short, so the label broke onto two lines from 481px up. 16px either side holds it on one. */
 .fg-lane .btn.wa,#fg-wa{padding-left:16px;padding-right:16px}
