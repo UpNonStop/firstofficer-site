@@ -341,7 +341,8 @@ html body .celnav button.on{color:#fff!important}
   /* upns */
   .fx-uh .wrap{display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:56px;align-items:center}
   .fx-board{display:block;background:#fff;border-radius:22px;padding:24px 26px 22px;text-decoration:none;color:var(--ink);box-shadow:0 0 0 1px rgba(20,18,22,.08),0 26px 50px -30px rgba(20,18,22,.45);border-top:6px solid #C8106F;transition:transform .3s var(--ease)}
-  .fx-board:hover{transform:translateY(-3px)}
+  a.fx-board:hover{transform:translateY(-3px)}
+  html div.fx-board{background-color:var(--nw-bx,#F3ECDF)!important}
   .fx-bk{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#C8106F}
   .fx-bh{display:block;font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.1;margin:8px 0 14px}
   .fx-bh .pk{display:block;color:var(--pink)}

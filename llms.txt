@@ -13,47 +13,41 @@ Plain facts, as stated on the site:
 
 ## Pages
 
-- [Product · One desk, four pillars](https://firstofficer.upnonstop.com/product.html): What the desk can do: Earn, Burn, Return, Learn. Fictional examples, illustrative estimates.
-- [Pricing · $550 a month, flat](https://firstofficer.upnonstop.com/pricing.html): $550 a month, flat, for every business, month to month. What the desk covers, what it looked like at Leo's desk, est., and what is not on the bill.
-- [Enterprise · One desk for every team](https://firstofficer.upnonstop.com/enterprise.html): For companies with many cardholders, several departments or several entities: one desk across every card, read-only, one number in dollars every Friday, priced for your setup. Talk to our team.
-- [Calculator · What is your spend worth?](https://firstofficer.upnonstop.com/calculator.html): One slider for your monthly business card spend, and what the desk could find against $550 a month, est. Go advanced to set your trade and spend line by line.
-- [Trust | What we see, what we never touch](https://firstofficer.upnonstop.com/trust.html): Read-only connections, your approval first, no affiliate money and what we do not claim.
-- [About · Why a desk, not another hack](https://firstofficer.upnonstop.com/about.html): Why First Officer exists, the rules we work by and the four pillars: Earn, Burn, Return, Learn.
-- [Book the Found Money Call](https://firstofficer.upnonstop.com/book.html): Twenty minutes, free. See what your business card spend missed, against $550 a month.
-- [Found Money for Business Owners, On the House](https://firstofficer.upnonstop.com/freebies.html): Everything I'd tell you over coffee: the codes, the questions and the notes we keep for each trade. Free to read. Leave your email for the new ones.
-- [Industries · 20 trades, one desk](https://firstofficer.upnonstop.com/industries.html): Your trade, your codes: 20 industries, each with an example monthly mix, the codes your vendors usually run under, and a calculator preset.
-- [Field Notes | How the rewards game works](https://firstofficer.upnonstop.com/field-notes.html): Eight short notes on what a point is worth, cash back, timing, expiry and who card advice serves. Illustrative estimates.
-- [The Intelligence Report](https://firstofficer.upnonstop.com/upns.html): The Intelligence Report, every Saturday: transfer bonuses worth acting on, quiet repricings and one save from a wallet like yours. Three issues to read in full.
-- [The App](https://firstofficer.upnonstop.com/the-app.html): The First Officer app, coming soon: the four pillars at a glance, your thread with the desk and the Friday count in dollars. Today the desk lives in WhatsApp.
-
-## The Intelligence Report, archive issues
-
-- [UPNS-062 · The Intelligence Report](https://firstofficer.upnonstop.com/upns-062.html): Archive issue, July 11, 2026. The Intelligence Report 062: 5 bonus windows in this issue. 2 of them end Tuesday, July 14, at 11:59 PM ET.
-- [UPNS-063 · The Intelligence Report](https://firstofficer.upnonstop.com/upns-063.html): Archive issue, July 18, 2026. The Intelligence Report 063: Example: a 100% transfer bonus. The richest windows close fast.
-- [UPNS-064 · The Intelligence Report](https://firstofficer.upnonstop.com/upns-064.html): Archive issue, July 25, 2026. The Intelligence Report 064: The year’s biggest option ends Thursday, July 30, at 11:59 PM ET. Most of you should walk past it.
+- [The Rewards Desk: Earn, Burn, Return, Learn](https://firstofficer.upnonstop.com/product.html): What the desk can do: Earn, Burn, Return, Learn. Fictional examples, illustrative estimates.
+- [Rewards Desk Pricing: $550 a Month, Flat](https://firstofficer.upnonstop.com/pricing.html): $550 a month, flat, for every business, month to month. What the desk covers, what it looked like at Leo's desk, est., and what is not on the bill.
+- [Enterprise Rewards Desk: Every Team, Every Card](https://firstofficer.upnonstop.com/enterprise.html): For companies with many cardholders, several departments or several entities: one desk across every card, read-only, one number in dollars every Friday, priced for your setup. Talk to our team.
+- [Found Money Calculator for Business Card Spend](https://firstofficer.upnonstop.com/calculator.html): One slider for your monthly business card spend, and what the desk could find against $550 a month, est. Go advanced to set your trade and spend line by line.
+- [Read-Only Access: What We See and Never Touch](https://firstofficer.upnonstop.com/trust.html): Read-only connections, your approval first, no affiliate money and what we do not claim.
+- [Why First Officer: A Rewards Desk on Your Side](https://firstofficer.upnonstop.com/about.html): Why First Officer exists, the rules we work by and the four pillars: Earn, Burn, Return, Learn.
+- [Free Found Money Call: 20-Minute Rewards Review](https://firstofficer.upnonstop.com/book.html): Twenty minutes, free. See what your business card spend missed, against $550 a month.
+- [Free Card Rewards Guides for Business Owners](https://firstofficer.upnonstop.com/freebies.html): Everything I'd tell you over coffee: the codes, the questions and the notes we keep for each trade. Free to read. Leave your email for the new ones.
+- [Business Card Rewards by Industry](https://firstofficer.upnonstop.com/industries.html): Your trade, your codes: 20 industries, each with an example monthly mix, the codes your vendors usually run under, and a calculator preset.
+- [How the Rewards Game Works: Eight Field Notes](https://firstofficer.upnonstop.com/field-notes.html): Eight short notes on what a point is worth, cash back, timing, expiry and who card advice serves. Illustrative estimates.
+- [The Intelligence Report: Weekly Rewards Briefing](https://firstofficer.upnonstop.com/upns.html): The Intelligence Report, every Saturday: transfer bonuses worth acting on, quiet repricings and one save from a wallet like yours.
+- [Your Rewards Desk on WhatsApp, App Coming Soon](https://firstofficer.upnonstop.com/the-app.html): The First Officer app, coming soon: the four pillars at a glance, your thread with the desk and the Friday count in dollars. Today the desk lives in WhatsApp.
 
 ## Industries
 
-- [Points for Marketing Agencies](https://firstofficer.upnonstop.com/for-agencies.html): Where agencies spend hides money: client ad spend, software, contractors. A fictional example owner, illustrative estimates.
-- [Points for Auto Repair Shops](https://firstofficer.upnonstop.com/for-auto-repair.html): Where auto repair spend hides money: parts, tools, towing. A fictional example owner, illustrative estimates.
-- [Points for Cleaning Companies](https://firstofficer.upnonstop.com/for-cleaning.html): Where cleaning spend hides money: supplies, laundry, vehicles. A fictional example owner, illustrative estimates.
-- [Points for Consulting Firms](https://firstofficer.upnonstop.com/for-consulting.html): Where consulting spend hides money: client travel, software, research. A fictional example owner, illustrative estimates.
-- [Points for Contractors](https://firstofficer.upnonstop.com/for-contractors.html): Where contractors spend hides money: materials, rentals, job-site hotels. A fictional example owner, illustrative estimates.
-- [Points for CPA and Accounting Firms](https://firstofficer.upnonstop.com/for-cpa-firms.html): Where cpa firms spend hides money: software, research, filing fees. A fictional example owner, illustrative estimates.
-- [Points for Dental Practices](https://firstofficer.upnonstop.com/for-dental.html): Where dental spend hides money: supplies, labs, patient ads. A fictional example owner, illustrative estimates.
-- [Points for E-Commerce Sellers](https://firstofficer.upnonstop.com/for-ecommerce.html): Where e-commerce spend hides money: ads, shipping, packaging. A fictional example owner, illustrative estimates.
-- [Points for Gyms and Fitness Studios](https://firstofficer.upnonstop.com/for-fitness.html): Where fitness spend hides money: equipment, software, ads. A fictional example owner, illustrative estimates.
-- [Points for HVAC Companies](https://firstofficer.upnonstop.com/for-hvac.html): Where HVAC spend hides money: equipment, refrigerant, fuel. A fictional example owner, illustrative estimates.
-- [Points for IT Services Companies](https://firstofficer.upnonstop.com/for-it-services.html): Where IT services spend hides money: hardware, licenses, cloud. A fictional example owner, illustrative estimates.
-- [Points for Landscaping Companies](https://firstofficer.upnonstop.com/for-landscaping.html): Where landscaping spend hides money: plants, fuel, equipment. A fictional example owner, illustrative estimates.
-- [Points for Law Firms](https://firstofficer.upnonstop.com/for-law-firms.html): Where law firms spend hides money: research, filing fees, travel. A fictional example owner, illustrative estimates.
-- [Points for Medical Practices](https://firstofficer.upnonstop.com/for-medical.html): Where medical spend hides money: supplies, labs, software. A fictional example owner, illustrative estimates.
-- [Points for Property Managers](https://firstofficer.upnonstop.com/for-property-management.html): Where property management spend hides money: repairs, utilities, software. A fictional example owner, illustrative estimates.
-- [Points for Real Estate Agents](https://firstofficer.upnonstop.com/for-real-estate.html): Where real estate spend hides money: listing ads, signage, travel. A fictional example owner, illustrative estimates.
-- [Points for Restaurants](https://firstofficer.upnonstop.com/for-restaurants.html): Where restaurants spend hides money: food suppliers, delivery apps, utilities. A fictional example owner, illustrative estimates.
-- [Points for Salons and Beauty Studios](https://firstofficer.upnonstop.com/for-salons.html): Where salons spend hides money: product, booking software, ads. A fictional example owner, illustrative estimates.
-- [Points for Trucking and Logistics](https://firstofficer.upnonstop.com/for-trucking.html): Where trucking spend hides money: fuel, tires, tolls. A fictional example owner, illustrative estimates.
-- [Points for Veterinary Practices](https://firstofficer.upnonstop.com/for-veterinary.html): Where veterinary spend hides money: pharmacy, labs, supplies. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Marketing Agencies](https://firstofficer.upnonstop.com/for-agencies.html): Where agencies spend hides money: client ad spend, software, contractors. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Auto Repair Shops](https://firstofficer.upnonstop.com/for-auto-repair.html): Where auto repair spend hides money: parts, tools, towing. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Cleaning Companies](https://firstofficer.upnonstop.com/for-cleaning.html): Where cleaning spend hides money: supplies, laundry, vehicles. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Consulting Firms](https://firstofficer.upnonstop.com/for-consulting.html): Where consulting spend hides money: client travel, software, research. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Contractors](https://firstofficer.upnonstop.com/for-contractors.html): Where contractors spend hides money: materials, rentals, job-site hotels. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for CPA and Accounting Firms](https://firstofficer.upnonstop.com/for-cpa-firms.html): Where cpa firms spend hides money: software, research, filing fees. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Dental Practices](https://firstofficer.upnonstop.com/for-dental.html): Where dental spend hides money: supplies, labs, patient ads. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for E-Commerce Sellers](https://firstofficer.upnonstop.com/for-ecommerce.html): Where e-commerce spend hides money: ads, shipping, packaging. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Gyms and Fitness Studios](https://firstofficer.upnonstop.com/for-fitness.html): Where fitness spend hides money: equipment, software, ads. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for HVAC Companies](https://firstofficer.upnonstop.com/for-hvac.html): Where HVAC spend hides money: equipment, refrigerant, fuel. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for IT Services Companies](https://firstofficer.upnonstop.com/for-it-services.html): Where IT services spend hides money: hardware, licenses, cloud. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Landscaping Companies](https://firstofficer.upnonstop.com/for-landscaping.html): Where landscaping spend hides money: plants, fuel, equipment. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Law Firms](https://firstofficer.upnonstop.com/for-law-firms.html): Where law firms spend hides money: research, filing fees, travel. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Medical Practices](https://firstofficer.upnonstop.com/for-medical.html): Where medical spend hides money: supplies, labs, software. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Property Managers](https://firstofficer.upnonstop.com/for-property-management.html): Where property management spend hides money: repairs, utilities, software. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Real Estate Agents](https://firstofficer.upnonstop.com/for-real-estate.html): Where real estate spend hides money: listing ads, signage, travel. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Restaurants](https://firstofficer.upnonstop.com/for-restaurants.html): Where restaurants spend hides money: food suppliers, delivery apps, utilities. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Salons and Beauty Studios](https://firstofficer.upnonstop.com/for-salons.html): Where salons spend hides money: product, booking software, ads. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Trucking and Logistics](https://firstofficer.upnonstop.com/for-trucking.html): Where trucking spend hides money: fuel, tires, tolls. A fictional example owner, illustrative estimates.
+- [Credit Card Rewards for Veterinary Practices](https://firstofficer.upnonstop.com/for-veterinary.html): Where veterinary spend hides money: pharmacy, labs, supplies. A fictional example owner, illustrative estimates.
 
 ## Legal
 
