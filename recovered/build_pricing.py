@@ -73,7 +73,7 @@ def faq():
 </div>
 </div></section>
 <section class="sec tight"><div class="wrap">
-<div class="pcta"><div class="pctx"><b>Get your desk.</b><span>$550 a month, flat. The desk books only after you approve.</span></div><div class="pbtn"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='"""+WA+"""'>💬 Text Your First Officer</a></div></div>
+<div class="pcta"><div class="pctx"><b>Get your desk.</b><span>$550 a month, flat. The desk books only after you approve.</span></div><div class="pbtn"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='"""+WA+"""'>💬 Message your First Officer</a></div></div>
 </div></section>
 """
 

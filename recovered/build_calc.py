@@ -35,7 +35,7 @@ def card(adv='#advs',fine=None):
 """+bal('bbal')+"""
 <p class="bverd"><b class="bvk" aria-hidden="true">✓</b><span><strong id="bvt">Clears the fee.</strong> <span id="bvp"></span></span></p>
 <div class="bact"><button type="button" class="brun" id="brun" aria-pressed="false"><i></i><span>Watch it run</span></button><small>$10K to $80K. Touch anything to stop.</small></div>
-<div class="mctas"><a class="btn pk" id="bc1" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='"""+WA+"""'>💬 Text Your First Officer</a></div>
+<div class="mctas"><a class="btn pk" id="bc1" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='"""+WA+"""'>💬 Message your First Officer</a></div>
 <p class="wfine">"""+(fine or 'Blended rate, est.: about 1.2 points per $1 on your cards today, about 3.4 with your desk. Your lines can earn more or less. <a href="#advs">Go advanced</a> for every line.')+"""</p>
 </div>"""
 
@@ -98,7 +98,7 @@ def advanced():
 <div class="cv" id="cv"><h3><b class="bvk" aria-hidden="true">✓</b><span id="cvt">Clears the fee.</span></h3><p id="cvp"></p></div>
 <div class="cet" id="cet" role="table" aria-label="Points a month by line"></div>
 <div class="cgate"><div class="csh"><span>Fit gate · ~$25K a month on cards</span><b data-k="gatev">You: $35K</b></div><div class="csc" id="cgt"><i class="fill"></i><i class="fee"></i></div></div>
-<div class="cbtn"><a class="btn pk" id="cc1" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='"""+WA+"""'>💬 Text Your First Officer</a></div>
+<div class="cbtn"><a class="btn pk" id="cc1" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='"""+WA+"""'>💬 Message your First Officer</a></div>
 <a class="chowl" href="#how">How we got this number ↓</a>
 </div></aside>
 </div>
@@ -131,7 +131,7 @@ def how():
 <div class="reveal d2"><b>Friday</b><span>Your scorecard. One number, in dollars.</span></div>
 <div class="reveal d3"><b>Yours</b><span>Every move is your call. The desk books after you approve.</span></div>
 </div>
-<div class="pcta"><div class="pctx"><b>Get your desk.</b><span>$550 a month, flat. The desk books only after you approve.</span></div><div class="pbtn"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='"""+WA+"""'>💬 Text Your First Officer</a></div></div>
+<div class="pcta"><div class="pctx"><b>Get your desk.</b><span>$550 a month, flat. The desk books only after you approve.</span></div><div class="pbtn"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href='"""+WA+"""'>💬 Message your First Officer</a></div></div>
 </div></section>
 """
 
@@ -143,9 +143,9 @@ def page():
     h+='<script>window.FO_A="'+B.ASSET+'";</script>\n<script src="recovered/rec.js"></script>\n<script src="recovered/fo-modes-data.js"></script>\n<script src="recovered/fo-calc-basis.js"></script>\n<script src="recovered/calc.js"></script>\n</body>\n</html>\n'
     h=h.replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')
     h=re.sub(r'<div class="mcta">.*?</a></div>\n?','',h,flags=re.S)
-    # nav exactly as the landing: pink Get your desk + green Text Your First Officer (bar and menu sheet)
-    h=h.replace('<a class="btn pk" href="'+WA+'">💬 Text Your First Officer</a>\n<button class="burger"','<span class="nbtns"><a class="btn pk" href="book.html">Get your desk</a><a class="btn wa" href="'+WA+'">💬 Text Your First Officer</a></span>\n<button class="burger"',1)
-    h=h.replace('<a class="btn pk" href="'+WA+'">💬 Text Your First Officer</a>\n</div>','<a class="btn wa" href="'+WA+'">💬 Text Your First Officer</a>\n</div>',1)
+    # nav exactly as the landing: pink Get your desk + green Message your First Officer (bar and menu sheet)
+    h=h.replace('<a class="btn pk" href="'+WA+'">💬 Message your First Officer</a>\n<button class="burger"','<span class="nbtns"><a class="btn pk" href="book.html">Get your desk</a><a class="btn wa" href="'+WA+'">💬 Message your First Officer</a></span>\n<button class="burger"',1)
+    h=h.replace('<a class="btn pk" href="'+WA+'">💬 Message your First Officer</a>\n</div>','<a class="btn wa" href="'+WA+'">💬 Message your First Officer</a>\n</div>',1)
     assert 'class="nbtns"' in h and 'class="btn pk" href="'+WA not in h
     h=h.replace('href="calculator.html"','href="calculator-modes.html"').replace('href="pricing.html"','href="pricing-modes.html"')
     h=LK.relink(h)

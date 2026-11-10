@@ -32,13 +32,13 @@ def nav(on):
     return f'''<header class="nav"><div class="nin">
 <a class="brand" href="home-recovered.html" aria-label="First Officer home"><img src="img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a>
 <nav class="links" aria-label="Main">{links}</nav>
-<a class="btn pk" href="{WA}">💬 Text Your First Officer</a>
+<a class="btn pk" href="{WA}">💬 Message your First Officer</a>
 <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="foNav(true)"><span></span><span></span></button>
 </div></header>
 <div class="sheet" id="sheet" aria-hidden="true">
 <div class="top"><a class="brand" href="home-recovered.html"><img src="img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><button class="x" aria-label="Close menu" onclick="foNav(false)">×</button></div>
 <nav>{sheet}<div class="sublabel">More</div><a class="sub" href="trust.html">Trust</a><a class="sub" href="industries.html">Industries</a></nav>
-<a class="btn pk" href="{WA}">💬 Text Your First Officer</a>
+<a class="btn pk" href="{WA}">💬 Message your First Officer</a>
 </div>
 '''
 
@@ -76,7 +76,7 @@ def footer():
 {DR}<div class="cols">
 <div><a class="brand" href="home-recovered.html"><img src="img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><p class="tl">Your rewards desk. One conversation, every program.</p></div>
 <div><h6>Site</h6><a href="product-recovered.html">Product</a><a href="pricing.html">Pricing</a><a href="freebies.html">Freebies</a><a href="calculator.html">Calculator</a><a href="about.html">About</a></div>
-<div><h6>More</h6><a href="trust.html">Trust</a><a href="industries.html">Industries</a><a href="{WA}">Text Your First Officer</a></div>
+<div><h6>More</h6><a href="trust.html">Trust</a><a href="industries.html">Industries</a><a href="{WA}">Message your First Officer</a></div>
 </div>
 <div class="bar"><span class="addr"><span>UpNonStop | 235 Pavonia Avenue | Jersey City, NJ 07302 | Proudly Made in 🇺🇸</span></span><span class="fine">Leo and Linden Row Insurance are fictional. All figures are examples and estimates.</span></div>
 </div></footer>
@@ -86,7 +86,7 @@ def footer():
 def cta():
     return f'''<section class="sec tight"><div class="wrap"><div class="ctab reveal">
 <div><h2>Get your desk.</h2><p>$550 a month, flat, for every business whatever the spend. Start with the free 20 minute Found Money Call.</p></div>
-<div class="bt"><a class="btn ink" href="book.html">Book the Found Money Call <span class="ar">→</span></a><a class="btn cr" href="{WA}">💬 Text Your First Officer</a></div>
+<div class="bt"><a class="btn ink" href="book.html">Book the Found Money Call <span class="ar">→</span></a><a class="btn cr" href="{WA}">💬 Message your First Officer</a></div>
 </div></div></section>
 '''
 

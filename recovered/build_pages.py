@@ -29,7 +29,7 @@ def dm(d,m): return '<span class="dk">%s</span><span class="mb">%s</span>'%(d,m)
 THREAD='<span class="thr" aria-hidden="true"><i class="te"></i><i class="tb"></i><i class="tr"></i><i class="tl"></i></span>'
 
 def ctas(pk=('Get your desk','book-modes.html'),calc=None):
-    h='<div class="mctas"><a class="btn pk" href="%s">%s <span class="ar">→</span></a><a class="btn wa" href="%s">💬 Text Your First Officer</a></div>'%(pk[1],pk[0],WA)
+    h='<div class="mctas"><a class="btn pk" href="%s">%s <span class="ar">→</span></a><a class="btn wa" href="%s">💬 Message your First Officer</a></div>'%(pk[1],pk[0],WA)
     if calc: h+='<a class="mcalc" href="%s">%s <span class="ar">→</span></a>'%calc
     return h
 
@@ -60,7 +60,7 @@ def nxt(n,href,title,hook,btn):
 '''
 
 def deskcta(line):
-    return f'''<section class="sec tight"><div class="wrap"><div class="pcta"><div class="pctx"><b>Get your desk.</b><span>{line}</span></div><div class="pbtn"><a class="btn pk" href="book-modes.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href="{WA}">💬 Text Your First Officer</a></div></div></div></section>
+    return f'''<section class="sec tight"><div class="wrap"><div class="pcta"><div class="pctx"><b>Get your desk.</b><span>{line}</span></div><div class="pbtn"><a class="btn pk" href="book-modes.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href="{WA}">💬 Message your First Officer</a></div></div></div></section>
 '''
 
 PILL=[('earn','01','Earn','Which card for which spend.','More points from the spend you already have.'),
@@ -96,8 +96,8 @@ def page(fn,title,desc,body,on=''):
     h+='<script>window.FO_A="'+B.ASSET+'";</script>\n<script src="recovered/rec.js"></script>\n<script src="recovered/pages.js"></script>\n</body>\n</html>\n'
     h=h.replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')
     h=re.sub(r'<div class="mcta">.*?</a></div>\n?','',h,flags=re.S)
-    h=h.replace('<a class="btn pk" href="'+WA+'">💬 Text Your First Officer</a>\n<button class="burger"','<span class="nbtns"><a class="btn pk" href="book.html">Get your desk</a><a class="btn wa" href="'+WA+'">💬 Text Your First Officer</a></span>\n<button class="burger"',1)
-    h=h.replace('<a class="btn pk" href="'+WA+'">💬 Text Your First Officer</a>\n</div>','<a class="btn wa" href="'+WA+'">💬 Text Your First Officer</a>\n</div>',1)
+    h=h.replace('<a class="btn pk" href="'+WA+'">💬 Message your First Officer</a>\n<button class="burger"','<span class="nbtns"><a class="btn pk" href="book.html">Get your desk</a><a class="btn wa" href="'+WA+'">💬 Message your First Officer</a></span>\n<button class="burger"',1)
+    h=h.replace('<a class="btn pk" href="'+WA+'">💬 Message your First Officer</a>\n</div>','<a class="btn wa" href="'+WA+'">💬 Message your First Officer</a>\n</div>',1)
     assert 'class="nbtns"' in h,fn
     h=relink(h)
     open(os.path.join(ROOT,fn),'w').write(B.absol(h));print('built',fn)

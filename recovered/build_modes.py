@@ -47,7 +47,7 @@ def hero():
 <p class="mlab"><span data-k="label">Example: Leo, Linden Row Insurance, Columbus, OH. Fictional. Figures are estimates.</span> <button class="wnext" type="button">Next example →</button></p>
 <p class="msub">Every loyalty program has a team constantly rewriting the rules. While you run your business, your spend earns less than it should, and your points buy less than they could. Your desk works on that with you.</p>
 <p class="mtag">Your spend, working harder.<br>Your points, going further.</p>
-<div class="mctas" id="mctas"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a></div>
+<div class="mctas" id="mctas"><a class="btn pk" href="book.html">Get your desk <span class="ar">→</span></a><a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Message your First Officer</a></div>
 <a class="mcalc" href="calculator.html">or run the calculator <span class="ar">→</span></a>
 <div class="mlogos">{logos}<span>Every loyalty program. One desk to rule them all.</span></div>
 <p class="mtm">Program names and logos belong to their owners. No affiliation implied.</p>
@@ -164,8 +164,8 @@ def page():
     h+='<script>window.FO_A="'+B.ASSET+'";</script>\n<script src="recovered/rec.js"></script>\n<script src="recovered/fo-modes-data.js"></script>\n<script src="recovered/modes.js"></script>\n</body>\n</html>\n'
     h=h.replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your rewards desk. One conversation, every program.')
     h=re.sub(r'<div class="mcta">.*?</a></div>\n?','',h,flags=re.S)
-    h=h.replace('<a class="btn pk" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a>\n<button class="burger"','<span class="nbtns"><a class="btn pk" href="book.html">Get your desk</a><a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a></span>\n<button class="burger"',1)
-    h=h.replace('<a class="btn pk" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a>\n</div>','<a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Text Your First Officer</a>\n</div>',1)
+    h=h.replace('<a class="btn pk" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Message your First Officer</a>\n<button class="burger"','<span class="nbtns"><a class="btn pk" href="book.html">Get your desk</a><a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Message your First Officer</a></span>\n<button class="burger"',1)
+    h=h.replace('<a class="btn pk" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Message your First Officer</a>\n</div>','<a class="btn wa" href="https://wa.me/16199404040?text=First%20Officer%20Found%20Money%20Call">💬 Message your First Officer</a>\n</div>',1)
     assert h.count('class="btn wa"')==3
     h=h.replace('href="calculator.html"','href="calculator-modes.html"')
     for a,b in [('product-recovered.html','product-modes.html'),('pricing.html','pricing-modes.html'),('freebies.html','freebies-modes.html'),('about.html','about-modes.html'),('trust.html','trust-modes.html'),('industries.html','industries-modes.html'),('book.html','book-modes.html')]: h=h.replace('href="'+a,'href="'+b)

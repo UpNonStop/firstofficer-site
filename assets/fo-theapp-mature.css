@@ -34,6 +34,18 @@
 .ta-fr{background:#141216;padding:3.125%;border-radius:16.25%/7.74%;box-shadow:0 0 0 1.5px #3a3540,0 40px 80px -34px rgba(20,18,22,.5),0 18px 30px -20px rgba(20,18,22,.38)}
 .ta-sc{position:relative;aspect-ratio:643.2/1398.4;border-radius:13.6%/6.3%;overflow:hidden;background:#FAF7EF;isolation:isolate}
 .ta-sc img{position:absolute;left:-5.97%;top:-2.6316%;width:111.94%;max-width:none;height:auto;display:block}
+/* Return's screen is drawn, not a stale Friday screenshot. Same crop, same frame, phone-sized type. */
+.ta-sc.ta-live{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:16px 14px 12px;background:#FAF7EF;text-align:left}
+.ta-retk{margin:0;font:700 9px/1.2 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#7149C9}
+.ta-reth{margin:7px 0 0;font:800 18px/1.05 'DM Sans',system-ui,sans-serif;letter-spacing:-.02em;color:#141216}
+.ta-reth em{font-style:normal;color:#7149C9}
+.ta-retp{margin:6px 0 0;font:500 11px/1.35 'DM Sans',system-ui,sans-serif;color:#4A4550}
+.ta-retm{display:grid;gap:5px;margin-top:10px}
+.ta-retm div{display:grid;grid-template-columns:52px minmax(0,1fr) auto;align-items:baseline;gap:6px;padding:6px 8px;border-radius:10px;background:#F3ECDF}
+.ta-retm small{font:700 9px/1 'DM Sans',system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.ta-retm b{font:800 15px/1 'DM Sans',system-ui,sans-serif;letter-spacing:-.02em;color:var(--c)}
+.ta-retm span{font:500 10px/1.2 'DM Sans',system-ui,sans-serif;color:#4A4550;text-align:right}
+.ta-retn{margin:8px 0 0;font:500 10px/1.35 'DM Sans',system-ui,sans-serif;color:#5E5866}
 
 /* ---- 01 the four pillars: four cards, each a phone on its pillar's tint, cropped at the fold ---- */
 .tapp .ta-rail{margin-top:24px}
