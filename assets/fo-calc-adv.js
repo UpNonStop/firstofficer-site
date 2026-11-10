@@ -80,7 +80,7 @@ function paint(){var r=model(),v=verdict(r);
   var gt=$('#xgt');$('.fill',gt).style.width=pc(r.mo,GMAX);$('.fee',gt).style.left=pc(GATE,GMAX);gt.classList.toggle('under',r.mo<GATE);
   bar($('#xbal'),r);
   $('#xv').className='cv '+v.c;$('.cres',root).className='cres '+v.c+(r.mid>=1e4?' big':'');$('.cmini',root).className='cmini '+v.c;
-  $('#xvt').textContent=v.t;$('#xvp').innerHTML=v.p+(v.c==='no'?' <a href="freebies.html">Get the Freebies →</a>':'');
+  $('#xvt').textContent=v.t;$('#xvp').innerHTML=v.p+(v.c==='no'?' <a href="freebies.html">Get the Freebies</a>':'');
   $$('.bvk',root).forEach(function(b){b.textContent=v.c==='fit'?'✓':v.c==='meh'?'≈':'×'});
   /* group totals and per-line answers */
   G.forEach(function(g){var s=0,n=0;g.L.forEach(function(l){var m=A[l[0]]||0;s+=m;if(m)n++});var e=$('[data-gt="'+g.id+'"]',root);if(e)e.textContent=usd(s);var c=$('[data-gn="'+g.id+'"]',root);if(c)c.textContent=n?n+(n>1?' lines':' line'):'none yet'});
