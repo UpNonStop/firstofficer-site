@@ -178,7 +178,7 @@ body.tstory .srail[aria-label="Steps"]{position:relative}
 body.tstory .is-off .ledger .row::before{animation-play-state:paused}
 
 /* ---------- 01 · the example card, v2 (Ohad, 1 Nov: "the cards look fucking boring. why?") ----------
-   Beige on beige on beige read like a spreadsheet: five identical rows, the abstraction ("1.1x → 2.4x") as the headline, the dollars and
+   Beige on beige on beige read like a spreadsheet: five identical rows, the abstraction ("1.1x to 2.4x") as the headline, the dollars and
    the actual cards in small grey text, and half the desktop card empty. Now the card is a tray holding two surfaces:
    - the desk's read, in ink: who, then the one catch in dollars (the page's own "+$X a year, est."), then the per-$1 jump and its meter;
    - the lines, routed: the priced line leads in pink, each line shows a four-step gauge (one step per 1x) and the cards it routes to,
@@ -235,7 +235,7 @@ body.tstory .cc-vb>i{background:linear-gradient(135deg,#4A5572 0%,#151B2B 100%)}
 body.tstory .cc-inkp>i{background:linear-gradient(135deg,#2B3F6B 0%,#0D1630 100%)}
 body.tstory .cc-inkc>i{background:linear-gradient(135deg,#3AA0C4 0%,#156482 100%)}
 body.tstory .cthen{font-size:0}
-body.tstory .cthen::before{content:"→";display:inline-block;vertical-align:middle;position:relative;top:-1px;font:600 13px/1 var(--sans,'DM Sans',sans-serif);color:#8F8697;margin:0 8px}
+body.tstory .cthen::before{content:"";display:inline-block;vertical-align:middle;position:relative;top:-1px;font:600 13px/1 var(--sans,'DM Sans',sans-serif);color:#8F8697;margin:0 8px}
 body.tstory .tmx .ill{order:3;margin:4px 8px 6px!important}
 /* the codes card: a long card name wraps in its own column instead of running under the rate chip */
 body.tstory .ixl li>span{min-width:0}
