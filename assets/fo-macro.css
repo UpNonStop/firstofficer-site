@@ -24,3 +24,91 @@ html.dir-c #ffd .desk h1 em,
 html.dir-c.o3h #ffd .desk h1 em{color:#141216 !important}
 html.dir-c.o3h #ffd .desk .lede,
 html.dir-c #ffd .desk .lede{font-size:18px;line-height:1.55;color:#2A262E}
+/* Freebies: one quiet library, not a pink ticket wall. */
+html.dir-c #ffd .desk .pop-hero::before,
+html.dir-c.o3h #ffd .desk .pop-hero::before{display:none !important}
+html.dir-c #ffd .desk .eyebrow,
+html.dir-c.o3h #ffd .desk .eyebrow{
+  background:transparent !important;
+  color:#C8106F !important;
+  box-shadow:none !important;
+  mask:none !important;
+  -webkit-mask:none !important;
+  padding:0 !important;
+  border:0 !important;
+}
+html.dir-c #ffd .desk .eyebrow::before{display:none !important}
+html.dir-c #ffd .desk .feat h2,
+html.dir-c #ffd .desk .feat p,
+html.dir-c #ffd .desk .feat .ft-k,
+html.dir-c.o3h #ffd .desk .feat h2,
+html.dir-c.o3h #ffd .desk .feat p,
+html.dir-c.o3h #ffd .desk .feat .ft-k{color:#141216 !important}
+html.dir-c #ffd .desk .vault .feat,
+html.dir-c.o3h #ffd .desk .feat,
+html.dir-c #ffd .desk .pv,
+html.dir-c.o3h #ffd .desk .pv{
+  background:#fff !important;
+  color:#141216 !important;
+  mask:none !important;
+  -webkit-mask:none !important;
+  box-shadow:0 0 0 1px rgba(20,18,22,.12) !important;
+  border-radius:16px !important;
+}
+html.dir-c #ffd .desk .deskline,
+html.dir-c.o3h #ffd .desk .deskline{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:6px 18px !important;
+  background:transparent !important;
+  padding:4px 0 12px !important;
+  grid-template-columns:none !important;
+}
+html.dir-c #ffd .desk .deskline span,
+html.dir-c.o3h #ffd .desk .deskline span{
+  background:none !important;
+  color:#3F3A44 !important;
+  mask:none !important;
+  -webkit-mask:none !important;
+  box-shadow:none !important;
+  padding:0 !important;
+  font-size:16px !important;
+  border-radius:0 !important;
+}
+html.dir-c #ffd .desk .pv b,
+html.dir-c #ffd .desk .pv span,
+html.dir-c #ffd .desk .pv i,
+html.dir-c.o3h #ffd .desk .pv b,
+html.dir-c.o3h #ffd .desk .pv span,
+html.dir-c.o3h #ffd .desk .pv i{color:#141216 !important}
+html.dir-c #ffd .desk .deskline b,
+html.dir-c.o3h #ffd .desk .deskline b{
+  font-size:16px !important;
+  color:#141216 !important;
+  margin-right:4px;
+}
+html.dir-c #ffd .desk .dk,
+html.dir-c.o3h #ffd .desk .dk,
+html.dir-c.o3h #ffd .desk .dk.gold,
+html.dir-c.o3h #ffd .desk .dk.gold.lead{
+  background:#fff !important;
+  color:#141216 !important;
+  mask:none !important;
+  -webkit-mask:none !important;
+  box-shadow:0 0 0 1px rgba(20,18,22,.1) !important;
+  border-radius:16px !important;
+}
+html.dir-c #ffd .desk .dk h3,
+html.dir-c.o3h #ffd .desk .dk h3,
+html.dir-c.o3h #ffd .desk .dk.gold h3{color:#141216 !important;text-shadow:none !important}
+html.dir-c #ffd .desk .dk .love,
+html.dir-c.o3h #ffd .desk .dk .love{color:#3F3A44 !important}
+html.dir-c #ffd .mq.codes{display:none !important}
+/* Field Notes: a readable index, then one note at a time. */
+body:has(.fnx) .mlogos{display:none}
+.fnx{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;max-width:720px}
+.fnx .fni{display:flex;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px solid rgba(20,18,22,.1);font-size:17px;color:#141216}
+.fnx .fni b{font:600 13px/1 'JetBrains Mono',ui-monospace,monospace;color:#C8106F}
+.fn .h2{font-size:clamp(32px,3vw,42px);line-height:1.15}
+.vlad .vr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:14px 0;border-top:1px solid rgba(20,18,22,.1);font-size:17px}
+@media(max-width:700px){.fnx{grid-template-columns:1fr}}
