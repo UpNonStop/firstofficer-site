@@ -8,6 +8,7 @@ body.desk-ref .mtm{font-size:15.5px;line-height:1.5;color:#3F3A44;max-width:40em
 body.desk-ref .msub{font-size:18px;line-height:1.55;max-width:36em}
 body.desk-ref .mctas{gap:12px}
 body.desk-ref .h2 .brush{color:#141216 !important;background:none !important;-webkit-text-fill-color:#141216}
+body.desk-ref:not(:has(.fnx)) .h2{font-size:clamp(28px,2.4vw,36px) !important;line-height:1.2 !important}
 
 /* Freebies: the library is the page. No rotating travel photo behind the title. */
 #ffd .desk .phx{display:none !important}
@@ -81,12 +82,71 @@ html.dir-c #ffd .desk .pv i,
 html.dir-c.o3h #ffd .desk .pv b,
 html.dir-c.o3h #ffd .desk .pv span,
 html.dir-c.o3h #ffd .desk .pv i{color:#141216 !important}
-html.dir-c #ffd .desk .deskline b,
-html.dir-c.o3h #ffd .desk .deskline b{
-  font-size:16px !important;
-  color:#141216 !important;
-  margin-right:4px;
+html.dir-c #ffd .desk .deskline,
+html.dir-c.o3h #ffd .desk .deskline{
+  display:block !important;
+  overflow:visible !important;
+  height:auto !important;
+  max-height:none !important;
+  margin:0 !important;
+  padding:10px 0 16px !important;
+  background:none !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  mask:none !important;
+  -webkit-mask:none !important;
 }
+html.dir-c #ffd .desk .deskline span,
+html.dir-c.o3h #ffd .desk .deskline span{
+  display:inline !important;
+  position:static !important;
+  overflow:visible !important;
+  height:auto !important;
+  margin:0 22px 0 0 !important;
+  padding:0 !important;
+  background:none !important;
+  border:0 !important;
+  box-shadow:none !important;
+  mask:none !important;
+  -webkit-mask:none !important;
+  color:#3F3A44 !important;
+  font:400 17px/1.4 "DM Sans",system-ui,sans-serif !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+}
+html.dir-c #ffd .desk .deskline span::before,
+html.dir-c #ffd .desk .deskline span::after,
+html.dir-c.o3h #ffd .desk .deskline span::before,
+html.dir-c.o3h #ffd .desk .deskline span::after{display:none !important;content:none !important}
+html.dir-c #ffd .desk .deskline b,
+html.dir-c.o3h #ffd .desk .deskline b,
+html.dir-c #ffd .desk .deskline span:first-child b,
+html.dir-c.o3h #ffd .desk .deskline span:first-child,
+html.dir-c.o3h #ffd .desk .deskline span:first-child b{
+  display:inline !important;
+  position:static !important;
+  margin:0 6px 0 0 !important;
+  color:#141216 !important;
+  -webkit-text-fill-color:#141216 !important;
+  font:600 17px/1.4 "DM Sans",system-ui,sans-serif !important;
+  letter-spacing:0 !important;
+  background:none !important;
+}
+html.dir-c.o3h #ffd .desk .dprot.coffee figcaption{display:none !important}
+html.dir-c.o3h #ffd .desk .grp,
+html.dir-c #ffd .desk .grp{
+  background:#fff !important;
+  color:#141216 !important;
+  mask:none !important;
+  -webkit-mask:none !important;
+  box-shadow:0 0 0 1px rgba(20,18,22,.1) !important;
+  border-radius:16px !important;
+  padding:18px 20px !important;
+}
+html.dir-c.o3h #ffd .desk .grp h2,
+html.dir-c #ffd .desk .grp h2{color:#141216 !important;font-size:28px !important;background:none !important}
+html.dir-c.o3h #ffd .desk .grp .nugart{display:none !important}
 html.dir-c #ffd .desk .dk,
 html.dir-c.o3h #ffd .desk .dk,
 html.dir-c.o3h #ffd .desk .dk.gold,

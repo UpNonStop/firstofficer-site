@@ -98,11 +98,21 @@ body.trade-ref .tsbg,
 body.trade-ref .tmo,
 body.trade-ref .itiles,
 body.trade-ref #desk{display:none !important}
+body.trade-ref .tmx{
+  display:flex !important;
+  flex-direction:column !important;
+  grid-template-columns:minmax(0,1fr) !important;
+  grid-template-areas:none !important;
+}
 body.trade-ref .tmx .tmd{
   color:#141216 !important;
-  background:#F7F1E6 !important;
-  box-shadow:0 0 0 1px rgba(110,80,40,.16) !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  justify-content:flex-start !important;
+  padding:4px 4px 8px !important;
 }
+body.trade-ref .tmx .tmd .tmf>b{font-size:28px !important;color:#141216 !important}
+body.trade-ref .tmx ul{width:100%}
 body.trade-ref .tmx .tmd .tmh b,
 body.trade-ref .tmx .tmd .tmh small,
 body.trade-ref .tmx .tmd .tmf>span,
