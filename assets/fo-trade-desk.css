@@ -1,0 +1,101 @@
+/* Trade pages: the spend mix leads. One system for all twenty.
+   Phone mock, logo strip and the shared checklist stay out of the hero.
+   Header, footer, button colors and the trade's own figures stay. */
+body.tstory{background:#FAF6EE}
+body.tstory .phv,
+body.tstory .mlogos,
+body.tstory .mprob{display:none !important}
+body.tstory .mctas .btn>span[aria-hidden="true"]:not(.ar){display:none}
+
+body.tstory .mh{
+  background:#FAF6EE;
+  padding:24px 0 8px;
+  overflow:visible;
+}
+body.tstory .mh .mbg.tbg{
+  position:relative;
+  z-index:0;
+  left:auto;right:auto;top:auto;bottom:auto;
+  height:220px;
+  max-width:1120px;
+  margin:0 auto 16px;
+  border-radius:18px;
+  overflow:hidden;
+}
+body.tstory .mh .mbg picture,
+body.tstory .mh .mbg img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;display:block;opacity:1;filter:none;
+}
+body.tstory .mh .mbg.tbg::after{display:none}
+body.tstory .pht h1{
+  font-size:clamp(32px,4vw,44px) !important;
+  line-height:1.15 !important;
+  max-width:16em;
+}
+body.tstory .pht h1 .pk{color:#141216 !important}
+body.tstory .pht h1 br{display:none}
+body.tstory .h2{font-size:clamp(28px,3.2vw,36px) !important;line-height:1.2 !important}
+body.tstory .h2 .brush,
+body.tstory .h2 .pk,
+body.tstory .nxh .pk{
+  color:#141216 !important;
+  background:none !important;
+  -webkit-text-fill-color:#141216;
+}
+body.tstory .msub,
+body.tstory .lede{font-size:18px;line-height:1.55}
+body.tstory .tmx .tmd{
+  color:#141216 !important;
+  background:#F3ECDF !important;
+  box-shadow:0 0 0 1px rgba(110,80,40,.18) !important;
+}
+body.tstory .tmx .tmd .tmh b,
+body.tstory .tmx .tmd .tmh small,
+body.tstory .tmx .tmf span,
+body.tstory .tmo small{color:#3F3A44 !important}
+body.tstory .tmo-n,
+body.tstory .tmf b{color:#C8106F !important}
+
+/* faded full-bleed photos sit behind the mix. Keep them quiet and inside the section. */
+body.tstory .tsbg{opacity:.35}
+
+/* Other trades: photo and name, no emoji, no dark caption bar.
+   The row scrolls inside the page width. It does not pull past the screen. */
+body.pgi .tt .ttn i{display:none}
+body.pgi .tt::after{display:none}
+body.pgi .tt{
+  display:flex;flex-direction:column;aspect-ratio:auto;
+  background:transparent;color:#141216;
+  box-shadow:none;border-radius:0;
+}
+body.pgi .tt img{
+  position:relative;inset:auto;
+  width:100%;height:92px;border-radius:12px;object-fit:cover;
+}
+body.pgi .tt .ttn{
+  position:static;color:#141216;text-shadow:none;
+  padding:8px 2px 0;font-size:14px;line-height:1.25;
+}
+body.pgi .tt.all{background:#F3ECDF;border-radius:12px;min-height:92px}
+@media (max-width:1179px){
+  body.pgi .ttiles{
+    margin-left:0 !important;
+    margin-right:0 !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+}
+@media (max-width:900px){
+  body.tstory .pcta{display:block}
+  body.tstory .pbtn{display:flex;flex-wrap:wrap;gap:10px;max-width:100%}
+  body.tstory .pbtn .btn{flex:1 1 220px;min-width:0;white-space:normal;height:auto;min-height:48px}
+}
+@media (max-width:760px){
+  body.tstory .mh .mbg.tbg{height:160px;margin-left:20px;margin-right:20px}
+  body.tstory .mctas{flex-direction:column}
+  body.tstory .mctas .btn{width:100%;height:auto;min-height:48px;white-space:normal}
+}
