@@ -71,15 +71,15 @@
 <p class="v4p-k v4seg-k" id="v4seg-k">Earn today · points per $1</p>
 <div class="v4seg earn" role="group" aria-labelledby="v4seg-k"><button type="button" data-r="0" aria-pressed="false">Nothing <small>0 points</small></button><button type="button" data-r="1" aria-pressed="true">1 <small>point per $1</small></button><button type="button" data-r="1.5" aria-pressed="false">1.5 <small>points per $1</small></button><button type="button" data-r="2" aria-pressed="false">2 <small>points per $1</small></button></div>
 <p class="v4p-k v4seg-k" id="v4burn-k">Burn · cents per point</p>
-<div class="v4seg burn" role="group" aria-labelledby="v4burn-k"><button type="button" data-b="" aria-pressed="true">Not yet <small>Return waits</small></button><button type="button" data-b="1" aria-pressed="false">1.0¢ <small>per point</small></button><button type="button" data-b="1.6" aria-pressed="false">1.6¢ <small>per point</small></button><button type="button" data-b="2" aria-pressed="false">2.0¢ <small>per point</small></button></div>
+<div class="v4seg burn" role="group" aria-labelledby="v4burn-k"><button type="button" data-b="" aria-pressed="true">Not yet <small>still unknown</small></button><button type="button" data-b="1" aria-pressed="false">1.0¢ <small>per point</small></button><button type="button" data-b="1.6" aria-pressed="false">1.6¢ <small>per point</small></button><button type="button" data-b="2" aria-pressed="false">2.0¢ <small>per point</small></button></div>
 </div>
 <div class="v4res" aria-live="polite">
 <p class="v4p-k">Return on spend, est.</p>
-<p class="v4big wait" id="v4big"><span id="v4now">Set burn</span></p>
-<p class="v4unit" id="v4unit">Earn is 1 point per $1. Burn is not set, so Return is not calculated.</p>
+<p class="v4big wait" id="v4big"><span id="v4now">Unknown</span></p>
+<p class="v4unit" id="v4unit">Earn is 1 point per $1. Burn is still unknown, so Return cannot be calculated yet. Unknown is not zero.</p>
 <p class="v4per" id="v4mo"></p>
 <p class="v4leo"><b>Leo, Linden Row Insurance, est.</b> Earn 1.2 points per $1. At an illustrative burn of 1.6¢ a point, Return is 1.92¢ per $1. At 3.4 points per $1, the same burn is 5.44¢ per $1. Not a promise.</p>
-<p class="v4ver" id="v4ver">The fee sits beside the math. It is not a savings claim.</p>
+<p class="v4ver" id="v4ver">No return figure yet. An unknown input is not zero, and the $550 fee is not a savings figure.</p>
 <p class="v4fee"><b>First Officer is $550 a month, flat.</b> <span>Month to month, no minimum term.</span></p>
 <a class="v4lnk" href="calculator.html">Run it line by line in the calculator <span aria-hidden="true">→</span></a>
 </div>
@@ -128,7 +128,7 @@
 <li class="e" data-anim style="--i:0"><span class="v4tag">Earn · bonus category</span><p class="v4wk-c">A supplier changed how its charges code. Your supply orders now earn 1x, not 3x.</p><p class="v4wk-d"><b>Desk read · use</b>Move that spend to a card that still pays on it, est.</p></li>
 <li class="b" data-anim style="--i:1"><span class="v4tag">Burn · transfer bonus</span><p class="v4wk-c">A 30% bonus opens to one airline partner, for nine days only.</p><p class="v4wk-d"><b>Desk read · check</b>Only worth it if a trip you want prices well. We check before a point moves.</p></li>
 <li class="b" data-anim style="--i:2"><span class="v4tag">Burn · award price</span><p class="v4wk-c">The same award seat now costs 15,000 more points.</p><p class="v4wk-d"><b>Desk read · cash wins</b>Price it in cash too. This time cash is the better buy, est.</p></li>
-<li class="r" data-anim style="--i:3"><span class="v4tag">Return · earn times burn</span><p class="v4wk-c">Supply orders now earn 1 point per dollar, and a cash out prices that point at 1¢.</p><p class="v4wk-d"><b>Desk read · both known</b>1 point per $1 × 1¢ a point = 1¢ per $1, est. If either number were missing, there would be no return to print.</p></li>
+<li class="r" data-anim style="--i:3"><span class="v4tag">Return · earn times burn</span><p class="v4wk-c">Supply orders now earn 1 point per dollar, and a cash out prices that point at 1¢.</p><p class="v4wk-d"><b>Desk read · both known</b>1 point per $1 × 1¢ a point = 1¢ per $1, est. If either number is unknown, Return cannot be calculated yet. Unknown is not zero.</p></li>
 </ul>
 <div class="v4wk-ft"><button type="button" class="v4wk-b" aria-expanded="false" aria-controls="v4wk">Hand it to the desk <span aria-hidden="true">→</span></button><p class="v4wk-s" id="v4wk-s" aria-live="polite">One message from your desk: 1 earn to move, 1 burn to check, 1 where cash wins, and a return only because both inputs are known, est.</p></div>
 <p class="v4wk-fine">Illustrative examples, est. Not real changes from any program this week.</p>
@@ -155,11 +155,11 @@
 <svg class="v4thr" data-anim viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M70 0 C70 50 30 50 30 100" vector-effect="non-scaling-stroke"/></svg>
 </li>
 <li class="v4job r"><div class="v4job-c">
-<div class="v4job-art" data-anim><img src="img/about-v4/return.webp" srcset="img/about-v4/return-540.webp 540w, img/about-v4/return.webp 864w" sizes="(max-width:760px) 92vw, 40vw" width="864" height="1152" alt="" loading="lazy" decoding="async"><span class="v4job-w" aria-hidden="true">Return</span></div>
+<div class="v4job-art" data-anim><img src="img/about-v4/return.webp" srcset="img/about-v4/return-540.webp 540w, img/about-v4/return.webp 864w" sizes="(max-width:760px) 92vw, 40vw" width="864" height="1152" alt="Earn, coins beside a dollar, times Burn, a scale pricing one coin. The violet path is the return on spend." loading="lazy" decoding="async"><span class="v4job-w" aria-hidden="true">Return</span></div>
 <div class="v4job-f" data-anim><div class="v4grain" aria-hidden="true"></div><p class="v4job-n">03 · Return</p><h3>Return on spend.</h3>
 <p class="v4job-eq">Earn × Burn = Return<span>points per $1 × cents per point = cents per $1</span></p>
 <dl class="v4job-d"><div><dt>The pain</dt><dd>You can see the points, and you can see a redemption, and still not know what the spend returned.</dd></div><div><dt>What the desk does</dt><dd>Multiplies applicable points per dollar by the value per point, and only when both are known.</dd></div><div><dt>What you get</dt><dd>The return on spend, in cents per dollar, est. An outcome of Earn and Burn.</dd></div></dl>
-<p class="v4job-t"><b>The tradeoff nobody mentions</b>A missing burn means no return. We do not fill the gap with a guess or a credit.</p></div></div>
+<p class="v4job-t"><b>The tradeoff nobody mentions</b>If Earn or Burn is unknown, Return cannot be calculated yet. Unknown is not zero. We do not guess a number to fill the gap.</p></div></div>
 <svg class="v4thr" data-anim viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M30 0 C30 50 70 50 70 100" vector-effect="non-scaling-stroke"/></svg>
 </li>
 <li class="v4job l"><div class="v4job-c">
@@ -186,7 +186,7 @@
 <label class="v4fl"><span class="v4p-k">Taxes and fees you'd still pay</span><span class="v4fl-i"><span aria-hidden="true">$</span><input id="v4f" type="number" inputmode="decimal" min="0" value="11"></span></label>
 <p class="v4form">( cash price − taxes and fees ) ÷ points = cents per point. That number is Burn.</p>
 <label class="v4fl"><span class="v4p-k">Earn, if you know it · points per $1</span><span class="v4fl-i"><input id="v4ern" type="number" inputmode="decimal" min="0" step="0.1" placeholder="Not set" aria-describedby="v4ros"></span></label>
-<p class="v4form" id="v4ros">Return waits. Burn alone is not a return. Set Earn, in points per $1, to multiply.</p>
+<p class="v4form" id="v4ros">Burn is shown for this example. Earn is still unknown, so Return cannot be calculated yet. Unknown is not zero.</p>
 </div>
 <div class="v4dial" aria-live="polite">
 <svg viewBox="0 -8 240 154" aria-hidden="true"><path d="M20 120 A100 100 0 0 1 220 120" fill="none" stroke="#141216" stroke-width="30"/><path d="M20 120 A100 100 0 0 1 70 33.4" fill="none" stroke="#E8590C" stroke-width="23"/><path d="M70 33.4 A100 100 0 0 1 130.45 20.55" fill="none" stroke="#429AD4" stroke-width="23"/><path d="M130.45 20.55 A100 100 0 0 1 220 120" fill="none" stroke="#107B49" stroke-width="23"/><path d="M70 33.4 L64 23M130.45 20.55 L131.7 8.6" stroke="#141216" stroke-width="3"/><g class="v4dt"><text x="20" y="136" text-anchor="middle">0¢</text><text x="60" y="22" text-anchor="end">1¢</text><text x="134" y="7" text-anchor="start">1.6¢</text><text x="220" y="136" text-anchor="middle">3¢+</text></g><g id="v4needle" transform="rotate(8.2 120 120)"><path d="M120 120 L120 30" stroke="#141216" stroke-width="6" stroke-linecap="round"/></g><circle cx="120" cy="120" r="11" fill="#FAF6EE" stroke="#141216" stroke-width="4"/></svg>
@@ -243,7 +243,7 @@
 <ul class="v4rules"><li>One message, not a dashboard</li><li>Plain words, the math attached</li><li>Your yes, or nothing moves</li></ul></figure>
 <div class="v4jar" data-anim>
 <p class="v4p-k" id="v4jw-k">Jargon, translated · tap a word</p>
-<div class="v4jw" role="group" aria-labelledby="v4jw-k"><button type="button" aria-pressed="true" data-t="A place your points can move to. Sometimes they buy a lot more there.">Transfer partner</button><button type="button" aria-pressed="false" data-t="Seats or rooms the program sells for points. Some dates have plenty, some have none.">Award space</button><button type="button" aria-pressed="false" data-t="The program quietly raises the points price. Same trip, more points.">Devaluation</button><button type="button" aria-pressed="false" data-t="Money the card gives back for a certain kind of spend, usually with a deadline. A perk. It is not Return.">Statement credit</button><button type="button" aria-pressed="false" data-t="A kind of spend that earns extra points, if the merchant codes it that way.">Bonus category</button><button type="button" aria-pressed="false" data-t="Burn. What one point is worth when you redeem it, in cents. A plain cash out is often near 1¢. This is not Return.">Cents per point</button><button type="button" aria-pressed="false" data-t="Earn times Burn: cents back per dollar of spend. Printed only when both are known.">Return</button></div>
+<div class="v4jw" role="group" aria-labelledby="v4jw-k"><button type="button" aria-pressed="true" data-t="A place your points can move to. Sometimes they buy a lot more there.">Transfer partner</button><button type="button" aria-pressed="false" data-t="Seats or rooms the program sells for points. Some dates have plenty, some have none.">Award space</button><button type="button" aria-pressed="false" data-t="The program quietly raises the points price. Same trip, more points.">Devaluation</button><button type="button" aria-pressed="false" data-t="Money the card gives back for a certain kind of spend, usually with a deadline. A perk. It is not Return.">Statement credit</button><button type="button" aria-pressed="false" data-t="A kind of spend that earns extra points, if the merchant codes it that way.">Bonus category</button><button type="button" aria-pressed="false" data-t="Burn. What one point is worth when you redeem it, in cents. A plain cash out is often near 1¢. This is not Return.">Cents per point</button><button type="button" aria-pressed="false" data-t="Earn times Burn: cents back per dollar of spend. If either input is unknown, Return cannot be calculated yet. Unknown is not zero.">Return</button></div>
 <div class="v4bub" aria-live="polite"><p class="v4p-k">In owner words</p><p class="v4bub-t" id="v4jt">A place your points can move to. Sometimes they buy a lot more there.</p></div>
 </div>
 </div>

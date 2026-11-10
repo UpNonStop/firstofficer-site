@@ -22,8 +22,8 @@ function cents(n){return n.toFixed(2).replace(/0+$/,'').replace(/\.$/,'')}
 function earnWords(r){if(r===0)return '0 points per $1';return (r%1?String(r):String(r))+' '+(r===1?'point':'points')+' per $1'}
 function calc(){var s=+sp.value;$('#v4spo').textContent='$'+fmt(s);sp.style.setProperty('--f',((s-sp.min)/(sp.max-sp.min)*100)+'%');
 var big=$('#v4big'),now=$('#v4now'),unit=$('#v4unit'),mo=$('#v4mo'),ver=$('#v4ver');
-if(burn==null){big.classList.add('wait');now.textContent='Set burn';unit.textContent='Earn is '+earnWords(rate)+'. Burn is not set, so Return is not calculated.';mo.textContent='';
-ver.textContent='The fee sits beside the math. It is not a savings claim.';
+if(burn==null){big.classList.add('wait');now.textContent='Unknown';unit.textContent='Earn is '+earnWords(rate)+'. Burn is still unknown, so Return cannot be calculated yet. Unknown is not zero.';mo.textContent='';
+ver.textContent='No return figure yet. An unknown input is not zero, and the $550 fee is not a savings figure.';
 stk.forEach(function(im){im.classList.add('off')});return}
 var per=rate*burn,monthly=s*rate*burn/100;
 big.classList.remove('wait');now.textContent=cents(per)+'¢';
@@ -49,8 +49,8 @@ ws.textContent=on?full:'Four alerts to read, decode and act on, on top of the ac
 var ci=$('#v4c'),pi=$('#v4pp'),fi=$('#v4f'),nd=$('#v4needle'),cv=$('#v4cv'),vd=$('#v4vd'),ern=$('#v4ern'),ros=$('#v4ros');
 function money(n){return n.toFixed(2).replace(/0+$/,'').replace(/\.$/,'')}
 function dial(){var c=+ci.value||0,p=+pi.value||0,f=+fi.value||0,raw=ern?ern.value.trim():'',earn=raw===''?null:Number(raw);
-if(!(p>0)){cv.textContent='Set points';if(nd)nd.style.transform='rotate(-90deg)';vd.className='v4vd b';vd.textContent='Burn needs the points a redemption costs. No cents per point, and no return.';
-if(ros)ros.textContent='Return waits. Burn is not known, so it is not calculated.';return}
+if(!(p>0)){cv.textContent='Unknown';if(nd)nd.style.transform='rotate(-90deg)';vd.className='v4vd b';vd.textContent='The points price is unknown, so Burn is unknown. Return cannot be calculated yet. Unknown is not zero.';
+if(ros)ros.textContent='Burn is unknown, so Return cannot be calculated yet. Unknown is not zero.';return}
 var v=Math.max(0,(c-f)/p*100),show=(v<10?v.toFixed(2):v.toFixed(1)).replace(/\.?0+$/,'');
 cv.textContent=show+'¢';
 if(nd)nd.style.transform='rotate('+(Math.min(3,v)/3*180-90).toFixed(1)+'deg)';
@@ -58,7 +58,7 @@ if(v<1){vd.className='v4vd b';vd.textContent='Burn under 1¢ a point, est. A pla
 else if(v<=1.6){vd.className='v4vd l';vd.textContent='Burn in the fair band, est. About 1¢ to 1.6¢ a point.'}
 else{vd.className='v4vd e';vd.textContent='Burn over 1.6¢ a point, est.'}
 if(!ros)return;
-if(earn==null||!isFinite(earn)||earn<0){ros.textContent='Return waits. Burn alone is not a return. Set Earn, in points per $1, to multiply.';return}
+if(earn==null||!isFinite(earn)||earn<0){ros.textContent='Burn is known. Earn is still unknown, so Return cannot be calculated yet. Unknown is not zero.';return}
 var shown=parseFloat(show);
 ros.textContent=money(earn)+' points per $1 × '+show+'¢ a point = '+money(earn*shown)+'¢ per $1, est.'}
 if(ci&&pi&&fi&&cv&&vd){[ci,pi,fi].forEach(function(i){i.addEventListener('input',function(){$$('.v4pre button').forEach(function(x){x.setAttribute('aria-pressed','false')});dial()})});
