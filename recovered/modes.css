@@ -295,7 +295,7 @@
  .pbtn{flex-direction:column}.pbtn .btn{width:100%}
 }
 
-/* green Text Your First Officer bubble, paired with pink Get your desk (hero + nav); the calculator is a quiet text link */
+/* green Message your First Officer bubble, paired with pink Get your desk (hero + nav); the calculator is a quiet text link */
 .btn.wa{background:#138a43;color:#fff;box-shadow:0 10px 24px -10px rgba(19,138,67,.6),inset 0 -2px 0 rgba(0,0,0,.12)}
 .btn.wa:hover{background:#0f7537;transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(19,138,67,.65)}
 .nbtns{display:flex;gap:10px;align-items:center}

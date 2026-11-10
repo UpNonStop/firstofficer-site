@@ -103,3 +103,8 @@
 
 /* Fix all 31 Oct (supersedes #29): the Desk screen's small pink labels read at 4.5:1 (the pink fills in the mock stay) */
 .mphone.p-desk .zkc .zkh b,.mphone.p-desk .zbu small{color:#C8106F}
+/* Return pane: the rate, in the phone's own type. Earn green, Burn orange, Return violet. */
+.tapp .znote{margin:8px 0 0;font-size:10px;line-height:1.35;color:#4A4550}
+.tapp .zrl .zdot.ze{background:#107B49}
+.tapp .zrl .zdot.zb{background:#BB4401}
+.tapp .zrl .zdot.zr{background:#7149C9}

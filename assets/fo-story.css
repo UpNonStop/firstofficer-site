@@ -121,10 +121,11 @@ html.fo-still .fm *,html.fo-still .fm *::before,html.fo-still .fm *::after{trans
 .om-t em{font:600 11px/1 var(--mono);font-style:normal;letter-spacing:.04em;color:var(--mute);white-space:nowrap}
 /* one dot is four cardholders */
 .om-d{display:block;height:8px;width:min(100%,calc(var(--n) * 10px));background:radial-gradient(circle at 4px 4px,#4A4450 2.8px,transparent 3.3px) 0 0/10px 8px space no-repeat}
-.om-desk{justify-self:center;display:flex;align-items:center;gap:12px;padding:12px 18px 12px 12px;border-radius:999px;background:var(--ink);color:#FAF6EE;box-shadow:0 18px 36px -18px rgba(20,18,22,.7)}
-.om-desk img{width:34px;height:34px;padding:6px;border-radius:50%;background:#FAF6EE;flex:none}
-.om-desk b{display:block;font:400 21px/1.05 var(--serif);color:#fff;white-space:nowrap}
-.om-desk small{display:block;margin-top:3px;font:500 10.5px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#CFC6D6;white-space:nowrap}
+/* The desk mark is the pink chevron on transparent, beside the words. No dark block, no tile, no circle. */
+.om-desk{justify-self:center;display:flex;align-items:center;gap:14px;padding:4px 2px;border-radius:0;background:transparent;color:var(--ink);box-shadow:none}
+.om-desk img{width:34px;height:46px;padding:0;border-radius:0;background:transparent;object-fit:contain;flex:none}
+.om-desk b{display:block;font:400 22px/1.05 var(--serif);color:var(--ink);white-space:nowrap}
+.om-desk small{display:block;margin-top:3px;font:500 10.5px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);white-space:nowrap}
 .om-out{padding:16px 16px 15px;border-radius:18px;background:var(--card);box-shadow:0 0 0 1px var(--rule),0 22px 40px -28px rgba(20,18,22,.55)}
 .om-out .lbl{display:block;color:var(--ret)}
 .om-out>b{display:block;margin:8px 0 0;font:400 25px/1.1 var(--serif);color:var(--ink)}
@@ -139,8 +140,8 @@ html.fo-still .fm *,html.fo-still .fm *::before,html.fo-still .fm *::after{trans
 @container (min-width:760px){
   .om-in{grid-template-columns:minmax(0,1.2fr) minmax(40px,.32fr) auto minmax(30px,.22fr) minmax(0,.95fr);align-items:center;row-gap:0}
   .om-org{grid-column:1;margin-right:0}
-  .om-desk{grid-column:3;flex-direction:column;gap:8px;padding:16px 16px 14px;border-radius:24px;text-align:center}
-  .om-desk img{width:40px;height:40px;padding:7px}
+  .om-desk{grid-column:3;flex-direction:column;gap:10px;padding:8px 0;border-radius:0;text-align:center;background:transparent;box-shadow:none}
+  .om-desk img{width:44px;height:58px;padding:0;background:transparent;border-radius:0}
   .om-out{grid-column:5}
 }
 /* the map draws itself once, then the dots keep flowing toward the desk while it is on screen */
