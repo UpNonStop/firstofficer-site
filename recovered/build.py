@@ -74,7 +74,7 @@ DR='''<div class="dr" id="daily-redemption"><div class="drt"><span class="kick">
 def footer():
     return f'''<footer class="foot"><div class="wrap">
 {DR}<div class="cols">
-<div><a class="brand" href="home-recovered.html"><img src="img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><p class="tl">Same spend, more points, and better trips for fewer points.</p></div>
+<div><a class="brand" href="home-recovered.html"><img src="img/rec/chev.png" alt=""><span><b>First Officer</b><small>by UpNonStop™</small></span></a><p class="tl">Your business spend already bought the seats. We go get them.</p></div>
 <div><h6>Site</h6><a href="product-recovered.html">Product</a><a href="pricing.html">Pricing</a><a href="freebies.html">Freebies</a><a href="calculator.html">Calculator</a><a href="about.html">About</a></div>
 <div><h6>More</h6><a href="trust.html">Trust</a><a href="industries.html">Industries</a><a href="{WA}">Message your First Officer</a></div>
 </div>

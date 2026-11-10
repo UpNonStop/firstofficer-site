@@ -17,7 +17,7 @@ def chrome(on=''):
     nav=nav.replace('<a class="btn pk" href="'+WA+'">💬 Message your First Officer</a>\n<button class="burger"','<span class="nbtns"><a class="btn pk" href="book.html">Get your desk</a><a class="btn wa" href="'+WA+'">💬 Message your First Officer</a></span>\n<button class="burger"',1)
     nav=nav.replace('<a class="btn pk" href="'+WA+'">💬 Message your First Officer</a>\n</div>','<a class="btn pk" href="book.html">Get your desk</a>\n<a class="btn wa" href="'+WA+'">💬 Message your First Officer</a>\n</div>',1)
     assert 'class="nbtns"' in nav
-    foot=B.footer().replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Same spend, more points, and better trips for fewer points.')
+    foot=B.footer().replace('Your rewards desk. One conversation, 50+ programs, trained on new data nightly.','Your business spend already bought the seats. We go get them.')
     foot=foot.replace('Leo and Linden Row Insurance are fictional. All figures are examples and estimates.',DISC)
     foot=re.sub(r'<div class="mcta">.*?</a></div>\n?','',foot,flags=re.S)
     foot=foot.replace('<a href="industries.html">Industries</a>','<a href="industries.html">Industries</a><a href="field-notes.html">Field Notes</a>',1)
