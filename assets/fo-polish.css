@@ -242,15 +242,19 @@ ul.cw > li > span{font-size:11px!important}
 /* The Daily Redemption issues: small pink and grey text on cream */
 body .fo{--t3:#6F675C}
 body .fo .mast-foot .pk{color:#D4107A}
-/* FO-P1-01b, labels on the original fills pass WCAG AA without touching the fills (Ohad, 31 Oct: "fix it if needed").
-   White on pink #FA1896 is 3.7:1, on light blue #429AD4 3.1:1, on Burn #E8590C 3.6:1: each passes as large text (3:1 from 18.66px bold),
-   so those button labels are 19px bold. White on WhatsApp green #25D366 is 2.0:1 at any size, so its label was dark green #0B2E17 (7.5:1)
-   until 9 Nov, when Ohad set it: "the text should be in white over that green and should say WhatsApp". The label is white again, with a
-   soft dark-green shadow under the letters so they hold their edge; the fill is untouched. The other greens in the rule below keep the ink.
-   The chrome's header and footer buttons get the same two rules inside assets/fo-chrome.js. */
+/* FO-P1-01b, labels on the original fills (Ohad, 31 Oct, then 9 Nov, then 10 Nov).
+   Pink #FA1896, light blue #429AD4 and Burn #E8590C keep white 19px bold labels. White on those fills is about 3.1:1 to 3.7:1,
+   which clears the large-text bar (3:1 from 18.66px bold) and does not clear the 4.5:1 small-text bar.
+   White on WhatsApp green #25D366 is about 2.0:1 at any size, so it does not meet WCAG AA, including as large text.
+   The label is white anyway: Ohad, 9 Nov, "the text should be in white over that green", and again that dark type on a green
+   button is not allowed anywhere. The fill stays #25D366. No dark shadow under the letters. The same white label is on every
+   green button, including .pill.green, the closing green, and a dispatch link on the WhatsApp fill, in every state.
+   The chrome's own buttons get the same white label inside assets/fo-chrome.js. */
 .btn.pk,.btn.lb,.nxb,.cqa#bgo,.ttabs [role=tab]{font-size:19px!important;font-weight:700!important}
-.ctab .btn.cr,.pill.green,.fo .cta a[href*="wa.me"]{color:#0B2E17!important}
-.btn.wa,.btn.wa:hover,.btn.wa:focus-visible{color:#fff!important;text-shadow:0 1px 1.5px rgba(6,60,28,.45)}
+html body :is(.btn.wa,.pill.green,.ctab .btn.cr,.fo .cta a[href*="wa.me"]),
+html body :is(.btn.wa,.pill.green,.ctab .btn.cr,.fo .cta a[href*="wa.me"]):is(:hover,:focus,:focus-visible,:active){color:#fff!important;text-shadow:none!important}
+html body :is(.pill.green,.ctab .btn.cr,.fo .cta a[href*="wa.me"]){background-color:#25D366!important}
+html body :is(.pill.green,.ctab .btn.cr,.fo .cta a[href*="wa.me"]):is(:hover,:focus-visible){background-color:#1EBE5A!important}
 /* FO-P1-01c (Ohad, 31 Oct): small labels on the original fills, too small for the large-text rule, take ink instead of white:
    Burn pillar badges and chips 5.2:1 on #E8590C and the story's active step pill 5.0:1 on #FA1896. Fills unchanged. */
 .k-burn>.pn>b,.stc>.k-burn{color:#141216!important}
@@ -391,7 +395,7 @@ html .sb-t.on{background:#FBF7EF!important}
 /* One button on every page (Ohad, 31 Oct: "look how different these text fonts are (type and size)"). Every filled call-to-action pill,
    pink, WhatsApp green, light blue, the dispatch's green and the briefing's pink, sets its words the same way: DM Sans 19px bold, no
    tracking, and stands at least 52px tall (a label that needs two lines grows). The green had stayed at 15px when FO-P1-01b took the pink
-   and blue labels to 19px for contrast; its words were dark green (#0B2E17) on the original fill until 9 Nov, and are white since (FO-P1-01b). The header's and footer's own buttons
+   and blue labels to 19px. The green label is white on the original fill (FO-P1-01b). The header's and footer's own buttons
    live in the chrome and already match.
    Every button class is in it now, not a list of colours (Ohad, 31 Oct: "note again different fonts"): the gold "Grab my freebies",
    the outlined "Open the example app", Pricing's "Talk to our team" and Freebies' "Run my numbers" had stayed at 15px. */

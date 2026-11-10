@@ -760,7 +760,7 @@ body{padding-bottom:calc(60px + env(safe-area-inset-bottom,0px))}
 /* ---------- WhatsApp CTA is green sitewide; the desk CTA is pink (design rule) ---------- */
 .btn.wa{background:#25D366;color:#fff;box-shadow:0 10px 24px -10px rgba(37,211,102,.6),inset 0 -2px 0 rgba(0,0,0,.1)}
 .nav .btn.wa{margin-left:auto}
-.nav .btn.wa+.btn.pk{margin-left:-18px}
+.nav .nin>.btn+.btn{margin-left:0}
 @media(max-width:760px){.sheet .btn.wa{margin-top:auto}.sheet .btn.pk{margin-top:10px}}
 
 /* keyboard focus, same pink on every page */

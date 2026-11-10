@@ -11,25 +11,37 @@ var CAP={
   desk:['Desk','The four pillars at a glance and the thread with the desk underneath. Ask anything, any time.'],
   earn:['Earn','Which card for which spend. Each move shows what it is worth a year, and waits for the owner\'s OK.'],
   burn:['Burn','Points into trips. A goal, a pace and a strategy. The desk vets the requirements and books after the owner approves.'],
-  'return':['Return','Friday, in dollars. What the desk found, counted in dollars and checked against the owner\'s statements.'],
+  'return':['Return','Points per dollar times cents per point. 3 × 1.6¢ is 4.8¢ per $1, est., because both are known. Unknown is not zero.'],
   learn:['Learn','Two minutes a week. One short lesson from the owner\'s own data: what changed in the programs, and what it means for the goal.']};
 var TITLE={earn:p.short+'’s Earn',burn:p.short+'’s Burn','return':p.short+'’s Return',learn:p.first+'’s Learn'};
 function greet(){var h=new Date().getHours();return h<5?'Good evening':h<12?'Good morning':h<17?'Good afternoon':'Good evening'}
 function clock(){var d=new Date(),h=d.getHours(),m=d.getMinutes();var c=$('.mclk',root);if(c)c.textContent=(h%12||12)+':'+(m<10?'0':'')+m}
-var retSum=p.ret.reduce(function(a,r){return a+r[1]},0);
-function usd(n){return '$'+Math.round(n).toLocaleString('en-US')}
+/* Return on this page: Leo's desk earn (points per $1) times the 1.6¢ example already printed on the Learn card.
+   Both have to be known. Unknown is not zero, and it is not a gift, a freebie, or a statement credit. */
+var EARN_PTS=p.to,BURN_CENTS=1.6,retKnown=EARN_PTS>0&&BURN_CENTS>0,retCents=retKnown?Math.round(EARN_PTS*BURN_CENTS*10)/10:null;
+function cents(n){return (Math.round(n*10)/10).toString().replace(/\.0$/,'')+'¢'}
+function retPane(){
+  var rows=retKnown
+    ? '<div class="zrl"><i class="zdot ze"></i><span>Earn</span><b>'+EARN_PTS+' pts / $1</b></div>'
+     +'<div class="zrl"><i class="zdot zb"></i><span>Burn</span><b>'+cents(BURN_CENTS)+' / point</b></div>'
+     +'<div class="zrl"><i class="zdot zr"></i><span>Return</span><b>'+cents(retCents)+' / $1</b></div>'
+     +'<p class="znote">Both known, so it calculates. Est. Not a gift, a freebie, or a statement credit.</p>'
+    : '<p class="znote">Earn or Burn is unknown, so Return stays blank. Unknown is not zero.</p>';
+  return F.bub('o','What is the return on a dollar?',p)+
+    '<div class="zkc"><div class="zkh">Return<b>cents per $1</b></div>'+rows+'</div>'+
+    F.bub('f',retKnown?'Earn times burn is '+cents(retCents)+' per dollar, est.':'Return stays blank until both are known.',p)}
 function desk(){
-  /* Leo's numbers, the same ones the home page, the product page and the Friday report use */
+  /* Leo's numbers, the same ones the home page and the product page use, except Return, which is the rate */
   var t=[['earn','Earn','#107B49','$12,240','found per year, est.'],
          ['burn','Burn','#BB4401',p.pct+'%','of the Tokyo goal, '+Math.round(p.have/1000)+'k points'],
-         ['return','Return','#7149C9',usd(retSum),'last Friday, est.'],
-         ['learn','Learn','#085884',p.learn[1],p.learn[2]]];
+         ['return','Return','#7149C9',retKnown?cents(retCents):'Blank',retKnown?'per $1, est.':'needs earn and burn'],
+         ['learn','Learn','#085884','1.6¢','per point, est.']];
   return '<div class="zdk-on"><i></i>The desk is online<span>Updated 8:14 AM</span></div>'+
     '<div class="zdk-g">'+t.map(function(x){return '<button type="button" class="zdk" data-go="'+x[0]+'" style="--c:'+x[2]+'"><small>'+x[1]+'</small><b>'+x[3]+'</b><span>'+x[4]+'</span></button>'}).join('')+'</div>'+
     '<div class="zkc zdk-t"><div class="zkh">The desk<b>Since Friday</b></div><div class="zdk-cons"><i></i><i></i><i></i>Checked 3 programs · 6s</div>'+
     F.bub('o','Anything waiting for me?',p)+F.bub('f',greet()+', '+p.first+'. One move is confirmed. One more waits for approval.',p)+'</div>'+
     '<div class="zdk-ask"><span>Ask First Officer</span><i aria-hidden="true">↑</i></div>'}
-var H={desk:desk(),earn:F.earn(p),burn:F.burn(p),'return':F.ret(p),learn:F.learn(p)};
+var H={desk:desk(),earn:F.earn(p),burn:F.burn(p),'return':retPane(),learn:F.learn(p)};
 $$('.mpane',root).forEach(function(e){e.innerHTML=H[e.dataset.t]||''});
 var cur='desk';
 function show(t,fromUser){
