@@ -199,6 +199,11 @@ html.fo-still .om-lines .flow{display:none}
 .ent-go{display:flex;flex-direction:column;gap:12px;margin:26px 0 0}
 .ent-go .btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:12px 18px;border-radius:999px;text-decoration:none;text-align:center}
 @media (min-width:600px){.ent-go{flex-direction:row;flex-wrap:wrap}.ent-go .btn{display:inline-flex;padding:0 26px}}
+/* 10 Nov: the green label is "Message your First Officer", 43px wider than the one this row was drawn for. Where the column is
+   between 521 and 563px wide (a window of 1154 to 1238px, and of 600 to 603px) the two buttons no longer shared the line. There
+   the sides follow the column instead: 13px at its narrowest, back to 26px by 1256px, so the pair stays on one line as before. */
+@media (min-width:600px) and (max-width:611px){.ent-go .btn{padding:0 22px}}
+@media (min-width:1154px) and (max-width:1260px){.ent-go .btn{padding:0 clamp(13px,calc(12.5vw - 131px),26px)}}
 .ent-map{padding:22px 18px 18px;border-radius:24px;background:var(--box);box-shadow:0 0 0 1px var(--rule)}
 .ent-map .lbl.top{display:block;margin:0 0 16px}
 .ent-hero .wrap{row-gap:28px}
