@@ -1,0 +1,26 @@
+/* Product and Field Notes: drop the random hotel, keep the page's own right-hand visual. */
+body.desk-ref .mh .mbg{display:none !important}
+body.desk-ref .mh{background:#FAF6EE}
+body.desk-ref .mh h1{font-size:clamp(36px,3.4vw,48px) !important;line-height:1.12 !important}
+body.desk-ref .mh h1 .pk{color:#141216 !important}
+body.desk-ref .mlogos{display:none !important}
+body.desk-ref .mtm{font-size:15.5px;line-height:1.5;color:#3F3A44;max-width:40em}
+body.desk-ref .msub{font-size:18px;line-height:1.55;max-width:36em}
+body.desk-ref .mctas{gap:12px}
+body.desk-ref .h2 .brush{color:#141216 !important;background:none !important;-webkit-text-fill-color:#141216}
+
+/* Freebies: the library is the page. No rotating travel photo behind the title. */
+#ffd .desk .phx{display:none !important}
+html.dir-c #ffd .desk .pop-hero,
+html.dir-c.o3h #ffd .desk .pop-hero{background:#FAF6EE !important;color:#141216 !important}
+html.dir-c #ffd .desk h1,
+html.dir-c.o3h #ffd .desk h1{
+  font-size:clamp(36px,4vw,52px) !important;
+  line-height:1.12 !important;
+  color:#141216 !important;
+  text-shadow:none !important;
+}
+html.dir-c #ffd .desk h1 em,
+html.dir-c.o3h #ffd .desk h1 em{color:#141216 !important}
+html.dir-c.o3h #ffd .desk .lede,
+html.dir-c #ffd .desk .lede{font-size:18px;line-height:1.55;color:#2A262E}

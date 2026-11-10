@@ -91,9 +91,35 @@ body.hvac-ref .hx-fig figcaption b{
 body.hvac-ref .hx-fig figcaption strong{
   display:block;
   margin-top:4px;
-  font:400 40px/1 'DM Serif Display',Georgia,serif;
-  color:#C8106F;
+  font:400 32px/1 'DM Serif Display',Georgia,serif;
+  color:#141216;
 }
+body.hvac-ref .tsbg,
+body.hvac-ref .tmo,
+body.hvac-ref .itiles,
+body.hvac-ref #desk{display:none !important}
+body.hvac-ref .tmx .tmd{
+  color:#141216 !important;
+  background:#F7F1E6 !important;
+  box-shadow:0 0 0 1px rgba(110,80,40,.16) !important;
+}
+body.hvac-ref .hx-trades{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 14px;
+  margin-top:12px;
+}
+body.hvac-ref .hx-trades a{
+  font:600 16px/1.4 'DM Sans',system-ui,sans-serif;
+  color:#141216;
+}
+body.hvac-ref .hx-close{max-width:40em}
+body.hvac-ref .hx-close h2{
+  font:400 36px/1.15 'DM Serif Display',Georgia,serif;
+  margin:0;
+}
+body.hvac-ref .hx-close p{font-size:18px;line-height:1.55}
+body.hvac-ref .hx-also{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 body.hvac-ref .hx-fig figcaption em{
   display:block;
   margin-top:4px;
@@ -126,7 +152,8 @@ body.hvac-ref #example .lede{
     margin-top:16px;
     padding:0 20px;
   }
-  body.hvac-ref .hx-fig{min-height:280px;order:-1}
-  body.hvac-ref .hx-actions{flex-direction:column;align-items:stretch}
-  body.hvac-ref .hx-actions .btn{width:100%}
+  body.hvac-ref .hx-fig{min-height:240px}
+  body.hvac-ref .hx-actions .btn.pk{width:100%}
+  body.hvac-ref .hx-actions .btn.wa,
+  body.hvac-ref .hx-actions .btn.lb{flex:1 1 140px;width:auto}
 }
