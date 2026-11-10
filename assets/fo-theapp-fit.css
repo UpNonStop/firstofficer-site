@@ -86,8 +86,9 @@
 /* ---------- the option cards: "Look around the app" is a pink button, the third of three (Ohad, 9 Nov) ---------- */
 .tapp .ta-oc .btn.ta-look{gap:5px}
 .tapp .ta-oc .btn.ta-look:hover .ar{transform:translateY(-3px)}
-/* on a phone the card is 205 to 254px inside: all three labels take one size, the one that holds the longest of them on one line */
-@media (max-width:480px){html body.tapp .ta-oc .btn.btn{font-size:clamp(13.5px,3.9vw,15px)!important;padding-left:6px;padding-right:6px}}
+/* on a phone the card is 205 to 254px inside: all three labels take one size, the one that holds the longest of them
+   ("Message Your First Officer") on one line, 16px from 390px up */
+@media (max-width:480px){html body.tapp .ta-oc .btn.btn{font-size:clamp(13.5px,4.1vw,16px)!important;padding-left:6px;padding-right:6px}}
 
 /* ---------- the closing block: three buttons on one line where there is room for three ---------- */
 @media (min-width:900px){

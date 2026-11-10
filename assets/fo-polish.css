@@ -247,6 +247,8 @@ body .fo .mast-foot .pk{color:#D4107A}
    so those button labels are 19px bold. White on WhatsApp green #25D366 is 2.0:1 at any size, so its label was dark green #0B2E17 (7.5:1)
    until 9 Nov, when Ohad set it: "the text should be in white over that green and should say WhatsApp". The label is white again, with a
    soft dark-green shadow under the letters so they hold their edge; the fill is untouched. The other greens in the rule below keep the ink.
+   Later the same day the word became Message ("Whatsapp is too long"): the green button reads "Message Your First Officer", still in
+   white, and the one blue button keeps "Text Your First Officer".
    The chrome's header and footer buttons get the same two rules inside assets/fo-chrome.js. */
 .btn.pk,.btn.lb,.nxb,.cqa#bgo,.ttabs [role=tab]{font-size:19px!important;font-weight:700!important}
 .ctab .btn.cr,.pill.green,.fo .cta a[href*="wa.me"]{color:#0B2E17!important}
@@ -469,20 +471,35 @@ main :is(h1,h2,.h2,h3){text-wrap:balance}
    and on desktop the three-button rows get 18px sides and an 8px gap so they keep one row */
 .btn>span[aria-hidden="true"]:first-child{margin-right:-3px}
 .hdock .btn>span[aria-hidden="true"]:first-child{margin-right:0}
-/* 9 Nov: the green label grew 59px ("WhatsApp Your First Officer"), which pushed the third button of 36 heroes onto a second line at
-   1440px and the second onto its own line at 1024px. 12px either side instead of 18px gives the row its width back: three on one
-   line again at 1440px (761 of 776px), two again at 1024px (530 of 548px). The words and their size do not change. */
-@media (min-width:761px){.mctas.trio{column-gap:8px}.mctas.trio .btn{padding-left:12px;padding-right:12px}
-  .pg-disc .lgc.trio .btn{padding-left:10px;padding-right:10px}
-  #ffd .ffd-pair>.btn{padding-left:12px!important;padding-right:12px!important}}
+/* 9 Nov, twice in a day. The green label said "Text Your First Officer" (228px at 19px bold), then "WhatsApp Your First Officer"
+   (287px), and now says "Message Your First Officer" (270px): Ohad, "Whatsapp is too long". It is still 42px wider than the label
+   these rows were drawn for, so the sides give the width back: 10px either side and a 6px gap where they were 18px and 8px. Read
+   against the original at 65 widths from 500 to 1920px on every page: three on one line wherever there were three (766 of 776px
+   on the two pages with the longest pink label) and two lines wherever there were two, with two exceptions. At 1080px (and at
+   1020 to 1024px on day-one) the pair that shared the first line is 7px too wide for it, so the three stack one to a line. And
+   from 1312 to 1339px the three already fit one line, where they took two. The words and their size do not change. */
+@media (min-width:761px){.mctas.trio{column-gap:6px}.mctas.trio .btn{padding-left:10px;padding-right:10px}
+  .pg-disc .lgc.trio .btn{padding-left:10px;padding-right:10px}}
+/* the bar on the 20 trade pages and the 7 field notes: its two buttons sit beside its words and never wrap, so a wider green
+   button took its 43px out of the words (66px wide at 800px where they had 95px) and, from 761 to 771px, pushed the page 11px
+   past the screen. 11px either side where there were 22px makes the pair 600px again, and the words get their column back. */
+@media (min-width:761px){.pbtn .btn{padding-left:11px;padding-right:11px}}
+/* the freebies pair: pink and green share the first line from 601px, wherever they did (515px of a column that is 513 to 540px) */
+@media (min-width:601px){#ffd .ffd-pair>.btn{padding-left:12px!important;padding-right:12px!important}}
+/* the two pairs on the calculator sit in a 488px card: side by side they need 523px at 19px. At 18px with 8px sides they need
+   473px and share the line again wherever they did; where the card is narrower than that they stack, as before. */
+@media (min-width:541px){html body .cq .mctas .btn.btn,html body .cbtn .btn.btn{font-size:18px!important;padding-left:8px;padding-right:8px}
+  .cq .mctas,.cbtn{gap:8px}}
 /* a button label that has to wrap breaks into even lines, never a one-word orphan (the longhand, so nowrap buttons stay nowrap) */
 .btn,.nxb{text-wrap-style:balance}
 
-/* FO-P1-01d (Ohad, 9 Nov): the green button now says "WhatsApp Your First Officer", 287px at 19px bold, 49px wider than the label it
-   replaces, so on a phone it broke onto two lines in 34 of 79 places at 390px and in every one at 320px while the pink beside it
-   stayed at one. Below 481px the label follows the screen: the size at which it fits the narrower of the two button widths the site
-   uses (screen minus 120px, the four app-link pages being the tightest), never under 15px, never over 19px. From 414px up nothing changes. The selector doubles the class to sit
-   above FO-P1-01c's 19px rule, which the pink and blue labels keep. */
+/* FO-P1-01d (Ohad, 9 Nov): the green button says "Message Your First Officer", 270px at 19px bold, 42px wider than the label it
+   replaced, so on a narrow phone it would break onto two lines while the pink beside it stayed at one. Below 481px the label
+   follows the screen: the size at which it fits the narrowest button the site uses (screen minus 116px), with 6px to spare, never
+   under 15px, never over 19px. From 393px up it is 19px and nothing changes; at 390px it is 18.8px, at 375px 17.8px, at 360px
+   16.7px. Read against the original at every width from 320 to 499px: one line wherever the old label had one, and one line at
+   320 to 340px where the old label had two. The selector doubles the class to sit above FO-P1-01c's 19px rule, which the pink
+   and blue labels keep. */
 @media (max-width:480px){
-  html body .btn.wa.wa{font-size:clamp(15px,calc((100vw - 122px)*.0662),19px)!important}
+  html body .btn.wa.wa{font-size:clamp(15px,calc((100vw - 122px)*.0703),19px)!important}
 }

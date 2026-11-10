@@ -98,6 +98,12 @@
   .fg-f{--w:74px}
 }
 
-/* 9 Nov: the green button says "WhatsApp Your First Officer" now, 287px at 19px bold. The lane's button is 328px with 22px either
-   side, 3px short, so the label broke onto two lines from 481px up. 16px either side holds it on one. */
+/* 9 Nov: the green button says "Message Your First Officer" now, 270px at 19px bold, where the lanes were drawn for a 228px
+   label. 16px either side holds it on one line. From 721 to 779px the two lanes sit side by side and each is at its narrowest
+   (the button had 279px): there the lane gives up 12px of its own margin either side and the button takes 14px, so the label
+   keeps its size and its one line. */
 .fg-lane .btn.wa,#fg-wa{padding-left:16px;padding-right:16px}
+@media (min-width:721px) and (max-width:779px){
+  .fg-lane{padding-left:20px;padding-right:20px}
+  .fg-lane .btn.wa,#fg-wa{padding-left:14px;padding-right:14px}
+}
