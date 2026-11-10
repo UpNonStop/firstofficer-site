@@ -531,14 +531,20 @@ function statePreview(){
   var row = el('div','pv-row');
   [['earn','Earn','Which card each bill goes on, and what it earns.'],
    ['burn','Burn','Where your points go furthest when you spend them.'],
-   ['return','Return','What came back this week, in dollars.'],
+   ['return','Return','Earn times burn, in cents per dollar, when both are known. For Leo, 3 pts × 1.6¢ is 4.8¢ per $1, est.'],
    ['learn','Learn','One short lesson, built on the cards you hold.']].forEach(function(t){
     var f = el('figure','pv-c pv-' + (t[0] === 'return' ? 'ret' : t[0]));
-    var im = document.createElement('img');
-    im.src = 'img/rec/app/' + t[0] + '.webp'; im.width = 720; im.height = 1472;
-    im.loading = 'lazy'; im.decoding = 'async';
-    im.alt = 'Example ' + t[1] + ' tab from Leo\'s fictional desk';
-    f.appendChild(im);
+    if (t[0] === 'return') {
+      var box = el('div','pv-math');
+      box.innerHTML = '<strong>4.8¢</strong><em>per $1, est.</em><span>3 points per dollar times 1.6¢. Both known. A Friday tally is not Return.</span>';
+      f.appendChild(box);
+    } else {
+      var im = document.createElement('img');
+      im.src = 'img/rec/app/' + t[0] + '.webp'; im.width = 720; im.height = 1472;
+      im.loading = 'lazy'; im.decoding = 'async';
+      im.alt = 'Example ' + t[1] + ' tab from Leo\'s fictional desk';
+      f.appendChild(im);
+    }
     var c = el('figcaption');
     c.appendChild(el('b',null,t[1])); c.appendChild(el('span',null,t[2]));
     f.appendChild(c); row.appendChild(f);

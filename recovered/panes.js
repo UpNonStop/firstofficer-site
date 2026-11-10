@@ -64,13 +64,17 @@ function burn(p){var from=(p.city||'').split(',')[0],to=p.trip.split(/ in | for 
       '<div class="zbp-n"><span>'+pts(p.have)+' of '+pts(p.need)+' points</span><b>'+p.pct+'% there, est.</b></div></div>'+chips(p.burnL)+'</div>'+
     '<div class="zkc"><div class="zkh">Requirements vetted<b>'+p.reqs.length+' of '+p.reqs.length+'</b></div><ul class="zck">'+p.reqs.map(function(r){return '<li><b>✓</b>'+r+'</li>'}).join('')+'</ul></div>'+
     '<div class="zsd"><img src="'+A+'img/rec/chev.png" alt=""><div><small>Sent to the desk</small><b>Dates next. The desk books after '+p.first+' approves.</b></div></div>'}
-/* ---- Return: Friday findings in dollars, each finding in its colour; the weeks rise into this Friday (no confetti, Oct 29) ---- */
+/* ---- Return: earn times burn when both are known. The dollar list is a Friday tally, not Return. ---- */
 function ret(p){var retSum=p.ret.reduce(function(a,r){return a+r[1]},0),wk=[38,52,30,64,46,58,72,100];
-  return bub('o','What did this week bring in?',p)+
-    '<div class="zkc"><div class="zkh">Friday findings<b>this week</b></div><div class="zrt"><div class="zrtn"><b>'+usd(retSum)+'</b><small>found this week, est.</small></div><div class="zwkb">'+wk.map(function(h){return '<i style="height:'+h+'%"></i>'}).join('')+'</div></div>'+
+  var known=p.first==='Leo';
+  var head=known
+    ? '<div class="zkc"><div class="zkh">Return<b>4.8¢</b></div><p>3 points per dollar times 1.6¢, est. Both known.</p></div>'
+    : '<div class="zkc"><div class="zkh">Return<b>Blank</b></div><p>Cents per point are not in this example, so Return stays blank. Unknown is not zero.</p></div>';
+  return bub('o','What is Return on this spend?',p)+head+
+    '<div class="zkc"><div class="zkh">Friday tally<b>not Return</b></div><div class="zrt"><div class="zrtn"><b>'+usd(retSum)+'</b><small>tally this week, est.</small></div><div class="zwkb">'+wk.map(function(h){return '<i style="height:'+h+'%"></i>'}).join('')+'</div></div>'+
     p.ret.map(function(r,i){return '<div class="zrl"><i class="zdot s'+i+'"></i><span>'+r[0]+'</span><b>'+usd(r[1])+'</b></div>'}).join('')+'</div>'+
-    '<div class="zkc"><div class="zkh">Where it came from<b>est.</b></div><div class="zst">'+p.ret.map(function(r,i){return '<i class="s'+i+'" style="flex:'+r[1]+'"></i>'}).join('')+'</div><div class="zleg">'+p.ret.map(function(r,i){return '<span><i class="s'+i+'"></i>'+Math.round(r[1]/retSum*100)+'%</span>'}).join('')+'</div></div>'+
-    bub('f','All three are in the Friday scorecard. One number, in dollars.',p)+
+    '<div class="zkc"><div class="zkh">Where the tally came from<b>est.</b></div><div class="zst">'+p.ret.map(function(r,i){return '<i class="s'+i+'" style="flex:'+r[1]+'"></i>'}).join('')+'</div><div class="zleg">'+p.ret.map(function(r,i){return '<span><i class="s'+i+'"></i>'+Math.round(r[1]/retSum*100)+'%</span>'}).join('')+'</div></div>'+
+    bub('f','The dollars are a Friday tally. They are not Return.',p)+
     '<div class="zby"><span>✓</span>Checked against the statements</div>'}
 /* ---- Learn: one short lesson, the coin, the bars, the lesson count ---- */
 function learn(p){var L=p.learn,u=L[5]||'{v}¢',lm=Math.max.apply(null,L[3].map(function(b){return b[1]}));

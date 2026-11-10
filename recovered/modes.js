@@ -62,7 +62,7 @@ function render(){
   k('label',lab);k('h-label',lab);
   k('h-earn','<b>'+x(p.from)+' → '+x(p.to)+'</b>per $1 on your spend, est.',1);
   k('h-burn','<b>'+p.pct+'% there</b>'+p.trip+', est.',1);
-  k('h-return','<b>'+usd(retSum)+'</b>found in one Friday, est.',1);
+  k('h-return', p.first==='Leo' ? '<b>4.8¢</b>per $1, est. 3 pts × 1.6¢' : '<b>Blank</b>cents per point are not in this example', 1);
   k('h-learn','<b>'+L[1]+'</b>'+L[2],1);
   show(tab,1);
 }
