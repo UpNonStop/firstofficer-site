@@ -261,3 +261,6 @@
   .beat .pil{height:460px}
 }
 .beat .h3 .ln{display:block}
+
+/* Home, "The desk runs the points.": the brush in the brand pink at full strength, #FA1896 (Ohad, 10 Nov 2026). */
+.brush.brush-fa{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M4 12 C40 6 90 9 140 7 S192 8 197 11 L195 18 C198 24 196 30 192 33 C150 35 100 31 60 34 S12 36 5 31 C2 25 6 19 4 12Z' fill='%23FA1896'/%3E%3C/svg%3E")}
