@@ -31,7 +31,7 @@ new permission, to run the two timed jobs), then Deploy > Manage deployments > p
 - `dailyDigest`, 8:00 ET: one email to the desk listing the last day's starts that were not sent. A quiet day sends nothing. Switch: `SEND_DIGEST` (on).
 - `hourlyTick`: one themed "finish your application" email to a visitor who typed an email and went quiet for `NUDGE_AFTER_HOURS` (2),
   never after 72 hours, never twice, never after they sent it. Switch: `SEND_NUDGE` (off).
-- `SEND_CONFIRMATION` (off): the visitor's themed confirmation when they send it.
+- `SEND_CONFIRMATION` (on, Ohad's call on Nov 10): the visitor's themed confirmation when they send it, reply-to desk@upnonstop.com.
 - Until v3 is deployed, the site's saves are refused by the old script (they carry no consent), so nothing changes in the sheet.
 
 **v2, 11 Nov 2026 (the wallet picker):** paste the new `Code.gs`, then Deploy > Manage deployments > pencil > Version: New version >
