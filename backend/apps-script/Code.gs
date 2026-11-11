@@ -215,7 +215,7 @@ function notify_(d, row, when) {
     block_('What they want', [['Pillars', list_(d.goals)], ['Trip in mind', d.trip], ['Notes', d.notes], ['Heard from', d.heard]]) +
     block_('Where they came from', [['Page', row[8]], ['UTM / referrer', row[9]], ['Time to fill', row[24] ? row[24] + 's' : '']]) +
     '<tr><td style="padding:18px 28px 0;font:14px/1.5 Helvetica,Arial,sans-serif;color:#4A4550">Reply to reach ' + h_(d.email) +
-      ' directly. <a href="' + h_(SpreadsheetApp.getActiveSpreadsheet().getUrl()) + '" style="color:#A30D5C;font-weight:700">Open the sheet</a></td></tr>',
+      ' directly. <a href="' + h_(SpreadsheetApp.getActiveSpreadsheet().getUrl()) + '" style="color:#FA1896;font-weight:700">Open the sheet</a></td></tr>',
     (ent ? 'Enterprise inquiry from ' : 'Application from ') + name);
   var lines = [];
   for (var i = 0; i < HEADERS.length; i++) if (row[i] !== '' && row[i] !== null) lines.push(HEADERS[i] + ': ' + row[i]);
@@ -286,7 +286,7 @@ function digestHtml_(list, C) {
       '<div style="font:700 16px/1.3 Helvetica,Arial,sans-serif;color:#141216">' + h_(str_(r[C['Name']]) || 'No name yet') +
         (str_(r[C['Business']]) ? '<span style="font-weight:500;color:#4A4550">, ' + h_(r[C['Business']]) + '</span>' : '') + '</div>' +
       '<div style="font:14px/1.5 Helvetica,Arial,sans-serif;color:#4A4550;margin-top:4px">' +
-        (em ? '<a href="mailto:' + h_(em) + '" style="color:#A30D5C;font-weight:700">' + h_(em) + '</a>' : 'No email') +
+        (em ? '<a href="mailto:' + h_(em) + '" style="color:#FA1896;font-weight:700">' + h_(em) + '</a>' : 'No email') +
         (str_(r[C['Phone']]) ? ' · ' + h_(phone_(r[C['Phone']])) : '') + '</div>' +
       '<div style="font:13px/1.5 Helvetica,Arial,sans-serif;color:#6E6776;margin-top:4px">' +
         h_([str_(r[C['Trade']]), str_(r[C['Card spend a month']]), str_(r[C['Cards']])].filter(String).join(' · ') || 'Few answers yet') +
@@ -299,7 +299,7 @@ function digestHtml_(list, C) {
       ' started<br><span style="color:#FA1896">and did not press Send.</span></div>' +
     '<p style="font:15px/1.55 Helvetica,Arial,sans-serif;color:#4A4550;margin:14px 0 18px">They did not tick consent to be called or texted, so reach them by email. ' +
       'All of them are on the Started tab.</p>' + cards +
-    '<a href="' + h_(SpreadsheetApp.getActiveSpreadsheet().getUrl()) + '" style="font:700 14px/1.5 Helvetica,Arial,sans-serif;color:#A30D5C">Open the sheet</a></td></tr>',
+    '<a href="' + h_(SpreadsheetApp.getActiveSpreadsheet().getUrl()) + '" style="font:700 14px/1.5 Helvetica,Arial,sans-serif;color:#FA1896">Open the sheet</a></td></tr>',
     list.length + ' started the application and did not send it.');
 }
 function digestText_(list, C) {
@@ -325,7 +325,7 @@ function shell_(inner, preheader, why) {
       'UpNonStop LLC | 235 Pavonia Avenue | Jersey City, NJ 07302' + (why ? '<br>' + h_(why) : '') + '</div></td></tr>' +
     '</table></td></tr></table></body></html>';
 }
-function kicker_(t) { return '<div style="font:700 11px/1 \'Courier New\',monospace;letter-spacing:.14em;text-transform:uppercase;color:#A30D5C">' + h_(t) + '</div>'; }
+function kicker_(t) { return '<div style="font:700 11px/1 \'Courier New\',monospace;letter-spacing:.14em;text-transform:uppercase;color:#FA1896">' + h_(t) + '</div>'; }
 function button_(href, label, bg, fg, border) {
   return '<a href="' + h_(href) + '" style="display:inline-block;margin:0 8px 8px 0;padding:12px 18px;border-radius:999px;background:' + bg + ';color:' + fg +
     ';border:1.5px solid ' + (border || bg) + ';font:700 14px/1 Helvetica,Arial,sans-serif;text-decoration:none">' + h_(label) + '</a>';
@@ -340,7 +340,7 @@ function block_(title, pairs) {
 }
 function step_(n, title, text) {
   return '<table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 12px"><tr><td style="vertical-align:top;padding-right:12px">' +
-    '<div style="width:28px;height:28px;border-radius:8px;border:1.5px solid #FA1896;background:#FBF7EF;color:#A30D5C;font:700 12px/28px \'Courier New\',monospace;text-align:center">' + n + '</div></td>' +
+    '<div style="width:28px;height:28px;border-radius:8px;border:1.5px solid #FA1896;background:#FBF7EF;color:#FA1896;font:700 12px/28px \'Courier New\',monospace;text-align:center">' + n + '</div></td>' +
     '<td style="vertical-align:top"><div style="font:700 15px/1.35 Helvetica,Arial,sans-serif;color:#141216">' + h_(title) + '</div>' +
     '<div style="font:15px/1.5 Helvetica,Arial,sans-serif;color:#4A4550;margin-top:2px">' + h_(text) + '</div></td></tr></table>';
 }

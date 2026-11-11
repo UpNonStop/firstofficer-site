@@ -53,8 +53,8 @@
 #wallet .wl-sum b{font-weight:800;white-space:nowrap}
 #wallet .wl-sum .wl-pk{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#5E5866}
 #wallet .wl-p.has .wl-sum .wl-pk{color:var(--ink)}
-#wallet .wl-sum .wl-ed{flex:none;font:700 11.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#B00C63}
-#wallet .wl-sum:focus-visible{outline:3px solid var(--pinkl,#F7A8D0);outline-offset:2px}
+#wallet .wl-sum .wl-ed{flex:none;font:700 11.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#FA1896}
+#wallet .wl-sum:focus-visible{outline:3px solid #FA1896;outline-offset:2px}
 #wallet .wl-body{display:grid;gap:16px;padding:2px 18px 18px}
 #wallet .wl-lt{display:block;margin:0 0 9px;font:500 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
 #wallet .wl-sep{flex-basis:100%;margin:6px 0 0;font:500 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#7A7280}
@@ -70,5 +70,5 @@
 #callback .cb-save{margin:0 0 14px;font:500 14px/1.45 var(--sans);color:var(--body)}
 #callback .cb-back{margin:0 0 16px;padding:12px 16px;border-radius:14px;background:#EAE0CE;font:600 14.5px/1.45 var(--sans);color:var(--ink)}
 #callback .cb-back[hidden]{display:none}
-#callback .cb-back button{margin-left:6px;padding:6px 0;border:0;background:none;font:700 14.5px/1.2 var(--sans);color:#B00C63;
+#callback .cb-back button{margin-left:6px;padding:6px 0;border:0;background:none;font:700 14.5px/1.2 var(--sans);color:#FA1896;
   text-decoration:underline;text-underline-offset:3px;cursor:pointer}
