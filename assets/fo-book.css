@@ -38,3 +38,30 @@
 
 /* the three answers link to the calculator case they come from */
 #edge .edg .ill a,#edge .edg p a{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;display:inline-block;padding:4px 0;margin:-4px 0}
+
+/* the wallet (Ohad, 11 Nov): tap a bank, then pick its cards, business and personal. Panels are the deeper well
+   (#EAE0CE) on the beige form, their chips the light cream; picked chips stay pink. assets/fo-wallet.js builds them. */
+#wallet [hidden]{display:none!important}
+#wallet .wl-hint{margin:-2px 0 2px;font:500 14px/1.45 var(--sans);color:var(--body)}
+#wallet{min-width:0;max-width:100%}
+#wallet .wl-panels{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+#wallet .wl-p,#wallet .wl-sum{min-width:0}
+#wallet .wl-panels:empty{display:none}
+#wallet .wl-p{border-radius:18px;background:#EAE0CE;box-shadow:inset 0 0 0 1px rgba(110,80,40,.14)}
+#wallet .wl-sum{display:flex;align-items:center;gap:12px;width:100%;min-height:54px;margin:0;padding:10px 18px;border:0;border-radius:18px;
+  background:none;text-align:left;cursor:pointer;font:500 15px/1.35 var(--sans);color:var(--ink)}
+#wallet .wl-sum b{font-weight:800;white-space:nowrap}
+#wallet .wl-sum .wl-pk{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#5E5866}
+#wallet .wl-p.has .wl-sum .wl-pk{color:var(--ink)}
+#wallet .wl-sum .wl-ed{flex:none;font:700 11.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#B00C63}
+#wallet .wl-sum:focus-visible{outline:3px solid var(--pinkl,#F7A8D0);outline-offset:2px}
+#wallet .wl-body{display:grid;gap:16px;padding:2px 18px 18px}
+#wallet .wl-lt{display:block;margin:0 0 9px;font:500 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+#wallet .wl-sep{flex-basis:100%;margin:6px 0 0;font:500 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#7A7280}
+#wallet .wl-body .chips .chip{max-width:100%}
+#wallet .wl-body .chips .chip span{font-size:13.5px;line-height:1.25;padding:9px 14px;text-align:left}
+#wallet .wl-body .chips .chip input:not(:checked)+span{background:#F8F2E7}
+#wallet .wl-more{padding-top:12px;border-top:1px solid rgba(110,80,40,.16)}
+#wallet .wl-find input{width:100%;min-height:46px;margin:0;padding:0 16px;border-radius:12px;border:1.5px solid rgba(110,80,40,.24);
+  background:#FBF7EF;font:500 15px/1 var(--sans);color:var(--ink)}
+#wallet .wl-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

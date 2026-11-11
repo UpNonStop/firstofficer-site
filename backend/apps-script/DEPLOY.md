@@ -23,6 +23,12 @@ https://docs.google.com/spreadsheets/d/1g1ZqWfkf8WnenG7cFe5yWhRMgCaVLnCFnFhhutm2
 **Trying it safely:** put `TEST` at the start of the first name or the business name. That request is written to the
 sheet with `TEST` in the Status column and sends no email. Delete TEST rows whenever you like.
 
+**v2, 11 Nov 2026 (the wallet picker):** paste the new `Code.gs`, then Deploy > Manage deployments > pencil > Version: New version >
+Deploy. The `/exec` URL stays the same, so nothing changes on the site. The first request after that adds two column titles at the
+end of the Requests tab, "Business cards" and "Personal cards"; older rows keep their cells. Until you redeploy, every picked card
+still arrives in the "Cards" column, one line per bank. The visitor confirmation email ships switched off: set
+`SEND_CONFIRMATION = true` at the top of Code.gs (and deploy a new version) to turn it on; its text is in `confirm_()`.
+
 **Later changes to Code.gs:** Deploy > Manage deployments > pencil > Version: New version > Deploy. The `/exec` URL stays the same.
 (A brand-new deployment would make a new URL, which then needs step 5 again.)
 
