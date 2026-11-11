@@ -23,6 +23,17 @@ https://docs.google.com/spreadsheets/d/1g1ZqWfkf8WnenG7cFe5yWhRMgCaVLnCFnFhhutm2
 **Trying it safely:** put `TEST` at the start of the first name or the business name. That request is written to the
 sheet with `TEST` in the Status column and sends no email. Delete TEST rows whenever you like.
 
+**v3, 10 Nov 2026 (answers save as you go, themed emails):** paste the new `Code.gs`, then **Run > setup once** (it asks for one
+new permission, to run the two timed jobs), then Deploy > Manage deployments > pencil > Version: New version > Deploy. Same `/exec` URL.
+- A new **Started** tab: one row per visitor who starts the Book form and types an email or phone, updated as they go (Stage Started,
+  then Submitted when they send it). Switch: `SAVE_STARTED`.
+- The desk email is now a themed HTML email with Call, WhatsApp and Email buttons (the plain text stays inside it for any mail app).
+- `dailyDigest`, 8:00 ET: one email to the desk listing the last day's starts that were not sent. A quiet day sends nothing. Switch: `SEND_DIGEST` (on).
+- `hourlyTick`: one themed "finish your application" email to a visitor who typed an email and went quiet for `NUDGE_AFTER_HOURS` (2),
+  never after 72 hours, never twice, never after they sent it. Switch: `SEND_NUDGE` (off).
+- `SEND_CONFIRMATION` (off): the visitor's themed confirmation when they send it.
+- Until v3 is deployed, the site's saves are refused by the old script (they carry no consent), so nothing changes in the sheet.
+
 **v2, 11 Nov 2026 (the wallet picker):** paste the new `Code.gs`, then Deploy > Manage deployments > pencil > Version: New version >
 Deploy. The `/exec` URL stays the same, so nothing changes on the site. The first request after that adds two column titles at the
 end of the Requests tab, "Business cards" and "Personal cards"; older rows keep their cells. Until you redeploy, every picked card
