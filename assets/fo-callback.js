@@ -97,7 +97,7 @@
     return 'We will call '+d.phone+' '+(parts?parts+', ':'at a time that suits you, ')+tzLabel(d.tz)+' time. We confirm it first by '+(d.confirm_by||'text message').toLowerCase()+'.'}
   function bodyText(d){var L=['Found Money Call application','Name: '+d.first_name+(d.last_name?' '+d.last_name:''),'Business: '+d.business,'Phone: '+d.phone,'Email: '+d.email,'Time zone: '+tzLabel(d.tz)];
     if(d.days.length)L.push('Days: '+d.days.join(', '));if(d.times.length)L.push('Time: '+d.times.join('; '));
-    if(d.industry)L.push('Industry: '+d.industry);if(d.spend)L.push('Card spend a month: '+d.spend);if(d.notes)L.push('Notes: '+d.notes);
+    if(d.industry)L.push('Industry: '+d.industry);if(d.spend)L.push('Card spend a month: '+d.spend);if(d.cards&&d.cards.length)L.push('Cards: '+d.cards.join('; '));if(d.notes)L.push('Notes: '+d.notes);
     return L.join('\n')}
   function mailText(d){return 'mailto:desk@upnonstop.com?subject='+encodeURIComponent('Found Money Call application: '+d.first_name+', '+d.business)+'&body='+encodeURIComponent(bodyText(d))}
   function fallback(d,lead){msg.textContent=lead;
@@ -109,7 +109,7 @@
     var d={request_id:rid,first_name:val('first_name'),last_name:val('last_name'),business:val('business'),role:val('role'),
       phone:val('phone'),email:val('email'),confirm_by:(all('confirm_by')[0]||''),tz:val('tz'),urgency:val('urgency'),
       days:all('days'),times:all('times'),industry:val('industry'),spend:val('spend'),cardholders:val('cardholders'),points:val('points'),
-      cards:all('cards'),spend_lines:all('spend_lines'),goals:all('goals'),trip:val('trip'),notes:val('notes'),heard:val('heard'),
+      cards:(window.FOWallet?window.FOWallet.lines():all('cards')),wallet:(window.FOWallet?window.FOWallet.items():[]),spend_lines:all('spend_lines'),goals:all('goals'),trip:val('trip'),notes:val('notes'),heard:val('heard'),
       consent:true,consent_text:(f.querySelector('.cbconsent span')||{}).textContent||'',company_site:val('company_site'),
       fill_ms:Date.now()-(firstInput||openedAt||loadedAt),meta:meta()};
     if(!CALLBACK_ENDPOINT){fallback(d,'One tap sends these answers to the desk: ');ga('callback_handoff',{page_path:location.pathname});return}

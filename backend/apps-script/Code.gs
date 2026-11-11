@@ -10,12 +10,18 @@
  *    dropped silently, with no row and no email. The same phone and email within 10 minutes is saved as "Repeat", no email.
  *  - Test rows: a request whose first name or business starts with "TEST" is written with "TEST" in the Status
  *    column and does NOT send the desk email, so trying the form never fills the inbox.
- *  - Nothing here sends anything to the visitor. Nothing goes to Google Analytics.
+ *  - The visitor gets an email only if SEND_CONFIRMATION is true (below): the confirmation, from the account that deploys
+ *    this script, reply-to the desk. Off by default. Nothing goes to Google Analytics.
+ *  - Cards (v2, 11 Nov 2026): "Cards" keeps one line per bank, e.g. "Amex (business: Business Gold / personal: Gold Card)".
+ *    "Business cards" and "Personal cards" list each picked card with its bank, from the form's wallet picker.
  *  - Cells that start with = + - @ are prefixed with ' so a request can never run as a formula in the sheet.
  */
 
 // Where the desk email goes. Leave '' to send it to the Google account that deploys the script (the sheet's owner).
 var NOTIFY_TO = '';
+// The visitor's confirmation email ("Got it, Dana: your call request is in"). false = no email to the visitor.
+var SEND_CONFIRMATION = false;
+var DESK_REPLY_TO = 'desk@upnonstop.com';
 var SHEET_TAB = 'Requests';
 var TZ = 'America/New_York';
 
@@ -23,7 +29,8 @@ var HEADERS = [
   'Timestamp (ET)', 'Name', 'Email', 'Phone', 'Business', 'Card spend a month', 'Trade',
   'Preferred time', 'Source page', 'UTM / referrer',
   'Status', 'Reference', 'Role', 'Confirm by', 'How soon', 'Cardholders', 'Points balance', 'Cards',
-  'Spend lines', 'Goals', 'Trip', 'Notes', 'Heard about us', 'Consent text', 'Seconds to fill', 'Request ID'
+  'Spend lines', 'Goals', 'Trip', 'Notes', 'Heard about us', 'Consent text', 'Seconds to fill', 'Request ID',
+  'Business cards', 'Personal cards'
 ];
 
 function doPost(e) {
@@ -72,7 +79,8 @@ function doPost(e) {
       isTest ? 'TEST' : (isRepeat ? 'Repeat' : 'New'), ref_(d), str_(d.role), str_(d.confirm_by), str_(d.urgency),
       str_(d.cardholders), str_(d.points), list_(d.cards), list_(d.spend_lines), list_(d.goals),
       str_(d.trip), str_(d.notes), str_(d.heard), str_(d.consent_text),
-      Math.round((Number(d.fill_ms) || 0) / 1000), str_(d.request_id)
+      Math.round((Number(d.fill_ms) || 0) / 1000), str_(d.request_id),
+      wallet_(d.wallet, 'business'), wallet_(d.wallet, 'personal')
     ].map(safe_);
     sh.appendRow(row);
     if (!isTest) cache.put(key, '1', 600);
@@ -81,6 +89,7 @@ function doPost(e) {
   }
 
   if (!isTest && !isRepeat) notify_(d, row, when);
+  if (SEND_CONFIRMATION && !isTest && !isRepeat && !/^enterprise/.test(str_((d.meta || {}).form))) confirm_(d, when);
   return json_({ ok: true, ref: ref_(d) });
 }
 
@@ -108,8 +117,45 @@ function sheet_() {
     sh.appendRow(HEADERS);
     sh.setFrozenRows(1);
     sh.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
+  } else if (sh.getLastColumn() < HEADERS.length) {
+    // A sheet made before v2: add the new column titles at the end; earlier rows keep their cells.
+    var from = sh.getLastColumn() + 1;
+    sh.getRange(1, from, 1, HEADERS.length - from + 1).setValues([HEADERS.slice(from - 1)]).setFontWeight('bold');
   }
   return sh;
+}
+
+// The picked cards of one line, each with its bank: "Amex Business Gold, Chase Ink Business Preferred".
+function wallet_(w, line) {
+  if (!Array.isArray(w)) return '';
+  return w.filter(function (x) { return x && x.line === line && str_(x.card); })
+    .map(function (x) { var b = str_(x.issuer), c = str_(x.card); return c.indexOf(b) === 0 ? c : b + ' ' + c; })
+    .join(', ');
+}
+
+// The visitor's confirmation, only when SEND_CONFIRMATION is true. Plain text, from the deploying account, reply-to the desk.
+function confirm_(d, when) {
+  var first = str_(d.first_name), to = str_(d.email);
+  if (!first || !to) return;
+  var by = (str_(d.confirm_by) || 'Text message').toLowerCase();
+  var window_ = [list_(d.days) ? 'on ' + list_(d.days) : '', list_(d.times)].filter(String).join(', ');
+  var lines = [
+    'Thanks, ' + first + '. We have your request.', '',
+    'We will call ' + str_(d.phone) + ' ' + (window_ ? window_ + ', ' : 'at a time that suits you, ') + tzName_(d.tz) +
+      '. We confirm the exact time with you first, by ' + by + '.', '',
+    'What happens next',
+    '01 Within one business day: we confirm the time by ' + by + '.',
+    '02 The call, twenty minutes, free: where your card spend goes and what it already earns. Handy to have: last month\'s card statements, or a rough split of where the spend goes. No card login needed.',
+    '03 Our recommendation: in dollars, what the desk could find, est., and whether it clears the $550 monthly fee.',
+    '04 Your call: say yes and the desk opens, month to month. Say no and you keep the recommendation.', '',
+    'Need to change something? Reply to this email, or message us on WhatsApp at +1 619 940 4040.', '',
+    'The desk at First Officer', 'Reference ' + ref_(d), '',
+    'First Officer by UpNonStop is a points and rewards advisory service, not a licensed financial advisor. Figures are estimates, not guarantees.',
+    'UpNonStop LLC | 235 Pavonia Avenue | Jersey City, NJ 07302',
+    'You are getting this because you asked for a call at firstofficer.upnonstop.com.'
+  ];
+  MailApp.sendEmail({ to: to, subject: 'Got it, ' + first + ': your call request is in', body: lines.join('\n'),
+    replyTo: DESK_REPLY_TO, name: 'First Officer' });
 }
 
 function ref_(d) { return 'FO-' + str_(d.request_id).replace(/[^a-z0-9]/gi, '').slice(0, 8).toUpperCase(); }
