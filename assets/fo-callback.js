@@ -2,6 +2,10 @@
    On send, the answers and a short technical note go to the desk's Google Apps Script web app, which adds a row to the
    Google Sheet "First Officer - Call-me-back requests" and emails the desk every detail (backend/apps-script/, DEPLOY.md there).
    With Do Not Track or Global Privacy Control on, the technical note is cut to the page, time zone and language.
+   Answers save as you go (Ohad, 10 Nov: capture the visitors who start): on this device always (localStorage, 14 days,
+   so a returning visitor finds them again), and to the sheet's "Started" tab as a "draft" once there is an email or a
+   10-digit phone, a few seconds after each change and when the page is left. Drafts never carry consent, so a script
+   older than v3 rejects them. With Do Not Track or Global Privacy Control on, no draft leaves the device.
    No answer from this form ever goes to Google Analytics: GA gets only the event name, the trade and a spend band.
    If the endpoint is not set yet, or cannot be reached, the same answers are ready to send by email in one tap,
    so nothing typed is lost (Ohad, 31 Oct: no WhatsApp hand-off on this form). */
@@ -105,20 +109,54 @@
   function set(k,v){[].forEach.call(done.querySelectorAll('[data-cb="'+k+'"]'),function(e){e.textContent=v})}
   var BAND={'Under $10K':'under 10K','$10K to $25K':'10K to 25K','$25K to $50K':'25K to 50K','$50K to $100K':'50K to 100K','$100K to $250K':'100K to 250K','$250K to $1M':'250K and up','Over $1M':'250K and up'};
 
-  f.addEventListener('submit',function(e){e.preventDefault();if(sending)return;msg.textContent='';if(check())return;
-    var d={request_id:rid,first_name:val('first_name'),last_name:val('last_name'),business:val('business'),role:val('role'),
+  /* every answer, for a send (stage "submit") or a save as you go (stage "draft", never with consent) */
+  function collect(stage){var seen={};[].forEach.call(f.elements,function(el){var n=el.name;if(!n||n==='company_site'||n==='consent'||n==='confirm_by')return;
+      if((el.type==='checkbox'||el.type==='radio')?el.checked:String(el.value||'').trim())seen[n]=1});
+    return {request_id:rid,stage:stage,first_name:val('first_name'),last_name:val('last_name'),business:val('business'),role:val('role'),
       phone:val('phone'),email:val('email'),confirm_by:(all('confirm_by')[0]||''),tz:val('tz'),urgency:val('urgency'),
       days:all('days'),times:all('times'),industry:val('industry'),spend:val('spend'),cardholders:val('cardholders'),points:val('points'),
       cards:(window.FOWallet?window.FOWallet.lines():all('cards')),wallet:(window.FOWallet?window.FOWallet.items():[]),spend_lines:all('spend_lines'),goals:all('goals'),trip:val('trip'),notes:val('notes'),heard:val('heard'),
-      consent:true,consent_text:(f.querySelector('.cbconsent span')||{}).textContent||'',company_site:val('company_site'),
-      fill_ms:Date.now()-(firstInput||openedAt||loadedAt),meta:meta()};
+      consent:stage!=='draft',consent_text:(f.querySelector('.cbconsent span')||{}).textContent||'',company_site:val('company_site'),
+      fill_ms:Date.now()-(firstInput||openedAt||loadedAt),filled:Object.keys(seen).length,meta:meta()}}
+
+  /* ---- answers save as you go ---- */
+  var LS='fo_cb_v1',dirty=false,lastSent=0,saveT=null,finished=false;
+  function quiet(){return navigator.doNotTrack==='1'||window.doNotTrack==='1'||navigator.globalPrivacyControl===true}
+  function keep(){if(finished)return;try{var o={rid:rid,at:Date.now(),v:{}};[].forEach.call(f.elements,function(el){var n=el.name;if(!n||n==='company_site'||n==='consent')return;
+      if(el.type==='checkbox'||el.type==='radio'){if(el.checked)(o.v[n]=o.v[n]||[]).push(el.value)}else if(String(el.value||'').trim())o.v[n]=el.value});
+    localStorage.setItem(LS,JSON.stringify(o))}catch(e){}}
+  function draft(leaving){
+    if(!CALLBACK_ENDPOINT||finished||sending||quiet())return;
+    var d=collect('draft');
+    if(d.company_site||!(/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(d.email)||d.phone.replace(/\D/g,'').length>=10))return;
+    var body=JSON.stringify(d);dirty=false;lastSent=Date.now();
+    if(leaving&&navigator.sendBeacon){try{if(navigator.sendBeacon(CALLBACK_ENDPOINT,new Blob([body],{type:'text/plain;charset=utf-8'})))return}catch(e){}}
+    try{fetch(CALLBACK_ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body:body}).catch(function(){})}catch(e){}}
+  function changed(e){if(finished||(e&&e.target&&e.target.name==='company_site'))return;dirty=true;keep();clearTimeout(saveT);
+    saveT=setTimeout(function(){draft(false)},Math.max(2500,8000-(Date.now()-lastSent)))}
+  f.addEventListener('input',changed);f.addEventListener('change',changed);
+  addEventListener('pagehide',function(){if(dirty)draft(true)});
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'&&dirty)draft(true)});
+  /* a returning visitor gets their answers back (same device, 14 days), with a way to start over */
+  (function(){try{var o=JSON.parse(localStorage.getItem(LS)||'null');if(!o||!o.v||Date.now()-o.at>14*864e5)return;
+    if(o.rid)rid=o.rid;var any=false;
+    Object.keys(o.v).forEach(function(n){var v=o.v[n];if(Array.isArray(v))return;var el=q(n);if(el&&!String(el.value||'').trim()){el.value=v;any=true}});
+    ['cards','wallet','confirm_by','days','times','spend_lines','goals'].forEach(function(n){(o.v[n]||[]).forEach(function(v){
+      var el=f.querySelector('input[name="'+n+'"][value="'+String(v).replace(/\\/g,'\\\\').replace(/"/g,'\\"')+'"]');
+      if(el&&!el.checked){el.checked=true;any=true;el.dispatchEvent(new Event('change',{bubbles:true}))}})});
+    var note=f.querySelector('.cb-back');
+    if(any&&note){note.hidden=false;var b=note.querySelector('button');if(b)b.addEventListener('click',function(){try{localStorage.removeItem(LS)}catch(e){}location.reload()})}
+    dirty=false;clearTimeout(saveT)}catch(e){}})();
+
+  f.addEventListener('submit',function(e){e.preventDefault();if(sending)return;msg.textContent='';if(check())return;
+    var d=collect('submit');clearTimeout(saveT);
     if(!CALLBACK_ENDPOINT){fallback(d,'One tap sends these answers to the desk: ');ga('callback_handoff',{page_path:location.pathname});return}
     sending=true;btn.disabled=true;btn.setAttribute('aria-busy','true');msg.textContent='Sending...';
     /* text/plain and no-cors: a "simple" request, so the browser sends it straight to Apps Script with no preflight.
        The reply cannot be read (opaque), so a request that leaves the browser counts as sent; only a network failure falls back. */
     var ctl=window.AbortController?new AbortController():null,timer=setTimeout(function(){if(ctl)ctl.abort()},20000);
     fetch(CALLBACK_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d),signal:ctl?ctl.signal:undefined})
-    .then(function(){clearTimeout(timer);sending=false;msg.textContent='';
+    .then(function(){clearTimeout(timer);sending=false;finished=true;dirty=false;msg.textContent='';try{localStorage.removeItem(LS)}catch(x){}
       f.hidden=true;set('name',d.first_name);set('ref','FO-'+rid.replace(/[^a-z0-9]/gi,'').slice(0,8).toUpperCase());set('line',whenLine(d));
       done.hidden=false;try{done.focus({preventScroll:true})}catch(x){}done.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
       ga('generate_lead',{page_path:location.pathname,method:'callback_form',industry:(d.industry||'not given').slice(0,40),spend_band:BAND[d.spend]||'unknown'})})
