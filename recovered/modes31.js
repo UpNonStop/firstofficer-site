@@ -40,7 +40,7 @@ function render(){
   k('trip',p.trip);k('trippct',p.pct+'% there, est.');
   var lab='Example: '+p.first+', '+p.biz+', '+p.city+'. Fictional. Figures are estimates.';
   k('label',lab);k('h-label',lab);
-  k('h-earn','<b>'+x(p.from)+' → '+x(p.to)+'</b>per $1 of card spend, est.',1);
+  k('h-earn','<b>from '+x(p.from)+' to '+x(p.to)+'</b>per $1 of card spend, est.',1);
   k('h-burn','<b>'+p.pct+'% there</b>'+p.trip+', est.',1);var bi=document.querySelector('[data-k="h-burnimg"]');if(bi)bi.style.backgroundImage='url('+A+p.img+')';
   k('h-return','<b>'+usd(retSum)+'</b>found in one Friday, est.',1);
   var L=p.learn;k('h-learn','<b>'+L[1]+'</b>'+L[2],1);
