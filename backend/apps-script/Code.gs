@@ -233,9 +233,9 @@ function confirm_(d, when) {
   var callLine = 'We will call ' + phone_(d.phone) + ' ' + (win ? win + ', ' : 'at a time that suits you, ') + tzName_(d.tz) + '. We confirm the exact time with you first, by ' + by + '.';
   var steps = [
     ['Within one business day', 'We confirm the time by ' + by + '.'],
-    ['The call, twenty minutes, free', 'Where your card spend goes and what it already earns. Last month\'s card statements help, or a rough split of where the spend goes. No card login needed.'],
-    ['Our recommendation', 'In dollars: what the desk could find, est., and whether it clears the $550 monthly fee.'],
-    ['Your call', 'Say yes and the desk opens, month to month. Say no and you keep the recommendation.']
+    ['The call: 20 minutes, free', 'Where your card spend goes and what it already earns. Last month\'s card statements help, or a rough split of where the spend goes. No card login needed.'],
+    ['Our recommendation', 'In dollars: what the desk could find for you, est., and whether it pays for itself.'],
+    ['Your call', 'Say yes and we get to work, month to month. Say no and you keep the recommendation.']
   ];
   var html = shell_(
     '<tr><td style="padding:22px 28px 0">' + kicker_('Application received') +

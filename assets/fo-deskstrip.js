@@ -27,24 +27,24 @@ var S=[
  [11,'IHG','11-ihg',['Points and cash math','Free night check','Award chart check']]
 ];
 var SAY=[
- [18,'Partner route checked for Wade’s Istanbul trip.'],
+ [18,'Partner route checked for Wade\'s Istanbul trip.'],
  [12,'Night quote ready for Leila, est.'],
- [1,'Transfer bonus caught for Anjali’s Lisbon plan.'],
+ [1,'Transfer bonus caught for Anjali\'s Lisbon plan.'],
  [10,'Free night certificate expiring. Planned for Hector.'],
- [17,'Saver space watch set for Leo’s Tokyo dates.'],
+ [17,'Saver space watch set for Leo\'s Tokyo dates.'],
  [20,'Companion pass pace on track for Hector, est.'],
- [26,'Promo rewards checked for Leila’s Paris plan.'],
+ [26,'Promo rewards checked for Leila\'s Paris plan.'],
  [2,'Hotel credit claimed for Anjali, est.'],
- [9,'Cash rate compared for Dustin’s job-site nights.'],
- [37,'Award space watched for Teresa’s Tokyo dates.'],
+ [9,'Cash rate compared for Dustin\'s job-site nights.'],
+ [37,'Award space watched for Teresa\'s Tokyo dates.'],
  [3,'Miles ledger updated for Ines.'],
- [35,'Star partner quote ready for Chidi’s Lagos trip.'],
- [50,'Transfer timing checked for Leo’s Tokyo plan.'],
+ [35,'Star partner quote ready for Chidi\'s Lagos trip.'],
+ [50,'Transfer timing checked for Leo\'s Tokyo plan.'],
  [25,'Stopover math done for Anjali.'],
  [4,'Points ledger reconciled for Terrence.'],
- [19,'Award pricing watched for Terrence’s Cancun trip.'],
+ [19,'Award pricing watched for Terrence\'s Cancun trip.'],
  [32,'Waitlist checked for Ines, Bali in business.'],
- [47,'Award pricing watched for Chidi’s Lagos trip.']
+ [47,'Award pricing watched for Chidi\'s Lagos trip.']
 ];
 var lg={};S.forEach(function(s){lg[s[0]]=A+'img/hero/prog/'+s[2]+'.jpg'});
 function pods(){return S.map(function(s,i){return '<div class="dpod" data-i="'+i+'"><img src="'+lg[s[0]]+'" alt=""><div><b>'+s[1]+'</b><small><span class="dst">'+s[3][0]+'</span><i class="dots"><u></u><u></u><u></u></i></small></div></div>'}).join('')}
