@@ -588,3 +588,20 @@ html{scroll-padding-top:16px}
 }
 /* "from" and "to" between a today value and a desk value: smaller and dimmer, so the two values stand out */
 i.fo-ft.fo-ft.fo-ft{font-style:normal;font-size:.86em;font-weight:inherit;line-height:inherit;color:inherit;letter-spacing:inherit;opacity:.7}.tmf>b i.fo-ft.fo-ft.fo-ft,.pgx b i.fo-ft.fo-ft.fo-ft,[data-leo] i.fo-ft.fo-ft.fo-ft{font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;font-weight:600;font-size:max(12px,.3em);letter-spacing:0;opacity:.62}
+/* "from X to Y" where the Nov 10 arrow removal left two numbers side by side (Ohad, Nov 11): the home "What the desk finds" block, every example, and Product's ten owner cards. The numbers keep their colors; "from" and "to" are small gray words. */
+.wnum i.wft{font-style:normal;font-size:14px;font-weight:600;letter-spacing:0;color:#6E6876}
+/* owner cards: three columns, three rows, so "from 1.2x", "to" and "3x" share one baseline even when a label wraps */
+.stba{display:grid;grid-template-columns:auto auto auto;justify-content:space-between;align-items:baseline;column-gap:10px}
+.stba>div{display:contents}
+.stba>div>small{grid-row:1}.stba>div>b{grid-row:2}.stba>div>span{grid-row:3}
+.stba>div:first-child>*{grid-column:1}.stba>div.a>*{grid-column:3}.stba>i{grid-column:2;grid-row:2}
+.stba>i,.stba b i{font-style:normal;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0;color:#6E6876}
+.stba b i{font-size:12px}
+/* narrow owner cards (three across on tablets, the smallest phones): numbers a touch smaller so "from 1.2x" stays on one line */
+@media (min-width:761px) and (max-width:999px),(max-width:350px){.stba b{font-size:26px;white-space:nowrap}.stba b i{font-size:11px}.stba>i{font-size:12px}}
+@media (min-width:761px) and (max-width:819px){.stba{column-gap:6px}.stba b{font-size:22px}.stba b i{font-size:10.5px}.stba>i{font-size:11px}}
+@media (max-width:760px){
+ .wnum{flex-direction:row;flex-wrap:wrap;align-items:baseline;column-gap:4px;row-gap:0}
+ .wnum i.wft{display:inline;font-size:10.5px}
+ .wnum b{flex-basis:100%}
+}
