@@ -125,6 +125,14 @@
   {
    "name": "DuckDuckGo",
    "note": "web search by the desk"
+  },
+  {
+   "name": "seats.aero",
+   "note": "award availability search: routes and dates, never identity"
+  },
+  {
+   "name": "Axiom",
+   "note": "only if AXIOM_TOKEN is set in production; confirm or remove"
   }
  ],
  "site_hosts_allowed": [
@@ -179,5 +187,6 @@
    "until": "the next Terms version, after counsel",
    "why": "changing the Terms needs notice and re-acceptance"
   }
- ]
+ ],
+ "backend_hosts_check": "first-officer repo: supabase/functions/_tests/check_outbound_hosts.py"
 }
