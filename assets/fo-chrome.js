@@ -5,7 +5,7 @@ function fontface(){if(document.getElementById('fo-chrome-fonts'))return;var st=
 function host(id,where){var el=document.getElementById(id);if(!el){el=document.createElement('div');el.id=id;if(where==='top')document.body.insertBefore(el,document.body.firstChild);else document.body.appendChild(el)}return el}
 function mark(root){var here=(location.pathname.split('/').pop()||'home.html').replace(/^index\.html$/,'home.html');root.querySelectorAll('a[href]').forEach(function(a){var raw=a.getAttribute('href');if(raw.indexOf('#')!==-1)return;var h=raw.split('?')[0];if(h===here||(here==='home.html'&&h==='index.html'))a.setAttribute('aria-current','page')})}
 /* Google Analytics 4 on every page, live domain only, and not when the browser asks not to be tracked (the Privacy Policy promises both) */
-function ga(){if(!/(^|\.)upnonstop\.com$/.test(location.hostname))return;if(navigator.doNotTrack==='1'||window.doNotTrack==='1')return;if(document.querySelector('script[src*="googletagmanager.com/gtag/js"]'))return;
+function ga(){if(!/(^|\.)upnonstop\.com$/.test(location.hostname))return;if(navigator.doNotTrack==='1'||window.doNotTrack==='1'||navigator.globalPrivacyControl===true)return;if(document.querySelector('script[src*="googletagmanager.com/gtag/js"]'))return;
   window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-FJHCJ74L64');
   /* the tag itself loads once the page has settled (QA re-audit item 6): gtag.js blocked phones' main thread for 200 to 970ms during load.
      Calls made before then wait in dataLayer and go out when it arrives. */

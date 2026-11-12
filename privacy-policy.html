@@ -226,7 +226,8 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 <section class="legal-hero">
 <div class="wrap">
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: November 10, 2026</p>
+<p class="updated">Last updated: November 12, 2026</p>
+<p class="updated"><a href="legal/" style="color:var(--pink);text-decoration:underline">Every earlier version</a></p>
 </div>
 </section>
 
@@ -243,6 +244,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 <li>If you ask us to call you through the site: your answers on that form, and the technical details your browser sends with it (browser and device type, screen size, time zone, the page you came from and, unless Do Not Track or Global Privacy Control is on, how you first arrived on the site). The form saves your answers as you fill it in, before you send it: on your own device, and once you have typed an email or a phone number, with the desk (not when Do Not Track or Global Privacy Control is on). They are kept in a Google Sheet and emailed to the desk, and we use them only to handle the request, to help you finish an application you started (at most one email, and never a call or text unless you ask for one), and to keep the form free of spam. None of your answers go to Google Analytics.</li>
 <li>If you connect your email (Level 2): the travel, rewards and expense messages in that mailbox, so bookings, transfers and expiring credits can be tracked. We do not read the rest of your inbox and we never send mail as you.</li>
 <li>If you connect a card or account through Plaid (Level 3): read-only transaction and balance data, so spend can be routed to the right card. Never your login, your full card number or your account credentials.</li>
+<li>If you subscribe to The Daily Redemption: your email address, so we can send it. Every issue has an unsubscribe link.</li>
 </ul>
 <p>Both connections are optional, read-only, and revocable at any time from your email provider, your bank or Plaid, without telling us first. The <a href="trust.html" style="color:var(--pink);text-decoration:underline">Trust page</a> sets out exactly what each level can and cannot see.</p>
 
@@ -262,42 +264,44 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 <ul>
 <li><strong>Never collected.</strong> Your passwords, full card numbers, bank account numbers, Social Security numbers, credit scores, and income data are never collected by our software or AI tools under any circumstance.</li>
 <li><strong>Private to you.</strong> Your name, phone, email, card names, loyalty program names, balances, travel goals, and conversation history are stored in your isolated row. They are never visible to other clients.</li>
-<li><strong>Anonymized patterns.</strong> Aggregated, de-identified patterns: question and answer structures, vendor MCC behavior observations, transfer route outcomes, all flow into the shared knowledge base that informs future recommendations for all clients. Your identity, specific portfolio, and individual history never enter this layer.</li>
+<li><strong>Anonymized patterns.</strong> Aggregated, de-identified patterns: question and answer structures, vendor MCC behavior observations, transfer route outcomes, all flow into the shared knowledge base that informs future recommendations for all clients. Your identity, specific portfolio, and individual history never enter this layer. From bank and card connections, only de-identified merchant and category patterns enter it, such as which category a vendor&#39;s charges fall in; your amounts and account details never do.</li>
 </ul>
 <p>You can request deletion of your private layer at any time via email to <a href="mailto:compliance@upnonstop.com" style="color:var(--pink);text-decoration:underline">compliance@upnonstop.com</a> or through the <a href="#do-not-sell" style="color:var(--pink);text-decoration:underline">Your Rights</a> section below.</p>
 
 <h2>Third-Party Processors</h2>
 <p>We work with a small number of trusted third-party processors to deliver the service:</p>
 <ul>
-<li><strong>Supabase</strong>: database and application hosting, on managed Postgres infrastructure in the United States, encrypted at rest and in transit</li>
+<li><strong>Supabase</strong>: database and application hosting in the United States, on Amazon Web Services, encrypted at rest and in transit</li>
 <li><strong>Stripe</strong>: payment processing for subscriptions and award search fees</li>
-<li><strong>Anthropic / Claude</strong>: AI processing to generate personalized recommendations</li>
-<li><strong>Meta / WhatsApp</strong>: message delivery for the advisory service</li>
+<li><strong>Anthropic (Claude)</strong>: the AI that writes most replies and reads statements you send. Anthropic does not use this data to train its models without our permission, and keeps it only when the model in use requires it, when its safety systems flag a conversation, when a batch job needs it, or when the law requires.</li>
+<li><strong>Meta (WhatsApp)</strong>: message delivery for the advisory service</li>
 <li><strong>Plaid</strong>: read-only card and bank connections, when you choose Level 3. Your credentials go to Plaid and your bank, never to us. Plaid processes that data under its own <a href="https://plaid.com/legal/#end-user-privacy-policy" style="color:var(--pink);text-decoration:underline">End User Privacy Policy</a>.</li>
 <li><strong>Resend</strong>: transactional email, for receipts and account mail when the message thread is not the right channel</li>
-<li><strong>Google Calendar and Google Meet</strong>: scheduling and the video call for the Found Money Call, when you choose to pick a time. Google Calendar receives the name, email and any note you enter when you book, sends the invite and reminder emails, and adds a Google Meet video link</li>
+<li><strong>Ghost</strong>: The Daily Redemption newsletter, if you subscribe from this site. Your email address goes to our newsletter at upnonstop.com, which runs on Ghost</li>
+<li><strong>Google</strong>: Calendar and Meet for the Found Money Call when you pick a time (Calendar receives the name, email and any note you enter, sends the invite and reminder emails, and adds a Meet link); Sheets, where answers to the call request form are kept; Analytics 4, for how the site is used (see Cookies); and, if voice-note transcription is switched on, Gemini, to transcribe voice notes you send</li>
+<li><strong>DuckDuckGo</strong>: web searches for program rules, prices and similar public facts</li>
 </ul>
-<p>Each processor operates under its own privacy policy and is contractually required to protect your data.</p>
+<p>Each processor operates under its own privacy policy and terms.</p>
 
 <h2>Data Retention</h2>
-<p>Your data remains active for the duration of your subscription. After cancellation, all personal data is deleted within 30 days.</p>
+<p>We keep your data while you subscribe. Within 30 days after your subscription ends, or after you ask us to delete your data, we delete your personal data, and we disconnect any bank or card connection at Plaid. We keep only payment and tax records, for as long as the law requires, and a note that the deletion happened (its date and the steps completed).</p>
 <p>Raw emails forwarded to First Officer (for statement parsing or balance updates) are deleted within 24 hours. Only the structured data extracted from those emails, such as point balances and transaction categories, is retained.</p>
 
 <h2>Data Security</h2>
-<p>All client data is stored with row-level isolation in Supabase, meaning your data is completely separated from every other client at the infrastructure level. We use encryption in transit and at rest.</p>
+<p>Your data is stored in Supabase in the United States and encrypted in transit and at rest. Database access rules keep each client&#39;s records apart from every other client&#39;s. First Officer holds no security certification today.</p>
 
 <h2 id="do-not-sell">Your Rights, and Do Not Sell My Info</h2>
 <p>We do not sell your personal information and we do not share it for cross-context behavioral advertising. You can still exercise every right below, at any time, in one email.</p>
 <ul>
 <li><strong>Know</strong>: ask what personal information we hold about you, where it came from, and what it is used for. We answer in plain language.</li>
 <li><strong>Correct</strong>: if anything we hold is inaccurate, tell us and we correct it.</li>
-<li><strong>Delete</strong>: ask us to delete your personal information. We delete all of it within 30 days and confirm in writing what was removed.</li>
+<li><strong>Delete</strong>: ask us to delete your personal information. We delete it within 30 days, except the records listed under Data Retention, and confirm in writing what was removed.</li>
 <li><strong>Opt out</strong> of the sale or sharing of your personal information. We do not sell personal information and we do not share it for cross-context behavioral advertising. If that ever changed, this is where you would opt out first. You can register the request now and it stands.</li>
 <li><strong>Non-discrimination</strong>: we will not treat you differently for exercising your privacy rights.</li>
 </ul>
 <p>If you are a California resident, these are your rights under the CCPA.</p>
 <h3 id="make-a-request">How to make a request</h3>
-<p>One email, no forms, no portal. Send your request to <a href="mailto:compliance@upnonstop.com">compliance@upnonstop.com</a> from the email or phone number on your account, and say what you want: know, correct, delete, or opt out. We verify it is you, act on it, and confirm in writing within 30 days.</p>
+<p>One email, no forms, no portal. Send your request to <a href="mailto:compliance@upnonstop.com">compliance@upnonstop.com</a> from the email or phone number on your account, and say what you want: know, correct, delete, or opt out. We verify it is you, act on it, and confirm in writing within 30 days. If we turn down a request, reply to our answer with the word APPEAL; someone who did not make the first decision answers in writing within 45 days.</p>
 
 <h2 id="geographic-restrictions">Where We Operate, and Your Rights Wherever You Live</h2>
 <p>First Officer is sold to businesses and residents of the United States. We operate from the United States and our processors store data there, so if you use the service your information is processed in the United States.</p>
@@ -305,13 +309,13 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible,
 <p>If you are physically in the European Economic Area or the United Kingdom while using the service, European data protection law may apply to that processing, and the rights above are how you exercise it. Write to <a href="mailto:compliance@upnonstop.com" style="color:var(--pink);text-decoration:underline">compliance@upnonstop.com</a> and we will handle it on the same terms.</p>
 
 <h2>Cookies</h2>
-<p>We use minimal cookies. Stripe sets what it requires for secure checkout processing, and we use Google Analytics 4 to understand how the site is used, which sets analytics cookies and collects a truncated IP address, pages viewed, and general device information. We do not use advertising cookies or advertising tracking pixels, we do not sell or share this data, and we do not use it to build advertising profiles. You can opt out of Google Analytics entirely with Google&#39;s browser add-on, or by using your browser&#39;s Do Not Track or cookie controls.</p>
+<p>We use minimal cookies. Stripe sets what it requires for secure checkout processing, and we use Google Analytics 4 to understand how the site is used, which sets analytics cookies and collects a truncated IP address, pages viewed, and general device information. We do not use advertising cookies or advertising tracking pixels, we do not sell or share this data, and we do not use it to build advertising profiles. When your browser sends Global Privacy Control or Do Not Track, the site does not load Google Analytics, and we treat the signal as an opt-out of any sale or sharing. You can also opt out with Google&#39;s browser add-on or your cookie controls.</p>
 
 <h2>Children</h2>
 <p>First Officer is not intended for use by anyone under the age of 18. We do not knowingly collect personal information from children. If you believe a minor has provided us with personal data, please contact us and we will delete it promptly.</p>
 
 <h2>Changes to This Policy</h2>
-<p>We may update this Privacy Policy from time to time. When we do, we'll update the "Last updated" date at the top of this page. Continued use of the service after changes constitutes acceptance of the revised policy.</p>
+<p>When we change this policy, we publish the new version with a list of what changed, and every earlier version stays at <a href="legal/" style="color:var(--pink);text-decoration:underline">firstofficer.upnonstop.com/legal/</a>. If a change affects how we use data you have already given us, we tell you by email and in your thread at least 30 days before it applies, and we do not apply it to that data without your agreement.</p>
 
 <h2>Contact</h2>
 <p>Questions about your data or this policy? Reach us at <a href="mailto:compliance@upnonstop.com" style="color:var(--pink);text-decoration:underline">compliance@upnonstop.com</a> or pick any channel on our <a href="book.html?from=privacy-policy" style="color:var(--pink);text-decoration:underline">booking page</a>.</p>
