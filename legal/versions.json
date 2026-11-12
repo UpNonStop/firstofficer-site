@@ -279,10 +279,18 @@
    {
     "id": "2026-11-12-ed99d92f",
     "from": "2026-11-12T11:58:30-05:00",
-    "until": null,
+    "until": "2026-11-12T17:49:31-05:00",
     "printed": "Last updated: November 10, 2026",
     "sha256": "ed99d92f1a3007a891b231f058ad3304c9c07ba45afb3c68aba06d9ca8eb36e2",
     "commit": "8f82e560d074b5d6521b1ee637bc624f95334c5c"
+   },
+   {
+    "id": "2026-11-12-9311ff67",
+    "from": "2026-11-12T17:49:31-05:00",
+    "until": null,
+    "printed": "Last updated: November 12, 2026",
+    "sha256": "9311ff672f64c96ca9214b8aa9ba4519b0b7634299c3eda68d285339b53b713d",
+    "commit": "b3eb5d03287103b79b1b4eb6ad7385ae51b07305"
    }
   ]
  }
