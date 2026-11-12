@@ -30,7 +30,7 @@ function T(R,n,v){$$('[data-k="'+n+'"]',R).forEach(function(e){e.textContent=v})
 function U(id){for(var i=0;i<BS.types.length;i++)if(BS.types[i].id===id)return BS.types[i];return BS.types[0]}
 function pc(v,m){return Math.max(0,Math.min(100,v/m*100))+'%'}
 /* ---- the month and the verdict: FO_CALC in fo-calc-core.js, the one model Go advanced uses too (card stack, yearly caps, valuation) ---- */
-function say(R,tEl,pEl,v){tEl.textContent=v.t;pEl.innerHTML=v.p+(v.c==='no'?' <a href="freebies.html">Get the Freebies →</a>':'');
+function say(R,tEl,pEl,v){tEl.textContent=v.t;pEl.innerHTML=v.p+(v.c==='no'?' <a href="freebies.html">Get the Freebies</a>':'');
   $$('.bvk',R).forEach(function(b){b.textContent=v.c==='fit'?'✓':v.c==='meh'?'≈':'×'})}
 /* balance bar: value found fills against the $550 marker; past it is pink, short of it reads as a gap */
 function bar(bal,r){var bm=FEE*Math.max(3,Math.ceil(Math.max(0,r.hi)*1.1/FEE)),mid=Math.max(0,r.mid);T(bal,'bmax',usd(bm));
