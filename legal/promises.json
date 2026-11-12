@@ -129,10 +129,6 @@
   {
    "name": "seats.aero",
    "note": "award availability search: routes and dates, never identity"
-  },
-  {
-   "name": "Axiom",
-   "note": "only if AXIOM_TOKEN is set in production; confirm or remove"
   }
  ],
  "site_hosts_allowed": [
