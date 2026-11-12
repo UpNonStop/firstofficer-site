@@ -1,0 +1,289 @@
+{
+ "built_from": "origin/main",
+ "docs": {
+  "terms": [
+   {
+    "id": "2026-03-22-df6a6868",
+    "from": "2026-03-22T07:22:39+00:00",
+    "until": "2026-03-22T07:55:21+00:00",
+    "printed": "Last updated: March 2026",
+    "sha256": "df6a68689991d73f79e932f0157a10faa2fe78bcf6ff2d46011d4979183b4716",
+    "commit": "5248e385321119831e8750223d21c5160965ecdf"
+   },
+   {
+    "id": "2026-03-22-c589ba8e",
+    "from": "2026-03-22T07:55:21+00:00",
+    "until": "2026-03-22T07:59:35+00:00",
+    "printed": "Last updated: March 2026",
+    "sha256": "c589ba8e8fc8ed2a1fa73466174e5b7d0c15c973e5403a7e9b680deeae351a6b",
+    "commit": "136afa1e3283e949444348f12407a7bc26efae86"
+   },
+   {
+    "id": "2026-03-22-636d2ab2",
+    "from": "2026-03-22T07:59:35+00:00",
+    "until": "2026-03-22T08:01:38+00:00",
+    "printed": "Last updated: March 2026",
+    "sha256": "636d2ab2e51d84d2ef7934924335a4fc763364400e008308924d04da2ce616f8",
+    "commit": "1de0c11807bb5aec4563eda1a83d7e09344681c9"
+   },
+   {
+    "id": "2026-03-22-b4ec5a66",
+    "from": "2026-03-22T08:01:38+00:00",
+    "until": "2026-03-22T08:05:01+00:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "b4ec5a660e1ad17ed132e7dd136ed5cbfb0e192f868e449af0b29c5b4743df2e",
+    "commit": "55fddeb5505ac8b3285e648c689848fb3bbf869d"
+   },
+   {
+    "id": "2026-03-22-b4a3cee2",
+    "from": "2026-03-22T08:05:01+00:00",
+    "until": "2026-04-05T05:52:39+00:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "b4a3cee20029bb029d23c04edf75a67ccfb22f2e55b998fb6c33326c195b0682",
+    "commit": "de93d6d4840abdeee3a742347b790355440f6233"
+   },
+   {
+    "id": "2026-04-05-4bbeb9ee",
+    "from": "2026-04-05T05:52:39+00:00",
+    "until": "2026-04-05T06:11:15+00:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "4bbeb9eefad3ec2bde586c36273305f45b0ad25161899deaf53a08fa8e3bd320",
+    "commit": "fa85a9f59033ed0a00f99fe68f3cca060bc09cce"
+   },
+   {
+    "id": "2026-04-05-b5f534f9",
+    "from": "2026-04-05T06:11:15+00:00",
+    "until": "2026-04-18T02:29:22+00:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "b5f534f9a1f4e366d35abe51ef49863109aa3c7c6885e6b0e3b5bb325d0b5dff",
+    "commit": "9c064061d82b31443a6dbd8a47ce75c82d1679b4"
+   },
+   {
+    "id": "2026-04-18-375da122",
+    "from": "2026-04-18T02:29:22+00:00",
+    "until": "2026-05-02T03:53:07+00:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "375da1221a170757d4d33fd3ea8cd8bb166855f463e444d3d018ad4baac3b6eb",
+    "commit": "77f25f68a2603d8a61b762d2e6c2c906c23a25f8"
+   },
+   {
+    "id": "2026-05-02-2708d168",
+    "from": "2026-05-02T03:53:07+00:00",
+    "until": "2026-08-20T10:43:16-04:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "2708d1683b988ac34e398c7801233bb1cccc8fa36700502d65d8840f2a8435d7",
+    "commit": "12513dbd500b2fd6ba9ca9d9c825b28d344443d7"
+   },
+   {
+    "id": "2026-08-20-6a15f341",
+    "from": "2026-08-20T10:43:16-04:00",
+    "until": "2026-08-22T12:25:48-04:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "6a15f341f9ca869891edf82c8297c27ad7fd141547b29b61942fa7497d1a9371",
+    "commit": "da10cf448fe0fefde034d569acd2862516b25e01"
+   },
+   {
+    "id": "2026-08-22-b11258c2",
+    "from": "2026-08-22T12:25:48-04:00",
+    "until": "2026-08-24T15:31:15-04:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "b11258c22ba374494977ef6945c166de4976a774f5090cec522ba3e801d5b20b",
+    "commit": "48df6b42587d45c93cf078958f56b220ddb5fd24"
+   },
+   {
+    "id": "2026-08-24-d27cc091",
+    "from": "2026-08-24T15:31:15-04:00",
+    "until": "2026-08-27T13:26:22-04:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "d27cc091dfa284eec522460d174655f3d25bf14ab5d1639537860423e1397e7b",
+    "commit": "ecc1c5e3d91ad1d81df201f3bfc1eee104b13f32"
+   },
+   {
+    "id": "2026-08-27-d280b006",
+    "from": "2026-08-27T13:26:22-04:00",
+    "until": "2026-08-27T14:14:57-04:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "d280b00626d9b3646509158bb844df697cbba8ad8b7ee42248c30b3c2096ca80",
+    "commit": "4c890c8945da9efd4ee59cbe64d0e50138a610d0"
+   },
+   {
+    "id": "2026-08-27-f09f4ca5",
+    "from": "2026-08-27T14:14:57-04:00",
+    "until": "2026-08-27T14:45:35-04:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "f09f4ca50ef9202d96413deb89c32016fbf1c407d952ea419566c51d84d0ea1a",
+    "commit": "84c54a9f3d204449e6602a7441b2373025c0d296"
+   },
+   {
+    "id": "2026-08-27-a2fefde4",
+    "from": "2026-08-27T14:45:35-04:00",
+    "until": "2026-10-11T21:55:49-04:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "a2fefde46baafdd19d00e2333c0ab3749ec2060e5ee669801723702cd5a5b3ee",
+    "commit": "0f38ee6919be7eebef5eaddbbfb235f660f2adcc"
+   },
+   {
+    "id": "2026-10-11-6eff518e",
+    "from": "2026-10-11T21:55:49-04:00",
+    "until": "2026-10-11T22:34:42-04:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "6eff518e1a41609b0d6599249054c4cd565202b5b70fc8793858953060d2d36e",
+    "commit": "f7e7da1f3c053ce0ff7f1978fe36fa89081eb893"
+   },
+   {
+    "id": "2026-10-11-75635e8a",
+    "from": "2026-10-11T22:34:42-04:00",
+    "until": "2026-11-09T22:21:39-05:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "75635e8a7738123444607f3078a36f925fbaa55f488bd7843f92d0f5007a7041",
+    "commit": "6f6d7d4b00930b518305f6a833ba86a10f7ded29"
+   },
+   {
+    "id": "2026-11-09-7b6d7092",
+    "from": "2026-11-09T22:21:39-05:00",
+    "until": null,
+    "printed": "Last updated: November 9, 2026",
+    "sha256": "7b6d7092c6ffbc5b1d1c5daf4c21f07b13f2f8a5393852db9d68127573eb6ce2",
+    "commit": "ad6c8569595414e5576387d5a77e38253ebe17cd"
+   }
+  ],
+  "privacy": [
+   {
+    "id": "2026-03-22-0ff2b1d2",
+    "from": "2026-03-22T07:22:39+00:00",
+    "until": "2026-03-22T07:55:21+00:00",
+    "printed": "Last updated: March 2026",
+    "sha256": "0ff2b1d2ef8fa55d23834584a9015c37bbb8711c3d074d4b1d4499bb1344f42d",
+    "commit": "5248e385321119831e8750223d21c5160965ecdf"
+   },
+   {
+    "id": "2026-03-22-f7934960",
+    "from": "2026-03-22T07:55:21+00:00",
+    "until": "2026-03-22T07:59:35+00:00",
+    "printed": "Last updated: March 2026",
+    "sha256": "f7934960a3547f28865e71bda1171cb9028eb146ee7855fdbbf3c1c24a53b5ff",
+    "commit": "136afa1e3283e949444348f12407a7bc26efae86"
+   },
+   {
+    "id": "2026-03-22-98fe69f4",
+    "from": "2026-03-22T07:59:35+00:00",
+    "until": "2026-03-22T08:01:38+00:00",
+    "printed": "Last updated: March 2026",
+    "sha256": "98fe69f48843cc6b87855316af317cbd6182fec32c6655d0056433dc56a92cb8",
+    "commit": "1de0c11807bb5aec4563eda1a83d7e09344681c9"
+   },
+   {
+    "id": "2026-03-22-02e26891",
+    "from": "2026-03-22T08:01:38+00:00",
+    "until": "2026-04-05T05:52:39+00:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "02e26891048ac77539c38a0c5a39e829833c6627201e940f80c309b40c12ad0b",
+    "commit": "55fddeb5505ac8b3285e648c689848fb3bbf869d"
+   },
+   {
+    "id": "2026-04-05-3cbcd717",
+    "from": "2026-04-05T05:52:39+00:00",
+    "until": "2026-04-18T02:29:22+00:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "3cbcd717fc9c2db32bc2a8c778f365a09f466aefdbd910bc0f9989622f2f4c0d",
+    "commit": "fa85a9f59033ed0a00f99fe68f3cca060bc09cce"
+   },
+   {
+    "id": "2026-04-18-f91f8551",
+    "from": "2026-04-18T02:29:22+00:00",
+    "until": "2026-05-02T03:53:07+00:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "f91f8551ee8a0a3f8c28fd5dd1db04fb406943f65b3da8710d4fc1e70ab21512",
+    "commit": "77f25f68a2603d8a61b762d2e6c2c906c23a25f8"
+   },
+   {
+    "id": "2026-05-02-b9b1544d",
+    "from": "2026-05-02T03:53:07+00:00",
+    "until": "2026-05-05T11:27:17+09:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "b9b1544dfe236178dd3f7af23aa12d39ac73fa82fd7e4e105ec9fef83a10ac2f",
+    "commit": "12513dbd500b2fd6ba9ca9d9c825b28d344443d7"
+   },
+   {
+    "id": "2026-05-05-a42fa42e",
+    "from": "2026-05-05T11:27:17+09:00",
+    "until": "2026-08-21T19:46:58-04:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "a42fa42e2fe8bb6523ffffa1fd33cf87fc7da89827dcf6bc564a95990f9e05b7",
+    "commit": "ffb150a45a156dac71b373c219e850b2eb060f47"
+   },
+   {
+    "id": "2026-08-21-725817d1",
+    "from": "2026-08-21T19:46:58-04:00",
+    "until": "2026-08-27T13:26:22-04:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "725817d1a722fd8342d8e74b74fb9db8601306d66780a6df2263b53c90362f9b",
+    "commit": "bcea77bb4ba8add123898703952654dd9e473db7"
+   },
+   {
+    "id": "2026-08-27-209c7ccd",
+    "from": "2026-08-27T13:26:22-04:00",
+    "until": "2026-08-27T14:14:57-04:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "209c7ccd2ba38043ce4371f58e105a419b7a9943255ef7da05e4ec275945f3e3",
+    "commit": "4c890c8945da9efd4ee59cbe64d0e50138a610d0"
+   },
+   {
+    "id": "2026-08-27-f1394c59",
+    "from": "2026-08-27T14:14:57-04:00",
+    "until": "2026-10-11T21:55:17-04:00",
+    "printed": "Last updated: March 23, 2026",
+    "sha256": "f1394c59cd900e0dd033f3494e542b443cf410cd3ef619b58c7c860a24afd2e3",
+    "commit": "84c54a9f3d204449e6602a7441b2373025c0d296"
+   },
+   {
+    "id": "2026-10-11-45eebe12",
+    "from": "2026-10-11T21:55:17-04:00",
+    "until": "2026-10-11T22:34:42-04:00",
+    "printed": "Last updated: October 11, 2026",
+    "sha256": "45eebe12b81f479002429262da9d2ebdeded91ff238d71d640c357fc89333c33",
+    "commit": "8febbe5b65a7eaef11bd8cf72bac103a64eb7542"
+   },
+   {
+    "id": "2026-10-11-338388c5",
+    "from": "2026-10-11T22:34:42-04:00",
+    "until": "2026-10-29T19:52:29-04:00",
+    "printed": "Last updated: October 11, 2026",
+    "sha256": "338388c5c1826f10ec1c580134d97f03c199af271e53adaae8be39f87950d68e",
+    "commit": "6f6d7d4b00930b518305f6a833ba86a10f7ded29"
+   },
+   {
+    "id": "2026-10-29-c4b0d828",
+    "from": "2026-10-29T19:52:29-04:00",
+    "until": "2026-10-31T01:18:15-04:00",
+    "printed": "Last updated: October 11, 2026",
+    "sha256": "c4b0d82836b9cb3cbb0cf28034aa1eb1834287c63b773b5f88f5c47830e0e0a5",
+    "commit": "ad6ca9a93e1d47e1c8271e414cad3071e40aa575"
+   },
+   {
+    "id": "2026-10-31-3ecba01d",
+    "from": "2026-10-31T01:18:15-04:00",
+    "until": "2026-11-10T19:57:52-05:00",
+    "printed": "Last updated: October 30, 2026",
+    "sha256": "3ecba01d75bd39d7b9b299ebdfe8351320af222c884c125019aba78a02e50ceb",
+    "commit": "4f9d840321c5c28791bc07dcecdfaf878d243ceb"
+   },
+   {
+    "id": "2026-11-10-ff3fef20",
+    "from": "2026-11-10T19:57:52-05:00",
+    "until": "2026-11-12T11:58:30-05:00",
+    "printed": "Last updated: November 10, 2026",
+    "sha256": "ff3fef20f863117895147acb0fcad26690ec5f57b718a29c4e3cb9f9871e2790",
+    "commit": "aca16b21b2c49fad7f7ad053b761291d5ca3866b"
+   },
+   {
+    "id": "2026-11-12-ed99d92f",
+    "from": "2026-11-12T11:58:30-05:00",
+    "until": null,
+    "printed": "Last updated: November 10, 2026",
+    "sha256": "ed99d92f1a3007a891b231f058ad3304c9c07ba45afb3c68aba06d9ca8eb36e2",
+    "commit": "8f82e560d074b5d6521b1ee637bc624f95334c5c"
+   }
+  ]
+ }
+}

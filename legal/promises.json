@@ -1,0 +1,188 @@
+{
+ "about": "Every public First Officer promise, the system behind it, and how it was checked. Pages, the Terms, bot fact sheets and the app read from this file; tools/check_promises.py fails when a page contradicts it. Update it in the same change as any page, prompt or system it describes.",
+ "checked": "2026-11-12",
+ "offer": {
+  "desk": {
+   "promise": "$550 a month, billed monthly, month to month, renews until cancelled",
+   "backed_by": "Stripe subscription created by fo-b2b-checkout"
+  },
+  "cancel": {
+   "promise": "Cancel any time in the Stripe Customer Portal or by messaging the thread; service runs to the end of the paid period",
+   "backed_by": "Stripe Customer Portal; master-handler keyword 'cancel'"
+  },
+  "award_booking": {
+   "promise": "$500 per itinerary, for desk clients; non-refundable once the search begins",
+   "backed_by": "fo_booking_requests.fee_cents; Terms of Service 2026-11-09"
+  },
+  "first_award_booking_free": {
+   "promise": "The first award booking is free",
+   "backed_by": "WhatsApp checkout message (b2b_intake.ts) and fo-b2b-checkout fee_waived",
+   "gap": "Not yet stated in the Terms or on the site"
+  },
+  "who_can_buy": {
+   "promise": "US businesses and individuals",
+   "decided": "Ohad, 2026-11-12"
+  },
+  "independence": {
+   "promise": "No affiliate links; no issuer, bank or program pays First Officer",
+   "backed_by": "Disclaimer"
+  }
+ },
+ "people": {
+  "strategies": {
+   "promise": "Software-led; no person reviews a strategy or report before it is sent",
+   "decided": "Ohad, 2026-11-12"
+  },
+  "bookings": {
+   "promise": "A person handles every award booking with the client",
+   "decided": "Ohad, 2026-11-12"
+  },
+  "reach_a_person": {
+   "promise": "Reply HUMAN in the thread",
+   "backed_by": "master-handler keyword 'human'"
+  }
+ },
+ "data": {
+  "deletion": {
+   "promise": "Within 30 days after the subscription ends, or after a request, personal data is deleted and Plaid connections removed at Plaid",
+   "backed_by": "fo-data-retention-sweep (cron daily 04:00 UTC): Plaid /item/remove, then delete_client_completely"
+  },
+  "kept_after_deletion": {
+   "promise": "Payment and tax records; a deletion note (deletion_audit: date and steps)",
+   "backed_by": "deletion_audit"
+  },
+  "consent_records_after_deletion": {
+   "promise": "Today: deleted with the client (consent_log, consent_grants cascade)",
+   "decided": "Ohad, 2026-11-12: keep 3 years",
+   "gap": "Needs a HARD GATE migration; pages change only when it is live"
+  },
+  "raw_email": {
+   "promise": "Raw forwarded emails deleted within 24 hours",
+   "backed_by": "fo-email-purge (cron daily 03:30 UTC)"
+  },
+  "shared_layer_from_connections": {
+   "promise": "Only de-identified merchant and category patterns; never amounts or account details",
+   "backed_by": "spend_unmapped (pfc_detailed, pfc_primary, seen_count, example_merchant, first_seen, last_seen)"
+  },
+  "security": {
+   "promise": "Encrypted in transit and at rest; database access rules separate clients; no security certification today"
+  }
+ },
+ "timelines": {
+  "call_request_reply": {
+   "promise": "Reply within one business day",
+   "where": "book.html",
+   "backed_by": "manual, desk"
+  },
+  "strategy_after_call": {
+   "promise": "Within 24 hours: your strategy",
+   "where": "industry pages",
+   "backed_by": "manual, Ohad",
+   "gap": "No code enforces it"
+  },
+  "friday_report": {
+   "promise": "Every Friday, one number in dollars",
+   "backed_by": "fo-capture-report-friday (cron Fridays 16:00 UTC)"
+  }
+ },
+ "processors": [
+  {
+   "name": "Supabase",
+   "hosts": [
+    "cuzuzzbezswvejnoskum.supabase.co"
+   ]
+  },
+  {
+   "name": "Stripe"
+  },
+  {
+   "name": "Anthropic",
+   "note": "Claude API; no training without permission; retention per platform.claude.com API data retention page"
+  },
+  {
+   "name": "Meta (WhatsApp)"
+  },
+  {
+   "name": "Plaid"
+  },
+  {
+   "name": "Resend"
+  },
+  {
+   "name": "Ghost",
+   "hosts": [
+    "www.upnonstop.com"
+   ]
+  },
+  {
+   "name": "Google",
+   "hosts": [
+    "script.google.com",
+    "www.googletagmanager.com"
+   ],
+   "note": "Calendar, Meet, Sheets, Analytics 4; Gemini only if voice-note transcription is on"
+  },
+  {
+   "name": "DuckDuckGo",
+   "note": "web search by the desk"
+  },
+  {
+   "name": "seats.aero",
+   "note": "award availability search: routes and dates, never identity"
+  }
+ ],
+ "site_hosts_allowed": [
+  "firstofficer.upnonstop.com",
+  "cuzuzzbezswvejnoskum.supabase.co",
+  "script.google.com",
+  "www.googletagmanager.com",
+  "www.upnonstop.com"
+ ],
+ "banned_claims": [
+  {
+   "pattern": "fine-tuned by a person",
+   "why": "strategies are software-led"
+  },
+  {
+   "pattern": "(?:person|human)\\b[^.]{0,40}\\bchecks? every strategy|checks? every strategy with a person",
+   "why": "strategies are software-led"
+  },
+  {
+   "pattern": "a person checks? (?:the math|every)",
+   "why": "strategies are software-led"
+  },
+  {
+   "pattern": "reviewed by a person,? weekly",
+   "why": "strategies are software-led"
+  },
+  {
+   "pattern": "strategy change is approved by a person",
+   "why": "strategies are software-led"
+  },
+  {
+   "pattern": "US businesses only",
+   "why": "businesses and individuals can buy"
+  },
+  {
+   "pattern": "completely separated",
+   "why": "database rules, not infrastructure separation"
+  },
+  {
+   "pattern": "bank-level|military-grade|SOC ?2|100% secure",
+   "why": "no security certification today"
+  },
+  {
+   "pattern": "contractually required to protect your data",
+   "why": "not every processor has a contract (web search)"
+  }
+ ],
+ "known_gaps": [
+  {
+   "file": "terms-of-service.html",
+   "pattern": "completely separated",
+   "until": "the next Terms version, after counsel",
+   "why": "changing the Terms needs notice and re-acceptance"
+  }
+ ],
+ "backend_hosts_check": "first-officer repo: supabase/functions/_tests/check_outbound_hosts.py"
+}
