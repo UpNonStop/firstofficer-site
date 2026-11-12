@@ -10,6 +10,9 @@
 .mctas .mterm::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;background:#FA1896 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.3l2.6 2.5L12 5.4' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px 12px no-repeat}
 /* and its wink, a line under it, in step with its words (Ohad, 2 Nov: "We know you would love this so we don't need to lock you in ;)") */
 .mctas .mwink{flex:0 0 100%;margin:-4px 0 0;padding-left:26px;text-wrap:balance;font:500 14px/1.4 var(--sans,'DM Sans',system-ui,sans-serif);color:#5E5766}
+/* the line under "Month to month" is set in italics (Ohad, Nov 11): the one exception to fo-rules.css's no-italics rule. DM Sans's own italic, under its own name so nothing else on the site changes. SIL OFL 1.1, @fontsource-variable/dm-sans 5.3.0 latin-opsz-italic. */
+@font-face{font-family:'DM Sans Italic';font-style:italic;font-weight:100 1000;font-display:swap;src:url(fonts/DMSans-Italic-latin.woff2) format('woff2')}
+.mctas .mwink{font-family:'DM Sans Italic','DM Sans',system-ui,sans-serif;font-style:italic!important}
 @media (max-width:600px){.mctas .mterm{justify-content:center}.mctas .mwink{padding-left:0;text-align:center}}
 .receipt .rr .term{display:block;margin-top:2px;font-size:12.5px;font-weight:600;color:#5E5766}
 /* the note's button row: the pink comes first, on its own full-width row on phones */
