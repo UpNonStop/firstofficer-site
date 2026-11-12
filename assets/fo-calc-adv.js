@@ -64,7 +64,8 @@ function bname(b,l){if(b==='abg4')return {c:'abg',r:4,w:'Amex Business Gold',k:A
 function bnameO(b,o){var n=bname(b,o.l);if(b==='base'&&o.tr>1){n.r=o.tr;n.w='the card it is on today';n.k=''}return n}
 function parts(r,i){var al=r.R.al[i],o=r.rows[i],out=[];BK.forEach(function(b){if(al[b.id]>0)out.push({b:b.id,a:al[b.id]/12,n:bnameO(b.id,o)})});return out}
 function desc(ps){if(ps.length===1){var p=ps[0];return p.n.c?'on '+p.n.w+(p.n.k?' ('+p.n.k+')':''):(p.n.r>1?'stays on the card it is on today':'past the yearly caps')}
-  return 'from '+ps.map(function(p,j){var s=p.n.c?p.n.r+'x '+p.n.w+(p.n.k?' ('+p.n.k+')':''):(p.n.r>1?p.n.r+'x on the card it is on today':'1x past the caps');return (j?'then ':'')+s+' on '+ks(p.a)}).join(', ')}
+  var one=ps.every(function(p){return p.n.r===ps[0].n.r});
+  return (one?', from ':'from ')+ps.map(function(p,j){var r=one?'':p.n.r+'x ',s=p.n.c?r+p.n.w+(p.n.k?' ('+p.n.k+')':''):(p.n.r>1?(one?'':p.n.r+'x on ')+'the card it is on today':(one?'':'1x ')+'past the caps');return (j?'then ':'')+s+' on '+ks(p.a)}).join(', ')}
 
 function paint(){var r=model(),v=verdict(r);
   var fm=function(n){return '~'+u10(Math.max(0,n))};
@@ -89,23 +90,24 @@ function paint(){var r=model(),v=verdict(r);
     if(!m){el.textContent='';el.className='xlr';return}
     if(map[l.id]==null){el.textContent='Not on a card: not counted.';el.className='xlr off';return}
     var i=map[l.id],ps=parts(r,i),o=r.rows[i],dp=0;ps.forEach(function(p){dp+=p.a*p.n.r});var ex=Math.max(0,dp-o.m*o.tr);
-    el.innerHTML='With the desk: <b>'+x(dp/o.m)+'</b> '+desc(ps)+' · <em>'+(ex>0?'+'+pts(ex)+' points a month':'no extra points')+', est.</em>';el.className='xlr'});
+    var d=desc(ps);el.innerHTML='With the desk: <b>'+x(dp/o.m)+'</b>'+(d.charAt(0)===','?d:' '+d)+' · <em>'+(ex>0?'+'+pts(ex)+' points a month':'no extra points')+', est.</em>';el.className='xlr'});
   stack(r);table(r,map);first=false}
 
 /* the card stack: what each card carries, and how much of its yearly cap */
 function stack(r){var R=r.R,rows=r.rows,box=$('#xcards'),html='';
   function who(b){var n=[];rows.forEach(function(o,i){if(R.al[i][b]>0)n.push(o.l.n)});return n}
+  function jn(a){return a.join(a.some(function(s){return s.indexOf(',')>=0})?'; ':', ')}
   function meter(b,cap,lab){var used=R.cu[b]||0;return '<div class="xcm"><span>'+lab+'</span><i role="img" aria-label="'+ks(used/12)+' a month, '+Math.round(used/cap*100)+'% of the yearly cap"><b style="width:'+pc(used,cap)+'"></b></i><small>'+ks(used)+' of '+ks(cap)+' a year</small></div>'}
   function tile(c,body,on,ptsM){return '<div class="xc'+(on?'':' idle')+'" data-c="'+c+'"><div class="xch"><b>'+CARD[c].n+'</b><small>'+(CARD[c].fee?'$'+CARD[c].fee+' a year':'No annual fee')+', est.</small></div><p class="xct">'+CARD[c].t+'</p>'+body+'<p class="xcp">'+(on?'<b>'+pts(ptsM)+'</b> points a month, est.':'Not needed for this mix.')+'</p></div>'}
   function pm(bs){var s=0;bs.forEach(function(b){var bk=BK.filter(function(z){return z.id===b})[0];s+=(R.cu[b]===Infinity?0:R.cu[b]||0)*bk.r});return s/12}
   var abgW=who('abg4'),ibpW=who('ibp3'),i5=who('ibc5'),i2=who('ibc2'),bbW=who('bbp2'),cpW=who('cap2');
   /* only the Business Gold categories that carry a line in this mix (the pair can include one the cap leaves no room for) */
   var abgC=R.pair.filter(function(c){return rows.some(function(o,i){return o.l.e.abg===c&&R.al[i].abg4>0})});
-  html+=tile('abg',(abgW.length?'<p class="xcl"><span>This mix:</span> '+abgC.map(function(c){return ABGC[c]}).join(' and ')+' ('+abgW.join(', ')+')</p>':'')+meter('abg4',150000,'4x'),R.used.abg,pm(['abg4']));
-  html+=tile('ibp',(ibpW.length?'<p class="xcl"><span>This mix:</span> '+ibpW.join(', ')+'</p>':R.used.ibp?'<p class="xcl"><span>This mix:</span> here so Ink Business Cash earns points, not cash back</p>':'')+meter('ibp3',150000,'3x'),R.used.ibp,pm(['ibp3']));
-  html+=tile('ibc',((i5.length||i2.length)?'<p class="xcl"><span>This mix:</span> '+i5.concat(i2).join(', ')+'</p>':'')+meter('ibc5',25000,'5x')+meter('ibc2',25000,'2x'),(R.cu.ibc5||0)+(R.cu.ibc2||0)>0,pm(['ibc5','ibc2']));
-  html+=tile('bbp',(bbW.length?'<p class="xcl"><span>This mix:</span> '+bbW.join(', ')+'</p>':'')+meter('bbp2',50000,'2x'),(R.cu.bbp2||0)>0,pm(['bbp2']));
-  html+=tile('cap',(cpW.length?'<p class="xcl"><span>This mix:</span> '+cpW.join(', ')+'</p><p class="xcl"><span>No cap:</span> '+ks(R.cu.cap2/12)+' a month at 2x, est.</p>':''),R.used.cap,pm(['cap2']));
+  html+=tile('abg',(abgW.length?'<p class="xcl"><span>This mix:</span> '+abgC.map(function(c){return ABGC[c]}).join(' and ')+' ('+jn(abgW)+')</p>':'')+meter('abg4',150000,'4x'),R.used.abg,pm(['abg4']));
+  html+=tile('ibp',(ibpW.length?'<p class="xcl"><span>This mix:</span> '+jn(ibpW)+'</p>':R.used.ibp?'<p class="xcl"><span>This mix:</span> here so Ink Business Cash earns points, not cash back</p>':'')+meter('ibp3',150000,'3x'),R.used.ibp,pm(['ibp3']));
+  html+=tile('ibc',((i5.length||i2.length)?'<p class="xcl"><span>This mix:</span> '+jn(i5.concat(i2))+'</p>':'')+meter('ibc5',25000,'5x')+meter('ibc2',25000,'2x'),(R.cu.ibc5||0)+(R.cu.ibc2||0)>0,pm(['ibc5','ibc2']));
+  html+=tile('bbp',(bbW.length?'<p class="xcl"><span>This mix:</span> '+jn(bbW)+'</p>':'')+meter('bbp2',50000,'2x'),(R.cu.bbp2||0)>0,pm(['bbp2']));
+  html+=tile('cap',(cpW.length?'<p class="xcl"><span>This mix:</span> '+jn(cpW)+'</p><p class="xcl"><span>No cap:</span> '+ks(R.cu.cap2/12)+' a month at 2x, est.</p>':''),R.used.cap,pm(['cap2']));
   var over=0;rows.forEach(function(o,i){over+=(R.al[i].base||0)/12});
   html+='<div class="xc xbase'+(over>0?'':' idle')+'"><div class="xch"><b>Past every cap</b><small>Any card in the stack</small></div><p class="xct">Spend beyond the yearly caps above goes to Capital One Venture Business at 2x when its points cover its fee. Otherwise it stays on the card it is on today, or counts at 1x. The desk never moves a line to a card that earns less; bigger spend often runs on more than one card per category, sized on the call.</p><p class="xcp">'+(over>0?'<b>'+usd(over)+'</b> a month past the caps, est.':'Nothing past the caps in this mix.')+'</p></div>';
   html+='<div class="xc xfees"><div class="xch"><b>Card annual fees</b><small>Not taken off what the desk finds</small></div><p class="xct">'+(R.fee?(function(){var f=[];if(R.used.abg)f.push('Amex Business Gold $375');if(R.used.ibp)f.push('Ink Business Preferred $95');if(R.used.cap)f.push('Capital One Venture Business $95');return f.length>1?f.slice(0,-1).join(', ')+' and '+f[f.length-1]:f[0]})()+' a year, est. A card is left out when its points would not cover its fee.':'This mix needs no card with an annual fee, est.')+'</p><p class="xcp"><b>'+usd(R.fee/12)+'</b> a month, est.</p></div>';

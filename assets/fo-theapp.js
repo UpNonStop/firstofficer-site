@@ -11,9 +11,9 @@ var CAP={
   desk:['Desk','The four pillars at a glance and the thread with the desk underneath. Ask anything, any time.'],
   earn:['Earn','Which card for which spend. Each move shows what it is worth a year, and waits for the owner\'s OK.'],
   burn:['Burn','Points into trips. A goal, a pace and a strategy. The desk vets the requirements and books after the owner approves.'],
-  'return':['Return','Points per dollar times cents per point. 3 × 1.6¢ is 4.8¢ per $1, est., because both are known. Unknown is not zero.'],
+  'return':['Return','Points per dollar times cents per point: 3 × 1.6¢ is 4.8¢ per $1, est.'],
   learn:['Learn','Two minutes a week. One short lesson from the owner\'s own data: what changed in the programs, and what it means for the goal.']};
-var TITLE={earn:p.short+'’s Earn',burn:p.short+'’s Burn','return':p.short+'’s Return',learn:p.first+'’s Learn'};
+var TITLE={earn:p.short+"'s Earn",burn:p.short+"'s Burn",'return':p.short+"'s Return",learn:p.first+"'s Learn"};
 function greet(){var h=new Date().getHours();return h<5?'Good evening':h<12?'Good morning':h<17?'Good afternoon':'Good evening'}
 function clock(){var d=new Date(),h=d.getHours(),m=d.getMinutes();var c=$('.mclk',root);if(c)c.textContent=(h%12||12)+':'+(m<10?'0':'')+m}
 /* Return on this page: Leo's desk earn (points per $1) times the 1.6¢ example already printed on the Learn card.
@@ -25,11 +25,11 @@ function retPane(){
     ? '<div class="zrl"><i class="zdot ze"></i><span>Earn</span><b>'+EARN_PTS+' pts / $1</b></div>'
      +'<div class="zrl"><i class="zdot zb"></i><span>Burn</span><b>'+cents(BURN_CENTS)+' / point</b></div>'
      +'<div class="zrl"><i class="zdot zr"></i><span>Return</span><b>'+cents(retCents)+' / $1</b></div>'
-     +'<p class="znote">Both known, so it calculates. Est. Not a gift, a freebie, or a statement credit.</p>'
+     +'<p class="znote">Both numbers are known, so it shows. Est. Gifts, freebies and statement credits don\'t count.</p>'
     : '<p class="znote">Earn or Burn is unknown, so Return stays blank. Unknown is not zero.</p>';
   return F.bub('o','What is the return on a dollar?',p)+
     '<div class="zkc"><div class="zkh">Return<b>cents per $1</b></div>'+rows+'</div>'+
-    F.bub('f',retKnown?'Earn times burn is '+cents(retCents)+' per dollar, est.':'Return stays blank until both are known.',p)}
+    F.bub('f',retKnown?'That\'s about '+cents(retCents)+' back on every dollar, est.':'Return stays blank until both are known.',p)}
 function desk(){
   /* Leo's numbers, the same ones the home page and the product page use, except Return, which is the rate */
   var t=[['earn','Earn','#107B49','$12,240','found per year, est.'],

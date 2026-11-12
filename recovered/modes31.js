@@ -7,7 +7,7 @@ var NM=(window.CFG&&CFG.names)||{1:'Amex',2:'Chase',3:'Capital One',4:'Citi',9:'
 function lg(id){return LOGO[id]?A+'img/hero/prog/'+LOGO[id]+'.jpg':''}
 function pts(n){n=Math.round(n);return n>=1e6?(Math.round(n/1e4)/100).toFixed(2).replace(/0$/,'').replace(/\.0$/,'')+'M':n>=1e3?Math.round(n/1e3)+'k':''+n}
 function usd(n){return '$'+Math.round(n).toLocaleString('en-US')}
-function poss(s){return s+(/s$/.test(s)?'\u2019':'\u2019s')}
+function poss(s){return s+"'s"}
 function x(n){if(typeof n==='string')return n;return (+n).toFixed(1).replace(/\.0$/,'')+'x'}
 /* ---- pick a persona: ?p=1..10, else random with no immediate repeat ---- */
 var idx=parseInt(Q.get('p'),10);
@@ -31,7 +31,7 @@ function render(){
   $$('.mpane').forEach(function(e){e.innerHTML=H[e.dataset.t]});
   /* page copy, second person; the persona is only the example */
   k('fromx',x(p.from));
-  k('spendlab',poss(p.first)+' spend today');  k('spend','$'+p.spend+'k');k('spendsub','a year on cards, earning '+x(p.from));
+  k('spendlab',poss(p.first)+' spend today');  k('spend','$'+p.spend+'K');k('spendsub','a year on cards, earning '+x(p.from));
   k('cats',p.cats.slice(0,3).map(function(c){return '<li><span>'+c[0]+'</span><b>'+x(c[2])+'</b><u><i style="width:'+Math.round(c[1]/mx*100)+'%"></i></u></li>'}).join(''),1);
   k('before',pts(before));k('after',pts(after));
   var bb=$('[data-k="barb"]'),ba=$('[data-k="bara"]');bb.style.width='0';ba.style.width='0';

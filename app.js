@@ -643,7 +643,7 @@ function boot(){
   TOKEN = qs.get('t') || '';
   if (!TOKEN && !KEY){
     stateScreen('This link needs to come from your thread',
-      'This opens from a link we send, so it stays between us. Ask for a fresh one and we open straight back to this page.',
+      'This opens from a link we send, so it stays between us. Ask for a fresh one and it opens right back to this page.',
       'Send me a link', 'Send me my app link');
     return;
   }

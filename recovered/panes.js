@@ -38,7 +38,7 @@ function glyph(name){for(var i=0;i<K.length;i++)if(K[i][0].test(name))return G[K
 function bub(who,text,p){var av=who==='f'?'<i class="zav zaf"><img src="'+A+'img/rec/chev.png" alt=""></i>':'<i class="zav zao">'+(p&&p.ini||'')+'</i>';
   return '<div class="zrow '+(who==='f'?'zrf':'zro')+'">'+(who==='f'?av:'')+'<div class="zbu '+(who==='f'?'zf':'zo')+'">'+(who==='f'?'<small>First Officer</small>':'')+text+'</div>'+(who==='o'?av:'')+'</div>'}
 /* ---- Earn: lines of spend with glyphs, points a year, the move waiting for an OK ---- */
-function earn(p,o){o=o||{};var cats=o.cats||p.cats.slice(0,3).map(function(c){var mx=Math.max.apply(null,p.cats.map(function(c){return c[1]}));return [c[0],'$'+c[1]+'k/mo',c[2],c[3],Math.round(c[1]/mx*100)]});
+function earn(p,o){o=o||{};var cats=o.cats||p.cats.slice(0,3).map(function(c){var mx=Math.max.apply(null,p.cats.map(function(c){return c[1]}));return [c[0],'$'+c[1]+'K/mo',c[2],c[3],Math.round(c[1]/mx*100)]});
   var from=o.from!=null?o.from:p.from,before=o.before!=null?o.before:p.spend*1e3*p.from,after=o.after!=null?o.after:p.spend*1e3*p.to;
   return bub('o',p.qE,p)+bub('f','Most of it earns '+x(from)+'. That is the gap. Here is what the desk found.',p)+
     '<div class="zkc"><div class="zkh">Spend by line<b>per $1, est.</b></div><div class="zsp zsp2">'+cats.map(function(c){return '<div class="zln"><i class="zg">'+glyph(c[0])+'</i><span>'+c[0]+'</span><em>'+c[1]+'</em><span class="zx"><i>from</i> <s>'+x(c[2])+'</s> <i>to</i> <b>'+x(c[3])+'</b></span><u><i style="width:'+c[4]+'%"></i></u></div>'}).join('')+'</div></div>'+
@@ -63,7 +63,7 @@ function burn(p){var from=(p.city||'').split(',')[0],to=p.trip.split(/ in | for 
       '<div class="zbp-c to"><b>'+code(to)+'</b><small>'+to+'</small></div></div>'+
       '<div class="zbp-n"><span>'+pts(p.have)+' of '+pts(p.need)+' points</span><b>'+p.pct+'% there, est.</b></div></div>'+chips(p.burnL)+'</div>'+
     '<div class="zkc"><div class="zkh">Requirements vetted<b>'+p.reqs.length+' of '+p.reqs.length+'</b></div><ul class="zck">'+p.reqs.map(function(r){return '<li><b>✓</b>'+r+'</li>'}).join('')+'</ul></div>'+
-    '<div class="zsd"><img src="'+A+'img/rec/chev.png" alt=""><div><small>Sent to the desk</small><b>Dates next. The desk books after '+p.first+' approves.</b></div></div>'}
+    '<div class="zsd"><img src="'+A+'img/rec/chev.png" alt=""><div><small>Sent to the desk</small><b>Next, the dates. The desk books once '+p.first+' says yes.</b></div></div>'}
 /* ---- Return: Friday findings in dollars, each finding in its colour; the weeks rise into this Friday (no confetti, Oct 29) ---- */
 function ret(p){var retSum=p.ret.reduce(function(a,r){return a+r[1]},0),wk=[38,52,30,64,46,58,72,100];
   return bub('o','What did this week bring in?',p)+
@@ -76,7 +76,7 @@ function ret(p){var retSum=p.ret.reduce(function(a,r){return a+r[1]},0),wk=[38,5
 function learn(p){var L=p.learn,u=L[5]||'{v}¢',lm=Math.max.apply(null,L[3].map(function(b){return b[1]}));
   var coin='<i class="zcoin" aria-hidden="true"><svg viewBox="0 0 40 40"><ellipse cx="20" cy="30" rx="13" ry="5"/><path d="M7 30v-5c0 2.8 5.8 5 13 5s13-2.2 13-5v5"/><ellipse cx="20" cy="24" rx="13" ry="5"/><path d="M7 24v-5c0 2.8 5.8 5 13 5s13-2.2 13-5v5"/><ellipse cx="20" cy="18" rx="13" ry="5"/><path d="M7 18v-5c0 2.8 5.8 5 13 5s13-2.2 13-5v5"/><ellipse cx="20" cy="12" rx="13" ry="5"/></svg></i>';
   return bub('o','Teach me one thing this week.',p)+
-    '<div class="zkc zls"><div class="zlt">This week\'s 2 minute lesson</div><div class="mh5">'+L[0]+'</div><div class="zlb"><b>'+L[1]+'</b><small>'+L[2]+'</small>'+coin+'</div><div class="zlbars">'+L[3].map(function(b){return '<div><span>'+b[0]+'</span><u><i style="width:'+Math.round(b[1]/lm*100)+'%"></i></u><b>'+u.replace('{v}',b[1])+'</b></div>'}).join('')+'</div></div>'+
+    '<div class="zkc zls"><div class="zlt">This week\'s 2-minute lesson</div><div class="mh5">'+L[0]+'</div><div class="zlb"><b>'+L[1]+'</b><small>'+L[2]+'</small>'+coin+'</div><div class="zlbars">'+L[3].map(function(b){return '<div><span>'+b[0]+'</span><u><i style="width:'+Math.round(b[1]/lm*100)+'%"></i></u><b>'+u.replace('{v}',b[1])+'</b></div>'}).join('')+'</div></div>'+
     bub('f',L[4],p)+
     '<div class="zkc"><div class="zkh">Lessons<b>3 of 12</b></div><div class="zseg">'+[1,1,1,0,0,0,0,0,0,0,0,0].map(function(v){return '<i'+(v?' class="on"':'')+'></i>'}).join('')+'</div>'+
     '<ul class="zup">'+(window.FO_MODES||[]).filter(function(o){return o!==p&&o.learn[0]!==L[0]}).slice(0,2).map(function(o,i){return '<li><i>'+(4+i)+'</i><span>'+o.learn[0]+'</span><small>Friday</small></li>'}).join('')+'</ul></div>'+
