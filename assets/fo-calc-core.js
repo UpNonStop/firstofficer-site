@@ -178,7 +178,7 @@ function model(A,T,use,mix){var u=U(use),rows=[],mo=0,off=0,t=0;
   /* found money: the extra points at the use's floor, middle and top. Card annual fees (cf) are shown, not taken off (Ohad, 31 Oct 2026) */
   return {u:u,rows:rows,R:R,mo:mo,off:off,t:t,d:d,cf:cf,lo:gain*u.floor/100,mid:gain*u.mid/100,hi:gain*u.ceil/100,flat:u.floor===u.ceil}}
 function verdict0(r){var f=r.flat;
-  if(r.mo<GATE)return {c:'no',t:'Not a fit yet.',p:'At '+usd(r.mo)+' a month on cards, $550 a month would cost you more than it finds. The fee starts to make sense past ~$25K a month, est.'};
+  if(r.mo<GATE)return {c:'no',t:'Not a fit yet.',p:'At '+usd(r.mo)+' a month on cards, $550 a month would cost you more than it finds. The fee usually pays for itself past ~$25K a month, est.'};
   if(r.lo>=FEE)return {c:'fit',t:'Pays for itself.',p:'Even at the low end, the extra points cover the $550 fee, est. Your Found Money Call checks it on your real statements.'};
   if(r.hi>=FEE)return {c:'meh',t:'Close call.',p:'Only the high end of the range covers the $550 fee. Your free Found Money Call settles it on your real statements.'};
   return {c:'no',t:'Not a fit yet.',p:'The extra points come to about '+(f?u10(Math.max(0,r.lo)):u10(Math.max(0,r.lo))+' to '+u10(Math.max(0,r.hi)))+' a month, est., less than the $550 fee.'}}

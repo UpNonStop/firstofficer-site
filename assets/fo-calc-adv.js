@@ -103,7 +103,7 @@ function stack(r){var R=r.R,rows=r.rows,box=$('#xcards'),html='';
   var abgW=who('abg4'),ibpW=who('ibp3'),i5=who('ibc5'),i2=who('ibc2'),bbW=who('bbp2'),cpW=who('cap2');
   /* only the Business Gold categories that carry a line in this mix (the pair can include one the cap leaves no room for) */
   var abgC=R.pair.filter(function(c){return rows.some(function(o,i){return o.l.e.abg===c&&R.al[i].abg4>0})});
-  html+=tile('abg',(abgW.length?'<p class="xcl"><span>This mix:</span> '+abgC.map(function(c){return ABGC[c]}).join(' and ')+' ('+jn(abgW)+')</p>':'')+meter('abg4',150000,'4x'),R.used.abg,pm(['abg4']));
+  html+=tile('abg',(abgW.length?'<p class="xcl"><span>This mix:</span> '+(function(cs){return cs.join(cs.some(function(s){return /,| and /.test(s)})?', plus ':' and ')})(abgC.map(function(c){return ABGC[c]}))+' ('+jn(abgW)+')</p>':'')+meter('abg4',150000,'4x'),R.used.abg,pm(['abg4']));
   html+=tile('ibp',(ibpW.length?'<p class="xcl"><span>This mix:</span> '+jn(ibpW)+'</p>':R.used.ibp?'<p class="xcl"><span>This mix:</span> here so Ink Business Cash earns points, not cash back</p>':'')+meter('ibp3',150000,'3x'),R.used.ibp,pm(['ibp3']));
   html+=tile('ibc',((i5.length||i2.length)?'<p class="xcl"><span>This mix:</span> '+jn(i5.concat(i2))+'</p>':'')+meter('ibc5',25000,'5x')+meter('ibc2',25000,'2x'),(R.cu.ibc5||0)+(R.cu.ibc2||0)>0,pm(['ibc5','ibc2']));
   html+=tile('bbp',(bbW.length?'<p class="xcl"><span>This mix:</span> '+jn(bbW)+'</p>':'')+meter('bbp2',50000,'2x'),(R.cu.bbp2||0)>0,pm(['bbp2']));
