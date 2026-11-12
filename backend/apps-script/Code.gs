@@ -252,7 +252,7 @@ function confirm_(d, when) {
     .concat(steps.map(function (s, k) { return '0' + (k + 1) + ' ' + s[0] + ': ' + s[1]; }))
     .concat(['', 'Need to change something? Reply to this email, or message us on WhatsApp at +1 619 940 4040.', '', 'The desk at First Officer', 'Reference ' + ref_(d), '',
       'First Officer by UpNonStop is a points and rewards advisory service, not a licensed financial advisor. Figures are estimates, not guarantees.',
-      'UpNonStop LLC | 235 Pavonia Avenue | Jersey City, NJ 07302', 'You are getting this because you asked for a call at firstofficer.upnonstop.com.']).join('\n');
+      'Proudly Made in 🇺🇸 by UpNonStop LLC | 235 Pavonia Avenue | Jersey City, NJ 07302', 'You are getting this because you asked for a call at firstofficer.upnonstop.com.']).join('\n');
   MailApp.sendEmail({ to: to, subject: 'Got it, ' + first + ': your call request is in', body: body, htmlBody: html, replyTo: DESK_REPLY_TO, name: 'First Officer' });
 }
 
@@ -274,7 +274,7 @@ function nudge_(first, to) {
   var body = [hi, '', 'You started an application for the Found Money Call and stopped partway. It takes about two more minutes. On the device you used, your answers are still there.', '',
     'Finish my application: ' + link, '', 'The call is free and takes twenty minutes: where your card spend goes, what it already earns, and what the desk could find, in dollars, est.', '',
     'Not for you? Ignore this email. It is the only one we send about it.', '', 'The desk at First Officer', '',
-    'First Officer by UpNonStop is a points and rewards advisory service, not a licensed financial advisor.', 'UpNonStop LLC | 235 Pavonia Avenue | Jersey City, NJ 07302',
+    'First Officer by UpNonStop is a points and rewards advisory service, not a licensed financial advisor.', 'Proudly Made in 🇺🇸 by UpNonStop LLC | 235 Pavonia Avenue | Jersey City, NJ 07302',
     'You are getting this one email because you started an application at firstofficer.upnonstop.com.'].join('\n');
   MailApp.sendEmail({ to: to, subject: 'Your Found Money Call application is half done', body: body, htmlBody: html, replyTo: DESK_REPLY_TO, name: 'First Officer' });
 }
@@ -322,7 +322,7 @@ function shell_(inner, preheader, why) {
     inner +
     '<tr><td style="padding:22px 28px 26px"><div style="border-top:1px solid #E2D7C4;padding-top:14px;font:12px/1.55 Helvetica,Arial,sans-serif;color:#7A7280">' +
       'First Officer by UpNonStop is a points and rewards advisory service, not a licensed financial advisor. Figures are estimates, not guarantees.<br>' +
-      'UpNonStop LLC | 235 Pavonia Avenue | Jersey City, NJ 07302' + (why ? '<br>' + h_(why) : '') + '</div></td></tr>' +
+      'Proudly Made in 🇺🇸 by UpNonStop LLC | 235 Pavonia Avenue | Jersey City, NJ 07302' + (why ? '<br>' + h_(why) : '') + '</div></td></tr>' +
     '</table></td></tr></table></body></html>';
 }
 function kicker_(t) { return '<div style="font:700 11px/1 \'Courier New\',monospace;letter-spacing:.14em;text-transform:uppercase;color:#FA1896">' + h_(t) + '</div>'; }
