@@ -72,3 +72,7 @@
 #callback .cb-back[hidden]{display:none}
 #callback .cb-back button{margin-left:6px;padding:6px 0;border:0;background:none;font:700 14.5px/1.2 var(--sans);color:#FA1896;
   text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+
+/* the call request's button (Ohad, 13 Nov): centered on phones, its status line under it */
+@media (max-width:760px){#cbform .bkb{justify-content:center}#cbform .bk-msg{flex-basis:100%;text-align:center}
+  #cbform .bk-msg:empty{position:absolute}}
