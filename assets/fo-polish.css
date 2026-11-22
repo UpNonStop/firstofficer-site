@@ -507,3 +507,33 @@ main :is(h1,h2,.h2,h3){text-wrap:balance}
 @media (max-width:480px){
   html body .btn.wa.wa{font-size:clamp(15px,calc((100vw - 122px)*.0702),19px)!important}
 }
+
+/* ==== Nov 22 · Mobile-first QA, site-wide (Ohad: "Need full QA mobile first of the entire site pages") ==== */
+
+/* The desk, thinking (Home and Product): the path's curves were drawn on top of the tiles, straight through their words ("Transfer
+   only once award space is confirmed" with a pink line across it, worst on phones). The curves now run under the tiles, which are a
+   touch see-through, so the path still reads from tile to tile and every word stays clean. */
+.sb-grid{isolation:isolate}
+html .sb-grid .sb-svg{z-index:0!important}
+.sb-grid .sb-t{position:relative;z-index:1}
+html .sb-grid .sb-t{background:rgba(243,236,223,.8)!important}
+html .sb-grid .sb-t.lit{background:rgba(252,249,243,.82)!important}
+html .sb-grid .sb-t.on{background:rgba(251,247,239,.84)!important}
+
+/* A heading's pink line after its line break balances on its own. On phones it used to break before a lone last word ("We find it in
+   20 / minutes.", "The whole desk on / it." on all twenty trade pages, "Your trade's own / codes."), because the line above it set the
+   width. Pink text only, and brush lines where the brush is drawn as pink text; a brush with its painted stroke keeps flowing inline. */
+:where(h1,h2,h3,.h2,.h3) br + .pk,.modes .h2 br + .brush{display:inline-block;max-width:100%}
+/* the line under the program logos ("Every loyalty program. One desk to rule them all.") breaks into two even lines, not "... them / all." */
+.mlogos>span{text-wrap:balance}
+
+/* The hero pill on phones: three long ones ("The Found Money Call · free, 20 minutes", "First Officer for Property management",
+   "Industries · 20 trades and yours") wrapped inside a 26px-tall pill, so their second line hung out under it. The pill now keeps one
+   line, with slightly tighter tracking under 420px (its 11px size is the site's floor), and on the very narrowest phones it grows to
+   hold two lines instead of spilling. */
+@media (max-width:760px){.mpill{white-space:nowrap;max-width:100%}}
+@media (max-width:420px){.mpill{letter-spacing:.05em;gap:8px;padding-left:11px;padding-right:11px}}
+@media (max-width:359px){.mpill{white-space:normal;height:auto;min-height:26px;padding-top:5px;padding-bottom:5px;line-height:1.35;border-radius:14px;text-align:left}}
+
+/* Enterprise: on phones the form's button sits centred, the same as Book's "Request the Call" */
+@media (max-width:760px){#entform .bkb{justify-content:center}}
