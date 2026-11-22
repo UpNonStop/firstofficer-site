@@ -137,8 +137,9 @@
   .mh .mlab .wnext{min-height:0;padding:12px 4px;margin:-12px 0;vertical-align:baseline}
 }
 
-/* and its footnote is fine print again (the story's paragraph size had taken it over): small, italic, centred */
-.beat .sboard .sb-fine{font-size:12px!important;line-height:1.45;font-style:italic;color:#6E6776;text-align:center;max-width:none;margin:10px auto 0}
+/* and its footnote is fine print again, at every width (the story's 18px paragraph size had taken it over): small and centred, as the
+   site's other disclaimers are */
+.beat .sboard .sb-fine{font-size:12px!important;line-height:1.45;color:#5E5766;text-align:center;max-width:none;margin:10px auto 0}
 
 /* Headings with a brushed pink line ("The desk runs the points.", "Four jobs, done for Leo.", "Earn, Burn, Return, Learn.") broke
    before a lone last word on phones, Ohad's 440 included. The markup now ties that word to the one before it with a no-break space,
