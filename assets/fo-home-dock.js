@@ -1,6 +1,6 @@
 /* Home page only (index.html), Ohad's landing brief, 31 Oct.
    Phones: a slim bar docked flush to the bottom edge with the page's two buttons side by side, "Found Money Call" in pink
-   and "Run your numbers" in blue (Ohad, 31 Oct). It comes up once you have scrolled past the hero's two buttons, steps
+   and "Run your numbers" in blue (Ohad, 31 Oct). The call button's emoji is 📲 (Ohad, 22 Nov: the red ☎️ disappeared on the pink). It comes up once you have scrolled past the hero's two buttons, steps
    aside while any of the page's own pairs is on screen (Ohad's note, the $550 price), so the same two buttons never show
    twice at once, and stays down once the closing band and the footer come up. Desktop: the shared header's nav stays on screen
    on this page (the ticker under it still scrolls away). Every other page keeps the nav scrolling away and nothing docked.
@@ -31,11 +31,20 @@
     update();
   }, { threshold: 0 });
   [].forEach.call(document.querySelectorAll('main .btn.pk, main .btn.lb'), function (b) { io.observe(b); });
-  /* the dock waits until the hero's two buttons have gone off the top of the screen */
-  if (hero) new IntersectionObserver(function (es) { var e = es[es.length - 1]; pastHero = !e.isIntersecting && e.boundingClientRect.top < 0; update(); }, { threshold: 0 }).observe(hero);
-  /* and it stays down from the moment the closing band (the pair again, then the footer) comes up, so it does not pop up for a
-     moment between the price and the end */
+  /* the dock waits until the hero's two buttons have gone off the top of the screen, and it stays down from the moment the closing
+     band (the pair again, then the footer) comes up, so it does not pop up for a moment between the price and the end.
+     Nov 22: both are read from the page's geometry on every scroll frame. The observers they replace only fired when the band
+     crossed the screen's edge, so a jump from the footer back to the top (a footer link, a tap on the status bar) skipped the
+     crossing and left the dock down for the rest of the visit. */
   var end = document.getElementById('go') || document.getElementById('fo-footer');
-  if (end) new IntersectionObserver(function (es) { var e = es[es.length - 1]; nearEnd = e.isIntersecting || e.boundingClientRect.top < 0; update(); }, { rootMargin: '0px 0px 35% 0px' }).observe(end);
+  function geo() {
+    if (hero) pastHero = hero.getBoundingClientRect().bottom < 0;
+    if (end) nearEnd = end.getBoundingClientRect().top < innerHeight * 1.35;
+    update();
+  }
+  var raf = 0;
+  addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; geo(); }); }, { passive: true });
+  addEventListener('resize', geo);
+  geo();
   if (phone.addEventListener) phone.addEventListener('change', update);
 })();

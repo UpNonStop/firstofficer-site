@@ -32,7 +32,7 @@
 .wc.sh .tgl::after{top:13px;left:5px}
 
 /* Phones only: the pair, docked (Ohad, 31 Oct: "Found Money Call + red phone emoji (left in pink) and next to it (run your numbers +
-   calculator emoji)"). A slim bar flush to the bottom edge, no margins and no shadow halo, holding the two buttons side by side.
+   calculator emoji)"; 22 Nov: the red ☎️ vanished on the pink, so the call button carries 📲 now). A slim bar flush to the bottom edge, no margins and no shadow halo, holding the two buttons side by side.
    It comes up once the hero's buttons have gone off the top, steps aside while any of the page's own pairs is on screen, and
    stays down from the closing band to the end (assets/fo-home-dock.js). The labels keep the buttons' DM Sans bold but scale
    with the screen so both fit on one line (13px at 320, about 16px at 390, 18px at most): two 19px labels with their emoji
@@ -106,3 +106,41 @@
 @media (max-width:389px){#go .ctas .btn{white-space:normal;text-align:center}}
 /* Nov 2 · Home story beats on phones: the two buttons stack full width instead of squeezing the pink one into a five-line blob */
 @media (max-width:600px){.beat .ctas .btn{flex:1 1 100%;width:100%}}
+
+/* ==== Nov 22 · Mobile-first QA (Ohad: "look at the landing page two examples ... Mobile first bro") ==== */
+
+/* Ohad's note, phones and small tablets: "Run your numbers" and "Grab my freebies" sat side by side under the pink button, so the
+   blue label broke onto two lines with the abacus stranded at the pill's left edge. Up to 760px the three now stack full width, one
+   label per pill, the way the hero stacks its pair and the way About's note already does. */
+@media (max-width:760px){
+  .ncv{grid-template-columns:minmax(0,1fr)}
+  .ncv .btn{height:auto;min-height:52px;padding-left:18px;padding-right:18px}
+}
+/* their soft shadows were cut flat where the note ends: the story section below is positioned and paints its cream over them, so the
+   row now sits above it (every width; desktop had the same hard edge) */
+.ncv{position:relative;z-index:1}
+
+/* The hero's closing words on phones. The three sentences read as three statements (they were one grey block held together by line
+   breaks, with a word or two left alone at each break), each one balanced, a shade darker and a touch larger; the bold pair under
+   them keeps its two lines. Desktop keeps the same three lines it had. */
+.mh .msub .ms{display:block}
+@media (max-width:760px){
+  .mh .msub{font-size:17px!important;line-height:1.5;color:#3E3944;margin-top:22px}
+  .mh .msub .ms{text-wrap:balance}
+  .mh .msub .ms+.ms{margin-top:10px}
+  .mh .mtag{font-size:19px;line-height:1.3;margin-top:6px}
+  /* and they sit on clean paper: the hero photo now fades to full cream under the phone and its two cards, instead of showing through
+     the text as a blotchy wash at the bottom of a very tall hero */
+  .mh .mbg::after{background:linear-gradient(180deg,rgba(250,246,238,.5) 0,rgba(250,246,238,.62) 380px,rgba(250,246,238,.84) 640px,rgba(250,246,238,.96) 1180px,var(--cream,#FAF6EE) 1560px)!important}
+  /* the example line under the cards is a caption: centred, and "Next example" keeps its 44px tap area without pushing the two lines apart */
+  .mh .mrest>.mlab{text-align:center;max-width:360px}
+  .mh .mlab .wnext{min-height:0;padding:12px 4px;margin:-12px 0;vertical-align:baseline}
+}
+
+/* and its footnote is fine print again, at every width (the story's 18px paragraph size had taken it over): small and centred, as the
+   site's other disclaimers are */
+.beat .sboard .sb-fine{font-size:12px!important;line-height:1.45;color:#5E5766;text-align:center;max-width:none;margin:10px auto 0}
+
+/* Headings with a brushed pink line ("The desk runs the points.", "Four jobs, done for Leo.", "Earn, Burn, Return, Learn.") broke
+   before a lone last word on phones, Ohad's 440 included. The markup now ties that word to the one before it with a no-break space,
+   so the brush covers two even lines; desktop is unchanged (each line fits whole there). */
