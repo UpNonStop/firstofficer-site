@@ -249,3 +249,7 @@ body.tstory .tmx .tmd .tmh .chk{line-height:1.45}
   body.tstory .tmx ul{grid-area:l;align-self:start;margin:10px 8px 0 0!important}
   body.tstory .tmx .ill{grid-area:i;align-self:end;margin:16px 8px 8px 2px!important}
 }
+
+/* Nov 22 · Safari: a card chip is an inline box, and Safari will break the line right after one, so ", then" and ", where the vendor
+   takes cards" could start a new line with the comma. Each chip now carries its comma (.ccj); the line can still break after it. */
+body.tstory .ccj{white-space:nowrap}

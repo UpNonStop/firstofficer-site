@@ -118,5 +118,6 @@
 .trp .sec.tight.pnx{padding-top:8px}
 
 /* Nov 22 · Mobile QA: in the pink "Found Money Call" card the label broke onto two lines on a 390px iPhone, for 2px. Slimmer sides keep
-   "Book the free Found Money Call" on one line from 390px up; narrower phones still wrap it inside the pill. */
-@media (max-width:600px){.trp .trl-cta .btn{padding-left:10px;padding-right:10px}}
+   "Book the free Found Money Call" on one line at every phone width; below 390px the label follows the screen with every other
+   button on the site (assets/fo-polish.css). */
+@media (max-width:600px){html body.trp .trl-cta .btn{padding-left:8px!important;padding-right:8px!important}}

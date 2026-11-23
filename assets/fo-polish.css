@@ -511,14 +511,15 @@ main :is(h1,h2,.h2,h3){text-wrap:balance}
 /* ==== Nov 22 · Mobile-first QA, site-wide (Ohad: "Need full QA mobile first of the entire site pages") ==== */
 
 /* The desk, thinking (Home and Product): the path's curves were drawn on top of the tiles, straight through their words ("Transfer
-   only once award space is confirmed" with a pink line across it, worst on phones). The curves now run under the tiles, which are a
-   touch see-through, so the path still reads from tile to tile and every word stays clean. */
+   only once award space is confirmed" with a pink line across it, worst on phones). The curves run under the tiles, and the tiles are
+   solid (Nov 22 follow-up: at 80% they still let the pink show through behind the words, in Safari as in Chrome), so the path reads
+   as links between the boxes and never touches a word. */
 .sb-grid{isolation:isolate}
 html .sb-grid .sb-svg{z-index:0!important}
 .sb-grid .sb-t{position:relative;z-index:1}
-html .sb-grid .sb-t{background:rgba(243,236,223,.8)!important}
-html .sb-grid .sb-t.lit{background:rgba(252,249,243,.82)!important}
-html .sb-grid .sb-t.on{background:rgba(251,247,239,.84)!important}
+html .sb-grid .sb-t{background:#F3ECDF!important}
+html .sb-grid .sb-t.lit{background:#FCF9F3!important}
+html .sb-grid .sb-t.on{background:#FBF7EF!important}
 
 /* A heading's pink line after its line break balances on its own. On phones it used to break before a lone last word ("We find it in
    20 / minutes.", "The whole desk on / it." on all twenty trade pages, "Your trade's own / codes."), because the line above it set the
@@ -537,3 +538,57 @@ html .sb-grid .sb-t.on{background:rgba(251,247,239,.84)!important}
 
 /* Enterprise: on phones the form's button sits centred, the same as Book's "Request the Call" */
 @media (max-width:760px){#entform .bkb{justify-content:center}}
+
+/* ==== Nov 22 · Every button label on one line, down to 320px (Ohad: "fix the other items too") ====
+   The longest labels ("Book the free Found Money Call" is 292px at 19px bold, "Message your First Officer" 271px) broke onto two lines
+   on the smaller phones, and Trust's Up next button did even on a 390px iPhone. From 390px up every label stays 19px. Below 390px
+   every label on the site takes one size that follows the screen, the way Home's docked pair already does: 17.5px at 375, 16.6px
+   at 360, 14.2px at 320. It is sized for the tightest home a long label has (Trust's Up next card and pink card), with 4% to spare
+   in Safari's engine (Safari sets the same words about 1% wider than Chrome). Home's
+   dock and The App's three channel cards keep their own sizing. The tight homes get a little more room inside the pill; the pill
+   itself does not change size, and a label that somehow still does not fit wraps inside it, as before. */
+@media (max-width:600px){
+  html body.ind2 .tco .tcc .btn{padding-left:6px!important;padding-right:6px!important}
+}
+@media (max-width:420px){
+  html body .pnx .nxt{padding-left:16px!important;padding-right:16px!important}
+  html body .pnx .nxt>.nxb{padding-left:8px!important;padding-right:8px!important;margin-left:-4px;margin-right:-4px;max-width:calc(100% + 8px)!important}
+  html body.trp .trl-cta{padding-left:12px!important;padding-right:12px!important}
+}
+@media (max-width:480px){
+  html body #options .bk1-go{padding-left:12px!important;padding-right:12px!important}
+  html body .beat .ctas .btn,html body .tcta .btn{padding-left:12px!important;padding-right:12px!important}
+  html body .pcta .pbtn .btn{padding-left:12px!important;padding-right:12px!important}
+  html body.tapp .ta-cl .mctas .btn{padding-left:10px!important;padding-right:10px!important}
+}
+@media (max-width:389px){
+  html body :is(.btn,.btnp,.fo .cta a,.pill.pink,.pill.green,.nxb):not(.hdock *):not(.ta-oc *){font-size:clamp(14px,calc((100vw - 88px)*.0612),19px)!important}
+}
+
+/* Nov 22 follow-up · The phone mockup's three tabs ("Found money", "Ahead", "Milestone", on Home and Product) wrapped 2 + 1 on every
+   phone: the row is as wide as the phone drawing and needed 290px. Slimmer sides keep the three on one row. */
+@media (max-width:600px){.celnav{gap:6px}.celnav button{padding-left:11px;padding-right:11px}}
+/* two words that stay together on phones only ("the minimum?" on four trade pages; tied everywhere it would break before the "?" in
+   the narrower tablet column) */
+@media (max-width:600px){.nwp{white-space:nowrap}}
+
+/* Nov 23 · Third pass. Two swipe rails loaded 20px in (Safari and Chrome both snap the first card to the rail's edge when the
+   snap stops ignore the side padding), so their first card sat flush against the screen edge: Product's "Your first 90 days"
+   and the trade pages' "Every trade" tiles. The stops now match the padding, so each rail opens on its first card, inset. */
+.tl90{scroll-padding-inline:20px}
+body.pgi .ttiles{scroll-padding-inline:28px}
+@media (max-width:900px){body.pgi .ttiles{scroll-padding-inline:20px}}
+/* body copy keeps its last word company on phones: no paragraph or list item ends on a one-word line. Not in the phone mockups,
+   the row lists (label left, value right), the four pillar tiles, About's timeline, captions under mockups, or Freebies. */
+@media (max-width:760px){
+  :where(p,li,dd,figcaption,blockquote,label):not(:where(#ffd *,.mphone *,.phone *,.ph *,.ta-ph *,.cv *,.mdesk *,.wl *,.cw *,.pill4 *,.abt *,.mlab,.ocq)){text-wrap:pretty}
+}
+/* Day one's "Ways to connect" rail: "See the ways to connect" wrapped to two lines below 430px (the card is two thirds of the
+   phone). A slimmer inside keeps it on one line, as every other button. */
+@media (max-width:429px){html body .srail .pc4 .fbt{padding-left:8px!important;padding-right:8px!important}}
+/* standalone text links were 20 to 25px tall, hard to hit with a thumb (About's "How we protect your data", Book's "Run this
+   case"): on touch screens each gets an invisible 44px-tall tap area. Nothing moves. */
+@media (pointer:coarse){
+  :is(p.abr-more a,small.ill a){position:relative}
+  :is(p.abr-more a,small.ill a)::after{content:"";position:absolute;left:-4px;right:-4px;top:-11px;bottom:-11px}
+}
