@@ -45,31 +45,33 @@ body.pgi .ledger .who b{display:inline}
   body.pgi .ledger .who b{display:inline;font-size:13.5px;font-weight:700;color:var(--ink,#141216)}
 }
 
-/* ---- 5. Other trades: the plain chips become the trades themselves, each its own photo, emoji and name, as on Industries ---- */
-body.pgi .ttiles{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:12px}
-body.pgi .tt{position:relative;display:block;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:#EAE0CE;text-decoration:none;color:#fff;
+/* ---- 5. Other trades (23 Nov 2026, Ohad's pick "2"): no photos. Each trade is a beige card with a pink top edge, its emoji and
+   name, then the three places its money hides, one per line, so the row proves the heading above it ("Every trade hides money in a different place") ---- */
+body.pgi .ttiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+body.pgi .tt{position:relative;display:flex;flex-direction:column;border-radius:16px;background:#F3ECDF;text-decoration:none;color:#141216;
+  border-top:4px solid #FA1896;padding:12px 15px 16px;
   box-shadow:0 0 0 1px rgba(110,80,40,.15),0 14px 28px -18px rgba(80,55,20,.45);transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s}
-body.pgi .tt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.22,1,.36,1)}
-body.pgi .tt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,22,0) 34%,rgba(20,18,22,.82))}
-body.pgi .tt .ttn{position:absolute;left:10px;right:8px;bottom:9px;z-index:1;font-weight:700;font-size:13.5px;line-height:1.2;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
-body.pgi .tt .ttn i{display:block;font-size:19px;line-height:1;margin-bottom:5px;text-shadow:none}
+body.pgi .tt .ttn{display:flex;align-items:center;gap:7px;font:700 14.5px/1.2 'DM Sans',system-ui,sans-serif;color:#141216}
+body.pgi .tt .ttn i{flex:none;font-size:17px;line-height:1;font-style:normal}
+body.pgi .tt .tth{display:block;margin-top:auto;padding-top:12px}
+body.pgi .tt .tth b{display:block;font:700 10.5px/1 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#D4087A;margin-bottom:7px}
+body.pgi .tt .tth span{display:block;font:400 17px/1.15 'DM Serif Display',Georgia,serif;letter-spacing:-.1px;color:#141216}
+body.pgi .tt .tth span+span{margin-top:2px}
 body.pgi .tt:hover,body.pgi .tt:focus-visible{transform:translateY(-3px);box-shadow:0 0 0 2px #FA1896,0 18px 32px -18px rgba(250,24,150,.55)}
-body.pgi .tt:hover img{transform:scale(1.06)}
-body.pgi .tt.all{display:grid;place-items:center;background:#F3ECDF;color:#141216;text-align:center}
-body.pgi .tt.all::after{content:none}
-body.pgi .tt.all .ttn{position:static;color:#141216;text-shadow:none;padding:0 10px;font-size:14px}
-@media (max-width:1299px){body.pgi .tt .ttn{font-size:12.5px;left:8px}}
-/* below 1180px the twenty sit in one row to swipe, so they never stack into four rows of photos or squeeze their names */
+body.pgi .tt.all{align-items:center;justify-content:center;text-align:center}
+body.pgi .tt.all .ttn{justify-content:center;padding:0 6px}
+body.pgi .tt.all .ttn::after{content:"\2192";color:#FA1896;font-weight:700}
+/* below 1180px the twenty sit in one row to swipe; every card in the row takes the height of the tallest */
 @media (max-width:1179px){
-  body.pgi .ttiles{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-left:-28px;margin-right:-28px;padding:2px 28px 10px;scrollbar-width:none;overscroll-behavior-x:contain}
+  body.pgi .ttiles{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-left:-28px;margin-right:-28px;padding:2px 28px 12px;scrollbar-width:none;overscroll-behavior-x:contain}
   body.pgi .ttiles::-webkit-scrollbar{display:none}
-  body.pgi .tt{flex:0 0 136px;aspect-ratio:1/1;scroll-snap-align:start}
-  body.pgi .tt .ttn{font-size:13.5px;left:10px}
+  body.pgi .tt{flex:0 0 176px;scroll-snap-align:start}
 }
 /* the row bleeds to the screen edge by exactly the page's own side padding: 20px up to 900px, 28px above (it ran 8px past the screen at 761 to 900px) */
 @media (max-width:900px){body.pgi .ttiles{margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px}}
-@media (max-width:760px){body.pgi .tt{flex-basis:132px}}
-@media (prefers-reduced-motion:reduce){body.pgi .tt,body.pgi .tt img{transition:none}body.pgi .tt:hover{transform:none}body.pgi .tt:hover img{transform:none}}
+@media (max-width:760px){body.pgi .tt{flex-basis:168px}}
+@media (hover:none){body.pgi .tt:hover{transform:none;box-shadow:0 0 0 1px rgba(110,80,40,.15),0 14px 28px -18px rgba(80,55,20,.45)}}
+@media (prefers-reduced-motion:reduce){body.pgi .tt{transition:none}body.pgi .tt:hover{transform:none}}
 
 /* ---- 6. Golden nugget cards: the title stops short of the card's number in the corner (at 360px some ran under it) ---- */
 body.pgi .nugc h3{padding-right:30px}
