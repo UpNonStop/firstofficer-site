@@ -586,3 +586,9 @@ body.pgi .ttiles{scroll-padding-inline:28px}
 /* Day one's "Ways to connect" rail: "See the ways to connect" wrapped to two lines below 430px (the card is two thirds of the
    phone). A slimmer inside keeps it on one line, as every other button. */
 @media (max-width:429px){html body .srail .pc4 .fbt{padding-left:8px!important;padding-right:8px!important}}
+/* standalone text links were 20 to 25px tall, hard to hit with a thumb (About's "How we protect your data", Book's "Run this
+   case"): on touch screens each gets an invisible 44px-tall tap area. Nothing moves. */
+@media (pointer:coarse){
+  :is(p.abr-more a,small.ill a){position:relative}
+  :is(p.abr-more a,small.ill a)::after{content:"";position:absolute;left:-4px;right:-4px;top:-11px;bottom:-11px}
+}
