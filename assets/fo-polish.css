@@ -571,3 +571,18 @@ html .sb-grid .sb-t.on{background:#FBF7EF!important}
 /* two words that stay together on phones only ("the minimum?" on four trade pages; tied everywhere it would break before the "?" in
    the narrower tablet column) */
 @media (max-width:600px){.nwp{white-space:nowrap}}
+
+/* Nov 23 · Third pass. Two swipe rails loaded 20px in (Safari and Chrome both snap the first card to the rail's edge when the
+   snap stops ignore the side padding), so their first card sat flush against the screen edge: Product's "Your first 90 days"
+   and the trade pages' "Every trade" tiles. The stops now match the padding, so each rail opens on its first card, inset. */
+.tl90{scroll-padding-inline:20px}
+body.pgi .ttiles{scroll-padding-inline:28px}
+@media (max-width:900px){body.pgi .ttiles{scroll-padding-inline:20px}}
+/* body copy keeps its last word company on phones: no paragraph or list item ends on a one-word line. Not in the phone mockups,
+   the row lists (label left, value right), the four pillar tiles, About's timeline, captions under mockups, or Freebies. */
+@media (max-width:760px){
+  :where(p,li,dd,figcaption,blockquote,label):not(:where(#ffd *,.mphone *,.phone *,.ph *,.ta-ph *,.cv *,.mdesk *,.wl *,.cw *,.pill4 *,.abt *,.mlab,.ocq)){text-wrap:pretty}
+}
+/* Day one's "Ways to connect" rail: "See the ways to connect" wrapped to two lines below 430px (the card is two thirds of the
+   phone). A slimmer inside keeps it on one line, as every other button. */
+@media (max-width:429px){html body .srail .pc4 .fbt{padding-left:8px!important;padding-right:8px!important}}
