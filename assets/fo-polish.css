@@ -592,3 +592,45 @@ body.pgi .ttiles{scroll-padding-inline:28px}
   :is(p.abr-more a,small.ill a){position:relative}
   :is(p.abr-more a,small.ill a)::after{content:"";position:absolute;left:-4px;right:-4px;top:-11px;bottom:-11px}
 }
+/* headings: no forced line break, no pink second line. A heading's phrases sit in spans that keep each on one line,
+   so a line breaks only between whole phrases: .phr on every screen from 320px; .phs only on the width bands named in
+   its classes (ps390 is 390 to 413px), the ones where it fits, and its smaller phrases hold on the others. Below 320px
+   a phrase may wrap like any text. A heading that used to take the width of its longest line (a section title beside
+   its lede) carries that width as an inline max-width in em, so nothing around it moves. */
+.phr{white-space:nowrap}
+@media (max-width:319.98px){.phr{white-space:normal}}
+@media (min-width:320px) and (max-width:359.98px){.ps320{white-space:nowrap}}
+@media (min-width:360px) and (max-width:374.98px){.ps360{white-space:nowrap}}
+@media (min-width:375px) and (max-width:389.98px){.ps375{white-space:nowrap}}
+@media (min-width:390px) and (max-width:413.98px){.ps390{white-space:nowrap}}
+@media (min-width:414px) and (max-width:429.98px){.ps414{white-space:nowrap}}
+@media (min-width:430px) and (max-width:479.98px){.ps430{white-space:nowrap}}
+@media (min-width:480px) and (max-width:599.98px){.ps480{white-space:nowrap}}
+@media (min-width:600px) and (max-width:767.98px){.ps600{white-space:nowrap}}
+@media (min-width:768px) and (max-width:899.98px){.ps768{white-space:nowrap}}
+@media (min-width:900px) and (max-width:1023.98px){.ps900{white-space:nowrap}}
+@media (min-width:1024px) and (max-width:1100.98px){.ps1024{white-space:nowrap}}
+@media (min-width:1101px) and (max-width:1279.98px){.ps1101{white-space:nowrap}}
+@media (min-width:1280px) and (max-width:1439.98px){.ps1280{white-space:nowrap}}
+@media (min-width:1440px){.ps1440{white-space:nowrap}}
+/* the opening heading beside the phone (761px and up) is sized to its own column: never more than its width over
+   7.75, so its longest words fit and its phrases hold; at 761px it starts where the one-column heading leaves off */
+@media (min-width:761px){
+  .ph .pht,.mh:not(.ph) .mtop{container-type:inline-size}
+  .mh:not(.ph) h1{font-size:min(60px,calc(100cqi / 7.75))}
+}
+@media (min-width:761px) and (max-width:1024.98px){.ph h1{font-size:min(48px,calc(100cqi / 7.75))}}
+@media (min-width:1025px){.ph h1{font-size:min(62px,calc(100cqi / 7.75))}}
+/* the enterprise form's title, in its narrow column beside the form (1100px and up): never more than the column's
+   width over 6.4, so "your company." keeps to one line */
+@media (min-width:1100px){
+  .ent-th{container-type:inline-size}
+  .ent-th .h2{font-size:min(clamp(40px,5.4vw,72px),calc(100cqi / 6.4))}
+}
+/* a heading of two or more sentences keeps each sentence whole: every sentence is one box, so a line holds whole
+   sentences side by side where they fit, and a sentence too long for one line starts a line of its own and breaks
+   inside its box, between phrases. The heading still runs as one line wherever it fits. */
+.snt{display:inline-block}
+/* the home page's "You run the business. The desk runs the points." keeps the column width its pink line gave it
+   (11.2em, beside the card from 901px), so the card beside it stays where it was */
+@media (min-width:901px){.arc-head h2{min-width:11.2em}}
