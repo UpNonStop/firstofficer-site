@@ -1,2 +1,7 @@
-tools/
+# tools/ is a scratch folder for local build scripts and stays ignored,
+# except the rule check that every pull request runs. A file here is committed
+# only when it is listed below.
+tools/*
+!tools/check_rules.py
+!tools/test_check_rules.py
 hb-*.html
