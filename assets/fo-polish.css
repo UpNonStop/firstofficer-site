@@ -592,7 +592,7 @@ body.pgi .ttiles{scroll-padding-inline:28px}
   :is(p.abr-more a,small.ill a){position:relative}
   :is(p.abr-more a,small.ill a)::after{content:"";position:absolute;left:-4px;right:-4px;top:-11px;bottom:-11px}
 }
-/* headings: no forced line break, no pink second line. A heading's phrases sit in spans that keep each on one line,
+/* headings: no forced line break. A heading's phrases sit in spans that keep each on one line,
    so a line breaks only between whole phrases: .phr on every screen from 320px; .phs only on the width bands named in
    its classes (ps390 is 390 to 413px), the ones where it fits, and its smaller phrases hold on the others. Below 320px
    a phrase may wrap like any text. A heading that used to take the width of its longest line (a section title beside
@@ -631,6 +631,7 @@ body.pgi .ttiles{scroll-padding-inline:28px}
    sentences side by side where they fit, and a sentence too long for one line starts a line of its own and breaks
    inside its box, between phrases. The heading still runs as one line wherever it fits. */
 .snt{display:inline-block}
-/* the home page's "You run the business. The desk runs the points." keeps the column width its pink line gave it
-   (11.2em, beside the card from 901px), so the card beside it stays where it was */
-@media (min-width:901px){.arc-head h2{min-width:11.2em}}
+/* the pink stays where the page put it (.pk, a .brush stroke, an <em>), on the same words. Marked .acc, an accent is
+   never a line of its own or a size of its own: it runs inline at the heading's size, and breaks only where its
+   phrases do. The page's own rules that set some of these as a block or an unbreakable box give way to this one. */
+.acc{display:inline!important;font-size:1em!important;white-space:normal!important}
