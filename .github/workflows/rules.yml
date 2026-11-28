@@ -1,0 +1,26 @@
+# The site's rule check. Every pull request and every push to main is held to
+# legal/promises.json: a page that contradicts the registry cannot merge green.
+# Three outcomes: exit 0 pass, exit 1 a page breaks a rule, exit 2 the check could not see.
+name: rules
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  rules:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: The check's own fixtures
+        run: python3 tools/test_check_rules.py
+      - name: Every page against the registry
+        run: python3 tools/check_rules.py

@@ -1,5 +1,5 @@
 {
- "about": "Every public First Officer promise, the system behind it, and how it was checked. Pages, the Terms, bot fact sheets and the app read from this file; tools/check_promises.py fails when a page contradicts it. Update it in the same change as any page, prompt or system it describes.",
+ "about": "Every public First Officer promise, the system behind it, and how it was checked. tools/check_rules.py holds every page to this file on every pull request and fails when a page contradicts it. Update it in the same change as any page, prompt or system it describes.",
  "checked": "2026-11-12",
  "offer": {
   "desk": {
@@ -174,6 +174,26 @@
   {
    "pattern": "contractually required to protect your data",
    "why": "not every processor has a contract (web search)"
+  },
+  {
+   "id": "outcome-promise",
+   "pattern": "\\byou will save\\b|\\brisk[- ]free\\b|(?<!no )(?<!not )\\bguaranteed (?:savings|ROI|return)",
+   "why": "no promised outcome; saying something is not guaranteed is the approved line"
+  },
+  {
+   "id": "maximize",
+   "pattern": "maximi[sz]",
+   "why": "say optimize"
+  },
+  {
+   "id": "beta",
+   "pattern": "\\bbeta\\b",
+   "why": "never beta"
+  },
+  {
+   "id": "stranger",
+   "pattern": "\\bstrangers?\\b",
+   "why": "a prospect, never a stranger"
   }
  ],
  "known_gaps": [
@@ -184,5 +204,22 @@
    "why": "changing the Terms needs notice and re-acceptance"
   }
  ],
- "backend_hosts_check": "first-officer repo: supabase/functions/_tests/check_outbound_hosts.py"
+ "backend_hosts_check": "first-officer repo: supabase/functions/_tests/check_outbound_hosts.py",
+ "required_lines": [
+  {
+   "text": "Every owner shown is a fictional example. All figures are illustrative estimates. An educational tool, not a licensed financial advisor.",
+   "why": "the footer disclaimer, on every content page"
+  },
+  {
+   "text": "by UpNonStop LLC | 235 Pavonia Avenue | Jersey City, NJ 07302",
+   "why": "who is behind the page, and the postal address"
+  }
+ ],
+ "not_content_pages": [
+  {
+   "file": "app.html",
+   "why": "the app's shell: no site copy of its own"
+  }
+ ],
+ "rules_check": "tools/check_rules.py, run on every pull request and every push to main by .github/workflows/rules.yml"
 }
